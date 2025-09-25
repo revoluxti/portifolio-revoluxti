@@ -1,0 +1,19 @@
+{
+  "name": "Portifolio",
+  "version": "1.0.0",
+  "description": "Apresentação de prestação de serviços",
+  "main": "index.js",
+  "dependencies": {
+    "corepack": "^0.29.4",
+    "npm": "^10.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"live-server"
+  },
+  "keywords": [],
+  "author": "revoluxti",
+  "license": "ISC",
+  "type": "commonjs"
+}

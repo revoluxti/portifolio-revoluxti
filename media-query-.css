@@ -1,0 +1,15 @@
+/* 🔽 Menu Mobile - visível até 650px */
+@media screen and (max-width: 650px) {
+    i#burguer{
+        display: none;
+    }
+
+    menu {
+        display: block;
+    }
+    
+    menu > ul > li {
+        display: inline-block;
+    }
+
+}

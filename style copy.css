@@ -1,0 +1,929 @@
+@charset "UTF-8";
+/* Define o conjunto de caracteres do documento como UTF-8, garantindo compatibilidade com acentuação e símbolos especiais. */
+/*typical device breakpoints
+----------------------------
+Pequenas telas até 600px
+Celulares de 600px até 768px
+Tablet 768 até 992px
+desktop 992px até 1200px
+grandes telas acima de 1200px*/
+/* ==========================
+   RESET E AJUSTES GERAIS
+========================== */
+
+* {/* Aplica a todos os elementos */
+    font-family: Arial, Helvetica, sans-serif; /* Define a tipografia global com fallback seguro */
+    margin: 0;                                /* Remove margem padrão de todos os elementos */
+    padding: 0;                               /* Remove preenchimento padrão */
+    box-sizing: border-box;                   /* Inclui borda e padding no cálculo do tamanho dos elementos */
+    font-weight: 600;                         /* Peso da fonte mais marcante, quase um bold */
+    font-style: normal;                       /* Evita itálico acidental; garante neutralidade */
+}
+
+body {/* Configurações gerais do body */
+    font-family: 'Antonio', sans-serif; /* Fonte principal do site */
+    background-color: #000; /* Fundo preto */
+    line-height: 1.6; /* Altura de linha confortável */
+    overflow-x: hidden; /* Impede rolagem horizontal */
+}
+
+.interface {/* Container centralizador do conteúdo */
+    max-width: 1280px; /* Largura máxima da área de conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
+}
+
+.flex { /* Classe utilitária flex */
+    display: flex; /* Classe utilitária para aplicar display flex rapidamente */
+}
+
+button {/* Estilo básico de botões */
+    margin-top: 10px; /* Espaço acima */
+    padding: 5px; /* Espaçamento interno */
+    color: #000; /* Cor do texto */
+    background-color: brown; /* Fundo marrom */
+    border: none; /* Remove borda padrão */
+    border-radius: 3px; /* Cantos arredondados */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transições suaves */ 
+}
+
+button:hover {
+    cursor: pointer;                   /* Muda o cursor para mãozinha */
+    box-shadow: 0px 0px 8px #eb6f6f81; /* Glow vermelho suave no hover */
+    transform: scale(1.10);           /* Efeito de zoom no hover */
+}
+/* ==========================
+   CABEÇALHO E NAVEGAÇÃO
+========================== */
+
+/*Estilo Sobre*/
+/* Corrige estrutura do header */
+header {  /* Estilo do cabeçalho */
+    width: 100%;                    /* Garante que o header ocupe 100% largura da viewport */
+    display: flex;                 /* Container flexível */
+    flex-direction: column;         /* Empilha os elementos verticalmente */
+    align-items: center;           /* Centraliza itens no eixo horizontal */
+    overflow-x: hidden;             /* 🔧 Impede qualquer vazamento lateral do conteúdo */
+  }
+  
+  /* Corrige a interface interna do header */
+  header > .interface { /* Container interno do header */
+    width: 100%;                    /* Faz a interface dentro do header ocupar toda a largura */
+    max-width: 1280px;              /* Mantém limite para monitores grandes */
+    margin: 0 auto;                 /* Centraliza horizontalmente */
+    padding: 0 15px;                /* 🔧 Adiciona padding para evitar colagem nas bordas */
+    box-sizing: border-box;
+  }
+  
+  /* Aplica comportamento flex entre os elementos do menu */
+  header > .interface .flex { /* Flex wrapper dentro do header */
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em itens */
+    align-items: center; /* Alinha itens verticalmente */
+    justify-content: space-between; /* Distribui espaço entre itens */
+    gap: 10px; /* Espaço entre itens */
+  }
+  
+  /* Estilo padrão dos links do menu */
+  header a {
+    color: #d134348f; /* Cor semi transparente */
+    text-decoration: none; /* Remove sublinhado */
+    display: inline-block;
+    white-space: nowrap;          /* 🔧 Evita quebra de texto em links longos */
+    transition: color 0.1s, transform 0.1s; /* Transição suave */
+  }
+  
+  header a:hover { /* Hover em links */
+    color: #eb6f6fa9; /* Cor destaca no hover */
+    transform: scale(1.2); /* Zoom suave */
+  }
+  
+  /* Remove marcadores da lista do menu */
+  header menu ul { /* Lista de navegação */
+    list-style: none; /* Remove marcadores do ink */
+    display: flex; /* Exibe itens em linha */
+    padding: 0;
+    margin: 0;
+    gap: 12px; /* Espaço entre itens */
+  }
+  
+  /* Cada item do menu */
+  header menu ul li {
+    display: inline-block;
+    padding: 0 12px;              /* 🔧 Reduzido para caber melhor em telas pequenas */
+  }
+  
+  /* Menu desktop padrão (horizontal) */
+  .menu-desktop {
+    display: block;
+  }
+  
+  .menu-desktop ul {
+    display: flex;
+    flex-wrap: wrap;              /* 🔧 Evita quebra de layout quando a tela for estreita */
+    gap: 1.5rem;                  /* Ajuste do espaçamento entre os itens */
+    margin-left: 0;               /* 🔧 Remove o excesso de deslocamento */
+    padding: 0 10px;              /* Padding lateral básico */
+    justify-content: center;     /* Alinha os itens ao centro em telas grandes */
+  }
+  
+  /* Ícone do menu hamburguer (aparece no mobile) */
+  .menu-toggle {/* Botão menu mobile */
+    display: none; /* Visível apenas em mobile */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: crimson;
+    cursor: pointer;
+    margin: 25px;
+  }
+  
+  /* 🔽 Menu Mobile - visível até 650px */
+  @media screen and (max-width: 650px) {
+    .menu-toggle {
+      display: block;
+      z-index: 1000;
+    }
+  
+    .menu-desktop {
+      display: none;
+      flex-direction: column;
+      background-color: #eb525271;
+      position: absolute;
+      top: 100%;                   /* Ajustado para não sobrepor outros elementos */
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+  
+    .menu-desktop.active {
+      display: flex;
+    }
+  
+    .menu-desktop ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .menu-desktop ul li a {
+      color: white;
+      font-weight: bold;
+    }
+  }
+  
+/* ==========================
+   RESPONSIVIDADE: MENU MÓVEL (<650px)
+========================== */
+@media screen and (max-width: 650px) {
+    .menu-toggle { display: block; }
+    .menu-desktop { display: none; }
+    .menu-desktop.active { display: flex; flex-direction: column; gap: 1rem;
+        background-color: #eb525271; position: absolute; top: 100%; left: 0;
+        width: 100%; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index:999; }
+    .menu-desktop ul { flex-direction: column; align-items: center; }
+    .menu-desktop ul li a { color: #fff; font-weight: bold; }
+    header > .interface { flex-direction: column; align-items: center; }
+}
+
+
+/* ==========================
+   TICKER GLOBAL
+========================== */
+
+
+.ticker-container { /* Container que esconde overflow */
+    position: relative; /* Para posicionar texto absoluto */
+    width: 100%; /* Ocupa toda largura disponível */
+    overflow: hidden; /* Esconde conteúdo que transborda */
+    margin-top: 4px; /* Espaço acima */
+    height: 18px; /* Altura fixa */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+}
+
+.ticker-text { /* Texto em movimento dentro do ticker */
+    position: absolute; /* Retira do fluxo normal */
+    white-space: nowrap; /* Impede quebra de linha */
+    padding-left: 100%; /* Inicia fora da área visível */
+    animation: ticker-scroll 40s linear infinite; /* Animação contínua */
+    font-size: clamp(11px, 1.5vw, 14px); /* Fonte responsiva */
+    color: #f7f3f3; /* Cor clara para contraste */
+}
+
+@keyframes ticker-scroll { /* Definição dos frames da animação */
+    0% { transform: translateX(0); } /* Início na posição original */
+    100% { transform: translateX(-100%); } /* Move todo o texto para a esquerda */
+}
+
+/*ESTILO CABEÇARIO*/
+.imagem-de-fundo {
+    width: 100%;       /* Imagem ocupa toda a largura do container */
+    height: 200px;     /* Altura fixa definida */
+}
+
+/*Estilo pagina index*/
+.imagem-index {
+    display: flex;                /* Ativa flexbox */
+    justify-content: center;     /* Centraliza horizontalmente */
+    align-items: center;         /* Centraliza verticalmente */
+    text-align: center;          /* Centraliza o conteúdo textual */
+}
+
+
+
+  
+/* ==========================
+   TOPO DO SITE E MASCOTE
+========================== */
+.topo-do-site { /* Seção principal no topo */
+    padding: 20px 0; /* Padding vertical */
+}
+
+.imagem-do-rhino {
+    max-width: 100%;              /* 🔧 Responsivo horizontal Não ultrapassa container pai*/
+    height: auto;                 /* 🔧 Mantém proporção vertical */
+    border-radius: 40px;           /* Cantos arredondados */
+    padding: 10px;                  /* Espaço interno */
+    animation: flutuar 12s ease-in-out infinite alternate;      /* Animação de flutuação */
+    display: block;               /* 🔧 Remove espaços fantasmas tipo gaps de inline*/
+    margin: 0 auto;               /* 🔧 Centraliza se estiver sozinho */
+}
+
+
+
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(3%);
+        /* Começa na posição original */
+    }
+
+    100% {
+        transform: translateY(50%);
+        /* Move para cima */
+    }
+}
+
+
+
+/* Em telas menores: imagem desce e ocupa espaço inteiro */
+@media screen and (max-width: 768px) { /* Ajuste em tablets e mobiles maiores */
+    .imagem-do-rhino {
+        width: 90%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+}
+
+.topo-do-site .interface {
+    display: flex;
+    /*display preparado para responsividade*/
+
+}
+h1.capa{
+    color: #d13434d2;
+}
+.txt-topo-site h1 {
+    color: crimson;
+    /*cor h1*/
+    font-size: 30px;
+    /*tamanho da fonte*/
+    font-family: "Alegreya SC", serif;
+    /*tipo de fonte*/
+    font-weight: 700;
+    /*Largura da fonte*/
+}
+#cadastro{
+    margin-left: 80px;
+}
+
+/*btn-cadastro*/
+.btn-cadastro {
+    margin-top: 5px;
+    margin-left: 25px;
+    /*margin do botão 50pixels para direita*/
+    display: inline-block;
+    /* para transição tem que ser diferente de display flex*/
+    transition: .1s;
+    /*transição e tempo*/
+}
+
+.btn-cadastro:hover {
+    transform: scale(1.20);
+    /*zoom da transição*/
+}
+
+.txt-topo-site h2 {
+    padding: 5px;/*espaçamento SOBRE*/
+    
+    margin-top: 15px;/* margin de distacia do botão cadastro*/
+    
+    margin-left: 10px;/*margin para direita*/
+    
+    color: #eb6f6f;
+}
+
+.txt-topo-site p {
+    padding: 15px;
+    font-size: clamp(14px, 2vw, 17px);
+    text-align: justify;
+    color: #d13434d2;
+    min-width: 500px;
+    min-height: 0;
+    text-indent: 20px;
+}
+
+
+
+  /* BOX DE SERVIÇOS */
+.servicos-boxes {
+    display: flex; /* Define o layout flexível, permitindo que os itens dentro da caixa se ajustem dinamicamente */
+    /*  flex-wrap: wrap; /* Permite multi-linha ======*****   test    */      
+    /* justify-content: center; /* Centraliza no container ======****** test*/
+    flex-direction: column; /* Alinha os itens de forma vertical (por padrão, o flex é horizontal) */
+    align-items: center; /* Centraliza os itens dentro do container */
+    gap: 20px; /* Adiciona um espaçamento de 20px entre os itens */
+    margin: 0 auto; /* Centraliza a seção na tela com margens automáticas */
+    max-width: 100%; /* Garante que o container ocupe toda a largura disponível */
+    padding: 20px; /* aplicar 0 para teste  padding: 20px 0; ***** Adiciona 20px de preenchimento (padding) ao redor do conteúdo */
+}
+
+/* BOX INDIVIDUAL - Cada bloco de serviço (loja, segurança, etc.) */
+.box {
+    cursor: pointer; /* Torna o cursor de mouse em uma mãozinha quando o usuário passar sobre o box */
+    color: #f1f1f1; /* Define a cor do texto como branco claro */
+    border: 1px solid #333333; /* Adiciona uma borda de 1px de cor escura ao redor de cada box */
+    border-radius: 6px; /* Arredonda os cantos da borda do box */
+    padding: 2px; /* Adiciona um pequeno preenchimento (padding) dentro de cada box */
+    transition: transform 0.2s ease-in-out; /* Aplica um efeito suave de transição quando o box é transformado*/
+}
+
+/* TÍTULOS ESPECIAIS (classificados como #loja, #cyber, etc.) */
+.servicos-boxes h3.especial {
+    font-size: 16px; /* Define o tamanho da fonte do título como 16px */
+    color: #fd8f00; /* Define a cor do texto como laranja vibrante */
+    width: auto; /* O título ocupará o espaço necessário (não será fixo em uma largura específica) */
+    text-align: center; /* Centraliza o texto dentro do título */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto com 60% de opacidade para dar destaque */
+    /*padding: 4px 8px;  Adiciona 4px de preenchimento em cima e embaixo e 8px nas laterais */
+    border-radius: 4px; /* Arredonda os cantos do título */
+}
+.servicos-boxes picture,
+.servicos-boxes img { /* Imagens dentro de boxes */
+    width: 100%; /* Ocupa toda largura */
+    max-width: 250px; /* Limita em telas grandes */
+    display: block; /* Remove gaps */
+    margin: 0 auto 10px; /* Centraliza e adiciona margin-bottom */
+}
+
+/* Títulos com IDs específicos: #loja, #cyber, #investigacao */
+#loja, #cyber, #investigacao {
+    font-size: 14px; /* Define o tamanho da fonte para esses títulos específicos como 14px */
+    min-width: fit-content; /* Garante que o título não seja menor que o conteúdo dentro dele */
+}
+
+/* ÍCONES ao lado dos títulos */
+.servicos-boxes h3.especial i {
+    margin-left: 4px; /* Adiciona um pequeno espaçamento à esquerda dos ícones */
+}
+
+/* Estilo das imagens dentro das caixas de serviço (usando uma tag <img>) */
+img.box#loja-virtual  {
+    width: 250px; /* Faz com que a imagem ocupe toda a largura disponível dentro da caixa */
+    max-width: 250px; /* Define um limite máximo de largura de 250px para a imagem */
+    height: 167px; /* Faz com que a altura da imagem seja ajustada proporcionalmente */
+    object-fit: cover; /* Faz a imagem cobrir o espaço da caixa, mantendo a proporção */
+}
+
+img.box#cybersecurity,
+img.box#investigacao  {
+    width: 100%; /* Faz a imagem ocupar toda a largura disponível na caixa */
+    max-width: 250px; /* Limita a largura máxima das imagens a 250px */
+    height: auto; /* Ajusta automaticamente a altura da imagem */
+    object-fit: cover; /* Faz com que a imagem cubra toda a caixa sem distorção */
+}
+
+/* EFEITO DE HOVER - Quando o usuário passa o mouse sobre a caixa */
+.box:hover {
+    transform: scale(1.02); /* Aumenta ligeiramente o tamanho da caixa para dar um efeito de zoom */
+    box-shadow: 0 0 8px rgba(235, 219, 3, 0.8); /* Adiciona uma sombra vermelha intensa ao redor da caixa quando é hover */
+}
+
+/* Ícones dentro das caixas */
+.box i {
+    font-size: 20px; /* Aumenta o tamanho do ícone para 20px */
+    color: rgba(241, 232, 234, 0.685); /* Dá ao ícone uma cor clara e suave, com transparência */
+    margin-bottom: 4px; /* Adiciona um pequeno espaço abaixo do ícone */
+}
+
+
+
+/* Quebras de responsividade para telas menores (máximo 768px de largura) */
+@media screen and (max-width: 768px) {
+    .servicos-boxes {
+        flex-direction: column; /* Faz o layout se tornar vertical em vez de horizontal */
+        align-items: center; /* Centraliza os itens no container */
+        margin-left: 0; /* Remove a margem à esquerda */
+    }
+
+    .box {
+        width: 100%; /* Faz com que as caixas ocupem 100% da largura disponível */
+        max-width: 90vw; /* Limita a largura das caixas a 90% da largura da tela */
+    }
+
+    .servicos-boxes h3.especial {
+        font-size: 13px; /* Diminui o tamanho da fonte do título para se ajustar à tela pequena */
+    }
+}
+/* ==========================
+   NOTICIÁRIO
+========================== */
+.noticiario {        /* Seção de notícias */
+    padding: 20px;      /* Espaço interno */
+    display: flex;      /* Empilha as boxes de notícia */
+    flex-direction: column;     /* Empilha as boxes de notícia */
+    align-items: center; /* Centraliza conteúdo */
+    gap: 20px;      /* Espaço entre notícias */
+    
+    /*testar sem
+    margin: 0 auto;  🔧 Evita posicionamento fixo   
+    max-width: 1280px; */
+}
+
+.noticiario .box {
+    width: 100%;
+    max-width: 475px;
+    height: auto; /* 🔧 Impede altura fixa que gera scroll com zoom */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fd8f00;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 auto; /* 🔧 Remove margin-left e margin-top fixos */
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+    .noticiario .box {
+        max-width: 90vw;
+        padding: 10px;
+    }
+}
+
+
+/* ==========================
+   ESPECIALIDADES
+========================== */
+
+
+/*Estilo das Especialidades*/
+section.especialidades {
+    padding: 40px
+        /*em cima e embaixo*/
+        4%;
+    /*para não colar nas laterais quando minimizar a tela*/
+
+}
+
+section.especialidades .flex {
+    gap: 60px;
+    /*espaçamento entre as box*/
+
+}
+
+/*estylizando as box*/
+.especialidades .especialidades-box {
+    color: #b31111c9;
+    padding: 40px;
+    border-radius: 20px;
+    /*border: 2px solid #b31111; não é mais preciso border*/
+    margin-top: 40px;
+    transition: 1.2s;
+    /*para o zoom ficar mais suave*/
+}
+
+/*configuração de efeitos visuais nas box da especialidade*/
+.especialidades .especialidades-box:hover {
+    transform: scale(1.05);
+    /*não pecisa ter pixels, efeito de zoom, cuidar com exagero*/
+    box-shadow: 0
+        /*box-shadow espalhamento*/
+
+        /*deslocamento vertical*/
+        0
+        /*delocamento laterais*/
+        20px;
+    /*espalhamento quanto maior for o valor mais espalhamento*/
+}
+
+/*style icons*/
+.especialidades .especialidades-box i {
+    font-size: 70px;
+    color: #d80b0b;
+    
+}
+
+.especialidades .especialidades-box h3 {
+    font-size: 28px;
+    margin: 15px 0;
+    /*espaçamento entre o h3 e icons*/
+}
+
+
+
+/* ==========================
+   FORMULÁRIO DE CONTATO
+========================== */
+/*Estilo do formulário de contato*/
+section.formulario {
+    padding: 80px 4%;
+    /*poderia ser feito uma classe global e aplicar para as seções, mas a forma separa eéh para cada classe poder ser alterada criando uma classe global é só chamar no html*/
+    
+}
+.formulario h2{
+    text-align: center;
+    color: #df3d3dbb;
+    /* pesquisar margin-bottom: 20px; */
+}
+form { /* Estilo do form */
+    max-width: 500px;/*formulario independentemente do tamanho da tela nunca vai passar de 500px de largura*/
+    
+    margin: 0 auto;/*para centralizar o formulario*/
+    
+    /*para colocar as caixas uma embaixo da outra tem duas formas diferentes: input display block aí todos campos vai ficar um embaixo do outro, ou aplicando display:flax*/
+    display: flex;/*ajusta alinhadamente todo conteudo*/
+    
+    justify-content: center;/*centraliza todo conteudo*/
+    
+    flex-direction: column;
+    /*coloca os conteudos em coluna*/
+    gap: 10px;
+    /*espaçamento*/
+    margin-top: 40px;
+}
+/*estilizar os campos, form imput chamando as imputs da tag form*/
+form input, form textarea{
+    width: 100%;
+    /*oculpar 100% da tela*/
+    background-color: #b3111185;
+    border: 0;
+    /*tira as bordas do input*/
+    outline: 0;
+    /*tirar a linha que envolve*/
+    padding: 20px 15px;
+    /*em cima embaixo, esquerda direita*/
+    border-radius: 15px;
+    color: #fff;
+    /*cor da letra*/
+    font-size: 20px;
+    /*tamanho da fonte*/
+}
+form .btn-enviar input:hover {
+    box-shadow: 0px
+        /*espaçamento vertical*/
+        0px
+        /*espaçamento laterais*/
+        8px
+        /*espalhamento*/
+        #d80b0b
+        /*color do botão*/
+    ;
+    transform: scale(1.08);
+}
+form textarea{
+    resize:none;/*para a caixa de texto não redimencionar*/
+    max-height: 200px;/*altura maxima após abre a caixa com barra de rolamento*/
+}
+
+.btn-enviar{    /* Container do botão enviar */
+    text-align: center;
+}
+
+.btn-enviar input[type=submit]{/*para declarar o tipo especifico da input para trabalharmos se não for determinado ele vai aplicar para todos input que tenha dentro das classes */
+width: 120px;
+background-color: #63121296;
+color: black;/*cor da letra*/
+font-weight: 700 ;/*peso da fonte*/
+cursor: pointer;
+transition: .2s;
+
+/*transition: transform 0.2s, box-shadow 0.2s;===== testar*/ 
+}
+form textarea{
+    resize:none;/*para a caixa de texto não redimencionar*/
+    max-height: 200px;/*altura maxima após abre a caixa com barra de rolamento*/
+}
+
+form .btn-enviar{
+    margin-top: 20px;/* margin do botão*/
+    text-align: center;
+    
+}
+
+.btn-enviar input[type=submit]{/*para declarar o tipo especifico da input para trabalharmos se não for determinado ele vai aplicar para todos input que tenha dentro das classes */
+width: 120px;
+background-color: #63121296;
+color: black;/*cor da letra*/
+font-weight: 700 ;/*peso da fonte*/
+cursor: pointer;
+transition: .2s;
+}
+
+/* ==========================
+   REDES SOCIAIS & RODAPÉ
+========================== */
+/*section.redes-sociais {  Seção de redes sociais 
+    padding: 40px 4%;
+    background-color: #111;
+    text-align: center;     ============= testar
+}*/
+
+.btn-social button {
+    width: 50px;
+    height: 50px;
+    border-radius: 15%;
+    border: none;
+    background-color: #df3d3dbb;
+    font-size: 22px;
+    cursor: pointer;
+    /*para aparecer o dedinho de interação com as redes*/
+    transition: .2s;
+
+    /*   transition: transform 0.2s, box-shadow 0.2s;    ===== testar */
+}
+
+.redes-sociais img
+{
+    margin-left: 145px;
+}
+.link-email
+{
+
+    padding: 10px 0;
+}
+.link-email p i
+{
+    font-size: 18px;
+    margin-left: 175px;
+    padding: 10px;
+    color: #eb6f6f;
+}
+.link-email p a
+{
+ color: #fff;
+}
+footer {
+    text-align: center;
+    background: #c4101098;
+    color: #c59595ee;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Smartwatches e telas ultrapequenas (até 280px) */
+@media screen and (max-width: 280px) {
+    body {
+        font-size: 11px; /* Reduz o tamanho da fonte geral para caber em telas muito pequenas */
+    }
+    .interface {
+        padding: 10px; /* Reduz o padding da interface para economizar espaço em telas reduzidas */
+    }
+    .txt-topo-site p {
+        min-width: auto; /* Remove a largura mínima forçada, evitando que o texto quebre layout */
+        font-size: 12px; /* Diminui a fonte do parágrafo para melhor leitura */
+    }
+    .btn-contato, .btn-cadastro {
+        font-size: 10px; /* Diminui o texto dos botões para não estourar a largura */
+        padding: 3px 4px; /* Reduz o preenchimento interno dos botões para se ajustarem melhor */
+    }
+}
+
+/* Smartphones compactos (281px a 425px) */
+@media screen and (min-width: 281px) and (max-width: 425px) {
+    .interface {
+        padding: 15px; /* Padding um pouco maior que em smartwatches */
+    }
+    .txt-topo-site h1 {
+        font-size: 22px; /* Reduz o título principal para caber na tela */
+    }
+    .txt-topo-site p {
+        font-size: 13px; /* Ajusta a fonte do parágrafo para leitura confortável */
+        min-width: auto; /* Garante que o conteúdo não ultrapasse o layout */
+    }
+    .box {
+        max-width: 95vw; /* Define a largura máxima das caixas para 95% da viewport */
+    }
+    header nav ul li {
+        padding: 0 10px; /* Reduz o espaço entre os itens do menu para melhor encaixe */
+    }
+}
+
+/* Smartphones maiores e phablets (426px a 600px) */
+@media screen and (min-width: 426px) and (max-width: 600px) {
+    .txt-topo-site h1 {
+        font-size: 26px; /* Aumenta ligeiramente o título para aproveitar o espaço extra */
+    }
+    .txt-topo-site p {
+        font-size: 14px; /* Fonte um pouco maior, leitura confortável */
+    }
+    .box {
+        max-width: 90vw; /* Ocupa 90% da tela para não encostar nas bordas */
+    }
+}
+
+/* Tablets em modo retrato (601px a 768px) */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    .txt-topo-site h1 {
+        font-size: 28px; /* Ajuste proporcional do título */
+    }
+    .txt-topo-site p {
+        font-size: 15px; /* Texto um pouco maior, ideal para tablets */
+    }
+    .box {
+        max-width: 80vw; /* Largura das caixas um pouco menor, mantendo folga lateral */
+    }
+}
+@media screen and (max-width: 660px) {
+
+    /* Wrapper principal vertical */
+    .topo-do-site .interface .flex {
+      flex-direction: column;            /* 🔄 Alinha em coluna */
+      align-items: center;               /* 🔧 Centraliza os filhos no eixo transversal */
+      gap: 130px;                         /* 🔧 Espaçamento entre os blocos */
+    }
+  
+    /* Texto da seção topo */
+    .txt-topo-site {
+      width: 100%;                       /* 🔧 Ocupa toda a largura */
+      text-align: center;                /* 🔧 Centraliza o conteúdo textual */
+      padding: 0 20px;                   /* 🔧 Espaço lateral */
+    }
+  
+    .txt-topo-site h1 {
+      font-size: 24px;                   /* 🔧 Reduz título para caber */
+    }
+  
+    .txt-topo-site p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .btn-cadastro {
+      margin-top: 15px;
+    }
+  
+    /* Imagem mascote */
+    .imagem-do-rhino {
+      width: 90%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    /* Box de serviços */
+    .servicos-boxes {
+      flex-direction: column;           /* 🔄 Empilha as boxes */
+      align-items: center;
+      width: 100%;
+      padding: 0 10px;
+    }
+  
+    .servicos-boxes .box {
+      width: 100%;
+      max-width: 360px;
+      margin: 10px auto;
+    }
+  
+    /* Título dos serviços */
+    .servicos-boxes h3.especial {
+      font-size: 15px;
+    }
+  
+    /* Ajuste no ticker */
+    .ticker-text {
+      font-size: 12px;
+    }
+  
+    /* Noticiário */
+    .noticiario .box {
+      max-width: 90vw;
+      margin: 0 auto;
+      padding: 15px;
+    }
+  
+    .noticiario h3.especial {
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+  
+
+/* Tablets em modo paisagem / notebooks menores (769px a 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .txt-topo-site h1 {
+        font-size: 30px; /* Título maior para aproveitar tela larga */
+    }
+    .txt-topo-site p {
+        font-size: 16px; /* Fonte levemente ampliada para melhorar a experiência */
+    }
+    .box {
+        max-width: 75vw; /* Caixas mais largas aproveitando o espaço horizontal */
+    }
+}
+
+/* Laptops padrão (1025px a 1366px) */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+    .box {
+        max-width: 70vw; /* Reduz um pouco a largura para não ocupar a tela inteira */
+    }
+}
+
+/* Full HD e superiores (1367px a 1920px) */
+@media screen and (min-width: 1367px) and (max-width: 1920px) {
+    .interface {
+        max-width: 90%; /* Aumenta a largura da interface com bom espaçamento lateral */
+        padding: 40px;  /* Padding mais espaçoso para visual mais arejado */
+    }
+}
+
+/* 2K a 4K telas grandes (1921px a 2560px) */
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+    body {
+        font-size: 20px; /* Aumenta a base da fonte para leitura confortável em telas grandes */
+    }
+    .interface {
+        max-width: 85%; /* Interface mais espaçosa sem encostar nas laterais */
+        padding: 60px;  /* Padding amplo, típico de telas de desktop de alta resolução */
+    }
+    .txt-topo-site h1 {
+        font-size: 36px; /* Título com tamanho proporcional à resolução 2K */
+    }
+    .box {
+        max-width: 60vw; /* Reduz a ocupação para manter layout equilibrado */
+    }
+}
+
+/* 4K a 8K TVs de última geração */
+@media screen and (min-width: 2561px) {
+    body {
+        font-size: 24px; /* Fonte proporcional à imensidão de TVs 4K e superiores */
+    }
+    .interface {
+        max-width: 80%; /* Interface centralizada com folga elegante */
+        padding: 80px;  /* Amplo espaçamento para visual de luxo */
+    }
+    .txt-topo-site h1 {
+        font-size: 42px; /* Título em destaque, proporcional ao tamanho da tela */
+    }
+    .box {
+        max-width: 50vw; /* Menor ocupação horizontal, privilegiando clareza visual */
+    }
+}
+/* 🔧 Até 470px: botão cadastro abaixo do menu hambúrguer */
+@media screen and (max-width: 470px) {
+    .menu-toggle {
+      display: block;
+      margin: 10px auto 0 auto; /* Centraliza o botão hambúrguer */
+    }
+  
+    #cadastro {
+      order: 2;                      /* Garante que o botão apareça após o menu */
+      width: 100%;                   /* Ocupa toda a largura da tela */
+      text-align: center;            /* Centraliza o botão dentro da div */
+      margin-top: 10px;              /* Espaço acima do botão */
+    }
+  
+    #cadastro button {
+      padding: 10px 20px;
+      font-size: 16px;
+      width: auto;                   /* Botão com tamanho natural */
+      max-width: 90%;                /* Limita tamanho em telas muito pequenas */
+    }
+  
+    header > .interface {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width: 470px) {
+    .ticker-container {
+      height: 22px;                          /* 🔧 Aumenta a altura do container para dar mais respiro */
+    }
+  
+    .ticker-text {
+      font-size: 11px;                       /* 🔧 Fonte menor para caber em celulares pequenos */
+      animation-duration: 30s;               /* 🔧 Torna a animação mais rápida em telas pequenas */
+    }
+  }
+  
+
+  

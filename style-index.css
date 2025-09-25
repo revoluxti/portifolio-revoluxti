@@ -1,0 +1,601 @@
+/*=============================================
+1. ESTILOS GERAIS E VARIÁVEIS
+=============================================*/
+
+/* :root -> Um seletor que representa o elemento raiz do documento (a tag <html>). 
+   É o melhor local para declarar variáveis CSS globais, que podem ser reutilizadas em todo o site. */
+   :root {
+    /* --nome-da-variavel: valor; -> Sintaxe para criar uma variável CSS. */
+    --cor-principal: #4fb30c; /* Armazena a cor vermelha principal do site. */
+    --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
+    --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
+}
+
+/* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
+* {
+    margin: 0; /* Remove as margens externas padrão que os navegadores aplicam a elementos como <p>, <h1>, etc. */
+    padding: 0; /* Remove os preenchimentos internos padrão dos elementos. */
+    box-sizing: border-box; /* Altera a forma como a largura e altura dos elementos são calculadas. Com 'border-box', o padding e a borda ficam DENTRO do tamanho definido, em vez de o aumentarem. */
+    font-family: 'Antonio', sans-serif; /* Define a família de fontes padrão para todo o site. Se 'Antonio' não carregar, ele usará uma fonte 'sans-serif' genérica. */
+}
+
+/* <body> -> Estilos aplicados ao corpo principal do documento. */
+body {
+    background-color: black; /* Define a cor de fundo da página inteira como preta. */
+    color: white; /* Define a cor padrão do texto para branco. */
+    min-height: 100vh; /* Garante que o corpo tenha, no mínimo, a altura total do ecrã visível (100% da Viewport Height). */
+}
+
+/* .interface -> Uma classe "container" que usamos para centralizar o conteúdo. */
+.interface {
+    max-width: 1280px; /* Define a largura máxima que o conteúdo pode atingir. Em ecrãs maiores, não se esticará infinitamente. */
+    margin: 0 auto; /* Um truque clássico: margem 0 para cima/baixo e 'auto' para os lados, o que centraliza horizontalmente o elemento. */
+    padding: 0 4%; /* Adiciona um preenchimento interno de 4% da largura do ecrã nos lados, para que o conteúdo não cole nas bordas. */
+}
+
+/* <button> -> Estilo geral que se aplica a todos os elementos <button> do site. */
+button {
+    cursor: pointer; /* Muda o ponteiro do rato para uma "mãozinha", indicando que o elemento é clicável. */
+    transition: .2s; /* Adiciona uma animação suave de 0.2 segundos a qualquer mudança de propriedade (ex: no efeito :hover). */
+}
+
+/* .titulo-secao -> Classe padrão para os títulos de cada seção (ex: "MINHAS ESPECIALIDADES"). */
+.titulo-secao {
+    font-family: 'Alegreya SC', serif; /* Usa a fonte especial que importamos do Google Fonts, específica para títulos. */
+    font-size: 2.5rem; /* Define o tamanho da fonte. 'rem' é uma unidade relativa ao tamanho da fonte raiz, excelente para responsividade e acessibilidade. */
+    text-align: center; /* Alinha o texto do título ao centro. */
+    margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
+}
+
+/* <span> dentro de .titulo-secao -> Estiliza a parte colorida do título, que no HTML está dentro de uma tag <span>. */
+.titulo-secao span {
+    color: var(--cor-principal); /* Aplica a cor vermelha que definimos na nossa variável global. */
+}
+
+/*=============================================
+ CABEÇALHO (HEADER)
+=============================================*/
+/* <header> -> Estilos para a seção do cabeçalho, a barra no topo da página. */
+header {
+    padding: 20px 0; /* Adiciona 20px de preenchimento interno em cima e em baixo. */
+    border-bottom: 2px solid var(--cor-borda); /* Cria uma linha divisória vermelha escura abaixo do cabeçalho. */
+    position: relative; /* Define o cabeçalho como um container de referência para elementos filhos com 'position: absolute'. */
+    overflow: hidden; /* Garante que qualquer conteúdo que ultrapasse os limites do cabeçalho (como a imagem de fundo) seja cortado. */
+}
+
+/* <picture> diretamente dentro do <header> -> Estiliza o container da imagem de fundo do cabeçalho. */
+header>picture {
+    position: absolute; /* Retira o elemento do fluxo normal da página, permitindo que ele seja posicionado em relação ao <header>. */
+    top: 0; /* Alinha o topo do <picture> com o topo do <header>. */
+    left: 0; /* Alinha a esquerda do <picture> com a esquerda do <header>. */
+    width: 100%; /* Faz o <picture> ocupar 100% da largura do <header>. */
+    height: 100%; /* Faz o <picture> ocupar 100% da altura do <header>. */
+    z-index: -1; /* Move o <picture> para a camada de trás, para que o logo e o menu fiquem na frente dele. */
+}
+
+/* <img> dentro do <picture> do <header> -> Estilos para a imagem de fundo em si. */
+header>picture img {
+    width: 100%; /* Garante que a imagem preencha a largura do seu container (<picture>). */
+    height: 100%; /* Garante que a imagem preencha a altura do seu container. */
+    object-fit: cover; /* Faz com que a imagem cubra todo o espaço disponível sem distorcer, cortando o excesso se necessário. */
+    opacity: 0.5; /* Deixa a imagem com 50% de transparência para que o conteúdo na frente seja mais legível. */
+}
+
+/* .grid-container dentro do <header> -> O container que organiza o logo, menu e botão. */
+header .grid-container {
+    display: grid; /* Ativa o layout de grelha (grid). */
+    grid-template-columns: auto 1fr auto; /* Cria 3 colunas: a primeira e a última ajustam-se ao tamanho do seu conteúdo, e a do meio (1fr) ocupa todo o espaço flexível restante. */
+    align-items: center; /* Alinha verticalmente todos os itens da grelha ao centro. */
+    gap: 20px; /* Cria um espaço de 20px entre cada coluna. */
+}
+
+/* .logo img -> Estilo para a imagem dentro do container do logo. */
+.logo img {
+    max-width: 150px; /* Limita a largura máxima do logo para que não fique muito grande em ecrãs largos. */
+}
+
+/* .menu-desktop -> O menu de navegação para ecrãs de computador. */
+.menu-desktop {
+    text-align: center; /* Centraliza o texto dos links de navegação dentro da sua célula da grelha. */
+}
+
+/* <ul> dentro de .menu-desktop -> A lista que contém os links do menu. */
+.menu-desktop ul {
+    list-style-type: none; /* Remove as bolinhas (marcadores) padrão da lista. */
+}
+
+/* <li> dentro de .menu-desktop -> Cada item individual do menu. */
+.menu-desktop li {
+    display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
+    padding: 0 15px; /* Adiciona espaçamento lateral entre os itens do menu. */
+}
+
+/* <a> (links) do .menu-desktop */
+.menu-desktop a {
+    color: var(--cor-texto-secundario); /* Usa a variável de cor cinza. */
+    text-decoration: none; /* Remove o sublinhado padrão dos links. */
+    font-size: 18px; /* Tamanho da fonte dos links. */
+    position: relative; /* Necessário para que o pseudo-elemento '::after' (a linha animada) possa ser posicionado em relação a ele. */
+    transition: .2s; /* Animação suave para a mudança de cor e tamanho. */
+}
+
+/* :hover -> Efeito que acontece quando o ponteiro do rato está sobre o link. */
+.menu-desktop a:hover {
+    color: white; /* Muda a cor do texto para branco. */
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho do texto (efeito de zoom). */
+}
+
+/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, que usamos para a linha animada. */
+.menu-desktop a::after {
+    content: ''; /* Esta propriedade é obrigatória para que o pseudo-elemento seja criado, mesmo que esteja vazio. */
+    width: 0%; /* A linha começa com largura zero, ou seja, invisível. */
+    height: 2px; /* A espessura da linha. */
+    background-color: var(--cor-principal); /* A cor da linha. */
+    position: absolute; /* Posiciona a linha em relação ao link (que tem 'position: relative'). */
+    bottom: -5px; /* Coloca a linha 5px abaixo do texto do link. */
+    left: 0; /* Alinha o início da linha com o início do texto. */
+    transition: width 0.3s; /* Anima apenas a propriedade 'width' durante 0.3 segundos. */
+}
+
+/* Quando o rato está sobre o link, o seu pseudo-elemento '::after' muda de estilo. */
+.menu-desktop a:hover::after {
+    width: 100%; /* A largura da linha vai de 0% para 100%, criando o efeito de crescimento. */
+}
+
+/* .btn-contato button -> O botão "CADASTRO" no cabeçalho. */
+.btn-contato button {
+    padding: 10px 30px; /* Preenchimento interno do botão. */
+    font-size: 18px; /* Tamanho da fonte do texto do botão. */
+    font-weight: bold; /* Deixa o texto a negrito. */
+    background-color: var(--cor-principal); /* Cor de fundo do botão. */
+    color: black; /* Cor do texto do botão. */
+    border: 0; /* Remove a borda padrão do botão. */
+    border-radius: 30px; /* Deixa as pontas do botão completamente arredondadas. */
+}
+
+/*=============================================
+3. MENU MOBILE
+=============================================*/
+/* .btn-abrir-menu -> O ícone de "hambúrguer" para abrir o menu em ecrãs pequenos. */
+.btn-abrir-menu {
+    display: none; /* Por padrão, o ícone fica escondido em ecrãs grandes. Será tornado visível nas media queries. */
+    color: var(--cor-principal); /* Cor do ícone. */
+    font-size: 40px; /* Tamanho do ícone. */
+    justify-self: end; /* Numa grelha, alinha o item ao final (direita) da sua célula. */
+    cursor: pointer; /* Muda o cursor para uma mãozinha. */
+}
+
+/* .menu-mobile -> O menu lateral que desliza para a vista. */
+.menu-mobile {
+    background-color: #000000e0; /* Fundo preto com 88% de opacidade. */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco no conteúdo que está atrás do menu. */
+    height: 100vh; /* O menu ocupa 100% da altura do ecrã. */
+    position: fixed; /* Fica fixo na tela, mesmo se o utilizador rolar a página. */
+    top: 0; /* Alinha o menu ao topo. */
+    right: 0; /* Alinha o menu à direita. */
+    z-index: 999; /* Define uma camada muito alta para garantir que ele apareça sobre todo o outro conteúdo. */
+    width: 0%; /* O menu começa com largura zero, ou seja, escondido. */
+    overflow: hidden; /* Esconde o conteúdo de dentro do menu enquanto ele está fechado. */
+    transition: width .4s ease-in-out; /* Anima a propriedade 'width' para criar o efeito de deslize. */
+}
+
+/* .abrir-menu -> Classe que o JavaScript adiciona ao .menu-mobile para o abrir. */
+.menu-mobile.abrir-menu {
+    width: 70%; /* Quando esta classe está presente, a largura do menu vai de 0% para 70%. */
+}
+
+/* .btn-fechar -> O ícone "X" para fechar o menu mobile. */
+.menu-mobile .btn-fechar {
+    position: absolute; /* Posicionado em relação ao .menu-mobile. */
+    top: 20px; /* 20px do topo. */
+    right: 20px; /* 20px da direita. */
+    color: var(--cor-principal);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* <nav> dentro do .menu-mobile -> Organiza os links dentro do menu. */
+.menu-mobile nav {
+    padding-top: 80px; /* Espaço no topo para os links não colarem no topo do ecrã. */
+    text-align: right; /* Alinha o texto dos links à direita. */
+}
+
+/* <a> (links) dentro do .menu-mobile */
+.menu-mobile nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: block; /* Faz cada link ocupar uma linha inteira, o que aumenta a área de toque e facilita o clique em dispositivos móveis. */
+    padding: 20px 30px;
+    transition: .2s;
+}
+
+/* :hover nos links do menu mobile */
+.menu-mobile nav a:hover {
+    background-color: var(--cor-principal); /* Muda a cor de fundo do link. */
+    color: black; /* Muda a cor do texto do link. */
+}
+
+/*=============================================
+4. CONTEÚDO PRINCIPAL (MAIN)
+=============================================*/
+/* <main> -> Onde fica o conteúdo principal da página. */
+main {
+    padding: 60px 0; /* Espaçamento geral para o conteúdo principal. */
+}
+
+/*--- Seção da Capa Principal ---*/
+/* .grid-container dentro da .capa-principal */
+.capa-principal .grid-container {
+    display: flex; /* Ativa o layout Flexbox. */
+    flex-direction: column; /* Empilha os itens verticalmente (título em cima, imagem em baixo). */
+    align-items: center; /* Centraliza os itens horizontalmente. */
+    gap: 40px; /* Cria um espaço de 40px entre o título e a imagem. */
+}
+
+/* .txt-capa -> O container do texto principal da capa. */
+.txt-capa {
+    text-align: center; /* Centraliza o texto dentro do container. */
+}
+
+/* <h1> dentro de .txt-capa */
+.txt-capa h1 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 3.5rem;
+    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
+}
+
+/* <span> dentro de <h1> */
+.txt-capa h1 span {
+    color: var(--cor-principal);
+    margin-bottom: 20px; /* Espaço abaixo do subtítulo. */
+    display: block; /* Faz o subtítulo quebrar para uma nova linha. */
+    font-size: 1.5rem;
+    font-family: 'Antonio', sans-serif;
+}
+
+/* .img-capa img -> A imagem da capa da revista. */
+.img-capa img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ffffff30; /* Sombra branca e suave para dar um efeito de brilho. */
+    display: block; /* Remove um pequeno espaço extra que os navegadores por vezes adicionam abaixo das imagens. */
+    margin: 0 auto;
+}
+
+/*--- NOVO BLOCO CENTRAL DE CONTEÚDO ---*/
+/* .conteudo-central -> O container que organiza a imagem flutuante, a notícia principal e as notícias secundárias. */
+.conteudo-central {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Cria 3 colunas para ecrãs grandes: a do meio é duas vezes maior que as laterais. */
+    align-items: start; /* Alinha o conteúdo de cada célula da grelha ao topo. */
+    gap: 20px; /* Espaço entre as colunas. */
+    padding-bottom: 60px; /* Espaço abaixo de toda esta seção. */
+}
+
+/*--- Efeitos de animação do mascote ---*/
+/* .imagem-flutuante -> O container da imagem do mascote. */
+.imagem-flutuante {
+    text-align: center; /* Centraliza a imagem dentro da sua coluna. */
+}
+
+/* .imagem-do-rhino -> A imagem do mascote que flutua. */
+.imagem-do-rhino {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    animation: flutuar 8s ease-in-out infinite alternate; /* Aplica a animação 'flutuar' de forma contínua e alternada. */
+}
+
+/* @keyframes -> Define os passos de uma animação. */
+@keyframes flutuar {
+    0% { /* No início da animação... */
+        transform: translateY(0px); /* ...a imagem está na sua posição vertical original. */
+    }
+    100% { /* No final da animação... */
+        transform: translateY(365px); /* ...a imagem desce 365px. O 'alternate' na animação faz com que ela suba de volta. */
+    }
+}
+
+/* Nova animação para telas menores. */
+@keyframes flutuar-mobile {
+    0% {
+        transform: translateY(-5px); /* Sobe 5px. */
+    }
+    100% {
+        transform: translateY(15px); /* Desce 15px. */
+    }
+}
+
+/* .noticias-feed -> O container dos 3 boxes de notícias menores. */
+.noticias-feed {
+    display: flex;
+    flex-direction: column; /* Os boxes ficam empilhados verticalmente. */
+    gap: 20px;
+}
+
+/* .box -> Estilo para cada cartão de notícia. */
+.box {
+    cursor: pointer;
+    color: #f1f1f1;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px;
+    transition: .2s ease-in-out;
+    overflow: hidden; /* Essencial para que o ticker de texto não "vaze" para fora. */
+    position: relative; /* Essencial para que o ticker possa ser posicionado em relação a ele. */
+    width: 100%;
+    height: 250px; /* Altura fixa para os cartões. */
+}
+
+/* :hover nos .box */
+.box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(235, 219, 3, 0.8);
+}
+
+/* <h3> com a classe .especial dentro de .box */
+.box h3.especial {
+    font-size: 16px;
+    color: #fd8f00;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+}
+
+/* <i> (ícone) dentro de .box h3.especial */
+.box h3.especial i {
+    margin-right: 8px;
+}
+
+/* <img> dentro de .box */
+.box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+/* .ticker-container -> A faixa preta onde o texto rola. */
+.ticker-container {
+    position: absolute; /* Posicionado em relação ao .box. */
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* .ticker-text -> O texto que se move. */
+.ticker-text {
+    position: absolute;
+    white-space: nowrap; /* Impede que o texto quebre a linha. */
+    animation: ticker-scroll 30s linear infinite; /* Aplica a animação de rolagem. */
+    color: #f7f3f3;
+    padding-left: 100%; /* Faz o texto começar fora do ecrã, à direita. */
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* @keyframes da rolagem do texto */
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-150%); /* Move-se para a esquerda até desaparecer completamente. */
+    }
+}
+
+/*--- SEÇÃO DE NOTÍCIA PRINCIPAL ---*/
+.secao-noticia-principal {
+    padding-bottom: 60px;
+}
+
+/* #noticia-principal -> ID específico para o box da notícia principal. */
+#noticia-principal {
+    width: 100%;
+    max-width: 300px;
+    height: 260px;
+    margin: 0 auto;
+}
+
+/*--- Seção de Especialidades ---*/
+.especialidades {
+    padding: 80px 0;
+}
+
+/* .especialidades-box -> O container que organiza os três itens de especialidades. */
+.especialidades-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de larguras iguais. */
+    gap: 30px;
+}
+
+/* .especialidade-item -> Cada um dos três blocos de especialidades. */
+.especialidade-item {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    transition: .3s;
+}
+
+/* :hover no .especialidade-item */
+.especialidade-item:hover {
+    transform: scale(1.05);
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 15px var(--cor-principal);
+}
+
+/* <i> (ícone) dentro de .especialidade-item */
+.especialidade-item i {
+    font-size: 4rem;
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+}
+
+/* <h3> dentro de .especialidade-item */
+.especialidade-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/*=============================================
+5. RODAPÉ (FOOTER)
+=============================================*/
+/* <footer> -> O rodapé da página. */
+footer {
+    padding: 20px 0;
+    border-top: 2px solid var(--cor-borda);
+}
+
+/* .line-footer -> Container para o conteúdo do rodapé. */
+footer .line-footer {
+    display: flex;
+    justify-content: space-between; /* Coloca um item no início e outro no fim da linha. */
+    align-items: center;
+}
+
+/* <a> (links) dentro do rodapé */
+footer .line-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/* .btn-social button -> Os botões das redes sociais. */
+.btn-social button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Deixa os botões redondos. */
+    border: none;
+    background-color: var(--cor-principal);
+    color: black;
+    font-size: 22px;
+    margin: 0 5px;
+}
+
+/*=============================================
+6. RESPONSIVIDADE (MEDIA QUERIES)
+=============================================*/
+/* @media -> Aplica as regras dentro dele apenas quando a condição (tamanho do ecrã) é satisfeita. */
+
+/* Tablets e Telas Menores que 1024px */
+@media screen and (max-width: 1024px) {
+    .menu-desktop,
+    .btn-contato {
+        display: none;
+    }
+
+    .btn-abrir-menu {
+        display: block;
+    }
+
+    header .grid-container {
+        grid-template-columns: auto 1fr;
+    }
+
+    .txt-capa h1 {
+        font-size: 3rem;
+    }
+
+    .especialidades-box {
+        grid-template-columns: 1fr; /* Coluna única. */
+    }
+    
+    .conteudo-central {
+        grid-template-columns: 1fr; /* Coluna única. */
+        gap: 40px;
+    }
+    
+    /* order -> Muda a ordem visual dos elementos. */
+    .noticias-feed {
+        order: 2;
+    }
+    
+    .img-capa {
+        order: 1;
+    }
+    
+    .imagem-flutuante {
+        order: 3;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .imagem-do-rhino {
+        animation: flutuar-mobile 3s ease-in-out infinite alternate;
+    }
+    
+    .box img {
+        aspect-ratio: 1 / 1; /* Força a proporção quadrada. */
+        height: auto;
+    }
+}
+
+/* Para Telemóveis (a partir de 768px para baixo) */
+@media screen and (max-width: 768px) {
+    .noticias-feed {
+        grid-template-columns: 1fr;
+    }
+
+    #noticia-principal {
+        grid-column: span 1; /* Volta a ocupar uma coluna. */
+    }
+}
+
+/*=============================================
+  AJUSTES FINOS PARA TELEMÓVEIS PEQUENOS
+=============================================*/
+
+/* @media -> Esta é uma "regra" que aplica os estilos dentro dela APENAS quando a condição é satisfeita.
+   screen -> Aplica-se a ecrãs (computadores, tablets, telemóveis).
+   (max-width: 600px) -> A condição: a largura do ecrã tem de ser 600 pixels ou MENOS. */
+   @media screen and (max-width: 600px) {
+
+    /* Seleciona o <h1> dentro de .txt-capa */
+    .txt-capa h1 {
+        /* font-size: 2.5rem; -> Diminui ainda mais o tamanho da fonte do título principal para que ele se ajuste melhor nos ecrãs mais estreitos. */
+        font-size: 2.5rem;
+    }
+
+    /* Seleciona o <span> dentro do <h1> */
+    .txt-capa h1 span {
+        /* font-size: 1.2rem; -> Diminui também o subtítulo, mantendo a proporção e a legibilidade. */
+        font-size: 1.2rem;
+    }
+
+    /* Seleciona o container dos elementos do rodapé */
+    .line-footer {
+        /* flex-direction: column; -> Força os itens do rodapé (email e botões sociais) a ficarem um sobre o outro (em coluna), em vez de lado a lado. */
+        flex-direction: column;
+        /* gap: 15px; -> Adiciona um espaço de 15px entre os itens empilhados no rodapé. */
+        gap: 15px;
+    }
+    
+    /* Seleciona o container dos boxes de notícias. */
+    .noticias-feed {
+        /* flex-direction: column; -> Garante que os boxes de notícias fiquem empilhados verticalmente. Esta regra reforça o comportamento de coluna única para ecrãs muito pequenos. */
+        flex-direction: column;
+    }
+
+    /* Seleciona cada cartão de notícia individualmente */
+    .box {
+        /* height: auto; -> Remove a altura fixa que os cartões tinham em ecrãs maiores. Agora, a altura de cada box vai ajustar-se automaticamente ao seu conteúdo. */
+        height: auto;
+    }
+    
+    /* Seleciona as imagens <img> dentro dos cartões de notícia */
+    .box img {
+        /* aspect-ratio: 1 / 1; -> Força a imagem a ter uma proporção de 1 para 1, ou seja, a ser perfeitamente quadrada. Isto dá consistência visual ao layout. */
+        aspect-ratio: 1 / 1;
+        /* height: auto; -> Garante que a altura da imagem seja calculada automaticamente para manter a proporção quadrada, sem distorcer a arte. */
+        height: auto;
+    }
+}
