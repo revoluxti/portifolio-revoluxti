@@ -1,0 +1,455 @@
+/*================================================================================
+1. ESTILOS GERAIS E VARIÁVEIS
+================================================================================*/
+/* @FLUXO: Definição de cores, resets globais e estilos base (body, interface). */
+
+:root {
+    --cor-principal: #b3120c; /* Vermelho principal do site (Red Team) */
+    --cor-borda: #631212; /* Vermelho escuro para bordas e linhas */
+    --cor-texto-secundario: #a09494; /* Cinza suave para textos secundários */
+    --cor-destaque-dourado: #ffcc00a1; /* Dourado/Amarelo com transparência para destaque visual */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Antonio', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+button {
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* TÍTULOS DE SEÇÃO (Herança do Index) */
+.titulo-secao {
+    font-family: 'Alegreya SC', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.titulo-secao span {
+    color: var(--cor-principal);
+}
+
+
+/*================================================================================
+2. CABEÇALHO (HEADER) E MENU MOBILE
+================================================================================*/
+/* @FLUXO: Estilos para navegação, logo, menu desktop e menu mobile. (Copiados do padrão REVOLUXTI) */
+
+header {
+    padding: 20px 0;
+    border-bottom: 2px solid var(--cor-borda);
+    position: relative;
+    overflow: hidden;
+}
+
+header>picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header>picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+header .grid-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.menu-desktop {
+    text-align: center;
+}
+
+.menu-desktop ul {
+    list-style-type: none;
+}
+
+.menu-desktop li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.menu-desktop a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: .2s;
+}
+
+.menu-desktop a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.menu-desktop a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-principal);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.menu-desktop a:hover::after {
+    width: 100%;
+}
+
+.btn-contato button {
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--cor-principal);
+    color: black;
+    border: 0;
+    border-radius: 30px;
+}
+/* MENU MOBILE */
+.btn-abrir-menu {
+    display: none;
+    color: var(--cor-principal);
+    font-size: 40px;
+    justify-self: end;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    background-color: #000000e0;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 0%;
+    overflow: hidden;
+    transition: width .4s ease-in-out;
+}
+
+.menu-mobile.abrir-menu {
+    width: 70%;
+}
+
+.menu-mobile .btn-fechar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--cor-principal);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-mobile nav {
+    padding-top: 80px;
+    text-align: right;
+}
+
+.menu-mobile nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+    padding: 20px 30px;
+    transition: .2s;
+}
+
+.menu-mobile nav a:hover {
+    background-color: var(--cor-principal);
+    color: black;
+}
+
+/*--- Seção da Capa Principal ---*/
+/* .grid-container dentro da .capa-principal */
+.capa-principal .grid-container {
+    display: flex; /* Ativa o layout Flexbox. */
+    flex-direction: column; /* Empilha os itens verticalmente (título em cima, imagem em baixo). */
+    align-items: center; /* Centraliza os itens horizontalmente. */
+    gap: 40px; /* Cria um espaço de 40px entre o título e a imagem. */
+}
+
+/* .txt-capa -> O container do texto principal da capa. */
+.txt-capa {
+    text-align: center; /* Centraliza o texto dentro do container. */
+}
+
+/* <h1> dentro de .txt-capa */
+.txt-capa h1  {
+    font-family: 'Alegreya SC', serif;
+    font-size: 3.5rem;
+    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
+    color: #ffcc00a1;
+}
+/* <h1> dentro de .txt-capa */
+.txt-capa h2  {
+    font-family: 'Alegreya SC', serif;
+    font-size: 2.5rem;
+    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
+    color: #ffcc00a1;
+}
+
+/* <span> dentro de <h1> */
+.txt-capa h1 span {
+    color: var(--cor-principal);
+    margin-bottom: 20px; /* Espaço abaixo do subtítulo. */
+    display: block; /* Faz o subtítulo quebrar para uma nova linha. */
+    font-size: 1.5rem;
+    font-family: 'Antonio', sans-serif;
+}
+
+
+
+/*================================================================================
+3. CONTEÚDO PRINCIPAL (ESPECIALIDADES GRID 3X2)
+================================================================================*/
+
+/* @FLUXO: Criação do layout principal (3 colunas em telas grandes) e estilos dos boxes. */
+
+section.especialidades {
+    padding: 60px 4%; /* Aumenta o padding vertical */
+}
+
+/* Container do Grid: Garante 3 colunas e espaçamento */
+.especialidades-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 40px 30px; /* Mais espaço vertical (40px) do que horizontal (30px) */
+    padding-bottom: 40px;
+}
+
+/* Estilizando cada Box de Especialidade */
+.especialidades-box {
+    /* Cálculo para 3 boxes por linha com espaçamento (gap) de 30px */
+    width: calc(33.33% - 20px); 
+    min-width: 280px; 
+    flex-grow: 1; 
+    
+    color: white; /* Cor de texto padrão branca para contraste */
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    position: relative; /* FUNDAMENTAL: Para posicionar o overlay */
+    overflow: hidden; /* Para garantir que o overlay e a imagem fiquem dentro da borda */
+    background-color: transparent; /* Removido o fundo preto */
+
+    /* Garante que o conteúdo (texto/ícone) fique por cima do overlay */
+    z-index: 1;
+    
+    /* ESTILO DE BORDA E SOMBRA (REVOLUXTI PADRÃO) */
+    border: 2px solid var(--cor-borda); /* Borda Vermelho Escuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    transition: 0.3s;
+}
+
+/* EFEITO HOVER (ZOOM E DESTAQUE) */
+.especialidades-box:hover {
+    transform: scale(1.05);
+    /* Sombra de destaque: Vermelho principal para efeito Red Team */
+    box-shadow: 0 0 25px var(--cor-destaque-dourado); 
+    border: 2px solid var(--cor-destaque-dourado);
+}
+/* O conteúdo interno (i, h3, p) deve ficar na camada de cima */
+.especialidades-box i, 
+.especialidades-box h3, 
+.especialidades-box p {
+    position: relative; 
+    z-index: 2; /* Garante que o texto/ícone fique acima de todas as imagens e overlays */
+}
+
+/* ÍCONES E TEXTOS */
+.especialidades-box i {
+    font-size: 4rem; 
+    color: var(--cor-destaque-dourado); /* Ícone em DOURADO */
+    transition: 0.3s;
+}
+
+.especialidades-box:hover i {
+    color: var(--cor-principal); /* Ícone em VERMELHO no hover */
+}
+/* --- Overlay (Camada de Sombra/Contraste) --- */
+/* Esta camada cobre a imagem de fundo para que o texto fique legível. */
+.especialidades-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    /* AÇÃO PRINCIPAL: Camada preta semi-transparente */
+    /* O valor rgba pode ser ajustado para controlar a "sombra" */
+    background: rgba(0, 0, 0, 0.75); /* Fundo preto com 75% de opacidade */
+    
+    /* Efeito de transição na opacidade no hover (opcional) */
+    transition: background 0.3s; 
+}
+
+/* Efeito de hover: Diminui a opacidade do overlay para a imagem aparecer mais */
+.especialidades-box:hover::after {
+    background: rgba(0, 0, 0, 0.5); /* Sombra mais clara no hover */
+}
+
+
+/* --- Imagem de Fundo por Box (Controle Individual) --- */
+
+/* 1. Desenvolvimento */
+.box-dev {
+    background: url('RHNO/background-dev.png') no-repeat center center/cover;
+}
+
+/* 2. Banco de dados */
+.box-db {
+    background: url('RHNO/background-db.png') no-repeat center center/cover;
+}
+
+/* 3. Redes */
+.box-redes {
+    background: url('RHNO/background-redes.png') no-repeat center center/cover;
+}
+
+/* 4. Cloud Computing */
+.box-cloud {
+    background: url('RHNO/beckground-cloudComputing.jpeg') no-repeat center center/cover;
+}
+
+/* 5. Cyber Security */
+.box-cyber {
+    background: url('RHNO/beckground-pentest.png') no-repeat center center/cover;
+}
+
+/* 6. Pentest */
+.box-pentest {
+    background: url('RHNO/force_rhno.jpeg') no-repeat center center/cover;
+}
+
+.especialidades-box h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: white; 
+    font-weight: 700;
+}
+
+.especialidades-box p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--cor-texto-secundario); 
+    text-align: justify; 
+    text-align-last: center; 
+}
+/*=============================================
+5. RODAPÉ (FOOTER)
+=============================================*/
+/* <footer> -> O rodapé da página. */
+footer {
+    padding: 10px 0;
+    border-top: 2px solid var(--cor-borda);
+    /* NOVO: Adicione um background preto escuro para garantir que a cor de fundo seja consistente */
+    background-color:#63121296;
+}
+
+/* .line-footer -> Container para o conteúdo do rodapé. */
+footer .line-footer {
+   /* MUDANÇA PRINCIPAL: Usamos Flexbox para empilhar os itens */
+   display: flex;
+   flex-direction: column; /* Empilha os itens (Ícones, Parágrafo) verticalmente */
+   align-items: center; /* Centraliza os itens horizontalmente dentro do footer */
+   gap: 15px; /* Espaço entre o bloco de ícones e o parágrafo */
+   padding: 15px 0; /* Aumenta um pouco o padding interno */
+}
+footer .line-footer p {
+    text-align: center;
+    color: #fd8f00;
+}
+
+/* <a> (links) dentro do rodapé */
+footer .line-footer a {
+    color: var(--cor-destaque-dourado);
+    text-decoration: none;
+}
+.btn-social {
+    /* Este container é naturalmente centralizado por align-items: center do pai */
+    text-align: center; 
+}
+/* .btn-social button -> Os botões das redes sociais. */
+.btn-social button {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px; /* Deixa os botões redondos. */
+    border: none;
+    background-color:#ffcc00a1;
+    color: black;
+    font-size: 20px;
+}
+
+/* Texto de Copyright */
+footer .line-footer p {
+    color: var(--cor-destaque-dourado); /* Cor DOURADA para o copyright */
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+
+/*================================================================================
+5. RESPONSIVIDADE (MEDIA QUERIES)
+================================================================================*/
+/* @FLUXO: Ajusta o layout dos boxes em telas menores. */
+
+/* Tablets e Telas Menores que 1024px */
+@media screen and (max-width: 1024px) {
+    /* Menu Desktop e Botão de Contato Escondidos, Menu Hamburguer Ativo */
+    .menu-desktop,
+    .btn-contato {
+        display: none;
+    }
+    .btn-abrir-menu {
+        display: block;
+    }
+    
+    /* Layout dos Boxes: 2 por linha */
+    .especialidades-grid .especialidades-box {
+        width: calc(50% - 20px); /* 50% menos 10px de cada lado (total de 20px de gap) */
+    }
+}
+
+/* Celulares e Telas Menores que 600px */
+@media screen and (max-width: 600px) {
+    /* Layout dos Boxes: 1 por linha */
+    .especialidades-grid .especialidades-box {
+        width: 100%;
+        min-width: auto;
+        margin-top: 20px; /* Diminui a margem do topo para economizar espaço */
+    }
+}
