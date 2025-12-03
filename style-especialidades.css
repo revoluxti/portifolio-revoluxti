@@ -1,192 +1,229 @@
-/*================================================================================
+/*=============================================
 1. ESTILOS GERAIS E VARIÁVEIS
-================================================================================*/
-/* @FLUXO: Definição de cores, resets globais e estilos base (body, interface). */
+=============================================*/
 
-:root {
-    --cor-principal: #b3120c; /* Vermelho principal do site (Red Team) */
-    --cor-borda: #631212; /* Vermelho escuro para bordas e linhas */
-    --cor-texto-secundario: #a09494; /* Cinza suave para textos secundários */
-    --cor-destaque-dourado: #ffcc00a1; /* Dourado/Amarelo com transparência para destaque visual */
-}
+/* :root -> Um seletor que representa o elemento raiz do documento (a tag <html>). 
+   É o melhor local para declarar variáveis CSS globais, que podem ser reutilizadas em todo o site. */
+   :root {
+    /* --nome-da-variavel: valor; -> Sintaxe para criar uma variável CSS. */
+    --cor-principal: #b3120c; /* Armazena a cor vermelha principal do site. */
+    --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
+    --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
+    /* Tom dourado/amarelo com transparência. */
+    --cor-destaque-dourado: #ffcc00a1;
+    --cor-de-abobora: #fd8f00;
+   }
 
+/* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Antonio', sans-serif;
+    margin: 0; /* Remove as margens externas padrão que os navegadores aplicam a elementos como <p>, <h1>, etc. */
+    padding: 0; /* Remove os preenchimentos internos padrão dos elementos. */
+    box-sizing: border-box; /* Altera a forma como a largura e altura dos elementos são calculadas. Com 'border-box', o padding e a borda ficam DENTRO do tamanho definido, em vez de o aumentarem. */
+    font-family: 'Antonio', sans-serif; /* Define a família de fontes padrão para todo o site. Se 'Antonio' não carregar, ele usará uma fonte 'sans-serif' genérica. */
 }
 
+/* <body> -> Estilos aplicados ao corpo principal do documento. */
 body {
-    background-color: black;
-    color: white;
-    min-height: 100vh;
+    background-color: black; /* Define a cor de fundo da página inteira como preta. */
+    color: white; /* Define a cor padrão do texto para branco. */
+    min-height: 100vh; /* Garante que o corpo tenha, no mínimo, a altura total do ecrã visível (100% da Viewport Height). */
 }
 
+/* .interface -> Uma classe "container" que usamos para centralizar o conteúdo. */
 .interface {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 4%;
+    max-width: 1280px; /* Define a largura máxima que o conteúdo pode atingir. Em ecrãs maiores, não se esticará infinitamente. */
+    margin: 0 auto; /* Um truque clássico: margem 0 para cima/baixo e 'auto' para os lados, o que centraliza horizontalmente o elemento. */
+    padding: 0 4%; /* Adiciona um preenchimento interno de 4% da largura do ecrã nos lados, para que o conteúdo não cole nas bordas. */
 }
 
+/* <button> -> Estilo geral que se aplica a todos os elementos <button> do site. */
 button {
-    cursor: pointer;
-    transition: .2s;
+    cursor: pointer; /* Muda o ponteiro do rato para uma "mãozinha", indicando que o elemento é clicável. */
+    transition: .2s; /* Adiciona uma animação suave de 0.2 segundos a qualquer mudança de propriedade (ex: no efeito :hover). */
 }
 
-/* TÍTULOS DE SEÇÃO (Herança do Index) */
+/* .titulo-secao -> Classe padrão para os títulos de cada seção (ex: "MINHAS ESPECIALIDADES"). */
 .titulo-secao {
-    font-family: 'Alegreya SC', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
+    font-family: 'Alegreya SC', serif; /* Usa a fonte especial que importamos do Google Fonts, específica para títulos. */
+    font-size: 2.5rem; /* Define o tamanho da fonte. 'rem' é uma unidade relativa ao tamanho da fonte raiz, excelente para responsividade e acessibilidade. */
+    text-align: center; /* Alinha o texto do título ao centro. */
+    margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
 }
+
+/* <span> dentro de .titulo-secao -> Estiliza a parte colorida do título, que no HTML está dentro de uma tag <span>. */
 .titulo-secao span {
-    color: var(--cor-principal);
+    color: var(--cor-principal); /* Aplica a cor vermelha que definimos na nossa variável global. */
 }
 
-
-/*================================================================================
-2. CABEÇALHO (HEADER) E MENU MOBILE
-================================================================================*/
-/* @FLUXO: Estilos para navegação, logo, menu desktop e menu mobile. (Copiados do padrão REVOLUXTI) */
-
+/*=============================================
+ CABEÇALHO (HEADER)
+=============================================*/
+/* <header> -> Estilos para a seção do cabeçalho, a barra no topo da página. */
 header {
-    padding: 20px 0;
-    border-bottom: 2px solid var(--cor-borda);
-    position: relative;
-    overflow: hidden;
+    padding: 20px 0; /* Adiciona 20px de preenchimento interno em cima e em baixo. */
+    border-bottom: 2px solid var(--cor-borda); /* Cria uma linha divisória vermelha escura abaixo do cabeçalho. */
+    position: relative; /* Define o cabeçalho como um container de referência para elementos filhos com 'position: absolute'. */
+    overflow: hidden; /* Garante que qualquer conteúdo que ultrapasse os limites do cabeçalho (como a imagem de fundo) seja cortado. */
 }
 
+/* <picture> diretamente dentro do <header> -> Estiliza o container da imagem de fundo do cabeçalho. */
 header>picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    position: absolute; /* Retira o elemento do fluxo normal da página, permitindo que ele seja posicionado em relação ao <header>. */
+    top: 0; /* Alinha o topo do <picture> com o topo do <header>. */
+    left: 0; /* Alinha a esquerda do <picture> com a esquerda do <header>. */
+    width: 100%; /* Faz o <picture> ocupar 100% da largura do <header>. */
+    height: 100%; /* Faz o <picture> ocupar 100% da altura do <header>. */
+    z-index: -1; /* Move o <picture> para a camada de trás, para que o logo e o menu fiquem na frente dele. */
 }
 
+/* <img> dentro do <picture> do <header> -> Estilos para a imagem de fundo em si. */
 header>picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
+    width: 100%; /* Garante que a imagem preencha a largura do seu container (<picture>). */
+    height: 100%; /* Garante que a imagem preencha a altura do seu container. */
+    object-fit: cover; /* Faz com que a imagem cubra todo o espaço disponível sem distorcer, cortando o excesso se necessário. */
+    opacity: 0.5; /* Deixa a imagem com 50% de transparência para que o conteúdo na frente seja mais legível. */
 }
 
+/* .grid-container dentro do <header> -> O container que organiza o logo, menu e botão. */
 header .grid-container {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 20px;
+    display: grid; /* Ativa o layout de grelha (grid). */
+    grid-template-columns: auto 1fr auto; /* Cria 3 colunas: a primeira e a última ajustam-se ao tamanho do seu conteúdo, e a do meio (1fr) ocupa todo o espaço flexível restante. */
+    align-items: center; /* Alinha verticalmente todos os itens da grelha ao centro. */
+    gap: 20px; /* Cria um espaço de 20px entre cada coluna. */
 }
 
+/* .logo img -> Estilo para a imagem dentro do container do logo. */
 .logo img {
-    max-width: 150px;
+    max-width: 150px; /* Limita a largura máxima do logo para que não fique muito grande em ecrãs largos. */
 }
 
+/* .menu-desktop -> O menu de navegação para ecrãs de computador. */
 .menu-desktop {
-    text-align: center;
+    text-align: center; /* Centraliza o texto dos links de navegação dentro da sua célula da grelha. */
 }
 
+/* <ul> dentro de .menu-desktop -> A lista que contém os links do menu. */
 .menu-desktop ul {
-    list-style-type: none;
+    list-style-type: none; /* Remove as bolinhas (marcadores) padrão da lista. */
 }
 
+/* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
-    display: inline-block;
-    padding: 0 15px;
+    display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
+    padding: 0 15px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
+/* <a> (links) do .menu-desktop */
 .menu-desktop a {
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-    transition: .2s;
+    color: var(--cor-texto-secundario); /* Usa a variável de cor cinza. */
+    text-decoration: none; /* Remove o sublinhado padrão dos links. */
+    font-size: 18px; /* Tamanho da fonte dos links. */
+    position: relative; /* Necessário para que o pseudo-elemento '::after' (a linha animada) possa ser posicionado em relação a ele. */
+    transition: .2s; /* Animação suave para a mudança de cor e tamanho. */
 }
 
+/* :hover -> Efeito que acontece quando o ponteiro do rato está sobre o link. */
 .menu-desktop a:hover {
-    color: white;
-    transform: scale(1.05);
+    color: white; /* Muda a cor do texto para branco. */
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho do texto (efeito de zoom). */
 }
 
+/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, que usamos para a linha animada. */
 .menu-desktop a::after {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background-color: var(--cor-principal);
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s;
+    content: ''; /* Esta propriedade é obrigatória para que o pseudo-elemento seja criado, mesmo que esteja vazio. */
+    width: 0%; /* A linha começa com largura zero, ou seja, invisível. */
+    height: 2px; /* A espessura da linha. */
+    background-color: var(--cor-principal); /* A cor da linha. */
+    position: absolute; /* Posiciona a linha em relação ao link (que tem 'position: relative'). */
+    bottom: -5px; /* Coloca a linha 5px abaixo do texto do link. */
+    left: 0; /* Alinha o início da linha com o início do texto. */
+    transition: width 0.3s; /* Anima apenas a propriedade 'width' durante 0.3 segundos. */
 }
 
+/* Quando o rato está sobre o link, o seu pseudo-elemento '::after' muda de estilo. */
 .menu-desktop a:hover::after {
-    width: 100%;
+    width: 100%; /* A largura da linha vai de 0% para 100%, criando o efeito de crescimento. */
 }
 
+/* .btn-contato button -> O botão "CADASTRO" no cabeçalho. */
 .btn-contato button {
-    padding: 10px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: var(--cor-principal);
-    color: black;
-    border: 0;
-    border-radius: 30px;
+    padding: 10px 30px; /* Preenchimento interno do botão. */
+    font-size: 18px; /* Tamanho da fonte do texto do botão. */
+    font-weight: bold; /* Deixa o texto a negrito. */
+    background-color: var(--cor-principal); /* Cor de fundo do botão. */
+    color: black; /* Cor do texto do botão. */
+    border: 0; /* Remove a borda padrão do botão. */
+    border-radius: 30px; /* Deixa as pontas do botão completamente arredondadas. */
 }
-/* MENU MOBILE */
+
+/*=============================================
+3. MENU MOBILE
+=============================================*/
+/* .btn-abrir-menu -> O ícone de "hambúrguer" para abrir o menu em ecrãs pequenos. */
 .btn-abrir-menu {
-    display: none;
-    color: var(--cor-principal);
-    font-size: 40px;
-    justify-self: end;
-    cursor: pointer;
+    display: none; /* Por padrão, o ícone fica escondido em ecrãs grandes. Será tornado visível nas media queries. */
+    color: var(--cor-principal); /* Cor do ícone. */
+    font-size: 40px; /* Tamanho do ícone. */
+    justify-self: end; /* Numa grelha, alinha o item ao final (direita) da sua célula. */
+    cursor: pointer; /* Muda o cursor para uma mãozinha. */
 }
 
+/* .menu-mobile -> O menu lateral que desliza para a vista. */
 .menu-mobile {
-    background-color: #000000e0;
-    backdrop-filter: blur(10px);
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 999;
-    width: 0%;
-    overflow: hidden;
-    transition: width .4s ease-in-out;
+    background-color: #000000e0; /* Fundo preto com 88% de opacidade. */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco no conteúdo que está atrás do menu. */
+    height: 100vh; /* O menu ocupa 100% da altura do ecrã. */
+    position: fixed; /* Fica fixo na tela, mesmo se o utilizador rolar a página. */
+    top: 0; /* Alinha o menu ao topo. */
+    right: 0; /* Alinha o menu à direita. */
+    z-index: 999; /* Define uma camada muito alta para garantir que ele apareça sobre todo o outro conteúdo. */
+    width: 0%; /* O menu começa com largura zero, ou seja, escondido. */
+    overflow: hidden; /* Esconde o conteúdo de dentro do menu enquanto ele está fechado. */
+    transition: width .4s ease-in-out; /* Anima a propriedade 'width' para criar o efeito de deslize. */
 }
 
+/* .abrir-menu -> Classe que o JavaScript adiciona ao .menu-mobile para o abrir. */
 .menu-mobile.abrir-menu {
-    width: 70%;
+    width: 70%; /* Quando esta classe está presente, a largura do menu vai de 0% para 70%. */
 }
 
+/* .btn-fechar -> O ícone "X" para fechar o menu mobile. */
 .menu-mobile .btn-fechar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: absolute; /* Posicionado em relação ao .menu-mobile. */
+    top: 20px; /* 20px do topo. */
+    right: 20px; /* 20px da direita. */
     color: var(--cor-principal);
     font-size: 30px;
     cursor: pointer;
 }
 
+/* <nav> dentro do .menu-mobile -> Organiza os links dentro do menu. */
 .menu-mobile nav {
-    padding-top: 80px;
-    text-align: right;
+    padding-top: 80px; /* Espaço no topo para os links não colarem no topo do ecrã. */
+    text-align: right; /* Alinha o texto dos links à direita. */
 }
 
+/* <a> (links) dentro do .menu-mobile */
 .menu-mobile nav a {
     color: white;
     text-decoration: none;
     font-size: 24px;
-    display: block;
+    display: block; /* Faz cada link ocupar uma linha inteira, o que aumenta a área de toque e facilita o clique em dispositivos móveis. */
     padding: 20px 30px;
     transition: .2s;
 }
 
+/* :hover nos links do menu mobile */
 .menu-mobile nav a:hover {
-    background-color: var(--cor-principal);
-    color: black;
+    background-color: var(--cor-principal); /* Muda a cor de fundo do link. */
+    color: black; /* Muda a cor do texto do link. */
+}
+/*================================================================================
+3. CONTEÚDO PRINCIPAL (ESPECIALIDADES GRID 3X2)
+================================================================================*/
+/* <main> -> Onde fica o conteúdo principal da página. */
+main {
+    padding: 40px 0; /* Espaçamento geral para o conteúdo principal. */
 }
 
 /*--- Seção da Capa Principal ---*/
@@ -204,16 +241,9 @@ header .grid-container {
 }
 
 /* <h1> dentro de .txt-capa */
-.txt-capa h1  {
+.txt-capa h1 {
     font-family: 'Alegreya SC', serif;
     font-size: 3.5rem;
-    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
-    color: #ffcc00a1;
-}
-/* <h1> dentro de .txt-capa */
-.txt-capa h2  {
-    font-family: 'Alegreya SC', serif;
-    font-size: 2.5rem;
     line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
     color: #ffcc00a1;
 }
@@ -227,18 +257,42 @@ header .grid-container {
     font-family: 'Antonio', sans-serif;
 }
 
-
-
-/*================================================================================
-3. CONTEÚDO PRINCIPAL (ESPECIALIDADES GRID 3X2)
-================================================================================*/
-
 /* @FLUXO: Criação do layout principal (3 colunas em telas grandes) e estilos dos boxes. */
 
 section.especialidades {
     padding: 60px 4%; /* Aumenta o padding vertical */
 }
+/*================================================================================
+  AJUSTES DE USABILIDADE (LINKS EM CARDS)
+================================================================================*/
 
+/* 1. Estiliza o Link Wrapper para que ele ocupe a célula do Grid */
+.especialidade-card-link {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit;      /* Garante que o link herde a cor do texto do Box */
+
+    height: 100%;        /* Crucial para que o Box ocupe a altura total do grid */
+}
+
+/* 2. Aplica o Cursor e Corrige o Comportamento do Box Interno */
+.especialidades .especialidades-box {
+    /* O cursor pointer é automaticamente herdado do <a>, mas é bom garantir. */
+    cursor: pointer; 
+    
+    /* Regras de transição e hover já existentes: */
+    transition: 0.4s; 
+    
+    /* ... (o restante dos seus estilos de borda e sombra) ... */
+}
+
+/* Garante que os títulos dentro do link usem a cor branca/dourada corretamente */
+.especialidade-card-link h3 {
+    color: white; /* Ou a cor que você desejar para o título */
+}
+
+.especialidade-card-link p {
+    color: var(--cor-texto-secundario); 
+}
 /* Container do Grid: Garante 3 colunas e espaçamento */
 .especialidades-grid {
     display: flex;
@@ -254,13 +308,13 @@ section.especialidades {
     width: calc(33.33% - 20px); 
     min-width: 280px; 
     flex-grow: 1; 
-    
+
     color: white; /* Cor de texto padrão branca para contraste */
     text-align: center;
     padding: 40px 20px;
     border-radius: 10px;
-    position: relative; /* FUNDAMENTAL: Para posicionar o overlay */
-    overflow: hidden; /* Para garantir que o overlay e a imagem fiquem dentro da borda */
+    position: relative; /* FUNDAMENTAL: Para posicionar o overlay O link de cobertura se posicionará em relação a este box*/
+    overflow: hidden; /* Para garantir que o overlay e a imagem fiquem dentro da borda Garante que o link não "vaze"*/
     background-color: transparent; /* Removido o fundo preto */
 
     /* Garante que o conteúdo (texto/ícone) fique por cima do overlay */
@@ -321,7 +375,18 @@ section.especialidades {
 .especialidades-box:hover::after {
     background: rgba(0, 0, 0, 0.5); /* Sombra mais clara no hover */
 }
-
+.full-card-link {
+    position: absolute; /* Retira o link do fluxo normal e permite posicionamento livre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Garante que o link esteja acima de todo o conteúdo (texto e ícones) */
+    
+    text-decoration: none; /* Remove o sublinhado, que poderia aparecer de forma estranha */
+    /* Fundo totalmente transparente. Nenhuma cor deve aparecer. */
+    background-color: transparent; 
+}
 
 /* --- Imagem de Fundo por Box (Controle Individual) --- */
 
@@ -369,6 +434,7 @@ section.especialidades {
     text-align: justify; 
     text-align-last: center; 
 }
+
 /*=============================================
 5. RODAPÉ (FOOTER)
 =============================================*/
@@ -412,13 +478,6 @@ footer .line-footer a {
     background-color:#ffcc00a1;
     color: black;
     font-size: 20px;
-}
-
-/* Texto de Copyright */
-footer .line-footer p {
-    color: var(--cor-destaque-dourado); /* Cor DOURADA para o copyright */
-    font-size: 0.9rem;
-    margin: 0;
 }
 
 

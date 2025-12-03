@@ -10,7 +10,8 @@
     --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
     --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
     /* NOVO DESTAQUE: O tom dourado/amarelo com transparência que você definiu. */
-    --cor-destaque-dourado: #ffcc00a1; 
+    --cor-destaque-dourado: #ffcc00a1;
+    --cor-de-abobora: #fd8f00;
 }
 
 /* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
@@ -218,77 +219,130 @@ header .grid-container {
     color: var(--cor-principal);
 }
 
-
-
-/*Estilo das Especialidades*/
-section.especialidades {
-    padding: 40px/*em cima e embaixo*/ 4%; /*para não colar nas laterais quando minimizar a tela*/
-    
-}
-/* NOVO: Classe para o grid 3x2 */
-.especialidades-grid {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os boxes quebrem para a linha de baixo */
-    justify-content: space-between; /* Espaça uniformemente os 3 boxes */
-    gap: 30px; /* Espaçamento entre os boxes (horizontal e vertical) */
+/*=============================================
+4. CONTEÚDO PRINCIPAL (MAIN - Estilos Específicos da Página Sobre)
+=============================================*/
+/* <main> -> Onde fica o conteúdo principal da página. */
+main {
+    padding: 40px 0; /* Espaçamento geral para o conteúdo principal. */
 }
 
-section.especialidades .flex {
-    gap: 60px;
-    /*espaçamento entre as box*/
-
+/*--- Seção da Capa Principal ---*/
+/* .grid-container dentro da .capa-principal */
+.capa-principal .grid-container {
+    display: flex; /* Ativa o layout Flexbox. */
+    flex-direction: column; /* Empilha os itens verticalmente (título em cima, imagem em baixo). */
+    align-items: center; /* Centraliza os itens horizontalmente. */
+    gap: 40px; /* Cria um espaço de 40px entre o título e a imagem. */
 }
 
-/*estylizando as box*/
-.especialidades .especialidades-box {
-    /* Cálculo para 3 boxes por linha com espaçamento (gap) de 30px */
-    width: calc(33.33% - 20px); 
-    min-width: 250px; /* Garante que não fiquem pequenos demais antes de quebrar */
-    flex-grow: 1; /* Permite que cresçam para preencher o espaço */
-    color:var(--cor-destaque-dourado);
-    text-align: center; /* Centraliza o ícone, título e texto */
-    padding: 40px;
-    border-radius: 20px;
-    /* ESTILO DE BORDA E SOMBRA (REVOLUXTI) */
-    border: 2px solid var(--cor-borda); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top: 40px;
-    transition: 0.4s; /* Transição mais rápida e profissional */
+/* .txt-capa -> O container do texto principal da capa. */
+.txt-capa {
+    text-align: center; /* Centraliza o texto dentro do container. */
 }
 
-/*configuração de efeitos visuais nas box da especialidade*/
-.especialidades .especialidades-box:hover {
-    transform: scale(1.05);
-    /*não pecisa ter pixels, efeito de zoom, cuidar com exagero*/
-    box-shadow: 0
-        /*box-shadow espalhamento*/
-
-        /*deslocamento vertical*/
-        0
-        /*delocamento laterais*/
-        20px;
-    /*espalhamento quanto maior for o valor mais espalhamento*/
+/* <h1> dentro de .txt-capa */
+.txt-capa h1 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 3.5rem;
+    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
+    color: #ffcc00a1;
 }
 
-/*style icons*/
-.especialidades .especialidades-box i {
-    font-size: 4rem; /* Aumentado para melhor impacto visual */
-    color: #631212 ;
+/* <span> dentro de <h1> */
+.txt-capa h1 span {
+    color: var(--cor-principal);
+    margin-bottom: 20px; /* Espaço abaixo do subtítulo. */
+    display: block; /* Faz o subtítulo quebrar para uma nova linha. */
+    font-size: 1.5rem;
+    font-family: 'Antonio', sans-serif;
 }
 
-.especialidades .especialidades-box h3 {
-    font-size: 28px;
-    margin: 15px 0;
-    /*espaçamento entre o h3 e icons*/
-    color: white; /* Título em branco para contraste */
+/*=============================================
+5. ESTILOS DA SEÇÃO MOCHILA (CERTIFICADOS)
+=============================================*/
+
+.categoria-container {
+    margin-bottom: 60px; /* Espaço entre uma categoria e outra */
+    padding-top: 20px;
 }
-.especialidades .especialidades-box p {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: var(--cor-texto-secundario); /* Texto em cinza/dourado suave */
-    /* Garante que o texto fique mais alinhado */
-    text-align: justify; 
-    text-align-last: center; 
+
+/* Estilo do Título da Categoria (H2) */
+.titulo-categoria {
+    font-family: 'Alegreya SC', serif;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--cor-principal); /* Detalhe lateral vermelho */
+    padding-left: 15px;
+}
+
+.titulo-categoria span {
+    color: var(--cor-destaque-dourado); /* Destaque em Dourado */
+    font-weight: bold;
+}
+
+/* O Grid que segura os 4 nichos */
+.grid-artigos {
+    display: grid;
+    /* Cria colunas automáticas. Tenta encaixar tantos quanto der (mínimo 250px cada) */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 30px; /* Espaço entre os certificados */
+}
+
+/* O Nicho (Card) do Certificado */
+.card-artigos {
+    position: relative;
+    height: 360px; /* Altura fixa próxima ao solicitado */
+    border: 2px solid var(--cor-destaque-dourado); /* Borda Dourada */
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--cor-principal); /* O Brilho Vermelho (Glow) */
+    overflow: hidden; /* Garante que a imagem não saia da borda arredondada */
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    background-color: #1a0505; /* Fundo escuro avermelhado caso a img não carregue */
+}
+
+/* Efeito ao passar o mouse no certificado */
+.card-artigos:hover {
+    transform: translateY(-5px); /* Levanta levemente */
+    box-shadow: 0 0 30px var(--cor-principal), 0 0 10px var(--cor-destaque-dourado); /* Aumenta o brilho */
+    border-color: white;
+}
+
+/* Estilo da Imagem do Certificado */
+.card-artigos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir todo o quadrado sem distorcer (corta excessos) */
+    /* Se preferir ver o certificado inteiro (com bordas pretas), mude para: object-fit: contain; */
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.card-artgos:hover img {
+    opacity: 0.6; /* Escurece a imagem para ler o texto */
+}
+
+/* Texto sobreposto (aparece ao passar o mouse ou fixo, conforme preferir) */
+.card-artigos .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to top, black, transparent);
+    color: var(--cor-destaque-dourado);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transform: translateY(100%); /* Esconde o texto inicialmente */
+    transition: transform 0.3s;
+}
+
+/* Faz o texto subir ao passar o mouse */
+.card-artigos:hover .overlay {
+    transform: translateY(0);
 }
 
 /*=============================================

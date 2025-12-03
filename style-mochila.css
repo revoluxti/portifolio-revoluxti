@@ -221,135 +221,176 @@ header .grid-container {
 /*=============================================
 4. CONTEÚDO PRINCIPAL (MAIN - Estilos Específicos da Página Sobre)
 =============================================*/
+/* <main> -> Onde fica o conteúdo principal da página. */
 main {
-    /* Padding para espaçar o conteúdo do header e footer */
-    padding: 40px 0;
+    padding: 40px 0; /* Espaçamento geral para o conteúdo principal. */
 }
 
-/* --- NOVO: CONTAINER PRINCIPAL PARA DUAS COLUNAS EM PARALELO (Layout de Revista) --- */
-.sobre-conteudo-grid {
-    display: flex; /* ATIVA O ALINHAMENTO LATERAL */
-    gap: 30px; /* Espaço entre os dois grandes quadrados */
-    align-items: stretch; /* Garante que os quadrados tenham a mesma altura */
-    margin-top: 30px;
-    margin-bottom: 50px;
+/*--- Seção da Capa Principal ---*/
+/* .grid-container dentro da .capa-principal */
+.capa-principal .grid-container {
+    display: flex; /* Ativa o layout Flexbox. */
+    flex-direction: column; /* Empilha os itens verticalmente (título em cima, imagem em baixo). */
+    align-items: center; /* Centraliza os itens horizontalmente. */
+    gap: 40px; /* Cria um espaço de 40px entre o título e a imagem. */
 }
 
-/* -------------------------------------------
-   ESTRUTURA: QUADRADO GERAL DE TEXTO (A sua "primeira" coluna)
-   ------------------------------------------- */
+/* .txt-capa -> O container do texto principal da capa. */
+.txt-capa {
+    text-align: center; /* Centraliza o texto dentro do container. */
+}
 
-/* Estiliza o container onde está todo o texto, dando o efeito de "quadrado" */
-.quadrado-texto {
-    /* ... (Propriedades de borda, padding, etc., mantêm-se iguais) ... */
-    padding: 30px;
+/* <h1> dentro de .txt-capa */
+.txt-capa h1 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 3.5rem;
+    line-height: 1.1; /* Altura da linha, para o texto de várias linhas não ficar muito colado. */
+    color: #ffcc00a1;
+}
+
+/* <span> dentro de <h1> */
+.txt-capa h1 span {
+    color: var(--cor-principal);
+    margin-bottom: 20px; /* Espaço abaixo do subtítulo. */
+    display: block; /* Faz o subtítulo quebrar para uma nova linha. */
+    font-size: 1.5rem;
+    font-family: 'Antonio', sans-serif;
+}
+
+/*=============================================
+5. ESTILOS DA SEÇÃO MOCHILA (CERTIFICADOS)
+=============================================*/
+
+.categoria-container {
+    margin-bottom: 60px; /* Espaço entre uma categoria e outra */
+    padding-top: 20px;
+}
+
+/* Estilo do Título da Categoria (H2) */
+.titulo-categoria {
+    font-family: 'Alegreya SC', serif;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--cor-principal); /* Detalhe lateral vermelho */
+    padding-left: 15px;
+}
+
+.titulo-categoria span {
+    color: var(--cor-destaque-dourado); /* Destaque em Dourado */
+    font-weight: bold;
+}
+
+/* O Grid que segura os 4 nichos */
+.grid-certificados {
+    display: grid;
+    /* Cria colunas automáticas. Tenta encaixar tantos quanto der (mínimo 250px cada) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; /* Espaço entre os certificados */
+}
+
+/* O Nicho (Card) do Certificado */
+.card-certificado {
+    display: block; /* Garante que o link se comporte como um bloco/caixa */
+    text-decoration: none; /* Remove sublinhado de link */
+    color: inherit; /* Mantém as cores originais */
+    
+    /* ... mantenha o resto das propriedades que já fizemos (height, border, shadow, etc) ... */
+    position: relative;
+    height: 160px; 
     border: 2px solid var(--cor-destaque-dourado);
     border-radius: 10px;
-    box-shadow: 0 0 30px var(--cor-principal);
-    color: var(--cor-destaque-dourado); 
-    font-weight: 500;
-    line-height: 1.6;
-    
-    /* AÇÃO PRINCIPAL: Faz cada quadrado ocupar metade do espaço */
-    flex: 1; /* Permite que o elemento cresça e ocupe metade do espaço (50% - gap) */
-    min-width: 45%; /* Garante um tamanho mínimo para visualização */
-    
-    /* Remove a regra width: fit-content que estava causando problemas de largura */
-    width: auto; 
+    box-shadow: 0 0 15px var(--cor-principal);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #1a0505;
 }
 
-/* -------------------------------------------
-   ESTRUTURA: LISTA + IMAGEM (O seu "segundo quadrado" interno)
-   ------------------------------------------- */
-
-/* Container que organiza a lista e a imagem lado a lado */
-.lista-e-imagem-container {
-    /* Ativa o layout de colunas para lista e imagem */
-    display: flex;
-    gap: 10px; /* Espaçamento entre a lista e a imagem */
-    align-items: center; /* Alinha o conteúdo no centro vertical */
-    margin-top: 20px; /* Aumentei a margem para separar do texto acima */
-    margin-bottom: 20px;
-    /* Opcional: Adicionar uma borda ou fundo para o "quadrado interno" */
-    padding: 15px; /* Diminuí o padding para reduzir o tamanho */
-    background-color: #000000; /* Fundo escuro para destacar do quadrado externo */
-    border-radius: 8px;
-    border: 1px solid var(--cor-destaque-dourado); /* Borda solida dourada */
-    box-shadow: 0 0 300px var(--cor-principal);
-    /* Remove a regra width: fit-content que estava forçando o elemento a ser estreito demais */
-    width: 100%; 
+/* Efeito ao passar o mouse no certificado */
+.card-certificado:hover {
+    transform: translateY(-5px); /* Levanta levemente */
+    box-shadow: 0 0 30px var(--cor-principal), 0 0 10px var(--cor-destaque-dourado); /* Aumenta o brilho */
+    border-color: white;
 }
 
-/* Área da lista, para que ela cresça e empurre a imagem para o lado */
-.lista-servicos {
-    flex: 1; /* Permite que a lista use o espaço restante */
-}
-
-/* Área da imagem */
-.sobre-imagem {
-    /* Define a largura da imagem */
-    max-width: 300px;
-    flex-shrink: 0; /* Impede que a imagem encolha em telas maiores */
-}
-
-/* Estilo para a imagem em si */
-.sobre-imagem img {
+/* Estilo da Imagem do Certificado */
+.card-certificado img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    /* Aplica o Box Shadow Dourado */
-    box-shadow: 0 0 15px var(--cor-destaque-dourado); 
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir todo o quadrado sem distorcer (corta excessos) */
+    /* Se preferir ver o certificado inteiro (com bordas pretas), mude para: object-fit: contain; */
+    opacity: 0.9;
+    transition: opacity 0.3s;
 }
 
-/* -------------------------------------------
-   ESTILOS DIVERSOS (Ajustes de Títulos e Listas)
-   ------------------------------------------- */
-
-/* H1 e H2 */
-hgroup h1 {
-    /* Estilo para o título principal "Sobre" */
-    font-size: 2.8rem;
-    font-family: 'Alegreya SC', serif;
-    color: white;
-}
-hgroup h2 {
-    /* Estilo para o subtítulo H2 */
-    color: var(--cor-principal); 
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-hgroup p{
-    /* Garante que os parágrafos normais fiquem brancos */
-    color: white; 
+.card-certificado:hover img {
+    opacity: 0.6; /* Escurece a imagem para ler o texto */
 }
 
-/* Estilizando a lista (ul) */
-hgroup ul {
-    list-style: none; /* Remove os marcadores padrão */
-    padding-left: 0;
-    margin: 0; /* Remove margem desnecessária */
-}
-
-hgroup ul li {
-    padding-left: 1.5em; /* Espaço para o ícone */
-    position: relative;
-    line-height: 1.8;
-    color: var(--cor-destaque-dourado); /* Cor da lista com o destaque dourado */
-}
-
-/* Adiciona o marcador dourado personalizado */
-hgroup ul li::before {
-    content: "■"; /* Marcador quadrado simples */
-    color: var(--cor-destaque-dourado); 
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1.5em;
+/* Texto sobreposto (aparece ao passar o mouse ou fixo, conforme preferir) */
+.card-certificado .overlay {
     position: absolute;
+    bottom: 0;
     left: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to top, black, transparent);
+    color: var(--cor-destaque-dourado);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transform: translateY(100%); /* Esconde o texto inicialmente */
+    transition: transform 0.3s;
 }
 
+/* Faz o texto subir ao passar o mouse */
+.card-certificado:hover .overlay {
+    transform: translateY(0);
+}
+/*=============================================
+5. RODAPÉ (FOOTER)
+=============================================*/
+/* <footer> -> O rodapé da página. */
+footer {
+    padding: 10px 0;
+    border-top: 2px solid var(--cor-borda);
+    /* NOVO: Adicione um background preto escuro para garantir que a cor de fundo seja consistente */
+    background-color:#63121296;
+}
+
+/* .line-footer -> Container para o conteúdo do rodapé. */
+footer .line-footer {
+   /* MUDANÇA PRINCIPAL: Usamos Flexbox para empilhar os itens */
+   display: flex;
+   flex-direction: column; /* Empilha os itens (Ícones, Parágrafo) verticalmente */
+   align-items: center; /* Centraliza os itens horizontalmente dentro do footer */
+   gap: 15px; /* Espaço entre o bloco de ícones e o parágrafo */
+   padding: 15px 0; /* Aumenta um pouco o padding interno */
+}
+footer .line-footer p {
+    text-align: center;
+    color: #fd8f00;
+}
+
+/* <a> (links) dentro do rodapé */
+footer .line-footer a {
+    color: var(--cor-destaque-dourado);
+    text-decoration: none;
+}
+.btn-social {
+    /* Este container é naturalmente centralizado por align-items: center do pai */
+    text-align: center; 
+}
+/* .btn-social button -> Os botões das redes sociais. */
+.btn-social button {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px; /* Deixa os botões redondos. */
+    border: none;
+    background-color:#ffcc00a1;
+    color: black;
+    font-size: 20px;
+}
 /*=============================================
 5. RESPONSIVIDADE PARA A SEÇÃO SOBRE
 =============================================*/

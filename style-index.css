@@ -9,8 +9,9 @@
     --cor-principal: #b3120c; /* Armazena a cor vermelha principal do site. */
     --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
     --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
-    /* NOVO DESTAQUE: O tom dourado/amarelo com transparência que você definiu. */
-    --cor-destaque-dourado: #ffcc00a1; 
+    /* Tom dourado/amarelo com transparência. */
+    --cor-destaque-dourado: #ffcc00a1;
+    --cor-de-abobora: #fd8f00;
    }
 
 /* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
@@ -223,7 +224,7 @@ header .grid-container {
 =============================================*/
 /* <main> -> Onde fica o conteúdo principal da página. */
 main {
-    padding: 60px 0; /* Espaçamento geral para o conteúdo principal. */
+    padding: 40px 0; /* Espaçamento geral para o conteúdo principal. */
 }
 
 /*--- Seção da Capa Principal ---*/
