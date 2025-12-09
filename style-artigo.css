@@ -190,7 +190,7 @@ header .grid-container {
 
 /* .abrir-menu -> Classe que o JavaScript adiciona ao .menu-mobile para o abrir. */
 .menu-mobile.abrir-menu {
-    width: 70%; /* Quando esta classe está presente, a largura do menu vai de 0% para 70%. */
+    width: 45%; /* Quando esta classe está presente, a largura do menu vai de 0% para 70%. */
 }
 
 /* .btn-fechar -> O ícone "X" para fechar o menu mobile. */
