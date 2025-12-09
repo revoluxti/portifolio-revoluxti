@@ -136,7 +136,7 @@ const HistoryInfographic = () => {
                         {/* Marcador de Linha do Tempo */}
                         <div className="flex items-center gap-4 mb-12">
                             <div className="bg-cyan-500 h-px w-16"></div>
-                            <span className="text-cyan-400 font-mono font-bold text-lg">1946: O Despertar</span>
+                            <span className="text-cyan-400 font-mono font-bold text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg">1946: O Despertar</span>
                             <div className="bg-slate-800 h-px flex-1"></div>
                         </div>
 
@@ -147,7 +147,7 @@ const HistoryInfographic = () => {
                             <div className="md:col-span-5 relative z-10">
 
                                 <h2 className="text-4xl font-bold text-white mb-6 leading-tight">O Colosso da Pensilvânia: <span className="text-cyan-400">ENIAC</span></h2>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Vamos dar início falando de monitor. O nosso, objeto de estudos inicial
                                     é o ENIAC sigla usada para (Electronic Numerical Integrator and Computer) foi o
                                     primeiro computador digital eletrônico de uso geral desenvolvido pelo exército dos
@@ -164,7 +164,7 @@ const HistoryInfographic = () => {
                                 <div className="w-full aspect-video bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group my-8">
                                     {<img src="ENIAC_programmers.jpg" alt="ENIAC" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />}
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Não utilizava um monitor com interface gráfica e não possuía sistema
                                     operacional ou linguagem de programação como conhecemos hoje. Seus programas
                                     eram implementados fisicamente, através de painéis, switches e cabos conectados
@@ -172,7 +172,7 @@ const HistoryInfographic = () => {
                                     Sua saída de dados era apresentada de acordo com as tecnologias
                                     disponíveis nos anos de 1940.
                                 </p> <br />
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     O ENIAC usava lâmpadas indicadoras (neon ou pequenas luzes de
                                     controle) que acendiam para mostrar valores armazenados em determinados
                                     registradores ou acumuladores. <br />
@@ -190,7 +190,7 @@ const HistoryInfographic = () => {
                                 <div className="w-full aspect-video bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group my-8">
                                     {<img src="card.png" alt="ENIAC" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />}
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Esses cartões podiam ser lidos por outras máquinas para
                                     análises adicionais, e armazenados como registros físicos.
                                     Em algumas situações os operadores liam os valores diretamente nos painéis
@@ -212,7 +212,7 @@ const HistoryInfographic = () => {
                                 <h2 className="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2">
                                     <Terminal className="w-6 h-6" /> A Programação Física
                                 </h2>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Imagine que o ENIAC estava calculando uma trajetória balística. Os dados
                                     iniciais (ângulo, velocidade etc.) seriam inseridos por cartões perfurados. O ENIAC
                                     realizaria milhões de operações matemáticas. E então o resultado (posição final
@@ -233,7 +233,7 @@ const HistoryInfographic = () => {
                                         <li>• Como e onde os resultados seriam enviados.</li>
                                     </ul>
                                 </p>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Não havia código fonte como conhecemos hoje. O fluxo de execução era representado
                                     fisicamente, por onde o sinal elétrico deveriam passar de um componente a outro,
                                     fazer esse tipo de alteração exigia horas ou dias desconectando e reconectando
@@ -245,7 +245,7 @@ const HistoryInfographic = () => {
                             <div className="md:col-span-7 space-y-6 relative z-10 mt-8 md:mt-0">
 
                                 {/* Card de Especificações */}
-                                <div className="bg-slate-900/80 backdrop-blur-md p-8 rounded-2xl border border-cyan-500/20 shadow-lg shadow-cyan-500/5 relative overflow-hidden">
+                                <div className="bg-slate-900/80 backdrop-blur-md p-5 md:p-8 rounded-2xl border border-cyan-500/20 shadow-lg shadow-cyan-500/5 relative overflow-hidden">
                                     <div className="absolute top-0 right-0 bg-cyan-500/10 p-4 rounded-bl-2xl">
                                         <Server className="text-cyan-400" size={24} />
                                     </div>
@@ -257,7 +257,7 @@ const HistoryInfographic = () => {
                                         </div>
                                         <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                                             <p className="text-slate-400 text-xs uppercase font-bold mb-1">Peso Total</p>
-                                            <p className="text-white text-3xl font-mono font-bold">30 Toneladas</p>
+                                            <p className="text-white text-3xl font-mono font-bold">30 Ton.</p>
                                         </div>
                                         <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                                             <p className="text-slate-400 text-xs uppercase font-bold mb-1">Consumo de Energia</p>
@@ -266,7 +266,7 @@ const HistoryInfographic = () => {
                                         </div>
                                         <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                                             <p className="text-slate-400 text-xs uppercase font-bold mb-1">Velocidade</p>
-                                            <p className="text-white text-2xl font-mono font-bold">5k somas/seg</p>
+                                            <p className="text-white text-2xl font-mono font-bold">5k somas/ <br />seg</p>
                                         </div>
                                     </div>
                                 </div>
@@ -301,14 +301,8 @@ const HistoryInfographic = () => {
 
 
                                 </div>
-                                <div className="w-full h-[500px] bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex items-center justify-center mb-8 relative overflow-hidden group">
-                                    <img src="Girls.png" alt="Sala do ENIAC" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
-
-                                    {/* Legenda opcional (aparece em cima da imagem) */}
-                                    <div className="absolute bottom-0 left-0 bg-black/70 w-full p-3 text-center z-10">
-                                        <p className="text-xs text-white font-mono">Referência: - Mulheres do ENIAC</p>
-                                    </div>
-
+                                <div className="w-full aspect-video bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group my-8">
+                                    {<img src="Girls.png" alt="ENIAC" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />}
                                 </div>
                                 {/* Card de Tributo às Programadoras (PDF Pág 6) */}
                                 <div className="bg-gradient-to-br from-purple-900/40 to-slate-900 p-8 rounded-2xl border border-purple-500/30 relative overflow-hidden">
@@ -370,7 +364,7 @@ const HistoryInfographic = () => {
                                     </div>
 
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Nas décadas seguintes, a computação foi dominada por gigantes corporativos. <br /> <br />
                                     A IBM era tão dominante que o mercado era apelidado de "Branca de Neve e os Sete Anões" (seus competidores).
                                     Entre eles, destacou-se a General Electric (GE), uma gigante industrial que entrou na computação nos anos 50.
@@ -398,7 +392,7 @@ const HistoryInfographic = () => {
                         <div className="flex items-center gap-4 mb-12">
                             <div className="bg-blue-500 h-px w-16"></div>
 
-                            <span className="text-blue-400 font-mono font-bold text-lg">  1950s - 1970s: A Era do Ferro</span>
+                            <span className="text-blue-400 font-mono font-bold text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg">  1950s - 1970s: A Era do Ferro</span>
                             <div className="bg-slate-800 h-px flex-1"></div>
 
                         </div>
@@ -409,8 +403,8 @@ const HistoryInfographic = () => {
                             <div className="md:col-span-8">
                                 <h2 className="text-3xl font-bold text-white mb-6">Mainframes e os "Sete Anões"</h2>
 
-                                <div className="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed text-justify mb-8">
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <div className="prose prose-invert max-w-none text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-8">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         A GE desenvolveu ou utilizou sistemas computacionais específicos,
                                         voltado para suas próprias necessidades industriais ou militares da época provavelmente com os seguintes usos:
                                         Cálculos de processos industriais.
@@ -419,8 +413,8 @@ const HistoryInfographic = () => {
 
                                         Aplicações aeronáuticas e espaciais (a GE já trabalhava com turbinas e sistemas complexos).
                                     </p>
-                                    {/* MUDANÇA 1: h-[600px] deixa o quadro bem alto para caber a máquina inteira */}
-                                    <div className="w-full h-[600px] bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group mb-8 shadow-xl">
+                                    {/* MUDANÇA: h-[600px]  deixa o quadro bem alto para caber a máquina inteira */}
+                                    <div className="w-full h-96 md:h-[600px] bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group mb-8 shadow-xl">
 
                                         {/* Ícone de fundo (só aparece se a imagem falhar) */}
                                         <HardDrive className="text-slate-600 mb-4 opacity-50" size={40} />
@@ -470,7 +464,7 @@ const HistoryInfographic = () => {
 
                                 {/* --- IMAGEM: CRIADORES DO BASIC (Versão Super Alta) --- */}
                                 {/* AQUI ESTÁ O SEGREDO: 'h-[800px]' define a altura */}
-                                <div className="w-full h-[800px] bg-slate-800 rounded-xl border-2 border-dashed border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group shadow-xl mb-8">
+                                <div className="w-full h-[500px] md:h-[800px] bg-slate-800 rounded-xl border-2 border-dashed border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group shadow-xl mb-8">
 
                                     <HardDrive className="text-slate-600 mb-4 opacity-50" size={40} />
 
@@ -547,7 +541,7 @@ const HistoryInfographic = () => {
                                         Devido aos altos custos e competição feroz, a GE vendeu sua divisão de computadores para a Honeywell em 1970.
                                     </p>
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Os primeiros computadores da GE para uso comercial surgiram no final da década de 1950 e início da década de 1960. Exemplo:
 
                                     GE-225 (1960) — foi um dos primeiros mainframes comerciais da GE, usados inclusive por John Kemeny e Thomas Kurtz para desenvolver a linguagem de programação BASIC.</p>
@@ -564,7 +558,7 @@ const HistoryInfographic = () => {
 
                                     <li>Industria (controle de produção).</li>
                                 </ul>
-                                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                     Embora mainframe e servidores atendam propostas semelhante (processamento de dados e serviços em rede),
                                     eles não são a mesma coisa, mas tem pontos em comum e diferenças muito claras. <br /><br />
 
@@ -599,14 +593,17 @@ const HistoryInfographic = () => {
                             </div>
                         </div>
 
-                        {/* TABELA COMPARATIVA (Mantida embaixo, ocupando largura total) */}
+                        {/* TABELA COMPARATIVA RESPONSIVA */}
                         <div className="mt-16 bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
                             <div className="bg-slate-800/80 p-4 border-b border-slate-800 flex items-center gap-3">
                                 <Database className="text-blue-400" />
-                                <h3 className="text-lg font-bold text-white">Comparativo: Mainframes vs. Servidores Modernos</h3>
+                                <h3 className="text-lg font-bold text-white">Comparativo: Mainframes vs. Servidores</h3>
                             </div>
-                            <div className="overflow-x-auto">
-                                <table className="w-full text-sm text-left">
+
+                            {/* AQUI ESTÁ O TRUQUE: overflow-x-auto permite rolar */}
+                            <div className="overflow-x-auto pb-2">
+                                {/* AQUI ESTÁ O SEGREDO: min-w-[600px] força a tabela a ser larga */}
+                                <table className="w-full text-sm text-left min-w-[600px]">
                                     <thead className="bg-slate-900/50 text-blue-400 uppercase font-bold text-xs tracking-wider">
                                         <tr>
                                             <th className="p-5">Aspecto</th>
@@ -618,19 +615,17 @@ const HistoryInfographic = () => {
                                         <tr>
                                             <td className="p-5 font-bold text-slate-400 sans-serif">Tamanho Físico</td>
                                             <td className="p-5 bg-blue-900/5 border-x border-slate-800">Ocupa salas inteiras, múltiplos racks pesados.</td>
-                                            <td className="p-5">Compactos (Blades 1U/2U) ou infraestrutura 100% virtual na nuvem.</td>
+                                            <td className="p-5">Compactos (Blades 1U/2U) ou infraestrutura 100% virtual.</td>
                                         </tr>
                                         <tr>
                                             <td className="p-5 font-bold text-slate-400 sans-serif">Escalabilidade</td>
-                                            <td className="p-5 bg-blue-900/5 border-x border-slate-800">Vertical (Scale-Up): Adiciona-se mais poder à mesma máquina.</td>
-                                            <td className="p-5">Horizontal (Scale-Out): Adicionam-se milhares de máquinas menores (Clusters).</td>
+                                            <td className="p-5 bg-blue-900/5 border-x border-slate-800">Vertical (Scale-Up): Mais poder na mesma máquina.</td>
+                                            <td className="p-5">Horizontal (Scale-Out): Milhares de máquinas menores.</td>
                                         </tr>
                                         <tr>
                                             <td className="p-5 font-bold text-slate-400 sans-serif">Modelo de Custo</td>
                                             <td className="p-5 bg-blue-900/5 border-x border-slate-800">Capex Elevado: Investimento inicial milionário.</td>
-                                            <td className="p-5">Opex (Pay-as-you-go): Paga-se mensalmente pelo uso. E apenas oque consumir
-
-                                            </td>
+                                            <td className="p-5">Opex: Paga-se mensalmente pelo uso (Nuvem).</td>
                                         </tr>
                                         <tr>
                                             <td className="p-5 font-bold text-slate-400 sans-serif">Uso Típico</td>
@@ -641,7 +636,6 @@ const HistoryInfographic = () => {
                                 </table>
                             </div>
                         </div>
-
                     </div>
                 </article>
             </section>
@@ -659,7 +653,7 @@ const HistoryInfographic = () => {
                         {/* Marcador de Linha do Tempo */}
                         <div className="flex items-center gap-4 mb-12">
                             <div className="bg-cyan-500 h-px w-16"></div>
-                            <span className="text-cyan-400 font-mono font-bold text-lg">1945: O Modelo Teórico</span>
+                            <span className="text-cyan-400 font-mono font-bold text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg">1945: O Modelo Teórico</span>
                             <div className="bg-slate-800 h-px flex-1"></div>
                         </div>
 
@@ -862,12 +856,12 @@ const HistoryInfographic = () => {
                                         </h4>  <br />
 
                                         <div className="space-y-4 relative z-10">
-                                            <p className="text-slate-300 text-lg leading-relaxed text-justify font-medium">
+                                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify font-medium">
                                                 Também podemos adicionar no ciclo de busca e execução a etapa de <strong className="text-fuchsia-400">interrupção</strong>. <br /> <br />
                                                 Imagine-se desenvolvendo uma solução para uma multinacional frigorífica.
                                                 Em algum momento, um colaborador pode precisar parar uma máquina de corte ou esteira instantaneamente. <br /> <br />
                                             </p>
-                                            <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify">
                                                 Ele acionaria um <strong className="text-white bg-fuchsia-600 px-2 py-0.5 rounded text-sm uppercase tracking-wider">BOTÃO DE PARADA DE EMERGÊNCIA</strong>.
                                                 Nesse momento, um sinal de interrupção (com dados de entrada) é enviado. <br /> <br />
 
@@ -883,7 +877,7 @@ const HistoryInfographic = () => {
                                                     className="w-full h-auto object-contain opacity-95 hover:opacity-100 transition-opacity duration-500 hover:scale-105 transform"
                                                 />
                                             </div> <br />
-                                            <p className="text-slate-300 text-lg leading-relaxed text-justify">Se ao final do ciclo de interrupção o programa não for finalizado o programa volta para a etapa de busca novamente. </p><br /> <br />
+                                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify">Se ao final do ciclo de interrupção o programa não for finalizado o programa volta para a etapa de busca novamente. </p><br /> <br />
                                         </div>
 
                                         {/* Ícone de decorativo no fundo */}
@@ -923,7 +917,7 @@ const HistoryInfographic = () => {
 
                             <div className="grid md:grid-cols-2 gap-12">
                                 <div>
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         A importância dos estudos de Von Neumann. <br /> <br />
 
                                         Apesar da limitação, o modelo de von Neumann foi essencial para a padronização da computação.
@@ -971,7 +965,7 @@ const HistoryInfographic = () => {
                                             />
                                         </p> <br />
                                     </div> <br />
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         A proposta de von Neumann tornou possível o que conhecemos hoje como software: instruções
                                         armazenadas em memória, podendo ser facilmente modificadas, substituídas, copiadas e até
                                         carregadas a partir de outra máquina. <br /> <br />
@@ -984,7 +978,7 @@ const HistoryInfographic = () => {
                                         e possibilitou a criação de sistemas operacionais.
                                     </p>
 
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         Alguns registros trazem informações sobre os modelos de monitores da época e a tecnologia utilizava
                                         predominantemente tubos de raios catódicos para exibir imagens, resoluções e cores eram limitadas.
                                         Então vamos definir o período entre as décadas de 50 até o final da década de 70 como a
@@ -992,7 +986,7 @@ const HistoryInfographic = () => {
                                         também existem outras nomenclaturas como raios cinescópio, ou popularmente chamado de tubo de imagem.
                                     </p>
 
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">Modelo: IBM 850 CRT Display, DEC VT05
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">Modelo: IBM 850 CRT Display, DEC VT05
 
                                         Fabricantes: IBM, DEC (Digital Equipment Corporation), RCA (Radio Corporation of America).
 
@@ -1008,7 +1002,7 @@ const HistoryInfographic = () => {
                                     <h4 className="text-xl font-bold text-red-500 mb-4 flex items-center gap-2">
                                         <AlertTriangle className="w-6 h-6" /> O Legado Tóxico
                                     </h4>
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         Monitores CRT são um pesadelo ambiental. O vidro do tubo contém altas concentrações
                                         de <strong>Chumbo</strong> (para bloquear a radiação X), além de Bário e Estrôncio no painel frontal.
                                     </p>
@@ -1020,7 +1014,7 @@ const HistoryInfographic = () => {
                                         No Brasil, a Lei nº 12.305/2010 obriga a logística reversa para estes equipamentos.
                                     </div> <br />
 
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         Vamos entender o funcionamento do tubo de raio catódico,
                                         que entre todos os componentes de um computador o
                                         monitor é o que menos atrai a área de reciclagem, e um dos fatores é por compor elementos que podem ser perigosos como o chumbo,
@@ -1034,7 +1028,7 @@ const HistoryInfographic = () => {
                                     </p>
 
 
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">O vidro presente no painel pode ser reaproveitado mais facilmente devido à ausência de chumbo em sua composição.
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">O vidro presente no painel pode ser reaproveitado mais facilmente devido à ausência de chumbo em sua composição.
                                         Porém, o vidro do funil e do pescoço necessita de processos nos quais o chumbo possa ser retirado, permitindo o
                                         reaproveitamento do vidro e do chumbo de forma separada. As partes poliméricas e metálicas dos monitores são mais
                                         facilmente reaproveitadas, em resumo são 100% recicladas o que reduz a quantidade de lixo eletrônico depositado no
@@ -1071,7 +1065,7 @@ const HistoryInfographic = () => {
                                             Anatomia Interna: Canhão de Elétrons e Deflexão Magnética
                                         </div>
                                     </div> <br />
-                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                    <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                         O pescoço contém a maior parte de chumbo na composição do CRT e em sua composição vamos encontrar
                                         óxidos de silício, de chumbo, de potássio e de sódio.
                                         O funil representa um terço de todo peso CRT está localizado na parte interna da carcaça, em sua
@@ -1106,7 +1100,7 @@ const HistoryInfographic = () => {
                                 </h3>
                             </div>
 
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">Finalizando essa nossa primeira etapa de estudo sobre o CRT, vale a pena dar destaque a mais um projeto da época chamado OXO. O ano era 1952 Alexandre Douglas era um candidato a doutorado na universidade de Cambridge - Londres, e projetou um dos primeiros jogos de computador, OXO dava a opção de o usuário escolher entre começar ou deixar que a máquina fizesse o primeiro movimento.
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">Finalizando essa nossa primeira etapa de estudo sobre o CRT, vale a pena dar destaque a mais um projeto da época chamado OXO. O ano era 1952 Alexandre Douglas era um candidato a doutorado na universidade de Cambridge - Londres, e projetou um dos primeiros jogos de computador, OXO dava a opção de o usuário escolher entre começar ou deixar que a máquina fizesse o primeiro movimento.
 
                                 O EDSAC era o computador onde o jogo foi desenvolvido exibia na tela o tabuleiro do jogo em 35 x 15 pontos. Ele realmente era lindo. </p>
 
@@ -1126,13 +1120,13 @@ const HistoryInfographic = () => {
                                     }}
                                 />
                             </div> <br />
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                 A empresa IBM junto com um programa de marketing massivo no ano de 1981 anuncia o seu próprio computador
                                 pessoal formalmente conhecido como IBM Modelo 5150, que se baseava no microprocessador intel 8088 de 4,77 MHz e
                                 usava o sistema operacional MS-DOS (Microsoft Disk Operating System)
                                 da Microsoft marcando uma revolução empresarial dando início a criação de um vasto ecossistema de software.
                             </p>
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                 O software Basic para o recém-lançado IBM PC, é o início de uma longa parceria entre a IBM e a Microsoft,
                                 que Bill Gates e Paul Allen haviam fundado apenas seis anos antes.
                                 Introdução de monitores coloridos CRT, melhorando a experiência visual dos usuários. Embora tenha sido
@@ -1152,7 +1146,7 @@ const HistoryInfographic = () => {
                             <br />
 
 
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                 Década de 1980 - 1990: Transição para Telas Planas e Monitores Coloridos
                                 A população dos monitores CRT coloridos continua, enquanto se dá início ao surgimento dos primeiros
                                 com telas planas, então se inicia a transição para telas com tecnologia LCD oferecendo menor consumo
@@ -1209,7 +1203,7 @@ const HistoryInfographic = () => {
                                     <div className="w-16 h-1 bg-slate-800 mx-auto rounded-full my-6"></div>
                                     {/* CONTEÚDO DE TEXTO (Configurado para ser 'juntinho' e centralizado) */}
                                     <div className="space-y-6 text-slate-300 text-sm md:text-base leading-snug">
-                                        <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                        <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                             Evolução dos Monitores Apple Studio Display
 
                                             Entre 1999 e 2001, a Apple lançou monitores Studio Display em versões CRT, inicialmente com modelos
@@ -1224,7 +1218,7 @@ const HistoryInfographic = () => {
 
                                             {/* DESTAQUE: PLASMA (Caixa Roxa para diferenciar) */}
                                             <div className="bg-purple-900/20 border-2 border-purple-500/20 p-6 rounded-xl mx-auto max-w-3xl mt-8">
-                                                <h4 className="text-lg font-bold text-purple-300 mb-2">Evolução: O Plasma</h4>
+                                                <h4 className="text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg font-bold text-purple-300 mb-2">Evolução: O Plasma</h4>
 
                                                 No início dos anos 2000, o mercado de monitores foi transformado por grandes
                                                 fabricantes que dominaram tanto o segmento de CRTs quanto a transição para os monitores LCD. <br />
@@ -1248,7 +1242,7 @@ const HistoryInfographic = () => {
                                         <h3 className="text-xl font-bold text-white mt-8 mb-4">
                                             A Revolução das Telas: <span className="text-cyan-400">Do Tubo (CRT) ao Cristal Líquido</span>
                                         </h3>
-                                        <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                        <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                             A revolução das telas: Do Tubo (CRT) ao cristal líquido
 
                                             Depois de passarmos a conhecer a era dos monitores (CRT) e alcançarmos a reprodução das cores em uma
@@ -1287,7 +1281,7 @@ const HistoryInfographic = () => {
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-slate-300 text-lg  leading-relaxed text-justify mb-6">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg  leading-relaxed text-justify mb-6">
                                 Essa evolução das últimas décadas transformou radicalmente a forma como interagimos com conteúdo visuais.
                                 Com esses avanços tecnológicos, vieram melhorias significativas na qualidade de imagem e maior precisão nas cores,
                                 resoluções mais altas partindo para o HD (720p), Full HD (1080p), chegando ao 4k e até 8k.
@@ -1400,7 +1394,7 @@ const HistoryInfographic = () => {
                             <h2 className="text-4xl font-bold text-white flex items-center gap-3">
                                 <Crosshair className="w-8 h-8 text-green-500" /> Alta Performance
                             </h2>
-                            <p className="text-slate-400 text-lg mt-2">Estudos de caso de monitores high-end citados no artigo.</p>
+                            <p className="text-slate-400 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg mt-2">Estudos de caso de monitores high-end citados no artigo.</p>
                         </div>
                         <div className="hidden md:block bg-slate-900 px-4 py-2 rounded-full border border-slate-700 text-slate-300 text-xs font-bold uppercase tracking-widest">
                             Tecnologia Atual (Estado da Arte)
@@ -1589,7 +1583,7 @@ const HistoryInfographic = () => {
 
                             {/* Só um ajuste na imagem interna para combinar com a borda externa se quiser: */}
                             {/* Troque o shadow magenta da imagem interna por um shadow verde também */}
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-6">
                                 Embora ainda não existam monitores MicroLED voltado ao consumidor final até o término desse artigo,
                                 essa tecnologia já é reconhecida como a evolução definitiva das telas.
                                 A imagem utilizada nesta seção serve como uma representação visual conceitual da qualidade esperada de um
@@ -1597,7 +1591,7 @@ const HistoryInfographic = () => {
                                 tecnologia pode oferecer.
                             </p>
 
-                            <div className="w-1/2 mx-auto aspect-video bg-slate-800 rounded-xl border-2 border-solid border-slate-800 flex flex-col items-center justify-center relative overflow-hidden group my-8 shadow-[0_0_30px_rgba(132,204,22,0.3)]">
+                            <div className="w-full md:w-1/2 mx-auto aspect-video bg-slate-800 rounded-xl border-2 border-solid border-slate-800 flex flex-col items-center justify-center relative overflow-hidden group my-8 shadow-[0_0_30px_rgba(132,204,22,0.3)]">
                                 {/* Usei um shadow lime suave aqui na imagem interna para combinar */}
                                 <Monitor className="text-slate-600 mb-4 opacity-50" size={40} />
                                 <p className="text-slate-500 font-mono text-sm">[]</p>
@@ -1609,7 +1603,7 @@ const HistoryInfographic = () => {
                                 />
                             </div>
 
-                            <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                            <p className="text-slate-300 text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-base md:text-lg leading-relaxed text-justify mb-8">
                                 O MicroLED (ou µLED) é uma tecnologia de display baseada em LEDs microscópicos inorgânico,
                                 onde cada pixel é composto por três emissores de luz (vermelho, verde e azul).
                                 Ao contrário das telas LCD (que dependem de retroiluminação) ou OLED (orgânicos),
