@@ -583,6 +583,70 @@ form .btn-enviar input:hover {
     /* 4. Ajuste no container "Baixa" e "Alta" para não colarem nas bordas */
     .escala-urgencia {
         gap: 5px; /* Espaço pequeno entre as legendas e os números */
+        display: flex;
+        flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo */
+        justify-content: space-between; /* Mantém 'Baixa' na esquerda e 'Alta' na direita */
+        width: 100%;
+        /* As legendas 'Baixa' e 'Alta' */
+    .legenda-escala {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #a09494;
+        margin-bottom: 5px; /* Um pequeno espaço antes dos números */
+    }
+
+    /* O container dos números (1 2 3 4 5) */
+    .numeros-escala {
+        order: 3; /* TRUQUE: Força este bloco a ir para a última posição (linha de baixo) */
+        width: 100%; /* Ocupa a largura total da tela */
+        display: flex;
+        justify-content: space-between; /* Espalha as bolinhas igualmente de ponta a ponta */
+        gap: 0 !important; /* Remove qualquer gap fixo que esteja atrapalhando */
+        margin-top: 10px; /* Espaço entre o texto 'Baixa/Alta' e as bolinhas */
+    }
+
+    /* Cada item individual (Número + Bolinha) */
+    .numeros-escala label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1; /* Faz cada número ocupar exatamente o mesmo espaço */
+        font-size: 1.3rem; /* Aumenta o número para facilitar leitura */
+    }
+
+    /* A bolinha em si (Aumentada para o dedo) */
+    .numeros-escala input[type="radio"] {
+        width: 28px;  /* Bem grande para facilitar o toque */
+        height: 28px;
+        margin-top: 8px;
+        accent-color: #fd8f00; /* Garante a cor laranja */
+        cursor: pointer;
+    }
+
+
+    /* --- 2. Ajuste do Motivo do Contato (Lista Vertical) --- */
+
+    .caixa-selecao {
+        padding: 15px; /* Reduz um pouco o padding geral */
+    }
+
+    .opcao-radio {
+        margin-bottom: 15px; /* Mais espaço entre as opções para não clicar errado */
+        align-items: flex-start; /* Alinha a bolinha ao topo do texto caso o texto quebre linha */
+    }
+
+    .opcao-radio span {
+        font-size: 1rem; /* Tamanho de texto confortável */
+        line-height: 1.3; /* Melhor leitura se o texto quebrar linha */
+        margin-top: 2px; /* Pequeno ajuste visual para alinhar com a bolinha */
+    }
+
+    .opcao-radio input[type="radio"] {
+        width: 24px; /* Bolinha maior */
+        height: 24px;
+        flex-shrink: 0; /* Impede que a bolinha amasse se o texto for grande */
+        margin-right: 10px;
+    }
     }
 }
 /*=============================================

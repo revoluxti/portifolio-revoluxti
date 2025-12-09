@@ -109,16 +109,16 @@ const HistoryInfographic = () => {
                     </hgroup>
 
 
-                    <div className="inline-flex flex-col md:flex-row items-center gap-4 bg-slate-800/50 p-2 pr-6 rounded-full border border-slate-700 backdrop-blur-sm">
+                    <div className="inline-flex flex-col md:flex-row items-center gap-4 bg-slate-800/50 p-6 md:p-2 md:pr-6 rounded-2xl md:rounded-full border border-slate-700 backdrop-blur-sm max-w-[90%] mx-auto">
                         <span className="bg-cyan-500 text-slate-900 p-3 rounded-full">
                             <Terminal size={20} />
                         </span>
-                        <div className="text-left">
+                        <div className="text-center md:text-left">
                             <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Autor do Artigo</p>
                             <p className="text-white font-bold">Lucas de Oliveira Santos</p>
                         </div>
                         <div className="h-8 w-px bg-slate-700 hidden md:block mx-4"></div>
-                        <div className="text-left">
+                        <div className="text-center md:text-left border-t border-slate-700 pt-4 md:pt-0 md:border-0 w-full md:w-auto mt-4 md:mt-0">
                             <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Curso</p>
                             <p className="text-white">Engenharia de Computação</p>
                         </div>
@@ -597,12 +597,12 @@ const HistoryInfographic = () => {
                         <div className="mt-16 bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
                             <div className="bg-slate-800/80 p-4 border-b border-slate-800 flex items-center gap-3">
                                 <Database className="text-blue-400" />
-                                <h3 className="text-lg font-bold text-white">Comparativo: Mainframes vs. Servidores</h3>
+                                <h3 className="text-lg font-bold text-white">Comparativo</h3>
                             </div>
 
-                            {/* AQUI ESTÁ O TRUQUE: overflow-x-auto permite rolar */}
-                            <div className="overflow-x-auto pb-2">
-                                {/* AQUI ESTÁ O SEGREDO: min-w-[600px] força a tabela a ser larga */}
+                            {/* ADICIONADO: overflow-x-auto para permitir rolar para o lado */}
+                            <div className="overflow-x-auto">
+                                {/* ADICIONADO: min-w-[600px] para forçar a tabela a ser larga e não esmagar o texto */}
                                 <table className="w-full text-sm text-left min-w-[600px]">
                                     <thead className="bg-slate-900/50 text-blue-400 uppercase font-bold text-xs tracking-wider">
                                         <tr>
