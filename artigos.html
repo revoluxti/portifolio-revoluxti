@@ -48,7 +48,8 @@
                     </ul>
                 </nav>
                 <div class="btn-contato">
-                    <a href="#"><button>CADASTRO</button></a>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdW33NxjG49HnSJMMQ4JYyy5KfWx1hJrYaUq8y1mhqLON7tQg/viewform?usp=header"><button>CADASTRO</button></a>
                 </div>
                 <div class="btn-abrir-menu" id="btn-menu">
                     <i class="bi bi-list"></i>
@@ -86,55 +87,199 @@
 
         <section class="secao-artigos">
             <div class="interface">
-                
+
                 <div class="categoria-container">
-                    <h2 class="titulo-categoria">Artigos <span>Inteligência Artificial (AI)</span></h2>
-                    
+                    <h2 class="titulo-categoria">Artigos <span> SALA DO ENIAC 1946</span></h2>
+
                     <div class="grid-artigos">
-                        <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado AI 1">
-                            <div class="overlay"><p>Nome do Curso 1</p></div>
+                        <div class="card-artigos"
+                            style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+
+                            <a href="Artigo00/dist/index.html" target="_blank" style="position: absolute; top: 0; left: 0; 
+                               width: 100%; height: 100%; z-index: 10;">
+                            </a>
+
+                            <iframe src="Artigo00/dist/index.html" scrolling="no" style="
+                                    position: absolute;
+                                    /* TIRA A MARGEM DE CIMA: Puxa o iframe para cima */
+                                    top: 5px; 
+                                    
+                                    /* CENTRALIZA E AJUSTA O TAMANHO (ZOOM) */
+                                    left: -25%;  /* Compensa o aumento da largura abaixo */
+                                    width: 150%; /* Renderiza a página interna mais larga (evita quebra de texto) */
+                                    height: 150%; /* Renderiza mais alta para ter espaço */
+                                    
+                                    /* DÁ O EFEITO DE MINITURA */
+                                    transform: scale(0.65); 
+                                    transform-origin: top center;
+                                    border-radius: 10px;
+                                    
+                                    border: none; 
+                                    pointer-events: none;
+                                ">
+                            </iframe>
+
+                            <div class="overlay"
+                                style="position: absolute; bottom: 0; width: 100%; pointer-events: none;">
+                                <p>Clique para Expandir</p>
+                            </div>
+
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado AI 2">
-                            <div class="overlay"><p>Nome do Curso 2</p></div>
+                            <!--<a href="" target="_self"></a>
+                            <img src="#" alt="Em produção">-->
+                            <div class="overlay">
+                                <p>Aguarde .. . .</p>
+                            </div>
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado AI 3">
-                            <div class="overlay"><p>Nome do Curso 3</p></div>
+                            <!--<a href=""></a>
+                            <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                            <div class="overlay">
+                                <p>Aguarde .. . .</p>
+                            </div>
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado AI 4">
-                            <div class="overlay"><p>Nome do Curso 4</p></div>
+                            <div class="card-artigos">
+                                <!--<a href=""></a>
+                                <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                                <div class="overlay">
+                                    <p>Aguarde .. . .</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="categoria-container">
                     <h2 class="titulo-categoria">Artigos <span>Hardware</span></h2>
-                    
+
                     <div class="grid-artigos">
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado DB 1">
-                            <div class="overlay"><p>SQL Fundamentals</p></div>
+                            <div class="card-artigos">
+                                <!--<a href=""></a>
+                                <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                                <div class="overlay">
+                                    <p>Aguarde .. . .</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado DB 2">
-                            <div class="overlay"><p>NoSQL Expert</p></div>
+                            <div class="card-artigos">
+                                <!--<a href=""></a>
+                                <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                                <div class="overlay">
+                                    <p>Aguarde .. . .</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado DB 3">
-                            <div class="overlay"><p>Data Modeling</p></div>
+                            <div class="card-artigos">
+                                <!--<a href=""></a>
+                                <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                                <div class="overlay">
+                                    <p>Aguarde .. . .</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-artigos">
-                            <img src="RHNO/placeholder-cert.jpg" alt="Certificado DB 4">
-                            <div class="overlay"><p>Oracle Admin</p></div>
+                            <div class="card-artigos">
+                                <!--<a href=""></a>
+                                <img src="RHNO/placeholder-cert.jpg" alt="Capítulo 3">-->
+                                <div class="overlay">
+                                    <p>Aguarde .. . .</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+            onload="if(submitted) {alert('Mensagem enviada com sucesso! Em breve entraremos em contato.'); window.location.reload();}"></iframe>
+
+        <section class="formulario reveal">
+            <div class="interface">
+                <h2 class="titulo">Fala comigo</h2>
+
+                <form action="https://formsubmit.co/revoluxti@gmail.com" method="POST" id="form-contato">
+
+                    <input type="hidden" name="_subject" value="Novo contato via Portfólio!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="">
+                    <input type="hidden" name="_template" value="table">
+
+                    <input type="text" name="nome" placeholder="Seu nome completo" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" required>
+                    <input type="tel" name="whatsapp" placeholder="Seu celular" required>
+
+                    <div class="caixa-selecao">
+                        <label class="titulo-input">Qual o motivo do contato?</label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Treinamento e Capacitação">
+                            <span>Treinamento e Capacitação de Equipes</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Orçamento">
+                            <span>Solicitação de Orçamento (Serviços e Projetos)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Pentest">
+                            <span>Pentest e Avaliação de Vulnerabilidades</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Consultoria LGPD">
+                            <span>Consultoria em Segurança e LGPD</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Desenvolvimento Web">
+                            <span>Desenvolvimento Web (Sites/Sistemas)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Forense">
+                            <span>Análise Forense Imediata (Emergência)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Outro">
+                            <span>Outro Assunto</span>
+                        </label>
+                    </div>
+
+                    <div class="caixa-selecao">
+                        <label class="titulo-input">Qual a urgência da sua solicitação?</label>
+                        <div class="escala-urgencia">
+                            <span class="legenda-escala">Baixa</span>
+                            <div class="numeros-escala">
+                                <label>1<input type="radio" name="urgencia" value="1"></label>
+                                <label>2<input type="radio" name="urgencia" value="2"></label>
+                                <label>3<input type="radio" name="urgencia" value="3"></label>
+                                <label>4<input type="radio" name="urgencia" value="4"></label>
+                                <label>5<input type="radio" name="urgencia" value="5"></label>
+                            </div>
+                            <span class="legenda-escala">Alta</span>
+                        </div>
+                    </div>
+
+                    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+
+                    <div class="btn-enviar">
+                        <input type="submit" value="ENVIAR">
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <script>var submitted = false;</script>
     </main>
 
     <footer>
@@ -143,16 +288,45 @@
                 <p><i class="bi bi-envelope-fill"></i> <a href="mailto:contato@revoluxti.com">contato@revoluxti.com</a>
                 </p>
                 <div class="btn-social">
-                    <a href="#"><button><i><i class="bi bi-linkedin"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-github"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-whatsapp"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-telegram"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-instagram"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-youtube"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-facebook"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-twitter-x"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-discord"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-twitch"></i></i></button></a>                    
+                    <a href="https://www.linkedin.com/in/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-linkedin"></i></i></button>
+                    </a>
+
+                    <a href="https://github.com/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-github"></i></i></button>
+                    </a>
+
+                    <a href="https://www.youtube.com/@revoluxti" target="_blank">
+                        <button><i><i class="bi bi-youtube"></i></i></button>
+                    </a>
+
+                    <a href="https://wa.me/5546991305656" target="_blank">
+                        <button><i><i class="bi bi-whatsapp"></i></i></button>
+                    </a>
+
+                    <a href="https://t.me/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-telegram"></i></i></button>
+                    </a>
+
+                    <a href="https://www.facebook.com/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-facebook"></i></i></button>
+                    </a>
+
+                    <a href="https://www.instagram.com/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-instagram"></i></i></button>
+                    </a>
+
+                    <a href="https://x.com/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-twitter-x"></i></i></button>
+                    </a>
+
+                    <a href="https://www.twitch.tv/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-twitch"></i></i></button>
+                    </a>
+
+                    <a href="https://discord.gg/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-discord"></i></i></button>
+                    </a>
                 </div>
                 <p>&copy; 2025 REVOLUXTI. All rights reserved.</p>
             </div>

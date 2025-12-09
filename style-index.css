@@ -110,12 +110,12 @@ header .grid-container {
 /* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
     display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
-    padding: 0 15px; /* Adiciona espaçamento lateral entre os itens do menu. */
+    padding: 0 35px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
 /* <a> (links) do .menu-desktop */
 .menu-desktop a {
-    color: var(--cor-texto-secundario); /* Usa a variável de cor cinza. */
+    color: var(--cor-de-abobora); /* Usa a variável de cor cinza. */
     text-decoration: none; /* Remove o sublinhado padrão dos links. */
     font-size: 18px; /* Tamanho da fonte dos links. */
     position: relative; /* Necessário para que o pseudo-elemento '::after' (a linha animada) possa ser posicionado em relação a ele. */
@@ -124,11 +124,11 @@ header .grid-container {
 
 /* :hover -> Efeito que acontece quando o ponteiro do rato está sobre o link. */
 .menu-desktop a:hover {
-    color: white; /* Muda a cor do texto para branco. */
+    color: var(--cor-texto-secundario); /* Muda a cor do texto para branco. */
     transform: scale(1.05); /* Aumenta ligeiramente o tamanho do texto (efeito de zoom). */
 }
 
-/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, que usamos para a linha animada. */
+/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, para a linha animada embaico de cada link. */
 .menu-desktop a::after {
     content: ''; /* Esta propriedade é obrigatória para que o pseudo-elemento seja criado, mesmo que esteja vazio. */
     width: 0%; /* A linha começa com largura zero, ou seja, invisível. */
@@ -154,6 +154,12 @@ header .grid-container {
     color: black; /* Cor do texto do botão. */
     border: 0; /* Remove a borda padrão do botão. */
     border-radius: 30px; /* Deixa as pontas do botão completamente arredondadas. */
+}
+
+/* Efeito de zoom e brilho ao passar o mouse no botão CADASTRO */
+.btn-contato button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
+    box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado */
 }
 
 /*=============================================
@@ -410,131 +416,336 @@ main {
     margin: 0 auto;
 }
 
-/*--- Seção de Especialidades ---*/
-.especialidades {
-    padding: 80px 0;
+/*================================================================================
+  AJUSTES DE USABILIDADE (LINKS EM CARDS)
+================================================================================*/
+
+/* 1. Estiliza o Link Wrapper para que ele ocupe a célula do Grid */
+.especialidade-card-link {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit;      /* Garante que o link herde a cor do texto do Box */
+
+    height: 100%;        /* Crucial para que o Box ocupe a altura total do grid */
 }
 
-
-/* .especialidades-box -> O container que organiza os três itens de especialidades. */
-.especialidades-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de larguras iguais. */
-    gap: 30px;
-}
-
-/* .especialidade-item -> Cada um dos três blocos de especialidades. */
-.especialidade-item {
-    text-align: center;
-    padding: 30px;
-    border: 2px solid var(--cor-borda);
-    border-radius: 10px;
-    transition: .3s;
-}
-
-/* :hover no .especialidade-item */
-.especialidade-item:hover {
-    transform: scale(1.05);
-    border-color: #ffcc00a1;
-    box-shadow: 0 0 15px #ffcc00a1;
-}
-
-/* <i> (ícone) dentro de .especialidade-item */
-.especialidade-item i {
-    font-size: 4rem;
-    color: #ffcc00a1;
-    margin-bottom: 20px;
-}
-
-/* <h3> dentro de .especialidade-item */
-.especialidade-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--cor-texto-secundario);
-}
-.especialidade-item p{
-    color: var(--cor-texto-secundario);
-}
-
-/*Estilo do formulário de contato*/
-section.formulario {
-    padding: 80px 4%;
-    /*poderia ser feito uma classe global e aplicar para as seções, mas a forma separa eéh para cada classe poder ser alterada criando uma classe global é só chamar no html*/
+/* 2. Aplica o Cursor e Corrige o Comportamento do Box Interno */
+.especialidades .especialidades-box {
+    /* O cursor pointer é automaticamente herdado do <a>, mas é bom garantir. */
+    cursor: pointer; 
     
+    /* Regras de transição e hover já existentes: */
+    transition: 0.4s; 
+    
+    /* ... (o restante dos seus estilos de borda e sombra) ... */
 }
-.formulario h2{
-    text-align: center;
-    color: #df3d3dbb;
+
+/* Garante que os títulos dentro do link usem a cor branca/dourada corretamente */
+.especialidade-card-link h3 {
+    color: white; /* Ou a cor que você desejar para o título */
 }
-form {
-    max-width: 500px;
-    /*formulario independentemente do tamanho da tela nunca vai passar de 500px de largura*/
-    margin: 0 auto;
-    /*para centralizar o formulario*/
-    /*para colocar as caixas uma embaixo da outra tem duas formas diferentes: input display block aí todos campos vai ficar um embaixo do outro, ou aplicando display:flax*/
+
+.especialidade-card-link p {
+    color: var(--cor-texto-secundario); 
+}
+/* Container do Grid: Garante 3 colunas e espaçamento */
+.especialidades-grid {
     display: flex;
-    /*ajusta alinhadamente todo conteudo*/
-    justify-content: center;
-    /*centraliza todo conteudo*/
-    flex-direction: column;
-    /*coloca os conteudos em coluna*/
-    gap: 10px;
-    /*espaçamento*/
-    margin-top: 40px;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 40px 30px; /* Mais espaço vertical (40px) do que horizontal (30px) */
+    padding-bottom: 40px;
 }
 
-/*estilizar os campos, form imput chamando as imputs da tag form*/
-form input, form textarea{
-    width: 100%;
-    /*oculpar 100% da tela*/
-    background-color: #b3111185;
-    border: 0;
-    /*tira as bordas do input*/
-    outline: 0;
-    /*tirar a linha que envolve*/
-    padding: 20px 15px;
-    /*em cima embaixo, esquerda direita*/
-    border-radius: 15px;
-    color: #fff;
-    /*cor da letra*/
-    font-size: 20px;
-    /*tamanho da fonte*/
-}
-form .btn-enviar input:hover {
-    box-shadow: 0px
-        /*espaçamento vertical*/
-        0px
-        /*espaçamento laterais*/
-        8px
-        /*espalhamento*/
-        var(--cor-destaque-dourado)
-        /*color do botão*/
-    ;
-    transform: scale(1.08);
-}
+/* Estilizando cada Box de Especialidade */
+.especialidades-box {
+    /* Cálculo para 3 boxes por linha com espaçamento (gap) de 30px */
+    width: calc(33.33% - 20px); 
+    min-width: 280px; 
+    flex-grow: 1; 
 
-/*Para alterar a placeholder... 
-form input::placeholder{...}*/
-
-
-form textarea{
-    resize:none;/*para a caixa de texto não redimencionar*/
-    max-height: 200px;/*altura maxima após abre a caixa com barra de rolamento*/
-}
-
-form .btn-enviar{
-    margin-top: 20px;/* margin do botão*/
+    color: white; /* Cor de texto padrão branca para contraste */
     text-align: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    position: relative; /* FUNDAMENTAL: Para posicionar o overlay O link de cobertura se posicionará em relação a este box*/
+    overflow: hidden; /* Para garantir que o overlay e a imagem fiquem dentro da borda Garante que o link não "vaze"*/
+    background-color: transparent; /* Removido o fundo preto */
+
+    /* Garante que o conteúdo (texto/ícone) fique por cima do overlay */
+    z-index: 1;
     
+    /* ESTILO DE BORDA E SOMBRA (REVOLUXTI PADRÃO) */
+    border: 2px solid var(--cor-borda); /* Borda Vermelho Escuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    transition: 0.3s;
 }
 
-form .btn-enviar input[type=submit]{/*para declarar o tipo especifico da input para trabalharmos se não for determinado ele vai aplicar para todos input que tenha dentro das classes */
-width: 120px;
-background-color: #b3111185;
-color:  #ffcc006b;/*cor da letra*/
-font-weight: 700 ;/*peso da fonte*/
-cursor: pointer;
-transition: .2s;
+/* EFEITO HOVER (ZOOM E DESTAQUE) */
+.especialidades-box:hover {
+    transform: scale(1.05);
+    /* Sombra de destaque: Vermelho principal para efeito Red Team */
+    box-shadow: 0 0 25px var(--cor-destaque-dourado); 
+    border: 2px solid var(--cor-destaque-dourado);
+}
+/* O conteúdo interno (i, h3, p) deve ficar na camada de cima */
+.especialidades-box i, 
+.especialidades-box h3, 
+.especialidades-box p {
+    position: relative; 
+    z-index: 2; /* Garante que o texto/ícone fique acima de todas as imagens e overlays */
+}
+
+/* ÍCONES E TEXTOS */
+.especialidades-box i {
+    font-size: 4rem; 
+    color: var(--cor-destaque-dourado); /* Ícone em DOURADO */
+    transition: 0.3s;
+}
+
+.especialidades-box:hover i {
+    color: var(--cor-principal); /* Ícone em VERMELHO no hover */
+}
+/* --- Overlay (Camada de Sombra/Contraste) --- */
+/* Esta camada cobre a imagem de fundo para que o texto fique legível. */
+.especialidades-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    /* AÇÃO PRINCIPAL: Camada preta semi-transparente */
+    /* O valor rgba pode ser ajustado para controlar a "sombra" */
+    background: rgba(0, 0, 0, 0.75); /* Fundo preto com 75% de opacidade */
+    
+    /* Efeito de transição na opacidade no hover (opcional) */
+    transition: background 0.3s; 
+}
+
+/* Efeito de hover: Diminui a opacidade do overlay para a imagem aparecer mais */
+.especialidades-box:hover::after {
+    background: rgba(0, 0, 0, 0.5); /* Sombra mais clara no hover */
+}
+.full-card-link {
+    position: absolute; /* Retira o link do fluxo normal e permite posicionamento livre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Garante que o link esteja acima de todo o conteúdo (texto e ícones) */
+    
+    text-decoration: none; /* Remove o sublinhado, que poderia aparecer de forma estranha */
+    /* Fundo totalmente transparente. Nenhuma cor deve aparecer. */
+    background-color: transparent; 
+}
+
+/* --- Imagem de Fundo por Box (Controle Individual) --- */
+
+/* 1. Desenvolvimento */
+.box-dev {
+    background: url('RHNO/background-dev.png') no-repeat center center/cover;
+}
+
+/* 2. Banco de dados */
+.box-db {
+    background: url('RHNO/background-db.png') no-repeat center center/cover;
+}
+
+/* 3. Redes */
+.box-redes {
+    background: url('RHNO/background-redes.png') no-repeat center center/cover;
+}
+
+/* 4. Cloud Computing */
+.box-cloud {
+    background: url('RHNO/beckground-cloudComputing.jpeg') no-repeat center center/cover;
+}
+
+/* 5. Cyber Security */
+.box-cyber {
+    background: url('RHNO/beckground-pentest.png') no-repeat center center/cover;
+}
+
+/* 6. Pentest */
+.box-pentest {
+    background: url('RHNO/force_rhno.jpeg') no-repeat center center/cover;
+}
+
+.especialidades-box h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: white; 
+    font-weight: 700;
+}
+
+.especialidades-box p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--cor-texto-secundario); 
+    text-align: justify; 
+    text-align-last: center; 
+}
+
+/*=============================================
+7. ESTILOS DO FORMULÁRIO (ATUALIZADO E COMENTADO)
+=============================================*/
+/* section.formulario -> A seção que envolve todo o formulário. */
+section.formulario {
+    padding: 80px 4%; /* Espaçamento interno: 80px em cima/baixo e 4% nas laterais. */
+}
+
+/* .formulario h2 -> O título "Fala comigo". */
+.formulario h2 {
+    text-align: center; /* Centraliza o título. */
+    color: #df3d3dbb; /* Cor avermelhada com transparência. */
+    margin-bottom: 30px; /* Espaço abaixo do título. */
+}
+
+/* form -> O container principal do formulário. */
+form {
+    max-width: 600px; /* Largura máxima aumentada para acomodar melhor as opções laterais. */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente na página. */
+    display: flex; /* Ativa o Flexbox para organizar os campos. */
+    flex-direction: column; /* Empilha os campos um embaixo do outro. */
+    gap: 15px; /* Espaço vertical entre cada campo. */
+}
+
+/* Estilo padrão para todos os Inputs de Texto e TextArea */
+form input[type=text],
+form input[type=email],
+form input[type=tel],
+form textarea {
+    width: 100%; /* Ocupa 100% da largura disponível no formulário. */
+    background-color: #b3111185; /* Fundo vermelho translúcido. */
+    border: 0; /* Remove a borda padrão. */
+    outline: 0; /* Remove a linha de destaque ao clicar. */
+    padding: 20px 15px; /* Espaçamento interno para o texto não colar nas bordas. */
+    border-radius: 15px; /* Bordas arredondadas. */
+    color: #fff; /* Texto branco. */
+    font-size: 18px; /* Tamanho da fonte legível. */
+    font-family: 'Antonio', sans-serif; /* Mesma fonte do resto do site. */
+}
+
+/* form textarea -> A caixa de mensagem grande. */
+form textarea {
+    resize: none; /* Impede que o usuário redimensione a caixa (arrastando o canto). */
+    max-height: 200px; /* Altura máxima permitida. */
+    height: 150px; /* Altura padrão inicial. */
+}
+
+/* --- NOVOS ESTILOS: Caixas de Seleção (Radio Buttons) --- */
+
+/* .caixa-selecao -> O fundo escuro que agrupa as opções de "Motivo" e "Urgência". */
+.caixa-selecao {
+    background-color: #2a0505; /* Fundo vinho bem escuro para destacar do fundo preto da página. */
+    padding: 20px; /* Espaçamento interno. */
+    border-radius: 15px; /* Bordas arredondadas. */
+    border: 1px solid #631212; /* Borda sutil vermelha. */
+}
+
+/* .titulo-input -> O texto da pergunta (ex: "Qual o motivo..."). */
+.titulo-input {
+    display: block; /* Ocupa a linha inteira. */
+    color: #fd8f00; /* Cor laranja/dourada para destaque. */
+    font-size: 1.2rem; /* Tamanho da fonte um pouco maior. */
+    margin-bottom: 15px; /* Espaço abaixo da pergunta. */
+    font-family: 'Alegreya SC', serif; /* Fonte estilosa para títulos. */
+}
+
+/* .opcao-radio -> Cada linha de opção (Bolinha + Texto). */
+.opcao-radio {
+    display: flex; /* Alinha a bolinha e o texto lado a lado. */
+    align-items: center; /* Centraliza verticalmente. */
+    gap: 10px; /* Espaço entre a bolinha e o texto. */
+    margin-bottom: 10px; /* Espaço entre uma opção e outra. */
+    cursor: pointer; /* Mãozinha ao passar o mouse. */
+    color: #f1f1f1; /* Cor do texto da opção. */
+    font-size: 1.1rem; /* Tamanho do texto. */
+    transition: .2s; /* Animação suave na cor. */
+}
+
+/* Efeito ao passar o mouse na opção */
+.opcao-radio:hover {
+    color: #fd8f00; /* Muda a cor do texto para laranja. */
+}
+
+/* Estilização da própria bolinha (Radio Button) */
+.opcao-radio input[type="radio"] {
+    accent-color: var(--cor-principal); /* Muda a cor padrão (azul) da bolinha para o vermelho do site. */
+    width: 20px; /* Tamanho da bolinha. */
+    height: 20px;
+}
+
+/* --- Estilo da Escala de Urgência (1 a 5) --- */
+
+/* .escala-urgencia -> O container flexível da escala. */
+.escala-urgencia {
+    display: flex; /* Alinha "Baixa", números e "Alta" na mesma linha. */
+    align-items: center; /* Centraliza verticalmente. */
+    justify-content: space-between; /* Espalha os itens (Esquerda, Centro, Direita). */
+    flex-wrap: wrap; /* Permite quebre de linha em telas muito pequenas. */
+    gap: 10px;
+    color: white;
+}
+
+/* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
+.numeros-escala {
+    display: flex; /* Coloca os números lado a lado. */
+    gap: 85px; /* Espaço entre cada número. */
+}
+
+/* .numeros-escala label -> O par (Número + Bolinha). */
+.numeros-escala label {
+    display: flex;
+    flex-direction: column; /* Número em cima, bolinha embaixo. */
+    align-items: center; /* Centralizados. */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Bolinha específica da escala */
+.numeros-escala input[type="radio"] {
+    margin-top: 5px; /* Espaço entre o número e a bolinha. */
+    accent-color: #fd8f00; /* Bolinha laranja para urgência (alerta). */
+    width: 18px;
+    height: 18px;
+}
+
+/* .legenda-escala -> Textos "Baixa" e "Alta". */
+.legenda-escala {
+    font-size: 0.9rem;
+    color: #a09494; /* Cor cinza. */
+    text-transform: uppercase; /* Letras maiúsculas. */
+}
+
+/* --- Botão Enviar --- */
+form .btn-enviar {
+    margin-top: 10px;
+    text-align: center; /* Centraliza o botão. */
+}
+
+form .btn-enviar input[type=submit] {
+    width: 150px; /* Largura do botão. */
+    background-color: #b3111185; /* Fundo vermelho. */
+    color: #ffcc006b; /* Texto amarelado. */
+    font-weight: 700; /* Negrito. */
+    cursor: pointer; /* Mãozinha. */
+    transition: .2s; /* Suavidade no hover. */
+    border: none;
+    padding: 15px 0; /* Altura do botão. */
+    border-radius: 30px; /* Bordas redondas. */
+    font-size: 1.2rem;
+}
+
+/* Efeito Hover (Zoom e Brilho) */
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado externo. */
+    transform: scale(1.1); /* Aumenta 10% de tamanho. */
+    color: #ffcc00; /* Texto fica amarelo vivo. */
 }
 
 /*=============================================
@@ -699,4 +910,22 @@ footer .line-footer a {
         /* height: auto; -> Garante que a altura da imagem seja calculada automaticamente para manter a proporção quadrada, sem distorcer a arte. */
         height: auto;
     }
+}
+
+/*=============================================
+8. ANIMAÇÃO SCROLL REVEAL (JS)
+=============================================*/
+
+/* .reveal -> Estado inicial do elemento (antes de aparecer na tela) */
+.reveal {
+    position: relative;
+    transform: translateY(150px); /* O elemento começa 150px mais para baixo */
+    opacity: 0; /* Começa invisível */
+    transition: 1s all ease; /* A mágica demora 1 segundo para acontecer suavemente */
+}
+
+/* .reveal.active -> Estado final (quando o JS adiciona a classe active) */
+.reveal.active {
+    transform: translateY(0); /* Volta para a posição original */
+    opacity: 1; /* Fica totalmente visível */
 }

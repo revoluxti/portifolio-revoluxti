@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de Blog REVOLUXTI</title>
+    <style>
+        /* RESET BÁSICO */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Georgia, serif; line-height: 1.6; background: #f4f4f4; color: #333; }
+
+        /* HEADER SEMÂNTICO (GLOBAL) */
+        body > header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 5px solid #e67e22;
+        }
+
+        /* NAV SEMÂNTICO */
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-family: sans-serif; }
+
+        /* CONTAINER FLEX PARA CONTEÚDO E LATERAL */
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        /* MAIN: CONTEÚDO PRINCIPAL */
+        main { flex: 2; }
+
+        /* ARTICLE: CONTEÚDO INDEPENDENTE */
+        article {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* HEADER DENTRO DE ARTICLE (SIM, PODE!) */
+        article header {
+            border-bottom: 1px solid #bbb5b5;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+        article h2 { color: #e67e22; }
+        .meta { font-size: 0.8em; color: #777; }
+
+        /* ASIDE: CONTEÚDO RELACIONADO/LATERAL */
+        aside {
+            flex: 1;
+            background: #e8e8e8;
+            padding: 20px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        /* FOOTER SEMÂNTICO */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            clear: both;
+        }
+
+        /* Responsividade */
+        @media (max-width: 700px) {
+            .container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Blog de Tecnologia</h1>
+        <p>Exemplo prático de layout REVOLUXTI</p>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Tutoriais</a>
+        <a href="#">Sobre</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article>
+                <header>
+                    <h2>O Poder da Informação</h2>
+                    <p class="meta">Publicado em <time datetime="2025-10-10">10 de Outubro de 2025</time> por Lucas</p>
+                </header>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas vitae molestiae quia! Iure eos, quasi officia consectetur.</p>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Entendendo o Aside</h2>
+                    <p class="meta">Publicado em <time datetime="2025-10-10">10 de Outubro</time></p>
+                </header>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa enim perspiciatis ex fugit non! Voluptas, optio doloribus nihil.</p>
+            </article>
+        </main>
+
+        <aside>
+            <h3>Sobre o Autor</h3>
+            <p>Lucas é especialista em Frontend e Cybersegurança.</p>
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
+            <h3>Categorias</h3>
+            <ul>
+                <li>Pentest</li>
+                <li>Frontend</li>
+                <li>Backend</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 REVOLUXTI - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

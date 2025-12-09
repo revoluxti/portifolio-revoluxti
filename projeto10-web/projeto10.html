@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Revolux Academy Brutalist</title>
+    <style>
+        /* PALETA: SWISS DARK */
+        :root {
+            --bg: #111111;
+            --line: #444444;
+            /* Linhas cinza */
+            --text: #eeeeee;
+            --accent: #0055ff;
+            /* Azul Klein (Internacional) */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            /* O Grid do Corpo define a estrutura */
+            display: grid;
+            grid-template-columns: 20% 1fr 20%;
+            /* Esquerda, Meio, Direita */
+            min-height: 100vh;
+            border-top: 10px solid var(--accent);
+            /* Faixa colorida no topo */
+        }
+
+        /* Linhas verticais decorativas do layout */
+        body::before,
+        body::after {
+            content: "";
+            background: var(--line);
+            width: 1px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            z-index: -1;
+        }
+
+        body::before {
+            left: 20%;
+        }
+
+        /* Linha da esq */
+        body::after {
+            right: 20%;
+        }
+
+        /* Linha da dir */
+
+        /* HEADER SEMÂNTICO: Vertical na esquerda */
+        header {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            line-height: 0.9;
+            font-weight: 900;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            /* Texto deitado */
+            transform: rotate(180deg);
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 15px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* MAIN: Conteúdo Central */
+        main {
+            padding: 60px 40px;
+            border-right: 1px solid var(--line);
+            /* Borda direita do main */
+        }
+
+        /* SECTION: Blocos de texto */
+        section {
+            margin-bottom: 80px;
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+        }
+
+        h2 {
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        p.lead {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            max-width: 600px;
+            color: #aaa;
+        }
+
+        /* ASIDE: Coluna da Direita */
+        aside {
+            padding: 60px 20px;
+        }
+
+        .meta-data {
+            font-family: monospace;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .meta-data strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                grid-template-columns: 1fr;
+                border-top: 5px solid var(--accent);
+            }
+
+            body::before,
+            body::after {
+                display: none;
+            }
+
+            header {
+                height: auto;
+                writing-mode: horizontal-tb;
+                flex-direction: row;
+                align-items: center;
+                border-bottom: 1px solid var(--line);
+                position: relative;
+            }
+
+            header h1 {
+                writing-mode: horizontal-tb;
+                transform: none;
+                font-size: 2rem;
+            }
+
+            main {
+                border: none;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Cadastro</a></li>
+                <li><a href="#">Suplementos</a></li>
+                <li><a href="#">Equipamentos</a></li>
+                <li><a href="#">Nossas Lojas</a></li>
+
+            </ul>
+        </nav>
+        <h1>GRID.<br>SYSTEM</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>REVOLUXTI</h2>
+            <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi excepturi, dolorum laudantium at illum, temporibus sed, 
+                eaquequi saepe.</p>
+        </section>
+
+        <section>
+            <h2>ACADÊMY & CROSSFIT</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #888;">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, recusandae vitae maxime eos error in,
+                </p>
+        </section>
+    </main>
+
+    <aside>
+        <div class="meta-data">
+            <strong>Loja filial 42</strong>
+            Revoluxti Inc.
+        </div>
+        <div class="meta-data">
+            <strong>ANO</strong>
+            2025
+        </div>
+        <div class="meta-data">
+            <strong>ESTILO</strong>
+            Brutalismo Dark
+        </div>
+    </aside>
+
+</body>
+
+</html>

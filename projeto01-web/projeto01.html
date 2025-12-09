@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI - Editorial</title>
+    <style>
+        /* PALETA: PAPER BLACK */
+        :root {
+            --bg: #121212;
+            --text: #e0e0e0;
+            --muted: #a0a0a0;
+            --gold: #c5a059; /* Dourado envelhecido */
+            --line: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            /* Times New Roman ou Georgia para ar clássico */
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        /* HEADER: Centralizado, estilo capa de jornal */
+        header {
+            text-align: center;
+            padding: 60px 0 20px 0;
+            border-bottom: 1px solid var(--line);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 { 
+            font-size: 3rem; 
+            font-weight: normal; 
+            letter-spacing: 2px;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 10px;
+        }
+        
+        .date-line {
+            font-family: sans-serif;
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* NAV: Linha fina dupla */
+        nav {
+            border-top: 1px solid var(--line);
+            border-bottom: 3px double var(--line); /* Borda dupla clássica */
+            padding: 10px 0;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+        }
+        
+        nav a { 
+            color: var(--text); 
+            text-decoration: none; 
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        nav a:hover { color: var(--gold); }
+
+        main {
+            max-width: 700px; /* Coluna estreita para leitura confortável */
+            margin: 50px auto;
+        }
+
+        /* Drop cap (Letra capitular grande) */
+        p:first-of-type::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        h2 { 
+            font-family: sans-serif; 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            margin-top: 40px; 
+            margin-bottom: 20px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin: 30px 0;
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="date-line">Segunda-feira, 08 de Dezembro, 2025</div>
+        <h1>THE REVOLUXTIMES</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Tecnologia</a></li>
+                <li><a href="#">Segurança</a></li>
+                <li><a href="#">Arquivos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <hgroup>
+                <h2 style="text-align: center; color: #fff; margin-top: 0; font-size: 2rem; font-family: serif; text-transform: none;">O Brasil por tráz "panos"</h2>
+                <p style="text-align: center; font-family: sans-serif; font-size: 0.9rem; color: var(--muted); margin-top: -10px;">Por Lucas Oliveira, Editor-Chefe</p>
+            </hgroup>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem optio unde voluptatem quidem rerum impedit a voluptates quisquam, commodi, totam eum molestias aperiam minus dicta laboriosam accusamus illo facere nihil?</p>
+
+            <blockquote>
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima sunt similique sit tempore rerum, totam obcaecati laborum provident aspernatur ipsum odit officiis quibusdam accusamus veritatis non eveniet veniam atque asperiores?."
+            </blockquote>
+
+            <h2>Estrutura Clássica</h2>
+            <p>Note como o cabeçalho (<code>&lt;header&gt;</code>) imita o topo de um jornal. A navegação é discreta, permitindo que o texto seja o protagonista absoluto. O contraste dourado traz um toque de luxo sem agredir a visão.</p>
+        </article>
+    </main>
+
+    <footer>
+        &copy; 2025 The Chronicle Media Group. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>

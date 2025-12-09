@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI PHOTO & VISUAL IMPACT.</title>
+    <style>
+        /* PALETA: MONO BOLD */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            border: 20px solid #222;
+            /* Moldura na tela */
+        }
+
+        /* HEADER: Gigante e Lateral */
+        header {
+            padding: 20px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 6vw;
+            /* Tamanho responsivo gigante */
+            line-height: 0.9;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        header h1 span {
+            display: block;
+            font-size: 1rem;
+            color: #555;
+            font-weight: 400;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: right;
+        }
+
+        nav li {
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #d4ff00;
+            /* Verde Ácido (Detalhe pequeno) */
+        }
+
+        /* MAIN */
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* 3 colunas */
+        }
+
+        /* ASIDE: Informações laterais */
+        aside {
+            padding: 20px;
+            border-right: 2px solid #333;
+            height: 100%;
+        }
+
+        aside h3 {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        aside p {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* SECTION: Conteúdo principal */
+        section {
+            grid-column: span 2;
+            /* Ocupa 2 colunas */
+            padding: 40px;
+        }
+
+        article {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #d4ff00;
+            /* Destaque Neon minimalista */
+        }
+
+        p.text {
+            font-size: 1.2rem;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        footer {
+            padding: 20px;
+            border-top: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 40px;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                border-right: none;
+                border-bottom: 2px solid #333;
+            }
+
+            section {
+                grid-column: span 1;
+            }
+
+            header h1 {
+                font-size: 15vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><span>PHOTO &</span>Visual.<br>Impact.</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Lojas</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside>
+            <h3>RETRATE MOMENTOS ESPECIAIS</h3>
+            <p>Design de âmbientes personalizados.</p>
+            <p>Cerimônias - Festas Corpotativas Formaturas - Desfiles - Álbuns</p> <br><br>
+            <p>Tranforme suas fotos ântigas em lindos quadros ou álbuns exclusivos e personalizados.
+                Restauração de imagens, Revelação - Molduras em Geral.
+            </p>
+        </aside>
+
+        <section>
+            <article>
+                <h2>Lançamentos 2026</h2>
+                <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sapiente atque illum,
+                    architecto ut illo accusantium dolorem quibusdam minus dolore possimus dicta assumenda et voluptate
+                </p>
+            </article>
+
+            <article>
+                <h2 style="color: #fff;">Conheça nossas frânquias</h2>
+                <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores inventore sapiente fugit,
+                    ex eligendi magni labore est eum doloribus et odio sint,
+                    voluptatum omnis esse dolores, perspiciatis nulla. Corrupti, distinctio. </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div>Revoluxti © 2025 Osasco-SP // Brasil</div>
+        
+    </footer>
+
+</body>
+
+</html>

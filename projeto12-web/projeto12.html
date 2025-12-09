@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica 3 - Carbon</title>
+    <style>
+        /* PALETA: CARBON GRAPHITE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #18181b; /* Grafite (Quase preto) */
+            color: #a1a1aa;      /* Cinza médio */
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* HEADER LATERAL */
+        header {
+            width: 280px;
+            background: #27272a; /* Cinza Chumbo */
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid #3f3f46;
+        }
+
+        header h1 { 
+            color: #fff;
+            font-size: 2rem; 
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+        header h1 span { color: #ea580c; } /* Laranja Queimado (Fosco) */
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        
+        nav a { 
+            color: #71717a; 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        nav a:hover { 
+            color: #ea580c; /* Laranja ao passar o mouse */
+            padding-left: 10px;
+        }
+
+        /* MAIN */
+        main {
+            margin-left: 280px; 
+            padding: 80px;
+            width: 100%;
+            background: #18181b; /* Continua o fundo grafite */
+        }
+
+        h2 { 
+            font-size: 2rem; 
+            color: #e4e4e7; /* Cinza Claro */
+            margin-bottom: 40px; 
+            padding-bottom: 20px;
+            border-bottom: 1px solid #3f3f46;
+        }
+
+        .galeria {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* CARD (FIGURE) */
+        figure {
+            background: #27272a; /* Mesmo tom do menu */
+            padding: 15px;
+            border-radius: 4px;
+            width: calc(33.333% - 20px);
+            min-width: 250px;
+            border: 1px solid #3f3f46;
+        }
+
+        figure:hover {
+            border-color: #ea580c; /* Borda laranja sutil ao passar o mouse */
+        }
+
+        figure img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            background: #18181b; 
+            margin-bottom: 15px;
+            border-radius: 2px;
+            opacity: 0.8; /* Imagem levemente apagada */
+            transition: opacity 0.3s;
+        }
+
+        figure:hover img { opacity: 1; /* Acende a imagem no hover */ }
+
+        figcaption {
+            font-weight: bold;
+            color: #e4e4e7;
+            font-size: 0.9rem;
+        }
+        
+        figcaption span {
+            display: block;
+            font-size: 0.75rem;
+            color: #71717a;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+        
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            header { width: 100%; position: relative; height: auto; padding: 40px 20px; border-right: none; border-bottom: 1px solid #3f3f46;}
+            main { margin-left: 0; padding: 40px 20px; }
+            figure { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CARBON<br><span>STUDIO</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Galeria</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Painel de Obras</a></li>
+            </ul>
+        </nav>
+        
+        <div style="margin-top: auto; color: #52525b; font-size: 0.8rem;">
+            &copy; 2025 - Carbon.<br> Studio de pintura.
+        </div>
+    </header>
+
+    <main>
+        <h2>Pinturas</h2>
+
+        <section class="galeria">
+            <figure>
+                <div style="width:100%; height:200px; background:#475569; border-radius:2px; margin-bottom:15px;"></div>
+                <figcaption>
+                    Pintura de tela
+                    <span>Moldura metal</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <div style="width:100%; height:200px; background:#334155; border-radius:2px; margin-bottom:15px;"></div>
+                <figcaption>
+                    Contemporâneo
+                    <span>Telas</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <div style="width:100%; height:200px; background:#1e293b; border-radius:2px; margin-bottom:15px;"></div>
+                <figcaption>
+                    Ilustrações
+                    <span>Quadros</span>
+                </figcaption>
+            </figure>
+        </section>
+        
+        <p style="margin-top: 50px; color: #71717a; line-height: 1.6;">
+            O tema Carbon usa tons de cinza quente para eliminar 100% da luz branca agressiva. As imagens ficam levemente escurecidas (<code>opacity: 0.8</code>) até você passar o mouse, garantindo conforto visual total.
+        </p>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUXTI - Blog</title>
+    <style>
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Courier New', monospace; background: #0d1117; color: #c9d1d9; }
+
+        /* HEADER SEMÂNTICO: Topo da página */
+        header {
+            background: #161b22;
+            border-bottom: 2px solid #238636;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 { color: #238636; text-transform: uppercase; }
+
+        /* NAV SEMÂNTICO: Links de navegação */
+        nav { background: #0d1117; padding: 10px; border-bottom: 1px solid #30363d; text-align: center; }
+        nav a { color: #58a6ff; text-decoration: none; margin: 0 15px; font-weight: bold; }
+
+        /* MAIN SEMÂNTICO: Conteúdo principal */
+        main { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+
+        /* ARTICLE SEMÂNTICO: Conteúdo que faz sentido sozinho (post) */
+        article {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        p{
+            text-align: center;
+        }
+
+        article h2 { color: #c9d1d9; margin-bottom: 10px; }
+        
+        /* TIME SEMÂNTICO: Define datas legíveis por máquina */
+        time { font-size: 0.8em; color: #8b949e; display: block; margin-bottom: 15px; }
+
+        footer { text-align: center; padding: 20px; color: #8b949e; font-size: 0.8em; border-top: 1px solid #30363d; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Code_REVOLUXTI</h1>
+        <p>Escritório de Tecnologia da informação</p>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Artigos</a>
+        <a href="#">Tutoriais</a>
+    </nav>
+
+    <main>
+        <article>
+            <header>
+                <h2>A Importância da Governaça em ambiêntes corporativos</h2>
+                <time datetime="2025-10-10">10 de Outubro, 2025</time>
+            </header>
+            <p>Prevenção é a melhor prática contra attacks cibernéticos corporativos. </p>
+        </article>
+
+        <article>
+            <header>
+                <h2>Conformidade com as normas de lei LGPD</h2>
+                <time datetime="2025-10-10">10 de Outubro, 2025</time>
+            </header>
+            <p>Análise de infraestrutura de redes - pentest - Politica de segurança</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Projeto REVOLUXTI</p>
+    </footer>
+
+</body>
+</html>

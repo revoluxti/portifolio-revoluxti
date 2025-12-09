@@ -2,17 +2,17 @@
 1. ESTILOS GERAIS E VARIÁVEIS
 =============================================*/
 
-/* :root -> Um seletor que representa o elemento raiz do documento (a tag <html>).
-
-   Variáveis CSS globais, que podem ser reutilizadas em todo o site. */
+/* :root -> Um seletor que representa o elemento raiz do documento (a tag <html>). 
+   É o melhor local para declarar variáveis CSS globais, que podem ser reutilizadas em todo o site. */
    :root {
     /* --nome-da-variavel: valor; -> Sintaxe para criar uma variável CSS. */
-    --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
     --cor-principal: #b3120c; /* Armazena a cor vermelha principal do site. */
-    --cor-destaque-dourado: #ffcc00a1; /* O tom dourado/amarelo com transparência que você definida. */
+    --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
     --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
+    /* Tom dourado/amarelo com transparência. */
+    --cor-destaque-dourado: #ffcc00a1;
     --cor-de-abobora: #fd8f00;
-}
+   }
 
 /* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
 * {
@@ -35,11 +35,11 @@ body {
     margin: 0 auto; /* Um truque clássico: margem 0 para cima/baixo e 'auto' para os lados, o que centraliza horizontalmente o elemento. */
     padding: 0 4%; /* Adiciona um preenchimento interno de 4% da largura do ecrã nos lados, para que o conteúdo não cole nas bordas. */
 }
+
 /* <button> -> Estilo geral que se aplica a todos os elementos <button> do site. */
 button {
-    cursor: pointer; /* Muda o ponteiro do mouse para uma "mãozinha", indicando que o elemento é clicável. */
+    cursor: pointer; /* Muda o ponteiro do rato para uma "mãozinha", indicando que o elemento é clicável. */
     transition: .2s; /* Adiciona uma animação suave de 0.2 segundos a qualquer mudança de propriedade (ex: no efeito :hover). */
-    
 }
 
 /* .titulo-secao -> Classe padrão para os títulos de cada seção (ex: "MINHAS ESPECIALIDADES"). */
@@ -49,13 +49,14 @@ button {
     text-align: center; /* Alinha o texto do título ao centro. */
     margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
 }
+
 /* <span> dentro de .titulo-secao -> Estiliza a parte colorida do título, que no HTML está dentro de uma tag <span>. */
 .titulo-secao span {
     color: var(--cor-principal); /* Aplica a cor vermelha que definimos na nossa variável global. */
 }
 
 /*=============================================
- 2. CABEÇALHO (HEADER)
+ CABEÇALHO (HEADER)
 =============================================*/
 /* <header> -> Estilos para a seção do cabeçalho, a barra no topo da página. */
 header {
@@ -109,25 +110,25 @@ header .grid-container {
 /* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
     display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
-    padding: 0 15px; /* Adiciona espaçamento lateral entre os itens do menu. */
+    padding: 0 35px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
 /* <a> (links) do .menu-desktop */
 .menu-desktop a {
-    color: var(--cor-texto-secundario); /* Usa a variável de cor cinza. */
+    color: var(--cor-de-abobora); /* Usa a variável de cor cinza. */
     text-decoration: none; /* Remove o sublinhado padrão dos links. */
     font-size: 18px; /* Tamanho da fonte dos links. */
     position: relative; /* Necessário para que o pseudo-elemento '::after' (a linha animada) possa ser posicionado em relação a ele. */
     transition: .2s; /* Animação suave para a mudança de cor e tamanho. */
 }
 
-/* :hover -> Efeito que acontece quando o ponteiro do mouse está sobre o link. */
+/* :hover -> Efeito que acontece quando o ponteiro do rato está sobre o link. */
 .menu-desktop a:hover {
-    color: white; /* Muda a cor do texto para branco. */
+    color: var(--cor-texto-secundario); /* Muda a cor do texto para branco. */
     transform: scale(1.05); /* Aumenta ligeiramente o tamanho do texto (efeito de zoom). */
 }
 
-/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, que usamos para a linha animada. */
+/* ::after -> Cria um pseudo-elemento DEPOIS do conteúdo do link, para a linha animada embaico de cada link. */
 .menu-desktop a::after {
     content: ''; /* Esta propriedade é obrigatória para que o pseudo-elemento seja criado, mesmo que esteja vazio. */
     width: 0%; /* A linha começa com largura zero, ou seja, invisível. */
@@ -153,6 +154,12 @@ header .grid-container {
     color: black; /* Cor do texto do botão. */
     border: 0; /* Remove a borda padrão do botão. */
     border-radius: 30px; /* Deixa as pontas do botão completamente arredondadas. */
+}
+
+/* Efeito de zoom e brilho ao passar o mouse no botão CADASTRO */
+.btn-contato button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
+    box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado */
 }
 
 /*=============================================
@@ -219,7 +226,6 @@ header .grid-container {
 }
 
 
-
 /*=============================================
 4. CONTEÚDO PRINCIPAL (MAIN - Estilos Específicos da Página Sobre)
 =============================================*/
@@ -257,22 +263,29 @@ main {
     font-size: 1.5rem;
     font-family: 'Antonio', sans-serif;
 }
-/* --- NOVO: CONTAINER PRINCIPAL PARA DUAS COLUNAS EM PARALELO (Layout de Revista) --- */
+
+/* --- CONTAINER PRINCIPAL: LADO A LADO NO DESKTOP, COLUNA NO MOBILE --- */
 .sobre-conteudo-grid {
-    display: flex; /* ATIVA O ALINHAMENTO LATERAL */
-    gap: 30px; /* Espaço entre os dois grandes quadrados */
-    align-items: stretch; /* Garante que os quadrados tenham a mesma altura */
+    display: flex; /* Flexbox */
+    
+    /* DESKTOP (Padrão): Linha (um ao lado do outro) */
+    flex-direction: row; 
+    gap: 30px; /* Espaço entre os quadrados */
+    
+    /* Centraliza na tela */
+    align-items: stretch; /* Garante que ambos tenham a mesma altura */
+    justify-content: center;
+    
     margin-top: 30px;
     margin-bottom: 50px;
 }
 
 /* -------------------------------------------
-   ESTRUTURA: QUADRADO GERAL DE TEXTO
+   ESTRUTURA: QUADRADO GERAL DE TEXTO (JANELA DE VISUALIZAÇÃO)
    ------------------------------------------- */
 
 /* Estiliza o container onde está todo o texto, dando o efeito de "quadrado" */
 .quadrado-texto {
-    /* ... (Propriedades de borda, padding, etc., mantêm-se iguais) ... */
     padding: 30px;
     border: 2px solid var(--cor-destaque-dourado);
     border-radius: 10px;
@@ -281,13 +294,50 @@ main {
     font-weight: 500;
     line-height: 1.6;
     
-    /* AÇÃO PRINCIPAL: Faz cada quadrado ocupar metade do espaço */
-    flex: 1; /* Permite que o elemento cresça e ocupe metade do espaço (50% - gap) */
-    min-width: 45%; /* Garante um tamanho mínimo para visualização */
+    /* NO DESKTOP: Cada um ocupa 50% do espaço disponível */
+    flex: 1; 
     
-    /* Remove a regra width: fit-content que estava causando problemas de largura */
-    width: auto; 
+    /* DEFINIÇÃO DE ALTURA E SCROLL */
+    height: 600px; /* Altura fixa da "janela" onde o texto vai passar */
+    overflow: hidden; /* Esconde o texto que estiver fora da "janela" */
+    position: relative; /* Necessário para o conteúdo absoluto dentro dele */
+    
+    /* CORREÇÃO DO VAZAMENTO NOS CANTOS (Bug do Chrome/Safari com border-radius) */
+    transform: translate3d(0,0,0); /* Força aceleração de hardware e clipping correto */
+    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Máscara para garantir cantos arredondados no Safari */
 }
+
+/* -------------------------------------------
+   6. NOVA CLASSE: CONTEÚDO QUE ROLA (O TEXTO EM SI)
+   ------------------------------------------- */
+.scrolling-content {
+    position: relative;
+    /* Animação lenta (55s) e infinita */
+    animation: scroll-vertical 20s linear infinite;
+    
+    /* ATRASO NEGATIVO: O texto começa "já rodando" há 15 segundos.
+       Isso garante que ele apareça no meio da tela assim que abre a página. */
+    animation-delay: 3s; 
+}
+
+/* Definição da Animação */
+@keyframes scroll-vertical {
+    0% {
+        transform: translateY(0%); /* Começa embaixo da caixa */
+    }
+    100% {
+        /* Vai até sair totalmente por cima e mais um pouco (-105%) */
+        transform: translateY(-100%); 
+    }
+}
+
+/* PAUSA AO PASSAR O MOUSE */
+/* Quando o mouse estiver sobre o .quadrado-texto, o .scrolling-content pausa */
+.quadrado-texto:hover .scrolling-content {
+    animation-play-state: paused;
+    cursor: ns-resize; /* Muda o cursor para indicar rolagem */
+}
+
 
 /* -------------------------------------------
    ESTRUTURA: LISTA + IMAGEM (O seu "segundo quadrado" interno)
@@ -304,7 +354,7 @@ main {
     border-radius: 8px;
     border: 1px solid var(--cor-destaque-dourado); /* Borda solida dourada */
     box-shadow: 0 0 300px var(--cor-principal);
-    /* Remove a regra width: fit-content que estava forçando o elemento a ser estreito demais */
+    /* Ocupa a largura total disponível dentro do quadrado pai */
     width: 100%; 
 }
 
@@ -349,6 +399,164 @@ hgroup h2 {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 1.8rem;
+}
+/*=============================================
+7. ESTILOS DO FORMULÁRIO (ATUALIZADO E COMENTADO)
+=============================================*/
+/* section.formulario -> A seção que envolve todo o formulário. */
+section.formulario {
+    padding: 80px 4%; /* Espaçamento interno: 80px em cima/baixo e 4% nas laterais. */
+}
+
+/* .formulario h2 -> O título "Fala comigo". */
+.formulario h2 {
+    text-align: center; /* Centraliza o título. */
+    color: #df3d3dbb; /* Cor avermelhada com transparência. */
+    margin-bottom: 30px; /* Espaço abaixo do título. */
+}
+
+/* form -> O container principal do formulário. */
+form {
+    max-width: 600px; /* Largura máxima aumentada para acomodar melhor as opções laterais. */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente na página. */
+    display: flex; /* Ativa o Flexbox para organizar os campos. */
+    flex-direction: column; /* Empilha os campos um embaixo do outro. */
+    gap: 15px; /* Espaço vertical entre cada campo. */
+}
+
+/* Estilo padrão para todos os Inputs de Texto e TextArea */
+form input[type=text],
+form input[type=email],
+form input[type=tel],
+form textarea {
+    width: 100%; /* Ocupa 100% da largura disponível no formulário. */
+    background-color: #b3111185; /* Fundo vermelho translúcido. */
+    border: 0; /* Remove a borda padrão. */
+    outline: 0; /* Remove a linha de destaque ao clicar. */
+    padding: 20px 15px; /* Espaçamento interno para o texto não colar nas bordas. */
+    border-radius: 15px; /* Bordas arredondadas. */
+    color: #fff; /* Texto branco. */
+    font-size: 18px; /* Tamanho da fonte legível. */
+    font-family: 'Antonio', sans-serif; /* Mesma fonte do resto do site. */
+}
+
+/* form textarea -> A caixa de mensagem grande. */
+form textarea {
+    resize: none; /* Impede que o usuário redimensione a caixa (arrastando o canto). */
+    max-height: 200px; /* Altura máxima permitida. */
+    height: 150px; /* Altura padrão inicial. */
+}
+
+/* --- NOVOS ESTILOS: Caixas de Seleção (Radio Buttons) --- */
+
+/* .caixa-selecao -> O fundo escuro que agrupa as opções de "Motivo" e "Urgência". */
+.caixa-selecao {
+    background-color: #2a0505; /* Fundo vinho bem escuro para destacar do fundo preto da página. */
+    padding: 20px; /* Espaçamento interno. */
+    border-radius: 15px; /* Bordas arredondadas. */
+    border: 1px solid #631212; /* Borda sutil vermelha. */
+}
+
+/* .titulo-input -> O texto da pergunta (ex: "Qual o motivo..."). */
+.titulo-input {
+    display: block; /* Ocupa a linha inteira. */
+    color: #fd8f00; /* Cor laranja/dourada para destaque. */
+    font-size: 1.2rem; /* Tamanho da fonte um pouco maior. */
+    margin-bottom: 15px; /* Espaço abaixo da pergunta. */
+    font-family: 'Alegreya SC', serif; /* Fonte estilosa para títulos. */
+}
+
+/* .opcao-radio -> Cada linha de opção (Bolinha + Texto). */
+.opcao-radio {
+    display: flex; /* Alinha a bolinha e o texto lado a lado. */
+    align-items: center; /* Centraliza verticalmente. */
+    gap: 10px; /* Espaço entre a bolinha e o texto. */
+    margin-bottom: 10px; /* Espaço entre uma opção e outra. */
+    cursor: pointer; /* Mãozinha ao passar o mouse. */
+    color: #f1f1f1; /* Cor do texto da opção. */
+    font-size: 1.1rem; /* Tamanho do texto. */
+    transition: .2s; /* Animação suave na cor. */
+}
+
+/* Efeito ao passar o mouse na opção */
+.opcao-radio:hover {
+    color: #fd8f00; /* Muda a cor do texto para laranja. */
+}
+
+/* Estilização da própria bolinha (Radio Button) */
+.opcao-radio input[type="radio"] {
+    accent-color: var(--cor-principal); /* Muda a cor padrão (azul) da bolinha para o vermelho do site. */
+    width: 20px; /* Tamanho da bolinha. */
+    height: 20px;
+}
+
+/* --- Estilo da Escala de Urgência (1 a 5) --- */
+
+/* .escala-urgencia -> O container flexível da escala. */
+.escala-urgencia {
+    display: flex; /* Alinha "Baixa", números e "Alta" na mesma linha. */
+    align-items: center; /* Centraliza verticalmente. */
+    justify-content: space-between; /* Espalha os itens (Esquerda, Centro, Direita). */
+    flex-wrap: wrap; /* Permite quebre de linha em telas muito pequenas. */
+    gap: 10px;
+    color: white;
+}
+
+/* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
+.numeros-escala {
+    display: flex; /* Coloca os números lado a lado. */
+    gap: 85px; /* Espaço entre cada número. */
+}
+
+/* .numeros-escala label -> O par (Número + Bolinha). */
+.numeros-escala label {
+    display: flex;
+    flex-direction: column; /* Número em cima, bolinha embaixo. */
+    align-items: center; /* Centralizados. */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Bolinha específica da escala */
+.numeros-escala input[type="radio"] {
+    margin-top: 5px; /* Espaço entre o número e a bolinha. */
+    accent-color: #fd8f00; /* Bolinha laranja para urgência (alerta). */
+    width: 18px;
+    height: 18px;
+}
+
+/* .legenda-escala -> Textos "Baixa" e "Alta". */
+.legenda-escala {
+    font-size: 0.9rem;
+    color: #a09494; /* Cor cinza. */
+    text-transform: uppercase; /* Letras maiúsculas. */
+}
+
+/* --- Botão Enviar --- */
+form .btn-enviar {
+    margin-top: 10px;
+    text-align: center; /* Centraliza o botão. */
+}
+
+form .btn-enviar input[type=submit] {
+    width: 150px; /* Largura do botão. */
+    background-color: #b3111185; /* Fundo vermelho. */
+    color: #ffcc006b; /* Texto amarelado. */
+    font-weight: 700; /* Negrito. */
+    cursor: pointer; /* Mãozinha. */
+    transition: .2s; /* Suavidade no hover. */
+    border: none;
+    padding: 15px 0; /* Altura do botão. */
+    border-radius: 30px; /* Bordas redondas. */
+    font-size: 1.2rem;
+}
+
+/* Efeito Hover (Zoom e Brilho) */
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado externo. */
+    transform: scale(1.1); /* Aumenta 10% de tamanho. */
+    color: #ffcc00; /* Texto fica amarelo vivo. */
 }
 /*=============================================
 5. RODAPÉ (FOOTER)
@@ -400,12 +608,18 @@ footer .line-footer a {
 /* Media Query Principal para empilhar as DUAS COLUNAS PRINCIPAIS */
 @media screen and (max-width: 1024px) {
     .sobre-conteudo-grid {
-        flex-direction: column; /* Empilha as colunas (QUADRADO 1 e QUADRADO 2) */
-        gap: 20px;
+        /* AQUI É O PULO DO GATO: */
+        /* No Desktop era 'row' (lado a lado), aqui vira 'column' (um embaixo do outro) */
+        flex-direction: column; 
+        gap: 50px; /* Aumenta o espaço entre os quadrados no mobile */
     }
     
     .quadrado-texto {
-        min-width: 100%; /* Faz o quadrado de texto ocupar a largura total */
+        /* Ajusta largura para ocupar 100% da tela em dispositivos menores */
+        width: 100%; 
+        min-width: 100%;
+        /* AJUSTE SOLICITADO: Altura reduzida para celular (era 600px fixo) */
+        height: 400px; 
     }
     
     /* Media Query para empilhar LISTA e IMAGEM DENTRO DO QUADRADO */
@@ -418,5 +632,25 @@ footer .line-footer a {
         /* Garante que a imagem ocupe a largura total em telas menores */
         max-width: 100%;
         min-width: auto;
+    }
+}
+
+/*=============================================
+9. AJUSTE PARA CELULAR DEITADO (PAISAGEM)
+=============================================*/
+
+/* Esta regra só ativa quando a tela está em modo paisagem (deitada) e é um dispositivo móvel (altura pequena) */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    
+    header {
+        /* Opcional: Garante que o cabeçalho não ocupe a tela toda se o celular for pequeno */
+        min-height: auto; 
+    }
+
+    header>picture img {
+        /* Em paisagem, mudamos de 'left' para 'center' ou uma posição específica.
+           '0px' no eixo X (esquerda) e '25%' no eixo Y (para mostrar mais a parte de cima onde está o rosto do Rhino)
+        */
+        object-position: left 25%; 
     }
 }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI Kinetic</title>
+    <style>
+        /* TEMA: KINETIC ORANGE */
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --brand: #ff4d00; /* Laranja Internacional */
+            --line: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* HEADER GIGANTE (Hero Header) */
+        header {
+            border-bottom: 2px solid var(--text);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #000;
+            z-index: 100;
+        }
+
+        header h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px;}
+        
+        nav a { 
+            color: var(--text); 
+            text-decoration: none; 
+            font-size: 1rem; 
+            margin-left: 30px; 
+            text-transform: uppercase;
+            font-family: monospace;
+        }
+        nav a:hover { color: var(--brand); text-decoration: line-through; }
+
+        /* MAIN */
+        main {
+            border-left: 2px solid var(--line);
+            border-right: 2px solid var(--line);
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* MARQUEE (Texto que corre) */
+        .marquee-container {
+            border-bottom: 2px solid var(--line);
+            padding: 100px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        h2 {
+            font-size: 8rem;
+            text-transform: uppercase;
+            line-height: 0.8;
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
+            transition: 0.5s;
+            cursor: default;
+        }
+        
+        h2:hover {
+            color: var(--brand);
+            -webkit-text-stroke: 2px var(--brand);
+        }
+
+        /* SECTION ESTRUTURADA */
+        section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .content-box {
+            padding: 60px;
+            border-right: 2px solid var(--line);
+        }
+
+        h3 { font-size: 2rem; color: var(--brand); margin-bottom: 20px; }
+        p { font-family: monospace; font-size: 1.1rem; line-height: 1.6; color: #888; }
+
+        footer {
+            background: var(--brand);
+            color: #000;
+            padding: 40px;
+            text-align: center;
+            font-family: monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 4rem; }
+            section { grid-template-columns: 1fr; }
+            .content-box { border-right: none; border-bottom: 2px solid var(--line); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Revoluxti<span style="color:var(--brand)">.STUDIO</span></h1>
+        <nav>
+            <a href="#">[ Work ]</a>
+            <a href="#">[ About ]</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="marquee-container">
+            <h2 style="margin-left: -50px;">DIGITAL</h2>
+            <h2 style="margin-left: 100px; color: #fff;">EXPERIENCE</h2>
+            <h2 style="margin-left: 0px;">DESIGN</h2>
+        </div>
+
+        <section>
+            <div class="content-box">
+                <hgroup>
+                    <h3>01. Conceito</h3>
+                </hgroup>
+                <p>A tipografia cinética usa o texto como elemento principal de imagem. É ousado, direto e perfeito para prender a atenção.</p>
+            </div>
+            <div class="content-box" style="background: #111;">
+                <hgroup>
+                    <h3>02. Semântica</h3>
+                </hgroup>
+                <p>Apesar do visual "caótico", o HTML segue rígido: <code>header</code> no topo, <code>main</code> no centro e <code>footer</code> na base.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 High Impact Layout.
+    </footer>
+
+</body>
+</html>

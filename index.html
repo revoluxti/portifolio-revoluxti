@@ -48,7 +48,8 @@
                     </ul>
                 </nav>
                 <div class="btn-contato">
-                    <a href="#"><button>CADASTRO</button></a>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdW33NxjG49HnSJMMQ4JYyy5KfWx1hJrYaUq8y1mhqLON7tQg/viewform?usp=header"><button>CADASTRO</button></a>
                 </div>
                 <div class="btn-abrir-menu" id="btn-menu">
                     <i class="bi bi-list"></i>
@@ -86,7 +87,8 @@
 
         <div class="interface conteudo-central">
             <div class="noticias-feed">
-                <div class="box" id="loja-virtual">
+                <!-- ADICIONEI A CLASSE 'reveal' AQUI -->
+                <div class="box reveal" id="loja-virtual">
                     <h3 class="especial" id="loja"><i class="bi bi-cart3"></i> Loja Online</h3>
                     <div class="ticker-container">
                         <p class="ticker-text">Ter uma presença online é essencial. Venda com estilo, impacto e
@@ -97,7 +99,8 @@
                     </picture>
                 </div>
 
-                <div class="box" id="cybersecurity">
+                <!-- ADICIONEI A CLASSE 'reveal' AQUI -->
+                <div class="box reveal" id="cybersecurity">
                     <h3 class="especial" id="cyber"><i class="bi bi-shield-lock-fill"></i> CyberSecurity</h3>
                     <div class="ticker-container">
                         <p class="ticker-text">Na era dos dados e da hiperconectividade a cibersegurança é a linha de
@@ -108,7 +111,8 @@
                     </picture>
                 </div>
 
-                <div class="box" id="investigacao">
+                <!-- ADICIONEI A CLASSE 'reveal' AQUI -->
+                <div class="box reveal" id="investigacao">
 
                     <h3 class="especial" id="investigacao-h3"><i class="bi bi-search"></i>Monitoramento</h3>
                     <div class="ticker-container">
@@ -132,7 +136,8 @@
 
         <section class="secao-noticia-principal">
             <div class="interface">
-                <div class="box" id="noticia-principal">
+                <!-- ADICIONEI A CLASSE 'reveal' AQUI -->
+                <div class="box reveal" id="noticia-principal">
                     <h3 class="especial"><i class="bi bi-newspaper"></i> Principais Notícias</h3>
                     <div class="ticker-container">
                         <p class="ticker-text">Resposta imediata e precisa a incidentes, porque cada segundo conta na
@@ -145,88 +150,154 @@
                 </div>
             </div>
         </section>
-        
+
 
         <section class="especialidades">
-
             <div class="interface">
+                <div class="flex especialidades-grid">
 
-                <h2 class="titulo-secao">MINHAS <span>ESPECIALIDADES.</span></h2>
-                <div class="especialidades-box">
+                    <div class="especialidades-box box-dev">
 
-                    <div class="especialidade-item">
                         <i class="bi bi-code-slash"></i>
                         <h3>Desenvolvimento</h3>
-                        <p>Desenvolvemos sistemas, agentes de IA e soluções completas, com foco em performance otimizada e 
-                            segurança no core. Transformamos ideias complexas em sistemas digitais 
+                        <p>Construímos soluções web completas, desenvolvemos sistemas, agentes de IA, com foco em
+                            performance otimizada e
+                            segurança no core. Transformamos ideias complexas em sistemas digitais
                             robustos e escaláveis.
                         </p>
+
                     </div>
-                    <div class="especialidade-item">
-                        <i class="bi bi-database-fill-up"></i>
-                        <h3>Banco de dados</h3>
-                        <p>
-                            Engenharia de dados para uma arquiteturas de alta disponibilidade. 
-                            Garantimos a integridade, conformidade (LGPD) e o desempenho máximo 
-                            do seu ativo mais valioso, com gestão e backup de precisão. 
-                            
-                        </p>
-                    </div>
-                    <div class="especialidade-item">
-                        <i class="bi bi-router-fill"></i>
+
+                    <div class="especialidades-box box-redes">
+
+                        <i class="bi bi-wifi"></i>
                         <h3>Redes</h3>
-                        <p>Projete, configure e mantenha a sua infraestrutura de redes. 
-                            Criamos ambientes corporativos resilientes com segmentação e 
-                            políticas de segurança eficazes contra acessos não autorizados.
-                        </p>
+                        <p>Projete, configure e mantenha a sua infraestrutura de redes. Criamos ambientes corporativos
+                            resilientes com segmentação e políticas de segurança eficazes contra acessos não
+                            autorizados.</p>
+
                     </div>
-                    <div class="especialidade-item">
-                        <i class="bi bi-cloud-arrow-up-fill"></i>
-                        <h3>Cloud</h3>
-                        <p>Migração e gerenciamento estratégico de ambientes em nuvem. 
-                            Otimizamos custos e garantimos escalabilidade sob demanda, 
-                            com segurança reforçada para seus dados e sistemas críticos.
-            
-                        </p>
+
+                    <div class="especialidades-box box-cloud">
+
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        <h3>Cloud Computing</h3>
+                        <p>Migração e gerenciamento estratégico de ambientes em nuvem. Otimizamos custos e garantimos
+                            escalabilidade sob demanda, com segurança reforçada para seus dados e sistemas críticos.</p>
                     </div>
-                    <div class="especialidade-item">
-                        <i class="bi bi-shield-lock"></i>
-                        
+
+
+                    <div class="especialidades-box box-db">
+
+                        <i class="bi bi-server"></i>
+                        <h3>Banco de dados</h3>
+                        <p>Engenharia de dados para arquiteturas de alta disponibilidade. Garantimos a integridade,
+                            conformidade (LGPD) e o desempenho máximo do seu ativo mais valioso, com gestão e backup
+                            de
+                            precisão.</p>
+
+                    </div>
+
+                    <div class="especialidades-box box-cyber">
+                        <i class="bi bi-shield-lock-fill"></i>
                         <h3>Cyber Security</h3>
-                        <p>Nossa expertise Red Team vai além da detecção. 
-                            Implementamos uma defesa proativa baseada em 
-                            monitoramento contínuo, análise de risco e resposta 
-                            imediata a incidentes. Governança e análise florence
-                        </p>
+                        <p>Nossa expertise Red Team vai além da detecção. Implementamos uma defesa proativa baseada em
+                            monitoramento contínuo, análise de risco e resposta imediata a incidentes.</p>
                     </div>
-                    <div class="especialidade-item">
-                        <i class="bi bi-unlock-fill"></i>
+
+                    <div class="especialidades-box box-pentest">
+                        <i class="bi bi-lock-fill"></i>
                         <h3>Pentest</h3>
-                        <p>Simulamos ataques reais com metodologias avançadas 
-                            (OWASP, PTES) para identificar vulnerabilidades. 
-                            Entregamos relatórios detalhados e soluções para 
-                            elevar o seu nível de proteção.
-                        </p>
+                        <p>Simulamos ataques reais com metodologias avançadas (OWASP Top 10) para identificar
+                            vulnerabilidades. Entregamos relatórios detalhados e soluções para elevar o seu nível de
+                            proteção.</p>
                     </div>
-                    
-                    
+
                 </div>
             </div>
         </section>
-        <section class="formulario">
+
+        <!-- ADICIONEI A CLASSE 'reveal' NA SEÇÃO DO FORMULÁRIO -->
+        <section class="formulario reveal">
             <div class="interface">
                 <h2 class="titulo">Fala comigo</h2>
-                <form action=""> <!--tag de formulario pesquisar... o atributo action para envio de formulário-->
-                    <input type="text" name="" id="" placeholder="seu nome completo" required>
-                    <input type="text" name="" id="" placeholder="seu e-mail" required>
-                    <input type="text" name="" id="" placeholder="seu celular" required>
-                    <textarea name="" id="" placeholder="Sua mensagem"></textarea>
-                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
-                    <!-- imput type text caixa de texto, placeholder = é o texto exibido-->
+
+                <form action="https://formsubmit.co/revoluxti@gmail.com" method="POST" id="form-contato">
+
+                    <input type="hidden" name="_subject" value="Novo contato via Portfólio!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="">
+                    <input type="hidden" name="_template" value="table">
+
+                    <input type="text" name="nome" placeholder="Seu nome completo" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" required>
+                    <input type="tel" name="whatsapp" placeholder="Seu celular" required>
+
+                    <div class="caixa-selecao">
+                        <label class="titulo-input">Qual o motivo do contato?</label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Treinamento e Capacitação">
+                            <span>Treinamento e Capacitação de Equipes</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Orçamento">
+                            <span>Solicitação de Orçamento (Serviços e Projetos)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Pentest">
+                            <span>Pentest e Avaliação de Vulnerabilidades</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Consultoria LGPD">
+                            <span>Consultoria em Segurança e LGPD</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Desenvolvimento Web">
+                            <span>Desenvolvimento Web (Sites/Sistemas)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Forense">
+                            <span>Análise Forense Imediata (Emergência)</span>
+                        </label>
+
+                        <label class="opcao-radio">
+                            <input type="radio" name="motivo" value="Outro">
+                            <span>Outro Assunto</span>
+                        </label>
+                    </div>
+
+                    <div class="caixa-selecao">
+                        <label class="titulo-input">Qual a urgência da sua solicitação?</label>
+                        <div class="escala-urgencia">
+                            <span class="legenda-escala">Baixa</span>
+                            <div class="numeros-escala">
+                                <label>1<input type="radio" name="urgencia" value="1"></label>
+                                <label>2<input type="radio" name="urgencia" value="2"></label>
+                                <label>3<input type="radio" name="urgencia" value="3"></label>
+                                <label>4<input type="radio" name="urgencia" value="4"></label>
+                                <label>5<input type="radio" name="urgencia" value="5"></label>
+                            </div>
+                            <span class="legenda-escala">Alta</span>
+                        </div>
+                    </div>
+
+                    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+
+                    <div class="btn-enviar">
+                        <input type="submit" value="ENVIAR">
+                    </div>
 
                 </form>
             </div>
-        </section><!-- Fim formulário-->
+        </section>
+
+        <script>var submitted = false;</script>
     </main>
 
     <footer>
@@ -235,17 +306,45 @@
                 <p><i class="bi bi-envelope-fill"></i> <a href="mailto:contato@revoluxti.com">contato@revoluxti.com</a>
                 </p>
                 <div class="btn-social">
-                    <a href="#"><button><i><i class="bi bi-linkedin"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-github"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-youtube"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-whatsapp"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-telegram"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-facebook"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-instagram"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-twitter-x"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-twitch"></i></i></button></a>
-                    <a href="#"><button><i><i class="bi bi-discord"></i></i></button></a>
-                                     
+                    <a href="https://www.linkedin.com/in/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-linkedin"></i></i></button>
+                    </a>
+
+                    <a href="https://github.com/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-github"></i></i></button>
+                    </a>
+
+                    <a href="https://www.youtube.com/@revoluxti" target="_blank">
+                        <button><i><i class="bi bi-youtube"></i></i></button>
+                    </a>
+
+                    <a href="https://wa.me/5546991305656" target="_blank">
+                        <button><i><i class="bi bi-whatsapp"></i></i></button>
+                    </a>
+
+                    <a href="https://t.me/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-telegram"></i></i></button>
+                    </a>
+
+                    <a href="https://www.facebook.com/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-facebook"></i></i></button>
+                    </a>
+
+                    <a href="https://www.instagram.com/revoluxti/" target="_blank">
+                        <button><i><i class="bi bi-instagram"></i></i></button>
+                    </a>
+
+                    <a href="https://x.com/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-twitter-x"></i></i></button>
+                    </a>
+
+                    <a href="https://www.twitch.tv/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-twitch"></i></i></button>
+                    </a>
+
+                    <a href="https://discord.gg/revoluxti" target="_blank">
+                        <button><i><i class="bi bi-discord"></i></i></button>
+                    </a>
                 </div>
                 <p>&copy; 2026 REVOLUXTI É DO BRASIL. All rights reserved.</p>
             </div>
@@ -253,6 +352,7 @@
     </footer>
 
     <script>
+        // --- SCRIPT DO MENU MOBILE ---
         let btnMenu = document.getElementById('btn-menu');
         let menu = document.getElementById('menu-mobile');
         let btnFechar = document.querySelector('.btn-fechar');
@@ -268,6 +368,38 @@
                 fecharMenu();
             }
         });
+
+        // --- NOVO SCRIPT DE SCROLL REVEAL ---
+
+        // Adiciona um "ouvinte" que fica checando toda vez que o usuário rola a tela
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            // Seleciona todos os elementos que têm a classe .reveal
+            var reveals = document.querySelectorAll('.reveal');
+
+            // Para cada elemento encontrado...
+            for (var i = 0; i < reveals.length; i++) {
+
+                // Pega a altura da janela do navegador
+                var windowHeight = window.innerHeight;
+
+                // Pega a distância do topo do elemento até o topo da janela
+                var elementTop = reveals[i].getBoundingClientRect().top;
+
+                // Define um ponto de "gatilho" (150px antes do final da tela)
+                var elementVisible = 150;
+
+                // Se o elemento estiver dentro da área visível...
+                if (elementTop < windowHeight - elementVisible) {
+                    // Adiciona a classe 'active' (que faz ele aparecer)
+                    reveals[i].classList.add('active');
+                } else {
+                    // Se quiser que ele desapareça ao rolar para cima de novo, descomente a linha abaixo:
+                    // reveals[i].classList.remove('active');
+                }
+            }
+        }
     </script>
 </body>
 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUX - Creative</title>
+    <style>
+        /* PALETA: HIGH CONTRAST DESIGN */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background: #ffffff;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* HEADER LATERAL: Preto Sólido */
+        header {
+            width: 280px;
+            background: #111; /* Preto Absoluto */
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 10;
+        }
+
+        header h1 { 
+            font-size: 2.5rem; 
+            line-height: 1;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+        header h1 span { color: #ffeb3b; } /* Amarelo Design */
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 25px; }
+        
+        nav a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        
+        nav a:hover { 
+            color: #fff; 
+            transform: translateX(10px); /* Move pra direita */
+        }
+
+        /* MAIN */
+        main {
+            margin-left: 280px; 
+            padding: 80px;
+            width: 100%;
+            background: #f4f4f4;
+        }
+
+        h2 { 
+            font-size: 2rem; 
+            color: #111; 
+            margin-bottom: 40px; 
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .galeria {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* CARD (FIGURE) */
+        figure {
+            background: #6b60609d;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            width: calc(33.333% - 20px); /* 3 por linha */
+            min-width: 250px;
+        }
+
+        figure:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        figure img { 
+            width: 100%; 
+            height: 230px; 
+            object-fit: cover; 
+            background: #49474785; 
+            margin-bottom: 15px;
+            filter: grayscale(100%); /* Charme: Preto e branco até passar o mouse */
+            transition: filter 0.3s;
+        }
+
+        figure:hover img { filter: grayscale(0%); }
+
+        figcaption {
+            font-weight: bold;
+            color: #111;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        figcaption span {
+            display: block;
+            font-size: 0.7rem;
+            color: #3d3232;
+            margin-top: 5px;
+            text-transform: none;
+            font-weight: normal;
+        }
+        
+        /* Footer embutido no Header Lateral */
+        .sidebar-footer {
+            margin-top: auto;
+            color: #555;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            header { width: 100%; position: relative; height: auto; padding: 40px 20px; }
+            main { margin-left: 0; padding: 40px 20px; }
+            figure { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ART.<br><span>LUX</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Estúdio</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            &copy; 2025 Art Rvoluxti.<br>Design is intelligence made visible.
+        </div>
+    </header>
+
+    <main>
+        <h2>REVOLUXTI Works</h2>
+
+        <section class="galeria">
+            <figure>
+                <img src="https://source.unsplash.com/random/300x300/?architecture" alt="Projeto 1">
+                <figcaption>
+                    Urban Architecture
+                    <span>Photography / 2025</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://source.unsplash.com/random/300x300/?tech" alt="Projeto 2">
+                <figcaption>
+                    Neon Lights
+                    <span>3D Render / 2024</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://source.unsplash.com/random/300x300/?abstract" alt="Projeto 3">
+                <figcaption>
+                    Abstract Shapes
+                    <span>Illustration / 2024</span>
+                </figcaption>
+            </figure>
+        </section>
+        
+        <p style="margin-top: 50px; color: #666; font-size: 0.9rem;">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam temporibus dolore sequi impedit repellendus? Natus, blanditiis tenetur. 
+Vel, sapiente itaque beatae consectetur a eos rem ipsa assumenda, tempore deserunt eligendi.        </p>
+    </main>
+
+</body>
+</html>
