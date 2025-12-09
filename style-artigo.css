@@ -467,7 +467,7 @@ form textarea {
 /* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
 .numeros-escala {
     display: flex; /* Coloca os números lado a lado. */
-    gap: 45px; /* Espaço entre cada número. */
+    gap: 30px; /* Espaço entre cada número. */
 }
 
 /* .numeros-escala label -> O par (Número + Bolinha). */
