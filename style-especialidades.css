@@ -546,7 +546,7 @@ form textarea {
 /* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
 .numeros-escala {
     display: flex; /* Coloca os números lado a lado. */
-    gap: 85px; /* Espaço entre cada número. */
+    gap: 45px; /* Espaço entre cada número. */
 }
 
 /* .numeros-escala label -> O par (Número + Bolinha). */
@@ -660,7 +660,10 @@ footer .line-footer a {
     .btn-abrir-menu {
         display: block;
     }
-    
+    /* Isso garante que o botão vá para a direita corretamente, igual ao Index */
+    header .grid-container {
+        grid-template-columns: auto 1fr; 
+    }
     /* Layout dos Boxes: 2 por linha */
     .especialidades-grid .especialidades-box {
         width: calc(50% - 20px); /* 50% menos 10px de cada lado (total de 20px de gap) */

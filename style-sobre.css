@@ -225,7 +225,6 @@ header .grid-container {
     color: black; /* Muda a cor do texto do link. */
 }
 
-
 /*=============================================
 4. CONTEÚDO PRINCIPAL (MAIN - Estilos Específicos da Página Sobre)
 =============================================*/
@@ -280,9 +279,9 @@ main {
     margin-bottom: 50px;
 }
 
-/* -------------------------------------------
-   ESTRUTURA: QUADRADO GERAL DE TEXTO (JANELA DE VISUALIZAÇÃO)
-   ------------------------------------------- */
+/*=============================================
+5. CONTEÚDO PRINCIPAL (MAIN)
+=============================================*/
 
 /* Estiliza o container onde está todo o texto, dando o efeito de "quadrado" */
 .quadrado-texto {
@@ -505,7 +504,7 @@ form textarea {
 /* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
 .numeros-escala {
     display: flex; /* Coloca os números lado a lado. */
-    gap: 85px; /* Espaço entre cada número. */
+    gap: 45px; /* Espaço entre cada número. */
 }
 
 /* .numeros-escala label -> O par (Número + Bolinha). */
@@ -613,7 +612,20 @@ footer .line-footer a {
         flex-direction: column; 
         gap: 50px; /* Aumenta o espaço entre os quadrados no mobile */
     }
-    
+
+    /* --- ADICIONE ESTAS LINHAS (Estavam faltando) --- */
+    .menu-desktop,
+    .btn-contato {
+        display: none; /* Esconde o menu de PC */
+    }
+
+    .btn-abrir-menu {
+        display: block; /* Mostra o botão Hambúrguer */
+    }
+    .sobre-conteudo-grid {
+        flex-direction: column; 
+        gap: 50px; 
+    }
     .quadrado-texto {
         /* Ajusta largura para ocupar 100% da tela em dispositivos menores */
         width: 100%; 

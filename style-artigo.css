@@ -467,7 +467,7 @@ form textarea {
 /* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
 .numeros-escala {
     display: flex; /* Coloca os números lado a lado. */
-    gap: 85px; /* Espaço entre cada número. */
+    gap: 45px; /* Espaço entre cada número. */
 }
 
 /* .numeros-escala label -> O par (Número + Bolinha). */
@@ -519,6 +519,46 @@ form .btn-enviar input:hover {
     box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado externo. */
     transform: scale(1.1); /* Aumenta 10% de tamanho. */
     color: #ffcc00; /* Texto fica amarelo vivo. */
+}
+
+/* Tablets e Telas Menores que 1024px */
+@media screen and (max-width: 1024px) {
+    
+    /* 1. Esconde o menu de PC e o botão Cadastro */
+    .menu-desktop,
+    .btn-contato {
+        display: none;
+    }
+
+    /* 2. Mostra o botão Hambúrguer */
+    .btn-abrir-menu {
+        display: block;
+    }
+
+    /* 3. Ajusta o cabeçalho para 2 colunas (Logo na esquerda, Botão na direita) */
+    header .grid-container {
+        grid-template-columns: auto 1fr;
+    }
+
+    /* Ajuste de tamanho da fonte da capa */
+    .txt-capa h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Celulares (Telas Menores que 600px) */
+@media screen and (max-width: 600px) {
+    
+    /* Ajusta o rodapé para ficar um item embaixo do outro */
+    .line-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Ajuste fino para títulos em telas muito pequenas */
+    .txt-capa h1 {
+        font-size: 2.5rem;
+    }
 }
 /*=============================================
 5. RODAPÉ (FOOTER)
