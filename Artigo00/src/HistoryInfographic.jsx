@@ -1427,7 +1427,7 @@ const HistoryInfographic = () => {
                                 {/* --- IMAGEM 1 --- */}
                                 <div className="relative z-10 bg-slate-900/80 p-2 rounded border border-slate-700 shadow-lg hover:scale-105 transition-transform">
                                     <img
-                                        src="LG UltraGear OLED-Curvo-de-45.png"
+                                        src="lg-UltraGear-OLED-Curvo-de-45.png"
                                         alt="LG UltraGear Visão 1"
                                         className="w-full max-w-[200px] h-auto object-contain rounded"
                                     />
@@ -1436,7 +1436,7 @@ const HistoryInfographic = () => {
                                 {/* --- IMAGEM 2 --- */}
                                 <div className="relative z-10 bg-slate-900/80 p-2 rounded border border-slate-700 shadow-lg hover:scale-105 transition-transform">
                                     <img
-                                        src="LG UltraGear OLED-Curvo-de.png"
+                                        src="lg-UltraGear-OLED-Curvo-de.png"
                                         alt="LG UltraGear Visão 2"
                                         className="w-full max-w-[200px] h-auto object-contain rounded"
                                     />
@@ -1485,7 +1485,7 @@ const HistoryInfographic = () => {
                                 <Monitor className="text-slate-700 opacity-50 absolute" size={80} />
                                 <p className="text-slate-500 font-mono text-xs text-center relative z-10 bg-slate-900/80 p-2 rounded">
 
-                                    <img src="Odyssey OLED G6.png" alt="" />
+                                    <img src="Odyssey-OLED-G6.png" alt="" />
                                 </p>
                             </div>
 
@@ -1523,7 +1523,7 @@ const HistoryInfographic = () => {
                                 <div className="absolute inset-0 bg-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 <Monitor className="text-slate-700 opacity-50 absolute" size={80} />
                                 <p className="text-slate-500 font-mono text-xs text-center relative z-10 bg-slate-900/80 p-2 rounded">
-                                    <img src="Samsung Odyssey 4K.png" alt="" /></p>
+                                    <img src="samsung-Odyssey-4K.png" alt="" /></p>
                             </div>
 
                             <div className="p-8 flex-1 flex flex-col">
