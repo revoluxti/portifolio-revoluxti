@@ -467,7 +467,7 @@ form textarea {
 /* .numeros-escala -> O grupo central com os números 1 2 3 4 5. */
 .numeros-escala {
     display: flex; /* Coloca os números lado a lado. */
-    gap: 10px; /* Espaço entre cada número. */
+    gap: 70px; /* Espaço entre cada número. */
 }
 
 /* .numeros-escala label -> O par (Número + Bolinha). */
@@ -558,6 +558,31 @@ form .btn-enviar input:hover {
     /* Ajuste fino para títulos em telas muito pequenas */
     .txt-capa h1 {
         font-size: 2.5rem;
+    }
+    /* 1. Ajusta o container dos números para espalhar bem */
+    .numeros-escala {
+        display: flex;
+        width: 100%; /* Garante que use a largura total disponível */
+        justify-content: space-between; /* A MÁGICA: Espalha as opções igualmente de ponta a ponta */
+        gap: 0px; /* Remove o gap fixo grande do desktop para não quebrar linha */
+    }
+
+    /* 2. Aumenta o tamanho da bolinha (Melhor para o dedo) */
+    .numeros-escala input[type="radio"] {
+        width: 25px;  /* Aumenta a largura */
+        height: 25px; /* Aumenta a altura */
+        margin-top: 8px; /* Dá um respiro entre o número e a bolinha */
+        accent-color: #fd8f00; /* Garante a cor laranja no mobile */
+    }
+
+    /* 3. Ajuste opcional nos números */
+    .numeros-escala label {
+        font-size: 1.2rem; /* Garante que o número seja legível */
+    }
+    
+    /* 4. Ajuste no container "Baixa" e "Alta" para não colarem nas bordas */
+    .escala-urgencia {
+        gap: 5px; /* Espaço pequeno entre as legendas e os números */
     }
 }
 /*=============================================
