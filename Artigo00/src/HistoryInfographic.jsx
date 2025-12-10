@@ -1572,7 +1572,8 @@ const HistoryInfographic = () => {
 
                             {/* TÍTULO PRINCIPAL - Gradiente Verde para Lima (Suave) */}
                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-lime-300">
-                                Evolução dos Monitores Apple Studio Display
+                                A revolução para o MicroLED
+                                
                             </h3>
 
                             {/* Divisor Sutil - Verde Escuro */}
