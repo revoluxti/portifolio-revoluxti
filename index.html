@@ -2,31 +2,163 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Define o charset para suportar acentuação e caracteres UTF-8 -->
     <meta charset="UTF-8">
+
+    <!-- Garante responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Melhoria nos mecanismos de busca-->
-    <meta name="description"
-        content="Portfólio de Lucas de Oliveira Santos (REVOLUXTI), acadêmico de Engenharia da Computação e profissional de cybersegurança.">
-    <meta name="keywords"
-        content="CyberSecurity, Pentest, Pentester, ethical hacker, Investigação Digital, Desenvolvimento Web, Loja online,front-end, Beck-end, FullSteck, Portfólio">
-    <!-- Fim Melhoria no mecanismo de busca-->
+
+    <!-- ===========================
+         SEO PRINCIPAL
+    ============================ -->
+
+    <!-- Título otimizado para SEO e recrutadores -->
+    <title>REVOLUXTI | Pentest, Cibersegurança & Desenvolvimento Web — Lucas Oliveira</title>
+
+    <!-- Descrição que aparece em buscas do Google e no preview do site -->
+    <meta name="description" 
+        content="Portfólio oficial de Lucas de Oliveira Santos (REVOLUXTI). Especialista em Pentest, Cibersegurança, Investigação Digital e Desenvolvimento Web Seguro. Soluções inteligentes para segurança da informação e projetos FullStack.">
+
+    <!-- Palavras-chave para mecanismos de busca e ATS internos -->
+    <meta name="keywords" 
+        content="Pentest, CyberSecurity, Ethical Hacking, Pentester, Investigação Digital, Segurança da Informação, FullStack, Desenvolvimento Web, DevSecOps, Bug Bounty, Análise de Vulnerabilidades, LGPD">
+
+    <!-- Identificação do autor da página -->
+    <meta name="author" content="Lucas de Oliveira Santos — REVOLUXTI">
+
+    <!-- Permite que robôs de busca indexem e sigam os links -->
+    <meta name="robots" content="index, follow">
+
+
+    <!-- ===========================
+         SEO TÉCNICO / CANONICAL
+    ============================ -->
+
+    <!-- Define qual URL deve ser considerada a principal pelo Google -->
+    <link rel="canonical" href="https://revoluxti.github.io/portifolio-revoluxti/">
+
+
+    <!-- ===========================
+         OPEN GRAPH (FACEBOOK, LINKEDIN, WHATSAPP)
+    ============================ -->
+
+    <!-- Título exibido ao compartilhar o link -->
+    <meta property="og:title" content="REVOLUXTI | Pentest & Cibersegurança">
+
+    <!-- Descrição exibida no link compartilhado -->
+    <meta property="og:description" 
+        content="Portfólio de Lucas de Oliveira Santos — Pentest, Segurança da Informação e Desenvolvimento Web Seguro.">
+
+    <!-- Imagem de destaque exibida ao compartilhar -->
+    <meta property="og:image" content="https://revoluxti.github.io/portifolio-revoluxti/RHNO/social-share.jpg">
+
+    <!-- URL oficial da página -->
+    <meta property="og:url" content="https://revoluxti.github.io/portifolio-revoluxti/">
+
+    <!-- Tipo de conteúdo (site, produto, artigo etc.) -->
+    <meta property="og:type" content="website">
+
+
+    <!-- ===========================
+         TWITTER CARD
+    ============================ -->
+
+    <!-- Tipo de prévia ao compartilhar no Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Título no Twitter -->
+    <meta name="twitter:title" content="REVOLUXTI | Pentest & CyberSecurity">
+
+    <!-- Imagem para compartilhamento no Twitter -->
+    <meta name="twitter:image" content="https://revoluxti.github.io/portifolio-revoluxti/RHNO/social-share.jpg">
+
+
+    <!-- ===========================
+         SCHEMA.ORG (GOOGLE KNOWLEDGE GRAPH)
+         Ajuda o Google a entender quem você é profissionalmente
+    ============================ -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+
+      "name": "Lucas de Oliveira Santos",
+      "alternateName": "REVOLUXTI",
+
+      /* URL do portfólio oficial */
+      "url": "https://revoluxti.github.io/portifolio-revoluxti/",
+
+      /* Foto usada pelo Google para identificar você */
+      "image": "https://revoluxti.github.io/portifolio-revoluxti/RHNO/social-share.jpg",
+
+      /* Cargo principal que reforça sua especialização */
+      "jobTitle": "Pentester e Desenvolvedor FullStack",
+
+      /* Formação relevante para recrutadores */
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Engenharia da Computação"
+      },
+
+      /* Competências reconhecidas pela estrutura semântica do Google */
+      "knowsAbout": [
+        "CyberSecurity",
+        "Pentest",
+        "Ethical Hacking",
+        "Investigação Digital",
+        "Desenvolvimento Web",
+        "DevSecOps",
+        "Análise de Vulnerabilidades"
+      ],
+
+      /* Links oficiais de perfis verificados */
+      "sameAs": [
+        "https://www.linkedin.com/in/revoluxti/",
+        "https://github.com/revoluxti",
+        "https://www.instagram.com/revoluxti/"
+      ]
+    }
+    </script>
+
+
+    <!-- ===========================
+         FAVICON
+    ============================ -->
+
+    <!-- Ícone do site exibido na aba do navegador -->
     <link rel="shortcut icon" href="RHNO/icon/apple-touch-icon.png" type="image/x-icon">
-    <!-- Goole fonts -->
+
+
+    <!-- ===========================
+         FONTS & ICONS
+    ============================ -->
+
+    <!-- Otimiza conexão com servidores do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&family=Antonio:wght@100..700&family=Oregano:ital@0;1&display=swap"
+
+    <!-- Importa tipografias utilizadas no site -->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;700;900&family=Antonio:wght@100;400;700&family=Oregano:ital@0;1&display=swap" 
         rel="stylesheet">
-    <!-- Fim Goole fonts -->
-    <!--Link bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!--Fim do link bootatrap-->
-    <!--link de icons menu hamburguer-->
+
+    <!-- Biblioteca de ícones Bootstrap Icons -->
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Ícones do Google (Material Icons) -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Fim do link menu hamburguer-->
+
+
+    <!-- ===========================
+         ESTILO PRINCIPAL
+    ============================ -->
+
+    <!-- Arquivo de estilos da sua interface -->
     <link rel="stylesheet" href="style-index.css">
-    <title>REVOLUXTI</title>
 </head>
+
 
 <body>
     <header>
