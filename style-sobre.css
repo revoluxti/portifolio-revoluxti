@@ -293,7 +293,7 @@ main {
     flex: 1; 
     
     /* DEFINIÇÃO DE ALTURA E SCROLL */
-    height: 600px; /* Altura fixa da "janela" onde o texto vai passar */
+    height: 1200px; /* Altura fixa da "janela" onde o texto vai passar */
     overflow: hidden; /* Esconde o texto que estiver fora da "janela" */
     position: relative; /* Necessário para o conteúdo absoluto dentro dele */
     
@@ -304,34 +304,35 @@ main {
 
 /* -------------------------------------------
    6. NOVA CLASSE: CONTEÚDO QUE ROLA (O TEXTO EM SI)
-   ------------------------------------------- */
+   ------------------------------------------- 
 .scrolling-content {
     position: relative;
-    /* Animação lenta (55s) e infinita */
+    ----- Animação lenta (55s) e infinita -----
     animation: scroll-vertical 20s linear infinite;
     
-    /* ATRASO NEGATIVO: O texto começa "já rodando" há 15 segundos.
-       Isso garante que ele apareça no meio da tela assim que abre a página. */
+    -------- ATRASO NEGATIVO: O texto começa "já rodando" há 15 segundos.
+       Isso garante que ele apareça no meio da tela assim que abre a página. ----
     animation-delay: 3s; 
 }
 
-/* Definição da Animação */
+---- Definição da Animação ----
 @keyframes scroll-vertical {
     0% {
-        transform: translateY(0%); /* Começa embaixo da caixa */
+        transform: translateY(0%); ------- Começa embaixo da caixa -------
     }
     100% {
-        /* Vai até sair totalmente por cima e mais um pouco (-105%) */
+        ---- Vai até sair totalmente por cima e mais um pouco (-105%) -------
         transform: translateY(-100%); 
     }
 }
 
-/* PAUSA AO PASSAR O MOUSE */
-/* Quando o mouse estiver sobre o .quadrado-texto, o .scrolling-content pausa */
+------- PAUSA AO PASSAR O MOUSE --------
+ Quando o mouse estiver sobre o .quadrado-texto, o .scrolling-content pausa
 .quadrado-texto:hover .scrolling-content {
     animation-play-state: paused;
-    cursor: ns-resize; /* Muda o cursor para indicar rolagem */
+    cursor: ns-resize; ------- Muda o cursor para indicar rolagem -----
 }
+*/
 
 
 /* -------------------------------------------
@@ -406,7 +407,7 @@ section.formulario {
 /* .formulario h2 -> O título "Fala comigo". */
 .formulario h2 {
     text-align: center; /* Centraliza o título. */
-    color: #df3d3dbb; /* Cor avermelhada com transparência. */
+    color: var(--cor-de-abobora); /* Cor avermelhada com transparência. */
     margin-bottom: 30px; /* Espaço abaixo do título. */
 }
 
