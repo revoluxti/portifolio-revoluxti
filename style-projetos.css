@@ -168,7 +168,7 @@ header .grid-container {
 /* .btn-abrir-menu -> O ícone de "hambúrguer" para abrir o menu em ecrãs pequenos. */
 .btn-abrir-menu {
     display: none; /* Por padrão, o ícone fica escondido em ecrãs grandes. Será tornado visível nas media queries. */
-    color: var(--cor-principal); /* Cor do ícone. */
+    color: var(--cor-de-abobora); /* Cor do ícone. */
     font-size: 40px; /* Tamanho do ícone. */
     justify-self: end; /* Numa grelha, alinha o item ao final (direita) da sua célula. */
     cursor: pointer; /* Muda o cursor para uma mãozinha. */
@@ -198,7 +198,7 @@ header .grid-container {
     position: absolute; /* Posicionado em relação ao .menu-mobile. */
     top: 20px; /* 20px do topo. */
     right: 20px; /* 20px da direita. */
-    color: var(--cor-principal);
+    color: var(--cor-de-abobora);
     font-size: 30px;
     cursor: pointer;
 }

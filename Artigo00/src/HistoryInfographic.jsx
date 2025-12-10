@@ -84,7 +84,7 @@ const TunnelImage = ({ src, alt, className }) => {
 };
 const HistoryInfographic = () => {
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 pb-20">
+        <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 pb-20 overflow-x-hidden w-full">
 
             {/* =====================================================================================
                 CABEÇALHO E INTRODUÇÃO (Baseado na Capa e Resumo)
@@ -105,7 +105,7 @@ const HistoryInfographic = () => {
                             Monitor<br /> A evolução e a história da computação, <br /> das válvulas aos pixels autoemissores.
                         </h2>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4">Universidade Tecnológica Federal do Paraná</p>
-                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4">Campus pato Branco</p>
+                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4">Câmpus pato Branco</p>
                     </hgroup>
 
 
