@@ -50,10 +50,6 @@ button {
     margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
 }
 
-/* <span> dentro de .titulo-secao -> Estiliza a parte colorida do título, que no HTML está dentro de uma tag <span>. */
-.titulo-secao span {
-    color: var(--cor-principal); /* Aplica a cor vermelha que definimos na nossa variável global. */
-}
 
 /*=============================================
  CABEÇALHO (HEADER)
@@ -532,6 +528,7 @@ footer .line-footer a {
     #noticia-principal {
         grid-column: span 1; /* Volta a ocupar uma coluna. */
     }
+    
 }
 
 /*=============================================
@@ -649,6 +646,35 @@ footer .line-footer a {
         aspect-ratio: 1 / 1;
         /* height: auto; -> Garante que a altura da imagem seja calculada automaticamente para manter a proporção quadrada, sem distorcer a arte. */
         height: auto;
+    }
+    /* 1. Dá mais espaço geral no rodapé do celular */
+    footer {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    /* 2. Aumenta o espaço entre os elementos (Email / Ícones / Copyright) */
+    footer .line-footer {
+        gap: 25px; /* Mais respiro entre os blocos */
+    }
+
+    /* 3. A DIVISÃO: Cria a linha separadora acima do Copyright */
+    /* Seleciona o último parágrafo (o texto de © 2025) */
+    footer .line-footer p:last-child {
+        width: 80%; /* A linha não vai até a borda, fica centralizada e elegante */
+        border-top: 1px solid rgba(253, 143, 0, 0.3); /* Linha laranja transparente */
+        padding-top: 20px; /* Espaço entre a linha e o texto */
+        margin-top: 10px;  /* Espaço entre os ícones e a linha */
+        font-size: 0.85rem; /* Texto um pouquinho menor para ficar delicado */
+    }
+
+    /* 4. Garante que os ícones sociais se organizem se faltar espaço */
+    .btn-social {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 100%;
     }
 }
 

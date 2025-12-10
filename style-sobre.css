@@ -50,10 +50,6 @@ button {
     margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
 }
 
-/* <span> dentro de .titulo-secao -> Estiliza a parte colorida do título, que no HTML está dentro de uma tag <span>. */
-.titulo-secao span {
-    color: var(--cor-principal); /* Aplica a cor vermelha que definimos na nossa variável global. */
-}
 
 /*=============================================
  CABEÇALHO (HEADER)
@@ -257,7 +253,7 @@ main {
 /* <span> dentro de <h1> */
 .txt-capa h1 span {
     color: var(--cor-principal);
-    margin-bottom: 20px; /* Espaço abaixo do subtítulo. */
+    margin-bottom: 10px; /* Espaço abaixo do subtítulo. */
     display: block; /* Faz o subtítulo quebrar para uma nova linha. */
     font-size: 1.5rem;
     font-family: 'Antonio', sans-serif;
@@ -275,7 +271,7 @@ main {
     align-items: stretch; /* Garante que ambos tenham a mesma altura */
     justify-content: center;
     
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 
@@ -698,6 +694,8 @@ footer .line-footer a {
     .overlay {
         display: none; /* Muitas vezes removemos o hover em celular pois não tem mouse */
     }
+    
+
 }
 /*=============================================
  CORREÇÃO RESPONSIVIDADE - BOLINHAS (MOBILE)
@@ -775,23 +773,33 @@ footer .line-footer a {
         flex-shrink: 0; /* Impede que a bolinha amasse se o texto for grande */
         margin-right: 10px;
     }
-}
-/*=============================================
-9. AJUSTE PARA CELULAR DEITADO (PAISAGEM)
-=============================================*/
-
-/* Esta regra só ativa quando a tela está em modo paisagem (deitada) e é um dispositivo móvel (altura pequena) */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-    
-    header {
-        /* Opcional: Garante que o cabeçalho não ocupe a tela toda se o celular for pequeno */
-        min-height: auto; 
+    /* 1. Dá mais espaço geral no rodapé do celular */
+    footer {
+        padding-top: 40px;
+        padding-bottom: 20px;
     }
 
-    header>picture img {
-        /* Em paisagem, mudamos de 'left' para 'center' ou uma posição específica.
-           '0px' no eixo X (esquerda) e '25%' no eixo Y (para mostrar mais a parte de cima onde está o rosto do Rhino)
-        */
-        object-position: left 25%; 
+    /* 2. Aumenta o espaço entre os elementos (Email / Ícones / Copyright) */
+    footer .line-footer {
+        gap: 25px; /* Mais respiro entre os blocos */
+    }
+
+    /* 3. A DIVISÃO: Cria a linha separadora acima do Copyright */
+    /* Seleciona o último parágrafo (o texto de © 2025) */
+    footer .line-footer p:last-child {
+        width: 80%; /* A linha não vai até a borda, fica centralizada e elegante */
+        border-top: 1px solid rgba(253, 143, 0, 0.3); /* Linha laranja transparente */
+        padding-top: 20px; /* Espaço entre a linha e o texto */
+        margin-top: 10px;  /* Espaço entre os ícones e a linha */
+        font-size: 0.85rem; /* Texto um pouquinho menor para ficar delicado */
+    }
+
+    /* 4. Garante que os ícones sociais se organizem se faltar espaço */
+    .btn-social {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 100%;
     }
 }

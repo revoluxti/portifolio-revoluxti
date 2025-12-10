@@ -266,7 +266,7 @@ const HistoryInfographic = () => {
                                         </div>
                                         <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                                             <p className="text-slate-400 text-xs uppercase font-bold mb-1">Velocidade</p>
-                                            <p className="text-white text-2xl font-mono font-bold">5k somas/ <br />seg</p>
+                                            <p className="text-white text-2xl font-mono font-bold">5k <span className=" text-slate-400 text-xs uppercase font-bold mb-1"></span>somas/seg</p>
                                         </div>
                                     </div>
                                 </div>
@@ -301,8 +301,12 @@ const HistoryInfographic = () => {
 
 
                                 </div>
-                                <div className="w-full aspect-video bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group my-8">
-                                    {<img src="Girls.png" alt="ENIAC" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />}
+                                <div className="w-full h-64 md:h-[500px] bg-slate-800 rounded-xl border-4 border-solid border-slate-700 flex flex-col items-center justify-center relative overflow-hidden group my-8">
+                                    <img
+                                        src="Girls.png"
+                                        alt="ENIAC"
+                                        className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                                    />
                                 </div>
                                 {/* Card de Tributo às Programadoras (PDF Pág 6) */}
                                 <div className="bg-gradient-to-br from-purple-900/40 to-slate-900 p-8 rounded-2xl border border-purple-500/30 relative overflow-hidden">
