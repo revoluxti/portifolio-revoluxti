@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX - Cyber Pump</title>
+    <style>
+        /* =========================================
+           TEMA: CYBER PUMP
+           Conceito: Academia do futuro, Neon, Glitch, Brutalismo.
+           ========================================= */
+
+        :root {
+            --bg: #1a0b2e;       /* Roxo Profundo (Base) */
+            --neon: #39ff14;     /* Verde Radioativo (Energia) */
+            --text: #ffffff;
+            --overlay: rgba(57, 255, 20, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', 'Impact', sans-serif; /* Fontes grossas para impacto visual */
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 4px solid var(--neon);
+        }
+
+        /* LOGO COM EFEITO GLITCH
+           Usamos text-shadow sólido para simular uma falha na impressão/tela.
+        */
+        header h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0px var(--neon); /* Sombra dura verde */
+            font-style: italic; /* Velocidade */
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-left: 30px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        
+        /* Hover: Risco no texto */
+        nav a:hover { 
+            color: var(--neon); 
+            text-decoration: line-through; 
+        }
+
+        /* --- MARQUEE (LETREIRO QUE ANDA) --- 
+           Elemento clássico de sites de Streetwear/Hype.
+        */
+        .marquee-container {
+            background: var(--neon);
+            color: var(--bg);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            border-bottom: 2px solid #000;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: slide 15s linear infinite; /* Animação contínua */
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Move para esquerda infinitamente */
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* TÍTULO HERO */
+        .hero-title {
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 50px;
+            /* Efeito interessante que inverte as cores onde o texto sobrepõe o fundo */
+            mix-blend-mode: exclusion; 
+        }
+        
+        /* Subtítulo Vazado (Outline) */
+        .hero-title span { 
+            -webkit-text-stroke: 2px var(--neon); /* Borda Neon */
+            color: transparent; /* Fundo transparente */
+        }
+
+        /* --- GRID DE PRODUTOS --- */
+        .product-grid {
+            display: grid;
+            /* Grid inteligente: Cria colunas de no mínimo 280px */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        /* CARD DE PRODUTO */
+        article {
+            border: 2px solid var(--neon);
+            padding: 20px;
+            position: relative;
+            background: rgba(255,255,255,0.05); /* Leve transparência */
+            transition: transform 0.2s;
+        }
+        
+        article:hover {
+            transform: translate(-10px, -10px); /* Move o card */
+            box-shadow: 10px 10px 0px var(--neon); /* Cria sombra sólida no lugar vazio */
+        }
+
+        .price {
+            display: block;
+            font-size: 2rem;
+            color: var(--neon);
+            margin-top: 10px;
+        }
+
+        /* BOTÃO "COMPRAR" */
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--neon);
+            color: var(--bg);
+            border: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover { background: #fff; color: #000; }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media(max-width: 768px) {
+            /* Header Empilhado */
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0; /* Remove margem lateral fixa */
+                font-size: 1rem;
+            }
+
+            /* Ajuste do Título Gigante */
+            .hero-title { 
+                font-size: 3rem; 
+                text-align: center;
+            }
+
+            /* Ajuste do Main */
+            main {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LUX POWER</h1>
+        <nav>
+            <a href="#">Pump</a>
+            <a href="#">Energy</a>
+            <a href="#">Recover</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            // FRETE GRÁTIS // NOVO PRÉ-TREINO // 100% OFF NO SEGUNDO POTE // ENERGIA PURA // REVOLUXTI EXPANDS // FRETE GRÁTIS // NOVO PRÉ-TREINO // 100% OFF NO SEGUNDO POTE // ENERGIA PURA // REVOLUXTI EXPANDS //
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h2 class="hero-title">
+                LEVEL UP<br>
+                <span>YOUR BODY</span>
+            </h2>
+        </section>
+
+        <section class="product-grid">
+            <article>
+                <h3 style="font-size: 1.5rem;">VENOM PRE-WORKOUT</h3>
+                <p style="font-family: sans-serif; margin-top:10px; color: #ccc;">Fórmula americana. Foco extremo.</p>
+                <span class="price">R$ 149,90</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+
+            <article>
+                <h3 style="font-size: 1.5rem;">ISO-WHEY NEON</h3>
+                <p style="font-family: sans-serif; margin-top:10px; color: #ccc;">Proteína isolada. Absorção rápida.</p>
+                <span class="price">R$ 299,00</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+
+            <article>
+                <h3 style="font-size: 1.5rem;">CREATINE PURE</h3>
+                <p style="font-family: sans-serif; margin-top:10px; color: #ccc;">Força explosiva. Sem retenção.</p>
+                <span class="price">R$ 99,90</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>

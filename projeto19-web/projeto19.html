@@ -2,15 +2,21 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sorveteria Deep Açaí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sorveteria Deep LUX Açaí</title>
+    
     <style>
+        /* =========================================
+           TEMA: AÇAÍ DREAM
+           Conceito: Roxo profundo, neon pastel, vidro fosco (Glassmorphism).
+           ========================================= */
         :root {
-            --acai-dark: #240046;
-            --acai-light: #3c096c;
-            --mint: #80ffdb;
-            --bubblegum: #ffaddf;
-            --sky: #4cc9f0;
-            --cream: #fffdd0;
+            --acai-dark: #240046;    /* Roxo Uva Profundo */
+            --acai-light: #3c096c;   /* Roxo Vibrante */
+            --mint: #80ffdb;         /* Verde Menta Neon */
+            --bubblegum: #ffaddf;    /* Rosa Chiclete */
+            --sky: #4cc9f0;          /* Azul Céu */
+            --cream: #fffdd0;        /* Creme Suave */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,94 +26,186 @@
             background-color: var(--acai-dark);
             color: #fff;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita barra de rolagem lateral por causa dos blobs */
             position: relative;
         }
 
-        /* EFEITOS DE FUNDO (Ajustados para não pesar no mobile) */
+        /* --- BACKGROUND BLOBS (BOLAS DESFOCADAS) --- 
+           Cria a atmosfera etérea usando divs absolutas com muito blur.
+        */
         .scoop {
-            position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.6; z-index: -1;
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px); /* O segredo do desfoque suave */
+            opacity: 0.6;
+            z-index: -1; /* Fica atrás de tudo */
         }
-        .s1 { top: -50px; left: -50px; width: 50vw; height: 50vw; background: var(--mint); }
-        .s2 { top: 40%; right: -20px; width: 60vw; height: 60vw; background: var(--bubblegum); }
-        
+        .s1 { top: -50px; left: -50px; width: 400px; height: 400px; background: var(--mint); }
+        .s2 { top: 40%; right: -100px; width: 350px; height: 350px; background: var(--bubblegum); }
+        .s3 { bottom: -50px; left: 20%; width: 500px; height: 300px; background: var(--acai-light); }
+
+        /* --- HEADER --- */
         header {
             text-align: center;
             padding: 40px 20px;
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+            /* Gradiente sutil para destacar o topo */
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
             border-bottom: 3px solid var(--bubblegum);
-            border-radius: 0 0 30px 30px;
+            border-radius: 0 0 30px 30px; /* Arredonda apenas embaixo */
         }
 
         header h1 {
-            /* Tamanho inteligente: Mínimo 2rem, Ideal 5vw, Máximo 4rem */
-            font-size: clamp(2rem, 5vw, 4rem); 
+            font-size: 3.5rem;
             color: var(--cream);
-            text-shadow: 0 0 10px var(--bubblegum);
+            text-shadow: 0 0 15px var(--bubblegum); /* Brilho neon */
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             line-height: 1.1;
+            text-transform: uppercase;
         }
 
         nav ul {
-            display: flex; justify-content: center; gap: 15px; margin-top: 25px; list-style: none; flex-wrap: wrap;
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            margin-top: 25px; 
+            list-style: none; 
+            flex-wrap: wrap; /* Quebra linha se faltar espaço */
         }
         
         nav a {
-            text-decoration: none; font-weight: bold; color: var(--acai-dark);
-            background: var(--mint); padding: 10px 20px; border-radius: 50px;
-            font-size: 0.9rem; box-shadow: 0 0 15px var(--mint); transition: 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--acai-dark);
+            background: var(--mint);
+            padding: 10px 25px;
+            border-radius: 50px; /* Botão pílula */
+            box-shadow: 0 0 15px var(--mint); /* Brilho do botão */
+            transition: 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
-        nav a:hover { transform: scale(1.05); background: var(--cream); }
+        
+        nav a:hover { 
+            transform: scale(1.1); 
+            background: var(--cream); 
+            box-shadow: 0 0 20px var(--cream);
+        }
 
+        /* --- MAIN GRID --- */
         main {
-            max-width: 1000px; margin: 40px auto; padding: 0 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
             display: grid;
+            
+            /* GRID INTELIGENTE:
+               Cria colunas de no mínimo 280px. Se couber mais, cria mais colunas.
+               Responsivo nativo sem media queries complexas.
+            */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
+        /* --- HERO SECTION (DESTAQUE) --- */
+        .hero-acai {
+            grid-column: 1 / -1; /* Ocupa todas as colunas (largura total) */
+            background: linear-gradient(135deg, var(--acai-light), var(--acai-dark));
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px solid var(--acai-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-acai h2 { font-size: 2rem; margin-bottom: 10px; }
+
+        /* --- CARDS (GLASSMORPHISM) --- */
         article {
-            background: rgba(60, 9, 108, 0.4); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 30px;
-            padding: 30px; text-align: center; position: relative; overflow: hidden;
+            background: rgba(60, 9, 108, 0.4); /* Fundo semi-transparente */
+            backdrop-filter: blur(10px);        /* Efeito de vidro fosco */
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        article:hover {
+            transform: translateY(-10px); /* Flutua ao passar o mouse */
+            border-color: var(--mint);
         }
 
         .flavor-circle {
-            width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px auto;
-            display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
-            background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem;
+            background: rgba(255,255,255,0.05);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5); /* Sombra interna para profundidade */
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         h2 { color: var(--mint); font-size: 1.5rem; margin-bottom: 10px; }
-        
-        .hero-acai {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--acai-light), var(--acai-dark));
-            padding: 30px; border-radius: 30px; border: 2px solid var(--acai-light);
-            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+        p { color: #e0e0e0; font-size: 0.95rem; line-height: 1.6; }
+
+        .price {
+            display: block; margin-top: 20px;
+            font-size: 1.4rem; font-weight: bold;
+            color: var(--bubblegum);
+            text-shadow: 0 0 10px rgba(255, 173, 223, 0.5);
         }
 
         footer {
-            margin-top: 60px; text-align: center; padding: 30px;
-            color: var(--sky); font-size: 0.8rem;
+            margin-top: 60px;
+            text-align: center;
+            padding: 30px;
+            color: var(--sky);
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
         
-        /* --- RESPONSIVIDADE (MOBILE) --- */
+        /* Tablet e Celular (até 768px) */
         @media (max-width: 768px) {
-            .hero-acai { flex-direction: column-reverse; text-align: center; }
+            
+            header h1 { font-size: 2.5rem; } /* Título menor para caber */
+            
+            /* Hero Section vira Coluna */
+            .hero-acai { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                gap: 20px;
+                padding: 30px;
+            }
+            
             .hero-acai h2 { font-size: 1.8rem; }
-            nav a { width: 100%; display: block; } /* Botões full width no mobile fica melhor */
-            nav ul { flex-direction: column; width: 100%; padding: 0 40px; }
+            
+            /* Ajuste dos Blobs de fundo para não poluir telas pequenas */
+            .s1 { width: 200px; height: 200px; top: -20px; filter: blur(50px); }
+            .s2 { width: 150px; height: 150px; top: 20%; right: -50px; }
+            
+            nav ul { gap: 10px; }
+            nav a { padding: 8px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+
     <div class="scoop s1"></div>
     <div class="scoop s2"></div>
+    <div class="scoop s3"></div>
 
     <header>
-        <h1>SORVETERIA REVOLUXTION</h1>
+        <h1>SORVETERIA<br>REVOLUX</h1>
         <nav>
             <ul>
                 <li><a href="#">Gelatos</a></li>
@@ -121,7 +219,7 @@
         <section class="hero-acai">
             <div>
                 <h2 style="color: var(--bubblegum);">O Verdadeiro Açaí</h2>
-                <p>Batido na hora, zero xarope, pura energia roxa.</p>
+                <p>Batido na hora, zero xarope, pura energia roxa da Amazônia.</p>
             </div>
             <div style="font-size: 4rem;">🍇</div>
         </section>
@@ -130,26 +228,27 @@
             <div class="flavor-circle" style="border-color: var(--mint);">🍋</div>
             <h2>Limão Siciliano</h2>
             <p>Refrescância ácida com toque cremoso.</p>
-            <span style="display:block; margin-top:15px; color:var(--bubblegum); font-weight:bold;">R$ 12,00</span>
+            <span class="price">R$ 12,00</span>
         </article>
 
         <article>
             <div class="flavor-circle" style="border-color: var(--sky);">🫐</div>
             <h2>Blue Ice</h2>
             <p>O clássico tutti-frutti na cor do céu.</p>
-            <span style="display:block; margin-top:15px; color:var(--bubblegum); font-weight:bold;">R$ 10,00</span>
+            <span class="price">R$ 10,00</span>
         </article>
 
         <article>
-            <div class="flavor-circle" style="border-color: var(--sky);">🫐</div>
-            <h2>Blue Ice</h2>
-            <p>O clássico tutti-frutti na cor do céu.</p>
-            <span style="display:block; margin-top:15px; color:var(--bubblegum); font-weight:bold;">R$ 10,00</span>
+            <div class="flavor-circle" style="border-color: var(--bubblegum);">🍓</div>
+            <h2>Yogurt Amora</h2>
+            <p>Iogurte grego natural com calda real.</p>
+            <span class="price">R$ 15,00</span>
         </article>
     </main>
 
     <footer>
-        SISTEMA DE PEDIDOS: REVOLUXTI SWEET-TECH.
+        SISTEMA REVOLUXTI SWEET-TECH.
     </footer>
+
 </body>
 </html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUXTI Street</title>
+    <style>
+        /* =========================================
+           TEMA: STREET HYPE
+           Conceito: Urbano, Skate, Adesivos, Alto Contraste.
+           ========================================= */
+
+        :root {
+            --orange: #ff4500;    /* Laranja Internacional (Segurança/Destaque) */
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Fonte limpa e neutra */
+            overflow-x: hidden; /* Evita rolagem lateral indesejada */
+        }
+
+        /* --- MARQUEE (LETREIRO CORRENDO) --- 
+           Feito com animação CSS pura. O texto se move da direita para esquerda.
+        */
+        .marquee-container {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 0;
+            overflow: hidden; /* Esconde o texto que sai da tela */
+            white-space: nowrap; /* Impede que o texto quebre linha */
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 15s linear infinite; /* Animação infinita e linear */
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        @keyframes scroll { 
+            from { transform: translateX(0); } 
+            to { transform: translateX(-50%); } 
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 5px solid var(--black); /* Linha grossa de separação */
+        }
+
+        /* ESTILO "STICKER" (ADESIVO) */
+        .logo-box {
+            background: var(--orange);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 2rem;
+            font-weight: 900;
+            transform: rotate(-3deg); /* Levemente torto para dar atitude */
+            display: inline-block;
+        }
+
+        nav a { 
+            color: var(--black); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            margin-left: 30px; 
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        
+        /* Hover: Risco no texto (estilo rascunho/erro) */
+        nav a:hover { 
+            text-decoration: line-through; 
+            color: var(--orange);
+        }
+
+        /* --- MAIN: FUNDO XADREZ --- */
+        main {
+            /* TÉCNICA AVANÇADA: Checkerboard Pattern (Xadrez)
+               Criado usando apenas gradientes lineares sobrepostos.
+            */
+            background-image: 
+                linear-gradient(45deg, #eee 25%, transparent 25%), 
+                linear-gradient(-45deg, #eee 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #eee 75%), 
+                linear-gradient(-45deg, transparent 75%, #eee 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            
+            padding: 80px 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- PRODUCT CARD "DEEP DIVE" --- */
+        .product-card {
+            background: var(--white);
+            border: 5px solid var(--black); /* Borda Grossa */
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            
+            /* SOMBRA SÓLIDA (Hard Shadow)
+               Sem "blur" (desfoque), criando o efeito visual pop-art/HQ.
+            */
+            box-shadow: 20px 20px 0px var(--orange); 
+            
+            position: relative;
+        }
+
+        h2 { 
+            font-size: 4rem; 
+            line-height: 0.9; 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+        }
+        
+        .tag { 
+            background: var(--black); 
+            color: var(--white); 
+            padding: 5px 15px; 
+            font-weight: bold; 
+            position: absolute; 
+            top: -20px; right: -20px; 
+            transform: rotate(5deg); /* Tag colada torta */
+        }
+
+        p { 
+            font-size: 1.2rem; 
+            font-weight: 500; 
+            margin-bottom: 30px; 
+        }
+
+        /* Placeholder da Imagem */
+        .img-placeholder {
+            height: 200px; 
+            background: #ddd; 
+            margin-bottom: 30px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: bold; font-size: 1.5rem; color: #aaa;
+            border: 2px dashed #bbb;
+        }
+
+        .btn-buy {
+            display: block; 
+            width: 100%; 
+            background: var(--black); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 20px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        
+        .btn-buy:hover { 
+            background: var(--orange); 
+            color: var(--black); 
+            box-shadow: 5px 5px 0px var(--black); /* Botão ganha sombra ao passar mouse */
+        }
+
+        footer {
+            background: var(--black); 
+            color: var(--white); 
+            padding: 40px; 
+            text-align: center; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Empilha logo e menu */
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav a {
+                margin: 0 10px; /* Reduz margem lateral */
+                font-size: 1.2rem;
+            }
+
+            main {
+                padding: 40px 20px; /* Menos espaçamento no container principal */
+            }
+
+            .product-card {
+                padding: 30px 20px; /* Card mais compacto */
+                box-shadow: 10px 10px 0px var(--orange); /* Sombra menor para caber na tela */
+            }
+
+            h2 {
+                font-size: 3rem; /* Título menor */
+            }
+        }
+
+        /* Celular Pequeno (até 480px) */
+        @media (max-width: 480px) {
+            .logo-box { font-size: 1.5rem; }
+            
+            nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+            
+            h2 { font-size: 2.5rem; }
+            
+            .btn-buy { font-size: 1.2rem; padding: 15px; }
+            
+            .tag { font-size: 0.8rem; padding: 5px 10px; top: -15px; right: -10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            LANÇAMENTO EXCLUSIVO /// REVOLUXTI SKATEBOARDS /// NOVAS PEÇAS /// LANÇAMENTO EXCLUSIVO /// REVOLUXTI SKATEBOARDS /// NOVAS PEÇAS /// LANÇAMENTO EXCLUSIVO /// REVOLUXTI SKATEBOARDS /// NOVAS PEÇAS ///
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-box">REVOLUXTI</div>
+        <nav>
+            <a href="#">Decks</a>
+            <a href="#">Apparel</a>
+            <a href="#">"SALE"</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="product-card">
+            <span class="tag">SOLD OUT SOON</span>
+            <h2>Urban<br>Chaos</h2>
+            <p>"EXPANDING IDEAS"<br>Coleção Limitada 2025.</p>
+            
+            <div class="img-placeholder">
+                [IMAGEM DO SHAPE]
+            </div>
+            
+            <a href="#" class="btn-buy">COMPRAR AGORA</a>
+        </article>
+    </main>
+
+    <footer>
+        © 2025 REVOLUXTI DESIGN LAB.
+    </footer>
+
+</body>
+</html>

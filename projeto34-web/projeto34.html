@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr LUX- Power Supps</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           TEMA: ENERGY THEME
+           Conceito: Cores vibrantes, contraste alto e movimento.
+           ========================================= */
+        :root {
+            --bg: #240046;        /* Roxo Uva Escuro (Fundo) */
+            --neon: #ccff00;      /* Verde Marca-Texto (Energia/Destaque) */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden; /* Evita rolagem lateral causada pelo marquee inclinado */
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon);
+        }
+
+        header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: var(--neon);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        
+        /* Hover: Texto muda para neon e sublinha */
+        nav a:hover { 
+            color: var(--neon); 
+            text-decoration: underline; 
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- O LETREIRO (MARQUEE) --- 
+           Cria uma faixa de texto que corre infinitamente.
+        */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden; /* Esconde o texto que sai da caixa */
+            white-space: nowrap; /* Impede quebra de linha */
+            background: var(--neon);
+            color: var(--bg);
+            padding: 10px 0;
+            
+            /* TÉCNICA: Transformação
+               Inclina (-2deg) e aumenta (1.1) a faixa para dar dinamismo.
+            */
+            transform: rotate(-2deg) scale(1.1); 
+            margin: 40px 0;
+            border-top: 5px solid #000;
+            border-bottom: 5px solid #000;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            /* Animação 'scroll' definida abaixo */
+            animation: scroll 20s linear infinite; 
+        }
+
+        /* Define o movimento da direita para a esquerda */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- GRID DE PRODUTOS --- */
+        .product-grid {
+            display: grid;
+            /* Grid Responsivo Automático:
+               Cria colunas de no mínimo 280px. Se couber mais, cria mais.
+            */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- CARD DE PRODUTO --- */
+        article {
+            border: 4px solid var(--neon);
+            background: #000;
+            padding: 0;
+            position: relative;
+            transition: 0.2s;
+        }
+
+        /* Efeito Hover: Sombra Sólida Deslocada (Estilo HQ/Pop Art) */
+        article:hover {
+            transform: translate(-10px, -10px); /* Move o card para cima e esquerda */
+            box-shadow: 10px 10px 0px var(--neon); /* Cria a sombra solida no lugar onde ele estava */
+        }
+
+        .prod-img {
+            height: 250px;
+            background: #333; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: #444;
+        }
+
+        .prod-info { padding: 20px; text-align: left; }
+        
+        h2 { font-family: 'Anton', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 10px; }
+        
+        .price { color: var(--neon); font-size: 1.5rem; font-weight: bold; display: block; margin-bottom: 15px;}
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--neon);
+            color: var(--bg);
+            border: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #fff; color: #000; }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Celular (até 600px) */
+        @media (max-width: 600px) {
+            
+            /* Header Empilhado */
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            nav a { margin: 0 10px; font-size: 0.9rem; }
+
+            /* Ajuste do Marquee para não quebrar layout */
+            .marquee-container {
+                transform: rotate(-2deg) scale(1.05); /* Menos zoom */
+                margin: 30px 0;
+            }
+            
+            .marquee-content {
+                font-size: 2rem; /* Fonte menor no celular */
+                animation-duration: 15s; /* Um pouco mais rápido visualmente */
+            }
+
+            /* Ajuste do Grid */
+            .product-grid {
+                gap: 30px;
+                padding: 0 10px; /* Margem de segurança lateral */
+            }
+
+            /* Ajuste visual dos cards */
+            h2 { font-size: 1.8rem; }
+            .prod-img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lux POWER</h1>
+        <nav>
+            <a href="#">Whey</a>
+            <a href="#">Creatina</a>
+            <a href="#">Pré-Treino</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            FORÇA • EXPLOSÃO • FOCO • PERFORMANCE • DR. EXPRESS • FORÇA • EXPLOSÃO • FOCO • PERFORMANCE • DR. EXPRESS • FORÇA • EXPLOSÃO • FOCO • PERFORMANCE • DR. EXPRESS •
+        </div>
+    </div>
+
+    <main>
+        <section class="product-grid">
+            <article>
+                <div class="prod-img">100%</div>
+                <div class="prod-info">
+                    <h2>WHEY ISOLADO</h2>
+                    <span class="price">R$ 149,90</span>
+                    <p style="color: #aaa; margin-bottom: 15px;">Absorção ultra-rápida. Zero lactose.</p>
+                    <button>COMPRAR AGORA</button>
+                </div>
+            </article>
+
+            <article>
+                <div class="prod-img">PUMP</div>
+                <div class="prod-info">
+                    <h2>PRÉ-TREINO X</h2>
+                    <span class="price">R$ 89,90</span>
+                    <p style="color: #aaa; margin-bottom: 15px;">Foco mental e vascularização extrema.</p>
+                    <button>COMPRAR AGORA</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>

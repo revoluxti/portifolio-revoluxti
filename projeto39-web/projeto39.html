@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUX- Synthwave</title>
+    <style>
+        /* =========================================
+           TEMA: MIAMI NIGHTS (SYNTHWAVE)
+           Conceito: Retrô-futurismo anos 80, Neon, Tron, Arcade.
+           ========================================= */
+
+        :root {
+            --bg-deep: #120421;      /* Roxo Quase Preto (Espaço Sideral) */
+            --bg-panel: #1f0a33;     /* Roxo Médio (Painéis) */
+            --neon-pink: #ff00ff;    /* Magenta Laser */
+            --neon-blue: #00f3ff;    /* Ciano Elétrico */
+            --text-main: #e0c3fc;    /* Lilás Claro (Texto) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+            /* TÉCNICA: GRID DE FUNDO ESTILO TRON
+               Cria uma grade de perspectiva usando gradientes lineares.
+            */
+            background-image: 
+                linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Container Principal (A "Caixa" do Site) */
+        .main-container {
+            width: 90%;
+            max-width: 1000px;
+            background: var(--bg-panel);
+            
+            /* Borda Brilhante Neon */
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px rgba(255,0,255,0.2);
+            
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0; /* Margem para não colar no topo/fundo no celular */
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-style: italic; /* Velocidade */
+            font-weight: 900;
+            
+            /* TÉCNICA: TEXTO GRADIENTE
+               Aplica o gradiente apenas dentro das letras.
+            */
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hover: Brilho Azul */
+        nav a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* --- MAIN (GRID DE CONTEÚDO) --- */
+        main { 
+            padding: 50px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* 2 Colunas */
+            gap: 40px; 
+        }
+
+        /* ARTICLE (Cartão) */
+        article {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border: 1px solid var(--neon-blue);
+            
+            /* Sombra Sólida Deslocada (Estilo Glitch) */
+            box-shadow: 5px 5px 0px var(--neon-blue); 
+            
+            transition: transform 0.3s;
+        }
+
+        article:hover { 
+            transform: translate(-3px, -3px); 
+            box-shadow: 8px 8px 0px var(--neon-blue); 
+        }
+
+        h2 { 
+            color: var(--neon-blue); 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+
+        p { line-height: 1.6; font-size: 0.95rem; }
+
+        /* --- ASIDE (BARRA LATERAL) --- */
+        aside {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 2px dashed var(--text-main);
+            padding-left: 40px;
+        }
+
+        aside h3 { 
+            color: var(--neon-pink); 
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
+            text-shadow: 0 0 5px var(--neon-pink); 
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000;
+            color: var(--neon-pink);
+            text-align: center;
+            padding: 15px;
+            font-family: monospace; /* Fonte estilo terminal */
+            border-top: 1px solid var(--neon-pink);
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media (max-width: 768px) {
+            
+            /* Remove a largura fixa do container no celular */
+            .main-container {
+                width: 100%;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+                margin: 0;
+            }
+
+            /* Header Ajustado */
+            header h1 { font-size: 2.2rem; }
+            
+            nav ul { 
+                gap: 15px; 
+                flex-wrap: wrap; 
+            }
+
+            /* Main vira Coluna Única */
+            main { 
+                grid-template-columns: 1fr; 
+                padding: 30px;
+                gap: 30px;
+            }
+            
+            /* Ajuste do Aside (vai para baixo) */
+            aside { 
+                border-left: none; 
+                padding-left: 0; 
+                border-top: 2px dashed var(--text-main); 
+                padding-top: 30px; 
+                text-align: center;
+            }
+            
+            /* Barra de progresso centralizada */
+            aside div { margin: 20px auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>LUX<span>Wave-ACADEMY</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Start</a></li>
+                    <li><a href="#">Levels</a></li>
+                    <li><a href="#">Score</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <h2>Estética Corporal</h2>
+                <p>O estilo Synthwave utiliza grades de perspectiva, cores neon saturadas (ciano e magenta) e fontes itálicas pesadas. É semanticamente estruturado, mas visualmente rebelde.</p>
+                <p style="margin-top: 10px; color: #aaa; font-size: 0.8rem;">[SYSTEM LOG: AESTHETICS LOADED]</p>
+            </article>
+
+            <aside>
+                <h3>Status: Online</h3>
+                <p>System: RevoluxTI<br>Year: 2025<br>Mode: Turbo</p>
+                
+                <div style="margin-top:20px; height: 10px; width: 100%; background: #333; border-radius: 5px; overflow: hidden; max-width: 200px;">
+                    <div style="width: 75%; height: 100%; background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);"></div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            PRESS START TO CONTINUE...
+        </footer>
+    </div>
+
+</body>
+</html>

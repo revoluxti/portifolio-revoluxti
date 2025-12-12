@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXLog ERP</title>
+    <style>
+        /* =========================================
+           TEMA: INDUSTRIAL HAZARD
+           Conceito: Painéis de controle, segurança, alto contraste e dados.
+           ========================================= */
+
+        /* --- VARIÁVEIS (PALETA) --- */
+        :root {
+            --bg: #0c0c0c;       /* Preto Asfalto (Fundo Geral) */
+            --panel: #1a1a1a;    /* Painel Escuro (Cards/Sidebar) */
+            --alert: #ff5e00;    /* Laranja Segurança (Hyper Orange - Destaque) */
+            --text: #e0e0e0;     /* Branco Sujo (Legibilidade) */
+            --grid-line: #333;   /* Cor das linhas da grade de fundo */
+        }
+
+        /* Reset Básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            
+            /* TÉCNICA: FUNDO TÉCNICO (Grid Milimetrado)
+               Cria linhas verticais e horizontais usando gradientes.
+            */
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px; /* Tamanho dos quadrados da grade */
+            
+            /* LAYOUT PRINCIPAL (Sidebar Fixa + Conteúdo) */
+            display: grid;
+            grid-template-columns: 260px 1fr; 
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR (MENU LATERAL) --- */
+        aside {
+            background: var(--panel);
+            border-right: 4px solid var(--alert); /* Linha de força lateral */
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            /* Garante que a sidebar ocupe toda a altura se o conteúdo for pequeno */
+            min-height: 100vh; 
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: #fff;
+            margin-bottom: 50px;
+            border: 2px solid var(--alert); /* Caixa estilo carimbo */
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .brand span { color: var(--alert); }
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        
+        nav a {
+            text-decoration: none;
+            color: #888;
+            font-family: 'Courier New', monospace; /* Fonte monoespaçada para parecer dados */
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            transition: 0.2s;
+        }
+        
+        /* Efeito Hover: Fundo listrado de construção/alerta */
+        nav a:hover {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--alert),
+                var(--alert) 10px,
+                #cc4a00 10px,
+                #cc4a00 20px
+            );
+            color: #000; /* Texto preto para contraste no fundo laranja */
+        }
+
+        .system-status {
+            margin-top: auto; 
+            color: #444; 
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main { padding: 40px; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--grid-line);
+            padding-bottom: 20px;
+        }
+
+        h1 { font-size: 3rem; text-transform: uppercase; line-height: 1; }
+        
+        .status-badge { 
+            background: var(--alert); 
+            color: #000; 
+            font-weight: bold; 
+            padding: 5px 15px; 
+            font-family: monospace;
+            white-space: nowrap; /* Impede quebra de linha no badge */
+        }
+
+        /* --- DASHBOARD GRID --- */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Colunas Padrão */
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--panel);
+            padding: 25px;
+            border: 1px solid var(--grid-line);
+            position: relative;
+        }
+
+        /* Detalhe técnico (Triângulo) no canto do card */
+        .card::after {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 20px; height: 20px;
+            background: linear-gradient(to bottom left, var(--alert) 50%, transparent 50%);
+        }
+
+        h2 { font-size: 0.9rem; color: #666; text-transform: uppercase; margin-bottom: 10px; }
+        .value { font-size: 2.5rem; font-weight: bold; color: #fff; }
+        .diff { font-family: monospace; color: var(--alert); }
+
+        /* --- TABELA DE DADOS --- */
+        .data-table {
+            grid-column: span 2; /* Ocupa 2 colunas no desktop */
+            background: var(--panel);
+            padding: 20px;
+            font-family: monospace;
+            border: 1px solid var(--grid-line);
+            
+            /* Permite rolagem horizontal se a tabela for muito larga no celular */
+            overflow-x: auto; 
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            min-width: 400px; /* Garante largura mínima para não espremer os dados */
+        }
+        .row:last-child { border-bottom: none; }
+
+        footer {
+            grid-column: span 3; /* Ocupa toda a largura */
+            margin-top: 40px;
+            font-family: monospace;
+            color: #555;
+            text-align: right;
+            border-top: 1px solid var(--grid-line);
+            padding-top: 20px;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+
+        /* Tablet (até 900px) */
+        @media (max-width: 900px) { 
+            body { 
+                /* Muda o layout principal para 1 coluna (Sidebar em cima, Main embaixo) */
+                grid-template-columns: 1fr; 
+            }
+            
+            aside {
+                min-height: auto; /* Remove altura mínima */
+                border-right: none;
+                border-bottom: 4px solid var(--alert);
+                flex-direction: row; /* Menu horizontal no topo */
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+            
+            .brand { margin-bottom: 0; font-size: 1.5rem; }
+            
+            nav ul { 
+                flex-direction: row; 
+                gap: 10px; 
+            }
+            
+            nav a { padding: 5px 10px; font-size: 0.9rem; }
+            
+            .system-status { display: none; /* Esconde status no tablet p/ economizar espaço */ }
+
+            /* Ajuste do Dashboard */
+            .dashboard {
+                grid-template-columns: 1fr 1fr; /* 2 colunas para cards */
+            }
+            
+            .data-table { grid-column: span 2; } /* Tabela ocupa tudo */
+            footer { grid-column: span 2; }
+        }
+
+        /* Celular (até 600px) */
+        @media (max-width: 600px) {
+            
+            aside {
+                flex-direction: column; /* Menu volta a ser vertical (empilhado) */
+                gap: 20px;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav a { justify-content: center; background: #222; }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            h1 { font-size: 2rem; }
+
+            /* Dashboard vira 1 coluna */
+            .dashboard { grid-template-columns: 1fr; }
+            .data-table { grid-column: span 1; }
+            footer { grid-column: span 1; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="brand">LUXlog <br><span>ERP</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">[01] FROTA</a></li>
+                <li><a href="#">[02] ROTAS</a></li>
+                <li><a href="#">[03] CARGAS</a></li>
+                <li><a href="#">[04] MOTORISTAS</a></li>
+            </ul>
+        </nav>
+        
+        <div class="system-status">
+            SYSTEM: ONLINE<br>
+            PING: 24ms
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <div>
+                <p style="color: var(--alert); font-weight: bold; font-family: monospace;">PAINEL LOGÍSTICO v4.0</p>
+                <h1>Visão Geral</h1>
+            </div>
+            <div class="status-badge">OPERAÇÃO: ATIVA</div>
+        </header>
+
+        <section class="dashboard">
+            <article class="card">
+                <h2>Caminhões em Rota</h2>
+                <div class="value">42</div>
+                <div class="diff">▲ +4 hoje</div>
+            </article>
+
+            <article class="card">
+                <h2>Entregas Pendentes</h2>
+                <div class="value">158</div>
+                <div class="diff">▼ -12% atraso</div>
+            </article>
+
+            <article class="card" style="border-color: var(--alert);">
+                <h2 style="color: var(--alert)">Alerta de Manutenção</h2>
+                <div class="value">03</div>
+                <div class="diff">URGENTE</div>
+            </article>
+
+            <div class="data-table">
+                <h3 style="margin-bottom: 20px; color: #fff;">LOG DE RASTREAMENTO</h3>
+                
+                <div class="row">
+                    <span>VOLVO FH-540</span>
+                    <span>SÃO PAULO -> CURITIBA</span>
+                    <span style="color: var(--alert)">EM TRÂNSITO</span>
+                </div>
+                <div class="row">
+                    <span>SCANIA R450</span>
+                    <span>PATO BRANCO -> FOZ</span>
+                    <span style="color: #4caf50">ENTREGUE</span>
+                </div>
+                <div class="row">
+                    <span>MERCEDES ACTROS</span>
+                    <span>LONDRINA -> MARINGÁ</span>
+                    <span style="color: var(--alert)">CARREGANDO</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            REVOLUXTI SYSTEMS &copy; 2025. DevSecOps Architecture.
+        </footer>
+    </main>
+
+</body>
+</html>

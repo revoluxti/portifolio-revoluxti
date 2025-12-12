@@ -2,36 +2,44 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RVLXTI Dance & Drinks</title>
     <style>
-        /* --- PALETA: RED LIGHT DISTRICT --- */
+        /* =========================================
+           TEMA: RED LIGHT DISTRICT
+           Conceito: Vida noturna, luzes de neon, mistério e energia.
+           ========================================= */
+
         :root {
             --bg: #000000;
-            --red-light: rgba(255, 0, 0, 0.6);
-            --yellow-light: rgba(255, 215, 0, 0.5);
+            --red-light: rgba(255, 0, 0, 0.6);      /* Luz Vermelha */
+            --yellow-light: rgba(255, 215, 0, 0.5); /* Luz Dourada */
             --text: #ffffff;
-            --accent: #ff004c;
+            --accent: #ff004c;                      /* Rosa Choque (Destaque) */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Impact', 'Anton', sans-serif; /* Fonte Poster */
+            font-family: 'Impact', 'Anton', sans-serif; /* Fonte pesada estilo Poster */
             background-color: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Importante: Esconde o excesso causado pelos borrões de luz */
             position: relative;
         }
 
-        /* EFEITO DE LUZES (HOLOFOTES) */
+        /* --- EFEITO DE HOLOFOTES (LUZES DE FUNDO) --- 
+           Feito com gradientes radiais e muito desfoque (blur).
+           Isso cria a atmosfera de "balada" sem precisar de imagens pesadas.
+        */
         .spotlight-1 {
             position: absolute; top: -20%; left: -10%;
             width: 80vw; height: 80vh;
             background: radial-gradient(circle, var(--red-light) 0%, transparent 70%);
-            filter: blur(60px);
+            filter: blur(60px); /* O segredo do brilho difuso */
             z-index: -1;
-            animation: pulse-red 4s infinite alternate;
+            animation: pulse-red 4s infinite alternate; /* Luz pulsante */
         }
         
         .spotlight-2 {
@@ -40,28 +48,31 @@
             background: radial-gradient(circle, var(--yellow-light) 0%, transparent 60%);
             filter: blur(50px);
             z-index: -1;
-            mix-blend-mode: screen; /* Mistura as luzes */
+            mix-blend-mode: screen; /* Mistura as cores das luzes onde elas se cruzam */
             animation: pulse-yellow 5s infinite alternate;
         }
 
+        /* Animações de pulso (Respiração das luzes) */
         @keyframes pulse-red { 0% { opacity: 0.5; } 100% { opacity: 0.8; } }
         @keyframes pulse-yellow { 0% { opacity: 0.3; } 100% { opacity: 0.7; } }
 
-        /* HEADER SEMÂNTICO */
+        /* --- HEADER --- */
         header {
             padding: 40px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); /* Vidro fosco no topo */
         }
 
         header h1 {
             font-size: 4rem;
             text-transform: uppercase;
             letter-spacing: 5px;
-            /* Texto vazado (Outline) */
-            color: transparent;
-            -webkit-text-stroke: 2px #fff;
+            
+            /* TRUQUE CSS: Texto Vazado (Outline) */
+            color: transparent; /* Fundo do texto transparente */
+            -webkit-text-stroke: 2px #fff; /* Borda branca de 2px */
+            
             margin-bottom: 10px;
         }
         
@@ -85,29 +96,38 @@
             padding: 10px 20px;
             transition: 0.3s;
         }
-        nav a:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px var(--accent); }
+        nav a:hover { 
+            background: var(--accent); 
+            border-color: var(--accent); 
+            box-shadow: 0 0 20px var(--accent); /* Brilho neon no botão */
+        }
 
-        /* MAIN */
+        /* --- GRID PRINCIPAL --- */
         main {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* 2 Colunas */
             gap: 40px;
         }
 
-        /* CARD ESTILO INGRESSO/TICKET */
+        /* CARD ESTILO TICKET/INGRESSO */
         article {
             background: rgba(20, 20, 20, 0.8);
             border: 1px solid #333;
             padding: 30px;
             position: relative;
-            transform: skew(-5deg); /* Inclinação para dinamismo */
+            transform: skew(-5deg); /* Inclinação para dar dinamismo/velocidade */
             transition: 0.3s;
         }
         
-        article:hover { transform: skew(-5deg) translateY(-10px); border-color: #fff; }
+        article:hover { 
+            transform: skew(-5deg) translateY(-10px); 
+            border-color: #fff; 
+        }
+
+        /* Corrige o texto dentro do card inclinado para ele não ficar torto demais (opcional, mas aqui deixamos torto pelo estilo) */
 
         h2 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
         
@@ -120,13 +140,15 @@
             margin-top: 15px;
         }
 
-        /* TEXTURA DE FUNDO (PONTINHOS) */
+        /* --- TEXTURA DE FUNDO --- 
+           Cria uma grade de pontinhos bem sutil por cima de tudo
+        */
         .overlay-grid {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: radial-gradient(#ffffff 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.05;
-            pointer-events: none;
+            pointer-events: none; /* Permite clicar através da textura */
             z-index: 0;
         }
 
@@ -140,7 +162,26 @@
             letter-spacing: 2px;
         }
 
-        @media (max-width: 768px) { main { grid-template-columns: 1fr; } header h1 { font-size: 3rem; } }
+        /* =========================================
+           RESPONSIVIDADE
+           ========================================= */
+        @media (max-width: 768px) { 
+            /* Grid vira 1 coluna no tablet/celular */
+            main { grid-template-columns: 1fr; } 
+            
+            /* Ajuste de tamanho do título gigante */
+            header h1 { font-size: 3rem; -webkit-text-stroke: 1px #fff; }
+            
+            /* Ajuste do menu para telas pequenas */
+            nav ul { 
+                gap: 15px; 
+                flex-wrap: wrap; 
+            }
+            
+            /* Remove a inclinação exagerada no celular para economizar espaço lateral */
+            article { transform: skew(0deg); }
+            article:hover { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body>

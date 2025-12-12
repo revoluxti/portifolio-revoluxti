@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Lux - BioMedicina</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           TEMA: OFF-WHITE ORGANIC
+           Conceito: Limpeza, sofisticação e toques de natureza.
+           ========================================= */
+
+        :root {
+            --bg: #fdfbf7;        /* Creme / Off-White (Fundo suave) */
+            --text: #2f3e46;      /* Cinza Chumbo Esverdeado (Texto sério) */
+            --accent: #84a98c;    /* Verde Sálvia (Calmo/Saúde) */
+            --highlight: #e76f51; /* Laranja Terracota (Destaque sutil) */
+            --line: #d8d4cd;      /* Linhas divisórias discretas */
+        }
+
+        /* Reset Básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8; /* Espaçamento de linha maior para leitura agradável */
+        }
+
+        /* --- HEADER (CABEÇALHO) --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* Tipografia de Assinatura (Estilo Manuscrito) */
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--highlight);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+
+        /* --- NAVEGAÇÃO --- */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            padding-bottom: 5px;
+        }
+        
+        /* Efeito Hover: Borda inferior sutil */
+        nav a:hover { 
+            color: var(--accent); 
+            border-bottom: 1px solid var(--accent); 
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* CARD DE BIO/SERVIÇO */
+        .bio-card {
+            border: 1px solid var(--line);
+            padding: 40px;
+            margin-bottom: 40px; /* Espaço entre cards empilhados */
+            background: #fff;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02); /* Sombra levíssima */
+        }
+
+        /* Detalhe Decorativo: Barra lateral colorida */
+        .bio-card::before {
+            content: ''; 
+            position: absolute; left: 0; top: 20%; 
+            height: 60%; width: 4px;
+            background-color: var(--accent);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        /* Estilo específico para títulos h3 dentro dos cards menores */
+        .bio-card h3 {
+            font-family: 'Playfair Display', serif; 
+            margin-bottom: 10px; 
+            color: var(--highlight);
+            font-size: 1.5rem;
+        }
+
+        p { color: #555; margin-bottom: 20px; font-weight: 300; }
+
+        /* Botão de Agendamento */
+        .btn-schedule {
+            background-color: var(--text);
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-schedule:hover { background-color: var(--highlight); }
+
+        /* --- GRID DE SERVIÇOS SECUNDÁRIOS --- 
+           Substituí o estilo inline por uma classe para controlar a responsividade.
+        */
+        .grid-servicos {
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* 2 Colunas */
+            gap: 40px;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            text-align: center;
+            padding: 60px;
+            background-color: #f4f1ea; /* Tom levemente mais escuro */
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .dr-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--text);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE
+           ========================================= */
+        
+        @media (max-width: 600px) { 
+            /* Ajuste de Tipografia */
+            h1 { font-size: 2rem; line-height: 1.2; }
+            
+            /* Header Compacto */
+            header { padding: 40px 20px; }
+            
+            /* Menu Vertical */
+            nav ul { 
+                flex-direction: column; 
+                gap: 15px; 
+                margin-top: 20px;
+            }
+
+            /* Main padding reduzido */
+            main { padding: 40px 20px; }
+
+            /* Grid vira coluna única */
+            .grid-servicos {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* Ajuste nos Cards */
+            .bio-card { padding: 30px 20px; }
+            
+            footer { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="signature">BioHadely</div>
+        <h1>Dr. Lux T I One</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Harmonização</a></li>
+                <li><a href="#">Bio-Estimuladores</a></li>
+                <li><a href="#">Agendamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bio-card">
+            <h2>Beleza Natural & Ciência</h2>
+            <p>
+                Acreditamos na estética que realça, não que transforma. Utilizando protocolos de biotecnologia avançada, oferecemos tratamentos personalizados que respeitam a anatomia única de cada paciente.
+            </p>
+            <p>
+                O ambiente "Off-White" reflete nossa filosofia: pureza, calma e precisão técnica.
+            </p>
+            <a href="#" class="btn-schedule">Agendar Consulta</a>
+        </section>
+
+        <div class="grid-servicos">
+            <section class="bio-card" style="margin-bottom: 0;">
+                <h3>DentalBlanck</h3>
+                <p style="font-size: 0.9rem;">Odontologia estética integrada. Clareamento e lentes de contato com acabamento natural.</p>
+            </section>
+
+            <section class="bio-card" style="margin-bottom: 0;">
+                <h3>Dr. Express</h3>
+                <p style="font-size: 0.9rem;">Protocolos rápidos para o dia a dia. Cuidados express com a mesma excelência clínica.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <span class="dr-name">REDE Hadely </span>
+        CRBM 12345/PR - Biomedicina Estética<br>
+        &copy; 2025 REVOLUXTI Health Solutions.
+    </footer>
+
+</body>
+</html>
