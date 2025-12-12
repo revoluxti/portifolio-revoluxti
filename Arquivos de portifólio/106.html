@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bolão Choperia</title>
+    <style>
+        /* --- PALETA: COLD DRAFT BEER (Azul & Verde) --- */
+        :root {
+            --bg: #001219;        /* Azul Petróleo Quase Preto */
+            --tile-line: #002b36; /* Linhas do azulejo */
+            --neon-green: #0aff99;/* Verde Espuma Neon */
+            --accent-blue: #005f73;
+            --text: #e9d8a6;      /* Bege Cerveja */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Oswald', sans-serif; /* Fonte Alta e Estreita */
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            
+            /* PADRÃO DE FUNDO: SUBWAY TILE (Azulejo de Metrô Industrial) */
+            /* Cria retângulos intercalados */
+            background-image: 
+                linear-gradient(var(--tile-line) 2px, transparent 2px),
+                linear-gradient(90deg, var(--tile-line) 2px, transparent 2px);
+            background-size: 100px 50px; /* Formato retangular */
+            background-position: center;
+        }
+
+        header {
+            background: rgba(0, 18, 25, 0.95);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--neon-green);
+            backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            /* Sombra sólida verde para dar efeito 3D */
+            text-shadow: 4px 4px 0px var(--accent-blue);
+        }
+        .logo span { color: var(--neon-green); }
+
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        nav a { 
+            color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; 
+            padding: 8px 16px; border-radius: 4px; transition: 0.3s;
+        }
+        nav a:hover { background: var(--neon-green); color: #001219; }
+
+        main {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Menu e Destaque */
+            gap: 30px;
+        }
+
+        /* MENU BOARD STYLE */
+        .menu-section {
+            background: #001f29;
+            border: 2px solid var(--accent-blue);
+            padding: 30px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        h2 { 
+            font-size: 2rem; 
+            border-bottom: 2px dashed var(--neon-green); 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+        .item h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--neon-green); }
+        .item p { font-size: 0.9rem; color: #aaa; }
+        .price { font-size: 1.2rem; font-weight: bold; color: #fff; }
+
+        /* SIDEBAR DE DESTAQUE */
+        aside {
+            background: var(--neon-green);
+            color: #001219;
+            padding: 30px;
+            text-align: center;
+            height: fit-content;
+            transform: rotate(2deg); /* Leve inclinação para estilo "poster colado" */
+        }
+
+        aside h3 { font-size: 2rem; line-height: 1; margin-bottom: 15px; text-transform: uppercase; }
+        .btn-pedir {
+            background: #001219; color: #fff; border: none; padding: 15px 30px;
+            font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; width: 100%;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid var(--neon-green);
+        }
+
+        @media (max-width: 768px) { main { grid-template-columns: 1fr; } header { flex-direction: column; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">BOLÃO <span>CHOPERIA</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Torneiras</a></li>
+                <li><a href="#">Porções</a></li>
+                <li><a href="#">Happy Hour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-section">
+            <h2>Na Torneira (Tap List)</h2>
+            
+            <div class="item">
+                <div>
+                    <h3>Bolão IPA</h3>
+                    <p>Amargor intenso, notas cítricas. 6.5% ABV</p>
+                </div>
+                <span class="price">R$ 18</span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h3>Lager Premium</h3>
+                    <p>Leve, refrescante e cristalina. 4.5% ABV</p>
+                </div>
+                <span class="price">R$ 12</span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h3>Stout Café</h3>
+                    <p>Escura, encorpada com notas de café. 5.0% ABV</p>
+                </div>
+                <span class="price">R$ 20</span>
+            </div>
+        </section>
+
+        <aside>
+            <h3>Happy Hour</h3>
+            <p>Chopp em dobro até as 20h!</p>
+            <div style="font-size: 3rem; font-weight: 900; margin: 20px 0;">50% OFF</div>
+            <button class="btn-pedir">Reservar Mesa</button>
+        </aside>
+    </main>
+
+    <footer>
+        SISTEMA DE GESTÃO: <strong>REVOLUXTI</strong>
+    </footer>
+
+</body>
+</html>

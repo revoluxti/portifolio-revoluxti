@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>BioHadely - Medical Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Mulish:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- PALETA: OFF-WHITE LUXURY --- */
+        :root {
+            --bg: #f7f5f2;       /* Off-white Creme */
+            --surface: #ffffff;
+            --text: #4a4a4a;     /* Cinza Carvão Suave */
+            --green: #6b8e23;    /* Verde Oliva/Sage */
+            --accent: #d2691e;   /* Laranja Queimado (Detalhes finos) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Mulish', sans-serif; /* Fonte de corpo limpa */
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* CONTAINER CENTRALIZADO */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--surface);
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(0,0,0,0.03); /* Sombra difusa */
+            border-left: 1px solid #eaeaea;
+            border-right: 1px solid #eaeaea;
+        }
+
+        /* HEADER */
+        header {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--text);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        
+        .brand-sub {
+            font-family: 'Great Vibes', cursive; /* Fonte Manuscrita */
+            font-size: 2rem;
+            color: var(--green);
+            margin-top: -15px;
+            display: block;
+        }
+
+        nav ul {
+            display: flex; justify-content: center; gap: 40px; margin-top: 40px; list-style: none;
+            border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 15px 0;
+        }
+        
+        nav a { 
+            text-decoration: none; color: #888; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* MAIN CONTENT */
+        main { padding: 60px 80px; }
+
+        /* SEÇÃO DE APRESENTAÇÃO */
+        .bio-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        /* Moldura da foto */
+        .profile-frame {
+            border: 1px solid var(--text);
+            padding: 10px;
+            border-radius: 200px 200px 0 0; /* Arco */
+        }
+        .profile-img {
+            width: 100%; height: 400px;
+            background-color: #e0e0e0; /* Placeholder cinza */
+            border-radius: 190px 190px 0 0;
+            display: flex; align-items: center; justify-content: center;
+            color: #999; font-style: italic;
+        }
+
+        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 20px; font-weight: 400; color: #333; }
+        
+        /* Dropcap (Letra capitular grande) */
+        p.lead::first-letter {
+            font-size: 3.5rem; float: left; line-height: 0.8; margin-right: 10px; color: var(--accent); font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* GRID DE SERVIÇOS */
+        .services {
+            background-color: var(--bg);
+            padding: 60px;
+            margin: 0 -80px; /* Quebra as margens */
+            text-align: center;
+        }
+
+        .service-list {
+            display: flex; justify-content: space-around; margin-top: 40px;
+        }
+        
+        .service-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--green); margin-bottom: 10px; }
+        .service-item p { font-size: 0.9rem; color: #666; max-width: 200px; margin: 0 auto; }
+
+        footer {
+            text-align: center; padding: 40px; font-size: 0.8rem; color: #999;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) { .bio-section { grid-template-columns: 1fr; } main { padding: 40px 20px; } .services { margin: 0 -20px; flex-direction: column; } .service-list { flex-direction: column; gap: 30px; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="brand-name">Dr. Express</h1>
+            <span class="brand-sub">BioHadely</span>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Harmonização</a></li>
+                    <li><a href="#">Bio-Estimuladores</a></li>
+                    <li><a href="#">Protocolos</a></li>
+                    <li><a href="#">Agendar</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="bio-section">
+                <figure class="profile-frame">
+                    <div class="profile-img">Foto Dr. Hadely</div>
+                    <figcaption style="text-align: center; margin-top: 10px; font-size: 0.8rem; color: var(--accent);">CRM/PR 12345</figcaption>
+                </figure>
+
+                <article>
+                    <h2>A ciência da<br><i style="color: var(--green)">beleza natural.</i></h2>
+                    <p class="lead">
+                        Nossa abordagem na BioHadely é única. Unimos a precisão da biotecnologia com a arte da estética facial. 
+                        Acreditamos que cada traço conta uma história, e nosso papel é realçar sua melhor versão sem perder a identidade.
+                    </p>
+                    <br>
+                    <p>
+                        Ambiente esterilizado, tecnologia de ponta e um café expresso sempre quente esperando por você.
+                    </p>
+                    
+                    <div style="margin-top: 30px; font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: #666;">
+                        Com carinho, Dr. Hadely.
+                    </div>
+                </article>
+            </section>
+
+            <section class="services">
+                <span style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; color: var(--accent);">Nossos Tratamentos</span>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>DentalBlanc</h3>
+                        <p>Clareamento e estética dental avançada com laser.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Full Face</h3>
+                        <p>Protocolos completos de rejuvenescimento facial.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Bio-Tech</h3>
+                        <p>Análise de pele com inteligência artificial.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2025 REVOLUXTI Health Design. Onde a tecnologia encontra o cuidado.
+        </footer>
+    </div>
+
+</body>
+</html>

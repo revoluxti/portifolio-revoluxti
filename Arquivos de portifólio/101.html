@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Hadely - BioMedicina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- PALETA: OFF-WHITE ORGANIC --- */
+        :root {
+            --bg: #fdfbf7;        /* Creme / Off-White */
+            --text: #2f3e46;      /* Cinza Chumbo Esverdeado */
+            --accent: #84a98c;    /* Verde Sálvia (Calmo) */
+            --highlight: #e76f51; /* Laranja Terracota (Detalhe) */
+            --line: #d8d4cd;      /* Linhas sutis */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* HEADER: Centralizado e Limpo */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* Tipografia de Assinatura */
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--highlight);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
+
+        /* MAIN */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* SECTION: Cards com borda fina e elegante */
+        .bio-card {
+            border: 1px solid var(--line);
+            padding: 40px;
+            margin-bottom: 40px;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        /* Detalhe colorido na lateral */
+        .bio-card::before {
+            content: ''; position: absolute; left: 0; top: 20%; height: 60%; width: 4px;
+            background-color: var(--accent);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        p { color: #555; margin-bottom: 20px; font-weight: 300; }
+
+        .btn-schedule {
+            background-color: var(--text);
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-schedule:hover { background-color: var(--highlight); }
+
+        /* ÁREA DE ASSINATURA / RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 60px;
+            background-color: #f4f1ea; /* Um tom um pouco mais escuro que o fundo */
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .dr-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--text);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (max-width: 600px) { h1 { font-size: 2rem; } nav ul { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="signature">BioHadely</div>
+        <h1>Dr. Hadely Severino</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Harmonização</a></li>
+                <li><a href="#">Bio-Estimuladores</a></li>
+                <li><a href="#">Agendamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bio-card">
+            <h2>Beleza Natural & Ciência</h2>
+            <p>
+                Acreditamos na estética que realça, não que transforma. Utilizando protocolos de biotecnologia avançada, oferecemos tratamentos personalizados que respeitam a anatomia única de cada paciente.
+            </p>
+            <p>
+                O ambiente "Off-White" reflete nossa filosofia: pureza, calma e precisão técnica.
+            </p>
+            <a href="#" class="btn-schedule">Agendar Consulta</a>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <section class="bio-card" style="margin-bottom: 0;">
+                <h3 style="font-family: 'Playfair Display'; margin-bottom: 10px; color: var(--highlight);">DentalBlanck</h3>
+                <p style="font-size: 0.9rem;">Odontologia estética integrada. Clareamento e lentes de contato com acabamento natural.</p>
+            </section>
+
+            <section class="bio-card" style="margin-bottom: 0;">
+                <h3 style="font-family: 'Playfair Display'; margin-bottom: 10px; color: var(--highlight);">Dr. Express</h3>
+                <p style="font-size: 0.9rem;">Protocolos rápidos para o dia a dia. Cuidados express com a mesma excelência clínica.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <span class="dr-name">Dr. Hadely Severino</span>
+        CRBM 12345/PR - Biomedicina Estética<br>
+        &copy; 2025 REVOLUXTI Health Solutions.
+    </footer>
+
+</body>
+</html>

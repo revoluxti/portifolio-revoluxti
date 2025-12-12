@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakisoba do Bolão</title>
+    <style>
+        /* =========================================
+           ESTILO: DRAGON DYNASTY
+           Inspirado na estética imperial chinesa e menus tradicionais.
+           ========================================= */
+
+        /* --- VARIÁVEIS (PALETA IMPERIAL) --- */
+        :root {
+            --china-red: #8a0000;   /* Vermelho da Cidade Proibida */
+            --china-dark: #3d0000;  /* Vinho profundo para fundo */
+            --gold: #d4af37;        /* Dourado Metálico (Riqueza) */
+            --jade: #00a86b;        /* Verde Jade (Detalhes preciosos) */
+            --paper: #fff8e7;       /* Papel de Arroz (Off-white) */
+            --ink: #1a1a1a;         /* Tinta Nanquim */
+        }
+
+        /* Reset Básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', serif; /* Fonte com serifa para ar tradicional */
+            background-color: var(--china-dark);
+            color: var(--paper);
+            min-height: 100vh;
+            display: flex; /* Layout Flex: Sidebar (Esq) + Conteúdo (Dir) */
+            
+            /* Padrão de Fundo: Bolinhas sutis imitando textura de seda/papel */
+            background-image: radial-gradient(var(--china-red) 20%, transparent 20%);
+            background-size: 30px 30px;
+        }
+
+        /* --- SIDEBAR (BARRA LATERAL / FAIXA) --- */
+        aside {
+            width: 100px; /* Largura fixa para desktop */
+            background: var(--china-red);
+            border-right: 4px solid var(--gold); /* Borda dourada de separação */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+            box-shadow: 10px 0 20px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
+            z-index: 10; /* Garante que fique acima se houver sobreposição */
+        }
+
+        /* Carimbo/Logo Estilizado */
+        .logo-char {
+            font-size: 3rem;
+            color: var(--gold);
+            border: 3px solid var(--gold);
+            padding: 10px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-family: sans-serif; /* Contraste com o resto */
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 40px; 
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--paper);
+            
+            /* --- ESCRITA VERTICAL --- 
+               Transforma o texto para ser lido de cima para baixo (Estilo Oriental)
+            */
+            writing-mode: vertical-rl; 
+            text-orientation: upright; /* Mantém as letras em pé, não deitadas */
+            
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        /* Efeito Hover: Dourado brilhante */
+        nav a:hover { 
+            color: var(--gold); 
+            text-shadow: 0 0 10px var(--gold); 
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            flex: 1; /* Ocupa o restante do espaço */
+            padding: 60px;
+            max-width: 900px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Alinha texto na base */
+        }
+
+        h1 { 
+            font-size: 4rem; 
+            color: var(--gold); 
+            font-weight: normal; 
+            font-style: italic; 
+        }
+        
+        .sub { 
+            color: var(--jade); 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+
+        /* --- GRID DO CARDÁPIO --- */
+        .menu-grid {
+            display: grid;
+            gap: 20px;
+            /* Por padrão, cards empilhados. Grid ajuda no espaçamento. */
+        }
+
+        .dish-card {
+            background: rgba(0, 0, 0, 0.6); /* Fundo escuro translúcido */
+            border: 1px solid var(--gold);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Detalhe Decorativo Jade (Barra lateral no card) */
+        .dish-card::before {
+            content: ''; 
+            position: absolute; top: 0; left: 0; 
+            width: 5px; height: 100%; 
+            background: var(--jade);
+        }
+
+        .dish-info h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--paper); }
+        .dish-info p { color: #aaa; font-style: italic; }
+
+        /* Selo de Preço */
+        .dish-price {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: bold;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            border-radius: 50%; /* Transforma em círculo/selo */
+            width: 70px; height: 70px;
+            
+            /* Centraliza o número no círculo */
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; /* Impede que o preço "amasse" se o texto for grande */
+        }
+
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--gold);
+            padding-top: 20px;
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (TABLET & MOBILE)
+           ========================================= */
+
+        /* Tablet e Menores (até 850px) */
+        @media (max-width: 850px) {
+            body { 
+                flex-direction: column; /* Sidebar vai para o topo */
+            }
+            
+            aside { 
+                width: 100%; 
+                height: auto; 
+                flex-direction: row; /* Itens lado a lado */
+                justify-content: center; /* Centraliza menu */
+                padding: 15px;
+                border-right: none; 
+                border-bottom: 4px solid var(--gold); 
+            }
+            
+            nav ul { 
+                flex-direction: row; 
+                gap: 30px; 
+            }
+            
+            nav a { 
+                /* Retorna escrita para horizontal padrão */
+                writing-mode: horizontal-tb; 
+                letter-spacing: 1px; 
+            }
+            
+            /* Esconde o logo "B" grande para economizar espaço no topo */
+            .logo-char { display: none; }
+            
+            main { padding: 40px 20px; }
+            
+            header h1 { font-size: 3rem; }
+        }
+
+        /* Celular (até 500px) */
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+            }
+
+            header h1 { font-size: 2.2rem; }
+            
+            /* Ajuste do Card para telas muito estreitas */
+            .dish-card {
+                flex-direction: column; /* Texto em cima, preço embaixo */
+                text-align: center;
+                gap: 15px;
+            }
+
+            .dish-card::before {
+                width: 100%; height: 4px; /* Barra Jade vira topo horizontal */
+            }
+
+            .dish-price {
+                width: 60px; height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            nav ul { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="logo-char">B</div> 
+        <nav>
+            <ul>
+                <li><a href="#">Cardápio</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <div>
+                <span class="sub">Culinária Oriental</span>
+                <h1>Yakisoba do Bolão</h1>
+            </div>
+            <div style="font-size: 2rem; color: var(--china-red); background: var(--gold); padding: 5px 15px; border-radius: 5px;">
+                福 
+            </div>
+        </header>
+
+        <section class="menu-grid">
+            <article class="dish-card">
+                <div class="dish-info">
+                    <h3>Yakisoba Clássico</h3>
+                    <p>Macarrão artesanal, carne, frango e legumes frescos.</p>
+                </div>
+                <div class="dish-price">45</div>
+            </article>
+
+            <article class="dish-card">
+                <div class="dish-info">
+                    <h3>Frango Xadrez</h3>
+                    <p>Cubos de frango, pimentões, amendoim e molho shoyu especial.</p>
+                </div>
+                <div class="dish-price">38</div>
+            </article>
+
+            <article class="dish-card">
+                <div class="dish-info">
+                    <h3>Rolinho Primavera</h3>
+                    <p>Porção com 2 unidades. Crocante e sequinho.</p>
+                </div>
+                <div class="dish-price">15</div>
+            </article>
+        </section>
+
+        <footer>
+            REVOLUXTI SYSTEM © 2025. TRADIÇÃO E TECNOLOGIA.
+        </footer>
+    </main>
+
+</body>
+</html>

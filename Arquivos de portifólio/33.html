@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semântica 1 - Conforto Visual</title>
+    <style>
+        /* PALETA: GRUVBOX DARK (Foco em conforto visual) */
+        :root {
+            --bg-body: #282828;      /* Cinza Escuro Quente */
+            --bg-card: #3c3836;      /* Cinza Café */
+            --text-main: #ebdbb2;    /* Creme (Não é branco puro!) */
+            --text-dim: #a89984;     /* Bege Escuro */
+            --accent: #d79921;       /* Âmbar Suave */
+            --border: #504945;       /* Borda Discreta */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.7; /* Espaçamento maior para facilitar leitura */
+        }
+
+        header {
+            background-color: #1d2021; /* Quase preto */
+            border-bottom: 2px solid var(--accent);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { color: var(--accent); font-size: 1.4rem; letter-spacing: 1px; }
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { color: var(--text-dim); text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: var(--text-main); }
+
+        .container-semantico {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        article {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra suave para profundidade */
+            border: 1px solid var(--border);
+        }
+
+        h2 { margin-bottom: 10px; font-size: 1.8rem; color: #fb4934; /* Vermelho suave */ }
+        
+        /* Destaque sem brilho excessivo */
+        code {
+            background: #1d2021;
+            color: #b8bb26; /* Verde musgo */
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        aside {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 4px;
+            height: fit-content;
+            border: 1px solid var(--border);
+        }
+
+        aside h3 { 
+            color: var(--accent); 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        aside ul li { list-style: square; margin-left: 20px; color: var(--text-dim); padding: 5px 0; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1d2021;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container-semantico { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>&lt;Blog_Semântico/&gt;</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Ler</a></li>
+                <li><a href="#">Código</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-semantico">
+        <main>
+            <article>
+                <hgroup>
+                    <h2>Leitura Confortável</h2>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Por Lucas - Tema Eye Care</p>
+                </hgroup>
+                <hr style="border-color: var(--border); margin: 20px 0;">
+                <p>Este tema utiliza a paleta <strong>Gruvbox</strong>. Ela foi cientificamente projetada para reduzir a fadiga ocular.</p>
+                <br>
+                <p>Perceba que não usamos branco puro (<code>#FFF</code>), mas sim um tom creme (<code>#ebdbb2</code>). O contraste é suficiente para ler, mas não "queima" a retina.</p>
+            </article>
+        </main>
+
+        <aside>
+            <h3>Tópicos</h3>
+            <ul>
+                <li>Semântica Web</li>
+                <li>Acessibilidade</li>
+                <li>Dark Mode</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Projeto Eye Care. Feito para sensibilidade visual.</p>
+    </footer>
+</body>
+</html>

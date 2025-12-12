@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr Express - Power Supps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILO CSS: ENERGY THEME --- */
+        :root {
+            --bg: #240046;        /* Roxo Uva Escuro */
+            --neon: #ccff00;      /* Verde Marca-Texto */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon);
+        }
+
+        header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: var(--neon);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
+        nav a:hover { color: var(--neon); text-decoration: underline; }
+
+        /* MAIN */
+        main {
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* O LETREIRO (MARQUEE) */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--neon);
+            color: var(--bg);
+            padding: 10px 0;
+            transform: rotate(-2deg) scale(1.1); /* Levemente inclinado */
+            margin: 40px 0;
+            border-top: 5px solid #000;
+            border-bottom: 5px solid #000;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* CARDS DE PRODUTO OUSADOS */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        article {
+            border: 4px solid var(--neon);
+            background: #000;
+            padding: 0;
+            position: relative;
+            transition: 0.2s;
+        }
+        /* Efeito Sombra Sólida deslocada */
+        article:hover {
+            transform: translate(-10px, -10px);
+            box-shadow: 10px 10px 0px var(--neon);
+        }
+
+        .prod-img {
+            height: 250px;
+            background: #333; /* Placeholder imagem */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: #444;
+        }
+
+        .prod-info { padding: 20px; text-align: left; }
+        
+        h2 { font-family: 'Anton', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 10px; }
+        
+        .price { color: var(--neon); font-size: 1.5rem; font-weight: bold; display: block; margin-bottom: 15px;}
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--neon);
+            color: var(--bg);
+            border: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        button:hover { background: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dr. Express</h1>
+        <nav>
+            <a href="#">Whey</a>
+            <a href="#">Creatina</a>
+            <a href="#">Pré-Treino</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            FORÇA • EXPLOSÃO • FOCO • PERFORMANCE • DR. EXPRESS • FORÇA • EXPLOSÃO • FOCO • PERFORMANCE • DR. EXPRESS •
+        </div>
+    </div>
+
+    <main>
+        <section class="product-grid">
+            <article>
+                <div class="prod-img">100%</div>
+                <div class="prod-info">
+                    <h2>WHEY ISOLADO</h2>
+                    <span class="price">R$ 149,90</span>
+                    <p style="color: #aaa; margin-bottom: 15px;">Absorção ultra-rápida. Zero lactose.</p>
+                    <button>COMPRAR AGORA</button>
+                </div>
+            </article>
+
+            <article>
+                <div class="prod-img">PUMP</div>
+                <div class="prod-info">
+                    <h2>PRÉ-TREINO X</h2>
+                    <span class="price">R$ 89,90</span>
+                    <p style="color: #aaa; margin-bottom: 15px;">Foco mental e vascularização extrema.</p>
+                    <button>COMPRAR AGORA</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>

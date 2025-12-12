@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakisoba do Bolão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: DRAGON NIGHT --- */
+        :root {
+            --bg: #0c0c0c;
+            --panel: #141414;
+            --red: #d90429;        /* Vermelho Templo */
+            --gold: #ffb703;       /* Dourado Lanterna */
+            --text: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            /* Padrão sutil de "ondas" orientais no fundo */
+            background-image: radial-gradient(circle at 50% 50%, rgba(217, 4, 41, 0.05) 0%, transparent 60%);
+            min-height: 100vh;
+            border-top: 5px solid var(--red);
+            border-bottom: 5px solid var(--red);
+        }
+
+        /* HEADER SEMÂNTICO: Estilo Portal */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #333;
+            background: linear-gradient(to bottom, #000, rgba(20,20,20,0.8));
+        }
+
+        header h1 {
+            font-family: 'Noto Serif SC', serif; /* Fonte estilo oriental */
+            font-size: 3rem;
+            color: var(--red);
+            text-shadow: 0 0 10px rgba(217, 4, 41, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        header span {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* NAV: Estilo Minimalista */
+        nav ul { display: flex; justify-content: center; gap: 40px; margin-top: 30px; list-style: none; }
+        nav a { 
+            color: #888; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; 
+            border: 1px solid #333; padding: 10px 20px; transition: 0.3s;
+        }
+        nav a:hover { border-color: var(--gold); color: var(--gold); background: rgba(255, 183, 3, 0.05); }
+
+        /* MAIN: Layout Assimétrico */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        /* ASIDE: Menu Vertical */
+        aside {
+            background: var(--panel);
+            padding: 30px;
+            border-right: 2px solid var(--red);
+            height: fit-content;
+        }
+
+        aside h3 { color: var(--gold); margin-bottom: 20px; font-family: 'Noto Serif SC', serif; font-size: 1.5rem; }
+        
+        .category-item {
+            display: block; padding: 15px 0; border-bottom: 1px solid #333; color: #aaa; cursor: pointer; transition:0.2s;
+        }
+        .category-item:hover { padding-left: 10px; color: #fff; }
+
+        /* SECTION: Pratos */
+        section {
+            display: grid;
+            gap: 30px;
+        }
+
+        article {
+            display: flex;
+            background: var(--panel);
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        article:hover { border-color: var(--red); box-shadow: 0 0 20px rgba(217, 4, 41, 0.1); }
+
+        /* Imagem simulada */
+        .dish-img {
+            width: 150px;
+            background-color: #222;
+            display: flex; align-items: center; justify-content: center;
+            color: #444; font-size: 2rem;
+        }
+
+        .dish-info { padding: 25px; flex: 1; }
+
+        h2 { font-size: 1.2rem; color: #fff; margin-bottom: 5px; text-transform: uppercase; }
+        .desc { font-size: 0.9rem; color: #888; margin-bottom: 15px; }
+        .price { font-size: 1.1rem; color: var(--gold); font-weight: bold; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: auto;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 800px) { 
+            /* Layout Coluna Única */
+            main { grid-template-columns: 1fr; padding: 30px 20px; }
+            
+            /* Ajuste Cards */
+            article { flex-direction: column; }
+            .dish-img { width: 100%; height: 150px; }
+            
+            /* Ajuste Sidebar (Categorias) */
+            aside {
+                border-right: none;
+                border-bottom: 2px solid var(--red);
+                margin-bottom: 20px;
+            }
+
+            /* Ajuste Menu Topo */
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            /* Ajuste Título */
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yakisoba do Bolão</h1>
+        <span>Culinária Oriental</span>
+        <nav>
+            <ul>
+                <li><a href="#">Cardápio</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Reserva</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside>
+            <h3>Categorias</h3>
+            <span class="category-item">🍜 Yakisobas</span>
+            <span class="category-item">🍣 Sushis & Temakis</span>
+            <span class="category-item">🥟 Guiozas</span>
+            <span class="category-item">🍶 Bebidas</span>
+        </aside>
+
+        <section>
+            <article>
+                <div class="dish-img">🍜</div>
+                <div class="dish-info">
+                    <h2>Yakisoba Especial</h2>
+                    <p class="desc">Macarrão artesanal, carne, frango, legumes frescos e molho secreto da casa.</p>
+                    <span class="price">R$ 42,90</span>
+                </div>
+            </article>
+
+            <article>
+                <div class="dish-img">🍤</div>
+                <div class="dish-info">
+                    <h2>Camarão Imperial</h2>
+                    <p class="desc">Camarões empanados na panko com molho agridoce picante.</p>
+                    <span class="price">R$ 65,00</span>
+                </div>
+            </article>
+
+            <article>
+                <div class="dish-img">🥗</div>
+                <div class="dish-info">
+                    <h2>Yakisoba Vegano</h2>
+                    <p class="desc">Mix de cogumelos (Shitake e Shimeji), brócolis e tofu.</p>
+                    <span class="price">R$ 38,90</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 REVOLUXTI Asian Systems.
+    </footer>
+
+</body>
+</html>

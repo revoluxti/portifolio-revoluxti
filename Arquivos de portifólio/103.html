@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bolão Gelateria</title>
+    <style>
+        /* PALETA: PASTEL POP */
+        :root {
+            --bg: #fdf2f8;        /* Rosa Bebê muito claro */
+            --glass: rgba(255, 255, 255, 0.6);
+            --text: #5b21b6;      /* Roxo Uva */
+            /* Gradiente Instagram Style */
+            --insta-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            --blue-pastel: #bae6fd;
+            --pink-pastel: #fbcfe8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Fredoka', 'Varela Round', sans-serif; /* Fonte fofa/redonda (Google Fonts ideal) */
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FORMAS FLUTUANTES (BLOBS) */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        .b1 { top: -50px; left: -50px; width: 400px; height: 400px; background: var(--blue-pastel); }
+        .b2 { bottom: 10%; right: -50px; width: 300px; height: 300px; background: var(--pink-pastel); }
+        .b3 { top: 40%; left: 30%; width: 200px; height: 200px; background: #ddd6fe; }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            position: sticky; top: 0; z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            background: var(--insta-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        nav ul { display: flex; justify-content: center; gap: 20px; list-style: none; margin-top: 15px; }
+        
+        nav a {
+            text-decoration: none;
+            color: #888;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        nav a:hover { color: #fff; background: var(--insta-grad); transform: translateY(-3px); }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        /* SEÇÕES FLUTUANTES */
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 20px; color: #831843; }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .flavor-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .flavor-card:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .flavor-icon { font-size: 3rem; margin-bottom: 10px; }
+        .price { 
+            display: inline-block; margin-top: 10px; 
+            background: #fdf2f8; color: #db2777; 
+            padding: 5px 10px; border-radius: 10px; font-weight: bold; 
+        }
+
+        /* BOTÃO DESTAQUE INSTAGRAM STYLE */
+        .btn-insta {
+            background: var(--insta-grad);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-insta:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(220, 39, 67, 0.5); }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.8rem;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <header>
+        <h1>Pastelaria & Gelato<br>do Bolão</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Sabores</a></li>
+                <li><a href="#">Combos</a></li>
+                <li><a href="#">Delivery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Doce como a Vida</h2>
+            <p style="color: #666; font-size: 1.1rem; line-height: 1.6;">
+                Sorvetes artesanais com cores vibrantes e sabor de infância. 
+                Experimente nosso mix de Pastel com Sorvete!
+            </p>
+            <button class="btn-insta">Pedir Agora 🍦</button>
+        </section>
+
+        <section>
+            <h2>Favoritos da Galera</h2>
+            <div class="flavor-grid">
+                <div class="flavor-card">
+                    <div class="flavor-icon">🍓</div>
+                    <h3>Morango Pop</h3>
+                    <span class="price">R$ 12,00</span>
+                </div>
+                <div class="flavor-card">
+                    <div class="flavor-icon">🫐</div>
+                    <h3>Blueberry Sky</h3>
+                    <span class="price">R$ 14,00</span>
+                </div>
+                <div class="flavor-card">
+                    <div class="flavor-icon">🍫</div>
+                    <h3>Choco Belga</h3>
+                    <span class="price">R$ 16,00</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Sweet System by REVOLUXTI.
+    </footer>
+
+</body>
+</html>

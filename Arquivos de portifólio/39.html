@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica 1 - Nord Theme</title>
+    <style>
+        /* PALETA: NORD (Focado em Conforto Visual) */
+        :root {
+            --bg-body: #242933;      /* Fundo Base (Cinza Escuro) */
+            --bg-card: #2E3440;      /* Cartões */
+            --border: #434C5E;       /* Bordas sutis */
+            --text-main: #D8DEE9;    /* Branco Gelo (Não ofusca) */
+            --text-muted: #81A1C1;   /* Azul Pastel Suave */
+            --accent: #88C0D0;       /* Ciano Pastel */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.7; /* Espaçamento maior para facilitar leitura */
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { 
+            font-size: 1.4rem; 
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-size: 0.95rem;
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+        nav a:hover { opacity: 1; color: var(--accent); }
+
+        /* LAYOUT */
+        .container-semantico {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        article {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+
+        h2 { margin-bottom: 10px; font-size: 1.8rem; color: #ECEFF4; }
+        
+        p { color: #D8DEE9; opacity: 0.9; margin-bottom: 15px; }
+
+        code {
+            background: #3B4252;
+            color: #A3BE8C; /* Verde Suave */
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* BARRA LATERAL */
+        aside {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        aside h3 { 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        aside ul li { 
+            list-style: none; 
+            padding: 8px 0; 
+            color: var(--text-main);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            background: var(--bg-card);
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container-semantico { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nord&lt;Dev/&gt;</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Artigos</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-semantico">
+        <main>
+            <article>
+                <hgroup>
+                    <h2>Semântica e Acessibilidade</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Leitura: 3 min • Por Lucas</p>
+                </hgroup>
+                <div style="height: 1px; background: var(--border); margin: 20px 0;"></div>
+                <p>Este tema foi desenhado especificamente para evitar fadiga ocular. As cores têm baixo contraste relativo (sem preto absoluto, sem branco absoluto).</p>
+                <p>Aqui, a tag <code>&lt;article&gt;</code> organiza o texto principal, enquanto o menu lateral complementa a navegação.</p>
+            </article>
+        </main>
+
+        <aside>
+            <h3>Tópicos</h3>
+            <ul>
+                <li>UX Design</li>
+                <li>Acessibilidade</li>
+                <li>Front-end</li>
+            </ul>
+            <br>
+            <div style="background: #3B4252; padding: 15px; border-radius: 6px; border-left: 3px solid var(--accent);">
+                <small style="color: var(--accent);">Nota:</small><br>
+                <span style="font-size: 0.9rem;">Fundos escuros economizam bateria em telas OLED.</span>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Nord Theme. Conforto visual em primeiro lugar.</p>
+    </footer>
+</body>
+</html>

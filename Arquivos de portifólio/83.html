@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI Street</title>
+    <style>
+        /* --- PALETA: STREET HYPE --- */
+        :root {
+            --orange: #ff4500;    /* Laranja Internacional */
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* MARQUEE: Letreiro Correndo (CSS Animation) */
+        .marquee-container {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* HEADER */
+        header {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 5px solid var(--black);
+        }
+
+        /* LOGO ESTILO ADESIVO */
+        .logo-box {
+            background: var(--orange);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 2rem;
+            font-weight: 900;
+            transform: rotate(-3deg); /* Levemente torto */
+            display: inline-block;
+        }
+
+        nav a { 
+            color: var(--black); text-decoration: none; font-weight: bold; font-size: 1.5rem; margin-left: 30px; text-transform: uppercase;
+        }
+        nav a:hover { text-decoration: line-through; }
+
+        /* MAIN: Fundo Xadrez */
+        main {
+            /* Padrão Xadrez (Checkerboard) com CSS */
+            background-image: 
+                linear-gradient(45deg, #eee 25%, transparent 25%), 
+                linear-gradient(-45deg, #eee 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #eee 75%), 
+                linear-gradient(-45deg, transparent 75%, #eee 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            
+            padding: 80px 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* PRODUCT CARD "DEEP DIVE" */
+        .product-card {
+            background: var(--white);
+            border: 5px solid var(--black);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            box-shadow: 20px 20px 0px var(--orange); /* Sombra Sólida */
+            position: relative;
+        }
+
+        h2 { font-size: 4rem; line-height: 0.9; margin-bottom: 20px; text-transform: uppercase; }
+        
+        .tag { 
+            background: var(--black); color: var(--white); padding: 5px 15px; font-weight: bold; 
+            position: absolute; top: -20px; right: -20px; transform: rotate(5deg);
+        }
+
+        p { font-size: 1.2rem; font-weight: 500; margin-bottom: 30px; }
+
+        .btn-buy {
+            display: block; width: 100%; background: var(--black); color: var(--white); text-align: center; padding: 20px; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        .btn-buy:hover { background: var(--orange); color: var(--black); }
+
+        footer {
+            background: var(--black); color: var(--white); padding: 40px; text-align: center; font-weight: bold; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            LANÇAMENTO EXCLUSIVO /// REVOLUXTI SKATEBOARDS /// NOVAS PEÇAS /// LANÇAMENTO EXCLUSIVO /// REVOLUXTI SKATEBOARDS /// NOVAS PEÇAS /// 
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-box">REVOLUXTI</div>
+        <nav>
+            <a href="#">Decks</a>
+            <a href="#">Apparel</a>
+            <a href="#">"SALE"</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="product-card">
+            <span class="tag">SOLD OUT SOON</span>
+            <h2>Urban<br>Chaos</h2>
+            <p>"EXPANDING IDEAS"<br>Coleção Limitada 2025.</p>
+            <div style="height: 200px; background: #ddd; margin-bottom: 30px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:2rem; color:#aaa;">[IMAGEM DO SHAPE]</div>
+            <a href="#" class="btn-buy">COMPRAR AGORA</a>
+        </article>
+    </main>
+
+    <footer>
+        © 2025 REVOLUXTI DESIGN LAB.
+    </footer>
+
+</body>
+</html>

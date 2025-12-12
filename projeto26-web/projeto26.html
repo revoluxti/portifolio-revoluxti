@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUCTION Skate Shop</title>
+    <style>
+        /* =========================================
+           ESTILO: STREET PUNK
+           ========================================= */
+
+        /* --- VARIÁVEIS (PALETA DE CORES) --- */
+        :root {
+            --black: #111;          /* Preto Profundo */
+            --white: #eee;          /* Branco "Sujo" */
+            --neon-pink: #ff00cc;   /* Rosa Choque */
+            --yellow: #ffee00;      /* Amarelo Alerta */
+        }
+
+        /* Reset básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden; /* Evita rolagem horizontal das rotações */
+        }
+
+        /* --- FUNDO XADREZ (CSS PURO) --- */
+        .bg-checker {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-color: #eee;
+            /* Gradiente complexo para criar os quadrados */
+            background-image:
+                linear-gradient(45deg, #ccc 25%, transparent 25%),
+                linear-gradient(-45deg, #ccc 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #ccc 75%),
+                linear-gradient(-45deg, transparent 75%, #ccc 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            opacity: 0.3;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid var(--neon-pink);
+            /* Visual "Torto" */
+            transform: rotate(-1deg);
+            width: 102%; margin-left: -1%;
+            margin-bottom: 50px;
+        }
+
+        header h1 { font-size: 2.5rem; text-transform: uppercase; font-style: italic; }
+        
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        
+        nav a { 
+            color: var(--white); text-decoration: none; text-transform: uppercase; 
+            font-size: 1.2rem; background: var(--black); padding: 5px 10px;
+        }
+        nav a:hover { background: var(--yellow); color: var(--black); }
+
+        /* --- MAIN GRID --- */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Padrão Desktop: 3 colunas */
+            gap: 30px;
+        }
+
+        /* --- CARDS ESTILO ADESIVO --- */
+        .skate-card {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            transition: 0.2s;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Rotações diferentes para cada card (Caos Visual) */
+        .skate-card:nth-child(1) { border: 4px solid var(--neon-pink); transform: rotate(2deg); }
+        .skate-card:nth-child(2) { border: 4px solid var(--yellow); transform: rotate(-1deg); z-index: 2; }
+        .skate-card:nth-child(3) { border: 4px solid #00ccff; transform: rotate(1deg); }
+
+        .skate-card:hover { transform: scale(1.1) rotate(0deg); z-index: 10; }
+
+        .img-placeholder {
+            height: 250px;
+            background: #222;
+            margin-bottom: 15px;
+            display: flex; align-items: center; justify-content: center;
+            color: #555;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        h2 { font-size: 1.5rem; text-transform: uppercase; margin-bottom: 5px; }
+        p { font-family: 'Courier New', monospace; color: #ccc; margin-bottom: 15px; }
+
+        .btn-buy {
+            display: block; width: 100%;
+            background: var(--white); color: var(--black);
+            padding: 10px; text-decoration: none;
+            font-weight: bold; text-transform: uppercase;
+        }
+        .btn-buy:hover { background: var(--neon-pink); color: #fff; }
+
+        /* --- FAIXA PROMOCIONAL --- */
+        .promo-strip {
+            grid-column: 1 / -1;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+            margin-top: 40px;
+            border: 4px solid var(--black);
+        }
+
+        footer {
+            margin-top: 60px;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (TABLET & MOBILE)
+           ========================================= */
+
+        /* Tablet (até 900px): Grid de 2 colunas */
+        @media (max-width: 900px) {
+            main { 
+                grid-template-columns: 1fr 1fr; /* 2 colunas */
+            }
+            /* Reduz um pouco o tamanho do texto da promoção */
+            .promo-strip { font-size: 1.5rem; }
+        }
+
+        /* Celular (até 600px): Layout vertical e "limpo" */
+        @media (max-width: 600px) {
+            /* Arruma o Header torto que quebra no celular */
+            header {
+                width: 100%; margin-left: 0; 
+                transform: none; /* Remove inclinação */
+                flex-direction: column; /* Itens um embaixo do outro */
+                gap: 20px;
+                text-align: center;
+            }
+
+            /* Menu quebra linha se precisar */
+            nav ul { flex-wrap: wrap; justify-content: center; }
+
+            /* Grid vira 1 coluna única */
+            main { 
+                grid-template-columns: 1fr; 
+                gap: 50px; /* Mais espaço entre os cards */
+            }
+
+            /* IMPORTANTE: Remove as rotações dos cards no celular
+               para não sobrepor ou cortar conteúdo na tela pequena */
+            .skate-card:nth-child(n) { 
+                transform: none; 
+                margin: 0 10px; /* Margem lateral */
+            }
+
+            .promo-strip {
+                transform: none; /* Remove rotação da faixa */
+                font-size: 1.2rem;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-checker"></div>
+
+    <header>
+        <h1>REVOLUCTION Shop<span style="color:var(--yellow)">Sk8</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Decks</a></li>
+                <li><a href="#">Trucks</a></li>
+                <li><a href="#">Wear</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="promo-strip">
+            Promoção: Lixa Grátis na compra de Shape!
+        </div>
+
+        <article class="skate-card">
+            <div class="img-placeholder">SHAPE</div>
+            <h2>Maple Canadense</h2>
+            <p>Resistência Pro.</p>
+            <a href="#" class="btn-buy">R$ 250,00</a>
+        </article>
+
+        <article class="skate-card">
+            <div class="img-placeholder">TRUCK</div>
+            <h2>Eixo Titânio</h2>
+            <p>Leve e inquebrável.</p>
+            <a href="#" class="btn-buy">R$ 380,00</a>
+        </article>
+
+        <article class="skate-card">
+            <div class="img-placeholder">WHEEL</div>
+            <h2>Rodas 54mm</h2>
+            <p>Uretano Premium.</p>
+            <a href="#" class="btn-buy">R$ 180,00</a>
+        </article>
+    </main>
+
+    <footer>
+        REVOLUXTI SKATEBOARDING DIVISION © 2025
+    </footer>
+
+</body>
+</html>

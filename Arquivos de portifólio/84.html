@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>BioTécnica Hadely</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: CLINICAL CHIC --- */
+        :root {
+            --bg: #fdfdfd;        /* Off-White (Quase branco) */
+            --gray-light: #f3f4f6;
+            --text: #4b5563;      /* Cinza Chumbo */
+            --accent: #84a98c;    /* Verde Sálvia (Calmo) */
+            --signature: #2f3e46; /* Cor da assinatura */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        /* HEADER: Limpo e Centralizado */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Nome Estilo Assinatura */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--signature);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex; justify-content: center; gap: 40px; list-style: none; margin-top: 30px;
+        }
+        nav a { 
+            color: var(--text); text-decoration: none; font-size: 0.9rem; text-transform: uppercase;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* MAIN */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* SECTION: Card Clean */
+        section {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            padding: 60px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02); /* Sombra levíssima */
+            border-radius: 4px;
+        }
+
+        h2 { 
+            font-weight: 300; font-size: 2rem; color: var(--signature); margin-bottom: 20px; 
+        }
+
+        p { line-height: 1.8; color: #6b7280; font-size: 1.1rem; margin-bottom: 40px; }
+
+        .btn-sched {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-sched:hover { background-color: var(--signature); }
+
+        /* ASIDE: Depoimentos ou Infos */
+        aside {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .info-box {
+            background: var(--gray-light);
+            padding: 30px;
+            text-align: center;
+        }
+        .info-box h3 { color: var(--signature); margin-bottom: 10px; font-weight: 400; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dra. Hadely</h1>
+        <div class="subtitle">Biotécnica & Medicina Integrativa</div>
+        <nav>
+            <ul>
+                <li><a href="#">A Clínica</a></li>
+                <li><a href="#">Procedimentos</a></li>
+                <li><a href="#">Agendar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cuidado que inspira confiança.</h2>
+            <p>
+                Acreditamos na medicina humanizada. O consultório BioHadely oferece um ambiente acolhedor, onde a tecnologia encontra o cuidado pessoal. Nossa paleta Off-White reflete a pureza e a tranquilidade que você merece.
+            </p>
+            <a href="#" class="btn-sched">Agendar Consulta</a>
+        </section>
+
+        <aside>
+            <div class="info-box">
+                <h3>Horários</h3>
+                <p style="margin:0; font-size:0.9rem;">Seg - Sex: 09h às 18h</p>
+            </div>
+            <div class="info-box">
+                <h3>Localização</h3>
+                <p style="margin:0; font-size:0.9rem;">Centro Médico Severino</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        &copy; 2025 BioTécnica Hadely. CRM/PR 12345.
+    </footer>
+
+</body>
+</html>

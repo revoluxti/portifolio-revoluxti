@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorveteria do Bolão</title>
+    <style>
+        /* --- PALETA: CANDY POP INSTA --- */
+        :root {
+            --bg: #fff0f5;        /* Rosa Algodão Doce bem claro */
+            --glass: rgba(255, 255, 255, 0.6);
+            --insta-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --text: #4a4a4a;
+            --pastel-blue: #a2d2ff;
+            --pastel-yellow: #ffef96;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Quicksand', 'Verdana', sans-serif; /* Fonte redonda */
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* FORMAS FLUTUANTES (BLOBS) NO FUNDO */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        .b1 { top: -100px; left: -100px; width: 400px; height: 400px; background: var(--pastel-blue); }
+        .b2 { bottom: -50px; right: -50px; width: 300px; height: 300px; background: var(--pastel-yellow); }
+        .b3 { top: 30%; left: 40%; width: 200px; height: 200px; background: #ffc8dd; }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            /* Texto com gradiente do Instagram */
+            background: var(--insta-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        nav ul { display: flex; gap: 15px; list-style: none; justify-content: center; }
+        
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            background: #4a4a4a;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover { background: var(--insta-grad); transform: scale(1.05); }
+
+        /* MAIN: Cards de Vidro */
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        article {
+            background: var(--glass);
+            backdrop-filter: blur(15px); /* Efeito Vidro */
+            border: 2px solid #fff;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        article:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(220, 39, 67, 0.2); }
+
+        .circle-img {
+            width: 120px; height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 { font-size: 1.5rem; color: #333; margin-bottom: 10px; }
+        p { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
+
+        .btn-insta {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--insta-grad);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            color: #888;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <header>
+        <h1>Sorveteria do Bolão</h1>
+        <p style="color: #888; font-weight: bold;">Pastelaria & Doces Artesanais</p>
+        <nav>
+            <ul>
+                <li><a href="#">Sabores</a></li>
+                <li><a href="#">Combos</a></li>
+                <li><a href="#">Delivery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <div class="circle-img">🍦</div>
+            <h2>Gelato Italiano</h2>
+            <p>Pistache, Ninho com Nutella e Frutas Vermelhas. Cremoso e artesanal.</p>
+            <a href="#" class="btn-insta">Pedir Agora</a>
+        </article>
+
+        <article>
+            <div class="circle-img">🥟</div>
+            <h2>Pastel Gourmet</h2>
+            <p>Massa crocante com recheios premium. Carne Seca, Queijo Brie e Chocolate.</p>
+            <a href="#" class="btn-insta">Ver Cardápio</a>
+        </article>
+
+        <article>
+            <div class="circle-img">🥤</div>
+            <h2>Milkshakes</h2>
+            <p>Aquele exagero de sabor. Copos decorados para sua foto no Instagram.</p>
+            <a href="#" class="btn-insta">Experimentar</a>
+        </article>
+    </main>
+
+    <footer>
+        &copy; 2025 Sistema SweetPOS by REVOLUXTI.
+    </footer>
+
+</body>
+</html>

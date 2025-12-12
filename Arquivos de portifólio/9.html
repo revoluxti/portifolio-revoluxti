@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #0a0a0c; /* Preto profundo */
+            color: #b0b0b0; /* Cinza claro para leitura */
+        }
+
+        header {
+            background: #111116;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 2px solid #00ff88; /* Linha Neon */
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 2.2em;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 20px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #00ff88; /* Verde Neon */
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px #00ff88;
+        }
+
+        /* Hamburger (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #00ff88;
+            transition: 0.3s;
+        }
+
+        main { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+
+        .intro, .services {
+            background: #16161a;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+            /* Efeito de brilho suave no card */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+        }
+
+        .intro h2, .services h2 {
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 15px;
+            border-left: 4px solid #00ff88; /* Detalhe lateral */
+            padding-left: 15px;
+        }
+
+        .services ul { margin-left: 20px; color: #00ff88; }
+        .services ul li span { color: #b0b0b0; } /* Texto da lista em cinza */
+
+        footer {
+            text-align: center;
+            background: #111116;
+            color: #555;
+            padding: 15px 0;
+            border-top: 1px solid #222;
+            font-size: 0.8em;
+            margin-top: 40px;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: flex; margin: 20px auto; }
+            /* Adicionar lógica JS para menu mobile se necessário */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CYBER // TECH</h1>
+        <nav>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Sobre Nós</h2>
+            <p>Especialistas em segurança digital e desenvolvimento de alta performance. Trazendo o futuro para o seu negócio hoje.</p>
+        </section>
+        <section class="services">
+            <h2>Nossos Serviços</h2>
+            <ul>
+                <li><span>Desenvolvimento Web Fullstack</span></li>
+                <li><span>Auditoria de Segurança (Pentest)</span></li>
+                <li><span>Otimização de Infraestrutura</span></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 REVOLUXTI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

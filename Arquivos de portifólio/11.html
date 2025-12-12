@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Fundo Gradiente no corpo todo */
+            background: linear-gradient(45deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+            min-height: 100vh;
+            color: #4a4a4a;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9); /* Branco semi-transparente */
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            /* Texto com Gradiente */
+            background: -webkit-linear-gradient(45deg, #ff6b6b, #556270);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 3em;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        nav ul li a:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        main { padding: 40px 20px; max-width: 850px; margin: 0 auto; }
+
+        .intro, .services {
+            /* Efeito de Vidro (Glassmorphism) */
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .intro h2, .services h2 {
+            color: #444;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .services ul {
+            margin-left: 20px;
+            list-style-type: circle;
+        }
+        
+        .services ul li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            background: rgba(255,255,255,0.8);
+            color: #555;
+            padding: 5px 0; /* Rodapé Fino */
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Creative Studio</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Quem Somos</h2>
+            <p>Criamos experiências digitais únicas. Unimos design, arte e tecnologia para contar a história da sua marca de forma inesquecível.</p>
+        </section>
+        <section class="services">
+            <h2>O que fazemos</h2>
+            <ul>
+                <li>Branding & Identidade Visual</li>
+                <li>Social Media Marketing</li>
+                <li>Design de Interfaces (UI/UX)</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 REVOLUXTI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

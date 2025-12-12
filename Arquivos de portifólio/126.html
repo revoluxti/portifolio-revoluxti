@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sorveteria Deep Açaí</title>
+    <style>
+        /* --- PALETA: AÇAÍ DREAM --- */
+        :root {
+            --acai-dark: #240046;
+            --acai-light: #3c096c;
+            --mint: #80ffdb;
+            --bubblegum: #ffaddf;
+            --sky: #4cc9f0;
+            --cream: #fffdd0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: var(--acai-dark);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* BOLAS DE SORVETE (FUNDO) */
+        .scoop {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+        .s1 { top: -50px; left: -50px; width: 400px; height: 400px; background: var(--mint); }
+        .s2 { top: 40%; right: -100px; width: 350px; height: 350px; background: var(--bubblegum); }
+        .s3 { bottom: -50px; left: 20%; width: 500px; height: 300px; background: var(--acai-light); }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+            border-bottom: 3px solid var(--bubblegum);
+            border-radius: 0 0 30px 30px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--cream);
+            text-shadow: 0 0 10px var(--bubblegum);
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        nav ul {
+            display: flex; justify-content: center; gap: 15px; margin-top: 25px; list-style: none; flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--acai-dark);
+            background: var(--mint);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px var(--mint);
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        nav a:hover { transform: scale(1.05); background: var(--cream); }
+
+        /* MAIN */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARDS */
+        article {
+            background: rgba(60, 9, 108, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .flavor-circle {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.1);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        h2 { color: var(--mint); font-size: 1.5rem; margin-bottom: 10px; }
+        p { color: #e0e0e0; font-size: 0.9rem; line-height: 1.6; }
+
+        .price {
+            display: block; margin-top: 20px;
+            font-size: 1.3rem; font-weight: bold;
+            color: var(--bubblegum);
+            text-shadow: 0 0 10px rgba(255, 173, 223, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero-acai {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--acai-light), var(--acai-dark));
+            padding: 30px;
+            border-radius: 30px;
+            border: 2px solid var(--acai-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 30px;
+            color: var(--sky);
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVIDADE AVANÇADA --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; } /* Título menor */
+            
+            .hero-acai { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                gap: 20px;
+            }
+            
+            .hero-acai h2 { font-size: 1.8rem; }
+            
+            /* Blobs menores para não atrapalhar a leitura */
+            .s1 { width: 200px; height: 200px; top: -20px; }
+            .s2 { width: 150px; height: 150px; top: 20%; right: -50px; }
+            
+            nav ul { gap: 10px; }
+            nav a { padding: 8px 15px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scoop s1"></div>
+    <div class="scoop s2"></div>
+    <div class="scoop s3"></div>
+
+    <header>
+        <h1>SORVETERIA<br>DO BOLÃO</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Gelatos</a></li>
+                <li><a href="#">Açaí</a></li>
+                <li><a href="#">Milkshakes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-acai">
+            <div>
+                <h2 style="color: var(--bubblegum);">O Verdadeiro Açaí</h2>
+                <p>Batido na hora, zero xarope, pura energia roxa.</p>
+            </div>
+            <div style="font-size: 3rem;">🍇</div>
+        </section>
+
+        <article>
+            <div class="flavor-circle" style="border-color: var(--mint);">🍋</div>
+            <h2>Limão Siciliano</h2>
+            <p>Refrescância ácida com toque cremoso.</p>
+            <span class="price">R$ 12,00</span>
+        </article>
+
+        <article>
+            <div class="flavor-circle" style="border-color: var(--sky);">🫐</div>
+            <h2>Blue Ice</h2>
+            <p>O clássico tutti-frutti na cor do céu.</p>
+            <span class="price">R$ 10,00</span>
+        </article>
+
+        <article>
+            <div class="flavor-circle" style="border-color: var(--bubblegum);">🍓</div>
+            <h2>Yogurt Amora</h2>
+            <p>Iogurte grego natural com calda real.</p>
+            <span class="price">R$ 15,00</span>
+        </article>
+    </main>
+
+    <footer>
+        SISTEMA REVOLUXTI SWEET-TECH.
+    </footer>
+
+</body>
+</html>

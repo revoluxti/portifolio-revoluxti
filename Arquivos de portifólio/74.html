@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>BioHadely - Dra. Hadely</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILO CSS: BIO CLINIC --- */
+        :root {
+            --off-white: #f9f9f7; /* Creme Papel */
+            --sage: #84a98c;      /* Verde Sálvia */
+            --charcoal: #354f52;  /* Cinza Esverdeado Escuro */
+            --text: #52796f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+        }
+
+        /* HEADER CENTRALIZADO ELEGANTE */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .logo-sig {
+            font-family: 'Dancing Script', cursive; /* Estilo Assinatura */
+            font-size: 3.5rem;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: var(--sage);
+            text-transform: uppercase;
+        }
+
+        nav { margin-top: 40px; }
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+        nav a:hover { border-color: var(--sage); }
+
+        /* MAIN */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-card {
+            background: #fff;
+            padding: 60px;
+            text-align: center;
+            border-radius: 8px; /* Cantos levemente arredondados */
+            box-shadow: 0 10px 30px rgba(132, 169, 140, 0.15); /* Sombra verde suave */
+            border: 1px solid #f0f0f0;
+        }
+
+        h2 { 
+            font-family: 'Cinzel', serif; 
+            color: var(--charcoal); 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+        }
+
+        .btn-schedule {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--charcoal);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-schedule:hover { background-color: var(--sage); }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            color: rgba(0,0,0,0.3);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-sig">BioHadely</h1>
+        <p class="subtitle">Medicina & Estética</p>
+        <nav>
+            <a href="#">A Clínica</a>
+            <a href="#">Procedimentos</a>
+            <a href="#">Agendar</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-card">
+            <h2>Harmonia & Naturalidade</h2>
+            <p>
+                Acreditamos na beleza que realça quem você é. Nossa abordagem une tecnologia avançada com um olhar humano e artístico para resultados sutis e elegantes.
+            </p>
+            <a href="#" class="btn-schedule">Agendar Consulta</a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Dra. Hadely Severino. CRM/PR 12345.
+    </footer>
+
+</body>
+</html>

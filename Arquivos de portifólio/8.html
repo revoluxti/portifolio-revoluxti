@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica 2 - Soft Dark</title>
+    <style>
+        /* PALETA: SOFT CLAY */
+        :root {
+            --bg: #292d32;       /* Cinza Chumbo Fosco */
+            --text: #d1d5db;
+            --highlight: #3b3f46; /* Luz (Canto esquerdo/topo) */
+            --shadow: #1e2125;    /* Sombra (Canto direito/baixo) */
+            --accent: #6c5ce7;    /* Roxo Suave */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', sans-serif; /* Fonte arredondada */
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* HEADER FLUTUANTE */
+        header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px 40px;
+            border-radius: 50px; /* Bem Redondo */
+            background: var(--bg);
+            /* O SEGRED DO NEUMORFISMO: Sombra Dupla */
+            box-shadow:  10px 10px 20px var(--shadow), 
+                        -10px -10px 20px var(--highlight);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 { font-size: 1.2rem; color: var(--accent); letter-spacing: 1px; }
+
+        nav ul { list-style: none; display: flex; gap: 15px; }
+
+        nav a { 
+            text-decoration: none; 
+            color: var(--text);
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        /* Efeito de "afundar" o botão ao passar o mouse */
+        nav a:hover {
+            color: var(--accent);
+            box-shadow: inset 5px 5px 10px var(--shadow), 
+                        inset -5px -5px 10px var(--highlight);
+        }
+
+        main { width: 100%; max-width: 800px; }
+
+        /* SECTION CARDS */
+        section {
+            background: var(--bg);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow:  15px 15px 30px var(--shadow), 
+                        -15px -15px 30px var(--highlight);
+        }
+
+        h2 { color: #fff; margin-bottom: 15px; font-size: 1.8rem; }
+        
+        p { line-height: 1.8; color: #9ca3af; margin-bottom: 20px; }
+
+        /* Botão simulado dentro da section */
+        .btn-soft {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 15px;
+            background: var(--bg);
+            color: var(--accent);
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow:  5px 5px 10px var(--shadow), 
+                        -5px -5px 10px var(--highlight);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) { header { flex-direction: column; gap: 20px; border-radius: 30px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SOFT<b>UI</b></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Design Tátil</h2>
+            <p>O Neumorfismo (New Skeuomorphism) simula materiais físicos usando luz e sombra. Não existem bordas duras, tudo parece ser feito do mesmo material do fundo, apenas extrudado ou afundado.</p>
+            <a href="#" class="btn-soft">Ler Mais</a>
+        </section>
+
+        <section>
+            <h2>Semântica Invisível</h2>
+            <p>Apesar do visual suave, a estrutura HTML usa as tags <code>header</code>, <code>nav</code> e <code>section</code> rigorosamente. É acessível e bonito.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 REVOLUXTI Soft Design.</p>
+    </footer>
+
+</body>
+</html>

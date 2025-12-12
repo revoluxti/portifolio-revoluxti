@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>BioHadely - Medical Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Herr+Von+Muellerhoff&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS MINIMALISTAS (OFF-WHITE) --- */
+        :root {
+            --bg: #f7f7f5;        /* Off-White (Papel) */
+            --text: #4a4a4a;      /* Cinza Chumbo Suave */
+            --accent: #7d968b;    /* Verde Sálvia (Bio/Médico) */
+            --signature: #2c3e50;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* HEADER: Clássico e Centralizado */
+        header {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        /* NOME ESTILO ASSINATURA (Dra. Hadely) */
+        .signature-logo {
+            font-family: 'Herr Von Muellerhoff', cursive;
+            font-size: 4rem;
+            color: var(--signature);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        nav { margin-top: 30px; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; padding: 15px 0;}
+        nav ul { display: flex; justify-content: center; gap: 40px; list-style: none; }
+        nav a { 
+            text-decoration: none; color: var(--text); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* MAIN: Conteúdo Editorial */
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        /* SEÇÃO SOBRE (BIO) */
+        .bio-section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--signature);
+            margin-bottom: 20px;
+        }
+
+        p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 30px auto; }
+
+        /* CARD DE SERVIÇO (Clean) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #eee; /* Borda quase invisível */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02); /* Sombra etérea */
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .btn-schedule {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .btn-schedule:hover { background-color: var(--signature); }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #fff;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="signature-logo">BioHadely</div>
+        <div class="subtitle">Medicina Integrativa & Biotecnologia</div>
+
+        <nav>
+            <ul>
+                <li><a href="#">A Clínica</a></li>
+                <li><a href="#">Tratamentos</a></li>
+                <li><a href="#">Protocolos</a></li>
+                <li><a href="#">Agendamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="bio-section">
+            <h2>Harmonia entre Ciência e Vida.</h2>
+            <p>
+                Acreditamos que a saúde é o equilíbrio perfeito. Na <strong>DentalBlanck</strong>, unimos tecnologia de ponta com um atendimento humanizado e exclusivo.
+            </p>
+            <div style="width: 50px; height: 1px; background: var(--accent); margin: 0 auto;"></div>
+        </article>
+
+        <section class="services-grid">
+            <div class="service-card">
+                <h3>Biotecnica Facial</h3>
+                <p style="font-size: 0.9rem; margin:0;">Rejuvenescimento celular com protocolos avançados e minimamente invasivos.</p>
+                <a href="#" class="btn-schedule">SAIBA MAIS</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Protocolos Dentais</h3>
+                <p style="font-size: 0.9rem; margin:0;">Estética do sorriso com tecnologia 3D e materiais de última geração.</p>
+                <a href="#" class="btn-schedule">SAIBA MAIS</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Dr. Express Concept &bull; REVOLUXTI Design</p>
+        <p style="margin-top:10px; font-family: 'Herr Von Muellerhoff'; font-size: 1.5rem;">Hadely Severino</p>
+    </footer>
+
+</body>
+</html>

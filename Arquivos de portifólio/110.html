@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorveteria do Bolão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- PALETA: CANDY POP & INSTA --- */
+        :root {
+            --bg-pastel: #ffe6f2; /* Rosa Bebê */
+            --waffle: #ffd6a5;    /* Cor de Casquinha */
+            /* Gradiente Instagram Forte */
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --blue-pop: #a0e7e5;  /* Azul Piscina */
+            --text: #5e2a40;      /* Marrom Suave */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: var(--bg-pastel);
+            color: var(--text);
+            
+            /* TÉCNICA: Padrão "Grade Waffle" (A Porta de Aço versão Doce) */
+            background-image: 
+                linear-gradient(rgba(255, 160, 122, 0.2) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 160, 122, 0.2) 2px, transparent 2px);
+            background-size: 30px 30px; /* Quadrados de waffle */
+            background-position: center;
+        }
+
+        /* HEADER COLORIDO */
+        header {
+            background: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 30px;
+            text-align: center;
+            /* Borda Colorida com Gradiente */
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.15);
+        }
+        
+        /* Truque da borda gradiente */
+        header::before {
+            content: ''; position: absolute; inset: -3px; border-radius: 34px; 
+            background: var(--insta-gradient); z-index: -1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            background: var(--insta-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;}
+        
+        nav a {
+            background: var(--blue-pop);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        }
+        nav a:hover { transform: translateY(-3px); background: #ff9ff3; }
+
+        /* MAIN */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD FLUTUANTE (Estilo Sticker) */
+        .ice-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid #fff;
+            box-shadow: 0 10px 25px rgba(188, 24, 136, 0.1);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .ice-card:hover { transform: rotate(2deg) scale(1.05); z-index: 2; }
+
+        /* Círculo de Imagem */
+        .flavor-circle {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            background: var(--insta-gradient);
+            margin: 0 auto 20px auto;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 2rem;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        h2 { color: #cc2366; font-size: 1.5rem; margin-bottom: 10px; }
+        p { color: #888; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;}
+
+        .btn-buy {
+            background: var(--text);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FAIXA PROMOCIONAL */
+        .promo-banner {
+            grid-column: 1 / -1;
+            background: var(--insta-gradient);
+            color: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            transform: rotate(-1deg);
+            box-shadow: 0 15px 30px rgba(220, 39, 67, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: #cc2366;
+            font-weight: bold;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sorveteria do Bolão</h1>
+        <p>O sabor que derrete no coração! 🍦</p>
+        <nav>
+            <ul>
+                <li><a href="#">Sabores</a></li>
+                <li><a href="#">Milkshakes</a></li>
+                <li><a href="#">Açaí</a></li>
+                <li><a href="#">Delivery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="ice-card">
+            <div class="flavor-circle">🍓</div>
+            <h2>Morango Split</h2>
+            <p>Sorvete artesanal de morango com pedaços reais da fruta e calda quente.</p>
+            <a href="#" class="btn-buy">Pedir Agora</a>
+        </article>
+
+        <article class="ice-card">
+            <div class="flavor-circle" style="background: linear-gradient(45deg, #8fd3f4, #84fab0);">🍫</div>
+            <h2>Menta Choc</h2>
+            <p>Refrescante e crocante. A combinação perfeita de menta com flocos belgas.</p>
+            <a href="#" class="btn-buy">Pedir Agora</a>
+        </article>
+
+        <article class="ice-card">
+            <div class="flavor-circle" style="background: linear-gradient(45deg, #f093fb, #f5576c);">🦄</div>
+            <h2>Unicórnio Pop</h2>
+            <p>Algodão doce, chiclete e confeitos coloridos. O favorito da criançada!</p>
+            <a href="#" class="btn-buy">Pedir Agora</a>
+        </article>
+
+        <section class="promo-banner">
+            <h3>📸 Tire uma foto, marque @bolao_sorvetes e ganhe 10% OFF!</h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>SISTEMA REVOLUXTI © SWEET TECH</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI - Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILO: DEEP DIVE IDE --- */
+        :root {
+            --bg-editor: #0d1117;    /* Fundo GitHub Dark */
+            --bg-sidebar: #161b22;   /* Lateral */
+            --accent: #7ee787;       /* Verde Terminal */
+            --purple: #d2a8ff;       /* Roxo Código */
+            --blue: #79c0ff;         /* Azul Função */
+            --text: #c9d1d9;         /* Cinza Leitura */
+            --border: #30363d;       /* Bordas */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-editor);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 250px 1fr; /* Sidebar fixa + Conteúdo */
+            overflow: hidden; /* Sem scroll na janela inteira, só nos painéis */
+        }
+
+        /* --- SIDEBAR (EXPLORADOR DE ARQUIVOS) --- */
+        aside {
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .explorer-title {
+            font-size: 0.8rem;
+            color: #8b949e;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* Árvore de arquivos semântica com UL/LI */
+        ul.file-tree { list-style: none; padding-left: 10px; }
+        ul.file-tree li { margin-bottom: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        ul.file-tree li:hover { color: var(--accent); }
+        
+        /* Ícones simulados com emoji/texto */
+        .icon-folder::before { content: '📁'; margin-right: 5px; opacity: 0.7; }
+        .icon-file::before { content: '📄'; margin-right: 5px; opacity: 0.7; }
+        .icon-lock::before { content: '🔒'; margin-right: 5px; color: var(--purple); }
+
+        /* --- HEADER (ABAS DA IDE) --- */
+        header {
+            background-color: var(--bg-editor);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            height: 40px;
+            align-items: center;
+        }
+
+        .tab {
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid var(--border);
+            background-color: var(--bg-editor);
+            color: var(--text);
+            font-size: 0.85rem;
+            border-top: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #0d1117;
+            border-top: 2px solid var(--accent); /* Destaque da aba ativa */
+            color: #fff;
+        }
+
+        /* --- MAIN (ÁREA DE CÓDIGO/CONTEÚDO) --- */
+        main {
+            padding: 40px;
+            overflow-y: auto; /* Scroll apenas aqui */
+            position: relative;
+        }
+
+        /* Números de linha na lateral esquerda do main */
+        .line-numbers {
+            position: absolute;
+            left: 10px;
+            top: 40px;
+            color: #484f58;
+            text-align: right;
+            user-select: none;
+        }
+
+        .code-content {
+            margin-left: 40px; /* Espaço para os números */
+        }
+
+        h1 { font-size: 2.5rem; color: var(--purple); margin-bottom: 20px; }
+        h1 span { color: var(--accent); }
+
+        p { line-height: 1.8; margin-bottom: 20px; max-width: 800px; }
+
+        /* Estilizando palavras como sintaxe de código */
+        .keyword { color: var(--blue); } /* ex: const, function */
+        .string { color: var(--accent); } /* ex: "texto" */
+        .comment { color: #8b949e; font-style: italic; } /* Comentários */
+
+        /* --- FOOTER (TERMINAL) --- */
+        footer {
+            grid-column: 1 / -1; /* Ocupa toda a largura */
+            background-color: var(--bg-sidebar);
+            border-top: 1px solid var(--border);
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            color: #8b949e;
+        }
+
+        .status-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 5px; }
+
+        @media (max-width: 768px) {
+            body { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; }
+            aside { display: none; } /* Esconde sidebar no mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="explorer-title">PROJECT: REVOLUXTI</div>
+        <ul class="file-tree">
+            <li class="icon-folder">src</li>
+            <ul style="padding-left: 20px; list-style: none;">
+                <li class="icon-file" style="color: var(--text);">security.js</li>
+                <li class="icon-file">devops.config</li>
+                <li class="icon-lock">master_key.pem</li>
+            </ul>
+            <li class="icon-folder">assets</li>
+            <li class="icon-file">README.md</li>
+        </ul>
+    </aside>
+
+    <div style="display: flex; flex-direction: column; height: 100%;">
+        <header>
+            <div class="tab active">index.html</div>
+            <div class="tab">style.css</div>
+            <div class="tab">script.js</div>
+        </header>
+
+        <main>
+            <div class="line-numbers">
+                1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+            </div>
+            <div class="code-content">
+                <div class="comment">// Inicializando protocolos de segurança...</div>
+                <h1>&lt;Revoluxti<br><span>.DevSecOps()</span> /&gt;</h1>
+                
+                <p>
+                    <span class="keyword">const</span> mission = <span class="string">"Expandir Ideias"</span>;<br>
+                    <span class="keyword">import</span> { Security, Innovation } <span class="keyword">from</span> <span class="string">'@future/tech'</span>;
+                </p>
+
+                <p style="margin-top: 30px;">
+                    O conceito <strong>"Deep Dive"</strong> mergulha na estrutura do código. Não vendemos apenas sites, entregamos <span class="string">arquitetura robusta</span>. 
+                    Nossa interface reflete o ambiente onde a mágica acontece: o terminal.
+                </p>
+
+                <div style="background: rgba(126, 231, 135, 0.1); border-left: 3px solid var(--accent); padding: 15px; margin-top: 20px;">
+                    <span class="keyword">return</span> <span class="string">"Soluções que funcionam no mundo real."</span>;
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div><span class="status-dot"></span>SERVER: ONLINE</div>
+        <div>UTF-8 | PORT: 8080 | 0 ERRORS</div>
+    </footer>
+
+</body>
+</html>

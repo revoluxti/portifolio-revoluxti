@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica 1 - Brutalismo</title>
+    <style>
+        /* PALETA: INDUSTRIAL DARK */
+        :root {
+            --bg: #1a1a1a;
+            --panel: #262626;
+            --border: #555;
+            --text: #d4d4d4;
+            --accent: #d97706; /* Laranja queimado industrial */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Fonte técnica */
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 40px;
+            min-height: 100vh;
+            border: 10px solid var(--panel); /* Moldura grossa na página toda */
+        }
+
+        /* HEADER: Bloco sólido no topo */
+        header {
+            border: 2px solid var(--border);
+            padding: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--panel);
+        }
+
+        header h1 { 
+            font-size: 1.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: -1px;
+        }
+        
+        /* NAV: Botões quadrados e brutos */
+        nav ul { list-style: none; display: flex; gap: 10px; }
+        
+        nav a { 
+            color: var(--text); 
+            text-decoration: none; 
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            display: block;
+            transition: 0.1s;
+            font-weight: bold;
+        }
+        
+        nav a:hover { 
+            background: var(--accent); 
+            color: #000; 
+            border-color: var(--accent);
+            box-shadow: 4px 4px 0px #000; /* Sombra dura "blocky" */
+            transform: translate(-2px, -2px);
+        }
+
+        /* MAIN: Layout Assimétrico */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Conteúdo maior, lateral menor */
+            gap: 20px;
+        }
+
+        /* ARTICLE: O Conteúdo Principal */
+        article {
+            border: 2px solid var(--border);
+            padding: 30px;
+            background: var(--bg);
+            position: relative;
+        }
+
+        /* Detalhe estético: "Parafusos" nos cantos */
+        article::before, article::after {
+            content: '+'; position: absolute; color: var(--border); font-size: 20px;
+        }
+        article::before { top: 5px; left: 5px; }
+        article::after { bottom: 5px; right: 5px; }
+
+        h2 { 
+            background: var(--text); 
+            color: var(--bg); 
+            display: inline-block; 
+            padding: 5px 10px; 
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        p { line-height: 1.6; margin-bottom: 20px; text-align: justify; }
+
+        /* ASIDE: Barra Lateral de Dados */
+        aside {
+            border: 2px solid var(--border);
+            padding: 20px;
+            background: var(--panel);
+        }
+
+        aside h3 { 
+            border-bottom: 2px dashed var(--text); 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            margin-top: 40px;
+            border-top: 2px solid var(--border);
+            padding-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) { .layout-grid { grid-template-columns: 1fr; } body { padding: 10px; border-width: 5px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[STRUCT_ENG]</h1>
+        <nav>
+            <ul>
+                <li><a href="#">PROJ</a></li>
+                <li><a href="#">DOCS</a></li>
+                <li><a href="#">LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout-grid">
+        <main>
+            <article>
+                <hgroup>
+                    <h2>BLOCO 01: Semântica</h2>
+                </hgroup>
+                <p>O brutalismo web preza pela honestidade dos materiais. Aqui, as bordas não são escondidas, elas definem a estrutura. A tag <code>&lt;article&gt;</code> é usada como um container de conteúdo "cru".</p>
+                <p>Este estilo é muito utilizado em sites de arquitetura, engenharia e desenvolvedores backend que querem fugir do "bonitinho".</p>
+                
+                <div style="border: 1px dashed var(--accent); padding: 15px; color: var(--accent);">
+                    WARNING: High Structural Integrity detected.
+                </div>
+            </article>
+        </main>
+
+        <aside>
+            <h3>METADATA</h3>
+            <div class="data-row"><span>Versão:</span> <span>2.4.0</span></div>
+            <div class="data-row"><span>Status:</span> <span style="color: #4ade80">ONLINE</span></div>
+            <div class="data-row"><span>Build:</span> <span>#F49A</span></div>
+            <br>
+            <p style="font-size: 0.8rem;">A tag <code>&lt;aside&gt;</code> aqui serve como ficha técnica do projeto.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>SYSTEM.EOF // 2025</p>
+    </footer>
+
+</body>
+</html>

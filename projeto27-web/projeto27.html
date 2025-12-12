@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolão Mercado & Lanches</title>
+    <style>
+        /* =========================================
+           ESTILO: URBAN INDUSTRIAL
+           Conceito: Tons metálicos, azul operário e verde neon radioativo.
+           ========================================= */
+
+        /* --- VARIÁVEIS (PALETA) --- */
+        :root {
+            --metal: #1a1a1a;       /* Cinza Chumbo */
+            --blue-dark: #001f3f;   /* Azul Uniforme */
+            --neon-green: #39ff14;  /* Verde Radioativo (Destaque) */
+            --steel: #555;          /* Aço */
+            --text: #ddd;           /* Texto claro */
+        }
+
+        /* Reset Básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada (estilo código/máquina) */
+            background-color: #111;
+            color: var(--text);
+            min-height: 100vh;
+            border: 15px solid var(--metal); /* Moldura grossa estilo caixa forte */
+        }
+
+        /* --- FUNDO "PORTA DE AÇO" (CSS PATTERN) --- 
+           Cria um padrão de grade/losangos usando gradientes lineares sobrepostos.
+        */
+        .steel-door-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: 
+                linear-gradient(135deg, #111 25%, transparent 25%), 
+                linear-gradient(225deg, #111 25%, transparent 25%), 
+                linear-gradient(45deg, #111 25%, transparent 25%), 
+                linear-gradient(315deg, #111 25%, transparent 25%);
+            background-position: 10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-color: #1a1a1a;
+            opacity: 0.3; /* Suaviza o padrão para não brigar com o texto */
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--blue-dark);
+            padding: 30px;
+            border-bottom: 4px solid var(--neon-green); /* Linha de energia neon */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px #000; /* Sombra pesada */
+        }
+
+        .logo-box {
+            border: 2px solid var(--neon-green);
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.5); /* Fundo semi-transparente */
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 30px; 
+        }
+        
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            border-bottom: 2px solid transparent; 
+            transition: 0.3s;
+        }
+        
+        /* Efeito Hover: O link brilha em verde */
+        nav a:hover { 
+            border-color: var(--neon-green); 
+            color: var(--neon-green); 
+        }
+
+        /* --- LAYOUT PRINCIPAL (GRID) --- */
+        main {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            
+            /* GRID ASSIMÉTRICO:
+               2fr (2 partes) para o Menu
+               1fr (1 parte) para a Barra Lateral (Aside)
+            */
+            grid-template-columns: 2fr 1fr; 
+            gap: 30px;
+        }
+
+        /* PLACA NEON */
+        .neon-sign {
+            grid-column: 1 / -1; /* Ocupa a largura total (início ao fim) */
+            text-align: center;
+            border: 2px solid var(--neon-green);
+            padding: 20px;
+            border-radius: 10px;
+            /* Box-shadow cria o brilho externo (Glow) */
+            box-shadow: 0 0 15px var(--neon-green), inset 0 0 15px var(--neon-green);
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 5px var(--neon-green);
+            font-size: 1.2rem;
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        /* CARDS DO MENU */
+        .menu-item {
+            background: #222;
+            border-left: 5px solid var(--blue-dark); /* Marcador lateral */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: 0.2s;
+        }
+        
+        /* Hover: Fundo clareia levemente e borda fica neon */
+        .menu-item:hover { 
+            background: #2a2a2a; 
+            border-left-color: var(--neon-green); 
+        }
+
+        h2 { 
+            color: #fff; 
+            border-bottom: 1px dashed #555; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px; 
+        }
+        
+        .price { 
+            font-weight: bold; 
+            color: var(--neon-green); 
+            font-size: 1.1rem; 
+        }
+
+        /* BARRA LATERAL (ASIDE) */
+        aside {
+            background: var(--blue-dark);
+            padding: 20px;
+            border: 1px solid #333;
+            text-align: center;
+            height: fit-content; /* Altura se ajusta ao conteúdo */
+        }
+        
+        .beer-tap {
+            font-size: 3rem; 
+            margin: 20px 0; 
+            display: block;
+        }
+
+        footer {
+            background: #000;
+            color: #555;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+
+        /* Tablet (até 900px) */
+        @media (max-width: 900px) {
+            main { 
+                /* Muda para 1 coluna: Menu em cima, Aside embaixo */
+                grid-template-columns: 1fr; 
+            }
+            
+            aside {
+                margin-top: 20px;
+                display: flex; /* Transforma o aside em flex para organizar itens lado a lado */
+                justify-content: space-around;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .beer-tap { margin: 0 20px; }
+        }
+
+        /* Celular (até 600px) */
+        @media (max-width: 600px) {
+            
+            /* Remove a borda grossa do body para ganhar espaço na tela pequena */
+            body { border-width: 5px; }
+
+            header { 
+                flex-direction: column; /* Logo em cima, menu embaixo */
+                gap: 20px; 
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap; /* Permite quebrar linha se o menu for grande */
+                justify-content: center;
+            }
+
+            .neon-sign {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            /* Ajuste dos itens do menu para vertical */
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .price {
+                align-self: flex-end; /* Joga o preço para a direita */
+                font-size: 1.2rem;
+            }
+            
+            aside {
+                flex-direction: column; /* Volta o aside para coluna no celular */
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="steel-door-bg"></div>
+
+    <header>
+        <div class="logo-box">REVOLUXHOOP</div>
+        <nav>
+            <ul>
+                <li><a href="#">Lanches</a></li>
+                <li><a href="#">Mercado</a></li>
+                <li><a href="#">Chopp</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="neon-sign">
+            ABERTO 24H • HAPPY HOUR 18:00 - 20:00
+        </div>
+
+        <section>
+            <h2>Menu da Casa</h2>
+            
+            <div class="menu-item">
+                <div>
+                    <h3>X-Bolão Tudo</h3>
+                    <p style="font-size:0.8rem; color:#888;">Duplo burger, bacon, ovo, salada.</p>
+                </div>
+                <span class="price">R$ 32,00</span>
+            </div>
+
+            <div class="menu-item">
+                <div>
+                    <h3>Porção de Iscas</h3>
+                    <p style="font-size:0.8rem; color:#888;">Peixe ou Frango com molho tártaro.</p>
+                </div>
+                <span class="price">R$ 45,00</span>
+            </div>
+
+            <div class="menu-item">
+                <div>
+                    <h3>Kit Churrasco</h3>
+                    <p style="font-size:0.8rem; color:#888;">Picanha, carvão e sal grosso (Mercado).</p>
+                </div>
+                <span class="price">R$ 120,00</span>
+            </div>
+        </section>
+
+        <aside>
+            <h2>Choperia</h2>
+            <span class="beer-tap">🍺</span>
+            <p>Chopp Artesanal<br>IPA / Pilsen / Stout</p>
+            <br>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px;">
+                <span style="color: var(--neon-green); font-weight: bold;">Torneira 1:</span><br>Gelada (-2°C)
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        SISTEMA DE GESTÃO: REVOLUXTI INDUSTRIAL.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semântica 1 - Dev Blog</title>
+    <style>
+        /* PALETA: DRACULA / VS CODE VIBE */
+        :root {
+            --bg-body: #1e1e2e;      /* Fundo Roxo/Cinza Escuro */
+            --bg-card: #252535;      /* Cartões um pouco mais claros */
+            --accent: #bd93f9;       /* Roxo Neon Suave */
+            --text-main: #e2e2e2;    /* Branco Gelo */
+            --text-muted: #a0a0b0;   /* Cinza Azulado */
+            --border: #353545;       /* Bordas sutis */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Consolas', 'Monaco', monospace; /* Fonte de código */
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* HEADER: Linha fina no topo */
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { 
+            font-size: 1.4rem; 
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+        header h1 span { color: #fff; }
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* LAYOUT */
+        .container-semantico {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        article {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        h2 { margin-bottom: 10px; font-size: 2rem; }
+        
+        /* Destaque para código inline */
+        code {
+            background: #44475a;
+            color: #50fa7b; /* Verde suave */
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* BARRA LATERAL */
+        aside {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+            border: 1px solid var(--border);
+        }
+
+        aside h3 { 
+            color: var(--accent); 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px;
+        }
+
+        aside ul li { 
+            list-style: none; 
+            padding: 8px 0; 
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container-semantico { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; text-align: center;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>&lt;Dev<span>Log</span>/&gt;</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-semantico">
+        <main>
+            <article>
+                <hgroup>
+                    <h2>Estrutura Semântica</h2>
+                    <p style="color: var(--accent); font-size: 0.9rem;">Publicado em 08 Dez 2025</p>
+                </hgroup>
+                <div style="height: 1px; background: var(--border); margin: 20px 0;"></div>
+                <p>Neste layout focado em leitura, a tag <code>&lt;article&gt;</code> define o conteúdo principal. O fundo escuro com contraste calibrado (Dracula Theme) evita fadiga ocular.</p>
+                <br>
+                <p>Repare como a barra lateral (<code>&lt;aside&gt;</code>) se destaca sutilmente sem roubar a atenção do texto.</p>
+            </article>
+        </main>
+
+        <aside>
+            <h3>Categorias</h3>
+            <ul>
+                <li>Frontend</li>
+                <li>Backend</li>
+                <li>DevOps</li>
+                <li>UI/UX</li>
+            </ul>
+            <br>
+            <div style="background: rgba(189, 147, 249, 0.1); padding: 15px; border-radius: 6px; border: 1px dashed var(--accent);">
+                <small style="color: var(--accent);">Dica Pro:</small><br>
+                <span style="font-size: 0.85rem;">Use tags semânticas para melhorar seu SEO.</span>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DevLog. Feito para ensinar.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI Supplements</title>
+    <style>
+        /* --- PALETA: LAKERS CYBERPUNK --- */
+        :root {
+            --bg: #0f001a;        /* Roxo Quase Preto */
+            --purple-main: #4a0072;
+            --neon-green: #ccff00; /* Verde Marca-texto */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Arial Black', 'Impact', sans-serif; /* Fonte Pesada */
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* HEADER: Barra de Anúncio */
+        header {
+            background: var(--neon-green);
+            color: #000;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        /* NAV: Estilo App de Tênis */
+        nav {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-style: italic;
+            /* Texto com gradiente */
+            background: linear-gradient(to right, #fff, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul { display: flex; gap: 40px; list-style: none; }
+        nav a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1rem; transition: 0.3s; }
+        nav a:hover { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+
+        /* HERO: Tipografia Gigante */
+        main {
+            padding: 0 5%;
+            margin-top: 50px;
+        }
+
+        /* SECTION: Semântica para o Banner */
+        .hero-banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 6vw; /* Gigante e Responsivo */
+            line-height: 0.9;
+            text-transform: uppercase;
+            font-style: italic;
+            color: transparent;
+            /* Texto vazado (Stroke) */
+            -webkit-text-stroke: 2px var(--white);
+            position: relative;
+        }
+        
+        /* Efeito de sobreposição de cor */
+        h1 span {
+            color: var(--neon-green);
+            -webkit-text-stroke: 0;
+            display: block;
+        }
+
+        .product-display {
+            background: radial-gradient(circle, var(--purple-main) 0%, transparent 70%);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Caixa simulando o pote de suplemento */
+        .pote-3d {
+            width: 200px;
+            height: 280px;
+            background: #111;
+            border: 4px solid var(--neon-green);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            transform: rotate(-5deg); /* Inclinação Radical */
+            box-shadow: 20px 20px 0px var(--purple-main); /* Sombra Sólida */
+        }
+
+        .cta-box {
+            margin-top: 40px;
+        }
+
+        /* Botão Estilo "Buy Now" Americano */
+        button {
+            background: var(--neon-green);
+            color: #000;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            cursor: pointer;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+            transition: 0.2s;
+        }
+        button:hover { transform: scale(1.05); background: #fff; }
+
+        .scrolling-text {
+            margin-top: 80px;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            padding: 20px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #333;
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 40px;
+            text-align: center;
+            background: #05000a;
+            color: #666;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 800px) { .hero-banner { grid-template-columns: 1fr; text-align: center; } .pote-3d { margin: 0 auto; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        Frete Grátis para todo Brasil • Use cupom: REV25
+    </header>
+
+    <nav>
+        <div class="logo">REV.LABS</div>
+        <ul>
+            <li><a href="#">Whey</a></li>
+            <li><a href="#">Creatina</a></li>
+            <li><a href="#">Pré-Treino</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero-banner">
+            <div>
+                <h1>
+                    Maximum<br>
+                    <span>Power</span>
+                    Output
+                </h1>
+                <div class="cta-box">
+                    <p style="font-family: sans-serif; margin-bottom: 20px; color: #ccc; max-width: 400px;">
+                        Desenvolvido em laboratório. Aprovado por atletas. A nova fórmula REVOLUXTI chegou para quebrar recordes.
+                    </p>
+                    <button>Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-display">
+                <div class="pote-3d">
+                    R-MASS<br>3000
+                </div>
+            </div>
+        </section>
+
+        <div class="scrolling-text">
+            ENERGY /// FOCUS /// PUMP /// STRENGTH /// ENERGY /// FOCUS /// PUMP
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 REVOLUXTI LABS. DO NOT EXCEED RECOMMENDED DOSE.
+    </footer>
+
+</body>
+</html>

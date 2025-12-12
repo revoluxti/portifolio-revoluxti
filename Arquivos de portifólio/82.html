@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>TruckMais - Logistics ERP</title>
+    <style>
+        /* --- PALETA: HEAVY INDUSTRY --- */
+        :root {
+            --bg: #111111;        /* Preto Piche */
+            --warning: #ffcc00;   /* Amarelo Segurança */
+            --steel: #2b2b2b;     /* Cinza Aço */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            background-color: var(--bg);
+            color: var(--white);
+        }
+
+        /* HEADER: Faixa de Segurança */
+        header {
+            /* Padrão Listrado de Alerta (CSS Puro) */
+            background: repeating-linear-gradient(
+                45deg,
+                var(--warning),
+                var(--warning) 20px,
+                #000 20px,
+                #000 40px
+            );
+            padding: 10px; /* Borda listrada */
+        }
+
+        .header-inner {
+            background: var(--bg);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--warning);
+        }
+
+        h1 { color: var(--warning); letter-spacing: -1px; text-transform: uppercase; font-style: italic; }
+
+        nav a { 
+            color: var(--white); font-family: 'Arial', sans-serif; text-decoration: none; 
+            margin-left: 20px; font-weight: bold; text-transform: uppercase;
+        }
+        nav a:hover { color: var(--warning); text-decoration: underline; }
+
+        /* MAIN: Dashboard */
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Coluna larga e estreita */
+            gap: 20px;
+        }
+
+        /* SECTION: Painel Principal */
+        section {
+            background: var(--steel);
+            padding: 30px;
+            border-left: 10px solid var(--warning); /* Faixa lateral amarela */
+        }
+
+        h2 { font-size: 3rem; margin-bottom: 20px; color: var(--white); }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: #000;
+            padding: 20px;
+            border: 1px solid #444;
+        }
+        .stat-box span { font-family: 'Arial', sans-serif; color: #888; font-size: 0.8rem; }
+        .stat-box strong { display: block; font-size: 2rem; color: var(--warning); }
+
+        /* ASIDE: Menu de Ação Rápida */
+        aside {
+            background: #000;
+            border: 2px solid #333;
+            padding: 30px;
+        }
+
+        aside h3 { color: var(--warning); margin-bottom: 20px; text-transform: uppercase; }
+
+        ul.track-list { list-style: none; font-family: 'Arial', sans-serif; }
+        ul.track-list li { 
+            padding: 15px 0; 
+            border-bottom: 1px solid #333; 
+            display: flex; 
+            justify-content: space-between; 
+        }
+        .status-dot { width: 10px; height: 10px; background: green; border-radius: 50%; display: inline-block; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>TRUCKMAIS</h1>
+            <nav>
+                <a href="#">Rastreio</a>
+                <a href="#">Frotas</a>
+                <a href="#">Motoristas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <p style="color: var(--warning); font-family: Arial;">SISTEMA LOGÍSTICO V.4</p>
+            <h2>CARGA<br>SEGURA</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <span>ENTREGAS HOJE</span>
+                    <strong>428</strong>
+                </div>
+                <div class="stat-box">
+                    <span>EM TRÂNSITO</span>
+                    <strong>1.2k</strong>
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <h3>Rastreio Rápido</h3>
+            <ul class="track-list">
+                <li><span>Caminhão #04</span> <span class="status-dot"></span></li>
+                <li><span>Caminhão #12</span> <span class="status-dot"></span></li>
+                <li><span>Caminhão #88</span> <span class="status-dot" style="background: red;"></span></li>
+            </ul>
+            <br>
+            <button style="width:100%; padding:15px; background:var(--warning); border:none; font-weight:bold;">NOVA ROTA</button>
+        </aside>
+    </main>
+
+    <footer>
+        REVOLUXTI LOGISTICS SOLUTIONS
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica 2 - Deep Ocean</title>
+    <style>
+        /* PALETA: DEEP OCEAN (Corporativo Dark) */
+        :root {
+            --bg: #0f172a;        /* Azul Petróleo Profundo */
+            --card: #1e293b;      /* Azul Ardósia */
+            --text-main: #e2e8f0; /* Branco Gelo */
+            --text-sec: #94a3b8;  /* Cinza Azulado */
+            --accent: #38bdf8;    /* Azul Celeste (Destaque) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER CENTRALIZADO */
+        header {
+            background-color: #020617; /* Quase preto */
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        header h1 { 
+            color: var(--text-main); 
+            font-size: 2.2rem; 
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        header h1 b { color: var(--accent); font-weight: 700; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+        }
+
+        nav a { 
+            color: var(--text-sec); 
+            text-decoration: none; 
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        main { max-width: 800px; margin: 50px auto; padding: 0 20px; flex: 1; }
+
+        /* SEÇÕES (Cards flutuantes escuros) */
+        section {
+            background: var(--card);
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border: 1px solid #334155; /* Borda sutil */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        hgroup h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 5px; }
+        hgroup h3 { color: var(--text-sec); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 20px; font-weight: normal; }
+
+        p { color: #cbd5e1; line-height: 1.8; }
+
+        footer {
+            background: #020617;
+            color: var(--text-sec);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NEXUS<b>CORP</b></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Soluções</a></li>
+                <li><a href="#">Empresa</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <hgroup>
+                <h3>Estratégia</h3>
+                <h2>Dark Mode Corporativo</h2>
+            </hgroup>
+            <p>Empresas financeiras e de tecnologia usam tons de azul escuro (Navy) para passar seriedade. É um "Dark Mode" elegante, que foge do preto total, criando uma atmosfera de dashboard profissional de alta tecnologia.</p>
+        </section>
+
+        <section>
+            <hgroup>
+                <h3>Estrutura</h3>
+                <h2>Foco Central</h2>
+            </hgroup>
+            <p>Usamos a tag <code>&lt;section&gt;</code> para criar blocos de conteúdo distintos. O contraste entre o fundo (#0f172a) e os cartões (#1e293b) é suficiente para separar o conteúdo sem agredir a visão.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nexus Corporation. Design Seguro.</p>
+    </footer>
+</body>
+</html>

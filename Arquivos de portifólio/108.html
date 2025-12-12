@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bolão Dance - Nightlife</title>
+    <style>
+        /* --- PALETA: UNDERGROUND LASER --- */
+        :root {
+            --bg: #050505;
+            --metal: #1a1a1a;
+            --neon-red: #ff003c;   /* Vermelho Laser */
+            --neon-yellow: #ffee00; /* Amarelo Estrobo */
+            --text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            
+            /* TÉCNICA: Padrão "Porta de Aço Perfurada" (Speaker Grill) */
+            background-image: radial-gradient(var(--metal) 15%, transparent 16%);
+            background-size: 10px 10px; /* Tamanho dos furinhos */
+            background-color: #000;
+        }
+
+        /* LUZES AMBIENTES (Manchas de luz) */
+        body::before, body::after {
+            content: ''; position: fixed; width: 600px; height: 600px;
+            border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.6;
+        }
+        body::before { background: var(--neon-red); top: -200px; left: -200px; }
+        body::after { background: var(--neon-yellow); bottom: -200px; right: -200px; }
+
+        /* HEADER */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-red);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            position: sticky; top: 0; z-index: 10;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            /* Efeito de Texto Vazado com Borda Neon */
+            color: transparent;
+            -webkit-text-stroke: 2px #fff;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Efeito Glitch no título */
+        header h1::after {
+            content: 'BOLÃO DANCE';
+            position: absolute; top: 0; left: 3px;
+            color: var(--neon-red); -webkit-text-stroke: 0;
+            opacity: 0.7; mix-blend-mode: screen; z-index: -1;
+        }
+
+        nav ul { display: flex; justify-content: center; gap: 30px; list-style: none; margin-top: 20px; }
+        nav a { 
+            color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; 
+            border: 1px solid transparent; padding: 10px 20px; transition: 0.3s;
+        }
+        nav a:hover { background: var(--neon-yellow); color: #000; box-shadow: 0 0 20px var(--neon-yellow); }
+
+        /* MAIN */
+        main { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        /* CARDS DE EVENTOS */
+        .event-card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid #333;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            border-color: var(--neon-red);
+            transform: scale(1.02);
+        }
+
+        /* Data Lateral Vertical */
+        .date-box {
+            background: var(--neon-red);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 1.5rem;
+            font-weight: 900;
+            padding: 20px 0;
+        }
+
+        .info-box { padding: 30px; }
+
+        h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; color: #fff; }
+        p { font-family: 'Arial', sans-serif; color: #aaa; margin-bottom: 20px; }
+
+        .tag {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--neon-yellow);
+            color: var(--neon-yellow);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            border-radius: 50px;
+        }
+
+        /* RODAPÉ INDUSTRIAL */
+        footer {
+            margin-top: 80px;
+            background: #111;
+            border-top: 4px solid var(--neon-yellow);
+            padding: 40px;
+            text-align: center;
+            font-family: monospace;
+            color: #666;
+        }
+
+        @media (max-width: 600px) { header h1 { font-size: 2.5rem; } .event-card { grid-template-columns: 60px 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BOLÃO DANCE</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Line-up</a></li>
+                <li><a href="#">Camarotes</a></li>
+                <li><a href="#">Lista VIP</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="event-card">
+            <div class="date-box">SEXTA</div>
+            <div class="info-box">
+                <span class="tag">TECHNO / HOUSE</span>
+                <h2>Noite do Laser</h2>
+                <p>DJs internacionais e open bar até as 02h. A porta de aço se abre para o desconhecido.</p>
+                <a href="#" style="color: var(--neon-red); text-decoration: none;">COMPRAR INGRESSO -></a>
+            </div>
+        </article>
+
+        <article class="event-card" style="border-color: #333;">
+            <div class="date-box" style="background: var(--neon-yellow);">SÁBADO</div>
+            <div class="info-box">
+                <span class="tag" style="color: var(--neon-red); border-color: var(--neon-red);">FUNK / TRAP</span>
+                <h2>Baile do Bolão</h2>
+                <p>O maior paredão de som da cidade. Visual underground e drinks exclusivos.</p>
+                <a href="#" style="color: var(--neon-yellow); text-decoration: none;">COMPRAR INGRESSO -></a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        SISTEMA DE GESTÃO DE EVENTOS <br>
+        REVOLUXTI © 2025
+    </footer>
+
+</body>
+</html>

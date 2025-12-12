@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farma100desc - Cyber Pump</title>
+    <style>
+        /* --- ESTILOS CSS EXPLICADOS --- */
+        :root {
+            --bg: #1a0b2e;       /* Roxo Profundo (Base) */
+            --neon: #39ff14;     /* Verde Radioativo (Destaque) */
+            --text: #ffffff;
+            --overlay: rgba(57, 255, 20, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', 'Impact', sans-serif; /* Fontes grossas para impacto */
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* HEADER: Barra de Navegação Brutalista */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 4px solid var(--neon);
+        }
+
+        /* LOGO COM EFEITO GLITCH (Sombra deslocada) */
+        header h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0px var(--neon); /* Sombra dura verde */
+            font-style: italic;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-left: 30px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        nav a:hover { color: var(--neon); text-decoration: line-through; }
+
+        /* MARQUEE (LETREIRO QUE ANDA) */
+        /* Tendência forte em e-commerce de moda/skate */
+        .marquee-container {
+            background: var(--neon);
+            color: var(--bg);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            border-bottom: 2px solid #000;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: slide 10s linear infinite; /* Animação contínua */
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Move para esquerda */
+        }
+
+        /* MAIN: Grade de Produtos Cyberpunk */
+        main {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 50px;
+            mix-blend-mode: exclusion; /* Efeito de mistura de cores */
+        }
+        .hero-title span { -webkit-text-stroke: 2px var(--neon); color: transparent; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* CARD DE PRODUTO */
+        article {
+            border: 2px solid var(--neon);
+            padding: 20px;
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            transition: transform 0.2s;
+        }
+        
+        article:hover {
+            transform: translate(-10px, -10px);
+            box-shadow: 10px 10px 0px var(--neon); /* Sombra Sólida */
+        }
+
+        .price {
+            display: block;
+            font-size: 2rem;
+            color: var(--neon);
+            margin-top: 10px;
+        }
+
+        /* BOTÃO "COMPRAR" ESTILIZADO */
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--neon);
+            color: var(--bg);
+            border: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover { background: #fff; }
+
+        @media(max-width: 768px) { .hero-title { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>farma100desc</h1>
+        <nav>
+            <a href="#">Pump</a>
+            <a href="#">Energy</a>
+            <a href="#">Recover</a>
+        </nav>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            // FRETE GRÁTIS // NOVO PRÉ-TREINO // 100% OFF NO SEGUNDO POTE // ENERGIA PURA // REVOLUXTI EXPANDS // FRETE GRÁTIS // NOVO PRÉ-TREINO // 100% OFF NO SEGUNDO POTE // ENERGIA PURA // REVOLUXTI EXPANDS
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h2 class="hero-title">
+                LEVEL UP<br>
+                <span>YOUR BODY</span>
+            </h2>
+        </section>
+
+        <section class="product-grid">
+            <article>
+                <h3 style="font-size: 1.5rem;">VENOM PRE-WORKOUT</h3>
+                <p style="font-family: sans-serif; margin-top:10px;">Fórmula americana. Foco extremo.</p>
+                <span class="price">R$ 149,90</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+
+            <article>
+                <h3 style="font-size: 1.5rem;">ISO-WHEY NEON</h3>
+                <p style="font-family: sans-serif; margin-top:10px;">Proteína isolada. Absorção rápida.</p>
+                <span class="price">R$ 299,00</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+
+            <article>
+                <h3 style="font-size: 1.5rem;">CREATINE PURE</h3>
+                <p style="font-family: sans-serif; margin-top:10px;">Força explosiva. Sem retenção.</p>
+                <span class="price">R$ 99,90</span>
+                <button>Adicionar ao Carrinho</button>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>

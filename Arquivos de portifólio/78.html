@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI :: DEV_ENV</title>
+    <style>
+        /* --- ESTILO: IDE DARK MODE (VS CODE VIBE) --- */
+        :root {
+            --bg-editor: #1e1e1e;      /* Fundo padrão de editor de código */
+            --bg-sidebar: #252526;     /* Fundo da barra lateral */
+            --highlight: #569cd6;      /* Azul Sintaxe */
+            --string: #ce9178;         /* Cor de String (Laranja terra) */
+            --function: #dcdcaa;       /* Cor de Função (Amarelo pálido) */
+            --comment: #6a9955;        /* Verde comentário */
+            --text: #d4d4d4;           /* Texto padrão */
+            --neon-purple: #bd93f9;    /* Roxo Drácula */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            font-family: 'Consolas', 'Fira Code', monospace; /* Fonte Monoespaçada é obrigatória aqui */
+            color: var(--text);
+            height: 100vh;
+            display: flex;
+            overflow: hidden; /* Sem barra de rolagem na janela principal */
+        }
+
+        /* BARRA LATERAL (SIDEBAR - EXPLORER) */
+        aside {
+            width: 300px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .explorer-header {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #bbb;
+            background: #333;
+        }
+
+        /* Lista de Arquivos (Menu de Navegação disfarçado) */
+        nav ul { list-style: none; padding: 10px 0; }
+        
+        nav li {
+            padding: 5px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        nav li:hover { background: #2a2d2e; color: #fff; }
+        
+        /* Ícones feitos com CSS/Texto para manter leve */
+        .icon-js::before { content: 'JS'; color: #f1e05a; font-weight: bold; font-size: 0.7rem; }
+        .icon-css::before { content: '#'; color: var(--highlight); font-weight: bold; }
+        .icon-git::before { content: 'git'; color: var(--string); }
+
+        /* ÁREA PRINCIPAL (EDITOR) */
+        main {
+            flex: 1;
+            background: var(--bg-editor);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Abas do Editor */
+        .tabs {
+            display: flex;
+            background: var(--bg-sidebar);
+            height: 35px;
+        }
+        .tab {
+            padding: 0 20px;
+            background: var(--bg-editor);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--neon-purple); /* Aba ativa */
+        }
+
+        /* O Código (Conteúdo) */
+        .code-area {
+            padding: 20px 40px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        /* Classes utilitárias para colorir o texto como código */
+        .kwd { color: var(--highlight); } /* Keyword (import, const) */
+        .func { color: var(--function); } /* Funções */
+        .str { color: var(--string); }    /* Strings */
+        .com { color: var(--comment); }   /* Comentários */
+        .num { color: #b5cea8; }          /* Números */
+
+        /* TERMINAL (FOOTER) */
+        footer {
+            height: 150px;
+            background: var(--bg-sidebar);
+            border-top: 1px solid #333;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+        }
+        .terminal-header {
+            display: flex; gap: 20px; margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 5px;
+        }
+        .cmd-line::before { content: '➜  revoluxti git:(main) '; color: var(--neon-purple); }
+
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="explorer-header">Explorer</div>
+        <nav>
+            <ul>
+                <li class="icon-js">sobre_nos.js</li>
+                <li class="icon-css">servicos_security.css</li>
+                <li class="icon-git">.gitignore (Segredos)</li>
+                <li class="icon-js">contact_api.js</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="tabs">
+            <div class="tab">
+                <span class="icon-js"></span> sobre_nos.js <span style="font-size:1.2rem;">×</span>
+            </div>
+        </div>
+
+        <section class="code-area">
+            <span class="com">// Inicializando o Core da Revoluxti</span><br>
+            <span class="kwd">import</span> { <span class="func">DevSecOps</span>, <span class="func">Innovation</span> } <span class="kwd">from</span> <span class="str">'@revoluxti/core'</span>;<br><br>
+            
+            <span class="kwd">const</span> <span class="func">Missao</span> = () => {<br>
+            &nbsp;&nbsp;<span class="kwd">return</span> {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;target: <span class="str">"Expansão de Ideias"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;security_level: <span class="num">99.9</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;status: <span class="str">"Active & Developing"</span><br>
+            &nbsp;&nbsp;};<br>
+            }<br><br>
+
+            <span class="com">/* <br>
+            &nbsp;* Nossos serviços de Pentest são executados<br>
+            &nbsp;* em camadas profundas de segurança.<br>
+            &nbsp;*/</span><br>
+            <span class="func">console</span>.<span class="func">log</span>(<span class="str">"Sistema Seguro. Bem-vindo à Revoluxti."</span>);
+        </section>
+
+        <footer>
+            <div class="terminal-header">
+                <span>PROBLEMS</span> <span>OUTPUT</span> <span style="text-decoration: underline; color: #fff;">TERMINAL</span>
+            </div>
+            <div class="cmd-line">npm run build --secure</div>
+            <div style="color: var(--comment)">> Building creative solutions... [Done]</div>
+            <div class="cmd-line"><span class="blink">_</span></div>
+        </footer>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Semântica - Deep Aurora</title>
+    <style>
+        /* TEMA: DEEP SPACE AURORA */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Azul Marinho Quase Preto */
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* O FUNDO "VIVO" (Aurora) */
+        /* Círculos coloridos desfocados atrás do conteúdo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: #4c1d95; /* Roxo */
+            filter: blur(100px);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -10%; right: -10%;
+            width: 50vw; height: 50vw;
+            background: #0f766e; /* Teal Escuro */
+            filter: blur(120px);
+            opacity: 0.3;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* CONTAINER DE VIDRO */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4); /* Fundo semi-transparente */
+            backdrop-filter: blur(20px);       /* O desfoque mágico */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* HEADER SEMÂNTICO */
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header h1 { font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; }
+        header h1 strong { font-weight: 800; color: #a78bfa; } /* Roxo Pastel */
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { 
+            color: rgba(255,255,255,0.6); 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            transition: 0.3s; 
+        }
+        nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+        /* MAIN */
+        main { padding: 50px; }
+
+        section { 
+            margin-bottom: 40px; 
+            display: flex; 
+            gap: 30px; 
+            align-items: flex-start; 
+        }
+
+        /* Ícone decorativo */
+        .icon-box {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 10px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #94a3b8; line-height: 1.6; }
+
+        footer {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 700px) { header { flex-direction: column; gap: 20px;} section { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <header>
+            <h1>Deep<b>Aurora</b></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Connect</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <div class="icon-box">🌌</div>
+                <div>
+                    <h2>Imersão Visual</h2>
+                    <p>Este layout "Deep Aurora" usa gradientes desfocados ao fundo para criar uma atmosfera relaxante e espacial. O painel central usa <strong>Backdrop Filter</strong> para simular vidro fosco, uma tendência fortíssima em UI moderno.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="icon-box">✨</div>
+                <div>
+                    <h2>Semântica Fluida</h2>
+                    <p>Aqui, usamos <code>&lt;section&gt;</code> para criar blocos de conteúdo com ícones laterais. O contraste é suave, ideal para leitura noturna, sem aquele preto chapado e cansativo.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Revoluxti Design Systems.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

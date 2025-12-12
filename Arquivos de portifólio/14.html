@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema Criativo</title>
+    <style>
+        /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Verdana', sans-serif;
+            line-height: 1.6;
+            background: #fff0f5; /* Fundo rosado bem claro */
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        header {
+            /* Gradiente "Sunset" Vibrante */
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: #ffff;
+            padding: 40px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-bottom-left-radius: 50px; /* Curva estilosa no header */
+            border-bottom-right-radius: 50px;
+        }
+
+        header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 3em;
+            font-family: 'Georgia', serif; /* Fonte serifada para elegância */
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav ul li { margin: 0 10px; }
+
+        nav ul li a {
+            color: #dd2476;
+            background: #fff;
+            padding: 8px 20px;
+            border-radius: 50px; /* Botões pílula */
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        nav ul li a:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px; height: 25px;
+            background: none; border: none; cursor: pointer;
+        }
+        .hamburger span { display: block; width: 100%; height: 4px; background: #fff; border-radius: 2px; }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: #dd2476;
+            padding: 20px;
+            position: absolute; top: 0; right: 0; left: 0; bottom: 0; /* Tela cheia no mobile */
+            z-index: 20;
+            justify-content: center;
+        }
+        .mobile-nav a { color: white; text-decoration: none; padding: 15px 0; font-size: 1.5em; }
+
+        main { padding: 50px 20px; max-width: 900px; margin: 0 auto; }
+
+        .intro, .services {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(221, 36, 118, 0.15); /* Sombra colorida */
+        }
+
+        .intro h2, .services h2 {
+            margin-bottom: 15px;
+            font-size: 2em;
+            background: -webkit-linear-gradient(#ff512f, #dd2476);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Texto com gradiente */
+        }
+
+        .services ul { list-style-type: circle; margin-left: 20px; color: #dd2476; }
+        .services ul li span { color: #4a4a4a; } /* Texto da lista normal */
+
+        footer {
+            text-align: center;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: #ffffff;
+            padding: 10px 0; /* Rodapé fininho como você pediu */
+            margin-top: 40px;
+        }
+
+        @media (max-width: 900px) {
+            header { flex-direction: row; justify-content: space-between; padding: 20px; border-radius: 0;}
+            header h1 { font-size: 1.5em; }
+            nav ul { display: none; }
+            .hamburger { display: flex; z-index: 30;}
+            .mobile-nav.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Creative Studio</h1>
+        <nav>
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#" onclick="toggleMenu()">Home</a>
+                <a href="#" onclick="toggleMenu()">About</a>
+                <a href="#" onclick="toggleMenu()">Services</a>
+                <a href="#" onclick="toggleMenu()">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Nossa Essência</h2>
+            <p>Criamos experiências digitais que conectam marcas e pessoas. Design arrojado, cores vibrantes e ideias fora da caixa.</p>
+        </section>
+        <section class="services">
+            <h2>O que fazemos</h2>
+            <ul>
+                <li><span>Branding & Identidade Visual</span></li>
+                <li><span>Marketing de Influência</span></li>
+                <li><span>Design de Interfaces</span></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 REVOLUXTI. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

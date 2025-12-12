@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mercado do Bolão</title>
+    <style>
+        /* PALETA: INDUSTRIAL MARKET */
+        :root {
+            --steel: #2c3e50;     /* Azul Aço Escuro */
+            --steel-light: #34495e;
+            --fresh-green: #2ecc71; /* Verde Mercado */
+            --cold-blue: #3498db;   /* Azul Gelo (Chopp) */
+            --white: #ecf0f1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif; /* Fonte industrial estreita */
+            background-color: var(--steel);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            /* PADRÃO PORTA DE AÇO / CHAPA PERFURADA */
+            background-image: radial-gradient(#1a252f 20%, transparent 20%);
+            background-position: 0 0;
+            background-size: 10px 10px; /* Tamanho dos furos */
+        }
+
+        /* HEADER */
+        header {
+            background: var(--steel-light);
+            border-bottom: 4px solid var(--fresh-green);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .brand-box {
+            background: var(--fresh-green);
+            color: #000;
+            padding: 10px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            transform: skewX(-10deg);
+        }
+
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { 
+            color: #bdc3c7; text-decoration: none; font-weight: bold; text-transform: uppercase;
+            border-bottom: 2px solid transparent; transition: 0.3s;
+        }
+        nav a:hover { color: var(--white); border-color: var(--cold-blue); }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        /* BENTO GRID LAYOUT */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .box {
+            background: var(--steel-light);
+            padding: 30px;
+            border: 1px solid #465f75;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Faixa decorativa no topo de cada box */
+        .box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--cold-blue);
+        }
+
+        .box-large { grid-column: span 2; background: #22303d; }
+        .box-tall { grid-row: span 2; background: var(--fresh-green); color: #000; }
+        .box-tall::before { background: #000; } /* Faixa preta no box verde */
+
+        h2 { text-transform: uppercase; font-size: 1.8rem; margin-bottom: 10px; }
+        h3 { font-size: 1.2rem; margin-bottom: 10px; opacity: 0.9; }
+        
+        .price-tag {
+            font-size: 2rem; font-weight: bold; color: var(--fresh-green);
+        }
+
+        .box-tall .price-tag { color: #000; } /* Preço preto no fundo verde */
+
+        ul.list-items { margin-left: 20px; margin-top: 20px; line-height: 1.8; }
+
+        footer {
+            background: #1a252f;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .box-large, .box-tall { grid-column: span 1; grid-row: span 1; }
+            header { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-box">Mercado & Choperia do Bolão</div>
+        <nav>
+            <ul>
+                <li><a href="#">Açougue</a></li>
+                <li><a href="#">Hortifruti</a></li>
+                <li><a href="#">Happy Hour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bento-grid">
+            <article class="box box-large">
+                <h3 style="color: var(--cold-blue)">Oferta do Dia</h3>
+                <h2>Torre de Chopp 2L</h2>
+                <p>Chopp artesanal duplo malte, servido na temperatura zero grau.</p>
+                <div class="price-tag">R$ 29,90</div>
+            </article>
+
+            <article class="box">
+                <h3>Açougue</h3>
+                <h2>Kit Fim de Semana</h2>
+                <p>Picanha + Carvão + Sal Grosso</p>
+                <button style="margin-top: 15px; padding: 10px; background: var(--fresh-green); border:none; font-weight:bold; cursor:pointer;">Reservar</button>
+            </article>
+
+            <article class="box box-tall">
+                <h2>Ofertas Relâmpago</h2>
+                <ul class="list-items">
+                    <li>Batata Frita 2kg - R$ 15,00</li>
+                    <li>Coca-Cola 2L - R$ 8,99</li>
+                    <li>Gelo 5kg - R$ 10,00</li>
+                    <li>Vodka Nacional - R$ 22,00</li>
+                </ul>
+                <br>
+                <strong>*Válido até durar o estoque</strong>
+            </article>
+
+            <article class="box">
+                <h3 style="color: #e74c3c;">Lanchonete</h3>
+                <h2>X-Bolão Tudo</h2>
+                <p>O maior da cidade. 2 Hamburgueres, Bacon e Ovo.</p>
+                <div class="price-tag" style="color: #e74c3c;">R$ 35,00</div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>REVOLUXTI COMMERCIAL SYSTEMS &copy; 2025 - Bolão Group.</p>
+    </footer>
+
+</body>
+</html>

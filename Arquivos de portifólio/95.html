@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Farma100desc - Kinetic</title>
+    <style>
+        /* --- ESTILOS CSS EXPLICADOS --- */
+        
+        :root {
+            --bg: #240046;       /* Roxo Profundo */
+            --accent: #ccff00;   /* Verde Slime/Neon */
+            --white: #e0aaff;    /* Lilás quase branco */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background-color: var(--bg);
+            color: var(--accent);
+            overflow-x: hidden; /* Evita scroll lateral na animação */
+        }
+
+        /* HEADER SEMÂNTICO: Simples e direto */
+        header {
+            padding: 20px 40px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Header fixo no topo */
+            width: 100%;
+            background: rgba(36, 0, 70, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        header h1 { font-style: italic; letter-spacing: -2px; font-size: 1.5rem; }
+
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav a { color: var(--white); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* MAIN: Onde a mágica acontece */
+        main {
+            padding-top: 100px; /* Compensar header fixo */
+        }
+
+        /* SECTION: Tipografia Cinética (Letreiro que anda) */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 40px 0;
+            background: var(--accent);
+            color: var(--bg);
+            transform: rotate(-2deg); /* Inclinação radical */
+            margin: 50px 0;
+            border-top: 5px solid #fff;
+            border-bottom: 5px solid #fff;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-size: 5rem;
+            text-transform: uppercase;
+            animation: scroll 10s linear infinite; /* Animação infinita */
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ARTICLE: Card de Produto "Poster" */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            align-items: center;
+        }
+
+        .typo-product h2 {
+            font-size: 4rem;
+            line-height: 0.9;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--white); /* Apenas contorno na letra */
+        }
+        
+        .typo-product h2 span {
+            color: var(--accent);
+            -webkit-text-stroke: 0;
+            display: block;
+        }
+
+        .price-tag {
+            font-family: 'Courier New', monospace;
+            background: var(--white);
+            color: var(--bg);
+            padding: 10px 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transform: skewX(-15deg); /* Distorção estilo Racing */
+        }
+
+        /* ASIDE: Informações Nutricionais (Estilo Tabela Técnica) */
+        aside {
+            border-top: 1px solid var(--accent);
+            padding: 40px;
+            display: flex;
+            justify-content: space-around;
+            font-family: 'Courier New', monospace;
+            color: var(--white);
+            font-size: 0.8rem;
+        }
+
+        .stat-box strong { display: block; font-size: 1.5rem; color: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #555;
+            font-size: 0.7rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FARMA<span style="color:#fff">100DESC</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Whey</a></li>
+                <li><a href="#">Creatina</a></li>
+                <li><a href="#">Pré-Treino</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="marquee-container">
+            <div class="marquee-content">
+                PUMP MÁXIMO /// ENERGIA PURA /// FOCO TOTAL /// REVOLUXTI LABS /// PUMP MÁXIMO /// ENERGIA PURA /// FOCO TOTAL /// REVOLUXTI LABS
+            </div>
+        </section>
+
+        <article class="product-hero">
+            <div class="typo-product">
+                <h2>WHEY<br><span>ISOLATE</span><br>TURBO</h2>
+                <div class="price-tag">R$ 189,90</div>
+                <p style="color: #fff; margin-top: 20px; font-family: monospace; font-size: 0.9rem;">
+                    > Absorção rápida.<br>> Zero Sódio.<br>> Tecnologia REVOLUXTI.
+                </p>
+            </div>
+            <div style="width: 300px; height: 300px; border: 2px dashed var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                [IMG 3D DO POTE]
+            </div>
+        </article>
+    </main>
+
+    <aside>
+        <div class="stat-box"><strong>24g</strong>Proteína</div>
+        <div class="stat-box"><strong>5g</strong>BCAA</div>
+        <div class="stat-box"><strong>0g</strong>Açúcar</div>
+    </aside>
+
+    <footer>
+        &copy; 2025 Farma100desc. Powered by REVOLUXTI Code.
+    </footer>
+
+</body>
+</html>
