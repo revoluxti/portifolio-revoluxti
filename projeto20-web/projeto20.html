@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolão Skate Shop</title>
+    <style>
+        /* --- PALETA: STREET GRUNGE --- */
+        :root {
+            --asphalt: #1c1c1c;
+            --concrete: #333333;
+            --caution: #ffcc00; /* Amarelo Fita de Isolamento */
+            --white: #eeeeee;
+            --spray: #00ffcc;   /* Verde Graffiti */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background-color: var(--asphalt);
+            color: var(--white);
+            min-height: 100vh;
+            border-left: 20px solid var(--caution); /* Faixa lateral */
+        }
+
+        /* BARRA XADREZ (CHECKERBOARD) - ESTILO VANS */
+        .checker-bar {
+            width: 100%;
+            height: 30px;
+            background-image: 
+                linear-gradient(45deg, #000 25%, transparent 25%), 
+                linear-gradient(-45deg, #000 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #000 75%), 
+                linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #fff; /* Fundo branco para o xadrez preto */
+        }
+
+        /* HEADER */
+        header {
+            padding: 40px;
+            background: var(--concrete);
+            border-bottom: 5px solid var(--caution);
+            transform: skewY(-2deg); /* Inclinação Radical */
+            margin-top: -20px;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            color: var(--white);
+            text-shadow: 4px 4px 0px #000;
+            transform: skewY(2deg); /* Corrige o texto */
+            text-align: center;
+        }
+        
+        header span { color: var(--caution); }
+
+        nav ul {
+            display: flex; 
+            justify-content: center;
+            gap: 30px; 
+            list-style: none; 
+            margin-top: 20px; 
+            transform: skewY(2deg);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #000;
+            background: var(--white);
+            padding: 5px 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 4px 4px 0px #000;
+            transition: 0.2s;
+        }
+        nav a:hover { background: var(--spray); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px #000; }
+
+        /* MAIN */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Padrão Desktop: 3 colunas */
+            gap: 30px;
+        }
+
+        /* CARD DE PRODUTO "STICKER" */
+        .skate-card {
+            background: #222;
+            border: 2px solid #555;
+            padding: 20px;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        .skate-card:hover { border-color: var(--spray); }
+
+        .img-placeholder {
+            width: 100%; height: 200px;
+            background: #111;
+            margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: center;
+            color: #333; font-size: 2rem;
+            border: 1px dashed #444;
+        }
+
+        h2 { font-size: 1.2rem; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .brand { 
+            color: var(--caution); font-size: 0.8rem; margin-bottom: 15px; display: block; 
+            font-family: monospace; letter-spacing: 2px;
+        }
+
+        .btn-buy {
+            display: block; width: 100%;
+            background: var(--caution);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .btn-buy:hover { background: var(--spray); }
+
+        /* RODAPÉ GRAFITE */
+        footer {
+            margin-top: 60px;
+            background: #000;
+            color: #555;
+            padding: 40px;
+            text-align: center;
+            font-family: monospace;
+            border-top: 1px solid var(--caution);
+        }
+
+        /* --- RESPONSIVIDADE --- */
+
+        /* Tablet (até 900px): Grid de 2 colunas */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Celular (até 600px): Grid de 1 coluna + Ajustes Visuais */
+        @media (max-width: 600px) { 
+            body { border-left: 10px solid var(--caution); }
+            
+            header { 
+                transform: none; 
+                margin-top: 0; 
+                padding: 20px 10px;
+            }
+            
+            header h1 { 
+                transform: none; 
+                font-size: 2.5rem; /* Fonte menor para caber */
+            }
+            
+            nav ul { 
+                transform: none; 
+                flex-wrap: wrap; /* Permite quebra de linha no menu */
+                gap: 15px;
+            }
+            
+            main { 
+                grid-template-columns: 1fr; 
+                gap: 40px;
+            } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checker-bar"></div>
+
+    <header>
+        <h1>ReVoLuTIon <span>SKATE</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Decks</a></li>
+                <li><a href="#">Trucks</a></li>
+                <li><a href="#">Vestuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="skate-card">
+            <div class="img-placeholder">SK8</div>
+            <span class="brand">SANTA CRUZ</span>
+            <h2>Shape Maple Pro</h2>
+            <a href="#" class="btn-buy">R$ 299,00</a>
+        </article>
+
+        <article class="skate-card">
+            <div class="img-placeholder">WHEEL</div>
+            <span class="brand">BONES</span>
+            <h2>Rodas 54mm</h2>
+            <a href="#" class="btn-buy">R$ 180,00</a>
+        </article>
+
+        <article class="skate-card">
+            <div class="img-placeholder">TEE</div>
+            <span class="brand">THRASHER</span>
+            <h2>Camiseta Flame</h2>
+            <a href="#" class="btn-buy">R$ 120,00</a>
+        </article>
+    </main>
+
+    <div class="checker-bar"></div>
+    
+    <footer>
+        REVOLUXTI © STREET CULTURE.
+    </footer>
+
+</body>
+</html>

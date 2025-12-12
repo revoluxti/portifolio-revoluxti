@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Revoluxti- Linear Glow</title>
+    <style>
+        /* TEMA: COSMIC GLOW */
+        :root {
+            --bg: #000212; /* Preto Profundo com toque azul */
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.1);
+            --glow: #7875ff; /* Roxo/Azul Neon */
+            --text: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, system-ui, sans-serif;
+            min-height: 100vh;
+            /* Fundo de estrelas fake */
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        /* CONTAINER CENTRALIZADO */
+        .wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 40px;
+        }
+
+        /* HEADER LATERAL FLUTUANTE */
+        header {
+            width: 250px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(to right, #fff, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        
+        nav a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* CARDS BRILHANTES */
+        section {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho no topo do card */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glow), transparent);
+            opacity: 0.5;
+        }
+
+        h2 { font-size: 1.8rem; margin-bottom: 15px; }
+        p { color: #888; line-height: 1.6; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .mini-card {
+            background: #0a0a0a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .mini-card:hover { border-color: var(--glow); }
+
+        footer {
+            margin-top: 40px;
+            color: #444;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) { .wrapper { flex-direction: column; } header { width: 100%; position: relative; top: 0;} }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>revoluxti.UI</h1>
+            <nav>
+                <ul>
+                    <li><span>✧</span> <a href="#">Overview</a></li>
+                    <li><span>✆</span> <a href="#">Integrações</a></li>
+                    <li><span>⚙</span> <a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <hgroup>
+                    <h2>Design Iluminado</h2>
+                    <p>Inspirado nas tendências revoluxti de 2026.</p>
+                </hgroup>
+                <p>Este layout utiliza gradientes sutis nas bordas e um fundo "espacial" para criar profundidade sem pesar na visão. É o estilo favorito de empresas de SaaS modernas.</p>
+            </section>
+
+            <section>
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="mini-card">Fast</div>
+                    <div class="mini-card">Secure</div>
+                    <div class="mini-card">Global</div>
+                    <div class="mini-card">Scalable</div>
+                </div>
+            </section>
+
+            <footer>
+                &copy; 2025 REVOLUXTI Future Labs.
+            </footer>
+        </main>
+    </div>
+
+</body>
+</html>

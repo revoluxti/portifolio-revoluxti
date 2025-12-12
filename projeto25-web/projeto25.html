@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>REVOLUXTI - Glitch</title>
+    <style>
+        /* TENDÊNCIA: Y2K CYBER AESTHETIC */
+        :root {
+            --bg: #000000;
+            --matrix: #00ff41;
+            --matrix-dim: #008F11;
+            --text: #e0e0e0;
+            --line: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Scanline (TV Antiga) no fundo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--matrix-dim);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Efeito Glitch no Texto */
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--matrix);
+            text-transform: uppercase;
+            position: relative;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            5% { text-shadow: 0 0 0; }
+        }
+
+        nav ul { display: flex; gap: 2px; list-style: none; background: var(--matrix-dim); padding: 1px; }
+        
+        nav a { 
+            display: block;
+            background: #000;
+            color: var(--matrix); 
+            text-decoration: none; 
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        
+        nav a:hover { 
+            background: var(--matrix); 
+            color: #000; 
+            box-shadow: 0 0 15px var(--matrix);
+        }
+
+        /* MAIN */
+        main { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+
+        section {
+            border: 1px solid var(--line);
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Detalhes nos cantos (Bracket UI) */
+        section::after {
+            content: "SECTION_ID: 001";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #000;
+            padding: 0 10px;
+            font-size: 0.7rem;
+            color: var(--matrix-dim);
+            border: 1px solid var(--line);
+        }
+
+        h2 { 
+            color: #fff; 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            border-left: 5px solid var(--matrix);
+            padding-left: 15px;
+        }
+
+        p { line-height: 1.6; margin-bottom: 20px; color: #aaa; }
+
+        .terminal-box {
+            background: #0a0a0a;
+            border: 1px dashed var(--line);
+            padding: 20px;
+            color: var(--matrix);
+            font-size: 0.9rem;
+        }
+
+        /* CURSOR PISCANDO */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            background: var(--matrix);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--line);
+            color: #444;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>REVOLUXTI - CYBER_SEC_TEC</h1>
+        <nav>
+            <ul>
+                <li><a href="#">[ROOT]</a></li>
+                <li><a href="#">[LOGS]</a></li>
+                <li><a href="#">[EXIT]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Assistencia técnica especializada REVOLUXTI</h2>
+            <p>O estilo "Cyber Y2K" resgata a estética da web dos anos 2000 com um toque moderno. Scanlines, bordas pixeladas e fontes monoespaçadas.</p>
+            
+            <div class="terminal-box">
+                <span style="color: #fff;">user@revoluxti:~$</span> inicializar protocolo_semantico<br>
+                > Carregando &lt;header&gt;... OK<br>
+                > Carregando &lt;main&gt;... OK<br>
+                > Sistema pronto<span class="cursor"></span>
+            </div>
+        </section>
+
+        <section style="border-color: var(--matrix-dim);">
+            <h2>Estrutura</h2>
+            <p>Apesar do visual "quebrado" (glitch), o código HTML por trás é perfeitamente semântico e acessível para leitores de tela.</p>
+        </section>
+    </main>
+
+    <footer>
+        NO SIGNAL DETECTED...
+    </footer>
+
+</body>
+</html>
