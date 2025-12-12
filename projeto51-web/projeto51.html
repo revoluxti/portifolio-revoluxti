@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tubby Sweets - Surreal Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: TUBBY LAND --- */
+        :root {
+            --sky-blue: #87CEEB;
+            --grass-green: #7CFC00;
+            --tinky-purple: #8A2BE2;
+            --dipsy-green: #32CD32;
+            --laala-yellow: #FFD700;
+            --po-red: #FF4500;
+            --custard-pink: #FFC0CB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background: linear-gradient(to bottom, var(--sky-blue) 60%, var(--grass-green) 60%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* SOL BEBÊ (Elemento Flutuante) */
+        .sun-baby {
+            position: absolute; top: 30px; right: 30px;
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, #fff, var(--laala-yellow));
+            border-radius: 50%;
+            box-shadow: 0 0 40px var(--laala-yellow);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            padding: 40px;
+            max-width: 900px;
+            width: 90%;
+            text-align: center;
+            border: 10px solid var(--custard-pink);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            color: var(--tinky-purple);
+            text-shadow: 3px 3px 0px #fff;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background: var(--laala-yellow);
+            display: inline-flex;
+            gap: 15px;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        }
+
+        /* GRID DE DOCES REDONDOS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .tubby-card {
+            background: #fff;
+            border-radius: 40px; /* Borda bem redonda */
+            padding: 20px;
+            transition: 0.3s;
+            border: 5px solid transparent;
+        }
+
+        .tubby-card:hover { transform: scale(1.1); }
+
+        /* Cores Específicas por Card */
+        .card-po { border-color: var(--po-red); }
+        .card-dipsy { border-color: var(--dipsy-green); }
+        .card-tinky { border-color: var(--tinky-purple); }
+
+        .icon-box {
+            font-size: 4rem;
+            background: #f0f0f0;
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        h2 { font-size: 1.5rem; color: #555; margin-bottom: 5px; }
+        
+        .btn-custard {
+            background: var(--custard-pink);
+            color: #d1477e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .btn-custard:hover { background: #ff9fb4; }
+
+        footer {
+            margin-top: 40px;
+            color: var(--dipsy-green);
+            font-weight: bold;
+        }
+
+        /* FLORES NO CHÃO (Decorativo) */
+        .flower { position: fixed; bottom: 20px; font-size: 2rem; z-index: -1; }
+    </style>
+</head>
+<body>
+
+    <div class="sun-baby">👶</div>
+    
+    <div class="flower" style="left: 10%">🌸</div>
+    <div class="flower" style="left: 80%">🌼</div>
+    <div class="flower" style="left: 50%; bottom: 50px;">🌷</div>
+
+    <div class="container">
+        <h1>Tubby Sweets</h1>
+        <p style="color: #666; margin-bottom: 20px;">É hora de... comer!</p>
+        
+        <nav>
+            <a href="#">Tortas</a>
+            <a href="#">Cremes</a>
+            <a href="#">Torradas</a>
+        </nav>
+
+        <section class="products">
+            <article class="tubby-card card-tinky">
+                <div class="icon-box" style="background: #e6ccff;">👜</div>
+                <h2>Magic Bag</h2>
+                <p>Bolo surpresa de uva com recheio mágico.</p>
+                <button class="btn-custard">É para já!</button>
+            </article>
+
+            <article class="tubby-card card-po">
+                <div class="icon-box" style="background: #ffcccc;">🧁</div>
+                <h2>Po's Cupcake</h2>
+                <p>Red velvet fofinho com cobertura de nuvem.</p>
+                <button class="btn-custard">É para já!</button>
+            </article>
+
+            <article class="tubby-card card-dipsy">
+                <div class="icon-box" style="background: #ccffcc;">👒</div>
+                <h2>Dipsy Lime</h2>
+                <p>Torta de limão com chapéu de suspiro.</p>
+                <button class="btn-custard">É para já!</button>
+            </article>
+        </section>
+
+        <footer>
+            RevoluxTI © Big Hug
+        </footer>
+    </div>
+
+</body>
+</html>

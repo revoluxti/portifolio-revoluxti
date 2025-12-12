@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BURGER BLAST - Neo Brutalism</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Public+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #ff90e8;
+            --yellow: #ffc900;
+            --blue: #23a6d5;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--yellow);
+            font-family: 'Public Sans', sans-serif;
+            color: var(--black);
+            padding: 20px;
+        }
+
+        /* CAIXAS BRUTALISTAS (Borda grossa + Sombra dura) */
+        .brutal-box {
+            background: var(--white);
+            border: 4px solid var(--black);
+            box-shadow: 8px 8px 0px var(--black); /* A mágica do Neo-Brutalismo */
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: 0.2s;
+        }
+        .brutal-box:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--black);
+        }
+
+        header {
+            background: var(--pink);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border: 4px solid var(--black);
+            box-shadow: 8px 8px 0px var(--black);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            transform: rotate(-2deg); /* Leve inclinação rebelde */
+        }
+
+        .btn-order {
+            background: var(--blue);
+            color: var(--white);
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 3px solid var(--black);
+            box-shadow: 4px 4px 0px var(--black);
+        }
+        .btn-order:active { transform: translate(4px, 4px); box-shadow: none; }
+
+        main { max-width: 1000px; margin: 0 auto; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD DE COMIDA */
+        .food-card {
+            background: var(--white);
+            border: 4px solid var(--black);
+            box-shadow: 8px 8px 0px var(--black);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .food-emoji {
+            background: #eee;
+            font-size: 5rem;
+            padding: 40px 0;
+            border-bottom: 4px solid var(--black);
+        }
+
+        .details { padding: 20px; }
+
+        h3 { font-family: 'Archivo Black'; font-size: 1.5rem; margin-bottom: 10px; }
+        
+        .tag {
+            display: inline-block; background: var(--black); color: var(--white);
+            padding: 5px 10px; font-weight: bold; font-size: 0.8rem; transform: rotate(3deg);
+            margin-bottom: 15px;
+        }
+
+        .price { font-size: 2rem; font-weight: 900; color: var(--black); display: block; margin-bottom: 15px; }
+
+        /* MARQUEE FOOTER */
+        footer {
+            background: var(--black); color: var(--white);
+            padding: 20px; margin-top: 50px; border: 4px solid var(--white);
+            font-family: 'Archivo Black'; overflow: hidden; white-space: nowrap;
+        }
+
+        @media (max-width: 600px) { header { flex-direction: column; gap: 20px; text-align: center; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Burger<br>REVOBlast 💥</h1>
+        <a href="#" class="btn-order">Pedir Agora</a>
+    </header>
+
+    <main>
+        <div class="brutal-box" style="background: var(--blue); color: white;">
+            <h2 style="font-family: 'Archivo Black';">NOVIDADE DA SEMANA!</h2>
+            <p>O hambúrguer que desafia a gravidade. Triplo cheddar, bacon crocante e molho secreto RVLXTI.</p>
+        </div>
+
+        <section class="grid">
+            <article class="food-card">
+                <div class="food-emoji" style="background: #ffcccc;">🍔</div>
+                <div class="details">
+                    <span class="tag">BEST SELLER</span>
+                    <h3>Smash Duplo</h3>
+                    <p>Carne prensada na chapa, queijo derretido.</p>
+                    <span class="price">R$ 28</span>
+                    <a href="#" class="btn-order" style="width: 100%; display: block; background: var(--yellow); color: black;">Add</a>
+                </div>
+            </article>
+
+            <article class="food-card">
+                <div class="food-emoji" style="background: #ccffff;">🍟</div>
+                <div class="details">
+                    <span class="tag">CROCANTE</span>
+                    <h3>Batata Rústica</h3>
+                    <p>Com alho, alecrim e maionese verde.</p>
+                    <span class="price">R$ 18</span>
+                    <a href="#" class="btn-order" style="width: 100%; display: block; background: var(--yellow); color: black;">Add</a>
+                </div>
+            </article>
+
+            <article class="food-card">
+                <div class="food-emoji" style="background: #e6ccff;">🥤</div>
+                <div class="details">
+                    <span class="tag">GELADO</span>
+                    <h3>Milkshake Pop</h3>
+                    <p>Morango com pedaços de cookies.</p>
+                    <span class="price">R$ 22</span>
+                    <a href="#" class="btn-order" style="width: 100%; display: block; background: var(--yellow); color: black;">Add</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        EAT FAST /// LIVE LOUD /// RVLXTI BURGERS /// EAT FAST /// LIVE LOUD /// RVLXTI BURGERS
+    </footer>
+
+</body>
+</html>

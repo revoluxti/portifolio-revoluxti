@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solare Sandálias - Lambe-Lambe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: TROPICAL HEAT --- */
+        :root {
+            --sun-yellow: #FFD700;
+            --hot-orange: #FF4500;
+            --paper-bg: #fdf5e6;
+            --ink-black: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--sun-yellow);
+            color: var(--ink-black);
+            overflow-x: hidden;
+            /* Textura de parede */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e6a600' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* CARTAZ DE RUA (HEADER) */
+        .poster-header {
+            background: #fff;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        /* Fita Adesiva (Tape) */
+        .tape {
+            width: 150px; height: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%) rotate(2deg);
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: var(--ink-black);
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+        h1 span { color: var(--hot-orange); }
+
+        .handwritten {
+            font-family: 'Permanent Marker', cursive;
+            color: var(--hot-orange);
+            font-size: 1.5rem;
+            transform: rotate(-5deg);
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* MURAL DE OFERTAS */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lambe-card {
+            background: var(--paper-bg);
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* Rotação Aleatória nos Cards */
+        .rotate-left { transform: rotate(-3deg); }
+        .rotate-right { transform: rotate(2deg); }
+        
+        .lambe-card:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+        .img-box {
+            width: 100%; height: 200px;
+            background: #333;
+            margin-bottom: 15px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 3rem;
+            /* Filtro de meio-tom simulado */
+            background-image: radial-gradient(circle, #444 20%, transparent 20%);
+            background-size: 10px 10px;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; }
+        
+        .price {
+            background: var(--ink-black);
+            color: var(--sun-yellow);
+            padding: 5px 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transform: rotate(-2deg);
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center; margin-top: 50px; padding: 40px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="poster-header">
+        <div class="tape"></div>
+        <span class="handwritten">Chegou a Primavera!</span>
+        <h1>Solare<br><span>Sandálias</span></h1>
+        <p style="font-weight: bold; margin-top: 10px;">FEITAS PARA VOAR NO ASFALTO E NA AREIA.</p>
+    </header>
+
+    <main>
+        <article class="lambe-card rotate-left">
+            <div class="tape" style="top: -10px; width: 80px; left: 50%;"></div>
+            <div class="img-box" style="background-color: var(--hot-orange);">👡</div>
+            <h2>Sunset<br>Vibe</h2>
+            <p>Conforto extremo para dias quentes.</p>
+            <span class="price">R$ 49,90</span>
+        </article>
+
+        <article class="lambe-card rotate-right">
+            <div class="tape" style="top: -10px; width: 80px; left: 50%;"></div>
+            <div class="img-box" style="background-color: #2E8B57;">🌿</div>
+            <h2>Eco<br>Walk</h2>
+            <p>Borracha 100% reciclada da Amazônia.</p>
+            <span class="price">R$ 59,90</span>
+        </article>
+
+        <article class="lambe-card rotate-left">
+            <div class="tape" style="top: -10px; width: 80px; left: 50%;"></div>
+            <div class="img-box" style="background-color: #4682B4;">🌊</div>
+            <h2>Ocean<br>Blue</h2>
+            <p>À prova d'água e estilo.</p>
+            <span class="price">R$ 39,90</span>
+        </article>
+    </main>
+
+    <footer>
+        Colado por RVLXTI Design - Rua da Praia, 00.
+    </footer>
+
+</body>
+</html>

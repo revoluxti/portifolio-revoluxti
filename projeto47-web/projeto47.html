@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUX.COOKIES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- PALETA: SWEET SHOP --- */
+        :root {
+            --cream: #fffdd0;       /* Creme Baunilha */
+            --choco: #3e2723;       /* Chocolate Amargo */
+            --strawberry: #ff4081;  /* Rosa Morango */
+            --blue-awning: #0277bd; /* Azul Toldo */
+            --red-awning: #d32f2f;  /* Vermelho Toldo */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream);
+            color: var(--choco);
+            min-height: 100vh;
+            
+            /* TÉCNICA: FUNDO DE GRANULADOS (SPRINKLES) 
+               Cria bolinhas coloridas aleatórias usando gradientes radiais.
+            */
+            background-image: 
+                radial-gradient(var(--strawberry) 15%, transparent 16%),
+                radial-gradient(var(--blue-awning) 15%, transparent 16%),
+                radial-gradient(#ffeb3b 15%, transparent 16%); /* Amarelo */
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px, 7px 7px;
+            background-attachment: fixed;
+        }
+
+        /* O TOLDO CLÁSSICO (AWNING) */
+        header {
+            /* Cria listras verticais imitando toldo */
+            background: repeating-linear-gradient(
+                90deg,
+                var(--blue-awning),
+                var(--blue-awning) 40px,
+                var(--white) 40px,
+                var(--white) 80px,
+                var(--red-awning) 80px,
+                var(--red-awning) 120px,
+                var(--white) 120px,
+                var(--white) 160px
+            );
+            
+            padding: 60px 20px 40px 20px; /* Mais espaço em cima */
+            text-align: center;
+            border-bottom: 5px solid var(--white);
+            /* Borda ondulada embaixo do toldo */
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Placa da Loja */
+        .signboard {
+            background: var(--white);
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 4px solid var(--strawberry);
+            box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: var(--strawberry);
+            text-shadow: 2px 2px 0px var(--cream);
+            margin: 0;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD DE DOCE */
+        .sweet-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 4px solid var(--cream);
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .sweet-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: var(--strawberry);
+            box-shadow: 0 10px 20px rgba(62, 39, 35, 0.2);
+        }
+
+        .emoji-img { font-size: 5rem; margin-bottom: 10px; display: block; }
+
+        h2 { color: var(--choco); font-weight: bold; margin-bottom: 5px; }
+        p { color: #777; font-size: 0.9rem; line-height: 1.4; }
+
+        .btn-buy {
+            display: block; width: 100%; margin-top: 15px;
+            background: var(--strawberry); color: white;
+            border: none; padding: 10px; border-radius: 10px;
+            font-weight: bold; cursor: pointer;
+            box-shadow: 0 4px 0 #c2185b; /* Efeito 3D botão */
+        }
+        .btn-buy:active { transform: translateY(4px); box-shadow: none; }
+
+        footer {
+            background: var(--choco);
+            color: var(--cream);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 5px solid var(--strawberry);
+        }
+
+        @media(max-width: 600px) { h1 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="signboard">
+            <h1>REVOLUX.COOKIES 🍪</h1>
+        </div>
+    </header>
+
+    <main>
+        <article class="sweet-card">
+            <span class="emoji-img">🍩</span>
+            <h2>Choco Bomb</h2>
+            <p>Donut recheado com ganache belga e cobertura de granulado colorido.</p>
+            <button class="btn-buy">Quero! R$ 12</button>
+        </article>
+
+        <article class="sweet-card">
+            <span class="emoji-img">🍰</span>
+            <h2>Red Velvet</h2>
+            <p>Fatia clássica com cream cheese e morangos frescos.</p>
+            <button class="btn-buy">Quero! R$ 18</button>
+        </article>
+
+        <article class="sweet-card">
+            <span class="emoji-img">🧁</span>
+            <h2>Cupcake Kids</h2>
+            <p>Massa de baunilha azul com nuvem de marshmallow.</p>
+            <button class="btn-buy">Quero! R$ 10</button>
+        </article>
+    </main>
+
+    <footer>
+        FEITO COM AMOR POR REVOLUXTI SWEETS.
+    </footer>
+
+</body>
+</html>

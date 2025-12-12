@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTI Prime Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: BLACK & GOLD LUXURY --- */
+        :root {
+            --black: #080808;
+            --card-bg: #111111;
+            --gold: #d4af37;        /* Dourado Metálico */
+            --gold-glow: #aa8c2c;   /* Dourado Escuro para sombra */
+            --text: #f0f0f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            /* Texto Dourado Brilhante */
+            background: linear-gradient(45deg, #d4af37, #fdf5e6, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-vip {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-vip:hover {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 20px var(--gold-glow); /* Glow Dourado */
+        }
+
+        /* MAIN */
+        main { padding: 80px 20px; text-align: center; }
+
+        h1 { font-size: 4rem; text-transform: uppercase; margin-bottom: 50px; font-weight: 300; }
+        h1 b { font-weight: 900; color: var(--gold); }
+
+        /* GRID DE BENEFÍCIOS (Box Shadow Caprichado) */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #222;
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        /* O SEGREDO DO LUXO: Sombra Dourada no Hover */
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            /* Box Shadow: X Y Blur Spread Color */
+            box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.3);
+        }
+
+        .icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        
+        h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        p { color: #888; font-size: 0.9rem; line-height: 1.6; }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #222;
+            padding: 40px;
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">RVLXTI Prime</div>
+        <a href="#" class="btn-vip">Área do Membro</a>
+    </header>
+
+    <main>
+        <h1>Welcome to the<br><b>Golden Era</b></h1>
+
+        <section class="benefits">
+            <article class="card">
+                <span class="icon">💎</span>
+                <h3>Exclusive Access</h3>
+                <p>Acesso limitado a 200 membros. Sem filas, sem espera. Equipamentos Technogym importados.</p>
+            </article>
+
+            <article class="card">
+                <span class="icon">🏆</span>
+                <h3>Personal Concierge</h3>
+                <p>Toalhas egípcias, água alcalina e serviço de lavanderia inclusos no seu plano Black.</p>
+            </article>
+
+            <article class="card">
+                <span class="icon">⚡</span>
+                <h3>Bio-Hacking Lab</h3>
+                <p>Crioterapia, sauna infravermelha e análise corporal 3D para maximizar seus resultados.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        REVOLUXTI GYM SYSTEMS © 2025. LUXURY FITNESS.
+    </footer>
+
+</body>
+</html>

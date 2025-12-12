@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTI RONIN - Cyber Street</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Teko:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #000000;
+            --cyan: #00ffff;
+            --magenta: #ff00ff;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--void);
+            color: var(--white);
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .glitch-logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 3rem;
+            position: relative;
+            color: var(--white);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* EFEITO GLITCH CSS */
+        .glitch-logo::before, .glitch-logo::after {
+            content: attr(data-text);
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+        .glitch-logo::before {
+            left: 2px; text-shadow: -1px 0 var(--magenta); clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .glitch-logo::after {
+            left: -2px; text-shadow: -1px 0 var(--cyan); clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(80px, 9999px, 100px, 0); }
+            40% { clip: rect(10px, 9999px, 80px, 0); }
+            100% { clip: rect(50px, 9999px, 60px, 0); }
+        }
+
+        /* MAIN */
+        main { padding: 50px 20px; max-width: 1200px; margin: 0 auto; }
+
+        .hero {
+            border: 1px solid var(--white);
+            padding: 40px;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        /* Detalhes nos cantos */
+        .hero::before { content: ''; position: absolute; top: -5px; left: -5px; width: 20px; height: 20px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+        .hero::after { content: ''; position: absolute; bottom: -5px; right: -5px; width: 20px; height: 20px; border-bottom: 2px solid var(--magenta); border-right: 2px solid var(--magenta); }
+
+        h2 { font-family: 'Teko', sans-serif; font-size: 4rem; text-transform: uppercase; line-height: 0.9; }
+        
+        /* GRID DE PRODUTOS */
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .item {
+            background: #111;
+            border: 1px solid #333;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+            /* Recorte Diagonal (Clip Path) */
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
+
+        .item:hover { background: #000; border-color: var(--cyan); box-shadow: 5px 5px 0 var(--magenta); }
+
+        .item-img { height: 250px; background: #222; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; filter: grayscale(100%); transition: 0.3s; }
+        .item:hover .item-img { filter: grayscale(0%); }
+
+        .btn-buy {
+            width: 100%; border: 1px solid var(--white); background: transparent; color: var(--white);
+            padding: 15px; font-family: 'Share Tech Mono'; text-transform: uppercase; cursor: pointer;
+            margin-top: 15px; transition: 0.2s;
+        }
+        .btn-buy:hover { background: var(--white); color: var(--void); }
+
+        footer { text-align: center; margin-top: 80px; color: #555; border-top: 1px solid #222; padding: 40px; }
+
+        @media (max-width: 600px) { h2 { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="glitch-logo" data-text="RVLXTI RONIN">RVLXTI RONIN</div>
+        <nav style="color: var(--cyan);">MENU // CART [0]</nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <p style="color: var(--cyan);">SYSTEM: ONLINE</p>
+            <h2>FUTURE WEAR<br><span style="color: transparent; -webkit-text-stroke: 1px var(--white);">COLLECTION</span></h2>
+            <p style="margin-top: 20px; max-width: 500px;">Moda urbana de alta tecnologia. Tecidos resistentes a nanobots e cortes a laser.</p>
+        </div>
+
+        <section class="cyber-grid">
+            <article class="item">
+                <div class="item-img">🧥</div>
+                <h3>Cyber Jacket V2</h3>
+                <p style="color: #888;">Impermeável / LED Sync</p>
+                <div style="color: var(--magenta); font-size: 1.5rem; margin-top: 10px;">¥ 4500</div>
+                <button class="btn-buy">HACK SYSTEM</button>
+            </article>
+
+            <article class="item">
+                <div class="item-img">🕶️</div>
+                <h3>Visor HUD</h3>
+                <p style="color: #888;">Realidade Aumentada</p>
+                <div style="color: var(--magenta); font-size: 1.5rem; margin-top: 10px;">¥ 2200</div>
+                <button class="btn-buy">HACK SYSTEM</button>
+            </article>
+
+            <article class="item">
+                <div class="item-img">👟</div>
+                <h3>Sneakers Zero-G</h3>
+                <p style="color: #888;">Sola Magnética</p>
+                <div style="color: var(--magenta); font-size: 1.5rem; margin-top: 10px;">¥ 3100</div>
+                <button class="btn-buy">HACK SYSTEM</button>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>TOKYO // NEO-BRASIL // 2077</p>
+    </footer>
+
+</body>
+</html>
