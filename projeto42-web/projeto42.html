@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Farma100Desc - Hyper Store</title>
+    
+    <style>
+        /* =========================================
+           TEMA: CYBER ACID
+           Conceito: Hyperpop, Y2K, Cores Ácidas e Tipografia Gigante.
+           ========================================= */
+        :root {
+            --bg: #0f0518;        /* Roxo Quase Preto (Deep Void) */
+            --primary: #5b21b6;   /* Roxo Elétrico */
+            --acid: #ccff00;      /* Verde Ácido Neon (Destaque Principal) */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', 'Arial Bold', sans-serif; /* Fontes pesadas */
+            background-color: var(--bg);
+            color: var(--white);
+            overflow-x: hidden; /* Evita rolagem lateral */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(204, 255, 0, 0.2);
+        }
+
+        .logo { font-size: 1.5rem; letter-spacing: -1px; font-style: italic; }
+        .logo span { color: var(--acid); }
+
+        nav a {
+            color: var(--white); 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-size: 0.8rem; 
+            text-transform: uppercase;
+            font-family: 'Verdana', sans-serif; 
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        
+        /* Hover: Risco no texto e cor ácida */
+        nav a:hover { color: var(--acid); text-decoration: line-through; }
+
+        /* --- MAIN (PALCO PRINCIPAL) --- */
+        main {
+            flex-grow: 1; /* Ocupa o espaço disponível */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 40px;
+            overflow: hidden; /* Corta o texto glitch de fundo */
+        }
+
+        /* TIPOGRAFIA CINÉTICA (O Destaque Visual) */
+        .big-type {
+            font-size: 12vw; /* Tamanho responsivo baseado na largura da tela */
+            line-height: 0.8;
+            text-transform: uppercase;
+            color: transparent; /* Texto invisível por dentro */
+            
+            /* TÉCNICA: TEXT STROKE (Contorno) */
+            -webkit-text-stroke: 2px var(--white);
+            
+            position: relative;
+            z-index: 2;
+            cursor: default;
+            transition: 0.3s;
+        }
+
+        /* Hover: Preenche o texto e adiciona brilho */
+        .big-type:hover {
+            color: var(--acid);
+            -webkit-text-stroke: 0px;
+            text-shadow: 0 0 50px rgba(204, 255, 0, 0.5); 
+        }
+
+        /* GLITCH DE FUNDO (Decorativo) */
+        .glitch-bg {
+            position: absolute;
+            top: 50%; right: -10%;
+            transform: translateY(-50%) rotate(15deg);
+            font-size: 20rem;
+            color: var(--primary);
+            opacity: 0.1; /* Bem sutil */
+            z-index: 1;
+            pointer-events: none; /* Não interfere no clique */
+            white-space: nowrap;
+        }
+
+        /* --- CARD FLUTUANTE (CTA) --- */
+        .cta-card {
+            position: absolute;
+            bottom: 50px; right: 50px;
+            background: rgba(255,255,255,0.05); /* Vidro bem escuro */
+            backdrop-filter: blur(10px);        /* Desfoque de fundo */
+            padding: 30px;
+            border: 1px solid var(--acid);
+            max-width: 300px;
+            z-index: 10;
+        }
+
+        .cta-card h3 { color: var(--acid); margin-bottom: 10px; font-size: 1.2rem; }
+        
+        .cta-card p {
+            font-family: 'Verdana'; 
+            font-size: 0.8rem; 
+            line-height: 1.5; 
+            color: #ddd;
+        }
+
+        .btn-buy {
+            display: block; width: 100%; text-align: center;
+            background: var(--acid); color: #000;
+            padding: 15px; font-weight: bold; text-decoration: none;
+            margin-top: 15px; text-transform: uppercase;
+            box-shadow: 5px 5px 0 #fff; /* Sombra Sólida Retro */
+            transition: 0.2s;
+        }
+        
+        .btn-buy:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #fff; }
+
+        /* --- FOOTER (TICKER / LETREIRO) --- */
+        .ticker-wrap {
+            border-top: 2px solid var(--acid);
+            border-bottom: 2px solid var(--acid);
+            padding: 10px 0;
+            background: var(--acid);
+            color: var(--bg);
+            overflow: hidden;
+        }
+
+        .ticker {
+            display: flex;
+            gap: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite; /* Animação contínua */
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media (max-width: 768px) {
+            
+            /* Ajuste do Header */
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            nav a { margin: 0 10px; }
+
+            /* Tipografia Gigante no Celular */
+            .big-type {
+                font-size: 18vw; /* Aumenta a proporção para preencher a tela */
+                line-height: 0.9;
+                text-align: center;
+            }
+
+            /* Ajuste do CTA (Card Flutuante) */
+            .cta-card {
+                position: relative; /* Deixa de ser absoluto */
+                bottom: auto; right: auto;
+                margin-top: 40px;
+                max-width: 100%; /* Ocupa largura total */
+                background: rgba(255,255,255,0.1);
+            }
+
+            /* Main padding */
+            main { padding: 40px 20px; text-align: center; }
+            
+            /* Ajuste do Ticker */
+            .ticker { font-size: 1rem; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SUPLUX<span> POWER</span></div>
+        <nav>
+            <a href="#">Whey</a>
+            <a href="#">Creatina</a>
+            <a href="#">Pré-Treino</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="glitch-bg">PUMP PUMP PUMP</div>
+
+        <h1 class="big-type">
+            PURE<br>
+            ENERGY<br>
+            <span style="color: var(--acid); -webkit-text-stroke: 0;">FOCUS.</span>
+        </h1>
+
+        <aside class="cta-card">
+            <h3>Lançamento V2</h3>
+            <p>
+                A fórmula de pré-treino mais agressiva do mercado. Desenvolvido com tecnologia DevSecOps para otimizar seu corpo como um sistema.
+            </p>
+            <a href="#" class="btn-buy">Comprar R$ 129</a>
+        </aside>
+    </main>
+
+    <footer class="ticker-wrap">
+        <div class="ticker">
+            <span>/// REVOLUXTI EXPANDS IDEAS ///</span>
+            <span>NOVO DROP DISPONÍVEL</span>
+            <span>/// FARMA100DESC ///</span>
+            <span>FRETE GRÁTIS BRASIL</span>
+            <span>/// REVOLUXTI EXPANDS IDEAS ///</span>
+            <span>NOVO DROP DISPONÍVEL</span>
+            <span>/// FARMA100DESC ///</span>
+            <span>FRETE GRÁTIS BRASIL</span>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTION Choperia</title>
+    
+    <style>
+        /* =========================================
+           TEMA: COLD DRAFT BEER
+           Conceito: Pub Industrial, Azulejos de Metrô, Neon Verde e Azul.
+           ========================================= */
+        :root {
+            --bg: #001219;        /* Azul Petróleo Quase Preto (Fundo) */
+            --tile-line: #002b36; /* Linhas do azulejo (Contraste sutil) */
+            --neon-green: #0aff99;/* Verde Espuma Neon (Destaque) */
+            --accent-blue: #005f73;/* Azul Acento */
+            --text: #e9d8a6;      /* Bege Cerveja (Texto suave) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Narrow', 'Oswald', sans-serif; /* Fonte Alta e Estreita */
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            
+            /* TÉCNICA: PADRÃO "SUBWAY TILE" (Azulejo de Metrô)
+               Cria retângulos intercalados usando gradientes lineares.
+            */
+            background-image: 
+                linear-gradient(var(--tile-line) 2px, transparent 2px),
+                linear-gradient(90deg, var(--tile-line) 2px, transparent 2px);
+            background-size: 100px 50px; /* Formato retangular (2:1) */
+            background-position: center;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: rgba(0, 18, 25, 0.95); /* Fundo quase sólido */
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--neon-green);
+            backdrop-filter: blur(10px); /* Vidro fosco */
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            /* Sombra Sólida para efeito 3D Retrô */
+            text-shadow: 4px 4px 0px var(--accent-blue);
+        }
+        .logo span { color: var(--neon-green); }
+
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            padding: 8px 16px; 
+            border-radius: 4px; 
+            transition: 0.3s;
+        }
+        nav a:hover { background: var(--neon-green); color: #001219; }
+
+        /* --- LAYOUT PRINCIPAL --- */
+        main {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            /* Grid Assimétrico: 2 partes para Menu, 1 parte para Destaque */
+            grid-template-columns: 2fr 1fr; 
+            gap: 30px;
+        }
+
+        /* --- QUADRO DE MENU (CHALKBOARD STYLE) --- */
+        .menu-section {
+            background: #001f29;
+            border: 2px solid var(--accent-blue);
+            padding: 30px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5); /* Sombra dura */
+        }
+
+        h2 { 
+            font-size: 2rem; 
+            border-bottom: 2px dashed var(--neon-green); 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+        .item h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--neon-green); }
+        .item p { font-size: 0.9rem; color: #aaa; }
+        .price { font-size: 1.2rem; font-weight: bold; color: #fff; }
+
+        /* --- SIDEBAR DE DESTAQUE --- */
+        aside {
+            background: var(--neon-green);
+            color: #001219;
+            padding: 30px;
+            text-align: center;
+            height: fit-content;
+            
+            /* Inclinação para dar um estilo de "poster colado na parede" */
+            transform: rotate(2deg); 
+        }
+
+        aside h3 { font-size: 2rem; line-height: 1; margin-bottom: 15px; text-transform: uppercase; }
+        
+        .btn-pedir {
+            background: #001219; color: #fff; border: none; padding: 15px 30px;
+            font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; width: 100%;
+            transition: 0.2s;
+        }
+        .btn-pedir:hover { transform: scale(1.05); }
+
+        footer {
+            margin-top: 50px;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid var(--neon-green);
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media (max-width: 768px) { 
+            
+            /* Ajuste do Header */
+            header { 
+                flex-direction: column; 
+                gap: 20px; 
+                text-align: center;
+            }
+            
+            nav ul { 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+
+            /* Main vira Coluna Única */
+            main { 
+                grid-template-columns: 1fr; 
+            }
+            
+            /* Remove a inclinação do poster no mobile para economizar espaço lateral */
+            aside { 
+                transform: none; 
+                margin-top: 20px;
+            } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">REVOLUXTION <span>CHOPERIA</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Torneiras</a></li>
+                <li><a href="#">Porções</a></li>
+                <li><a href="#">Happy Hour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-section">
+            <h2>Na Torneira (Tap List)</h2>
+            
+            <div class="item">
+                <div>
+                    <h3>Bolão IPA</h3>
+                    <p>Amargor intenso, notas cítricas. 6.5% ABV</p>
+                </div>
+                <span class="price">R$ 18</span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h3>Lager Premium</h3>
+                    <p>Leve, refrescante e cristalina. 4.5% ABV</p>
+                </div>
+                <span class="price">R$ 12</span>
+            </div>
+
+            <div class="item">
+                <div>
+                    <h3>Stout Café</h3>
+                    <p>Escura, encorpada com notas de café. 5.0% ABV</p>
+                </div>
+                <span class="price">R$ 20</span>
+            </div>
+        </section>
+
+        <aside>
+            <h3>Happy Hour</h3>
+            <p>Chopp em dobro até as 20h!</p>
+            <div style="font-size: 3rem; font-weight: 900; margin: 20px 0;">50% OFF</div>
+            <button class="btn-pedir">Reservar Mesa</button>
+        </aside>
+    </main>
+
+    <footer>
+        SISTEMA DE GESTÃO: <strong>REVOLUXTI</strong>
+    </footer>
+
+</body>
+</html>

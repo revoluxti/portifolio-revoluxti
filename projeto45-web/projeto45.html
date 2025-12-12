@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakisoba do Bolão</title>
+    
+    <style>
+        /* =========================================
+           TEMA: SHANGHAI NIGHTS
+           Conceito: Cores imperiais, texturas de papel, luzes de lanterna.
+           ========================================= */
+        :root {
+            --red-china: #8a0a0a;   /* Vermelho Sangue (Base) */
+            --black-ink: #050505;   /* Preto Tinta Nanquim */
+            --gold: #ffd700;        /* Dourado Imperial (Destaque) */
+            --neon-red: #ff3333;    /* Vermelho Neon (Avisos) */
+            --paper: #1a1a1a;       /* Cinza Escuro (Fundo dos cards) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', serif; /* Fonte estilo máquina/documento antigo */
+            background-color: var(--black-ink);
+            color: #eee;
+            
+            /* TÉCNICA: TEXTURA ORIENTAL COM CSS
+               Mistura um gradiente radial (bolinhas) com um linear (listras)
+               para criar uma textura de tecido/papel de arroz escuro.
+            */
+            background-image: 
+                repeating-radial-gradient(circle at 0 0, transparent 0, var(--black-ink) 20px), 
+                repeating-linear-gradient(var(--red-china), var(--black-ink));
+            background-blend-mode: multiply; /* Mistura as camadas */
+            
+            min-height: 100vh;
+            border: 15px solid var(--red-china); /* Moldura grossa estilo quadro */
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--red-china);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            box-shadow: 0 10px 30px #000;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px; /* Espaçamento elegante */
+            text-shadow: 2px 2px 0px #000;
+            font-weight: bold;
+        }
+
+        /* MENU ESTILO PERGAMINHO */
+        nav ul {
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            margin-top: 20px; 
+            list-style: none;
+            flex-wrap: wrap; /* Permite quebrar linha no mobile */
+        }
+        
+        nav a {
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            border: 1px solid var(--gold); 
+            padding: 5px 15px; 
+            background: #000; 
+            transition: 0.3s;
+        }
+        
+        /* Hover: Inverte as cores (Preto no Dourado) */
+        nav a:hover { 
+            background: var(--gold); 
+            color: #000; 
+        }
+
+        /* --- MAIN GRID --- */
+        main {
+            max-width: 900px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 Colunas */
+            gap: 40px;
+            padding: 20px;
+        }
+
+        /* --- CARD DE PRODUTO "DRAGON" --- */
+        .menu-card {
+            background: var(--paper);
+            border: 2px solid var(--red-china);
+            padding: 20px;
+            position: relative;
+            
+            /* TÉCNICA: CLIP-PATH (RECORTES)
+               Corta os cantos do retângulo para criar um formato de "Pagode" ou etiqueta.
+            */
+            clip-path: polygon(
+                20px 0, 100% 0, 
+                100% calc(100% - 20px), calc(100% - 20px) 100%, 
+                0 100%, 0 20px
+            );
+            
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); /* Brilho Dourado */
+            transform: scale(1.02);
+        }
+
+        /* Caractere Chinês Decorativo (Kanji) */
+        .kanji {
+            position: absolute; top: 10px; right: 20px;
+            font-size: 4rem; 
+            opacity: 0.1; /* Bem sutil no fundo */
+            color: var(--red-china);
+            font-weight: bold; font-family: sans-serif;
+        }
+
+        h2 { 
+            color: var(--gold); 
+            font-size: 1.5rem; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+        }
+        
+        p { 
+            color: #aaa; 
+            font-size: 0.9rem; 
+            line-height: 1.5; 
+            margin-bottom: 20px; 
+        }
+
+        .price {
+            display: block; width: 100%; text-align: right;
+            font-size: 1.5rem; color: var(--neon-red); font-weight: bold;
+            border-top: 1px dashed #444; padding-top: 10px;
+        }
+
+        /* --- SEÇÃO ESPECIAL (FULL WIDTH) --- */
+        .special {
+            grid-column: 1 / -1; /* Ocupa todas as colunas */
+            text-align: center;
+            border: 1px solid var(--gold);
+            padding: 40px;
+            background: rgba(0,0,0,0.5);
+        }
+
+        footer {
+            text-align: center; margin-top: 50px; padding: 30px;
+            background: #000; color: var(--gold); 
+            border-top: 2px solid var(--red-china);
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+
+        /* Tablet (até 900px) */
+        @media (max-width: 900px) {
+            main {
+                gap: 20px;
+                margin: 30px auto;
+            }
+        }
+
+        /* Celular (até 600px) */
+        @media (max-width: 600px) { 
+            /* Reduz a moldura do site para ganhar espaço */
+            body { border-width: 5px; } 
+            
+            header { padding: 20px 10px; }
+            header h1 { font-size: 2rem; letter-spacing: 2px; }
+            
+            /* Ajuste do Menu */
+            nav ul { gap: 15px; } 
+            
+            /* Layout vira Coluna Única */
+            main { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+                padding: 15px;
+            }
+            
+            /* Ajustes visuais nos cards */
+            .special { padding: 20px; } 
+            .special h3 { font-size: 1.5rem !important; }
+            
+            .kanji { font-size: 3rem; } /* Reduz kanji decorativo */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>麵麵 JINLUX</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Tradicional</a></li>
+                <li><a href="#">Sushi</a></li>
+                <li><a href="#">Rolinho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="special">
+            <h3 style="color:var(--gold); font-size:2rem; margin-bottom:10px;">Festival do Dragão</h3>
+            <p>Ingredientes frescos selecionados e molho secreto da casa. A verdadeira culinária de rua chinesa.</p>
+        </div>
+
+        <article class="menu-card">
+            <span class="kanji">麵</span> <h2>Yakisoba Clássico</h2>
+            <p>Macarrão frito, legumes crocantes, carne e frango ao molho shoyu especial.</p>
+            <span class="price">R$ 35,00</span>
+        </article>
+
+        <article class="menu-card">
+            <span class="kanji">蝦</span> <h2>Yakisoba Imperial</h2>
+            <p>Versão premium com camarões grandes, lula e brócolis ninja.</p>
+            <span class="price">R$ 55,00</span>
+        </article>
+
+        <article class="menu-card">
+            <span class="kanji">甜</span> <h2>Rolinho Primavera</h2>
+            <p>Porção com 2 unidades. Recheio de queijo ou legumes.</p>
+            <span class="price">R$ 15,00</span>
+        </article>
+    </main>
+
+    <footer>
+        REVOLUXTI © ASIAN SYSTEM.
+    </footer>
+
+</body>
+</html>

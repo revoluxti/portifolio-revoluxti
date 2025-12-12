@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLUTIoNDance - Underground</title>
+    <style>
+        /* =========================================
+           TEMA: RED ALERT DISTRICT
+           Conceito: Clube noturno, industrial, underground, perigo.
+           ========================================= */
+        :root {
+            --bg: #050505;          /* Preto Quase Absoluto */
+            --grid-line: #1a1a1a;   /* Cinza Chumbo para a grade */
+            --neon-red: #ff003c;    /* Vermelho Laser (Alerta) */
+            --neon-yellow: #fcee0a; /* Amarelo Warning (Sinalização) */
+            --text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif; /* Fontes pesadas */
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            /* TÉCNICA: PADRÃO INDUSTRIAL (GRADE DE AÇO)
+               Cria um padrão xadrez escuro usando gradientes lineares finos.
+            */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            
+            /* Sombra interna (Vignette) para escurecer as bordas e focar no centro */
+            box-shadow: inset 0 0 150px #000;
+        }
+
+        /* --- HEADER (CABEÇALHO) --- */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-red);
+            position: relative;
+            overflow: hidden; /* Mantém o efeito de luz dentro da caixa */
+        }
+
+        /* EFEITO DE LUZ VAZANDO (GLOW SUPERIOR)
+           Simula uma lâmpada neon vermelha estourada no teto.
+        */
+        header::after {
+            content: ''; 
+            position: absolute; top: 0; left: 50%; 
+            transform: translateX(-50%);
+            width: 300px; height: 10px; 
+            background: var(--neon-red);
+            box-shadow: 0 0 50px 20px var(--neon-red); /* O brilho difuso */
+            opacity: 0.5;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            
+            /* TÉCNICA: TEXTO VAZADO (OUTLINE)
+               Deixa o interior transparente e pinta apenas a borda.
+            */
+            -webkit-text-stroke: 2px var(--text);
+            color: transparent;
+            
+            /* Sombra sólida vermelha para dar profundidade */
+            text-shadow: 5px 5px 0px var(--neon-red);
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-top: 20px; 
+            list-style: none;
+            flex-wrap: wrap; /* Permite quebrar linha no mobile */
+        }
+        
+        nav a { 
+            color: var(--neon-yellow); 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 0.9rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid var(--neon-yellow); /* Borda estilo fita de isolamento */
+            transition: 0.3s;
+        }
+        
+        /* Hover: Inverte as cores (Preto no Amarelo) */
+        nav a:hover { 
+            background: var(--neon-yellow); 
+            color: #000; 
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            flex: 1; /* Empurra o rodapé para baixo */
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+        }
+
+        /* CARD DE EVENTO (O Destaque) */
+        article {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid #333;
+            padding: 30px;
+            position: relative;
+            
+            /* TÉCNICA: CLIP-PATH (CORTE DIAGONAL)
+               Corta o canto inferior direito para um visual tecnológico/cyber.
+            */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+            
+            transition: 0.3s;
+        }
+
+        article:hover { border-color: var(--neon-red); }
+
+        h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--text); }
+        
+        .tag { 
+            background: var(--neon-red); 
+            color: #000; 
+            padding: 5px 10px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-bottom: 15px;
+        }
+
+        .lineup { 
+            color: var(--neon-yellow); 
+            font-family: monospace; 
+            font-size: 1.1rem; 
+            margin-top: 20px; 
+            display: block; 
+        }
+
+        /* SEÇÃO DE DRINKS (Grid 2 Colunas) */
+        section {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Padrão Desktop: Lado a Lado */
+            gap: 20px;
+        }
+
+        .drink-card {
+            border: 1px solid var(--neon-yellow);
+            padding: 20px;
+            background: #000;
+            text-align: center;
+        }
+        .drink-card h3 { color: var(--neon-yellow); text-transform: uppercase; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================= */
+        
+        /* Tablet e Celular (até 768px) */
+        @media (max-width: 768px) {
+            
+            /* Ajuste do Título Gigante */
+            h1 { 
+                font-size: 2.5rem; /* Reduz para caber na tela */
+                -webkit-text-stroke: 1px var(--text); /* Borda mais fina */
+            }
+            
+            /* Ajuste do Navegador */
+            nav ul { gap: 15px; }
+
+            /* Ajuste do Card de Destaque */
+            h2 { font-size: 1.8rem; }
+            
+            /* Grid de Drinks vira Coluna Única */
+            section { 
+                grid-template-columns: 1fr; 
+            }
+            
+            main { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TI-DRINKS</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Line-up</a></li>
+                <li><a href="#">Vip List</a></li>
+                <li><a href="#">Drinks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <span class="tag">HOJE 23:00</span>
+            <h2>NOITE INDUSTRIAL</h2>
+            <p>O melhor do Techno e House Music em um ambiente imersivo. Luzes, fumaça e graves pesados.</p>
+            <span class="lineup">DJ MISTERY // DJ BOLÃO // B2B</span>
+        </article>
+
+        <section>
+            <div class="drink-card">
+                <h3>Gin Tônica Neon</h3>
+                <p style="color: #fff; margin-top: 5px;">R$ 25,00</p>
+            </div>
+            <div class="drink-card">
+                <h3>Energy Combo</h3>
+                <p style="color: #fff; margin-top: 5px;">R$ 40,00</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        SYSTEM BY REVOLUXTI &bull; NIGHTLIFE TECH
+    </footer>
+
+</body>
+</html>

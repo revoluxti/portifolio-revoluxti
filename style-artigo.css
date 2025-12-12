@@ -369,7 +369,7 @@ section.formulario {
 /* .formulario h2 -> O título "Fala comigo". */
 .formulario h2 {
     text-align: center; /* Centraliza o título. */
-    color: #df3d3dbb; /* Cor avermelhada com transparência. */
+    color: #fd8f00; /* Cor avermelhada com transparência. */
     margin-bottom: 30px; /* Espaço abaixo do título. */
 }
 
