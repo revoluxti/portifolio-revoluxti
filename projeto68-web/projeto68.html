@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX ZION - Royal Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-purple: #240046;
+            --vibrant-purple: #3c096c;
+            --gold: #ffd700;
+            --gold-gradient: linear-gradient(45deg, #ffd700, #ffaa00);
+            --black: #10002b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* PADRÃO TRIBAL GEOMÉTRICO CSS */
+            background-image: 
+                linear-gradient(30deg, var(--vibrant-purple) 12%, transparent 12.5%, transparent 87%, var(--vibrant-purple) 87.5%, var(--vibrant-purple)),
+                linear-gradient(150deg, var(--vibrant-purple) 12%, transparent 12.5%, transparent 87%, var(--vibrant-purple) 87.5%, var(--vibrant-purple)),
+                linear-gradient(30deg, var(--vibrant-purple) 12%, transparent 12.5%, transparent 87%, var(--vibrant-purple) 87.5%, var(--vibrant-purple)),
+                linear-gradient(150deg, var(--vibrant-purple) 12%, transparent 12.5%, transparent 87%, var(--vibrant-purple) 87.5%, var(--vibrant-purple)),
+                linear-gradient(60deg, rgba(255, 215, 0, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(255, 215, 0, 0.1) 75%, rgba(255, 215, 0, 0.1));
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0;
+        }
+
+        /* HEADER REAL */
+        header {
+            background: var(--royal-purple);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            box-shadow: 0 10px 30px #000;
+            position: relative;
+        }
+
+        .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        /* MENU DISCO DOURADO */
+        .gold-trigger {
+            position: absolute; top: 30px; right: 30px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: var(--black); cursor: pointer;
+            box-shadow: 0 0 15px var(--gold);
+            transition: 0.3s;
+            border: 2px solid #fff;
+        }
+        .gold-trigger:hover { transform: scale(1.1); }
+
+        /* NAV FULLSCREEN */
+        .zion-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--black);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transform: translateY(-100%); transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 200;
+            border: 20px solid var(--gold);
+        }
+        .zion-nav.open { transform: translateY(0); }
+        
+        .close-btn { position: absolute; top: 30px; right: 30px; color: var(--gold); font-size: 3rem; cursor: pointer; }
+
+        .zion-nav a {
+            font-family: 'Cinzel'; font-size: 2rem; color: #fff; text-decoration: none; margin: 20px;
+            position: relative;
+        }
+        .zion-nav a::after {
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 2px; background: var(--gold); transition: 0.3s;
+        }
+        .zion-nav a:hover { color: var(--gold); }
+        .zion-nav a:hover::after { width: 100%; }
+
+        /* MAIN */
+        main { max-width: 900px; margin: 50px auto; padding: 20px; flex: 1; width: 100%; }
+
+        .collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+
+        /* CARD REAL */
+        .royal-card {
+            background: rgba(16, 0, 43, 0.9);
+            border: 1px solid var(--gold);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* Detalhe de canto dourado */
+        .royal-card::before, .royal-card::after {
+            content: ''; position: absolute; width: 20px; height: 20px;
+            border: 2px solid var(--gold); transition: 0.3s;
+        }
+        .royal-card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .royal-card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+        .royal-card:hover { transform: translateY(-10px); background: #240046; }
+        .royal-card:hover::before { top: 0; left: 0; }
+        .royal-card:hover::after { bottom: 0; right: 0; }
+
+        h2 { font-family: 'Cinzel'; color: var(--gold); margin-bottom: 10px; font-size: 1.5rem; }
+        p { margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; }
+
+        button {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold);
+            padding: 10px 30px; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 20px var(--gold); }
+
+        /* --- RODAPÉ REAL --- */
+        footer {
+            background: var(--royal-purple);
+            border-top: 4px solid var(--gold);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -10px 30px #000;
+        }
+
+        footer h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-divider {
+            height: 2px;
+            width: 100px;
+            background: var(--gold-gradient);
+            margin: 0 auto 20px;
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) { .brand { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">LUX ZION</div>
+        <div class="gold-trigger" onclick="toggleZion()">⚡</div>
+    </header>
+
+    <div class="zion-nav" id="menu-zion">
+        <div class="close-btn" onclick="toggleZion()">&times;</div>
+        <a href="#">Coleção Real</a>
+        <a href="#">Tecidos</a>
+        <a href="#">Ancestralidade</a>
+    </div>
+
+    <main>
+        <div class="collection-grid">
+            <article class="royal-card">
+                <h2>Manto Wakanda</h2>
+                <p>Tecido tecnológico com padrões nano-tribais.</p>
+                <button>Ver Detalhes</button>
+            </article>
+
+            <article class="royal-card">
+                <h2>Colar Solar</h2>
+                <p>Ouro maciço inspirado nas tribos do sol.</p>
+                <button>Ver Detalhes</button>
+            </article>
+
+            <article class="royal-card">
+                <h2>Túnica Ébano</h2>
+                <p>Corte moderno com alma clássica.</p>
+                <button>Ver Detalhes</button>
+            </article>
+
+            <article class="royal-card">
+                <h2>Túnica Ébano</h2>
+                <p>Corte moderno com alma clássica.</p>
+                <button>Ver Detalhes</button>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Lux Zion</h3>
+        <div class="footer-divider"></div>
+        <p>&copy; 2025 REVOLUXTI. Legado & Elegância.</p>
+    </footer>
+
+    <script>
+        function toggleZion() {
+            document.getElementById('menu-zion').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

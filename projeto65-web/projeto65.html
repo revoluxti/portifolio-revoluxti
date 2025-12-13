@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RVLXTI- Corporate Dark</title>
+    <style>
+        /* PALETA: MIDNIGHT BLUE */
+        :root {
+            --bg-deep: #0f172a;      /* Azul Profundo (Fundo) */
+            --bg-surface: #1e293b;   /* Azul Ardósia (Cartões) */
+            --text-primary: #f1f5f9; /* Branco Gelo (Texto) */
+            --text-secondary: #94a3b8; /* Azulacinzentado (Detalhes) */
+            --accent: #38bdf8;       /* Azul Céu (Destaques) */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER: Centralizado */
+        header {
+            background-color: var(--bg-surface);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 { 
+            color: var(--accent); 
+            font-size: 2.2rem; 
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        header h1 span { font-weight: 700; color: #fff; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        nav a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent); }
+
+        main { max-width: 800px; margin: 50px auto; padding: 0 20px; flex: 1; }
+
+        /* SEÇÕES FLUTUANTES ESCURAS */
+        section {
+            background: var(--bg-surface);
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            /* Brilho interno sutil no topo para dar efeito 3D */
+            border-top: 1px solid #334155; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        hgroup h2 { color: #fff; font-size: 1.8rem; margin-bottom: 5px; }
+        hgroup h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+
+        p { line-height: 1.8; color: var(--text-secondary); }
+
+        footer {
+            background: #020617; /* Mais escuro que o fundo */
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>RVLTI<span>SISTEM</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Empresa</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <hgroup>
+                <h3>Sobre Nós</h3>
+                <h2>Elegância Noturna</h2>
+            </hgroup>
+            <p>Este tema utiliza tons de "Slate Blue". É uma alternativa moderna ao preto total. É profissional o suficiente para bancos e empresas de tecnologia, mas escuro o suficiente para não cansar a vista.</p>
+        </section>
+
+        <section>
+            <hgroup>
+                <h3>Diferencial</h3>
+                <h2>Foco e Profundidade</h2>
+            </hgroup>
+            <p>Lorem ipsum dolor sit  e bordas superiores sutis para criar camadas. O usuário sente que os cartões estão flutuando sobre o fundo escuro.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 RVLXTIsistem. Dark Corp. All rights reserved.</p>
+    </footer>
+</body>
+</html>

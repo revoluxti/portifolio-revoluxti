@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX Tropicália - Design BR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #1b4d3e;   /* Verde Escuro */
+            --mango: #ffbe0b;    /* Amarelo Manga */
+            --guava: #ff006e;    /* Rosa Goiaba */
+            --sand: #fdfcdc;     /* Areia */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--sand);
+            font-family: 'Poppins', sans-serif;
+            color: var(--forest);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* FORMAS ORGÂNICAS DE FUNDO */
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.6; z-index: -1;
+        }
+        .b1 { top: -100px; left: -100px; width: 500px; height: 500px; background: var(--mango); }
+        .b2 { bottom: -100px; right: -100px; width: 400px; height: 600px; background: var(--guava); }
+
+        /* HEADER */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px;
+        }
+
+        .logo {
+            font-family: 'Abril Fatface', cursive; font-size: 2.5rem; color: var(--forest);
+            position: relative; z-index: 100;
+        }
+        .logo span { color: var(--guava); }
+
+        /* MENU BOTÃO ORGÂNICO */
+        .organic-btn {
+            background: var(--forest); color: var(--sand);
+            padding: 15px 30px; border: none; cursor: pointer; font-weight: bold;
+            /* Borda orgânica (não é círculo perfeito) */
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: 0.4s; z-index: 100;
+        }
+        .organic-btn:hover { border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%; transform: scale(1.1); background: var(--guava); }
+
+        /* MENU FULLSCREEN (ONDAS) */
+        .wave-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--mango);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            clip-path: circle(0% at 90% 10%); /* Começa fechado no canto */
+            transition: 0.6s ease-in-out; z-index: 90;
+        }
+        .wave-menu.active { clip-path: circle(150% at 90% 10%); }
+
+        .wave-menu a {
+            font-family: 'Abril Fatface'; font-size: 3rem; color: var(--forest);
+            text-decoration: none; margin: 15px; position: relative;
+        }
+        .wave-menu a::after {
+            content: ''; display: block; width: 0; height: 4px; background: var(--guava); transition: 0.3s;
+        }
+        .wave-menu a:hover::after { width: 100%; }
+
+        /* MAIN */
+        main { max-width: 1000px; margin: 40px auto; padding: 20px; flex: 1; width: 100%; }
+
+        h1 {
+            font-family: 'Abril Fatface'; font-size: 4rem; line-height: 1; margin-bottom: 50px;
+            color: var(--forest); text-shadow: 2px 2px 0 var(--mango);
+        }
+
+        /* GRID */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+        .item {
+            background: rgba(255,255,255,0.6); backdrop-filter: blur(10px);
+            padding: 30px; border: 2px solid #fff;
+            border-radius: 20px 50px 20px 20px; /* Canto arredondado diferente */
+            transition: 0.3s; box-shadow: 0 10px 30px rgba(27, 77, 62, 0.1);
+        }
+        .item:hover { transform: translateY(-10px) rotate(1deg); }
+
+        .fruit-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+
+        .item h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--guava); }
+        
+        .btn-buy {
+            display: inline-block; margin-top: 20px; padding: 10px 25px;
+            background: var(--forest); color: #fff; text-decoration: none; border-radius: 50px;
+            font-weight: bold; box-shadow: 5px 5px 0 var(--mango);
+        }
+
+        /* --- RODAPÉ ORGÂNICO --- */
+        footer {
+            background: var(--forest);
+            color: var(--sand);
+            padding: 60px 20px 30px;
+            margin-top: 60px;
+            /* Curvatura assimétrica no topo */
+            border-radius: 50% 50% 0 0 / 40px 40px 0 0; 
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content h2 {
+            font-family: 'Abril Fatface';
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--mango);
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .social-links a {
+            color: var(--sand);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: var(--guava); }
+
+        .copy {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        @media(max-width: 600px) { h1 { font-size: 3rem; } .organic-btn { padding: 10px 20px; } }
+    </style>
+</head>
+<body>
+
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
+    <header>
+        <div class="logo">LUX<span>Tropic</span></div>
+        <button class="organic-btn" onclick="toggleTropic()">MENU</button>
+    </header>
+
+    <div class="wave-menu" id="menu">
+        <a href="#">Coleção Verão</a>
+        <a href="#">Artesanato</a>
+        <a href="#">Sobre Nós</a>
+    </div>
+
+    <main>
+        <h1>A Essência<br>Brasileira.</h1>
+
+        <div class="gallery">
+            <article class="item">
+                <span class="fruit-icon">🥥</span>
+                <h3>Óleo de Coco</h3>
+                <p>Hidratação pura extraída a frio. Design da embalagem por artistas locais.</p>
+                <a href="#" class="btn-buy">Ver Mais</a>
+            </article>
+
+            <article class="item">
+                <span class="fruit-icon">🌺</span>
+                <h3>Hibisco Tea</h3>
+                <p>Infusão refrescante para tardes quentes no Rio.</p>
+                <a href="#" class="btn-buy">Ver Mais</a>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>LUXTropic</h2>
+            <p>Design autoral inspirado na fauna, flora e cores do Brasil. Feito à mão, feito com alma.</p>
+            
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">Contato</a>
+            </div>
+
+            <div class="copy">
+                &copy; 2025 REVOLUXTI. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTropic() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

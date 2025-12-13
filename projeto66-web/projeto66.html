@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTImexicos TACOS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Anton&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hot-pink: #ff0054;
+            --sun-yellow: #ffbd00;
+            --cactus-green: #00994d;
+            --bg-paper: #f0ece2;
+            --ink: #222;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--sun-yellow);
+            color: var(--ink);
+            font-family: 'Anton', sans-serif;
+            overflow-x: hidden;
+            /* Padrão Zig Zag */
+            background-image: linear-gradient(135deg, var(--hot-pink) 25%, transparent 25%), linear-gradient(225deg, var(--hot-pink) 25%, transparent 25%), linear-gradient(45deg, var(--hot-pink) 25%, transparent 25%), linear-gradient(315deg, var(--hot-pink) 25%, transparent 25%);
+            background-position:  10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-repeat: repeat;
+        }
+
+        /* CONTAINER PAPEL AMASSADO */
+        .paper-wrapper {
+            max-width: 900px; margin: 20px auto;
+            background: var(--bg-paper);
+            padding: 30px;
+            box-shadow: 15px 15px 0px var(--ink);
+            transform: rotate(-1deg);
+            position: relative;
+            /* Garante que o rodapé fique dentro do papel */
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center; border-bottom: 5px dashed var(--ink); padding-bottom: 20px; margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Rye', serif; font-size: 3.5rem; color: var(--hot-pink);
+            text-shadow: 3px 3px 0px var(--ink); transform: rotate(-2deg); display: inline-block;
+        }
+
+        /* MENU MASK (MÁSCARA) */
+        .mask-btn {
+            position: absolute; top: 0; right: 0;
+            background: var(--ink); color: var(--sun-yellow);
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; cursor: pointer; border: 3px solid var(--hot-pink);
+            transition: 0.3s;
+        }
+        .mask-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* MENU CURTAIN */
+        .curtain-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 0;
+            background: var(--cactus-green);
+            overflow: hidden; transition: 0.5s ease-in-out;
+            z-index: 99; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+        }
+        .curtain-menu.open { height: 100%; }
+
+        .curtain-menu a {
+            font-family: 'Rye', serif; font-size: 3rem; color: #fff; text-decoration: none;
+            text-shadow: 4px 4px 0 var(--ink); margin: 10px 0;
+            transform: rotate(-3deg); transition: 0.3s;
+        }
+        .curtain-menu a:hover { color: var(--sun-yellow); transform: rotate(3deg) scale(1.1); }
+
+        .close-curtain { position: absolute; top: 20px; right: 20px; font-size: 3rem; color: #fff; cursor: pointer; }
+
+        /* MAIN CONTENT */
+        main { flex: 1; }
+
+        .match-card {
+            border: 3px solid var(--ink); margin-bottom: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px; background: #fff;
+            transition: 0.2s;
+        }
+        .match-card:hover { transform: scale(1.02); box-shadow: 5px 5px 0 var(--hot-pink); }
+
+        .vs-badge {
+            background: var(--hot-pink); color: #fff; padding: 5px 10px; font-size: 1.2rem;
+            transform: rotate(-10deg); border: 2px solid var(--ink);
+        }
+
+        h2 { font-size: 1.8rem; margin: 0; text-transform: uppercase; }
+        p { font-family: sans-serif; font-weight: bold; color: #666; margin-top: 5px; }
+        .price { font-size: 2rem; color: var(--cactus-green); font-weight: 900; }
+
+        /* --- RODAPÉ TEMÁTICO --- */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 5px dashed var(--ink); /* Efeito de picote/rasgo */
+            text-align: center;
+        }
+
+        footer p {
+            font-family: 'Rye', serif;
+            font-size: 1.2rem;
+            color: var(--ink);
+            margin-bottom: 5px;
+        }
+
+        footer span {
+            color: var(--hot-pink);
+            text-shadow: 1px 1px 0 var(--ink);
+        }
+
+        @media (max-width: 600px) {
+            .paper-wrapper { margin: 10px; padding: 15px; transform: none; width: auto; }
+            h1 { font-size: 2.5rem; }
+            .match-card { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paper-wrapper">
+        <header>
+            <h1>EL FUEGO<br>TACOS MEXICANOS</h1>
+            <div class="mask-btn" onclick="toggleLucha()">👺</div>
+        </header>
+
+        <nav class="curtain-menu" id="lucha-nav">
+            <div class="close-curtain" onclick="toggleLucha()">&times;</div>
+            <a href="#">Tacos</a>
+            <a href="#">Burritos</a>
+            <a href="#">Nachos</a>
+            <a href="#">Tequila</a>
+        </nav>
+
+        <main>
+            <div style="text-align: center; margin-bottom: 30px; font-size: 1.5rem; background: var(--ink); color: #fff; padding: 5px; transform: rotate(1deg);">
+                HOJE: O GRANDE COMBATE DE SABORES!
+            </div>
+
+            <article class="match-card">
+                <div>
+                    <span class="vs-badge">HOT!</span>
+                    <h2>El Diablo</h2>
+                    <p>Carne, Chilli, Jalapeño e Queijo Derretido.</p>
+                </div>
+                <div class="price">$ 25</div>
+            </article>
+
+            <article class="match-card" style="transform: rotate(1deg);">
+                <div>
+                    <h2>La Máscara</h2>
+                    <p>Frango grelhado, Guacamole e Creme Azedo.</p>
+                </div>
+                <div class="price">$ 22</div>
+            </article>
+
+            <article class="match-card">
+                <div>
+                    <h2>Santo Veggie</h2>
+                    <p>Cogumelos, Pimentões e Feijão Preto.</p>
+                </div>
+                <div class="price">$ 20</div>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 <span>REVOLUXTI</span> FOODS.</p>
+            <p style="font-size: 0.9rem; font-family: sans-serif; color: #666;">Viva la Revolución del Sabor!</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleLucha() {
+            document.getElementById('lucha-nav').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
