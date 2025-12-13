@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX Calçados - Sport Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tech-grey: #2a2a2a;
+            --electric-blue: #007bff;
+            --light-blue: #00d5ff;
+            --glow-white: rgba(255, 255, 255, 0.8);
+            --text: #f0f0f0ad;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #111;
+            color: var(--text);
+            min-height: 100vh;
+            /* Fundo Azul com Iluminação Branca (Spotlight) */
+            background: radial-gradient(circle at 50% 0%, var(--glow-white) 0%, rgba(0, 123, 255, 0.4) 30%, #050505 70%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* HEADER TECH */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px;
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--electric-blue);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--light-blue);
+        }
+        .logo span { color: var(--electric-blue); }
+
+        /* HAMBURGUER FUTURISTA */
+        .menu-btn {
+            cursor: pointer;
+            width: 40px; height: 30px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .bar {
+            width: 100%; height: 4px; background: #fff;
+            border-radius: 2px; transition: 0.3s;
+            box-shadow: 0 0 5px var(--electric-blue);
+        }
+        
+        /* MENU LATERAL (SLIDE) */
+        .side-menu {
+            position: fixed; top: 0; right: -250px;
+            width: 250px; height: 100%;
+            background: var(--tech-grey);
+            border-left: 2px solid var(--electric-blue);
+            padding: 60px 20px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 99;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        }
+        .side-menu.active { right: 0; }
+
+        .side-menu a {
+            display: block; color: #fff; text-decoration: none;
+            font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase;
+            font-weight: bold; border-bottom: 1px solid #444; padding-bottom: 10px;
+        }
+        .side-menu a:hover { color: var(--light-blue); padding-left: 10px; transition: 0.2s; }
+
+        /* MAIN */
+        main { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        /* GRID DE PRODUTOS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            background: rgba(255, 255, 255, 0.1); 
+            border-color: var(--light-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Nicho de cor do tênis */
+        .card::before {
+            content: ''; position: absolute; top: -50px; right: -50px;
+            width: 150px; height: 150px; border-radius: 50%;
+            filter: blur(40px); z-index: 0;
+        }
+        /* Cores dos nichos */
+        .card.neon .card::before { background: #ccff00; }
+        .card.red .card::before { background: #ff004c; }
+        .card.blue .card::before { background: var(--electric-blue); }
+
+        .shoe-img {
+            width: 100%; height: 180px; background: transparent;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; z-index: 1; position: relative;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+        }
+
+        .info { position: relative; z-index: 1; }
+        h3 { font-family: 'Russo One'; margin-bottom: 5px; font-size: 1.4rem; }
+        p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
+        
+        .btn-buy {
+            width: 100%; padding: 12px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--light-blue));
+            border: none; color: #fff; font-weight: bold; text-transform: uppercase;
+            cursor: pointer; clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
+            transition: 0.2s;
+        }
+        .btn-buy:hover { letter-spacing: 2px; }
+
+        /* Fechar Menu */
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--light-blue); }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LUX <span>CALÇADOS</span></div>
+        <div class="menu-btn" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="side-menu" id="menu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="#">Lançamentos</a>
+        <a href="#">Running</a>
+        <a href="#">Streetwear</a>
+        <a href="#">Ofertas</a>
+    </div>
+
+    <main>
+        <h1 style="text-align: center; margin-bottom: 40px; color: #00d5ff; font-style: italic;">RUN THE CITY</h1>
+        
+        <div class="grid">
+            <article class="card" style="border-bottom: 3px solid #ccff00;">
+                <div class="shoe-img" style="color: #ccff00;">👟</div>
+                <div class="info">
+                    <h3>LUX Runner Volt</h3>
+                    <p>Amortecimento responsivo para alta velocidade.</p>
+                    <button class="btn-buy">R$ 299,90</button>
+                </div>
+            </article>
+
+            <article class="card" style="border-bottom: 3px solid #ff004c;">
+                <div class="shoe-img" style="color: #ff004c;">👟</div>
+                <div class="info">
+                    <h3>Red Strike Pro</h3>
+                    <p>Estabilidade e design agressivo para o asfalto.</p>
+                    <button class="btn-buy">R$ 349,90</button>
+                </div>
+            </article>
+
+            <article class="card" style="border-bottom: 3px solid #00d4ff;">
+                <div class="shoe-img" style="color: #00d4ff;">👟</div>
+                <div class="info">
+                    <h3>Blue Air Max</h3>
+                    <p>Leveza extrema com tecnologia de ar.</p>
+                    <button class="btn-buy">R$ 499,90</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

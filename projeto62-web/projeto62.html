@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXTENDA - Sabores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Lato:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-main: #d90429;
+            --yellow-int: #ffea00;
+            --orange-shadow: #ff6000;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--red-main);
+            color: var(--white);
+            min-height: 100vh;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz4KPC9zdmc+');
+        }
+
+        /* TOLDO DO QUIOSQUE (HEADER) */
+        header {
+            background: repeating-linear-gradient(
+                90deg,
+                var(--red-main),
+                var(--red-main) 40px,
+                #fff 40px,
+                #fff 80px
+            );
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 100;
+        }
+
+        /* LOGO TIPO PLACA */
+        .brand-box {
+            display: inline-block;
+            background: var(--red-main);
+            padding: 10px 30px;
+            border: 4px solid var(--yellow-int);
+            border-radius: 50px;
+            box-shadow: 0 5px 0 var(--orange-shadow);
+        }
+
+        h1 {
+            font-family: 'Chewy', cursive;
+            font-size: 2.5rem;
+            color: var(--yellow-int);
+            text-shadow: 2px 2px 0 #000;
+            letter-spacing: 2px;
+        }
+
+        /* MENU HAMBURGUER (ÍCONE DE PRATO) */
+        .menu-toggle {
+            position: absolute; top: 50%; right: 20px;
+            transform: translateY(-50%);
+            background: var(--yellow-int);
+            color: var(--red-main);
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 0 var(--orange-shadow);
+            border: 2px solid #fff;
+        }
+        .menu-toggle:active { transform: translateY(-45%) scale(0.95); box-shadow: none; }
+
+        /* MENU OVERLAY */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(217, 4, 41, 0.95);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: 0.3s;
+            z-index: 99;
+        }
+        nav.open { opacity: 1; pointer-events: auto; }
+        
+        nav ul { list-style: none; text-align: center; }
+        nav li { margin: 20px 0; transform: translateY(20px); opacity: 0; transition: 0.4s; }
+        nav.open li { transform: translateY(0); opacity: 1; }
+        
+        nav a {
+            font-family: 'Chewy'; font-size: 2.5rem; color: #fff; text-decoration: none;
+            text-shadow: 3px 3px 0 var(--orange-shadow);
+        }
+
+        /* MAIN CONTENT */
+        main { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
+
+        .card {
+            background: #fff;
+            color: #333;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: relative;
+            border: 4px solid #fff;
+        }
+
+        /* ITEM EM PROMOÇÃO (DESTAQUE) */
+        .promo {
+            border-color: var(--yellow-int);
+            box-shadow: 10px 10px 0 var(--orange-shadow); /* Sombra Laranja Solicitada */
+            animation: pulse 2s infinite;
+        }
+
+        /* --- RODAPÉ ADICIONADO --- */
+        footer {
+            background-color: var(--yellow-sun);
+            color: var(--red-hot);
+            text-align: center;
+            padding: 20px;
+            font-family: 'Chewy', cursive;
+            font-size: 1.2rem;
+            /* Borda tracejada superior para separar */
+            border-top: 5px dashed var(--red-hot);
+        }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+        .tag-promo {
+            position: absolute; top: -15px; left: -10px;
+            background: var(--yellow-int); color: var(--red-main);
+            padding: 5px 15px; font-weight: bold; transform: rotate(-5deg);
+            border: 2px solid var(--red-main);
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+        }
+
+        .info h3 { color: var(--red-main); font-size: 1.5rem; font-weight: 900; margin-bottom: 5px; }
+        .info p { color: #666; font-size: 0.9rem; }
+        
+        .price {
+            background: var(--red-main); color: #fff;
+            padding: 10px; border-radius: 10px; font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .food-icon { font-size: 3rem; margin-right: 15px; }
+
+        @media (max-width: 500px) {
+            .card { flex-direction: column; text-align: center; gap: 15px; }
+            .food-icon { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-box">
+            <h1>LUXTENDA</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleFoodMenu()">☰</div>
+    </header>
+
+    <nav id="food-nav" onclick="toggleFoodMenu()">
+        <ul>
+            <li><a href="#">Cardápio</a></li>
+            <li><a href="#">Porções</a></li>
+            <li><a href="#">Caldos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="card">
+            <div style="display:flex; align-items:center;">
+                <div class="food-icon">🍲</div>
+                <div class="info">
+                    <h3>Caldo de Mocotó</h3>
+                    <p>Tradicional, encorpado e com cheiro verde.</p>
+                </div>
+            </div>
+            <div class="price">R$ 22,00</div>
+        </article>
+
+        <article class="card promo">
+            <div class="tag-promo">OFERTA!</div>
+            <div style="display:flex; align-items:center;">
+                <div class="food-icon">🍤</div>
+                <div class="info">
+                    <h3>Porção de Camarão</h3>
+                    <p>Empanado crocante com molho tártaro da casa.</p>
+                </div>
+            </div>
+            <div class="price" style="background: var(--orange-shadow);">R$ 45,00</div>
+        </article>
+
+        <article class="card">
+            <div style="display:flex; align-items:center;">
+                <div class="food-icon">🥣</div>
+                <div class="info">
+                    <h3>Sopa de Legumes</h3>
+                    <p>Leve e nutritiva para começar a noite.</p>
+                </div>
+            </div>
+            <div class="price">R$ 18,00</div>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2025 REVOLUXTI SISTEMAS PARA BARES E RESTAURANTES</p>
+    </footer>
+
+    <script>
+        function toggleFoodMenu() {
+            var nav = document.getElementById('food-nav');
+            nav.classList.toggle('open');
+            var items = nav.querySelectorAll('li');
+            items.forEach((item, index) => {
+                item.style.transitionDelay = index * 0.1 + 's';
+            });
+        }
+    </script>
+</body>
+</html>

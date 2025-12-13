@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KATANA LUX - Neo Tokyo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;900&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #080808;
+            --blood: #ff003c;
+            --holo: #00f0ff;
+            --steel: #2b2b2b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--void);
+            color: #fff;
+            font-family: 'Noto Sans JP', sans-serif;
+            overflow-x: hidden;
+            /* Grid Cyberpunk no fundo */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 60, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* HEADER VERTICAL (Lateral no Desktop) */
+        header {
+            position: fixed; left: 0; top: 0; height: 100%; width: 80px;
+            background: var(--steel); border-right: 2px solid var(--blood);
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+            padding: 30px 0; z-index: 100;
+        }
+
+        .logo {
+            writing-mode: vertical-rl; text-orientation: upright;
+            font-family: 'Orbitron'; font-size: 2.5rem; letter-spacing: 5px;
+            text-shadow: 2px 2px 0 var(--holo); cursor: pointer;
+        }
+
+        /* MENU HAMBURGUER (ESTILO KANJI) */
+        .cyber-burger {
+            width: 40px; height: 40px; cursor: pointer;
+            display: flex; flex-direction: column; justify-content: center; gap: 6px;
+        }
+        .slash {
+            width: 100%; height: 4px; background: #fff;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            transition: 0.3s;
+        }
+        /* Animação X */
+        .cyber-burger.active .slash:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background: var(--blood); }
+        .cyber-burger.active .slash:nth-child(2) { opacity: 0; }
+        .cyber-burger.active .slash:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background: var(--blood); }
+
+        /* MENU FULLSCREEN (PORTA SHOJI) */
+        .shoji-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 90;
+            border-left: 20px solid var(--blood);
+        }
+        .shoji-menu.open { left: 80px; width: calc(100% - 80px); }
+
+        .shoji-menu a {
+            font-size: 3rem; text-decoration: none; color: transparent;
+            -webkit-text-stroke: 2px #fff; font-family: 'Orbitron';
+            margin: 10px; text-transform: uppercase; position: relative;
+        }
+        .shoji-menu a:hover { color: var(--holo); -webkit-text-stroke: 0; text-shadow: 0 0 20px var(--holo); }
+        .shoji-menu a::after { content: attr(data-kanji); font-size: 1rem; color: var(--blood); position: absolute; right: -40px; top: 0; opacity: 0.7; -webkit-text-stroke: 0; }
+
+        /* MAIN CONTENT */
+        main { margin-left: 80px; padding: 50px; }
+
+        .hero-title {
+            font-size: 5vw; line-height: 0.9; font-weight: 900; text-transform: uppercase;
+            margin-bottom: 50px; mix-blend-mode: exclusion;
+        }
+        .hero-title span { color: var(--blood); display: block; font-size: 2vw; letter-spacing: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+
+        /* CARD "CORTE DE KATANA" */
+        .card {
+            background: var(--steel); position: relative; padding: 20px;
+            /* Clip-path cria o corte diagonal */
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); background: #333; }
+        
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            border: 1px solid var(--holo); opacity: 0.3; pointer-events: none;
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+        }
+
+        .card h3 { font-family: 'Orbitron'; font-size: 1.5rem; color: var(--holo); margin-bottom: 10px; }
+        .price { font-size: 2rem; font-weight: 900; color: #fff; display: block; margin-top: 15px; }
+
+        .glitch-btn {
+            width: 100%; padding: 15px; margin-top: 20px; border: none;
+            background: var(--blood); color: #fff; font-weight: 900; font-family: 'Orbitron';
+            text-transform: uppercase; cursor: pointer; clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+        .glitch-btn:hover { background: #fff; color: var(--blood); box-shadow: 0 0 20px var(--blood); }
+
+        /* RESPONSIVO */
+        @media(max-width: 768px) {
+            header { width: 100%; height: 70px; flex-direction: row; border-right: none; border-bottom: 2px solid var(--blood); padding: 0 20px; }
+            .logo { writing-mode: horizontal-tb; font-size: 1.5rem; }
+            main { margin-left: 0; margin-top: 70px; padding: 20px; }
+            .shoji-menu.open { left: 0; width: 100%; top: 70px; height: calc(100% - 70px); border-left: none; }
+            .hero-title { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"> KATANA<br>LUX</div>
+        <div class="cyber-burger" onclick="toggleKatana()">
+            <div class="slash"></div>
+            <div class="slash"></div>
+            <div class="slash"></div>
+        </div>
+    </header>
+
+    <div class="shoji-menu" id="menu">
+        <a href="#" data-kanji="服">Collection</a>
+        <a href="#" data-kanji="刀">Weapons</a>
+        <a href="#" data-kanji="未来">Cyberware</a>
+    </div>
+
+    <main>
+        <h1 class="hero-title">
+            <span>STREETWEAR</span>
+            FUTURE READY
+        </h1>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Ronin Jacket v2</h3>
+                <p>Tecido balístico, LED integrado na gola.</p>
+                <span class="price">¥ 12,000</span>
+                <button class="glitch-btn">Adquirir</button>
+            </article>
+
+            <article class="card">
+                <h3>Neon Kicks</h3>
+                <p>Sola magnética, anti-gravidade leve.</p>
+                <span class="price">¥ 8,500</span>
+                <button class="glitch-btn">Adquirir</button>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        function toggleKatana() {
+            document.getElementById('menu').classList.toggle('open');
+            document.querySelector('.cyber-burger').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
