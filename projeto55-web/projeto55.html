@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTI Pizza - Comic Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-bg: #e63946;      /* Vermelho Rafael */
+            --turtle-green: #70c746;/* Verde Tartaruga */
+            --mask-orange: #ff9f1c; /* Laranja Michelangelo */
+            --ink-black: #121212;   /* Preto Nanquim */
+            --paper: #f1faee;       /* Branco Papel */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--red-bg);
+            color: var(--ink-black);
+            overflow-x: hidden;
+            /* EFEITO RETÍCULA (HALFTONE) - Bolinhas de Gibi */
+            background-image: radial-gradient(var(--ink-black) 15%, transparent 16%);
+            background-size: 10px 10px;
+            opacity: 1;
+        }
+
+        /* CONTAINER BRANCO RASGADO */
+        .comic-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: var(--paper);
+            border: 4px solid var(--ink-black);
+            box-shadow: 15px 15px 0px var(--ink-black); /* Sombra Sólida HQ */
+            padding: 20px;
+            position: relative;
+        }
+
+        /* HEADER EXPLOSIVO */
+        header {
+            text-align: center;
+            padding: 40px;
+            border-bottom: 4px solid var(--ink-black);
+            margin-bottom: 30px;
+            background: #fff;
+            transform: rotate(-1deg);
+        }
+
+        h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 5rem;
+            color: var(--turtle-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Texto com contorno grosso */
+            -webkit-text-stroke: 2px var(--ink-black);
+            text-shadow: 5px 5px 0px var(--mask-orange);
+            line-height: 0.8;
+        }
+
+        /* GRID DE QUADRINHOS */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* CARD ESTILO QUADRINHO */
+        .panel {
+            border: 4px solid var(--ink-black);
+            padding: 20px;
+            background: #fff;
+            position: relative;
+            transition: 0.2s;
+        }
+        
+        .panel:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 10px 10px 0 var(--turtle-green);
+            z-index: 10;
+        }
+
+        /* FAIXA DE NARRADOR (Caixa amarela no topo do quadro) */
+        .caption-box {
+            background: #ffeb3b;
+            border: 2px solid var(--ink-black);
+            padding: 5px 10px;
+            font-weight: bold;
+            position: absolute;
+            top: -15px; left: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* BALÃO DE FALA (PREÇO) */
+        .speech-bubble {
+            background: var(--paper);
+            border: 3px solid var(--ink-black);
+            border-radius: 50%;
+            width: 80px; height: 80px;
+            display: flex; align-items: center; justify-content: center;
+            position: absolute;
+            bottom: -20px; right: -20px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: var(--red-bg);
+            transform: rotate(15deg);
+            z-index: 2;
+        }
+
+        h2 { font-family: 'Bangers'; font-size: 2rem; color: var(--ink-black); }
+        p { font-size: 1.1rem; font-weight: bold; }
+
+        /* BOTÃO DE AÇÃO "POW!" */
+        .btn-action {
+            display: block; width: 100%; margin-top: 20px;
+            background: var(--mask-orange); border: 3px solid var(--ink-black);
+            padding: 10px; font-family: 'Bangers'; font-size: 1.5rem;
+            cursor: pointer; text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .btn-action:hover { background: var(--turtle-green); color: #fff; }
+
+        footer {
+            text-align: center; margin-top: 40px; font-weight: bold;
+            background: var(--ink-black); color: #fff; padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .comic-page { margin: 10px; box-shadow: 5px 5px 0 var(--ink-black); }
+            h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="comic-page">
+        <header>
+            <h1>RVLXTI<br><span style="color:var(--mask-orange)">PIZZA POWER</span></h1>
+            <p style="margin-top: 10px; background: #000; color: #fff; display: inline-block; padding: 5px 15px; transform: rotate(2deg);">DESDE OS ESGOTOS DE NYC PARA O MUNDO!</p>
+        </header>
+
+        <main class="comic-grid">
+            <article class="panel">
+                <div class="caption-box">Enquanto isso...</div>
+                <div style="font-size: 4rem; text-align: center; margin: 20px 0;">🍕</div>
+                <h2>Calabresa Mutante</h2>
+                <p>Muito queijo, cebola roxa e orégano radioativo.</p>
+                <div class="speech-bubble">R$49</div>
+                <button class="btn-action">DEVORAR!</button>
+            </article>
+
+            <article class="panel">
+                <div class="caption-box">No laboratório...</div>
+                <div style="font-size: 4rem; text-align: center; margin: 20px 0;">🧀</div>
+                <h2>4 Queijos Master</h2>
+                <p>Gorgonzola, Parmesão, Provolone e Muçarela ninja.</p>
+                <div class="speech-bubble">R$55</div>
+                <button class="btn-action">DEVORAR!</button>
+            </article>
+
+            <article class="panel">
+                <div class="caption-box">Cuidado! Quente!</div>
+                <div style="font-size: 4rem; text-align: center; margin: 20px 0;">🌶️</div>
+                <h2>Pepperoni Shredder</h2>
+                <p>Pepperoni crocante com pimenta jalapeño fatiada.</p>
+                <div class="speech-bubble">R$52</div>
+                <button class="btn-action">DEVORAR!</button>
+            </article>
+        </main>
+
+        <footer>
+            COWABUNGA! - AS ENTREGAS MAIS RÁPIDAS QUEA FOME.
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE AURA - Fragrances</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0b1c2c;   /* Azul Noite Profundo */
+            --gold: #c5a059;       /* Ouro Fosco */
+            --sand: #f5f0eb;       /* Bege Areia */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--sand);
+            color: var(--midnight);
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* HEADER MINIMALISTA */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--white);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--midnight);
+            letter-spacing: 5px;
+            border-bottom: 1px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        /* HERO IMAGE */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(11,28,44,0.3), rgba(11,28,44,0.6)), url('https://via.placeholder.com/1920x1080/0b1c2c/c5a059?text=ESSENCE');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* PRODUTOS */
+        main {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .product {
+            text-align: center;
+            transition: 0.5s;
+        }
+        .product:hover { transform: translateY(-10px); }
+
+        /* Moldura Dupla Elegante */
+        .img-frame {
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #fff;
+            position: relative;
+        }
+        .img-frame::after {
+            content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .img-box {
+            height: 350px;
+            background: #fdfdfd;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem;
+        }
+
+        .prod-title { font-family: 'Cinzel'; margin-top: 20px; font-size: 1.2rem; color: var(--midnight); }
+        .prod-desc { font-size: 0.8rem; color: #888; margin: 10px 0; font-style: italic; }
+        .prod-price { color: var(--gold); font-weight: bold; letter-spacing: 1px; }
+
+        footer {
+            background-color: var(--midnight);
+            color: var(--gold);
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 100px;
+            font-family: 'Cinzel';
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) { .hero h2 { font-size: 2.5rem; } nav { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LUXE AURA</div>
+        <nav>
+            <a href="#">Parfum</a>
+            <a href="#">Skin Care</a>
+            <a href="#">Gifts</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h2>Essência Eterna</h2>
+            <p style="letter-spacing: 3px; font-size: 0.9rem;">PARIS • MILAN • SÃO PAULO</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="collection-grid">
+            <div class="product">
+                <div class="img-frame">
+                    <div class="img-box">⚜️</div>
+                </div>
+                <h3 class="prod-title">Midnight Orchid</h3>
+                <p class="prod-desc">Notas de orquídea negra e sândalo.</p>
+                <span class="prod-price">R$ 480,00</span>
+            </div>
+
+            <div class="product">
+                <div class="img-frame">
+                    <div class="img-box">💎</div>
+                </div>
+                <h3 class="prod-title">Crystal Waters</h3>
+                <p class="prod-desc">Frescor oceânico com toque de bergamota.</p>
+                <span class="prod-price">R$ 420,00</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        REVOLUXTI LUXURY DIVISION &copy; 2025
+    </footer>
+
+</body>
+</html>

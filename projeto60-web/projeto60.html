@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEX BURGER - Saloon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Anton&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #dcbfa6;
+            --ink: #18120e;
+            --blood: #8a0b0b;
+            --faded: #5c4e43;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #222;
+            font-family: 'Special Elite', cursive;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: repeating-linear-gradient(90deg, #222 0px, #2a2a2a 2px, #222 4px);
+        }
+
+        .poster-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: var(--paper);
+            padding: 40px 20px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            position: relative;
+            border: 1px solid #aaa;
+            overflow: hidden; /* Importante para o menu não vazar */
+        }
+
+        /* HEADER COM BOTÃO */
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--ink);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Rye', serif;
+            font-size: 4rem;
+            color: var(--ink);
+            text-transform: uppercase;
+            line-height: 0.8;
+            margin-top: 20px;
+        }
+
+        /* BOTÃO HAMBURGUER ESTILO XERIFE */
+        .sheriff-btn {
+            position: absolute;
+            top: 0; right: 0;
+            background: transparent;
+            border: 2px solid var(--ink);
+            color: var(--ink);
+            font-family: 'Rye', serif;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 1.2rem;
+            border-radius: 50%; /* Estilo distintivo */
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s;
+        }
+        .sheriff-btn:hover { background: var(--ink); color: var(--paper); }
+
+        /* MENU "WANTED" (ESCONDIDO) */
+        .wanted-menu {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #eaddcf; /* Papel mais claro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+            z-index: 20;
+            border: 10px double var(--ink);
+        }
+
+        .wanted-menu.open { transform: translateY(0); }
+
+        .wanted-menu a {
+            font-family: 'Rye', serif;
+            font-size: 2.5rem;
+            color: var(--blood);
+            text-decoration: none;
+            border-bottom: 2px dashed var(--ink);
+        }
+
+        /* CONTEÚDO */
+        .menu-item {
+            border: 2px dashed var(--faded);
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h2 { font-family: 'Rye', serif; font-size: 1.5rem; margin-bottom: 5px; }
+        .price { display: block; text-align: right; font-size: 1.5rem; font-weight: bold; margin-top: 10px; }
+
+        @media (max-width: 600px) { h1 { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        
+        <div class="wanted-menu" id="menuOverlay">
+            <span style="font-family: 'Anton'; font-size: 3rem;">LISTA NEGRA</span>
+            <a href="#" onclick="toggleMenu()">BURGERS</a>
+            <a href="#" onclick="toggleMenu()">BEBIDAS</a>
+            <a href="#" onclick="toggleMenu()">CONTATO</a>
+            <button onclick="toggleMenu()" style="margin-top: 20px; background: var(--ink); color: #fff; border: none; padding: 10px 20px; font-family: 'Rye';">FECHAR</button>
+        </div>
+
+        <header>
+            <button class="sheriff-btn" onclick="toggleMenu()">★</button>
+            
+            <span style="font-family: 'Anton'; font-size: 1.5rem; background: var(--ink); color: var(--paper); padding: 5px 15px; transform: rotate(-3deg); display: inline-block;">PROCURA-SE</span>
+            <h1>TEX<br>BURGER</h1>
+        </header>
+
+        <main>
+            <div class="menu-item">
+                <h2>O Pistoleiro</h2>
+                <p>Carne defumada 180g, bacon crocante, molho barbecue rústico.</p>
+                <span class="price">$ 28</span>
+            </div>
+
+            <div class="menu-item">
+                <h2>Dinamite Stick</h2>
+                <p>Batatas rústicas com pimenta caiena. Cuidado: Explode.</p>
+                <span class="price">$ 15</span>
+            </div>
+        </main>
+
+        <footer style="text-align: center; margin-top: 40px; border-top: 1px solid var(--ink); padding-top: 10px; font-size: 0.8rem;">
+            RVLXTI WESTERN DIVISION &copy; 1890-2025
+        </footer>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

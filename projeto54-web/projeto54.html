@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVLXTI Grunge Fest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wall: #333;
+            --paper-pink: #ff00cc;
+            --paper-yellow: #ffee00;
+            --paper-cyan: #00ffff;
+            --tape: #f5f5dc55; /* Cor de fita crepe semi-transparente */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--wall);
+            /* Textura de ruído (Noise) no fundo */
+            background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+            font-family: 'Special Elite', cursive;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* TÍTULO COLAGEM (Recorte de revista) */
+        h1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .letter {
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            transform: rotate(var(--rot));
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+        }
+
+        /* CARTAZ LAMBE-LAMBE */
+        .poster {
+            background: #f4f4f4;
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* Efeito de papel amassado via CSS Gradient */
+            background-image: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            margin-bottom: 40px;
+        }
+
+        /* FITA CREPE (TAPE) SEGURANDO O CARTAZ */
+        .tape {
+            position: absolute;
+            top: -15px; left: 50%; transform: translateX(-50%) rotate(-2deg);
+            width: 150px; height: 40px;
+            background: rgba(255, 255, 255, 0.4);
+            border-left: 2px dashed rgba(0,0,0,0.1);
+            border-right: 2px dashed rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            border-bottom: 5px solid #000;
+            display: inline-block;
+            margin-bottom: 20px;
+            transform: rotate(-3deg);
+        }
+
+        .info-strip {
+            background: var(--paper-pink);
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            transform: rotate(2deg);
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .highlight { background: var(--paper-yellow); color: #000; padding: 0 5px; }
+
+        /* LISTA DE ATRAÇÕES (Estilo rabisco) */
+        ul { list-style: none; margin: 30px 0; }
+        li { 
+            font-size: 1.5rem; 
+            margin-bottom: 10px; 
+            border-bottom: 1px dashed #999;
+            padding-bottom: 5px;
+        }
+
+        .btn-ticket {
+            display: block; width: 100%;
+            background: #000; color: var(--paper-cyan);
+            padding: 20px; text-decoration: none;
+            font-family: 'Permanent Marker'; font-size: 1.5rem;
+            transform: rotate(-1deg);
+            transition: 0.3s;
+        }
+        .btn-ticket:hover { background: var(--paper-cyan); color: #000; transform: scale(1.05) rotate(1deg); }
+
+        footer {
+            color: #888; margin-top: auto; font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>
+        <span class="letter" style="--rot: -5deg; background: var(--paper-pink);">R</span>
+        <span class="letter" style="--rot: 3deg;">V</span>
+        <span class="letter" style="--rot: -2deg; background: var(--paper-cyan);">L</span>
+        <span class="letter" style="--rot: 5deg;">X</span>
+        <span class="letter" style="--rot: -4deg; background: var(--paper-yellow);">T</span>
+        <span class="letter" style="--rot: 2deg;">I</span>
+    </h1>
+
+    <article class="poster" style="transform: rotate(2deg);">
+        <div class="tape"></div>
+        <h2>Underground<br>Session</h2>
+        
+        <p>A volta dos que não foram! Flashback 90s.</p>
+        
+        <div class="info-strip">SÁBADO /// 23H /// RUA ESCURA, 90</div>
+
+        <ul>
+            <li>NIRVANA COVER</li>
+            <li>RED HOT CHILI PEPPERS</li>
+            <li><span class="highlight">DJ REVOLUX</span></li>
+        </ul>
+
+        <a href="#" class="btn-ticket">GARANTIR INGRESSO</a>
+    </article>
+
+    <footer>
+        <p>REVOLUXTI COLE EM TODO LUGAR. A RUA É NOSSA.</p>
+    </footer>
+
+</body>
+</html>

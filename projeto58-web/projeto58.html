@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUX.COOKIES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PALETA: CANDY SHOP --- */
+        :root {
+            --cream: #fffdd0;     /* Creme Baunilha */
+            --choco: #3e2723;     /* Chocolate Amargo */
+            --berry: #ff1744;     /* Vermelho Morango */
+            --blue: #2196f3;      /* Azul Bebê */
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream);
+            color: var(--choco);
+            
+            /* FUNDO DE GRANULADO (SPRINKLES) */
+            /* Bolinhas coloridas espalhadas aleatoriamente */
+            background-image: 
+                radial-gradient(var(--berry) 15%, transparent 16%),
+                radial-gradient(var(--blue) 15%, transparent 16%),
+                radial-gradient(var(--choco) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px, 7px 7px;
+            min-height: 100vh;
+        }
+
+        /* HEADER: TOLDO DE LOJA CLÁSSICA */
+        header {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--choco);
+            position: relative;
+        }
+
+        /* O Toldo Listrado */
+        .awning {
+            height: 20px;
+            width: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--berry),
+                var(--berry) 40px,
+                var(--white) 40px,
+                var(--white) 80px,
+                var(--blue) 80px,
+                var(--blue) 120px,
+                var(--white) 120px,
+                var(--white) 160px
+            );
+            border-bottom: 5px solid rgba(0,0,0,0.1);
+        }
+
+        /* Borda ondulada do toldo */
+        .awning::after {
+            content: ''; position: absolute; bottom: -10px; left: 0; width: 100%; height: 10px;
+            background: 
+                radial-gradient(circle, var(--white) 10px, transparent 11%) 0 0,
+                radial-gradient(circle, var(--berry) 10px, transparent 11%) 40px 0,
+                radial-gradient(circle, var(--white) 10px, transparent 11%) 80px 0,
+                radial-gradient(circle, var(--blue) 10px, transparent 11%) 120px 0;
+            background-size: 160px 20px;
+            background-repeat: repeat-x;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: var(--berry);
+            text-shadow: 2px 2px 0px var(--white);
+            margin-top: 20px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD DE COOKIE */
+        .cookie-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 4px solid var(--choco);
+            box-shadow: 10px 10px 0px rgba(62, 39, 35, 0.2);
+            transition: 0.3s;
+        }
+
+        .cookie-card:hover { transform: scale(1.05); }
+
+        .emoji-img { font-size: 5rem; display: block; margin-bottom: 10px; filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1)); }
+
+        h2 { color: var(--blue); font-size: 1.5rem; margin-bottom: 10px; }
+        
+        p { font-weight: bold; color: #888; font-size: 0.9rem; }
+
+        .price { 
+            display: block; margin-top: 15px; 
+            font-size: 1.5rem; font-weight: 700; color: var(--berry); 
+        }
+
+        button {
+            background: var(--blue); color: #fff; border: none;
+            padding: 10px 20px; border-radius: 50px;
+            font-weight: bold; margin-top: 15px; cursor: pointer;
+            box-shadow: 0 5px 0 #1565c0;
+            transition: 0.2s;
+        }
+        button:active { transform: translateY(5px); box-shadow: 0 0 0; }
+
+        @media(max-width: 600px) { h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="awning"></div>
+        <h1>REVOLUX.COOKIES 🍪</h1>
+        <p style="color: var(--blue); font-weight: bold; letter-spacing: 2px;">EST. 2025</p>
+    </header>
+
+    <main>
+        <article class="cookie-card">
+            <span class="emoji-img">🍪</span>
+            <h2>Choco-Chunk</h2>
+            <p>Massa de baunilha com pedaços gigantes de chocolate belga.</p>
+            <span class="price">R$ 12,00</span>
+            <button>Quero esse!</button>
+        </article>
+
+        <article class="cookie-card">
+            <span class="emoji-img">🍓</span>
+            <h2>Red Velvet</h2>
+            <p>Massa vermelha aveludada com recheio de cream cheese.</p>
+            <span class="price">R$ 14,00</span>
+            <button>Quero esse!</button>
+        </article>
+
+        <article class="cookie-card">
+            <span class="emoji-img">🥜</span>
+            <h2>Nutella Bomb</h2>
+            <p>Recheado até explodir com creme de avelã puro.</p>
+            <span class="price">R$ 16,00</span>
+            <button>Quero esse!</button>
+        </article>
+    </main>
+
+</body>
+</html>

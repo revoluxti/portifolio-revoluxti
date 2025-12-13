@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tropical Soul - Summer Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sun-yellow: #FFC371;
+            --sunset-orange: #FF5F6D;
+            --ocean-blue: #23a6d5;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            /* Gradiente Animado de Pôr do Sol */
+            background: linear-gradient(45deg, #FFC371, #FF5F6D);
+            background-size: 200% 200%;
+            animation: sunset 10s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        @keyframes sunset {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .brand {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 4rem;
+            transform: rotate(-3deg);
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+            display: inline-block;
+            color: #fff;
+        }
+
+        /* MAIN: Layout de Galeria */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* CARD DE PRODUTO */
+        .product {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px); /* Efeito Vidro Fosco */
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 95, 109, 0.4);
+        }
+
+        .circle-img {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem;
+            color: var(--sunset-orange);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h2 { font-size: 2rem; text-transform: uppercase; margin-bottom: 5px; }
+        .price { font-family: 'Permanent Marker'; font-size: 1.5rem; color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,0.2); }
+
+        .btn-buy {
+            display: block; width: 100%; margin-top: 20px;
+            background: #fff; color: var(--sunset-orange);
+            font-weight: bold; text-transform: uppercase; text-decoration: none;
+            padding: 15px; border-radius: 50px;
+            transition: 0.2s;
+        }
+        .btn-buy:hover { background: var(--sunset-orange); color: #fff; }
+
+        /* RODAPÉ ONDA */
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 40px;
+            font-family: 'Permanent Marker';
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 600px) { .brand { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">Tropical Soul</div>
+        <p style="letter-spacing: 3px; margin-top: 10px; font-weight: bold;">SUMMER VIBES 2025</p>
+    </header>
+
+    <main>
+        <article class="product">
+            <div class="circle-img">🩴</div>
+            <h2>Chinelo Sunset</h2>
+            <span class="price">R$ 49,90</span>
+            <a href="#" class="btn-buy">Comprar</a>
+        </article>
+
+        <article class="product">
+            <div class="circle-img">👒</div>
+            <h2>Chapéu Palha</h2>
+            <span class="price">R$ 89,90</span>
+            <a href="#" class="btn-buy">Comprar</a>
+        </article>
+
+        <article class="product">
+            <div class="circle-img">🍹</div>
+            <h2>Coco Gelado</h2>
+            <span class="price">R$ 12,00</span>
+            <a href="#" class="btn-buy">Pedir</a>
+        </article>
+    </main>
+
+    <footer>
+        ~ Good Vibes Only ~<br>
+        RVLXTI BEACH CLUB
+    </footer>
+
+</body>
+</html>
