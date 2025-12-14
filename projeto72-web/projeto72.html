@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR & GOLD | RVLX Coffee House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coffee-dark: #2c1a16;
+            --cream: #f3e5ab; /* Creme Baunilha */
+            --gold: #c5a059;
+            --paper: #f9f7f2; /* Off-white papel */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--coffee-dark);
+            color: var(--paper);
+            font-family: 'Lato', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* Textura de Grão Sutil */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMmMxYTE2Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+        }
+
+        /* HEADER CENTRALIZADO */
+        header {
+            padding: 40px; text-align: center; position: relative;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; color: var(--gold); letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        .subtitle { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-top: 10px; }
+
+        /* MENU ICON (Minimalista) */
+        .menu-trigger {
+            position: absolute; top: 50%; right: 40px; transform: translateY(-50%);
+            cursor: pointer; font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem;
+            color: var(--paper); border-bottom: 1px solid var(--gold);
+        }
+
+        /* MENU CURTAIN */
+        .curtain-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 0;
+            background: var(--paper); color: var(--coffee-dark);
+            overflow: hidden; transition: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .curtain-menu.active { height: 100vh; }
+
+        .curtain-menu a {
+            font-family: 'Playfair Display'; font-size: 3rem; color: var(--coffee-dark);
+            text-decoration: none; margin: 15px 0; font-style: italic;
+            transition: 0.3s;
+        }
+        .curtain-menu a:hover { color: var(--gold); letter-spacing: 2px; }
+
+        .close-curtain { position: absolute; top: 40px; right: 40px; font-size: 2rem; cursor: pointer; }
+
+        /* MAIN CONTENT */
+        main { max-width: 900px; margin: 0 auto; padding: 60px 20px; flex: 1; width: 100%; }
+
+        .featured {
+            text-align: center; margin-bottom: 60px;
+        }
+        .featured h1 { font-family: 'Playfair Display'; font-size: 4rem; color: var(--paper); margin-bottom: 20px; line-height: 1.1; }
+        .featured p { font-size: 1.1rem; color: #aaa; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* GRID DE PRODUTOS */
+        .menu-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end;
+        }
+
+        .item-desc h3 {
+            font-family: 'Playfair Display'; font-size: 1.5rem; color: var(--gold); margin-bottom: 5px;
+        }
+        .item-desc p { font-size: 0.9rem; color: #888; font-style: italic; }
+
+        .item-price { font-size: 1.2rem; font-weight: bold; color: var(--paper); }
+
+        .btn-reserve {
+            display: block; width: 200px; margin: 60px auto 0;
+            padding: 15px; border: 1px solid var(--gold); background: transparent;
+            color: var(--gold); text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; transition: 0.4s; font-family: 'Lato';
+        }
+        .btn-reserve:hover { background: var(--gold); color: var(--coffee-dark); }
+
+        /* --- RODAPÉ ELEGANTE --- */
+        footer {
+            margin-top: 80px;
+            padding: 50px 20px;
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            background: rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--paper); padding-left: 5px; }
+
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { font-size: 1.1rem; border-bottom: 1px solid transparent; }
+        .social-links a:hover { border-color: var(--gold); padding: 0; }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .brand { font-size: 2rem; }
+            .menu-trigger { position: relative; top: auto; right: auto; transform: none; display: inline-block; margin-top: 20px; }
+            .featured h1 { font-size: 2.5rem; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .social-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">NOIR & GOLD</div>
+        <div class="subtitle">Fine Coffee & Patisserie</div>
+        <div class="menu-trigger" onclick="toggleCafe()">Menu</div>
+    </header>
+
+    <div class="curtain-menu" id="nav-cafe">
+        <div class="close-curtain" onclick="toggleCafe()">×</div>
+        <a href="#">Espresso Bar</a>
+        <a href="#">Patisserie</a>
+        <a href="#">Brunch</a>
+        <a href="#">Reservations</a>
+    </div>
+
+    <main>
+        <section class="featured">
+            <h1>A Arte do <br><span style="color: var(--gold); font-style: italic;">da suculância</span></h1>
+            <p>Grãos selecionados das montanhas da Etiópia. Torra artesanal feita diariamente. Uma experiência para os sentidos, servida em porcelana fina.</p>
+        </section>
+
+        <section class="menu-grid">
+            <div class="menu-item">
+                <div class="item-desc">
+                    <h3>Cappuccino Royal</h3>
+                    <p>Espresso duplo, leite vaporizado, pó de ouro 24k.</p>
+                </div>
+                <div class="item-price">R$ 28</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-desc">
+                    <h3>Tarte au Citron</h3>
+                    <p>Massa sablé, creme de limão siciliano, merengue.</p>
+                </div>
+                <div class="item-price">R$ 32</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-desc">
+                    <h3>Cold Brew Noir</h3>
+                    <p>Infusão a frio por 18 horas. Notas de chocolate amargo.</p>
+                </div>
+                <div class="item-price">R$ 24</div>
+            </div>
+        </section>
+
+        <button class="btn-reserve">Reservar Mesa</button>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Noir & Gold</h4>
+                <p>Rua das Acácias, 1890</p>
+                <p>Jardins - São Paulo</p>
+                <p>+55 (11) 9988-7766</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Horários</h4>
+                <p>Seg - Sex: 08h - 20h</p>
+                <p>Sáb - Dom: 09h - 16h</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Conecte-se</h4>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 REVOLUXTI. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleCafe() {
+            document.getElementById('nav-cafe').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

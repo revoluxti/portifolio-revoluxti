@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RVLX VELOCITY | Auto Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Exo+2:ital,wght@0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --asphalt: #2d3436;
+            --turbo-red: #d63031;
+            --carbon: #181818;
+            --white: #dfe6e9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--carbon);
+            color: var(--white);
+            font-family: 'Exo 2', sans-serif;
+            /* Textura Fibra de Carbono */
+            background-image: linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), 
+            linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(45, 52, 54, 0.9);
+            padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--turbo-red);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 98% 100%, 0 100%);
+        }
+
+        .logo {
+            font-family: 'Racing Sans One', cursive; font-size: 2rem;
+            font-style: italic; color: #fff; text-shadow: 2px 2px 0 var(--turbo-red);
+        }
+
+        /* BOTÃO MENU "START" */
+        .start-btn {
+            background: transparent; border: 2px solid var(--turbo-red);
+            color: var(--turbo-red); padding: 8px 20px; font-weight: bold; font-style: italic;
+            text-transform: uppercase; cursor: pointer; border-radius: 30px;
+            box-shadow: 0 0 10px rgba(214, 48, 49, 0.2);
+            transition: 0.3s;
+        }
+        .start-btn:hover { background: var(--turbo-red); color: #fff; box-shadow: 0 0 20px var(--turbo-red); }
+
+        /* MENU SLIDER (Lado Esquerdo) */
+        .garage-menu {
+            position: fixed; top: 0; left: -300px; width: 300px; height: 100%;
+            background: var(--asphalt); border-right: 4px solid var(--turbo-red);
+            padding: 80px 30px; transition: 0.4s ease-out; z-index: 90;
+            box-shadow: 10px 0 50px rgba(0,0,0,0.5);
+        }
+        .garage-menu.active { left: 0; }
+        
+        .garage-menu a {
+            display: block; font-size: 1.5rem; color: #fff; text-decoration: none;
+            margin-bottom: 25px; font-weight: 700; font-style: italic; text-transform: uppercase;
+            border-left: 0px solid var(--turbo-red); transition: 0.2s;
+        }
+        .garage-menu a:hover { padding-left: 15px; border-left: 5px solid var(--turbo-red); color: var(--turbo-red); }
+        
+        .close-garage { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; }
+
+        /* HERO & SERVICES */
+        main { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+
+        h1 { font-family: 'Racing Sans One'; font-size: 4rem; text-transform: uppercase; line-height: 0.9; margin-bottom: 50px; }
+        h1 span { color: var(--turbo-red); }
+
+        .service-container { display: flex; flex-wrap: wrap; gap: 30px; }
+
+        .service-box {
+            flex: 1 1 300px; background: #222; padding: 30px; border-top: 4px solid #444;
+            transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .service-box:hover { border-color: var(--turbo-red); transform: skewX(-5deg); background: #2a2a2a; }
+
+        .service-box h3 { font-size: 1.5rem; font-style: italic; margin-bottom: 15px; }
+        .service-box p { color: #aaa; font-size: 0.9rem; }
+        
+        .price-tag {
+            position: absolute; bottom: 20px; right: 20px; background: var(--turbo-red);
+            color: #fff; padding: 5px 10px; font-weight: bold; font-style: italic;
+        }
+
+        /* FAT FOOTER (GARAGE STYLE) */
+        footer {
+            background: var(--asphalt); border-top: 5px solid var(--turbo-red);
+            padding: 60px 20px; color: #b2bec3;
+        }
+
+        .footer-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .f-title { color: #fff; font-family: 'Racing Sans One'; font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #555; padding-bottom: 10px; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 10px; }
+        .footer-grid a { color: #b2bec3; text-decoration: none; transition: 0.3s; }
+        .footer-grid a:hover { color: var(--turbo-red); }
+
+        .contact-info li { display: flex; align-items: center; gap: 10px; }
+        .icon-small { color: var(--turbo-red); }
+
+        .garage-bottom {
+            text-align: center; margin-top: 50px; font-size: 0.8rem; 
+            border-top: 1px solid #444; padding-top: 20px; font-style: italic;
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">RVLX VELOCITY</div>
+        <button class="start-btn" onclick="toggleGarage()">MENU</button>
+    </header>
+
+    <div class="garage-menu" id="menu">
+        <div class="close-garage" onclick="toggleGarage()">×</div>
+        <a href="#">Full Detail</a>
+        <a href="#">Ceramic Coat</a>
+        <a href="#">PPF Protection</a>
+        <a href="#">Agendar</a>
+    </div>
+
+    <main>
+        <h1>Maximum<br><span>Protection.</span></h1>
+        
+        <div class="service-container">
+            <article class="service-box">
+                <h3>Cristalização</h3>
+                <p>Proteção vitrificada de altíssima dureza. Brilho espelhado e hidrofobia extrema por até 5 anos.</p>
+                <span class="price-tag">R$ 1.200</span>
+            </article>
+
+            <article class="service-box">
+                <h3>Polimento</h3>
+                <p>Higienização profunda de couro e alcântara com proteção UV e eliminação de odores.</p>
+                <span class="price-tag">R$ 450</span>
+            </article>
+
+            <article class="service-box">
+                <h3>Sistema leva-Trás</h3>
+                <p>Polimento técnico em 3 etapas para remoção de microriscos e restauração da cor.</p>
+                <span class="price-tag">R$ 800</span>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="f-title">VELOCITY STUDIO</div>
+                <p>Somos especialistas em estética automotiva de alta performance. Cuidamos do seu carro como se fosse nosso.</p>
+            </div>
+            <div>
+                <div class="f-title">SERVIÇOS</div>
+                <ul>
+                    <li><a href="#">Vitrificação</a></li>
+                    <li><a href="#">Polimento Técnico</a></li>
+                    <li><a href="#">Lavagem Detalhada</a></li>
+                    <li><a href="#">Película PPF</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="f-title">CONTATO</div>
+                <ul class="contact-info">
+                    <li><span class="icon-small">📍</span> Av. das Máquinas, 800 - Turbo City</li>
+                    <li><span class="icon-small">📞</span> (11) 99999-0000</li>
+                    <li><span class="icon-small">✉️</span> studio@velocity.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="garage-bottom">
+            RVLXTI AUTOMOTIVE DESIGN © 2025
+        </div>
+    </footer>
+
+    <script>
+        function toggleGarage() { document.getElementById('menu').classList.toggle('active'); }
+    </script>
+</body>
+</html>

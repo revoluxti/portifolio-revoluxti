@@ -326,7 +326,7 @@ main {
 .info-projeto {
     /* Ocupa o restante do card */
     flex-grow: 1; 
-    padding: 20px 15px;
+    padding: 10px 15px;
     background: linear-gradient(to bottom, #af0c0c7a, #0a0a0a);
     border-top: 1px solid #333;
     text-align: center;
