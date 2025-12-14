@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPINE - Leather & Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --espresso: #3e2723;
+            --cream: #f3e5ab;
+            --off-white: #fcfcfc;
+            --leather: #8d6e63;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--espresso);
+            font-family: 'Lato', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* LAYOUT GRID EDITORIAL */
+        .wrapper {
+            max-width: 1200px; margin: 0 auto;
+            border-left: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0;
+            min-height: 100vh;
+            background: #fff;
+            position: relative;
+        }
+
+        /* HEADER CLEAN */
+        header {
+            padding: 50px 20px; text-align: center;
+            /* Removi a borda inferior aqui para colar no banner novo */
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5rem; text-transform: uppercase; letter-spacing: 5px;
+            font-weight: 700;
+        }
+        .subtitle { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; color: var(--leather); margin-top: 10px; display: block; }
+
+        /* NOVO: FAIXA DESTAQUE "CHIC" */
+        .chic-banner {
+            background-color: var(--espresso);
+            color: var(--cream);
+            padding: 25px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            border-top: 4px solid var(--leather); /* Detalhe premium */
+        }
+
+        .chic-text {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .separator {
+            font-size: 0.8rem; opacity: 0.6;
+        }
+
+        /* MENU HAMBURGUER "FINE LINE" */
+        .menu-btn {
+            position: absolute; top: 50%; left: 40px; transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .line { width: 30px; height: 1px; background: var(--espresso); margin: 6px 0; transition: 0.3s; }
+        .menu-btn:hover .line { width: 40px; }
+
+        /* MENU LATERAL SLIDE */
+        .side-panel {
+            position: fixed; top: 0; left: 0; height: 100%; width: 300px;
+            background: var(--cream);
+            transform: translateX(-100%); transition: 0.5s cubic-bezier(0.77,0,0.175,1);
+            z-index: 100; padding: 60px 40px;
+            border-right: 1px solid var(--espresso);
+        }
+        .side-panel.active { transform: translateX(0); }
+
+        .side-panel a {
+            display: block; font-family: 'Bodoni Moda', serif; font-size: 1.5rem;
+            color: var(--espresso); text-decoration: none; margin-bottom: 20px;
+            font-style: italic;
+        }
+        .side-panel a:hover { padding-left: 10px; transition: 0.3s; color: var(--leather); }
+
+        .close-btn { font-size: 2rem; cursor: pointer; margin-bottom: 40px; display: block; }
+
+        /* CONTEÚDO PRINCIPAL */
+        main { padding: 80px 40px; } /* Aumentei o padding */
+
+        .editorial-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 80px; align-items: center;
+        }
+
+        .product-display { position: relative; transition: 0.3s; }
+        .product-display:hover { transform: translateY(-5px); }
+        
+        .image-placeholder {
+            width: 100%; aspect-ratio: 3/4;
+            background: #f4f4f4;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: #d7ccc8; font-family: 'Bodoni Moda';
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito sutil na imagem */
+        .image-placeholder::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(62,39,35,0.05), transparent);
+        }
+
+        .prod-info { padding: 25px 0; text-align: center; }
+        
+        h2 { font-family: 'Bodoni Moda'; font-size: 2.2rem; margin-bottom: 10px; }
+        .price { font-size: 1.1rem; color: var(--leather); margin-bottom: 25px; display: block; font-weight: 300; }
+        
+        .btn-shop {
+            background: transparent; color: var(--espresso);
+            border: 1px solid var(--espresso); padding: 12px 35px;
+            font-family: 'Lato'; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-shop:hover { background: var(--espresso); color: #fff; }
+
+        /* Quote Block */
+        .quote-block {
+            grid-column: 1 / -1; text-align: center; padding: 80px 0;
+            margin: 40px 0;
+            background: linear-gradient(to right, transparent, #fafafa, transparent);
+        }
+        .quote { font-family: 'Bodoni Moda'; font-size: 2.5rem; font-style: italic; color: var(--leather); }
+
+        /* FOOTER */
+        footer {
+            background: var(--espresso); color: var(--off-white);
+            padding: 80px 40px; margin-top: 60px;
+            border-top: 4px solid var(--leather);
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+        .footer-col h4 {
+            font-family: 'Bodoni Moda'; font-size: 1.6rem; margin-bottom: 25px; color: var(--cream);
+            font-style: italic;
+        }
+        .footer-col p, .footer-col a {
+            font-size: 0.95rem; color: #d7ccc8; line-height: 1.8; display: block; text-decoration: none; transition: 0.3s; margin-bottom: 10px;
+        }
+        .footer-col a:hover { color: var(--cream); transform: translateX(5px); display:inline-block;}
+        
+        .social-links a { display: inline-block; margin-right: 20px; font-size: 1rem; color: var(--cream); border-bottom: 1px solid transparent;}
+        .social-links a:hover { border-bottom: 1px solid var(--cream); transform: none; }
+        
+        .copyright {
+            text-align: center; padding-top: 50px; border-top: 1px solid rgba(141, 110, 99, 0.3);
+            margin-top: 50px; font-size: 0.8rem; color: #8d6e63; letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.5rem; } 
+            .menu-btn { left: 20px; } 
+            .footer-grid { grid-template-columns: 1fr; }
+            .chic-banner { flex-direction: column; gap: 10px; padding: 20px; }
+            .separator { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div class="menu-btn" onclick="toggleAlpine()">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <h1>ALPINE & LUX</h1>
+            <span class="subtitle">Winter Collection &bull; 2025</span>
+        </header>
+
+        <div class="chic-banner">
+            <span class="chic-text">Frete Grátis Brasil</span>
+            <span class="separator">✦</span>
+            <span class="chic-text">Handcrafted in Alps</span>
+            <span class="separator">✦</span>
+            <span class="chic-text">Edição Limitada</span>
+        </div>
+
+        <div class="side-panel" id="nav-alpine">
+            <span class="close-btn" onclick="toggleAlpine()">✕</span>
+            <a href="#">Jaquetas</a>
+            <a href="#">Botas Couro</a>
+            <a href="#">Lã Merino</a>
+            <a href="#">Café Blend</a>
+        </div>
+
+        <main>
+            <div class="editorial-grid">
+                <article class="product-display">
+                    <div class="image-placeholder">COAT</div>
+                    <div class="prod-info">
+                        <h2>Trench Coat Wool</h2>
+                        <span class="price">R$ 890,00</span>
+                        <button class="btn-shop">Shop Now</button>
+                    </div>
+                </article>
+
+                <div class="text-block">
+                    <h3 style="font-family:'Bodoni Moda'; font-size:2.8rem; margin-bottom:20px; line-height: 1.2;">The Espresso<br>Edit.</h3>
+                    <p style="color:#5d4037; line-height:1.9; font-size: 1.05rem;">
+                        Uma curadoria de peças essenciais para o frio, inspiradas nos tons terrosos do café arábica e na textura do couro envelhecido. Elegância atemporal que transcende estações.
+                    </p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                <p class="quote">"O verdadeiro luxo é o conforto silencioso."</p>
+            </div>
+
+            <div class="editorial-grid">
+                <div class="text-block" style="text-align: right;">
+                    <h3 style="font-family:'Bodoni Moda'; font-size:2.8rem; margin-bottom:20px;">Leather<br>Boots.</h3>
+                    <p style="color:#5d4037; line-height:1.9; font-size: 1.05rem;">
+                        Feitas à mão por artesãos locais. Durabilidade robusta e estilo refinado para caminhar nas avenidas da cidade ou nas trilhas da montanha.
+                    </p>
+                </div>
+                <article class="product-display">
+                    <div class="image-placeholder" style="background: var(--cream); color: var(--espresso);">BOOTS</div>
+                    <div class="prod-info">
+                        <h2>Chelsea Boot</h2>
+                        <span class="price">R$ 650,00</span>
+                        <button class="btn-shop">Shop Now</button>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sobre Alpine</h4>
+                    <p>Conectamos a elegância dos alpes com o conforto dos melhores cafés. Peças atemporais para quem valoriza qualidade, história e um estilo de vida desacelerado.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <a href="#">Status do Pedido</a>
+                    <a href="#">Guia de Tamanhos</a>
+                    <a href="#">Trocas & Devoluções</a>
+                    <a href="#">Fale Conosco</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social & News</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                        <a href="#">Spotify Playlist</a>
+                    </div>
+                    <p style="margin-top: 25px; color: #8d6e63;">Inscreva-se para receber novidades da coleção de inverno.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ALPINE & LUX. DESIGNED WITH COFFEE.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAlpine() {
+            document.getElementById('nav-alpine').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

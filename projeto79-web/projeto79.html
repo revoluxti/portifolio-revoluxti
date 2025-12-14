@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONIN | Japanese Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&family=Noto+Serif+JP:wght@200;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coffee: #2b2118;   /* Marrom Café Profundo */
+            --paper: #f4f1ea;    /* Off-White */
+            --blood: #8a0a0a;    /* Vermelho Sangue */
+            --gold: #c5a059;     /* Dourado Fosco */
+            --darker: #1a120b;   /* Quase preto para profundidade */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--coffee);
+            color: var(--paper);
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            padding: 40px; display: flex; justify-content: space-between; align-items: flex-start;
+            border-bottom: 1px solid rgba(244, 241, 234, 0.05);
+        }
+
+        .brand h1 {
+            font-size: 3rem; line-height: 0.8; letter-spacing: -2px;
+            color: var(--paper); text-transform: uppercase;
+        }
+        .brand span { color: var(--blood); font-size: 4rem; display: block; }
+
+        /* MENU HAMBURGUER "KANJI" */
+        .menu-trigger {
+            font-family: 'Noto Serif JP', serif; font-size: 1.2rem; cursor: pointer;
+            border: 1px solid var(--paper); padding: 12px 20px; transition: 0.4s;
+            letter-spacing: 2px;
+        }
+        .menu-trigger:hover { background: var(--blood); border-color: var(--blood); color: var(--paper); }
+
+        /* NAV FULLSCREEN (PERGAMINHO) */
+        .scroll-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 0;
+            background: var(--paper); color: var(--coffee);
+            overflow: hidden; transition: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .scroll-nav.open { height: 100vh; }
+
+        .scroll-nav a {
+            font-size: 3rem; text-decoration: none; color: var(--coffee); margin: 10px 0;
+            font-weight: 900; letter-spacing: -1px; transition: 0.3s; position: relative;
+        }
+        .scroll-nav a:hover { color: var(--blood); transform: skewX(-10deg); }
+        
+        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 2rem; cursor: pointer; color: var(--coffee); }
+
+        /* MAIN */
+        main { padding: 80px 40px; max-width: 1000px; margin: 0 auto; flex: 1; }
+
+        .headline {
+            font-size: 5rem; line-height: 0.9; margin-bottom: 80px;
+            font-weight: 400; border-left: 2px solid var(--blood); padding-left: 40px;
+        }
+
+        /* GRID EDITORIAL */
+        .menu-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+        }
+
+        .dish { position: relative; margin-bottom: 20px; transition: 0.3s; }
+        .dish:hover { transform: translateX(10px); }
+        
+        .dish h3 { 
+            font-size: 2.2rem; margin-bottom: 15px; font-weight: 400; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        
+        .dish p { font-family: 'Noto Serif JP', serif; color: #aaa; font-size: 0.95rem; line-height: 1.6; }
+        
+        .price { color: var(--gold); font-weight: 700; font-family: 'Noto Serif JP'; font-size: 1.5rem; }
+
+        /* TEXTO VERTICAL LATERAL */
+        .vertical-text {
+            position: fixed; left: 30px; bottom: 40px;
+            writing-mode: vertical-rl; text-orientation: mixed;
+            color: rgba(255,255,255,0.05); font-size: 2rem; letter-spacing: 10px;
+            font-family: 'Noto Serif JP'; pointer-events: none; z-index: -1;
+        }
+
+        /* FOOTER ATMOSFÉRICO */
+        footer {
+            background-color: var(--darker);
+            border-top: 2px solid var(--blood);
+            padding: 80px 40px 40px;
+            position: relative;
+        }
+
+        /* Elemento decorativo japonês (círculo) */
+        footer::before {
+            content: ''; position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
+            width: 50px; height: 50px; background: var(--blood); border-radius: 50%;
+            border: 4px solid var(--darker);
+        }
+
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Noto Serif JP', serif; color: var(--gold);
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col p {
+            font-family: 'Noto Serif JP', serif; color: #888; margin-bottom: 15px;
+            line-height: 1.8; font-size: 0.9rem;
+        }
+
+        .reservas-btn {
+            display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+            padding: 10px 25px; text-decoration: none; font-family: 'Noto Serif JP';
+            margin-top: 10px; transition: 0.3s;
+        }
+        .reservas-btn:hover { background: var(--gold); color: var(--coffee); }
+
+        .social-clean a {
+            color: var(--paper); text-decoration: none; margin-right: 20px;
+            font-size: 1rem; transition: 0.3s; border-bottom: 1px solid transparent;
+        }
+        .social-clean a:hover { color: var(--blood); border-color: var(--blood); }
+
+        .copyright {
+            text-align: center; margin-top: 80px; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-family: 'Noto Serif JP'; font-size: 0.7rem; color: #555; letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .headline { font-size: 3rem; padding-left: 20px; margin-bottom: 50px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .scroll-nav a { font-size: 2rem; }
+            header { padding: 20px; }
+            main { padding: 40px 20px; }
+            .vertical-text { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>RVLXTI<br><span>Gastro</span></h1>
+        </div>
+        <div class="menu-trigger" onclick="toggleRonin()">メニュー</div>
+    </header>
+
+    <div class="vertical-text">最高の美食体験</div>
+
+    <nav class="scroll-nav" id="nav">
+        <div class="close-btn" onclick="toggleRonin()">✕</div>
+        <a href="#">Omakase</a>
+        <a href="#">Wagyu Beef</a>
+        <a href="#">Sake Bar</a>
+        <a href="#">Reservas</a>
+    </nav>
+
+    <main>
+        <div class="headline">Arte<br>Culinária<br> Milenar.</div>
+
+        <section class="menu-grid">
+            <article class="dish">
+                <h3>Dragon Roll <span class="price">R$ 65</span></h3>
+                <p>Enguia defumada, avocado, pepino e ovas de massago. Finalizado com ouro comestível 24k.</p>
+            </article>
+
+            <article class="dish">
+                <h3>Wagyu A5 <span class="price">R$ 280</span></h3>
+                <p>100g de Wagyu certificado de Kagoshima, selado na pedra de sal do Himalaia. Acompanha gema curada.</p>
+            </article>
+
+            <article class="dish">
+                <h3>Toro Sashimi <span class="price">R$ 120</span></h3>
+                <p>Cortes nobres da barriga do atum Bluefin. Textura amanteigada que derrete na boca.</p>
+            </article>
+
+            <article class="dish">
+                <h3>Uni Pasta <span class="price">R$ 140</span></h3>
+                <p>Massa fresca com ouriço do mar, creme de sake e nori crocante.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Localização</h4>
+                <p>Rua Oscar Freire, 1080<br>Jardins, São Paulo - SP</p>
+                <a href="#" class="reservas-btn">Ver no Mapa</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Horários</h4>
+                <p>Jantar: Ter — Dom, 19h às 23h<br>Omakase: Apenas com reserva (19h30)</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>+55 11 99999-0000<br>reserva@roningastro.com.br</p>
+                <div class="social-clean">
+                    <a href="#">Instagram</a>
+                    <a href="#">Michelin Guide</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 RONIN GASTRO. THE WAY OF THE WARRIOR.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleRonin() { document.getElementById('nav').classList.toggle('open'); }
+    </script>
+</body>
+</html>

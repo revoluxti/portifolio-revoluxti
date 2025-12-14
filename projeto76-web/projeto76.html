@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONOS | Swiss Legacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0b1c2c;
+            --bronze: #cd7f32;
+            --silver: #e5e5e5;
+            --dark-bronze: #8c5622;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--midnight);
+            color: var(--silver);
+            font-family: 'Lato', sans-serif;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(205, 127, 50, 0.2);
+            position: sticky; top: 0; background: rgba(11, 28, 44, 0.95); z-index: 100;
+        }
+
+        .brand {
+            font-family: 'Marcellus', serif; font-size: 2rem; letter-spacing: 5px; color: var(--bronze); text-transform: uppercase;
+        }
+
+        /* MENU BUTTON ENGRENAGEM */
+        .gear-btn {
+            width: 50px; height: 50px;
+            border: 2px solid var(--bronze); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.5s; position: relative;
+        }
+        .gear-btn::before, .gear-btn::after {
+            content: ''; position: absolute; background: var(--bronze); transition: 0.3s;
+        }
+        .gear-btn::before { width: 20px; height: 2px; }
+        .gear-btn::after { width: 2px; height: 20px; }
+        
+        .gear-btn:hover { transform: rotate(180deg); background: rgba(205, 127, 50, 0.1); }
+        .gear-btn.active { transform: rotate(45deg); border-color: #fff; }
+        .gear-btn.active::before, .gear-btn.active::after { background: #fff; }
+
+        /* MENU OVERLAY */
+        .luxury-nav {
+            position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
+            background: #081420; border-left: 1px solid var(--bronze);
+            transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 90;
+            display: flex; flex-direction: column; justify-content: center; padding: 50px;
+        }
+        .luxury-nav.open { right: 0; }
+        
+        .luxury-nav a {
+            font-family: 'Marcellus'; font-size: 2rem; color: #fff; text-decoration: none;
+            margin: 15px 0; transition: 0.3s; opacity: 0.5; transform: translateX(20px);
+        }
+        .luxury-nav.open a { opacity: 0.5; transform: translateX(0); }
+        .luxury-nav a:hover { opacity: 1; color: var(--bronze); letter-spacing: 2px; }
+
+        /* HERO & PRODUCTS */
+        main { flex: 1; max-width: 1200px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+
+        h1 { font-family: 'Marcellus'; font-size: 3.5rem; color: #fff; margin-bottom: 10px; }
+        p.subtitle { color: var(--bronze); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 60px; font-size: 0.9rem; }
+
+        .watch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+
+        .watch-card {
+            background: linear-gradient(145deg, #0d2033, #091725);
+            padding: 40px 20px; border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s; position: relative;
+        }
+        .watch-card:hover { border-color: var(--bronze); transform: translateY(-10px); }
+
+        .watch-icon { font-size: 4rem; margin-bottom: 20px; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .price { color: var(--bronze); font-size: 1.2rem; font-weight: bold; margin-top: 20px; display: block; }
+        .btn-details { 
+            margin-top: 20px; background: transparent; border: 1px solid var(--silver); color: var(--silver);
+            padding: 10px 25px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-details:hover { background: var(--bronze); border-color: var(--bronze); color: #000; }
+
+        /* FAT FOOTER (RODAPÉ ENCORPADO) */
+        footer {
+            background: #050d14; border-top: 4px solid var(--bronze);
+            padding: 60px 20px 20px; margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 { color: var(--bronze); margin-bottom: 20px; font-family: 'Marcellus'; font-size: 1.2rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #888; text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+        .footer-col a:hover { color: #fff; padding-left: 5px; }
+
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-box { width: 35px; height: 35px; background: #222; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; transition: 0.3s; }
+        .social-box:hover { background: var(--bronze); }
+
+        .copyright {
+            text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px; font-size: 0.8rem; color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .luxury-nav { width: 100%; }
+            h1 { font-size: 2.5rem; }
+            .footer-content { text-align: center; }
+            .social-icons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">RVLX CHRONOS</div>
+        <div class="gear-btn" onclick="toggleMenu()"></div>
+    </header>
+
+    <div class="luxury-nav" id="nav">
+        <a href="#">Coleção 2025</a>
+        <a href="#">Edição Limitada</a>
+        <a href="#">Nossa História</a>
+        <a href="#">Concierge</a>
+    </div>
+
+    <main>
+        <p class="subtitle">Swiss Engineering Since 1920</p>
+        <h1>MASTER THE TIME</h1>
+
+        <div class="watch-grid">
+            <article class="watch-card">
+                <div class="watch-icon">⌚</div>
+                <h3>Grand Master Bronze</h3>
+                <p style="color:#777; font-size:0.9rem; margin-top:10px;">Movimento Tourbillon, caixa em bronze envelhecido.</p>
+                <span class="price">€ 12.500</span>
+                <button class="btn-details">Configurar</button>
+            </article>
+
+            <article class="watch-card">
+                <div class="watch-icon">⏱️</div>
+                <h3>Aviator Silver</h3>
+                <p style="color:#777; font-size:0.9rem; margin-top:10px;">Cronógrafo de precisão para aviação profissional.</p>
+                <span class="price">€ 8.900</span>
+                <button class="btn-details">Configurar</button>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>CHRONOS</h4>
+                <p style="color:#777; font-size:0.9rem; line-height:1.6;">A excelência da relojoaria suíça combinada com design atemporal. Cada peça conta uma história.</p>
+                <div class="social-icons">
+                    <div class="social-box">IG</div>
+                    <div class="social-box">FB</div>
+                    <div class="social-box">YT</div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Coleções</h4>
+                <ul>
+                    <li><a href="#">Diver Deep Sea</a></li>
+                    <li><a href="#">Aviator Pro</a></li>
+                    <li><a href="#">Classic Dress</a></li>
+                    <li><a href="#">Tourbillon</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Encontrar Boutique</a></li>
+                    <li><a href="#">Serviço & Reparo</a></li>
+                    <li><a href="#">Garantia Mundial</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="#">Genève, Switzerland</a></li>
+                    <li><a href="#">contact@chronos.ch</a></li>
+                    <li><a href="#">+41 22 700 00 00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 CHRONOS SWISS S.A. - Todos os direitos reservados. Design by RVLXTI.
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('open');
+            document.querySelector('.gear-btn').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

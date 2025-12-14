@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAVERICK - Leather & Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --espresso: #2c1a16;
+            --cream: #f4f1ea;
+            --leather: #8d6e63;
+            --gold-thread: #c5a059;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--espresso);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER EDITORIAL */
+        header {
+            padding: 40px; display: flex; justify-content: space-between; align-items: flex-end;
+            border-bottom: 1px solid rgba(44, 26, 22, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bodoni Moda', serif; font-size: 2.5rem; font-weight: 700;
+            line-height: 0.8;
+        }
+        .logo span { display: block; font-size: 0.9rem; font-family: 'Manrope'; letter-spacing: 3px; margin-top: 5px; text-transform: uppercase; color: var(--gold-thread); }
+
+        /* MENU HAMBURGUER "SELO" */
+        .wax-seal {
+            width: 50px; height: 50px; border: 2px solid var(--espresso); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            transition: 0.3s;
+        }
+        .wax-seal:hover { background: var(--espresso); color: var(--cream); }
+
+        /* MENU LATERAL PAPEL */
+        .paper-menu {
+            position: fixed; top: 0; right: -400px; width: 400px; height: 100%;
+            background: #fff; border-left: 10px solid var(--espresso);
+            padding: 60px 40px; transition: 0.5s ease; z-index: 100;
+            box-shadow: -20px 0 50px rgba(0,0,0,0.1);
+        }
+        .paper-menu.open { right: 0; }
+
+        .paper-menu h3 { font-family: 'Bodoni Moda'; font-size: 2rem; margin-bottom: 30px; font-style: italic; }
+        .paper-menu ul { list-style: none; }
+        .paper-menu li { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .paper-menu a { text-decoration: none; color: var(--espresso); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* MAIN CONTENT */
+        main {
+            display: grid; grid-template-columns: 1fr 1fr;
+            flex: 1; /* Garante que o main empurre o footer para baixo */
+        }
+
+        .hero-img {
+            background-color: #d7ccc8;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+        /* Imagem abstrata com CSS */
+        .hero-img::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0px, transparent 2px);
+        }
+        .leather-patch {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 200px; height: 300px; background: var(--leather);
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.2); font-size: 4rem;
+        }
+
+        .content {
+            padding: 60px; display: flex; flex-direction: column; justify-content: center;
+        }
+
+        h1 { font-family: 'Bodoni Moda'; font-size: 4rem; line-height: 1; margin-bottom: 30px; }
+        p { color: #666; margin-bottom: 40px; max-width: 400px; line-height: 1.6; }
+
+        .btn-classy {
+            padding: 15px 0; border-bottom: 2px solid var(--espresso);
+            text-decoration: none; color: var(--espresso); font-weight: bold;
+            text-transform: uppercase; width: fit-content; transition: 0.3s;
+        }
+        .btn-classy:hover { border-color: var(--gold-thread); color: var(--gold-thread); padding-left: 10px; }
+
+        /* FOOTER ESTILO MAVERICK */
+        footer {
+            background-color: var(--espresso);
+            color: var(--cream);
+            padding: 80px 60px 40px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px; margin-bottom: 60px;
+            border-bottom: 1px solid rgba(244, 241, 234, 0.1);
+            padding-bottom: 60px;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Bodoni Moda'; font-size: 2rem; margin-bottom: 20px;
+        }
+        .footer-brand p {
+            color: #aca09d; font-size: 0.9rem; max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Manrope'; text-transform: uppercase; letter-spacing: 2px;
+            font-size: 0.8rem; color: var(--gold-thread); margin-bottom: 25px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 15px; }
+        .footer-col a {
+            color: var(--cream); text-decoration: none; font-size: 0.95rem;
+            transition: 0.3s; opacity: 0.8;
+        }
+        .footer-col a:hover { opacity: 1; color: var(--gold-thread); }
+
+        /* Newsletter Input */
+        .newsletter-form {
+            display: flex; border-bottom: 1px solid var(--cream);
+            padding-bottom: 10px; margin-top: 20px;
+        }
+        .newsletter-form input {
+            background: transparent; border: none; color: var(--cream);
+            font-family: 'Manrope'; flex: 1; outline: none;
+        }
+        .newsletter-form button {
+            background: transparent; border: none; color: var(--gold-thread);
+            text-transform: uppercase; cursor: pointer; font-weight: bold; font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.75rem; color: #6d5b57; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        @media(max-width: 768px) { 
+            main { grid-template-columns: 1fr; } 
+            .hero-img { height: 300px; min-height: auto; }
+            .paper-menu { width: 100%; }
+            header { padding: 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MAVERICK<span>Est. 1984</span></div>
+        <div class="wax-seal" onclick="toggleMav()">M</div>
+    </header>
+
+    <div class="paper-menu" id="mav-menu">
+        <div style="text-align:right; cursor:pointer; font-size:2rem;" onclick="toggleMav()">×</div>
+        <h3>Coleção Inverno</h3>
+        <ul>
+            <li><a href="#">Jaquetas de Couro</a></li>
+            <li><a href="#">Botas Chelsea</a></li>
+            <li><a href="#">Cafés Especiais</a></li>
+            <li><a href="#">Acessórios</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="content">
+            <h1>O Toque<br>do Tempo.</h1>
+            <p>Couro legítimo tratado à mão e cafés de grãos selecionados. Para quem entende que estilo é, acima de tudo, caráter.</p>
+            <a href="#" class="btn-classy">Explorar Catálogo</a>
+        </div>
+        <div class="hero-img">
+            <div class="leather-patch">M</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>MAVERICK.</h2>
+                <p>Nascido da necessidade de durabilidade e do prazer pelas coisas simples. Couro, café e estrada.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Junte-se ao clube (e-mail)">
+                    <button>Assinar</button>
+                </form>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Processo Artesanal</a></li>
+                    <li><a href="#">Ateliê</a></li>
+                    <li><a href="#">Journal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Envio & Retorno</a></li>
+                    <li><a href="#">Cuidados com o Couro</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2025 Maverick Leather Goods.</span>
+            <span>Designed for Legacy.</span>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMav() { document.getElementById('mav-menu').classList.toggle('open'); }
+    </script>
+</body>
+</html>
