@@ -197,7 +197,8 @@ const MotherboardOnboardArticle = () => {
                                         De PCB Simples a <span className="text-cyan-400">Hub Central</span>
                                     </h2>
                                     <p className="max-w-2xl text-lg text-slate-400 leading-relaxed mb-10 border-l-4 border-cyan-500 pl-6">
-                                        "Historicamente, as placas iniciaram-se como simples circuitos impressos (PCB) na década de 1970".                                    </p>
+                                        "Historicamente, as placas iniciaram-se como simples circuitos impressos (PCB) na década de 1970".
+                                    </p>
                                     <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                                         <h3 className="font-bold text-white">1. Introdução</h3>
                                         Tecnicamente denominada mainboard ou motherboard. A placa-mãe é o coração do computador, é o componente
@@ -237,12 +238,12 @@ const MotherboardOnboardArticle = () => {
 
                                 {/* Coluna Direita: Imagem Tunnel e Cards */}
                                 <div className="md:col-span-7 space-y-6 relative z-10 mt-8 md:mt-0">
-                                    <div className="w-full aspect-video bg-slate-900 rounded-xl border-4 border-slate-700 flex items-center justify-center relative overflow-hidden group shadow-2xl">
-                                        {/* Placeholder para imagem da placa mãe */}
-                                        <TunnelImage src="motherboard-evolution.jpg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
+                                    <div className="w-full aspect-video bg-slate-600 rounded-xl border-4 border-slate-700 flex items-center justify-center relative overflow-hidden group shadow-2xl">
+
+                                        <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded border-l-2 border-cyan-500 text-sm text-slate-400 italic">
-                                        [cite_start]"A placa-mãe moderna atua como a espinha dorsal, integrando controladores que antes exigiam hardware separado, otimizando custos e espaço." [cite: 8, 20]
+                                        "A placa-mãe moderna atua como a espinha dorsal, integrando controladores que antes exigiam hardware separado, otimizando custos e espaço."
                                     </div>
 
 
@@ -262,13 +263,34 @@ const MotherboardOnboardArticle = () => {
                                     </div>
                                     {/* Diagrama Visual Conceitual */}
                                     <div className="relative group">
+                                        {/* Glow externo (Mantido) */}
                                         <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
+                                        {/* Container Principal */}
                                         <div className="relative bg-slate-900 border border-slate-700 rounded-2xl p-8 h-80 flex items-center justify-center overflow-hidden">
-                                            <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-                                            <div className="z-10 text-center">
+
+                                            {/* --- AQUI ENTRA A IMAGEM --- */}
+                                            {/* Usamos 'absolute inset-0' para ela cobrir todo o fundo. */}
+                                            {/* 'object-cover' garante que ela preencha sem distorcer. */}
+                                            {/* 'opacity-50' ou 'mix-blend-overlay' ajuda a misturar com o fundo escuro. */}
+                                            <img
+                                                src="placa-revoluxti.jpeg"
+                                                alt="Background Grid"
+                                                className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
+                                            />
+
+                                            {/* Grid CSS antigo (Opcional: você pode remover esta div abaixo se a imagem já tiver o grid que você quer) */}
+                                            {/* <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div> */}
+
+                                            {/* Conteúdo (Icone e Texto) */}
+                                            {/* O z-10 é importante para o texto ficar POR CIMA da imagem */}
+                                            <div className="z-10 text-center relative">
                                                 <Cpu size={64} className="text-cyan-500 mx-auto mb-4 animate-pulse" />
-                                                <div className="text-cyan-400 font-mono text-xs uppercase tracking-[0.3em]">System Integration</div>
+                                                <div className="text-cyan-400 font-mono text-xs uppercase tracking-[0.3em] bg-slate-900/50 px-2 py-1 rounded">
+                                                    REVOLUXTI System Integration
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                     <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
@@ -310,17 +332,38 @@ const MotherboardOnboardArticle = () => {
                     <div className="grid lg:grid-cols-12 gap-8">
                         {/* Texto Técnico */}
                         <div className="lg:col-span-7 space-y-6">
-                            <p>Na arquitetura on-board os controladores de áudio, rede (LAN/WIFI), SATA controler, 
-                                RGB controler, e USB, esses acessórios e componentes na sua maioria já vem embutidos 
-                                e soldados direto na PCB (placa de circuito interno) e são gerenciadas por um ou mais 
-                                microchips dedicados que oferecem uma solução completa e de baixo consumo energético. 
+                            <p>Na arquitetura on-board os controladores de áudio, rede (LAN/WIFI), SATA controler,
+                                RGB controler, e USB, esses acessórios e componentes na sua maioria já vem embutidos
+                                e soldados direto na PCB (placa de circuito interno) e são gerenciadas por um ou mais
+                                microchips dedicados que oferecem uma solução completa e de baixo consumo energético.
+                            </p>
+
+                            <p>
+                                <strong>Exemplo:</strong> Ao adquirir uma placa mãe moderna, o subsistema de áudio Exemplo:<br />
+                                (Realtek, ALC897 e ALC 4080) já estão integrados. Não é opcional, você comprou,
+                                está lá goste ou não. E hoje praticamente todas as placas têm áudio on-board e até
+                                gráficos on-board esses microchips são integrados e dedicados, cada tarefa precisa
+                                de um chip especialista (quando combinados com CPUs que tem GPU integradas).
+                                Isso elimina a necessidade de compra de hardware adicional para funcionalidades básicas.
+                            </p>
+                            <h4><strong>2.1- Resumo:</strong></h4>
+                            <p>
+                                <strong>Áudio on-board:</strong> O áudio on-board é fornecido por pequenos controladores (chips),
+                                integrado e especializados (codec) que gerencia (codificadores/decodificadores),
+                                geralmente da família Realtek ALC soldado diretamente na placa-mãe, como os modelos
+                                ALC897 e ALC4050. <br />
+                                Esses componentes funcionam como cérebro do subsistema de áudio
+                                incorporando conversores digitais-analógicos <strong>(DAC/ADC)</strong> analógicas-digitais , amplificadores simples e
+                                controladores de l/O de áudio na placa-mãe, executando tarefas essenciais como
+                                conversão entre sinais digitais e analógicos, controle de entrada e saída e
+                                gerenciamento básico de processamento sonoro.
                             </p>
 
 
 
-                            <p className="text-slate-300 text-justify">
-                                [cite_start]O áudio on-board moderno é gerenciado por Codecs (família <strong>Realtek ALC</strong>) que integram conversores DAC/ADC[cite: 36].
-                                [cite_start]Diferente do passado, chips modernos como o <strong>ALC1220</strong> eliminam o <em>overhead</em> da CPU e oferecem suporte a <strong>Surround 7.1</strong> (7 canais + 1 subwoofer para frequências abaixo de 120Hz)[cite: 38, 43].
+                            <p className="max-w-2xl text-lg text-slate-400 leading-relaxed mb-10 border-l-4 border-cyan-500 pl-6">
+                                Diferente do passado, chips modernos como o <strong>ALC1220</strong> eliminam o <em>overhead</em> da CPU e oferecem suporte a <strong>Surround 7.1</strong> <br />
+                                (7 canais + 1 subwoofer para frequências abaixo de 120Hz)[cite: 38, 43].
                             </p>
 
                             {/* Gráfico de SNR */}
@@ -359,8 +402,13 @@ const MotherboardOnboardArticle = () => {
                                         <Radio className="text-purple-400" size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-white">Blindagem & EMI</h3>
-                                        <p className="text-xs text-slate-400">Interferência Eletromagnética</p>
+                                        <hgroup>
+                                            <h3 className="font-bold text-white">Blindagem & EMI</h3>
+                                            <h4>2.2 - Um codec moderno costuma <br />
+                                                oferecer suporte ao padrão HD 7.1. </h4>
+                                            <p className="text-xs text-slate-400">Interferência Eletromagnética</p>
+                                        </hgroup>
+
                                     </div>
                                 </div>
                                 <p className="text-sm text-slate-300 mb-4 text-justify">
