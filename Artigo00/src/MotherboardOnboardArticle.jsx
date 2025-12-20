@@ -7,7 +7,8 @@ import {
     Cpu, Wifi, Zap, Server, Activity, Layers, ArrowRight, ShieldCheck,
     Speaker, Radio, Thermometer, Anchor, Skull, Grid, Crosshair,
     AlertTriangle, ChevronRight, Terminal, Database, Lock,
-    Microchip, BarChart3 // <--- ADICIONADO ESTES DOIS ÍCONES FALTANTES
+    Microchip, BarChart3,
+    CircuitBoard // <--- ADICIONADO ESTES DOIS ÍCONES FALTANTES
 } from 'lucide-react';
 
 /* =====================================================================================
@@ -216,11 +217,11 @@ const MotherboardOnboardArticle = () => {
                                         destinadas principalmente à CPU, memoria, armazenamento e algumas portas de I/O
                                         (entrada e saída). </p>
                                     <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                                        Hoje, elas evoluíram de peças de conectividade passiva para complexos centros de gerenciamento de dados.
-                                        A arquitetura moderna integra controladores que antes exigiam placas separadas (Rede, Áudio, Controladoras),
-                                        otimizando custos e espaço físico dentro do gabinete.
-                                    </p>
-
+                                        Com o passar das décadas, a placa-mãe sofreu uma evolução exponencial e impressionante,
+                                        transformando-se de uma peça de conectividade passiva para um complexo centro de gerenciamento de dados.
+                                        E hoje são alicerces fundamentais para um computador moderno, verdadeiros complexos centros de
+                                        conectividade e poder de processamento, arquiteturas modernas integram controladores que antes exigiam
+                                        placas separadas, otimizando custos e espaços </p>
 
                                     {/* Destaque Visual */}
                                     <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 mt-8">
@@ -242,8 +243,9 @@ const MotherboardOnboardArticle = () => {
                                     </div>
                                     <div className="bg-slate-900/50 p-4 rounded border-l-2 border-cyan-500 text-sm text-slate-400 italic">
                                         [cite_start]"A placa-mãe moderna atua como a espinha dorsal, integrando controladores que antes exigiam hardware separado, otimizando custos e espaço." [cite: 8, 20]
-
                                     </div>
+
+
 
                                     {/* Cards de Dados */}
                                     <div className="grid grid-cols-2 gap-4">
@@ -269,14 +271,38 @@ const MotherboardOnboardArticle = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                        Hoje, elas evoluíram de peças de conectividade passiva para complexos centros de gerenciamento de dados.
+                                        A arquitetura moderna integra controladores que antes exigiam placas separadas (Rede, Áudio, Controladoras),
+                                        otimizando custos e espaço físico dentro do gabinete.
+                                    </p>
+                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                        Esse artigo de pesquisa busca compreender essa evolução e usa de exemplos algumas das arquiteturas disponíveis
+                                        hoje no mercado, e para melhor compreensão dessa evolução, vale conectar alguns tipos nostálgicos ao que temos
+                                        disponíveis no mercado atualmente — levando em conta a evolução dos modelos e especificamente a distinção
+                                        entre on-board e off-board. Durante o desenvolvimento dessa presente pesquisa navegaremos sobre as placas
+                                        mais vendidas e recomendadas; mais planejadas e desejadas em uma arquitetura no mercado de tecnologia da
+                                        informação atualmente. — Estudo fundamental para Engenheiros, Cientistas e profissionais de Tecnologia da
+                                        Informação que buscam otimizar custos e desempenho.
+                                    </p>
+                                    <h4 className="font-bold text-white">2. Arquiteturas de componentes: On-board vs. Off-Board</h4>
+                                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                                        Para aprofundar o entendimento técnico, analisaremos as duas principais abordagens de construção:
+
+                                        On-board.
+
+                                        Off-board.
+
+                                        Vamos em busca de um pouco mais de entendimento nos aprofundando no assunto, e fazendo um checklist pelas duas arquiteturas, explorando
+                                        vantagens e desvantagens, modelos e custos-benefícios, compatibilidades e performance entre hardwares. </p>
                                 </div>
                             </div>
                         </div>
                     </article>
 
                     <SectionHeader
-                        icon={Speaker}
-                        title="Subsistema de Áudio"
+                        icon={CircuitBoard}
+                        title="2.1 Placas on-board:"
                         subtitle="DACs, ADCs e a busca pelo SNR perfeito"
                         color="purple"
                     />
@@ -284,6 +310,14 @@ const MotherboardOnboardArticle = () => {
                     <div className="grid lg:grid-cols-12 gap-8">
                         {/* Texto Técnico */}
                         <div className="lg:col-span-7 space-y-6">
+                            <p>Na arquitetura on-board os controladores de áudio, rede (LAN/WIFI), SATA controler, 
+                                RGB controler, e USB, esses acessórios e componentes na sua maioria já vem embutidos 
+                                e soldados direto na PCB (placa de circuito interno) e são gerenciadas por um ou mais 
+                                microchips dedicados que oferecem uma solução completa e de baixo consumo energético. 
+                            </p>
+
+
+
                             <p className="text-slate-300 text-justify">
                                 [cite_start]O áudio on-board moderno é gerenciado por Codecs (família <strong>Realtek ALC</strong>) que integram conversores DAC/ADC[cite: 36].
                                 [cite_start]Diferente do passado, chips modernos como o <strong>ALC1220</strong> eliminam o <em>overhead</em> da CPU e oferecem suporte a <strong>Surround 7.1</strong> (7 canais + 1 subwoofer para frequências abaixo de 120Hz)[cite: 38, 43].
