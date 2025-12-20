@@ -104,10 +104,9 @@ const HistoryInfographic = () => {
                         <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
                             Monitor<br /> A evolução e a história da computação, <br /> das válvulas aos pixels autoemissores.
                         </h2>
-                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4">Universidade Tecnológica Federal do Paraná</p>
-                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4">Câmpus pato Branco</p>
+                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
+                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
                     </hgroup>
-
 
                     <div className="inline-flex flex-col md:flex-row items-center gap-4 bg-slate-800/50 p-6 md:p-2 md:pr-6 rounded-2xl md:rounded-full border border-slate-700 backdrop-blur-sm max-w-[90%] mx-auto">
                         <span className="bg-cyan-500 text-slate-900 p-3 rounded-full">
