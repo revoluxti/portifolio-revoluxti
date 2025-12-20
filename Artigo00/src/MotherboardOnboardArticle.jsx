@@ -185,7 +185,7 @@ const MotherboardOnboardArticle = () => {
                             {/* Marcador de Linha do Tempo */}
                             <div className="flex items-center gap-4 mb-12">
                                 <div className="bg-cyan-500 h-px w-16"></div>
-                                <span className="text-cyan-400 font-mono font-bold text-lg">1970 - Hoje: A Evolução</span>
+                                <span className="text-cyan-400 font-mono font-bold text-lg">1970 - Hoje: A Evolução O Alicerce Digital</span>
                                 <div className="bg-slate-800 h-px flex-1"></div>
                             </div>
 
