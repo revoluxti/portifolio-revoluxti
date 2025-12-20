@@ -1342,8 +1342,7 @@ const HistoryInfographic = () => {
                                                 {/* AQUI ESTÁ A MUDANÇA: bg-gradient-to-r (RGB) */}
                                                 <div className="w-3 h-3 bg-gradient-to-r from-red-500 via-green-500 to-blue-500 border border-slate-600 mt-1 shrink-0 rounded-sm"></div>
 
-                                                <span><strong>Preto Absoluto:</strong> Para fazer preto, o pixel simplesmente desliga. Contraste infinito.</span>
-                                            </li>
+                                                <span><strong>Precisão RGB:</strong> 100% de fidelidade de cor e brilho individual por pixel.</span>                                            </li>
                                             <li className="flex items-start gap-2">
                                                 <Zap className="w-3 h-3 text-yellow-500 mt-1 shrink-0" />
                                                 <span>Tempo de resposta quase instantâneo (ideal para jogos).</span>

@@ -343,7 +343,7 @@ const MotherboardOnboardArticle = () => {
                                 (Realtek, ALC897 e ALC 4080) já estão integrados. Não é opcional, você comprou,
                                 está lá goste ou não. E hoje praticamente todas as placas têm áudio on-board e até
                                 gráficos on-board esses microchips são integrados e dedicados, cada tarefa precisa
-                                de um chip especialista (quando combinados com CPUs que tem GPU integradas).
+                                de um chip especialista (quando combinados com CPUs que tem GPU integradas). <br />
                                 Isso elimina a necessidade de compra de hardware adicional para funcionalidades básicas.
                             </p>
                             <h4><strong>2.1- Resumo:</strong></h4>
@@ -353,8 +353,9 @@ const MotherboardOnboardArticle = () => {
                                 geralmente da família Realtek ALC soldado diretamente na placa-mãe, como os modelos
                                 ALC897 e ALC4050. <br />
                                 Esses componentes funcionam como cérebro do subsistema de áudio
-                                incorporando conversores digitais-analógicos <strong>(DAC/ADC)</strong> analógicas-digitais , amplificadores simples e
-                                controladores de l/O de áudio na placa-mãe, executando tarefas essenciais como
+                                incorporando conversores digitais-analógicos <strong>(DAC/ADC)</strong> analógicas-digitais ,
+                                amplificadores simples e
+                                controladores de I/0 de áudio na placa-mãe, executando tarefas essenciais como
                                 conversão entre sinais digitais e analógicos, controle de entrada e saída e
                                 gerenciamento básico de processamento sonoro.
                             </p>
@@ -363,13 +364,13 @@ const MotherboardOnboardArticle = () => {
 
                             <p className="max-w-2xl text-lg text-slate-400 leading-relaxed mb-10 border-l-4 border-cyan-500 pl-6">
                                 Diferente do passado, chips modernos como o <strong>ALC1220</strong> eliminam o <em>overhead</em> da CPU e oferecem suporte a <strong>Surround 7.1</strong> <br />
-                                (7 canais + 1 subwoofer para frequências abaixo de 120Hz)[cite: 38, 43].
+                                (7 canais + 1 subwoofer para frequências abaixo de 120Hz).
                             </p>
 
                             {/* Gráfico de SNR */}
                             <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800">
                                 <h4 className="text-sm font-bold text-slate-100 mb-4 flex items-center gap-2">
-                                    [cite_start]<Activity size={16} className="text-purple-500" /> Comparativo SNR (Signal-to-Noise Ratio) [cite: 128, 129]
+                                    <Activity size={16} className="text-purple-500" /> Comparativo SNR (Signal-to-Noise Ratio) [cite: 128, 129]
                                 </h4>
                                 <div className="space-y-4 font-mono text-xs">
                                     <div>
@@ -402,22 +403,53 @@ const MotherboardOnboardArticle = () => {
                                         <Radio className="text-purple-400" size={24} />
                                     </div>
                                     <div>
-                                        <hgroup>
-                                            <h3 className="font-bold text-white">Blindagem & EMI</h3>
-                                            <h4>2.2 - Um codec moderno costuma <br />
-                                                oferecer suporte ao padrão HD 7.1. </h4>
-                                            <p className="text-xs text-slate-400">Interferência Eletromagnética</p>
-                                        </hgroup>
+
+                                        <h3 className="font-bold text-white">2.2 - Um codec moderno costuma <br />
+                                            oferecer suporte ao padrão HD 7.1.</h3>
+                                        <p className="text-xs text-slate-400">Interferência Eletromagnética</p>
 
                                     </div>
                                 </div>
-                                <p className="text-sm text-slate-300 mb-4 text-justify">
-                                    [cite_start]Placas modernas usam <strong>Isolamento do PCB</strong> (trilhas iluminadas que separam o circuito de áudio) e <strong>Capacitores Japoneses</strong> (Nichicon/ELNA) para filtrar o ruído elétrico da CPU/GPU, garantindo um som "quente" e natural[cite: 224, 226].
+                                <p>Esse suporte não significa que todas as saídas físicas existam no painel —
+                                    mas sim o que o codec é capaz de trabalhar com esse número de canais.
+
+                                    O subwoofer é o canal de áudio exclusivo para sons de baixa frequência,
+                                    normalmente abaixo de 120 Hz. <br />
+
+                                    Isso inclui: <br />
+
+                                    Pancadas de explosões <br />
+
+                                    Batidas graves de música, <br />
+
+                                    Impacto de efeitos sonoros,<br />
+
+                                    Vibrações profundas. <br /> <br />
+
+                                    Ele existe porque graves precisam de mais potência e precisam ser reproduzidos
+                                    separadamente para não distorcer o resto do sistema. E estando no padrão
+                                    5.1 ou 7.1, o “1” é justamente o subwoofer. <br /> <br />
+
+                                    <strong>Então um sistema HD 7.1 tem:</strong> <br />
+                                    Frente direita/esquerda <br />
+                                    Traseiro direita/esquerda <br />
+                                    Lateral direita/esquerda <br />
+                                    Central <br />
+                                    Subwoofer. <br />
+                                    Por que ele tem um canal separado? <br />
+
+                                    <strong>Porque o subwoofer:</strong> <br />
+                                    Exige mais potência elétrica, <br />
+                                    Precisa reproduzir frequências muito baixas, <br />
+                                    Vibra fisicamente (emitindo <strong>“punch”</strong>), <br />
+                                    Não deve misturar com médios/agudos.
                                 </p>
+                                <br />
                             </TechCard>
                         </div>
                     </div>
                 </section>
+
 
                 {/* =====================================================================================
                 SEÇÃO 2: O ÁUDIO ON-BOARD (Realtek)
@@ -437,11 +469,40 @@ const MotherboardOnboardArticle = () => {
                                 {/* Coluna Esquerda: Conteúdo Técnico */}
                                 <div className="md:col-span-8">
                                     <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                                        <Speaker className="text-purple-500 w-8 h-8" /> Codecs e High-Fidelity
+                                        <Speaker className="text-purple-500 w-8 h-8" />Subwoofeer, Codecs e High-Fidelity
                                     </h2>
 
                                     <div className="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed text-justify mb-8">
                                         <p>
+                                            Separar o grave dá controle e fidelidade muito maiores. 
+                                            Exclusivo para as frequências graves do áudio. Ele é responsável por impacto, profundidade e 
+                                            sensação física do som <strong>(punch)</strong>. Diretamente relacionada a batida seca, do bumbo da bateria, 
+                                            é o impacto de uma explosão em filme, o golpe grave que faz o peito vibrar.
+
+                                            Não é só ouvir — é sentir aquela batida que empurra o ar e parece “dar um tapa” no ambiente. <br />
+
+                                            Na prática: <br />
+
+                                            1. O sistema operacional reconhece o chip automaticamente, plugou, reconheceu e operou. <br />
+
+                                            2. Os drives funcionam sem gambiarras, <br />
+
+                                            3. Os recursos do chip entrada e saída canais, efeitos básicos ficam disponíveis para qualquer 
+                                            software que quiser usar. <br />
+
+                                            4. Não rola aquele drama de “instalou, reiniciou, morreu, não funcionou”. <br /> <br />
+
+                                            Então minimiza o overhead no barramento: <br />
+
+                                            O chip de áudio não fica entupindo o tráfego de dedos.
+
+                                            Ele não consome largura de banda desnecessária.
+
+                                            Ele não sobrecarrega o chipset.
+
+                                            Ele não faz a CPU perder tempo com tarefas que o próprio chip poderia resolver.
+
+                                            Evita travadinhas, latência desnecessária, gargalo e aquela sensação de que tudo está “pesado sem motivo”
                                             Antigamente, áudio de qualidade exigia placas dedicadas. Hoje, chips integrados (Codecs)
                                             como os da família <strong>Realtek ALC</strong> dominam o mercado. Eles atuam como o cérebro do subsistema,
                                             incorporando conversores DAC (Digital-to-Analog) e ADC (Analog-to-Digital).
@@ -504,6 +565,16 @@ const MotherboardOnboardArticle = () => {
                                         </h4>
                                         <p className="text-sm text-slate-400 leading-relaxed text-justify">
                                             O chip de áudio opera de forma independente. Ele não consome largura de banda da GPU ou NVMe e não sobrecarrega a CPU com tarefas básicas de conversão.
+                                        </p>
+
+
+
+
+
+
+
+                                        <p className="text-sm text-slate-300 mb-4 text-justify">
+                                            Placas modernas usam <strong>Isolamento do PCB</strong> (trilhas iluminadas que separam o circuito de áudio) e <strong>Capacitores Japoneses</strong> (Nichicon/ELNA) para filtrar o ruído elétrico da CPU/GPU, garantindo um som "quente" e natural[cite: 224, 226].
                                         </p>
                                     </div>
 
