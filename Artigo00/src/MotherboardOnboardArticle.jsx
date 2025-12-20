@@ -132,7 +132,7 @@ const MotherboardOnboardArticle = () => {
                         </h1>
                         <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
                             Placa Mãe On-board<br />
-                            A espinha dorçal da <br /> PCB simples aos Hubs complexos.
+                            <strong>A espinha dorçal:</strong><br />  da PCB simples aos Hubs complexos.
                         </h2>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
@@ -474,9 +474,9 @@ const MotherboardOnboardArticle = () => {
 
                                     <div className="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed text-justify mb-8">
                                         <p>
-                                            Separar o grave dá controle e fidelidade muito maiores. 
-                                            Exclusivo para as frequências graves do áudio. Ele é responsável por impacto, profundidade e 
-                                            sensação física do som <strong>(punch)</strong>. Diretamente relacionada a batida seca, do bumbo da bateria, 
+                                            Separar o grave dá controle e fidelidade muito maiores.
+                                            Exclusivo para as frequências graves do áudio. Ele é responsável por impacto, profundidade e
+                                            sensação física do som <strong>(punch)</strong>. Diretamente relacionada a batida seca, do bumbo da bateria,
                                             é o impacto de uma explosão em filme, o golpe grave que faz o peito vibrar.
 
                                             Não é só ouvir — é sentir aquela batida que empurra o ar e parece “dar um tapa” no ambiente. <br />
@@ -487,30 +487,36 @@ const MotherboardOnboardArticle = () => {
 
                                             2. Os drives funcionam sem gambiarras, <br />
 
-                                            3. Os recursos do chip entrada e saída canais, efeitos básicos ficam disponíveis para qualquer 
+                                            3. Os recursos do chip entrada e saída canais, efeitos básicos ficam disponíveis para qualquer
                                             software que quiser usar. <br />
 
                                             4. Não rola aquele drama de “instalou, reiniciou, morreu, não funcionou”. <br /> <br />
 
                                             Então minimiza o overhead no barramento: <br />
 
-                                            O chip de áudio não fica entupindo o tráfego de dedos.
+                                            1. O chip de áudio não fica entupindo o tráfego de dedos. <br />
 
-                                            Ele não consome largura de banda desnecessária.
+                                            2. Ele não consome largura de banda desnecessária. <br />
 
-                                            Ele não sobrecarrega o chipset.
+                                            3. Ele não sobrecarrega o chipset. <br />
 
-                                            Ele não faz a CPU perder tempo com tarefas que o próprio chip poderia resolver.
+                                            4. Ele não faz a CPU perder tempo com tarefas que o próprio chip poderia resolver. <br />
 
-                                            Evita travadinhas, latência desnecessária, gargalo e aquela sensação de que tudo está “pesado sem motivo”
+                                            5. Evita travadinhas, latência desnecessária, gargalo e aquela sensação de que tudo está “pesado sem motivo”
                                             Antigamente, áudio de qualidade exigia placas dedicadas. Hoje, chips integrados (Codecs)
-                                            como os da família <strong>Realtek ALC</strong> dominam o mercado. Eles atuam como o cérebro do subsistema,
+                                            como os da família <strong>Realtek ALC</strong> dominam o mercado. <br />
+                                            6. Eles atuam como o cérebro do subsistema,
                                             incorporando conversores DAC (Digital-to-Analog) e ADC (Analog-to-Digital).
                                         </p>
                                         <p className="mt-4">
                                             Um codec moderno oferece suporte ao padrão <strong>HD 7.1</strong> (7 canais + 1 subwoofer).
                                             O subwoofer é crucial pois frequências baixas (graves abaixo de 120Hz) exigem mais potência e vibram fisicamente ("punch").
                                             Separar o grave evita distorção nos médios e agudos.
+                                        </p> <br />
+                                        <h3><strong>Surround - Como on-board trata isso?</strong></h3>
+                                        <p className="mt-4">
+                                            Surround é um formato de áudio multicanal criado para produzir a sensação de que o som vem de várias
+                                            direções ao redor do ouvinte — Frente, atrás, lados e até para cima (nos sistemas mais modernos).
                                         </p>
                                     </div>
 
@@ -559,6 +565,58 @@ const MotherboardOnboardArticle = () => {
                                 {/* Coluna Direita: Cards Visuais */}
                                 <div className="md:col-span-4 flex flex-col gap-4">
                                     {/* Card Overhead */}
+
+                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
+                                        <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
+                                            <Radio className="w-4 h-4" /> Surround
+                                        </h4>
+                                        <p className="text-sm text-slate-400 leading-relaxed text-justify">
+                                            No áudio comum estéreo, você tem 2 canais: <br />
+                                            Esquerdo (L) <br />
+                                            Direito (R) <br />
+
+                                            No <strong>surround</strong> você tem vários canais, por exemplo: <br />
+
+                                            <strong>5.1:</strong> <br />
+
+                                            Frontal esquerdo <br />
+
+                                            Frontal direito <br />
+
+                                            Central <br />
+
+                                            Traseiro esquerdo <br />
+
+                                            Traseiro direito <br />
+
+                                            <strong>.1 Subwoofer (grave)</strong><br />
+
+                                            <strong>7.1:</strong><br />
+
+                                            Cima <br />
+
+                                            Baixo <br />
+
+                                            Frontal esquerdo <br />
+
+                                            Frontal direito <br />
+
+                                            Central <br />
+
+                                            Traseiro esquerdo <br />
+
+                                            Traseiro direito <br />
+
+                                            Traseiro <br />
+
+                                            <strong>.1 Subwoofer (grave)</strong>
+                                        </p>
+                                        <p className="text-sm text-slate-300 mb-4 text-justify">
+                                            O surround proporciona um som mais imersivo, percepção de direção
+                                            (tiros, passos, carros, chuva, explosões, diálogos), experiencias mais realistas
+                                            em filmes e games por exemplo:
+                                        </p>
+                                    </div>
                                     <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
                                         <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
                                             <Cpu className="w-4 h-4" /> Overhead Nulo
