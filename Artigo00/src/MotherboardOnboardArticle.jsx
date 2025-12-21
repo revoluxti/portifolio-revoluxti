@@ -730,7 +730,7 @@ const MotherboardOnboardArticle = () => {
                                         <p className="text-xs text-slate-500 mb-2">Gigabyte Z590x</p>
                                         <div className="h-32 w-full bg-slate-900 rounded overflow-hidden relative">
                                             <img src="chip-alc-4080.jpg" className="object-cover w-full h-full opacity-60" alt="Chip Audio" />
-                                            
+
                                         </div>
                                     </div>
 
@@ -843,7 +843,7 @@ const MotherboardOnboardArticle = () => {
                         {/* Seção 03: Hardware e Fidelidade */}
                         <div className="mt-12 space-y-6">
                             <h2 className="text-2xl font-semibold text-white">Construção Física e Hi-Fi</h2>
-                            
+
                             <p>
                                 A cpu só entra quando há processamento avançado (efeitos pesados, software profissional) e mesmo assim por decisão da aplicação, não por limitação do hardware.
 
@@ -861,10 +861,10 @@ const MotherboardOnboardArticle = () => {
                             <ul className="list-disc pl-6 space-y-4">
                                 <li>
                                     <strong className="text-slate-100">Isolamento do PCB:</strong> Uma trilha física (frequentemente iluminada por LED) que separa a seção de áudio do restante dos componentes.
-                                    Isso garante que o sinal analógico não sofra interferência estática. 
+                                    Isso garante que o sinal analógico não sofra interferência estática.
                                 </li>
                                 <li>
-                                    <strong className="text-slate-100">Capacitores Premium:</strong> Uso de componentes japoneses (Nichicon ou ELNA), que filtram oscilações e entregam um som mais natural.
+                                    <strong className="text-slate-100">Capacitores de áudio dedicados premium:</strong> Uso de componentes japoneses (Nichicon ou ELNA), específicos para áudio. Eles fornecem um som mais quente e natural, que filtram oscilações de energia melhor que capacitores sólidos comuns e entregam um som mais natural.
                                 </li>
                             </ul>
                         </div>
@@ -872,10 +872,124 @@ const MotherboardOnboardArticle = () => {
                         {/* Nota de Rodapé / Citação Técnica */}
                         <footer className="mt-16 pt-8 border-t border-slate-700">
                             <p className="text-sm text-slate-500 italic leading-snug">
-                                “Segundo datasheet oficial da Realtek (2017) e análises técnicas da Audio Science Review (2020), chips como o <strong>ALC1220/4080</strong> tornam o áudio off-board desnecessário para consumo de mídia, exceto em cenários de produção musical profissional.”
-                            </p>
-                        </footer>
+                                “Segundo datasheet oficial da Realtek (2017) e as análises técnicas da Audio Science Review (2020),
+                                chips modernos como o ALC1220/4080 já entregam 120dB de SNR e utilizam mesma construção de
+                                capacitores japoneses de placas dedicadas, tornando o áudio off-board desnecessários para o consumo de mídia,
+                                exceto em cenários de produção musical profissional.”                             
+                                </p>
+                        </footer> <br /> <br />
+                        <h3 className="text-xl font-semibold text-white mb-6">
+                                Exemplos de placas que utilizam controladores Realtek ALC897
+                            </h3>
+                        <div className="max-w-4xl mx-auto my-12 p-6 bg-slate-800/40 border border-slate-700 rounded-2xl overflow-hidden">
 
+                            {/* Título de chamada */}
+
+                            <div className="flex flex-col md:flex-row items-center gap-8">
+
+                                {/* Container da Imagem */}
+                                <div className="w-full md:w-1/2 group">
+                                    <div className="relative overflow-hidden rounded-xl bg-slate-900 p-2 border border-slate-700 group-hover:border-blue-500/50 transition-colors">
+                                        <img
+                                            src="Placa-Mãe-NTC-H610M.jpg"
+                                            alt="NTC H610M LGA1700"
+                                            className="w-full h-auto object-cover rounded-lg"
+                                        />
+                                    </div>
+                                    <p className="mt-3 text-xs text-slate-500 italic">
+                                        (NTC Computadores, 2024)
+                                    </p>
+                                </div>
+
+                                {/* Coluna de Texto */}
+                                <div className="w-full md:w-1/2 space-y-4 text-slate-300">
+                                    <div>
+                                        <h4 className="text-lg font-bold text-blue-400">
+                                            NTC H610M LGA1700 DDR4 mATX
+                                        </h4>
+                                        <p className="text-sm font-medium text-emerald-400 mt-1">
+                                            Valor médio de mercado: R$ 499,99
+                                        </p>
+                                    </div>
+
+                                    <p className="text-sm leading-relaxed">
+                                        Uma placa robusta e eficiente, projetada para oferecer alto desempenho e estabilidade para os processadores Intel® Core™, Pentium® e Celeron® das 12ª, 13ª e 14ª gerações.
+                                    </p>
+
+                                    <div className="pt-4 border-t border-slate-700">
+                                        <ul className="text-sm space-y-2">
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                                Suporte para até 64GB de memória DDR4
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                                Frequência de até 3200MHz em Dual Chanel
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="max-w-4xl mx-auto my-12 p-6 bg-slate-800/40 border border-slate-700 rounded-2xl overflow-hidden">
+
+                            {/* Título de chamada */}
+
+                            <div className="flex flex-col md:flex-row items-center gap-8">
+
+                                {/* Container da Imagem */}
+                                <div className="w-full md:w-1/2 group">
+                                    <div className="relative overflow-hidden rounded-xl bg-slate-900 p-2 border border-slate-700 group-hover:border-blue-500/50 transition-colors">
+                                        <img
+                                            src="600.webp"
+                                            alt="Gigabyte B550M "
+                                            className="w-full h-auto object-cover rounded-lg"
+                                        />
+                                    </div>
+                                    <p className="mt-3 text-xs text-slate-500 italic">
+                                    (GIGABYTE TechnologyCo,2025).
+                                    </p>
+                                </div>
+
+                                {/* Coluna de Texto */}
+                                <div className="w-full md:w-1/2 space-y-4 text-slate-300">
+                                    <div>
+                                        <h4 className="text-lg font-bold text-orange-400">
+                                            Gigabyte B550M Aorus Elite.
+                                        </h4>
+                                        <p className="text-sm font-medium text-red-400 mt-1">
+                                            Valor médio de mercado: R$749,99.
+                                        </p>
+                                    </div>
+
+                                    <p className="text-sm leading-relaxed">
+                                        Com solução ultra pure Digital VRM, posssui vários sensores de temperatura,
+                                        além de capacitores de audio de alta qualidade e protetor de ruído de áudio para melhor qualidade.
+
+                                    </p>
+
+                                    <div className="pt-4 border-t border-slate-700">
+                                        <ul className="text-sm space-y-2">
+                                            
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Suporta processadores AMD Ryzen™<br /> 
+                                                5000 Series/5000 G-Series/ 4000 G-Series/ 3000 Series.
+
+                                                 
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                DDR4 sem buffer de cana duplo.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </article>
                 </section>
 
