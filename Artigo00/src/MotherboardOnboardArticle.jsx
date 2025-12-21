@@ -559,53 +559,57 @@ const MotherboardOnboardArticle = () => {
                                             * SNR mais alto significa menos chiado, menos interferência elétrica e mais clareza.
                                             Placas modernas usam <strong>Isolamento de PCB</strong> (trilhas iluminadas) e <strong>Capacitores Japoneses</strong> para garantir essa qualidade.
                                         </p>
-                                    </div>
-                                    <h3><strong>SNR (Signal-to-Noise Ratio) – Por que esse número importa?</strong></h3>
-                                    <p>
-                                        As placas mais modernas suportam saídas com alto SNR, o que significa qualidade de áudio elevada. 
-                                        É literalmente a razão entre sinal útil e o ruído indesejado.<br />
-                                        ALC897 → SNR costuma ser 90-95 dB (básico)<br />
-                                        ALC1220/ALC4080 → 110 – 120 dB (muito melhor)<br />
-                                        Isso significa quanto maior melhor: <br />
-                                        Menos chiado,<br />
-                                        Menos interferência elétrica,<br />
-                                        Mais clareza,<br />
-                                        Mais volume útil antes de distorcer,<br />
-                                        Para on-board,120 dB é considerado um patamar “premium”. <br /> <br />
-                                    </p>
+                                    </div><br /> <br />
+
+                                    <div className="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                                        <h3><strong>SNR (Signal-to-Noise Ratio) – Por que esse número importa?</strong></h3>
+                                        <p>
+                                            As placas mais modernas suportam saídas com alto SNR, <br />
+                                            o que significa qualidade de áudio elevada. <br />
+                                            É literalmente a razão entre sinal útil e o ruído indesejado.<br />
+                                            ALC897 → SNR costuma ser 90-95 dB (básico)<br />
+                                            ALC1220/ALC4080 → 110 – 120 dB (muito melhor)<br />
+                                            Isso significa quanto maior melhor: <br />
+                                            Menos chiado,<br />
+                                            Menos interferência elétrica,<br />
+                                            Mais clareza,<br />
+                                            Mais volume útil antes de distorcer,<br />
+                                            Para on-board,120 dB é considerado um patamar “premium”. <br /> <br />
+                                        </p>
                                         <h3><strong>Realtek ALCxxxx – o que esse sufixo representa?</strong></h3>
-                                    <p>
-                                        <strong>Cada modelo varia em:</strong> <br />
+                                        <p>
+                                            <strong>Cada modelo varia em:</strong> <br />
 
-                                        SNR.<br />
-                                        Números de canais. <br />
-                                        Suporte a amplificadores frontais. <br />
-                                        Taxa de amostragem (sample rate). <br />
-                                        Interface usada (HD Áudio vs. USB interna). <br />
-                                        Ruido interno. <br />
-                                        Capacidade de entrada (line-in, mic, SPDIF). <br /> <br />
-                                        
-                                        Saber o número é essencial para entender a qualidade do áudio da placa-mãe. <br /> <br />
-                                        O DAC conversão digital-analógica <strong>(Digital-to-Analogic Converter)</strong> 
-                                        é o componente responsável por transformar: <br />
+                                            SNR.<br />
+                                            Números de canais. <br />
+                                            Suporte a amplificadores frontais. <br />
+                                            Taxa de amostragem (sample rate). <br />
+                                            Interface usada (HD Áudio vs. USB interna). <br />
+                                            Ruido interno. <br />
+                                            Capacidade de entrada (line-in, mic, SPDIF). <br /> <br />
 
-                                        <strong>Sinal digital (bits) → sinal analógico (ondas) sonoras analógicas</strong> <br /> <br />
-                                        O ADC conversão analógica-digital (Analog-to-Digital Converter) é o componente responsável por transformar:
+                                            Saber o número é essencial para entender a qualidade do áudio da placa-mãe. <br /> <br />
+                                            O DAC conversão digital-analógica <strong>(Digital-to-Analogic Converter) </strong>
+                                            é o componente responsável por transformar:
 
-                                        Sinal analógico (voz do microfone) → para dados de sinal digital.
+                                            <strong>Sinal digital (bits) → sinal analógico (ondas) sonoras analógicas</strong> <br />
+                                            O ADC conversão analógica-digital <strong>(Analog-to-Digital Converter) </strong>é o componente responsável por transformar: <br />
 
-                                        Ou seja, é o coração da qualidade do áudio.
+                                            <strong>Sinal analógico (voz do microfone) → para dados de sinal digital.</strong> <br /> <br />
 
-                                        Nos chips on-board:
+                                            Ou seja, é o coração da qualidade do áudio. <br />
 
-                                        O DAC ADC é simples
+                                            Nos chips on-board: <br />
 
-                                        Integrado no codec
+                                            O DAC / ADC é simples, <br />
 
-                                        Sujeito a interferências da placa-mãe
+                                            Integrado no codec, <br />
 
-                                        Limitado por custo e espaço
-                                    </p>
+                                            Sujeito a interferências da placa-mãe, <br />
+
+                                            Limitado por custo e espaço, <br />
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {/* Coluna Direita: Cards Visuais */}
@@ -653,7 +657,6 @@ const MotherboardOnboardArticle = () => {
 
                                             Traseiro direito <br />
 
-                                            Traseiro <br />
 
                                             <strong>.1 Subwoofer (grave)</strong><br /> <br />
                                         </p>
@@ -683,57 +686,40 @@ const MotherboardOnboardArticle = () => {
                                             <strong>O áudio Surround depende de três fatores:</strong><br />
 
                                             1. Capacidade do codec (ex: ALC1220) <br />
-
                                             2. Roteamento da placa mãe (quantidade de jacks no painel) <br />
-
                                             3. Software/drive capaz de processar o áudio multicanal. <br /> <br />
-
                                             No on-board, o processamento é normalmente simples. <br />
                                             A entrega do 7.1 é aceitável, mas inferior que uma boa placa dedicada fornece em: <br />
-
                                             1. Separação espacial. <br />
-
                                             2. Fidelidade. <br />
-
                                             3. Potência de saída. <br />
-
                                             4. Ruído de fundo. <br />
                                         </p>
                                         <p className="text-sm text-slate-300 mb-4 text-justify">
                                         </p>
 
                                     </div>
-
-
-                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
-                                        <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
-                                            <Cpu className="w-4 h-4" /> Overhead Nulo
-                                        </h4>
-                                        <p className="text-sm text-slate-400 leading-relaxed text-justify">
-                                            O chip de áudio opera de forma independente. Ele não consome largura de banda da GPU ou NVMe e não sobrecarrega a CPU com tarefas básicas de conversão.
-                                        </p>
-
-
-
-
-
-
-
-                                        <p className="text-sm text-slate-300 mb-4 text-justify">
-                                            Placas modernas usam <strong>Isolamento do PCB</strong> (trilhas iluminadas que separam o circuito de áudio) e <strong>Capacitores Japoneses</strong> (Nichicon/ELNA) para filtrar o ruído elétrico da CPU/GPU, garantindo um som "quente" e natural[cite: 224, 226].
-                                        </p>
-                                    </div>
-
                                     {/* Card Surround */}
                                     <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors">
                                         <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
                                             <Radio className="w-4 h-4" /> Surround 7.1
                                         </h4>
                                         <div className="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono text-center text-slate-300">
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Top/Down</div>
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Center</div>
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Rear L/R</div>
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Front L/R</div>
+                                            <div className="col-span-2 bg-purple-900/30 border border-purple-500/30 p-1 rounded text-purple-200 font-bold">.1 Subwoofer</div>
+                                        </div>
+                                    </div>
+                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors">
+                                        <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
+                                            <Radio className="w-4 h-4" /> Surround 5.1
+                                        </h4>
+                                        <div className="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono text-center text-slate-300">
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Front L/R</div>
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Center</div>
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Rear L/R</div>
-                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Side L/R</div>
                                             <div className="col-span-2 bg-purple-900/30 border border-purple-500/30 p-1 rounded text-purple-200 font-bold">.1 Subwoofer</div>
                                         </div>
                                     </div>
@@ -741,17 +727,155 @@ const MotherboardOnboardArticle = () => {
                                     {/* Card Exemplo Real */}
                                     <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
                                         <h4 className="text-white font-bold mb-2 text-sm">Exemplo High-End</h4>
-                                        <p className="text-xs text-slate-500 mb-2">ASUS ROG Maximus Z790 Apex</p>
+                                        <p className="text-xs text-slate-500 mb-2">Gigabyte Z590x</p>
                                         <div className="h-32 w-full bg-slate-900 rounded overflow-hidden relative">
-                                            <img src="rog-audio-chip.jpg" className="object-cover w-full h-full opacity-60" alt="Chip Audio" />
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <span className="bg-black/70 text-white text-xs px-2 py-1 rounded">ALC4080</span>
-                                            </div>
+                                            <img src="chip-alc-4080.jpg" className="object-cover w-full h-full opacity-60" alt="Chip Audio" />
+                                            
                                         </div>
+                                    </div>
+
+                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
+                                        <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
+                                            <Cpu className="w-4 h-4" /> Overhead Nulo
+                                        </h4>
+                                        <p className="text-sm text-slate-400 leading-relaxed text-justify">
+                                            "Overhead é “custo extra” — trabalho a mais que o sistema precisa fazer para que algo funcione.
+                                            Diferente do passado, o áudio on-board moderno possui um overhead praticamente nulo.
+                                            O chip de áudio opera de forma independente, utilizando barramento dedicados que não competem
+                                            por largura de banda com a placa de vídeo (GPU) ou armazenamento (NVMe). O processamento básico
+                                            (conversão e mixagem) é feito no próprio codec, deixando a cpu para tarefas principais. Portanto,
+                                            o uso de som integrado não causa perda de desempenho (FPS) em jogos ou aplicações pesadas."
+                                        </p> <br />
+                                        <p className="text-sm text-slate-300 mb-4 text-justify">
+                                            Placas modernas usam <strong>Isolamento do PCB</strong> (trilhas iluminadas por LED que separam o circuito de áudio)
+                                            e <strong>Capacitores Japoneses</strong> (Nichicon/ELNA) para filtrar o ruído elétrico da CPU/GPU,
+                                            garantindo um som "quente" e natural.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </article>
+                </section>
+
+
+                <section className="py-24 px-4 bg-slate-900 text-slate-200 border-y border-slate-700">
+                    <article className="max-w-4xl mx-auto leading-relaxed">
+
+                        {/* Cabeçalho do Artigo */}
+                        <header className="mb-12">
+                            <h1 className="text-4xl font-bold text-white mb-4">
+                                Arquitetura de Áudio Integrado
+                            </h1>
+                            <p className="text-lg text-slate-400">
+                                Entenda como os controladores modernos entregam alta fidelidade sem comprometer o desempenho do sistema.
+                            </p>
+                        </header>
+
+                        {/* Seção 01: O Ecossistema */}
+                        <div className="space-y-6">
+                            <p>
+                                De forma simplificada, esses chips assumem a função de placa de som compactadas integradas no hardware da máquina,
+                                representa a consolidação de um ecossistema de processamento sonoro integrado a “placas-mãe”,
+                                suportam padrões modernos como Áudio HD 7.1, oferecem SNR de até 120 dB. Eles permitem que o computador
+                                capture áudio de microfones, reproduza som em caixas ou headset e trate esses sinais com qualidade
+                                razoável e apresentam funções essenciais sem exigir hardware dedicado. Atuando como verdadeiros hub de áudio,
+                                agregando as funções de conversão digital-analógica (DAC), processamento de sinais e gestão de canais,
+                                tudo em um único componente de baixo consumo energético.
+                                Do ponto de vista arquitetônico, esses controladores substituem a necessidade de placas dedicadas.
+                            </p>
+
+                            {/* Destaque de Funções */}
+                            <div className="grid md:grid-cols-3 gap-4 my-8">
+                                <div className="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                                    <h3 className="font-bold text-blue-400 mb-2">Conversão</h3>
+                                    <p className="text-sm">Processamento Digital-Analógico (DAC) e Analógico-Digital (ADC) integrado.</p>
+                                </div>
+                                <div className="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                                    <h3 className="font-bold text-blue-400 mb-2">Eficiência</h3>
+                                    <p className="text-sm">Baixo consumo energético com workflow padronizado e sem atrito.</p>
+                                </div>
+                                <div className="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                                    <h3 className="font-bold text-blue-400 mb-2">Compatibilidade</h3>
+                                    <p className="text-sm">Interoperabilidade nativa com Windows, Linux e macOS.</p>
+                                </div>
+                            </div>
+
+                            <p>Oferecendo um balanço pragmático entre custo, footprint e desempenho funcional.
+                                O pipeline de áudio opera em um workflow altamente padronizado: captura, conversão,
+                                tratamento e saída, garantindo interoperabilidade com sistemas operacionais modernos e
+                                minimizando o overhead no barramento. Isso significa que o hardware consegue trabalhar
+                                sem atrito com Windows, Linux, macOS (quando aplicável e afins).
+                            </p>
+
+                            <p>
+                                Overhead é “custo extra” — trabalho a mais que o sistema precisa fazer para que algo funcione.
+                                Diferente do passado, o áudio on-board moderno possui um overhead praticamente nulo.
+                                O chip de áudio opera de forma independente, utilizando barramento dedicados que não competem por largura de
+                                banda com a placa de vídeo (GPU) ou armazenamento (NVMe). O processamento básico (conversão e mixagem)
+                                é feito no próprio codec, beberando a cpu para tarefas principais. Portanto, o uso de som integrado
+                                não causa perda de desempenho (FPS) em jogos ou aplicações pesadas.
+                            </p>
+                            <p>
+                                E o barramento é o caminho por onde os dados trafegam dentro do PC (PCIe, USB interno, chipset etc.).
+                                O chip não consome largura de banda desnecessárias, o áudio utiliza canais dedicados e protocolos específicos
+                                (ex: Hd Áudio), projetados justamente para operar com baixo thoroughput e baixa latência.
+                                Não há competição real com GPU, NVMe ou rede. O impacto na largura de banda total é estaticamente irrelevante.
+                                O chipset apenas orquestra a comunicação, não processa o áudio. O chip de áudio é um controlador dedicado,
+                                com pipeline próprio para conversão digital analógica DAC, e analógica digital ADC. O tráfego passa,
+                                mas não congestiona. Ele não faz a cpu perder tempo com tarefas que o próprio chip poderia resolver,
+                                exemplo: <br />
+                                Processamento básico de áudio mixagem simples, conversão de sinais, filtros elementares - é feito no próprio chip de áudio.
+                            </p>
+                        </div>
+
+                        {/* Seção 02: Performance e Overhead */}
+                        <section className="mt-12 bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                            <h2 className="text-2xl font-semibold text-white mb-4 italic">Impacto Zero no Desempenho</h2>
+                            <p className="mb-4">
+                                Diferente do passado, o áudio on-board moderno possui um <strong>overhead praticamente nulo</strong>. O "custo extra" de processamento foi eliminado por barramentos dedicados que não competem com a GPU ou o armazenamento NVMe.
+                            </p>
+                            <blockquote className="border-l-4 border-blue-500 pl-4 py-2 bg-slate-800 italic text-slate-300">
+                                "O processamento básico (conversão e mixagem) é feito no próprio codec, liberando a CPU para tarefas principais, garantindo que não haja perda de FPS em jogos."
+                            </blockquote>
+                        </section>
+
+                        {/* Seção 03: Hardware e Fidelidade */}
+                        <div className="mt-12 space-y-6">
+                            <h2 className="text-2xl font-semibold text-white">Construção Física e Hi-Fi</h2>
+                            
+                            <p>
+                                A cpu só entra quando há processamento avançado (efeitos pesados, software profissional) e mesmo assim por decisão da aplicação, não por limitação do hardware.
+
+                                Chips básico (ex.: ALC897) foca no custo-benefício;
+
+                                Chips intermediários / avançados (ex.: ALC1220, ALC4080) elevam a qualidade com maior SNR e capacidade de taxas de amostragem melhores.
+
+                                Embora o chip (codec) seja importante, a construção física da placa-mãe é determinante para a fidelidade (Hi-Fi) sonora. O ambiente interno do gabinete é ruidoso eletricamente devido altas frequências da CPU e GPU.
+                            </p>
+
+                            <p>
+                                A fidelidade sonora depende da proteção contra interferências eletromagnéticas (EMI) geradas pelas altas frequências da CPU e GPU. Para isso, placas modernas utilizam:
+                            </p>
+
+                            <ul className="list-disc pl-6 space-y-4">
+                                <li>
+                                    <strong className="text-slate-100">Isolamento do PCB:</strong> Uma trilha física (frequentemente iluminada por LED) que separa a seção de áudio do restante dos componentes.
+                                    Isso garante que o sinal analógico não sofra interferência estática. 
+                                </li>
+                                <li>
+                                    <strong className="text-slate-100">Capacitores Premium:</strong> Uso de componentes japoneses (Nichicon ou ELNA), que filtram oscilações e entregam um som mais natural.
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Nota de Rodapé / Citação Técnica */}
+                        <footer className="mt-16 pt-8 border-t border-slate-700">
+                            <p className="text-sm text-slate-500 italic leading-snug">
+                                “Segundo datasheet oficial da Realtek (2017) e análises técnicas da Audio Science Review (2020), chips como o <strong>ALC1220/4080</strong> tornam o áudio off-board desnecessário para consumo de mídia, exceto em cenários de produção musical profissional.”
+                            </p>
+                        </footer>
+
                     </article>
                 </section>
 
