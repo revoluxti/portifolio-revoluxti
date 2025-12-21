@@ -560,6 +560,52 @@ const MotherboardOnboardArticle = () => {
                                             Placas modernas usam <strong>Isolamento de PCB</strong> (trilhas iluminadas) e <strong>Capacitores Japoneses</strong> para garantir essa qualidade.
                                         </p>
                                     </div>
+                                    <h3><strong>SNR (Signal-to-Noise Ratio) – Por que esse número importa?</strong></h3>
+                                    <p>
+                                        As placas mais modernas suportam saídas com alto SNR, o que significa qualidade de áudio elevada. 
+                                        É literalmente a razão entre sinal útil e o ruído indesejado.<br />
+                                        ALC897 → SNR costuma ser 90-95 dB (básico)<br />
+                                        ALC1220/ALC4080 → 110 – 120 dB (muito melhor)<br />
+                                        Isso significa quanto maior melhor: <br />
+                                        Menos chiado,<br />
+                                        Menos interferência elétrica,<br />
+                                        Mais clareza,<br />
+                                        Mais volume útil antes de distorcer,<br />
+                                        Para on-board,120 dB é considerado um patamar “premium”. <br /> <br />
+                                    </p>
+                                        <h3><strong>Realtek ALCxxxx – o que esse sufixo representa?</strong></h3>
+                                    <p>
+                                        <strong>Cada modelo varia em:</strong> <br />
+
+                                        SNR.<br />
+                                        Números de canais. <br />
+                                        Suporte a amplificadores frontais. <br />
+                                        Taxa de amostragem (sample rate). <br />
+                                        Interface usada (HD Áudio vs. USB interna). <br />
+                                        Ruido interno. <br />
+                                        Capacidade de entrada (line-in, mic, SPDIF). <br /> <br />
+                                        
+                                        Saber o número é essencial para entender a qualidade do áudio da placa-mãe. <br /> <br />
+                                        O DAC conversão digital-analógica <strong>(Digital-to-Analogic Converter)</strong> 
+                                        é o componente responsável por transformar: <br />
+
+                                        <strong>Sinal digital (bits) → sinal analógico (ondas) sonoras analógicas</strong> <br /> <br />
+                                        O ADC conversão analógica-digital (Analog-to-Digital Converter) é o componente responsável por transformar:
+
+                                        Sinal analógico (voz do microfone) → para dados de sinal digital.
+
+                                        Ou seja, é o coração da qualidade do áudio.
+
+                                        Nos chips on-board:
+
+                                        O DAC ADC é simples
+
+                                        Integrado no codec
+
+                                        Sujeito a interferências da placa-mãe
+
+                                        Limitado por custo e espaço
+                                    </p>
                                 </div>
 
                                 {/* Coluna Direita: Cards Visuais */}
@@ -609,14 +655,56 @@ const MotherboardOnboardArticle = () => {
 
                                             Traseiro <br />
 
-                                            <strong>.1 Subwoofer (grave)</strong>
+                                            <strong>.1 Subwoofer (grave)</strong><br /> <br />
                                         </p>
                                         <p className="text-sm text-slate-300 mb-4 text-justify">
                                             O surround proporciona um som mais imersivo, percepção de direção
                                             (tiros, passos, carros, chuva, explosões, diálogos), experiencias mais realistas
-                                            em filmes e games por exemplo:
+                                            em filmes e games <strong>por exemplo:</strong> <br />
+
+                                            1. Passos atrás, <br />
+                                            2. Vozes a esquerda,<br />
+                                            3. Explosão a frente, <br />
+                                            4. Impactos à direita, <br />
+                                            5. Helicóptero passando por cima. <br />
+                                            6. Em músicas está presente quando temos a impressão de que o baterista deu
+                                            uma volta na nossa cabeça, ou quando a bateria parece atravessar nossa
+                                            cabeça de um lado ao outro. <br /> <br />
+                                            O sistema simula essa movimentação usando
+                                            múltiplos canais.
                                         </p>
                                     </div>
+
+                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
+                                        <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
+                                            <Radio className="w-4 h-4" /> Surround
+                                        </h4>
+                                        <p className="text-sm text-slate-400 leading-relaxed text-justify">
+                                            <strong>O áudio Surround depende de três fatores:</strong><br />
+
+                                            1. Capacidade do codec (ex: ALC1220) <br />
+
+                                            2. Roteamento da placa mãe (quantidade de jacks no painel) <br />
+
+                                            3. Software/drive capaz de processar o áudio multicanal. <br /> <br />
+
+                                            No on-board, o processamento é normalmente simples. <br />
+                                            A entrega do 7.1 é aceitável, mas inferior que uma boa placa dedicada fornece em: <br />
+
+                                            1. Separação espacial. <br />
+
+                                            2. Fidelidade. <br />
+
+                                            3. Potência de saída. <br />
+
+                                            4. Ruído de fundo. <br />
+                                        </p>
+                                        <p className="text-sm text-slate-300 mb-4 text-justify">
+                                        </p>
+
+                                    </div>
+
+
                                     <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
                                         <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
                                             <Cpu className="w-4 h-4" /> Overhead Nulo
