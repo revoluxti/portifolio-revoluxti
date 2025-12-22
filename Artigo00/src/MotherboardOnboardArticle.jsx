@@ -1245,8 +1245,8 @@ const MotherboardOnboardArticle = () => {
                                     garantindo alto desempenho de rede sem necessidade de hardware dedicado.
                                 </p>
 
-                                    <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-[86%] h-auto object-contain" />
-                                
+                                <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-[86%] h-auto object-contain" />
+
 
                             </div>
 
@@ -1355,7 +1355,7 @@ const MotherboardOnboardArticle = () => {
                                                     Destaque: Integração Wi-Fi + Ethernet (DoubleShot).
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </li>
 
                                     <li className="group">
@@ -1409,126 +1409,6 @@ const MotherboardOnboardArticle = () => {
 
                         </div>
                     </div> <br /> <br />
-
-                    <div className="max-w-6xl mx-auto relative z-10">
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-
-
-
-
-
-                        </div>
-
-                        {/* BLOCÃO CNVi (Wi-Fi) Estilo Vitrine */}
-                        <div className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl border border-slate-700 p-8 md:p-12 shadow-2xl relative overflow-hidden group">
-                            {/* Efeito Glow */}
-                            <div className="absolute -right-20 -top-20 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-yellow-500/20 transition-colors"></div>
-
-                            <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                                <div className="flex-1">
-                                    <h3 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-                                        <Wifi className="text-yellow-400" /> A Revolução CNVi
-                                    </h3>
-                                    <p className="text-slate-300 text-lg text-justify leading-relaxed mb-4">
-                                        Diferente do que muitos pensam, o Wi-Fi moderno raramente é soldado na placa.
-                                        A Intel criou a arquitetura <strong>CNVi (Integrated Connectivity)</strong>, que moveu a parte lógica cara (MAC) para dentro do Processador/Chipset.
-                                    </p>
-                                    <p className="text-slate-400 text-sm text-justify">
-                                        O módulo M.2 que você vê (CRF - Companion RF) contém apenas a antena física.
-                                        Isso barateou drasticamente a implementação do Wi-Fi 6 e 7, tornando-o padrão em placas intermediárias.
-                                    </p>
-                                </div>
-                                <div className="w-full md:w-1/3">
-                                    <div className="aspect-video bg-slate-950 rounded-xl border border-slate-700 flex items-center justify-center shadow-inner">
-                                        {/* Placeholder Imagem Wi-Fi */}
-                                        <Wifi size={80} className="text-yellow-600/50" />
-                                        <span className="absolute bottom-4 text-xs font-mono text-slate-500">Módulo M.2 Key-E</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section className="relative py-20 bg-slate-900">
-                    {/* Efeito de iluminação suave ao fundo */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-                    <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-                        {/* Cabeçalho Minimalista */}
-                        <header className="mb-12 border-b border-slate-800 pb-8">
-                            <h2 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
-                                A Guerra dos Chips de Rede
-                            </h2>
-                            <p className="text-xl text-slate-400 font-light">
-                                Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
-                            </p>
-                        </header>
-
-                        <div className="flex flex-col lg:flex-row gap-12">
-
-                            {/* Lado Esquerdo: Texto Principal (Espaçoso) */}
-                            <div className="lg:w-2/3 space-y-6 text-slate-300 leading-relaxed text-lg">
-                                <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-2">
-                                    Definição Técnica
-                                </div>
-                                <h3 className="text-2xl font-semibold text-white">O que é um controlador on-board?</h3>
-
-                                <p>
-                                    O chip de rede é um controlador integrado diretamente à placa-mãe, eliminando a necessidade de componentes externos para tarefas básicas de conectividade. Ele atua como o tradutor entre o sistema operacional e o tráfego de dados que viaja pelo cabo Ethernet.
-                                </p>
-
-                                <p>
-                                    Diferente das soluções legadas, este componente está soldado ao PCB e comunica-se com o processador através do barramento <strong>PCIe</strong>. Isso garante que a latência seja mínima, algo crucial para jogos competitivos e transferências de grandes volumes de dados em redes de alta velocidade.
-                                </p>
-
-                                <div className="bg-slate-800/40 p-6 rounded-xl border-l-4 border-purple-500">
-                                    <p className="text-sm italic text-slate-400">
-                                        "A escolha do chip define não apenas a velocidade (1Gbps a 10Gbps), mas também recursos avançados como o offload de hardware, que poupa o processador principal de gerenciar pacotes de rede."
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Lado Direito: Especificações e Lista (Compacto) */}
-                            <div className="lg:w-1/3 bg-slate-800/30 p-8 rounded-2xl border border-slate-800">
-                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
-                                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                                    Responsabilidades do Chip
-                                </h4>
-
-                                <ul className="space-y-6">
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">01. CONEXÃO</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Interface física para redes via Ethernet.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">02. TRÁFEGO</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Gerenciamento inteligente de pacotes de dados.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">03. PERFORMANCE</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Priorização, offload e modos de economia de energia.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">04. ESCALABILIDADE</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Suporte a velocidades de 1, 2.5 e 10 Gbps.
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
                 </section>
 
                 <section className="relative py-20 overflow-hidden">
@@ -1538,18 +1418,183 @@ const MotherboardOnboardArticle = () => {
                     <div className="max-w-6xl mx-auto px-4 relative z-10">
                         <article>
                             {/* Cabeçalho */}
-                            <div className="text-center mb-16">
-                                <h2 className="text-4xl font-bold text-white mb-4">A Guerra dos Chips de Rede</h2>
-                                <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                                    Intel vs. Killer vs. Realtek. Quem gerencia seus pacotes?
-                                </p>
+                            <div className="max-w-6xl mx-auto px-6 py-12 bg-slate-900 border border-slate-800 rounded-3xl relative overflow-hidden">
+                                {/* Luz de fundo decorativa */}
+                                <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+                                    {/* Texto Explicativo */}
+                                    <div className="space-y-6">
+                                        <div className="text-center mb-16">
+                                            <h2 className="text-4xl font-bold text-white mb-4">Wi-Fi On-board e a Revolução CNVi </h2>
+                                            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+                                                A Dualidade da Rede "On-board"
+                                            </p>
+                                        </div>
+
+                                        <p className="text-slate-400 leading-relaxed">
+                                            Para definir corretamente o que é rede "on-board", precisamos separar o cabo do sinal sem fio.
+                                            A arquitetura evoluiu para um sistema híbrido: <br /> <br />
+
+                                            1- Módulo M.2Key-E: A placa de rede (Como Intel AX200/AX210 ou Media TEk RZ608) fica encaixada
+                                            em um slot M.2 vertical, geralmente escondido dentro da caixa metálica do painel travesseiro (I/O Shield).
+                                            Isso permite substituição em caso de defeito ou upgrade. <br /> <br />
+
+                                            2- Tecnologia CNVi (Intel Integrated Connectivity):
+                                            Para reduzir custos, a Intel moveu a parte lógica e cara do Wi-Fi (o endereço MAC e o processamento de sinal)
+                                            para dentro do Chipset/Processador.
+                                            O módulo que você vê (chamado de CRF – Companion RF) contém apenas a parte física da antena (PHY).
+                                            Isso barateou drasticamente a implementação do Wi-Fi6 e 7 em placas intermediarias. <br /> <br />
+
+                                            3- Bluethooth: O módulo Wi-Fi sempre gerencia também o bluethooth.
+                                            Economizando portas USB internas e unificando os drives.
+                                        </p>
+
+                                        <div className="space-y-4">
+                                            {/* Bloco Ethernet */}
+                                            <div className="p-4 bg-slate-800/50 border-l-4 border-blue-500 rounded-r-xl">
+                                                <h4 className="text-blue-400 font-bold uppercase text-xs mb-1">Rede Ethernet (LAN)</h4>
+                                                <p className="text-slate-200 text-sm">
+                                                    Este é o <strong>componente soldado</strong> ao PCB. Ele utiliza o barramento PCIe para otimizar espaço e garantir a menor latência possível em conexões via cabo.
+                                                </p>
+                                            </div>
+
+                                            {/* Bloco Wi-Fi */}
+                                            <div className="p-4 bg-slate-800/50 border-l-4 border-purple-500 rounded-r-xl">
+                                                <h4 className="text-purple-400 font-bold uppercase text-xs mb-1">Rede Wi-Fi / Bluetooth</h4>
+                                                <p className="text-slate-200 text-sm">
+                                                    Raramente é soldado diretamente. Geralmente utiliza o padrão <strong>M.2 Key-E</strong>, um pequeno módulo modular encaixado na placa. Isso permite substituições ou upgrades sem trocar a placa-mãe inteira.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <section className="max-w-4xl mx-auto my-16 space-y-12 text-slate-300">
+
+                                        {/* Explicação da Diferença Técnica */}
+                                        <div className="bg-slate-800/50 border border-slate-700 p-8 rounded-3xl relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                                <span className="text-6xl font-bold italic text-white">NIC</span>
+                                            </div>
+
+                                            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                                                <span className="w-1 h-8 bg-blue-500 rounded-full"></span>
+                                                O Chip de Rede On-board: Híbrido e Modular
+                                            </h3>
+
+                                            <div className="grid md:grid-cols-2 gap-8">
+                                                {/* Lado 1: Ethernet (Soldado) */}
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center gap-2 text-blue-400 font-mono text-sm font-bold uppercase">
+                                                        <span>●</span> Ethernet (LAN)
+                                                    </div>
+                                                    <p className="text-sm leading-relaxed">
+                                                        Para a rede cabeada, o controlador (como os chips <strong className="text-white">Realtek RTL8125</strong> ou <strong className="text-white">Intel I225-V</strong>) é, em sua maioria, <strong>soldado diretamente ao PCB</strong>. Isso é feito para otimizar a latência e reduzir o "footprint" físico, utilizando o barramento PCIe para comunicação direta com o chipset.
+                                                    </p>
+                                                </div>
+
+
+                                                {/* Lado 2: Wi-Fi (Modular) */}
+                                                <div className="space-y-4 border-l border-slate-700 pl-8">
+                                                    <div className="flex items-center gap-2 text-purple-400 font-mono text-sm font-bold uppercase">
+                                                        <span>●</span> Wi-Fi e Bluetooth
+                                                    </div>
+                                                    <p className="text-sm leading-relaxed">
+                                                        Já o Wi-Fi moderno raramente é soldado. Ele utiliza a interface <strong>M.2 Key-E (CNVi)</strong>. O chip fica dentro de uma pequena "caixa metálica" (cartão M.2) que pode ser substituído ou atualizado, embora venha pré-instalado de fábrica na placa-mãe.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Lista de Responsabilidades Compacta */}
+                                        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                                            <h4 className="text-white font-semibold mb-4 text-center italic text-sm uppercase tracking-widest opacity-60">
+                                                Funções do Subsistema de Rede
+                                            </h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                                <div className="flex items-center gap-3 border-b border-slate-800 pb-2">
+                                                    <span className="text-blue-500 text-xl font-bold">01</span>
+                                                    <span className="text-sm"><strong>Conexão Física:</strong> Interface Ethernet e antenas Wi-Fi.</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 border-b border-slate-800 pb-2">
+                                                    <span className="text-purple-500 text-xl font-bold">02</span>
+                                                    <span className="text-sm"><strong>Gestão de Pacotes:</strong> Organização do tráfego de entrada e saída.</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 border-b border-slate-800 pb-2">
+                                                    <span className="text-blue-500 text-xl font-bold">03</span>
+                                                    <span className="text-sm"><strong>Controle de Velocidade:</strong> Suporte a 1Gbps, 2.5Gbps ou 10Gbps.</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 border-b border-slate-800 pb-2">
+                                                    <span className="text-purple-500 text-xl font-bold">04</span>
+                                                    <span className="text-sm"><strong>Offload:</strong> Redução da carga de processamento na CPU.</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        {/* Representação Visual/Resumo */}
+                                        <div className="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-inner">
+                                            <h4 className="text-white font-semibold mb-6 text-center">Resumo de Responsabilidades</h4>
+                                            <ul className="space-y-4">
+                                                <li className="flex items-start gap-3 text-sm text-slate-400">
+                                                    <span className="text-blue-500">✔</span>
+                                                    <span><strong>Conexão Física:</strong> Interface estável via Ethernet.</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-sm text-slate-400">
+                                                    <span className="text-blue-500">✔</span>
+                                                    <span><strong>Gestão de Pacotes:</strong> Organiza o tráfego de dados.</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-sm text-slate-400">
+                                                    <span className="text-blue-500">✔</span>
+                                                    <span><strong>Velocidades:</strong> Controla de 1Gbps a 10Gbps conforme o modelo.</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-sm text-slate-400">
+                                                    <span className="text-blue-500">✔</span>
+                                                    <span><strong>Otimização:</strong> Funções de priorização (QoS) e offload de processamento.</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+                                    </section>
+
+
+                                </div>
+
+                                {/* BLOCÃO CNVi (Wi-Fi) Estilo Vitrine */}
+                                <div className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl border border-slate-700 p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+                                    {/* Efeito Glow */}
+                                    <div className="absolute -right-20 -top-20 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-yellow-500/20 transition-colors"></div>
+
+                                    <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                                        <div className="flex-1">
+                                            <h3 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
+                                                <Wifi className="text-yellow-400" /> A Revolução CNVi
+                                            </h3>
+                                            <p className="text-slate-300 text-lg text-justify leading-relaxed mb-4">
+                                                Diferente do que muitos pensam, o Wi-Fi moderno raramente é soldado na placa.
+                                                A Intel criou a arquitetura <strong>CNVi (Integrated Connectivity)</strong>, que moveu a parte lógica cara (MAC) para dentro do Processador/Chipset.
+                                            </p>
+                                            <p className="text-slate-400 text-sm text-justify">
+                                                O módulo M.2 que você vê (CRF - Companion RF) contém apenas a antena física.
+                                                Isso barateou drasticamente a implementação do Wi-Fi 6 e 7, tornando-o padrão em placas intermediárias.
+                                            </p>
+                                        </div>
+                                        <div className="w-full md:w-1/3">
+                                            <div className="aspect-video bg-slate-950 rounded-xl border border-slate-700 flex items-center justify-center shadow-inner">
+                                                {/* Placeholder Imagem Wi-Fi */}
+                                                <Wifi size={80} className="text-yellow-600/50" />
+                                                <span className="absolute bottom-4 text-xs font-mono text-slate-500">Módulo M.2 Key-E</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Linha Divisora Estilizada */}
                             <div className="flex items-center gap-4 mb-12">
                                 <div className="bg-purple-500 h-px w-16"></div>
                                 <span className="text-purple-400 font-mono font-bold text-sm uppercase tracking-widest">
-                                    Rede on-board: O Coração da Conectividade
+                                    ############### -  EM ANDAMENTO -############################
                                 </span>
                                 <div className="bg-slate-800 h-px flex-1"></div>
                             </div>
@@ -1560,14 +1605,15 @@ const MotherboardOnboardArticle = () => {
                                 {/* Coluna da Esquerda: O que é */}
                                 <div className="lg:col-span-1 space-y-6">
                                     <h3 className="text-2xl font-semibold text-white">
-                                        O que é um chip de rede on-board?
+                                        #####################
                                     </h3>
                                     <p className="text-slate-400 leading-relaxed">
-                                        É um controlador de rede integrado diretamente à placa-mãe. Diferente das placas de expansão antigas, este componente é soldado ao PCB para otimizar espaço e latência.
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas debitis ea dolore, reiciendis ab architecto aperiam perferendis inventore, a error,
+                                        voluptatibus maxime quisquam cum? Quam velit sapiente corporis? Libero, consequuntur.
                                     </p>
                                     <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
                                         <p className="text-sm text-blue-200">
-                                            <span className="font-bold text-blue-400">Nota Técnica:</span> Esse chip utiliza o barramento <strong>PCIe</strong> para se comunicar com o sistema em altíssima velocidade.
+                                            <span className="font-bold text-blue-400">Nota Técnica:</span> ###############
                                         </p>
                                     </div>
                                 </div>
@@ -1576,26 +1622,26 @@ const MotherboardOnboardArticle = () => {
                                 <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
                                         <div className="text-purple-400 mb-3 text-2xl">🌐</div>
-                                        <h4 className="text-white font-bold mb-2">Conexão Física</h4>
-                                        <p className="text-sm text-slate-400 font-light">Ponto de entrada para cabos Ethernet, garantindo o link físico estável.</p>
+                                        <h4 className="text-white font-bold mb-2">###############################3</h4>
+                                        <p className="text-sm text-slate-400 font-light">###################################</p>
                                     </div>
 
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
                                         <div className="text-purple-400 mb-3 text-2xl">📦</div>
-                                        <h4 className="text-white font-bold mb-2">Gestão de Pacotes</h4>
-                                        <p className="text-sm text-slate-400 font-light">Organiza o tráfego de dados que entra e sai, evitando colisões e perdas.</p>
+                                        <h4 className="text-white font-bold mb-2">###############################</h4>
+                                        <p className="text-sm text-slate-400 font-light">#############################</p>
                                     </div>
 
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
                                         <div className="text-purple-400 mb-3 text-2xl">🚀</div>
-                                        <h4 className="text-white font-bold mb-2">Controle de Banda</h4>
-                                        <p className="text-sm text-slate-400 font-light">Suporte nativo para velocidades de 1Gbps, 2.5Gbps até 10Gbps em placas premium.</p>
+                                        <h4 className="text-white font-bold mb-2">######################</h4>
+                                        <p className="text-sm text-slate-400 font-light">###################################</p>
                                     </div>
 
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
                                         <div className="text-purple-400 mb-3 text-2xl">🛡️</div>
-                                        <h4 className="text-white font-bold mb-2">Funções Avançadas</h4>
-                                        <p className="text-sm text-slate-400 font-light">Priorização de jogos (QoS), Offload de processamento e economia de energia.</p>
+                                        <h4 className="text-white font-bold mb-2">#######################3</h4>
+                                        <p className="text-sm text-slate-400 font-light">##################################</p>
                                     </div>
                                 </div>
                             </div>
@@ -1603,84 +1649,7 @@ const MotherboardOnboardArticle = () => {
                     </div>
                 </section>
 
-                <section className="relative py-20 bg-slate-900">
-                    {/* Efeito de iluminação suave ao fundo */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-                    <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-                        {/* Cabeçalho Minimalista */}
-                        <header className="mb-12 border-b border-slate-800 pb-8">
-                            <h2 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
-                                A Guerra dos Chips de Rede
-                            </h2>
-                            <p className="text-xl text-slate-400 font-light">
-                                Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
-                            </p>
-                        </header>
-
-                        <div className="flex flex-col lg:flex-row gap-12">
-
-                            {/* Lado Esquerdo: Texto Principal (Espaçoso) */}
-                            <div className="lg:w-2/3 space-y-6 text-slate-300 leading-relaxed text-lg">
-                                <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-2">
-                                    Definição Técnica
-                                </div>
-                                <h3 className="text-2xl font-semibold text-white">O que é um controlador on-board?</h3>
-
-                                <p>
-                                    O chip de rede é um controlador integrado diretamente à placa-mãe, eliminando a necessidade de componentes externos para tarefas básicas de conectividade. Ele atua como o tradutor entre o sistema operacional e o tráfego de dados que viaja pelo cabo Ethernet.
-                                </p>
-
-                                <p>
-                                    Diferente das soluções legadas, este componente está soldado ao PCB e comunica-se com o processador através do barramento <strong>PCIe</strong>. Isso garante que a latência seja mínima, algo crucial para jogos competitivos e transferências de grandes volumes de dados em redes de alta velocidade.
-                                </p>
-
-                                <div className="bg-slate-800/40 p-6 rounded-xl border-l-4 border-purple-500">
-                                    <p className="text-sm italic text-slate-400">
-                                        "A escolha do chip define não apenas a velocidade (1Gbps a 10Gbps), mas também recursos avançados como o offload de hardware, que poupa o processador principal de gerenciar pacotes de rede."
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Lado Direito: Especificações e Lista (Compacto) */}
-                            <div className="lg:w-1/3 bg-slate-800/30 p-8 rounded-2xl border border-slate-800">
-                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
-                                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                                    Responsabilidades do Chip
-                                </h4>
-
-                                <ul className="space-y-6">
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">01. CONEXÃO</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Interface física para redes via Ethernet.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">02. TRÁFEGO</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Gerenciamento inteligente de pacotes de dados.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">03. PERFORMANCE</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Priorização, offload e modos de economia de energia.
-                                        </p>
-                                    </li>
-                                    <li className="group">
-                                        <span className="text-purple-400 font-mono text-xs block mb-1">04. ESCALABILIDADE</span>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-                                            Suporte a velocidades de 1, 2.5 e 10 Gbps.
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
 
                 {/* =====================================================================================
                 SEÇÃO 4: VRM e GARGALOS (Energia e Memória)
