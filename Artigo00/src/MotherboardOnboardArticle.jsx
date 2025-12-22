@@ -699,6 +699,18 @@ const MotherboardOnboardArticle = () => {
                                         </p>
 
                                     </div>
+                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors">
+                                        <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
+                                            <Radio className="w-4 h-4" /> Surround 5.1
+                                        </h4>
+                                        <div className="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono text-center text-slate-300">
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Front L/R</div>
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Center</div>
+                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Rear L/R</div>
+                                            <div className="col-span-2 bg-purple-900/30 border border-purple-500/30 p-1 rounded text-purple-200 font-bold">.1 Subwoofer</div>
+                                        </div>
+                                    </div>
+
                                     {/* Card Surround */}
                                     <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors">
                                         <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
@@ -709,17 +721,6 @@ const MotherboardOnboardArticle = () => {
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Center</div>
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Rear L/R</div>
                                             <div className="bg-slate-900 p-1 rounded border border-slate-600">Front L/R</div>
-                                            <div className="col-span-2 bg-purple-900/30 border border-purple-500/30 p-1 rounded text-purple-200 font-bold">.1 Subwoofer</div>
-                                        </div>
-                                    </div>
-                                    <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors">
-                                        <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
-                                            <Radio className="w-4 h-4" /> Surround 5.1
-                                        </h4>
-                                        <div className="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono text-center text-slate-300">
-                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Front L/R</div>
-                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Center</div>
-                                            <div className="bg-slate-900 p-1 rounded border border-slate-600">Rear L/R</div>
                                             <div className="col-span-2 bg-purple-900/30 border border-purple-500/30 p-1 rounded text-purple-200 font-bold">.1 Subwoofer</div>
                                         </div>
                                     </div>
@@ -1105,88 +1106,318 @@ const MotherboardOnboardArticle = () => {
                 {/* =====================================================================================
                 SEÇÃO 3: REDE E CONECTIVIDADE (A Guerra dos Chips)
                 ===================================================================================== */}
-                <section className="py-24 px-4 relative overflow-hidden bg-black">
-                    {/* Efeito de Fundo */}
-                    <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+                <section className="relative py-20 bg-slate-900">
+                    {/* Efeito de iluminação suave ao fundo */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+                    <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+                        {/* Cabeçalho Minimalista */}
+                        <header className="mb-12 border-b border-slate-800 pb-8">
+                            <h2 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
+                                A Guerra dos Chips de Rede
+                            </h2>
+                            <p className="text-xl text-slate-400 font-light">
+                                Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
+                            </p>
+                        </header>
+
+                        <div className="flex flex-col lg:flex-row gap-12">
+
+                            {/* Lado Esquerdo: Texto Principal (Espaçoso) */}
+                            <div className="lg:w-2/3 space-y-6 text-slate-300 leading-relaxed text-lg">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="bg-purple-500 h-px w-16"></div>
+                                    <span className="text-purple-400 font-mono font-bold text-lg">Rede on-board: Intel, Killer ou RealTek <br /> </span>
+                                    <div className="bg-slate-800 h-px flex-1"></div>
+                                </div>
+
+                                <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-2">
+                                    Definição Técnica
+                                </div>
+                                <h3 className="text-2xl font-semibold text-white">O que é um chip de rede on-board?</h3>
+
+                                <p>
+                                    O chip de rede é um controlador integrado diretamente à placa-mãe, eliminando a necessidade de componentes externos para tarefas básicas de conectividade. Ele atua como o tradutor entre o sistema operacional e o tráfego de dados que viaja pelo cabo Ethernet.
+                                </p>
+                                <div className="grid gap-4 max-w-4xl">
+                                    {/* Item 01 */}
+                                    <div className="flex items-center gap-4 p-4 bg-slate-800/40 border border-slate-700 rounded-xl hover:border-blue-500/30 transition-all group">
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                            01
+                                        </div>
+                                        <div className="flex-1 text-slate-300">
+                                            <strong className="text-white block text-sm uppercase tracking-wider mb-1">Conectividade Física</strong>
+                                            Conectar o PC à rede via Ethernet.
+                                        </div>
+                                    </div>
+
+                                    {/* Item 02 */}
+                                    <div className="flex items-center gap-4 p-4 bg-slate-800/40 border border-slate-700 rounded-xl hover:border-purple-500/30 transition-all group">
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                                            02
+                                        </div>
+                                        <div className="flex-1 text-slate-300">
+                                            <strong className="text-white block text-sm uppercase tracking-wider mb-1">Gerenciamento</strong>
+                                            Gerenciar tráfego de pacotes.
+                                        </div>
+                                    </div>
+
+                                    {/* Item 03 */}
+                                    <div className="flex items-center gap-4 p-4 bg-slate-800/40 border border-slate-700 rounded-xl hover:border-blue-500/30 transition-all group">
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                            03
+                                        </div>
+                                        <div className="flex-1 text-slate-300">
+                                            <strong className="text-white block text-sm uppercase tracking-wider mb-1">Largura de Banda</strong>
+                                            Controlar velocidades (1Gbps / 2.5Gbps / 10 Gbps).
+                                        </div>
+                                    </div>
+
+                                    {/* Item 04 */}
+                                    <div className="flex items-center gap-4 p-4 bg-slate-800/40 border border-slate-700 rounded-xl hover:border-purple-500/30 transition-all group">
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                                            04
+                                        </div>
+                                        <div className="flex-1 text-slate-300">
+                                            <strong className="text-white block text-sm uppercase tracking-wider mb-1">Otimização</strong>
+                                            Implementar funções avançadas como priorização, offload e energy saving.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    Diferente das soluções legadas, este componente está soldado ao PCB e comunica-se com o processador através do
+                                    barramento <strong>PCIe</strong>. Isso garante que a latência seja mínima,
+                                    algo crucial para jogos competitivos e transferências de grandes volumes de dados em redes de alta velocidade.
+                                </p>
+
+                                <div className="bg-slate-800/40 p-6 rounded-xl border-l-4 border-purple-500">
+                                    <p className="text-sm italic text-slate-400">
+                                        "A escolha do chip define não apenas a velocidade (1Gbps a 10Gbps),
+                                        mas também recursos avançados como o offload de hardware,
+                                        que poupa o processador principal de gerenciar pacotes de rede."
+                                    </p>
+                                </div>
+
+                                <p>
+                                    A tecnologia de redes on-board tem passado por avanços significativos ao longo das últimas duas décadas,
+                                    acompanhando a crescente demanda por conexões mais rápidas,
+                                    estáveis e eficientes dentro de computadores pessoais e plataformas profissionais.
+                                    Inicialmente, os controladores ethernet integrados eram soluções básicas de 10/100 Mbps,
+                                    projetadas apenas para fornecer conectividade funcional. Com a popularização do acesso à
+                                    internet de alta velocidade e o aumento do tráfego de dados em ambientes domésticos e corporativos,
+                                    esses chips evoluíram para padrões cada vez mais sofisticados. <br /> <br />
+
+                                    Com isso, surgiram controladores gigabit mais robustos é um dos principais avanços está na implementação
+                                    de mecanismos de offloading, como TCP/UDP Checkssum Offload, Large Send/Recive Offload e Receive Side Scaling
+                                    (RSS). <br /> <br />
+                                    Esses recursos permitem que o próprio controlador de rede realize parte do processamento dos
+                                    pacotes de dados, reduzindo a carga sobre a CPU e aumentando a eficiência global do sistema,
+                                    especialmente em aplicações que envolvem grande volume de tráfego. <br /> <br />
+
+                                    O Intel I219 e Realtek RTL8111, passaram a integrar técnicas offloading, permitindo que o chip assumisse
+                                    tarefas executadas pela CPU, como checksum, TCP segmantion e gerenciamento de interrupções. <br />
+                                    Esses recursos aumentaram a eficiência do sistema e melhoraram o desempenho em transmissões contínuas.
+
+                                    A introdução de ambientes de alta demanda, como jogos competitivos, streaming e redes internas de
+                                    alta velocidade, impulsionou a pesquisa em controladores de menor latência e maior estabilidades.
+                                    Nesse contexto surgiram soluções como killer E2500/E2600, focados em priorização de pacotes. <br /> <br />
+                                    Paralelamente, a difusão de redes domésticas mais rápidas estimulou o desenvolvimento de chis 2.5GbE e,
+                                    posteriormente controladores 5GbE e 10GbE da Aquantia / Marvell, que abriram espaço para aplicações
+                                    profissionais em workstation e servidores diretamente embarcados em placa-mãe premium. <br /> <br />
+                                    Outro avanço importante está na evolução dos drives e da interoperabilidade.
+                                    A maturidade de drivers Intel e Marvell permitiu maior compatibilidade com sistemas
+                                    operacionais modernos e ambientes Linux, essenciais pares infraestrutura corporativa. <br />
+                                    Já os chips Realtek evoluíram de soluções econômicas para o mercado mainstream.
+
+                                    Temos outra evolução marcante que vem revolucionando a questão que envolve eficiência energética,
+                                    presentes em todas as tecnologias Energy Efficient Ethernet (EEE). <br /> <br />
+
+                                    Esses mecanismos ajustam dinamicamente o consumo do controlador,
+                                    reduzindo o gasto energético quando o tráfego é abaixo e tornando as conexões onboard
+                                    mais sustentáveis e adequadas a sistemas modernos de baixo consumo. <br /> <br />
+                                    Por fim, a tendência futura aponta para a consolidação do padrão 2.5GbE como mínimo das placas-mãe modernas,
+                                    além do crescimento de redes híbridas e a integração de Wi-Fi 6/6E e 7 em plataformas modernas
+                                    ampliaram o conceito de rede “onboard” criando subsistemas híbridos de rede,
+                                    combinado módulos Ethernet e wireless em um único subsistema.
+                                    Isso reforça a tendência de que as placas-mãe continuarão incorporando controladores cada vez mais capazes,
+                                    garantindo alto desempenho de rede sem necessidade de hardware dedicado.
+                                </p>
+
+                                    <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-[86%] h-auto object-contain" />
+                                
+
+                            </div>
+
+                            {/* Lado Direito: Especificações e Lista (Compacto) */}
+                            <div className="lg:w-1/3 bg-slate-800/30 p-8 rounded-2xl border border-slate-800">
+
+                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+                                    Os estudos nessa área se concentram <br />
+                                    principalmente
+                                    em três pilares:
+                                </h4>
+
+                                <li className="group">
+                                    <span className="text-purple-400 font-mono text-xs block mb-1">Aumento de banda, </span>
+
+                                </li>
+                                <li className="group">
+                                    <span className="text-purple-400 font-mono text-xs block mb-1">Redução de latência, </span>
+                                </li>
+                                <li className="group">
+                                    <span className="text-purple-400 font-mono text-xs block mb-1">Diminuição da carga sobre o processador. </span>
+                                </li> <br /> <br />
+                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+                                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                    Os mais comuns no mercado são:
+                                </h4>
+
+                                <ul className="space-y-6">
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1"> A) Intel Ethernet</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            <strong>Modelos comuns:</strong> <br />
+                                            Intel I219-V (1Gbps) <br />
+                                            Intel I225-V / I226-V (2.5Gbps) <br /> <br />
+
+                                            <strong>Onde aparece: <br /></strong>
+                                            ASUS TUF Gaming <br />
+                                            ASUS Prime <br />
+                                            Gigabyte Aorus <br />
+                                            MSI Tomahawk / Carbon <br />
+                                            Placas corporativas (Dell / HP / Lenovo OEM) <br /><br />
+
+                                            <strong>Vantagens:</strong> <br />
+                                            Excelente estabilidade <br />
+                                            Drives muito maduros <br />
+                                            Baixo uso de cpu <br />
+                                            Compatibilidade impecável com Windows, Linus e servidores <br />
+                                            Pouquíssima latência <br />
+                                        </p>
+                                        {/* CARD INTEL */}
+                                        <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-blue-500/80 transition-all duration-300 flex flex-col p-6">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="p-3 bg-blue-900/20 rounded-full text-blue-400">
+                                                    <Server size={24} />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-white">Intel Ethernet</h3>
+                                            </div>
+                                            <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
+                                                <p><strong>Modelos:</strong> I219-V, I225-V (2.5G)</p>
+                                                <p>Foco em estabilidade e baixo uso de CPU. Drivers extremamente maduros e compatibilidade impecável com Windows e Linux. É a escolha padrão para Workstations e servidores.</p>
+                                                <div className="bg-blue-900/10 p-3 rounded border border-blue-800/30 text-xs text-blue-300 font-mono">
+                                                    Vantagem: Menor latência real e overhead mínimo.
+                                                </div>
+                                            </div>
+                                        </div> <br />
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1"> B) Killer Networking / Rivet Networks</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            <strong>Modelos comuns:</strong>
+
+                                            E2500 <br />
+                                            E2600 (1Gbps) <br />
+                                            Hoje faz parte da Intel, más mantém o nome “Killer” <br /><br />
+                                            <strong>
+                                                Onde aparece: <br />
+                                            </strong>
+                                            MSI Gaming (Carbon, Edge, Ace) <br />
+                                            Algumas Gigabit Aorus <br />
+                                            Notebooks gamer Alienware,<br />
+                                            MSI e Acer Predador <br /> <br />
+                                            <strong>Vantagens:</strong><br />
+                                            Software com Game Priorization <br />
+                                            QoS automático <br />
+                                            Latência Ligeiramente menor em jogos quando software está ativo <br />
+                                            Integrações com Wi-Fi 6/6E <br /><br />
+                                            <strong>Desvantagens:</strong><br />
+                                            Drivers às vezes problemáticos, <br />
+                                            O software bugado pode piorar a conexão, <br />
+                                            Marketing exagerado, <br />
+                                            (não é “mais rápido” que Intel, só diferente). <br /> <br />
+                                            <strong></strong>
+                                        </p>
+                                        {/* CARD KILLER */}
+                                        <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-red-500/80 transition-all duration-300 flex flex-col p-6">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="p-3 bg-red-900/20 rounded-full text-red-400">
+                                                    <Crosshair size={24} />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-white">Killer Networking</h3>
+                                            </div>
+                                            <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
+                                                <p><strong>Modelos:</strong> E2600, AX1650</p>
+                                                <p>Originalmente Rivet Networks, hoje Intel. Foca no público Gamer com software de priorização de pacotes (QoS automático) para reduzir lag em jogos.</p>
+                                                <div className="bg-red-900/10 p-3 rounded border border-red-800/30 text-xs text-red-300 font-mono">
+                                                    Destaque: Integração Wi-Fi + Ethernet (DoubleShot).
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </li>
+
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">C) Realtek (O Padrão do mercado)</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            <strong>Modelos comuns:</strong>
+
+                                            RTL8111 (1Gbps) <br />
+                                            RTL8125/RTL8125B (2.5Gbps). <br /> <br />
+
+                                            <strong>Onde aparece: <br /> </strong>
+                                            Na grande maioria das placas-mãe de entrada
+                                            e intermediarias: <br />
+                                            ASUS Prime, <br />
+                                            Gigabyte UD, <br />
+                                            MSI Pro, <br />
+                                            ASRock Phanthom. <br /> <br />
+
+                                            <strong>Vantagem: <br /></strong>
+                                            Custo extremamente acessível, permitindo que placas baratas tenham rede 2.5GbE. <br />
+                                            A estabilidade melhorou drasticamente nos chips mais novos (série 8125). <br /><br />
+
+                                            <strong>Desvantagem: <br /></strong>
+                                            Utiliza um pouco mais de ciclos de CPU comparado à Intel
+                                            para realizar as mesmas tarefas (emborada imperceptível em CPUs modernas).
+                                        </p>
+                                    </li> <br />
+                                </ul>
+
+
+                                {/* CARD REALTEK */}
+                                <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-cyan-500/80 transition-all duration-300 flex flex-col p-6">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="p-3 bg-cyan-900/20 rounded-full text-cyan-400">
+                                            <Grid size={24} />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-white">Realtek</h3>
+                                    </div>
+                                    <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
+                                        <p><strong>Modelos:</strong> RTL8125 (2.5G)</p>
+                                        <p>O padrão do mercado mainstream. Custo extremamente acessível, permitindo que placas de entrada tenham rede 2.5Gbps. A estabilidade melhorou muito nas séries recentes.</p>
+                                        <div className="bg-cyan-900/10 p-3 rounded border border-cyan-800/30 text-xs text-cyan-300 font-mono">
+                                            Fato: Democratizou a rede de alta velocidade.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div> <br /> <br />
 
                     <div className="max-w-6xl mx-auto relative z-10">
-                        <div className="text-center mb-16">
-                            <article>
-                            <h2 className="text-4xl font-bold text-white mb-4">A Guerra dos Chips de Rede</h2>
-                            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                                Intel vs. Killer vs. Realtek. Quem gerencia seus pacotes?
-                            </p>
-                            <div className="flex items-center gap-4 mb-12">
-                                <div className="bg-purple-500 h-px w-16"></div>
-                                <span className="text-purple-400 font-mono font-bold text-lg">Rede on-board: Intel, Killer ou RealTek <br /> </span>
-                                <div className="bg-slate-800 h-px flex-1"></div>
-                            </div>
-                            <h3>
-                            O que é um chip de rede on-board? 
-                            </h3>
-                            <p>
-                            É um controlador de rede integrado a placa mãe, responsável por: 
-                            </p>
-                            <p>
-                                <ul>
-                                    <li>Conectar o PC à rede via Ethernet </li>
-                                </ul>
-                            </p>
-                            </article>
-                            
-                        </div>
-
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            {/* CARD INTEL */}
-                            <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-blue-500/80 transition-all duration-300 flex flex-col p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-3 bg-blue-900/20 rounded-full text-blue-400">
-                                        <Server size={24} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white">Intel Ethernet</h3>
-                                </div>
-                                <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
-                                    <p><strong>Modelos:</strong> I219-V, I225-V (2.5G)</p>
-                                    <p>Foco em estabilidade e baixo uso de CPU. Drivers extremamente maduros e compatibilidade impecável com Windows e Linux. É a escolha padrão para Workstations e servidores.</p>
-                                    <div className="bg-blue-900/10 p-3 rounded border border-blue-800/30 text-xs text-blue-300 font-mono">
-                                        Vantagem: Menor latência real e overhead mínimo.
-                                    </div>
-                                </div>
-                            </div>
 
-                            {/* CARD KILLER */}
-                            <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-red-500/80 transition-all duration-300 flex flex-col p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-3 bg-red-900/20 rounded-full text-red-400">
-                                        <Crosshair size={24} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white">Killer Networking</h3>
-                                </div>
-                                <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
-                                    <p><strong>Modelos:</strong> E2600, AX1650</p>
-                                    <p>Originalmente Rivet Networks, hoje Intel. Foca no público Gamer com software de priorização de pacotes (QoS automático) para reduzir lag em jogos.</p>
-                                    <div className="bg-red-900/10 p-3 rounded border border-red-800/30 text-xs text-red-300 font-mono">
-                                        Destaque: Integração Wi-Fi + Ethernet (DoubleShot).
-                                    </div>
-                                </div>
-                            </div>
 
-                            {/* CARD REALTEK */}
-                            <div className="bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-800 overflow-hidden group hover:border-cyan-500/80 transition-all duration-300 flex flex-col p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-3 bg-cyan-900/20 rounded-full text-cyan-400">
-                                        <Grid size={24} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white">Realtek</h3>
-                                </div>
-                                <div className="flex-1 text-slate-400 text-sm text-justify space-y-4">
-                                    <p><strong>Modelos:</strong> RTL8125 (2.5G)</p>
-                                    <p>O padrão do mercado mainstream. Custo extremamente acessível, permitindo que placas de entrada tenham rede 2.5Gbps. A estabilidade melhorou muito nas séries recentes.</p>
-                                    <div className="bg-cyan-900/10 p-3 rounded border border-cyan-800/30 text-xs text-cyan-300 font-mono">
-                                        Fato: Democratizou a rede de alta velocidade.
-                                    </div>
-                                </div>
-                            </div>
+
+
+
+
                         </div>
 
                         {/* BLOCÃO CNVi (Wi-Fi) Estilo Vitrine */}
@@ -1216,6 +1447,237 @@ const MotherboardOnboardArticle = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="relative py-20 bg-slate-900">
+                    {/* Efeito de iluminação suave ao fundo */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+                    <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+                        {/* Cabeçalho Minimalista */}
+                        <header className="mb-12 border-b border-slate-800 pb-8">
+                            <h2 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
+                                A Guerra dos Chips de Rede
+                            </h2>
+                            <p className="text-xl text-slate-400 font-light">
+                                Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
+                            </p>
+                        </header>
+
+                        <div className="flex flex-col lg:flex-row gap-12">
+
+                            {/* Lado Esquerdo: Texto Principal (Espaçoso) */}
+                            <div className="lg:w-2/3 space-y-6 text-slate-300 leading-relaxed text-lg">
+                                <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-2">
+                                    Definição Técnica
+                                </div>
+                                <h3 className="text-2xl font-semibold text-white">O que é um controlador on-board?</h3>
+
+                                <p>
+                                    O chip de rede é um controlador integrado diretamente à placa-mãe, eliminando a necessidade de componentes externos para tarefas básicas de conectividade. Ele atua como o tradutor entre o sistema operacional e o tráfego de dados que viaja pelo cabo Ethernet.
+                                </p>
+
+                                <p>
+                                    Diferente das soluções legadas, este componente está soldado ao PCB e comunica-se com o processador através do barramento <strong>PCIe</strong>. Isso garante que a latência seja mínima, algo crucial para jogos competitivos e transferências de grandes volumes de dados em redes de alta velocidade.
+                                </p>
+
+                                <div className="bg-slate-800/40 p-6 rounded-xl border-l-4 border-purple-500">
+                                    <p className="text-sm italic text-slate-400">
+                                        "A escolha do chip define não apenas a velocidade (1Gbps a 10Gbps), mas também recursos avançados como o offload de hardware, que poupa o processador principal de gerenciar pacotes de rede."
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Lado Direito: Especificações e Lista (Compacto) */}
+                            <div className="lg:w-1/3 bg-slate-800/30 p-8 rounded-2xl border border-slate-800">
+                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+                                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                    Responsabilidades do Chip
+                                </h4>
+
+                                <ul className="space-y-6">
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">01. CONEXÃO</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Interface física para redes via Ethernet.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">02. TRÁFEGO</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Gerenciamento inteligente de pacotes de dados.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">03. PERFORMANCE</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Priorização, offload e modos de economia de energia.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">04. ESCALABILIDADE</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Suporte a velocidades de 1, 2.5 e 10 Gbps.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section className="relative py-20 overflow-hidden">
+                    {/* Efeito de luz de fundo (Blur) */}
+                    <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+                    <div className="max-w-6xl mx-auto px-4 relative z-10">
+                        <article>
+                            {/* Cabeçalho */}
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold text-white mb-4">A Guerra dos Chips de Rede</h2>
+                                <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+                                    Intel vs. Killer vs. Realtek. Quem gerencia seus pacotes?
+                                </p>
+                            </div>
+
+                            {/* Linha Divisora Estilizada */}
+                            <div className="flex items-center gap-4 mb-12">
+                                <div className="bg-purple-500 h-px w-16"></div>
+                                <span className="text-purple-400 font-mono font-bold text-sm uppercase tracking-widest">
+                                    Rede on-board: O Coração da Conectividade
+                                </span>
+                                <div className="bg-slate-800 h-px flex-1"></div>
+                            </div>
+
+                            {/* Grid de Conteúdo */}
+                            <div className="grid lg:grid-cols-3 gap-8 items-start">
+
+                                {/* Coluna da Esquerda: O que é */}
+                                <div className="lg:col-span-1 space-y-6">
+                                    <h3 className="text-2xl font-semibold text-white">
+                                        O que é um chip de rede on-board?
+                                    </h3>
+                                    <p className="text-slate-400 leading-relaxed">
+                                        É um controlador de rede integrado diretamente à placa-mãe. Diferente das placas de expansão antigas, este componente é soldado ao PCB para otimizar espaço e latência.
+                                    </p>
+                                    <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
+                                        <p className="text-sm text-blue-200">
+                                            <span className="font-bold text-blue-400">Nota Técnica:</span> Esse chip utiliza o barramento <strong>PCIe</strong> para se comunicar com o sistema em altíssima velocidade.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Coluna da Direita: Funções em Cards */}
+                                <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
+                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+                                        <div className="text-purple-400 mb-3 text-2xl">🌐</div>
+                                        <h4 className="text-white font-bold mb-2">Conexão Física</h4>
+                                        <p className="text-sm text-slate-400 font-light">Ponto de entrada para cabos Ethernet, garantindo o link físico estável.</p>
+                                    </div>
+
+                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+                                        <div className="text-purple-400 mb-3 text-2xl">📦</div>
+                                        <h4 className="text-white font-bold mb-2">Gestão de Pacotes</h4>
+                                        <p className="text-sm text-slate-400 font-light">Organiza o tráfego de dados que entra e sai, evitando colisões e perdas.</p>
+                                    </div>
+
+                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+                                        <div className="text-purple-400 mb-3 text-2xl">🚀</div>
+                                        <h4 className="text-white font-bold mb-2">Controle de Banda</h4>
+                                        <p className="text-sm text-slate-400 font-light">Suporte nativo para velocidades de 1Gbps, 2.5Gbps até 10Gbps em placas premium.</p>
+                                    </div>
+
+                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+                                        <div className="text-purple-400 mb-3 text-2xl">🛡️</div>
+                                        <h4 className="text-white font-bold mb-2">Funções Avançadas</h4>
+                                        <p className="text-sm text-slate-400 font-light">Priorização de jogos (QoS), Offload de processamento e economia de energia.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section className="relative py-20 bg-slate-900">
+                    {/* Efeito de iluminação suave ao fundo */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+                    <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+                        {/* Cabeçalho Minimalista */}
+                        <header className="mb-12 border-b border-slate-800 pb-8">
+                            <h2 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
+                                A Guerra dos Chips de Rede
+                            </h2>
+                            <p className="text-xl text-slate-400 font-light">
+                                Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
+                            </p>
+                        </header>
+
+                        <div className="flex flex-col lg:flex-row gap-12">
+
+                            {/* Lado Esquerdo: Texto Principal (Espaçoso) */}
+                            <div className="lg:w-2/3 space-y-6 text-slate-300 leading-relaxed text-lg">
+                                <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-2">
+                                    Definição Técnica
+                                </div>
+                                <h3 className="text-2xl font-semibold text-white">O que é um controlador on-board?</h3>
+
+                                <p>
+                                    O chip de rede é um controlador integrado diretamente à placa-mãe, eliminando a necessidade de componentes externos para tarefas básicas de conectividade. Ele atua como o tradutor entre o sistema operacional e o tráfego de dados que viaja pelo cabo Ethernet.
+                                </p>
+
+                                <p>
+                                    Diferente das soluções legadas, este componente está soldado ao PCB e comunica-se com o processador através do barramento <strong>PCIe</strong>. Isso garante que a latência seja mínima, algo crucial para jogos competitivos e transferências de grandes volumes de dados em redes de alta velocidade.
+                                </p>
+
+                                <div className="bg-slate-800/40 p-6 rounded-xl border-l-4 border-purple-500">
+                                    <p className="text-sm italic text-slate-400">
+                                        "A escolha do chip define não apenas a velocidade (1Gbps a 10Gbps), mas também recursos avançados como o offload de hardware, que poupa o processador principal de gerenciar pacotes de rede."
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Lado Direito: Especificações e Lista (Compacto) */}
+                            <div className="lg:w-1/3 bg-slate-800/30 p-8 rounded-2xl border border-slate-800">
+                                <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+                                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                                    Responsabilidades do Chip
+                                </h4>
+
+                                <ul className="space-y-6">
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">01. CONEXÃO</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Interface física para redes via Ethernet.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">02. TRÁFEGO</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Gerenciamento inteligente de pacotes de dados.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">03. PERFORMANCE</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Priorização, offload e modos de economia de energia.
+                                        </p>
+                                    </li>
+                                    <li className="group">
+                                        <span className="text-purple-400 font-mono text-xs block mb-1">04. ESCALABILIDADE</span>
+                                        <p className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
+                                            Suporte a velocidades de 1, 2.5 e 10 Gbps.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -1561,7 +2023,7 @@ const MotherboardOnboardArticle = () => {
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     );
 };
 
