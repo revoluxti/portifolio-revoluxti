@@ -875,12 +875,12 @@ const MotherboardOnboardArticle = () => {
                                 “Segundo datasheet oficial da Realtek (2017) e as análises técnicas da Audio Science Review (2020),
                                 chips modernos como o ALC1220/4080 já entregam 120dB de SNR e utilizam mesma construção de
                                 capacitores japoneses de placas dedicadas, tornando o áudio off-board desnecessários para o consumo de mídia,
-                                exceto em cenários de produção musical profissional.”                             
-                                </p>
+                                exceto em cenários de produção musical profissional.”
+                            </p>
                         </footer> <br /> <br />
                         <h3 className="text-xl font-semibold text-white mb-6">
-                                Exemplos de placas que utilizam controladores Realtek ALC897
-                            </h3>
+                            Exemplos de placas que utilizam controladores Realtek ALC897
+                        </h3>
                         <div className="max-w-4xl mx-auto my-12 p-6 bg-slate-800/40 border border-slate-700 rounded-2xl overflow-hidden">
 
                             {/* Título de chamada */}
@@ -949,7 +949,7 @@ const MotherboardOnboardArticle = () => {
                                         />
                                     </div>
                                     <p className="mt-3 text-xs text-slate-500 italic">
-                                    (GIGABYTE TechnologyCo,2025).
+                                        (GIGABYTE TechnologyCo,2025).
                                     </p>
                                 </div>
 
@@ -972,13 +972,13 @@ const MotherboardOnboardArticle = () => {
 
                                     <div className="pt-4 border-t border-slate-700">
                                         <ul className="text-sm space-y-2">
-                                            
+
                                             <li className="flex items-center gap-2">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                                                Suporta processadores AMD Ryzen™<br /> 
+                                                Suporta processadores AMD Ryzen™<br />
                                                 5000 Series/5000 G-Series/ 4000 G-Series/ 3000 Series.
 
-                                                 
+
                                             </li>
                                             <li className="flex items-center gap-2">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
@@ -987,7 +987,116 @@ const MotherboardOnboardArticle = () => {
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <h3 className="text-xl font-semibold text-white mb-6">
+                            Veja a seguir dois exemplos de placas-mãe com ALC4080:
+                        </h3>
+                        <div className="max-w-4xl mx-auto my-12 p-6 bg-slate-800/40 border border-slate-700 rounded-2xl overflow-hidden">
 
+                            <div className="flex flex-col md:flex-row items-center gap-8">
+
+                                {/* Container da Imagem */}
+                                <div className="w-full md:w-1/2 group">
+                                    <div className="relative overflow-hidden rounded-xl bg-slate-900 p-2 border border-slate-700 group-hover:border-blue-500/50 transition-colors">
+                                        <img
+                                            src="ASUS-Pro-WS-WRX80E-SAGE-SE-WIFI.webp"
+                                            alt="ASUS Pro WS WRX80E-SAGE SE WIFI   "
+                                            className="w-full h-auto object-cover rounded-lg"
+                                        />
+                                    </div>
+                                    <p className="mt-3 text-xs text-slate-500 italic">
+                                        (ASUSTek Computer Inc. 2025).
+                                    </p>
+                                </div>
+
+                                {/* Coluna de Texto */}
+                                <div className="w-full md:w-1/2 space-y-4 text-slate-300">
+                                    <div>
+                                        <h4 className="text-lg font-bold text-blue-400">
+                                            ASUS Pro WS WRX80E-SAGE SE WIFI
+                                        </h4>
+                                        <p className="text-sm font-medium text-emerald-400 mt-1">
+                                            Valor médio de mercado: 10.999.90..
+                                        </p>
+                                    </div>
+
+                                    <p className="text-sm leading-relaxed">
+                                        Projetado para liberar o incrível poder dos mais recentes processadores
+                                        da série AMD Ryzen Threadrippper PRO. Conectividade Ultrarrápida: porta USB 3.2 Gen2.
+
+                                    </p>
+
+                                    <div className="pt-4 border-t border-slate-700">
+                                        <ul className="text-sm space-y-2">
+
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Novo padrão que duplica a largura de banda de transferência <br />
+                                                para atingir a sua taxa de transferência máxima de até 20Gbps.
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+                                                Debitis perferendis provident facilis
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="max-w-4xl mx-auto my-12 p-6 bg-slate-800/40 border border-slate-700 rounded-2xl overflow-hidden">
+                            <div className="flex flex-col md:flex-row items-center gap-8">
+
+                                {/* Container da Imagem */}
+                                <div className="w-full md:w-1/2 group">
+                                    <div className="relative overflow-hidden rounded-xl bg-slate-900 p-2 border border-slate-700 group-hover:border-blue-500/50 transition-colors">
+                                        <img
+                                            src="ASUS-ROG-Maximus-Z790-Apex.webp"
+                                            alt="Gigabyte B550M "
+                                            className="w-full h-auto object-cover rounded-lg"
+                                        />
+                                    </div>
+                                    <p className="mt-3 text-xs text-slate-500 italic">
+                                        (ASUSTek Computer Inc. 2025) .
+                                    </p>
+                                </div>
+
+                                {/* Coluna de Texto */}
+                                <div className="w-full md:w-1/2 space-y-4 text-slate-300">
+                                    <div>
+                                        <h4 className="text-lg font-bold text-orange-400">
+                                            ASUS ROG Maximus Z790 Apex
+                                        </h4>
+                                        <p className="text-sm font-medium text-red-400 mt-1">
+                                            Valor médio de mercado: R$6.499.90.
+                                        </p>
+                                    </div>
+
+                                    <p className="text-sm leading-relaxed">
+                                        Conta com um sistema de fornecimento de energia e refrigeração que aumenta a
+                                        capacidade podendo atingir mais de 6Hz com os mais recentes processadores
+                                        Intel ® Core ™ 13° Geração.
+
+                                    </p>
+
+                                    <div className="pt-4 border-t border-slate-700">
+                                        <ul className="text-sm space-y-2">
+
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Otimizações de rastreamento da PCB permitem<br />
+                                                que a DDR5 suporte velocidades e frequências <br />
+                                                muito além das capacidades dos DIMM de 4 slots.
+                                            </li>
+                                            <li className="flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+                                                Saepe quaerat iusto laboriosam iue,
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -1002,10 +1111,29 @@ const MotherboardOnboardArticle = () => {
 
                     <div className="max-w-6xl mx-auto relative z-10">
                         <div className="text-center mb-16">
+                            <article>
                             <h2 className="text-4xl font-bold text-white mb-4">A Guerra dos Chips de Rede</h2>
                             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
                                 Intel vs. Killer vs. Realtek. Quem gerencia seus pacotes?
                             </p>
+                            <div className="flex items-center gap-4 mb-12">
+                                <div className="bg-purple-500 h-px w-16"></div>
+                                <span className="text-purple-400 font-mono font-bold text-lg">Rede on-board: Intel, Killer ou RealTek <br /> </span>
+                                <div className="bg-slate-800 h-px flex-1"></div>
+                            </div>
+                            <h3>
+                            O que é um chip de rede on-board? 
+                            </h3>
+                            <p>
+                            É um controlador de rede integrado a placa mãe, responsável por: 
+                            </p>
+                            <p>
+                                <ul>
+                                    <li>Conectar o PC à rede via Ethernet </li>
+                                </ul>
+                            </p>
+                            </article>
+                            
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
