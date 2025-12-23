@@ -238,10 +238,9 @@ const MotherboardOnboardArticle = () => {
 
                                 {/* Coluna Direita: Imagem Tunnel e Cards */}
                                 <div className="md:col-span-7 space-y-6 relative z-10 mt-8 md:mt-0">
-                                    <div className="w-full aspect-video bg-slate-600 rounded-xl border-4 border-slate-700 flex items-center justify-center relative overflow-hidden group shadow-2xl">
 
-                                        <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
-                                    </div>
+                                    <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
+
                                     <div className="bg-slate-900/50 p-4 rounded border-l-2 border-cyan-500 text-sm text-slate-400 italic">
                                         "A placa-mãe moderna atua como a espinha dorsal, integrando controladores que antes exigiam hardware separado, otimizando custos e espaço."
                                     </div>
@@ -1032,12 +1031,12 @@ const MotherboardOnboardArticle = () => {
                                         <ul className="text-sm space-y-2">
 
                                             <li className="flex items-center gap-2">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                                                 Novo padrão que duplica a largura de banda de transferência <br />
                                                 para atingir a sua taxa de transferência máxima de até 20Gbps.
                                             </li>
                                             <li className="flex items-center gap-2">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
                                                 Debitis perferendis provident facilis
                                             </li>
@@ -1237,6 +1236,7 @@ const MotherboardOnboardArticle = () => {
                                     Esses mecanismos ajustam dinamicamente o consumo do controlador,
                                     reduzindo o gasto energético quando o tráfego é abaixo e tornando as conexões onboard
                                     mais sustentáveis e adequadas a sistemas modernos de baixo consumo. <br /> <br />
+
                                     Por fim, a tendência futura aponta para a consolidação do padrão 2.5GbE como mínimo das placas-mãe modernas,
                                     além do crescimento de redes híbridas e a integração de Wi-Fi 6/6E e 7 em plataformas modernas
                                     ampliaram o conceito de rede “onboard” criando subsistemas híbridos de rede,
@@ -1447,7 +1447,7 @@ const MotherboardOnboardArticle = () => {
 
                                             3- Bluethooth: O módulo Wi-Fi sempre gerencia também o bluethooth.
                                             Economizando portas USB internas e unificando os drives.
-                                        </p>
+                                        </p> <br />
 
                                         <div className="space-y-4">
                                             {/* Bloco Ethernet */}
@@ -1456,7 +1456,7 @@ const MotherboardOnboardArticle = () => {
                                                 <p className="text-slate-200 text-sm">
                                                     Este é o <strong>componente soldado</strong> ao PCB. Ele utiliza o barramento PCIe para otimizar espaço e garantir a menor latência possível em conexões via cabo.
                                                 </p>
-                                            </div>
+                                            </div> <br /> 
 
                                             {/* Bloco Wi-Fi */}
                                             <div className="p-4 bg-slate-800/50 border-l-4 border-purple-500 rounded-r-xl">
@@ -1566,37 +1566,59 @@ const MotherboardOnboardArticle = () => {
                                     <div className="absolute -right-20 -top-20 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-yellow-500/20 transition-colors"></div>
 
                                     <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                                        <div className="flex-1">
-                                            <h3 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
-                                                <Wifi className="text-yellow-400" /> A Revolução CNVi
-                                            </h3>
-                                            <p className="text-slate-300 text-lg text-justify leading-relaxed mb-4">
-                                                Diferente do que muitos pensam, o Wi-Fi moderno raramente é soldado na placa.
-                                                A Intel criou a arquitetura <strong>CNVi (Integrated Connectivity)</strong>, que moveu a parte lógica cara (MAC) para dentro do Processador/Chipset.
-                                            </p>
-                                            <p className="text-slate-400 text-sm text-justify">
-                                                O módulo M.2 que você vê (CRF - Companion RF) contém apenas a antena física.
-                                                Isso barateou drasticamente a implementação do Wi-Fi 6 e 7, tornando-o padrão em placas intermediárias.
-                                            </p>
-                                        </div>
-                                        <div className="w-full md:w-1/3">
-                                            <div className="aspect-video bg-slate-950 rounded-xl border border-slate-700 flex items-center justify-center shadow-inner">
-                                                {/* Placeholder Imagem Wi-Fi */}
-                                                <Wifi size={80} className="text-yellow-600/50" />
-                                                <span className="absolute bottom-4 text-xs font-mono text-slate-500">Módulo M.2 Key-E</span>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+
+                                            {/* Coluna de texto */}
+                                            <div className="flex flex-col justify-center space-y-4">
+                                                <h3 className="text-3xl font-bold text-white mb-4 flex items-center gap-3">
+                                                    <Wifi className="text-yellow-400" /> A Revolução CNVi
+                                                </h3>
+
+                                                <p className="text-slate-300 leading-relaxed">
+
+                                                    "Diferente do que muitos pensam, o Wi-Fi moderno raramente é soldado na placa. <br />
+                                                    A Intel criou a arquitetura CNVi (Integrated Connectivity), deslocando a lógica MAC (Media Access Control) e o
+                                                    processador de rede para dentro do próprio Processador ou Chipset. <br />
+
+                                                    Isso transformou o 'chip' de Wi-Fi em um sistema híbrido e modular: <br />
+                                                    1. O "Cérebro" (MAC): Fica integrado ao processador ou ao chipset da placa-mãe, reduzindo custos e complexidade. <br /> <br />
+                                                    O "Rádio" (CRF): <br />
+                                                    2. O módulo M.2 que vemos (CRF - Companion RF) contém apenas os componentes de radiofrequência e a antena física. <br /> <br />
+                                                    Vantagem Técnica: <br />
+                                                    3. Essa arquitetura barateou drasticamente a implementação do Wi-Fi 6 e 7, tornando-o um padrão acessível até em placas intermediárias,
+                                                    sem ocupar o espaço de um chip soldado tradicional." <br /> <br />
+                                                </p>
+
+
+                                            </div>
+                                            {/* Coluna da imagem */}
+                                            <div>
+                                                <TunnelImage src="module-M.2-(CRF - Companion RF)-antena-física.webp" alt="Evolução Placa Mãe" className="w-[86%] h-auto object-contain" />
+                                                <p>
+                                                    O que você vê conectado à placa-mãe é apenas o módulo CRF
+                                                    (Companion RF). Este módulo M.2 Key-E contém apenas a parte analógica de rádio e a antena física.
+                                                    Essa abordagem reduz custos, diminui o consumo de energia e permite que o fabricante da placa-mãe
+                                                    ofereça conectividade sem fio de alta velocidade sem ocupar espaço precioso com circuitos complexos soldados,
+                                                    facilitando também futuras manutenções ou upgrades de padrão."
+                                                </p> <br />
+                                                <p className="text-slate-400 text-sm">
+                                                    O módulo M.2 (CRF – Companion RF) contém apenas o RF físico, reduzindo custos
+                                                    e viabilizando Wi-Fi 6 e 7 como padrão.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> <br /> <br />
 
                             {/* Linha Divisora Estilizada */}
                             <div className="flex items-center gap-4 mb-12">
                                 <div className="bg-purple-500 h-px w-16"></div>
                                 <span className="text-purple-400 font-mono font-bold text-sm uppercase tracking-widest">
-                                    ############### -  EM ANDAMENTO -############################
+                                    <h2>Controle de disco SAT e NVMe</h2>
                                 </span>
-                                <div className="bg-slate-800 h-px flex-1"></div>
+
                             </div>
 
                             {/* Grid de Conteúdo */}
@@ -1604,50 +1626,95 @@ const MotherboardOnboardArticle = () => {
 
                                 {/* Coluna da Esquerda: O que é */}
                                 <div className="lg:col-span-1 space-y-6">
-                                    <h3 className="text-2xl font-semibold text-white">
-                                        #####################
-                                    </h3>
+
                                     <p className="text-slate-400 leading-relaxed">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas debitis ea dolore, reiciendis ab architecto aperiam perferendis inventore, a error,
-                                        voluptatibus maxime quisquam cum? Quam velit sapiente corporis? Libero, consequuntur.
+                                        Embora chips auxiliares (como ASMedia ou Marvell) ainda existam em placas premium para adicionar portas extras,
+                                        90% do controle de armazenamento hoje é feito diretamente pelo Chip (PCH – Platform Controller Hub). <br />
+                                        (que chegam a 7.000MB/s ou mais) conectados diretamente às linhas PCIe do processador ou do chipset. <br />
+                                        Mas as placas on-board hoje em dia são boas o suficiente para 95% do pessoal (não para gamer raiz nem engenheiro de IA). <br /> <br />
+                                        Antigamente com uma reputação duvidosa, que parecia brinquedo de feira.
+                                        A vantagem das placas on-board em comparação as placas off-board está no custo reduzido em comparação a uma arquitetura totalmente modular (off-board)
                                     </p>
-                                    <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
-                                        <p className="text-sm text-blue-200">
-                                            <span className="font-bold text-blue-400">Nota Técnica:</span> ###############
-                                        </p>
-                                    </div>
+
+
                                 </div>
+
 
                                 {/* Coluna da Direita: Funções em Cards */}
                                 <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-                                        <div className="text-purple-400 mb-3 text-2xl">🌐</div>
-                                        <h4 className="text-white font-bold mb-2">###############################3</h4>
-                                        <p className="text-sm text-slate-400 font-light">###################################</p>
-                                    </div>
-
-                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-                                        <div className="text-purple-400 mb-3 text-2xl">📦</div>
-                                        <h4 className="text-white font-bold mb-2">###############################</h4>
-                                        <p className="text-sm text-slate-400 font-light">#############################</p>
-                                    </div>
-
-                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
                                         <div className="text-purple-400 mb-3 text-2xl">🚀</div>
-                                        <h4 className="text-white font-bold mb-2">######################</h4>
-                                        <p className="text-sm text-slate-400 font-light">###################################</p>
+                                        <p className="text-sm text-slate-400 font-light">
+                                            - Isso garante menor latência, pois a comunicação é nativa. <br /> <br />
+                                            A tendência atual é a redução das portas SATA (limitadas a 600MB/s) em favor dos slots M.2 NVMe
+                                            (que chegam a 7.000MB/s ou mais) conectados diretamente às linhas PCIe do processador ou do chipset.
+
+                                        </p>
                                     </div>
 
                                     <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-                                        <div className="text-purple-400 mb-3 text-2xl">🛡️</div>
-                                        <h4 className="text-white font-bold mb-2">#######################3</h4>
-                                        <p className="text-sm text-slate-400 font-light">##################################</p>
+
+                                        <h4 className="text-white font-bold mb-2">Wi-Fi on-board:</h4>
+                                        <p className="text-sm text-slate-400 font-light">Chipset próprio, tipo Intel AX200 ou Qualcomm Atheros.</p> <br />
+                                        <h4 className="text-white font-bold mb-2">Controle de disco SATA:</h4>
+                                        <p className="text-sm text-slate-400 font-light">Chips Marvel, ASMedia, etc., integrados ao southbridge ou separados.</p>
+
                                     </div>
+                                    <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
+                                        <p className="text-sm text-blue-200">
+                                            <span className="font-bold text-blue-400">Nota Técnica: <br /> </span>
+                                            Mas as placas on-board hoje em dia são boas o suficiente para 95% do pessoal (não para gamer raiz nem engenheiro de IA). Antigamente com uma reputação duvidosa, que parecia brinquedo de feira.
+
+                                            A vantagem das placas on-board em comparação as placas off-board está no custo reduzido em comparação a uma arquitetura totalmente modular (off-board).
+                                        </p>
+                                    </div>
+                                    <p>
+                                        <h4> <strong>Desempenho:</strong> </h4>
+                                        Na comparação entre desempenho, é um ponto crítico na análise de soluções on-board,
+                                        especialmente em sistemas de entrada,
+                                        tudo por conta da arquitetura de memória unificada e pela ausência de recursos dedicados,
+                                        o impacto é proporcional à carga de trabalho e às limitações do barramento.
+                                        O principal vilão é o vídeo on-board (gráfico integrado).
+                                    </p>
                                 </div>
                             </div>
                         </article>
+                    </div> <br /> <br />
+
+                    <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
+
+
+                        <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+
+                            <h4 className="text-white font-bold mb-2">Explicação sólida: </h4>
+                            <p className="text-sm text-slate-400 font-light">
+                                Economia de escala: Fabricar placa-mãe com áudio, vídeo e rede on-board é muito mais barato porque os
+                                fabricantes compram toneladas de microchips padronizados a preço muito barato.
+                            </p> <br />
+                            <h4 className="text-white font-bold mb-2">Menos componentes físicos extras:</h4>
+                            <p className="text-sm text-slate-400 font-light">
+                                Se fosse tudo off-board, cada usuário teria que comprar placas dedicadas. Isso é igual a mais peças, mais logística, mais suporte técnico, mais custo de produção e de estoque.
+
+                            </p>
+
+                        </div>
+
+                        <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+
+                            <h4 className="text-white font-bold mb-2">Facilidade de design e montagem: </h4>
+                            <p className="text-sm text-slate-400 font-light">
+                                Uma placa-mãe integrada é mais simples de montar na fábrica.
+                                Soldou os chips no PCB, já era, reduz custo de mão de obra e de testes.
+                            </p> <br />
+                            <h4 className="text-white font-bold mb-2">Mercado mainstream:</h4>
+                            <p className="text-sm text-slate-400 font-light">
+                                O consumidor médio (e até gamer casual) não quer ter que comprar placa de som, placa de rede, placa de vídeo separadas. Isso força o mercado a padronizar on-board como default para manter os preços agressivos.
+                            </p>
+                        </div>
                     </div>
+
                 </section>
+
 
 
 
