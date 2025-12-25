@@ -1119,7 +1119,7 @@ const MotherboardOnboardArticle = () => {
                             <p className="text-xl text-slate-400 font-light">
                                 Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
                             </p>
-                            
+
                         </header>
 
                         <div className="flex flex-col lg:flex-row gap-12">
@@ -1457,7 +1457,7 @@ const MotherboardOnboardArticle = () => {
                                                 <p className="text-slate-200 text-sm">
                                                     Este é o <strong>componente soldado</strong> ao PCB. Ele utiliza o barramento PCIe para otimizar espaço e garantir a menor latência possível em conexões via cabo.
                                                 </p>
-                                            </div> <br /> 
+                                            </div> <br />
 
                                             {/* Bloco Wi-Fi */}
                                             <div className="p-4 bg-slate-800/50 border-l-4 border-purple-500 rounded-r-xl">
@@ -1609,186 +1609,184 @@ const MotherboardOnboardArticle = () => {
                                 </div>
                             </div> <br /> <br />
                             <section>
-                    <SectionHeader
-                        icon={Wifi}
-                        title="Network Stack"
-                        subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
-                        color="cyan"
-                    />
+                                <SectionHeader
+                                    icon={Wifi}
+                                    title="Network Stack"
+                                    subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
+                                    color="cyan"
+                                />
 
-                    {/* Navegação de Abas */}
-                    <div className="flex gap-2 mb-6 border-b border-slate-800">
-                        {['intel', 'killer', 'realtek'].map((chip) => (
-                            <button
-                                key={chip}
-                                onClick={() => setNetworkTab(chip)}
-                                className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
-                                    ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
-                                    : 'border-transparent text-slate-500 hover:text-slate-300'
-                                    }`}
-                            >
-                                {chip}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
-                        {/* Conteúdo Dinâmico */}
-                        <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
-                            {networkTab === 'intel' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
-                                    <p className="text-slate-300 mb-4 text-sm"></p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'killer' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
-                                    <p className="text-slate-300 mb-4 text-sm"></p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'realtek' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
-                                    <p className="text-slate-300 mb-4 text-sm"></p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Card CNVi */}
-                        <TechCard className="border-yellow-500/20">
-                            <div className="flex items-center gap-3 mb-4">
-                                <Wifi className="text-yellow-400" />
-                                <h3 className="font-bold text-white">Arquitetura CNVi</h3>
-                            </div>
-                            <p className="text-sm text-slate-300 mb-4 text-justify">
-                                O Wi-Fi "on-board" moderno raramente é soldado. A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity).
-                            </p>
-                            <div className="space-y-2 text-xs font-mono text-slate-400">
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
-                                </div>
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">2. Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física.
-                                </div>
-                            </div>
-                        </TechCard>
-                    </div>
-                </section> <br /> <br />
-
-                            {/* Linha Divisora Estilizada */}
-                            <div className="flex items-center gap-4 mb-12">
-                                <div className="bg-purple-500 h-px w-16"></div>
-                                <span className="text-purple-400 font-mono font-bold text-sm uppercase tracking-widest">
-                                    <h2>Controle de disco SAT e NVMe</h2>
-                                </span>
-
-                            </div>
-
-                            {/* Grid de Conteúdo */}
-                            <div className="grid lg:grid-cols-3 gap-8 items-start">
-
-                                {/* Coluna da Esquerda: O que é */}
-                                <div className="lg:col-span-1 space-y-6">
-
-                                    <p className="text-slate-400 leading-relaxed">
-                                        Embora chips auxiliares (como ASMedia ou Marvell) ainda existam em placas premium para adicionar portas extras,
-                                        90% do controle de armazenamento hoje é feito diretamente pelo Chip (PCH – Platform Controller Hub). <br />
-                                        (que chegam a 7.000MB/s ou mais) conectados diretamente às linhas PCIe do processador ou do chipset. <br />
-                                        Mas as placas on-board hoje em dia são boas o suficiente para 95% do pessoal (não para gamer raiz nem engenheiro de IA). <br /> <br />
-                                        Antigamente com uma reputação duvidosa, que parecia brinquedo de feira.
-                                        A vantagem das placas on-board em comparação as placas off-board está no custo reduzido em comparação a uma arquitetura totalmente modular (off-board)
-                                    </p>
+                                {/* Navegação de Abas */}
+                                <div className="flex gap-2 mb-6 border-b border-slate-800">
+                                    {['intel', 'killer', 'realtek'].map((chip) => (
+                                        <button
+                                            key={chip}
+                                            onClick={() => setNetworkTab(chip)}
+                                            className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
+                                                ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
+                                                : 'border-transparent text-slate-500 hover:text-slate-300'
+                                                }`}
+                                        >
+                                            {chip}
+                                        </button>
+                                    ))}
                                 </div>
 
-                                {/* Coluna da Direita: Funções em Cards */}
-                                <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
-                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-                                        <div className="text-purple-400 mb-3 text-2xl">🚀</div>
-                                        <p className="text-sm text-slate-400 font-light">
-                                            - Isso garante menor latência, pois a comunicação é nativa. <br /> <br />
-                                            A tendência atual é a redução das portas SATA (limitadas a 600MB/s) em favor dos slots M.2 NVMe
-                                            (que chegam a 7.000MB/s ou mais) conectados diretamente às linhas PCIe do processador ou do chipset.
+                                <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
+                                    {/* Conteúdo Dinâmico */}
+                                    <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                                        {networkTab === 'intel' && (
+                                            <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                                <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
+                                                <p className="text-slate-300 mb-4 text-sm"></p>
+                                                <ul className="space-y-3 text-sm text-slate-400">
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {networkTab === 'killer' && (
+                                            <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                                <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
+                                                <p className="text-slate-300 mb-4 text-sm"></p>
+                                                <ul className="space-y-3 text-sm text-slate-400">
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {networkTab === 'realtek' && (
+                                            <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                                <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
+                                                <p className="text-slate-300 mb-4 text-sm"></p>
+                                                <ul className="space-y-3 text-sm text-slate-400">
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
+                                                    <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
 
+                                    {/* Card CNVi */}
+                                    <TechCard className="border-yellow-500/20">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <Wifi className="text-yellow-400" />
+                                            <h3 className="font-bold text-white">Arquitetura CNVi</h3>
+                                        </div>
+                                        <p className="text-sm text-slate-300 mb-4 text-justify">
+                                            O Wi-Fi "on-board" moderno raramente é soldado. A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity).
                                         </p>
-                                    </div>
-
-                                    <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-
-                                        <h4 className="text-white font-bold mb-2">Wi-Fi on-board:</h4>
-                                        <p className="text-sm text-slate-400 font-light">Chipset próprio, tipo Intel AX200 ou Qualcomm Atheros.</p> <br />
-                                        <h4 className="text-white font-bold mb-2">Controle de disco SATA:</h4>
-                                        <p className="text-sm text-slate-400 font-light">Chips Marvel, ASMedia, etc., integrados ao southbridge ou separados.</p>
-
-                                    </div>
-                                    <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
-                                        <p className="text-sm text-blue-200">
-                                            <span className="font-bold text-blue-400">Nota Técnica: <br /> </span>
-                                            Mas as placas on-board hoje em dia são boas o suficiente para 95% do pessoal (não para gamer raiz nem engenheiro de IA). Antigamente com uma reputação duvidosa, que parecia brinquedo de feira.
-
-                                            A vantagem das placas on-board em comparação as placas off-board está no custo reduzido em comparação a uma arquitetura totalmente modular (off-board).
-                                        </p>
-                                    </div>
-                                    <p>
-                                        <h4> <strong>Desempenho:</strong> </h4>
-                                        Na comparação entre desempenho, é um ponto crítico na análise de soluções on-board,
-                                        especialmente em sistemas de entrada,
-                                        tudo por conta da arquitetura de memória unificada e pela ausência de recursos dedicados,
-                                        o impacto é proporcional à carga de trabalho e às limitações do barramento.
-                                        O principal vilão é o vídeo on-board (gráfico integrado).
-                                    </p>
+                                        <div className="space-y-2 text-xs font-mono text-slate-400">
+                                            <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                                <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
+                                            </div>
+                                            <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                                <span className="text-yellow-500">2. Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física.
+                                            </div>
+                                        </div>
+                                    </TechCard>
                                 </div>
-                            </div>
+                            </section> <br /> <br />
+
+
                         </article>
                     </div> <br /> <br />
 
-                    <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
 
+                </section>
 
-                        <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
+                {/* =====================================================================================
+                    SEÇÃO: EVOLUÇÃO DO VÍDEO E UMA
+                    ===================================================================================== */}
+                <div className="space-y-8 max-w-4xl mx-auto my-16">
 
-                            <h4 className="text-white font-bold mb-2">Explicação sólida: </h4>
-                            <p className="text-sm text-slate-400 font-light">
-                                Economia de escala: Fabricar placa-mãe com áudio, vídeo e rede on-board é muito mais barato porque os
-                                fabricantes compram toneladas de microchips padronizados a preço muito barato.
-                            </p> <br />
-                            <h4 className="text-white font-bold mb-2">Menos componentes físicos extras:</h4>
-                            <p className="text-sm text-slate-400 font-light">
-                                Se fosse tudo off-board, cada usuário teria que comprar placas dedicadas. Isso é igual a mais peças, mais logística, mais suporte técnico, mais custo de produção e de estoque.
-                            </p>
+                    {/* 1. TÍTULO ESTILIZADO (Centralizado com Gradiente) */}
+                    <div className="flex items-center justify-center gap-4">
+                        <div className="bg-gradient-to-l from-purple-500 to-transparent h-px w-24 opacity-50"></div>
+                        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-100 to-purple-300 font-mono font-bold text-lg uppercase tracking-widest text-center shadow-purple-500/20 drop-shadow-lg">
+                            A Evolução da Controladora de Vídeo
+                        </h2>
+                        <div className="bg-gradient-to-r from-purple-500 to-transparent h-px w-24 opacity-50"></div>
+                    </div>
 
-                        </div>
+                    {/* 2. CARD "HISTÓRICO" (O texto em itálico agora é um destaque visual) */}
+                    <div className="relative bg-slate-900/60 p-8 rounded-2xl border border-purple-500/30 overflow-hidden group hover:border-purple-500/60 transition-colors">
+                        {/* Efeito de brilho de fundo */}
+                        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-purple-600/20 rounded-full blur-3xl group-hover:bg-purple-600/30 transition-all"></div>
 
-                        <div className="p-6 bg-slate-800/50 border border-slate-700 rounded-2xl hover:border-purple-500/50 transition-colors">
-
-                            <h4 className="text-white font-bold mb-2">Facilidade de design e montagem: </h4>
-                            <p className="text-sm text-slate-400 font-light">
-                                Uma placa-mãe integrada é mais simples de montar na fábrica.
-                                Soldou os chips no PCB, já era, reduz custo de mão de obra e de testes.
-                            </p> <br />
-                            <h4 className="text-white font-bold mb-2">Mercado mainstream:</h4>
-                            <p className="text-sm text-slate-400 font-light">
-                                O consumidor médio (e até gamer casual) não quer ter que comprar placa de som, placa de rede, placa de vídeo separadas. Isso força o mercado a padronizar on-board como default para manter os preços agressivos.
-                            </p>
-
+                        <div className="relative z-10 flex gap-6">
+                            <div className="hidden md:block p-3 bg-purple-900/20 rounded-lg h-min border border-purple-500/20">
+                                <Microchip className="text-purple-400 w-8 h-8" />
+                            </div>
+                            <div>
+                                <h3 className="text-purple-300 font-bold mb-3 flex items-center gap-2">
+                                    <span className="md:hidden"><Microchip size={16} /></span> Do Chipset para a CPU
+                                </h3>
+                                <p className="text-slate-300 italic leading-relaxed text-justify">
+                                    "Antes de analisarmos o desempenho, é crucial entender uma mudança arquitetural. Antigamente, o vídeo on-board era um chip soldado na placa-mãe (na antiga Ponte Norte). <span className="text-white font-semibold not-italic">Hoje, o processamento gráfico foi movido para dentro do encapsulamento do processador (iGPU).</span> É essa mudança física que cria a dependência direta da memória RAM do sistema."
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </section>
+
+                    {/* 3. CARD DE DESEMPENHO E UMA (Transformando o texto longo em visual) */}
+                    <div className="grid md:grid-cols-2 gap-8 items-center bg-slate-950 p-8 rounded-2xl border border-slate-800">
+
+                        {/* Lado Esquerdo: Explicação em Tópicos */}
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-2 mb-2">
+                                <AlertTriangle className="text-yellow-500" size={20} />
+                                <h3 className="text-white font-bold uppercase tracking-wider text-sm">O Gargalo UMA</h3>
+                            </div>
+                            <p className="text-slate-400 text-sm text-justify">
+                                Na arquitetura de memória unificada, a ausência de VRAM dedicada obriga o sistema a "pegar emprestado" da RAM principal. O impacto é proporcional à carga de trabalho.             </p>
+                            <ul className="space-y-2 text-xs text-slate-500 font-mono bg-slate-900 p-4 rounded border border-slate-800">
+                                <li className="flex justify-between">
+                                    <span>Vilão:</span>
+                                    <span className="text-red-400">Vídeo Integrado (iGPU/APU)</span>
+                                </li>
+                                <li className="flex justify-between">
+                                    <span>Causa:</span>
+                                    <span className="text-yellow-400">Sem VRAM Dedicada</span>
+                                </li>
+                                <li className="flex justify-between">
+                                    <span>Consequência:</span>
+                                    <span className="text-slate-300">Reserva de RAM do Sistema</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Lado Direito: Visualização Gráfica da RAM (O exemplo dos 8GB) */}
+                        <div className="relative">
+                            <div className="flex justify-between text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">
+                                <span>Exemplo: PC com 8GB RAM</span>
+                            </div>
+
+                            {/* Barra de Progresso Visual */}
+                            <div className="h-12 w-full bg-slate-800 rounded-lg overflow-hidden flex border border-slate-700 relative">
+                                {/* Parte Reservada para Vídeo */}
+                                <div className="w-[25%] bg-gradient-to-r from-red-600 to-red-500 flex items-center justify-center border-r border-slate-900 group cursor-help relative">
+                                    <span className="text-[10px] md:text-xs font-bold text-white z-10">2GB VÍDEO</span>
+                                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+
+                                {/* Parte Disponível para o Sistema */}
+                                <div className="w-[75%] bg-cyan-900/30 flex items-center justify-center relative">
+                                    {/* Pattern de listras para indicar 'disponível' */}
+                                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(6,182,212,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:10px_10px]"></div>
+                                    <span className="text-[10px] md:text-xs font-bold text-cyan-400">6GB DISPONÍVEL (OS + Apps)</span>
+                                </div>
+                            </div>
+
+                            <p className="mt-3 text-[10px] text-center text-slate-500 italic">
+                                * O sistema operacional perde acesso a parte da memória física.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* =====================================================================================
                 SEÇÃO 4: VRM e GARGALOS (Energia e Memória)
@@ -1801,6 +1799,11 @@ const MotherboardOnboardArticle = () => {
                             <span className="text-red-400 font-mono font-bold text-lg">Energia e Desempenho</span>
                             <div className="bg-slate-800 h-px flex-1"></div>
                         </div>
+
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit amet veniam ut libero ipsa distinctio minima hic quia repellendus ipsum quod voluptate,
+                            accusantium accusamus voluptas vero beatae reprehenderit labore fugit?
+                        </p>
 
                         <div className="grid md:grid-cols-2 gap-12">
                             {/* COLUNA VRM */}
@@ -1964,7 +1967,7 @@ const MotherboardOnboardArticle = () => {
                                         Ao utilizar vídeo on-board (iGPU), ocorre a <strong>UMA (Unified Memory Architecture)</strong>. A placa não tem VRAM dedicada e "sequestra" parte da RAM do sistema.
                                     </p>
                                     <div className="bg-slate-800/50 p-4 rounded-l-lg border-l-4 border-cyan-500 italic text-cyan-200 text-sm">
-                                    "O processador e o vídeo brigam pelo mesmo cano de dados. Dual Channel é obrigatório para não cortar o desempenho pela metade." [cite: 347, 348]
+                                        "O processador e o vídeo brigam pelo mesmo cano de dados. Dual Channel é obrigatório para não cortar o desempenho pela metade." [cite: 347, 348]
                                     </div>
                                 </div>
 
@@ -1998,55 +2001,178 @@ const MotherboardOnboardArticle = () => {
                         </div>
                     </div>
                 </section>
+
+
+
+                {/* =====================================================================================
+                     SEÇÃO FINAL: INFRAESTRUTURA (ENERGIA E DADOS)
+                    ===================================================================================== */}
+                <section className="py-16 px-4 relative">
+
+                    <SectionHeader
+                        icon={Zap}
+                        title="Infraestrutura Crítica"
+                        subtitle="VRM (Energia) & Chipset (Logística de Dados)"
+                        color="yellow"
+                    />
+
+                    <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+                        {/* --- COLUNA 1: VRM (O Coração) --- */}
+                        {/* Mantivemos a estrutura, apenas refinamos para o layout final */}
+                        <div className="bg-slate-900/50 p-8 rounded-2xl border border-yellow-500/20 relative overflow-hidden">
+                            {/* Efeito Glow Amarelo */}
+                            <div className="absolute -left-10 -top-10 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl"></div>
+
+                            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 relative z-10">
+                                <Thermometer className="text-yellow-500" /> VRM: O Coração Elétrico
+                            </h3>
+
+                            <p className="text-slate-300 text-sm text-justify mb-6">
+                                A fonte entrega 12V brutos, o que fritaria a CPU instantaneamente. O <strong>Módulo Regulador de Tensão</strong> é a refinaria que converte isso para 1.2V cirúrgicos.
+                            </p>
+
+                            <div className="space-y-3 relative z-10">
+                                <div className="flex items-center gap-4 bg-slate-950 p-3 rounded border border-slate-800">
+                                    <div className="bg-yellow-600/20 p-2 rounded text-yellow-500 font-bold text-xs">MOSFETs</div>
+                                    <p className="text-xs text-slate-400">Os "interruptores" que ligam/desligam milhares de vezes por segundo.</p>
+                                </div>
+                                <div className="flex items-center gap-4 bg-slate-950 p-3 rounded border border-slate-800">
+                                    <div className="bg-orange-600/20 p-2 rounded text-orange-500 font-bold text-xs">Chokes</div>
+                                    <p className="text-xs text-slate-400">Bobinas que filtram e estabilizam a corrente[cite: 380].</p>
+                                </div>
+                                <div className="flex items-center gap-4 bg-slate-950 p-3 rounded border border-slate-800">
+                                    <div className="bg-red-600/20 p-2 rounded text-red-500 font-bold text-xs">Capacitores</div>
+                                    <p className="text-xs text-slate-400">Reservatórios para picos repentinos de carga[cite: 381].</p>
+                                </div>
+                            </div>
+
+                            {/* Aviso de Thermal Throttling */}
+                            <div className="mt-6 bg-red-900/10 border border-red-500/20 p-4 rounded text-xs text-red-300 italic">
+                                <span className="font-bold block mb-1">⚠️ Gargalo Térmico:</span>
+                                "Em placas baratas, MOSFETs acima de 100°C forçam a CPU a reduzir a velocidade (Thermal Throttling) para não derreter a solda."
+                            </div>
+                        </div>
+
+                        {/* --- COLUNA 2: CHIPSET & ARMAZENAMENTO (O Cérebro Logístico) --- */}
+                        <div className="flex flex-col gap-6">
+
+                            {/* O CHIPSET (PCH) */}
+                            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex-1">
+                                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <Database className="text-blue-500" /> Chipset (PCH) & Armazenamento
+                                </h3>
+                                <p className="text-sm text-slate-300 text-justify mb-4">
+                                    Se a CPU é o CEO, o Chipset é o <strong>Gerente de Logística</strong>. Ele controla tudo que é "lento" (USB, SATA, Rede) e envia para a CPU através de um único canal chamado <strong>DMI</strong>.
+                                </p>
+                                <div className="text-xs font-mono text-slate-500 bg-black/30 p-3 rounded border border-slate-800 mb-4">
+                                    <span className="text-blue-400 font-bold">DMI (Direct Media Interface):</span> O gargalo. Se você ligar muitos SSDs no Chipset, essa estrada engarrafa.
+                                </div>
+                            </div>
+
+                            {/* Comparativo SATA vs NVMe (Visualização de Velocidade) */}
+                            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-4 opacity-10">
+                                    <Activity size={80} />
+                                </div>
+
+                                <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Evolução do Armazenamento</h4>
+
+                                {/* SATA */}
+                                <div className="mb-4">
+                                    <div className="flex justify-between text-xs text-slate-400 mb-1">
+                                        <span>SATA III (HD/SSD Antigo)</span>
+                                        <span>600 MB/s</span>
+                                    </div>
+                                    <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                        <div className="h-full w-[10%] bg-slate-600"></div>
+                                    </div>
+                                    <p className="text-[10px] text-slate-500 mt-1">Controlado pelo Chipset (Lento)</p>
+                                </div>
+
+                                {/* NVMe */}
+                                <div>
+                                    <div className="flex justify-between text-xs text-cyan-300 mb-1">
+                                        <span className="font-bold">NVMe PCIe 4.0/5.0 (M.2)</span>
+                                        <span className="font-bold">7.000+ MB/s</span>
+                                    </div>
+                                    <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                        <div className="h-full w-[90%] bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                                    </div>
+                                    <p className="text-[10px] text-cyan-500/70 mt-1">Ligação direta na CPU (Sem Gargalo)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </main>
 
             {/* =====================================================================================
                 FOOTER E REFERÊNCIAS (Padrão Cap 00 com Caveira Neon)
                 ===================================================================================== */}
-            <footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+            {/* =====================================================================================
+    FOOTER E REFERÊNCIAS (Atualizado com Padrões de Engenharia)
+   ===================================================================================== */}
+<footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
+    {/* Efeito de Luz de Fundo */}
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-                {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
-                <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
-                    <Skull size={300} className="text-cyan-400 blur-sm" />
-                </div>
+    {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
+    <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
+        <Skull size={300} className="text-cyan-400 blur-sm" />
+    </div>
 
-                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-                    <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
-                        <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
-                            <Database className="w-6 h-6 text-slate-400" />
-                        </div>
-                        <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências & Datasheets</h3>
-                    </div>
+    <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+        
+        {/* Cabeçalho das Referências */}
+        <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
+            <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
+                <Database className="w-6 h-6 text-slate-400" />
+            </div>
+            <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas & Normas</h3>
+        </div>
 
-                    <div className="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-12">
-                        <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-2">
-                            <p>REALTEK. ALC1220-VB: High Performance Audio Codec. 2017.</p>
-                            <p>INTEL CORP. Ethernet Controller I225-V Datasheet. 2021.</p>
-                            <p>AUDIO SCIENCE REVIEW. ALC1220 Measurements. 2020.</p>
-                            <p>GIGABYTE TECHNOLOGY. AORUS Audio Implementation. 2023.</p>
-                        </div>
-                        <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-2">
-                            <p>INTEL. 600 Series Chipset PCH Datasheet. 2022.</p>
-                            <p>AMD. Ryzen Processor Architecture Whitepaper. 2021.</p>
-                            <p>INFINEON. VRM Power Delivery Solutions. 2022.</p>
-                            <p>IEEE 802.3az-2010: Energy Efficient Ethernet.</p>
-                        </div>
-                    </div>
+        {/* Grid de Referências (Atualizado) */}
+        <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-12">
+            
+            {/* Coluna 1: Fabricantes & Componentes */}
+            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-cyan-500/20 transition-colors">
+                <strong className="block text-cyan-500/50 uppercase tracking-wider mb-2">Componentes & Datasheets</strong>
+                <p>REALTEK. ALC1220-VB: High Performance Audio Codec. 2017.</p>
+                <p>INTEL CORP. Ethernet Controller I225-V Datasheet. 2021.</p>
+                <p>INFINEON. VRM Power Delivery Solutions for Intel. 2022.</p>
+                <p>AUDIO SCIENCE REVIEW. ALC1220 Measurements. 2020.</p>
+                <p>GIGABYTE TECHNOLOGY. AORUS Audio Implementation. 2023.</p>
+                <p>RIVET NETWORKS. Killer Prioritization Engine Whitepaper. 2019.</p>
+            </div>
 
-                    <div className="flex flex-col items-center border-t border-slate-900 pt-8">
-                        {/* CAVEIRA NEON CENTRAL (Ciano para este cap) */}
-                        <Skull
-                            className="mb-6 w-12 h-12 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.9)] hover:scale-110 transition-transform duration-300"
-                            strokeWidth={1.5}
-                        />
+            {/* Coluna 2: Padrões da Indústria (A parte nova) */}
+            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-purple-500/20 transition-colors">
+                <strong className="block text-purple-500/50 uppercase tracking-wider mb-2">Arquitetura & Padrões</strong>
+                <p>PCI-SIG. PCI Express® Base Specification Rev 5.0. 2019.</p>
+                <p>NVM EXPRESS. NVM Express Base Specification Rev 2.0. 2021.</p>
+                <p>JEDEC. DDR5 SDRAM Standard (JESD79-5). 2020.</p>
+                <p>INTEL CORP. Iris® Xe Graphics Architecture Guide. 2020.</p>
+                <p>IEEE. 802.3az-2010: Energy Efficient Ethernet Standards.</p>
+                <p>AMD. Ryzen Processor Architecture Whitepaper. 2021.</p>
+            </div>
+        </div>
 
-                        <p className="text-slate-300 font-bold mb-2">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
-                        <p className="text-slate-500 text-sm mb-1">Engenharia de Computação</p>
-                        <p className="text-cyan-600 text-xs font-mono mt-4">REVOLUXTI 2025 - Todos os direitos reservados</p>
-                    </div>
-                </div>
-            </footer>
+        {/* Assinatura Final */}
+        <div className="flex flex-col items-center border-t border-slate-900 pt-8">
+            {/* CAVEIRA NEON CENTRAL */}
+            <Skull
+                className="mb-6 w-12 h-12 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.9)] hover:scale-110 transition-transform duration-300 cursor-pointer"
+                strokeWidth={1.5}
+            />
+
+            <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+            <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
+            <p className="text-cyan-600/60 text-xs font-mono mt-6">REVOLUXTI © 2025 - Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
         </div >
     );
 };

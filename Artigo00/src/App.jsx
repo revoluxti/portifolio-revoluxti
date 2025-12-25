@@ -5,7 +5,7 @@ import MotherboardOnboardArticle from './MotherboardOnboardArticle'; // Seu Cap 
 function App() {
   // Estado para controlar qual capítulo está sendo exibido
   // '00' para ENIAC, '01' para Placa Mãe
-  const [currentChapter, setCurrentChapter] = useState('01'); 
+  const [currentChapter, setCurrentChapter] = useState('00'); 
 
   return (
     <div>
