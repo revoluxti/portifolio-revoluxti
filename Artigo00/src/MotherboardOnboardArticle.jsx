@@ -1119,6 +1119,7 @@ const MotherboardOnboardArticle = () => {
                             <p className="text-xl text-slate-400 font-light">
                                 Intel vs. Killer vs. Realtek: A tecnologia por trás da sua conexão.
                             </p>
+                            
                         </header>
 
                         <div className="flex flex-col lg:flex-row gap-12">
@@ -1712,7 +1713,88 @@ const MotherboardOnboardArticle = () => {
                             </p>
                         </div>
                     </div>
+                </section>
+                <section>
+                    <SectionHeader
+                        icon={Wifi}
+                        title="Network Stack"
+                        subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
+                        color="cyan"
+                    />
 
+                    {/* Navegação de Abas */}
+                    <div className="flex gap-2 mb-6 border-b border-slate-800">
+                        {['intel', 'killer', 'realtek'].map((chip) => (
+                            <button
+                                key={chip}
+                                onClick={() => setNetworkTab(chip)}
+                                className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
+                                    ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
+                                    : 'border-transparent text-slate-500 hover:text-slate-300'
+                                    }`}
+                            >
+                                {chip}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
+                        {/* Conteúdo Dinâmico */}
+                        <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                            {networkTab === 'intel' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
+                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 241, 270]</p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
+                                    </ul>
+                                </div>
+                            )}
+                            {networkTab === 'killer' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
+                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 242, 289]</p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
+                                    </ul>
+                                </div>
+                            )}
+                            {networkTab === 'realtek' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
+                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 243, 305]</p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Card CNVi */}
+                        <TechCard className="border-yellow-500/20">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Wifi className="text-yellow-400" />
+                                <h3 className="font-bold text-white">Arquitetura CNVi</h3>
+                            </div>
+                            <p className="text-sm text-slate-300 mb-4 text-justify">
+                                O Wi-Fi "on-board" moderno raramente é soldado. [cite_start]A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity)[cite: 310, 314].
+                            </p>
+                            <div className="space-y-2 text-xs font-mono text-slate-400">
+                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                    <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
+                                </div>
+                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                    <span className="text-yellow-500">2. [cite_start]Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física[cite: 315].
+                                </div>
+                            </div>
+                        </TechCard>
+                    </div>
                 </section>
 
 
@@ -1807,89 +1889,8 @@ const MotherboardOnboardArticle = () => {
                         </div>
                     </div>
                 </section>
-                [cite_start]{/* 3. REDE E CONECTIVIDADE [cite: 231-315] */}
-                <section>
-                    <SectionHeader
-                        icon={Wifi}
-                        title="Network Stack"
-                        subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
-                        color="cyan"
-                    />
 
-                    {/* Navegação de Abas */}
-                    <div className="flex gap-2 mb-6 border-b border-slate-800">
-                        {['intel', 'killer', 'realtek'].map((chip) => (
-                            <button
-                                key={chip}
-                                onClick={() => setNetworkTab(chip)}
-                                className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
-                                    ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
-                                    : 'border-transparent text-slate-500 hover:text-slate-300'
-                                    }`}
-                            >
-                                {chip}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
-                        {/* Conteúdo Dinâmico */}
-                        <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
-                            {networkTab === 'intel' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 241, 270]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'killer' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 242, 289]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'realtek' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 243, 305]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Card CNVi */}
-                        <TechCard className="border-yellow-500/20">
-                            <div className="flex items-center gap-3 mb-4">
-                                <Wifi className="text-yellow-400" />
-                                <h3 className="font-bold text-white">Arquitetura CNVi</h3>
-                            </div>
-                            <p className="text-sm text-slate-300 mb-4 text-justify">
-                                O Wi-Fi "on-board" moderno raramente é soldado. [cite_start]A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity)[cite: 310, 314].
-                            </p>
-                            <div className="space-y-2 text-xs font-mono text-slate-400">
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
-                                </div>
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">2. [cite_start]Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física[cite: 315].
-                                </div>
-                            </div>
-                        </TechCard>
-                    </div>
-                </section>
+                
 
                 [cite_start]{/* 4. ENERGIA (VRM) E CHIPSET [cite: 370-410] */}
                 <section>
