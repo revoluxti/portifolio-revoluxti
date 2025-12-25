@@ -1554,11 +1554,7 @@ const MotherboardOnboardArticle = () => {
                                             </ul>
                                         </div>
 
-
-
                                     </section>
-
-
                                 </div>
 
                                 {/* BLOCÃO CNVi (Wi-Fi) Estilo Vitrine */}
@@ -1612,6 +1608,88 @@ const MotherboardOnboardArticle = () => {
                                     </div>
                                 </div>
                             </div> <br /> <br />
+                            <section>
+                    <SectionHeader
+                        icon={Wifi}
+                        title="Network Stack"
+                        subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
+                        color="cyan"
+                    />
+
+                    {/* Navegação de Abas */}
+                    <div className="flex gap-2 mb-6 border-b border-slate-800">
+                        {['intel', 'killer', 'realtek'].map((chip) => (
+                            <button
+                                key={chip}
+                                onClick={() => setNetworkTab(chip)}
+                                className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
+                                    ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
+                                    : 'border-transparent text-slate-500 hover:text-slate-300'
+                                    }`}
+                            >
+                                {chip}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
+                        {/* Conteúdo Dinâmico */}
+                        <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                            {networkTab === 'intel' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
+                                    <p className="text-slate-300 mb-4 text-sm"></p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
+                                    </ul>
+                                </div>
+                            )}
+                            {networkTab === 'killer' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
+                                    <p className="text-slate-300 mb-4 text-sm"></p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
+                                    </ul>
+                                </div>
+                            )}
+                            {networkTab === 'realtek' && (
+                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
+                                    <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
+                                    <p className="text-slate-300 mb-4 text-sm"></p>
+                                    <ul className="space-y-3 text-sm text-slate-400">
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
+                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Card CNVi */}
+                        <TechCard className="border-yellow-500/20">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Wifi className="text-yellow-400" />
+                                <h3 className="font-bold text-white">Arquitetura CNVi</h3>
+                            </div>
+                            <p className="text-sm text-slate-300 mb-4 text-justify">
+                                O Wi-Fi "on-board" moderno raramente é soldado. A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity).
+                            </p>
+                            <div className="space-y-2 text-xs font-mono text-slate-400">
+                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                    <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
+                                </div>
+                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
+                                    <span className="text-yellow-500">2. Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física.
+                                </div>
+                            </div>
+                        </TechCard>
+                    </div>
+                </section> <br /> <br />
 
                             {/* Linha Divisora Estilizada */}
                             <div className="flex items-center gap-4 mb-12">
@@ -1636,10 +1714,7 @@ const MotherboardOnboardArticle = () => {
                                         Antigamente com uma reputação duvidosa, que parecia brinquedo de feira.
                                         A vantagem das placas on-board em comparação as placas off-board está no custo reduzido em comparação a uma arquitetura totalmente modular (off-board)
                                     </p>
-
-
                                 </div>
-
 
                                 {/* Coluna da Direita: Funções em Cards */}
                                 <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
@@ -1695,7 +1770,6 @@ const MotherboardOnboardArticle = () => {
                             <h4 className="text-white font-bold mb-2">Menos componentes físicos extras:</h4>
                             <p className="text-sm text-slate-400 font-light">
                                 Se fosse tudo off-board, cada usuário teria que comprar placas dedicadas. Isso é igual a mais peças, mais logística, mais suporte técnico, mais custo de produção e de estoque.
-
                             </p>
 
                         </div>
@@ -1711,94 +1785,10 @@ const MotherboardOnboardArticle = () => {
                             <p className="text-sm text-slate-400 font-light">
                                 O consumidor médio (e até gamer casual) não quer ter que comprar placa de som, placa de rede, placa de vídeo separadas. Isso força o mercado a padronizar on-board como default para manter os preços agressivos.
                             </p>
+
                         </div>
                     </div>
                 </section>
-                <section>
-                    <SectionHeader
-                        icon={Wifi}
-                        title="Network Stack"
-                        subtitle="Intel vs Killer vs Realtek & A Revolução CNVi"
-                        color="cyan"
-                    />
-
-                    {/* Navegação de Abas */}
-                    <div className="flex gap-2 mb-6 border-b border-slate-800">
-                        {['intel', 'killer', 'realtek'].map((chip) => (
-                            <button
-                                key={chip}
-                                onClick={() => setNetworkTab(chip)}
-                                className={`px-6 py-2 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${networkTab === chip
-                                    ? 'border-cyan-500 text-cyan-400 bg-cyan-950/20'
-                                    : 'border-transparent text-slate-500 hover:text-slate-300'
-                                    }`}
-                            >
-                                {chip}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 min-h-[300px]">
-                        {/* Conteúdo Dinâmico */}
-                        <div className="bg-slate-900/40 p-8 rounded-2xl border border-slate-700 flex flex-col justify-between">
-                            {networkTab === 'intel' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-blue-400 mb-2">Intel Ethernet (I219-V / I225-V)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 241, 270]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Baixo uso de CPU (Offloading eficiente).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Estabilidade corporativa e drivers maduros.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-blue-500 mt-0.5" /> Padrão em placas de alto desempenho.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'killer' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-red-500 mb-2">Killer Networking (E2600 / AX)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 242, 289]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Priorização de pacotes para Gamers (QoS).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Integração com Wi-Fi 6E (DoubleShot Pro).</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-red-500 mt-0.5" /> Drivers podem ser instáveis e software pesado.</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {networkTab === 'realtek' && (
-                                <div className="animate-in fade-in slide-in-from-left-4 duration-300">
-                                    <h3 className="text-2xl font-bold text-cyan-400 mb-2">Realtek (RTL8125 2.5GbE)</h3>
-                                    [cite_start]<p className="text-slate-300 mb-4 text-sm">[cite: 243, 305]</p>
-                                    <ul className="space-y-3 text-sm text-slate-400">
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Custo acessível, permitindo 2.5GbE em placas de entrada.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Consome ciclos de CPU marginalmente maiores.</li>
-                                        <li className="flex items-start gap-2"><ArrowRight size={16} className="text-cyan-500 mt-0.5" /> Padrão da indústria mainstream.</li>
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Card CNVi */}
-                        <TechCard className="border-yellow-500/20">
-                            <div className="flex items-center gap-3 mb-4">
-                                <Wifi className="text-yellow-400" />
-                                <h3 className="font-bold text-white">Arquitetura CNVi</h3>
-                            </div>
-                            <p className="text-sm text-slate-300 mb-4 text-justify">
-                                O Wi-Fi "on-board" moderno raramente é soldado. [cite_start]A arquitetura evoluiu para o sistema híbrido <strong>CNVi</strong> (Intel Integrated Connectivity)[cite: 310, 314].
-                            </p>
-                            <div className="space-y-2 text-xs font-mono text-slate-400">
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">1. Parte Lógica (MAC):</span> Movida para dentro do Chipset/CPU para reduzir custos.
-                                </div>
-                                <div className="p-2 bg-slate-950 rounded border border-slate-800">
-                                    <span className="text-yellow-500">2. [cite_start]Módulo CRF (PHY):</span> O cartão M.2 contém apenas a antena física[cite: 315].
-                                </div>
-                            </div>
-                        </TechCard>
-                    </div>
-                </section>
-
-
-
 
                 {/* =====================================================================================
                 SEÇÃO 4: VRM e GARGALOS (Energia e Memória)
@@ -1889,10 +1879,7 @@ const MotherboardOnboardArticle = () => {
                         </div>
                     </div>
                 </section>
-
-                
-
-                [cite_start]{/* 4. ENERGIA (VRM) E CHIPSET [cite: 370-410] */}
+                {/* 4. ENERGIA (VRM) E CHIPSET */}
                 <section>
                     <SectionHeader
                         icon={Zap}
@@ -1907,24 +1894,24 @@ const MotherboardOnboardArticle = () => {
                             <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-600/10 blur-3xl"></div>
 
                             <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                                [cite_start]<Thermometer className="text-yellow-500" /> Anatomia do VRM [cite: 376]
+                                <Thermometer className="text-yellow-500" /> Anatomia do VRM
                             </h3>
                             <p className="text-sm text-slate-400 mb-6 text-justify">
-                                O VRM converte os 12V da fonte para 1.1V-1.4V precisos para a CPU. [cite_start]Se falhar, o PC desliga ou queima[cite: 375].
+                                O VRM converte os 12V da fonte para 1.1V-1.4V precisos para a CPU. Se falhar, o PC desliga ou queima.
                             </p>
 
                             <div className="grid md:grid-cols-3 gap-4">
                                 <div className="bg-slate-950 p-4 rounded-lg border-t-2 border-yellow-500">
                                     <h4 className="text-white font-bold mb-1 text-sm">1. MOSFETs</h4>
-                                    <p className="text-[10px] text-slate-400">Os "interruptores" de alta velocidade. [cite_start]Geram calor massivo[cite: 378].</p>
+                                    <p className="text-[10px] text-slate-400">Os "interruptores" de alta velocidade. Geram calor massivo.</p>
                                 </div>
                                 <div className="bg-slate-950 p-4 rounded-lg border-t-2 border-orange-500">
                                     <h4 className="text-white font-bold mb-1 text-sm">2. Chokes</h4>
-                                    [cite_start]<p className="text-[10px] text-slate-400">Bobinas que filtram e suavizam a corrente elétrica[cite: 380].</p>
+                                    <p className="text-[10px] text-slate-400">Bobinas que filtram e suavizam a corrente elétrica.</p>
                                 </div>
                                 <div className="bg-slate-950 p-4 rounded-lg border-t-2 border-red-500">
                                     <h4 className="text-white font-bold mb-1 text-sm">3. Capacitores</h4>
-                                    [cite_start]<p className="text-[10px] text-slate-400">Reservatórios de energia para estabilidade instantânea[cite: 381].</p>
+                                    <p className="text-[10px] text-slate-400">Reservatórios de energia para estabilidade instantânea.</p>
                                 </div>
                             </div>
 
@@ -1934,7 +1921,7 @@ const MotherboardOnboardArticle = () => {
                                 <div>
                                     <span className="text-red-400 font-bold text-sm">Gargalo: Thermal Throttling</span>
                                     <p className="text-xs text-red-200/70 mt-1 text-justify">
-                                        [cite_start]Em placas baratas, MOSFETs 100°C forçam a CPU a reduzir o clock (velocidade) para evitar derretimento[cite: 384, 388].
+                                        Em placas baratas, MOSFETs 100°C forçam a CPU a reduzir o clock (velocidade) para evitar derretimento.
                                     </p>
                                 </div>
                             </div>
@@ -1947,13 +1934,13 @@ const MotherboardOnboardArticle = () => {
                                     <Microchip className="text-cyan-500" /> Chipset (PCH)
                                 </h3>
                                 <p className="text-sm text-slate-300 text-justify mb-4 flex-1">
-                                    O "Gerente de Logística". Controla USB, SATA, Áudio e PCIe secundário. [cite_start]Conecta-se à CPU via <strong>DMI</strong>[cite: 393, 407].
+                                    O "Gerente de Logística". Controla USB, SATA, Áudio e PCIe secundário. Conecta-se à CPU via <strong>DMI</strong>.
                                 </p>
                                 <div className="bg-slate-950 p-4 rounded border border-slate-800 font-mono text-xs space-y-2">
                                     <SpecBadge label="Entrada (H610)" value="DMI Estreito" />
                                     <SpecBadge label="Topo (Z790)" value="DMI Largo" highlight />
                                     <p className="text-[10px] text-slate-500 mt-2 text-center pt-2 border-t border-slate-800">
-                                        [cite_start]Mais pistas = Mais SSDs NVMe sem gargalo[cite: 410].
+                                        Mais pistas = Mais SSDs NVMe sem gargalo.
                                     </p>
                                 </div>
                             </TechCard>
@@ -1961,7 +1948,7 @@ const MotherboardOnboardArticle = () => {
                     </div>
                 </section>
 
-                [cite_start]{/* 5. GARGALO UMA (MEMÓRIA) [cite: 344-366] */}
+                {/* 5. GARGALO UMA (MEMÓRIA) [cite: 344-366] */}
                 <section>
                     <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
@@ -1974,10 +1961,10 @@ const MotherboardOnboardArticle = () => {
                             <div className="flex flex-col md:flex-row gap-12">
                                 <div className="flex-1">
                                     <p className="text-slate-300 text-lg mb-4 text-justify">
-                                        Ao utilizar vídeo on-board (iGPU), ocorre a <strong>UMA (Unified Memory Architecture)</strong>. [cite_start]A placa não tem VRAM dedicada e "sequestra" parte da RAM do sistema[cite: 344, 351].
+                                        Ao utilizar vídeo on-board (iGPU), ocorre a <strong>UMA (Unified Memory Architecture)</strong>. A placa não tem VRAM dedicada e "sequestra" parte da RAM do sistema.
                                     </p>
                                     <div className="bg-slate-800/50 p-4 rounded-l-lg border-l-4 border-cyan-500 italic text-cyan-200 text-sm">
-                                        [cite_start]"O processador e o vídeo brigam pelo mesmo cano de dados. Dual Channel é obrigatório para não cortar o desempenho pela metade." [cite: 347, 348]
+                                    "O processador e o vídeo brigam pelo mesmo cano de dados. Dual Channel é obrigatório para não cortar o desempenho pela metade." [cite: 347, 348]
                                     </div>
                                 </div>
 
