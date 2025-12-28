@@ -2,13 +2,13 @@
   ARQUIVO: src/MotherboardOnboardArticle.jsx
   CAPÍTULO 01: PLACA MÃE - Refatorado com base no design do Capítulo 00
 */
-import React, { useState, useEffect, useRef } from 'react'; // Adicionado useState
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Cpu, Wifi, Zap, Server, Activity, Layers, ArrowRight, ShieldCheck,
     Speaker, Radio, Thermometer, Anchor, Skull, Grid, Crosshair,
     AlertTriangle, ChevronRight, Terminal, Database, Lock,
     Microchip, BarChart3,
-    CircuitBoard // <--- ADICIONADO ESTES DOIS ÍCONES FALTANTES
+    CircuitBoard
 } from 'lucide-react';
 
 /* =====================================================================================
@@ -131,8 +131,8 @@ const MotherboardOnboardArticle = () => {
                             </span>
                         </h1>
                         <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
-                            Placa Mãe On-board<br />
-                            <strong>A espinha dorçal:</strong><br />  da PCB simples aos Hubs complexos.
+                            Placa Mãe Parte I On-board<br />
+                           
                         </h2>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
@@ -278,7 +278,8 @@ const MotherboardOnboardArticle = () => {
                                                 className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
                                             />
 
-                                            {/* Grid CSS antigo (Opcional: você pode remover esta div abaixo se a imagem já tiver o grid que você quer) */}
+                                            {/* Grid CSS antigo (Opcional: pode remover esta div abaixo
+                                            se a imagem já tiver o grid que você quer) */}
                                             {/* <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div> */}
 
                                             {/* Conteúdo (Icone e Texto) */}
@@ -1951,7 +1952,7 @@ const MotherboardOnboardArticle = () => {
                     </div>
                 </section>
 
-                {/* 5. GARGALO UMA (MEMÓRIA) [cite: 344-366] */}
+                {/* 5. GARGALO UMA (MEMÓRIA)*/}
                 <section>
                     <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
@@ -2107,72 +2108,68 @@ const MotherboardOnboardArticle = () => {
                 </section>
 
             </main>
-
             {/* =====================================================================================
-                FOOTER E REFERÊNCIAS (Padrão Cap 00 com Caveira Neon)
+                    FOOTER E REFERÊNCIAS (Atualizado com Padrões de Engenharia)
                 ===================================================================================== */}
-            {/* =====================================================================================
-    FOOTER E REFERÊNCIAS (Atualizado com Padrões de Engenharia)
-   ===================================================================================== */}
-<footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
-    {/* Efeito de Luz de Fundo */}
-    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
+                {/* Efeito de Luz de Fundo */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-    {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
-    <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
-        <Skull size={300} className="text-cyan-400 blur-sm" />
-    </div>
+                {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
+                <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
+                    <Skull size={300} className="text-cyan-400 blur-sm" />
+                </div>
 
-    <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        
-        {/* Cabeçalho das Referências */}
-        <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
-            <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
-                <Database className="w-6 h-6 text-slate-400" />
-            </div>
-            <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas & Normas</h3>
-        </div>
+                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
 
-        {/* Grid de Referências (Atualizado) */}
-        <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-12">
-            
-            {/* Coluna 1: Fabricantes & Componentes */}
-            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-cyan-500/20 transition-colors">
-                <strong className="block text-cyan-500/50 uppercase tracking-wider mb-2">Componentes & Datasheets</strong>
-                <p>REALTEK. ALC1220-VB: High Performance Audio Codec. 2017.</p>
-                <p>INTEL CORP. Ethernet Controller I225-V Datasheet. 2021.</p>
-                <p>INFINEON. VRM Power Delivery Solutions for Intel. 2022.</p>
-                <p>AUDIO SCIENCE REVIEW. ALC1220 Measurements. 2020.</p>
-                <p>GIGABYTE TECHNOLOGY. AORUS Audio Implementation. 2023.</p>
-                <p>RIVET NETWORKS. Killer Prioritization Engine Whitepaper. 2019.</p>
-            </div>
+                    {/* Cabeçalho das Referências */}
+                    <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
+                        <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
+                            <Database className="w-6 h-6 text-slate-400" />
+                        </div>
+                        <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas & Normas</h3>
+                    </div>
 
-            {/* Coluna 2: Padrões da Indústria (A parte nova) */}
-            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-purple-500/20 transition-colors">
-                <strong className="block text-purple-500/50 uppercase tracking-wider mb-2">Arquitetura & Padrões</strong>
-                <p>PCI-SIG. PCI Express® Base Specification Rev 5.0. 2019.</p>
-                <p>NVM EXPRESS. NVM Express Base Specification Rev 2.0. 2021.</p>
-                <p>JEDEC. DDR5 SDRAM Standard (JESD79-5). 2020.</p>
-                <p>INTEL CORP. Iris® Xe Graphics Architecture Guide. 2020.</p>
-                <p>IEEE. 802.3az-2010: Energy Efficient Ethernet Standards.</p>
-                <p>AMD. Ryzen Processor Architecture Whitepaper. 2021.</p>
-            </div>
-        </div>
+                    {/* Grid de Referências (Atualizado) */}
+                    <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-12">
 
-        {/* Assinatura Final */}
-        <div className="flex flex-col items-center border-t border-slate-900 pt-8">
-            {/* CAVEIRA NEON CENTRAL */}
-            <Skull
-                className="mb-6 w-12 h-12 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.9)] hover:scale-110 transition-transform duration-300 cursor-pointer"
-                strokeWidth={1.5}
-            />
+                        {/* Coluna 1: Fabricantes & Componentes */}
+                        <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-cyan-500/20 transition-colors">
+                            <strong className="block text-cyan-500/50 uppercase tracking-wider mb-2">Componentes & Datasheets</strong>
+                            <p>REALTEK. ALC1220-VB: High Performance Audio Codec. 2017.</p>
+                            <p>INTEL CORP. Ethernet Controller I225-V Datasheet. 2021.</p>
+                            <p>INFINEON. VRM Power Delivery Solutions for Intel. 2022.</p>
+                            <p>AUDIO SCIENCE REVIEW. ALC1220 Measurements. 2020.</p>
+                            <p>GIGABYTE TECHNOLOGY. AORUS Audio Implementation. 2023.</p>
+                            <p>RIVET NETWORKS. Killer Prioritization Engine Whitepaper. 2019.</p>
+                        </div>
 
-            <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
-            <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
-            <p className="text-cyan-600/60 text-xs font-mono mt-6">REVOLUXTI © 2025 - Todos os direitos reservados</p>
-        </div>
-    </div>
-</footer>
+                        {/* Coluna 2: Padrões da Indústria (A parte nova) */}
+                        <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-purple-500/20 transition-colors">
+                            <strong className="block text-purple-500/50 uppercase tracking-wider mb-2">Arquitetura & Padrões</strong>
+                            <p>PCI-SIG. PCI Express® Base Specification Rev 5.0. 2019.</p>
+                            <p>NVM EXPRESS. NVM Express Base Specification Rev 2.0. 2021.</p>
+                            <p>JEDEC. DDR5 SDRAM Standard (JESD79-5). 2020.</p>
+                            <p>INTEL CORP. Iris® Xe Graphics Architecture Guide. 2020.</p>
+                            <p>IEEE. 802.3az-2010: Energy Efficient Ethernet Standards.</p>
+                            <p>AMD. Ryzen Processor Architecture Whitepaper. 2021.</p>
+                        </div>
+                    </div>
+
+                    {/* Assinatura Final */}
+                    <div className="flex flex-col items-center border-t border-slate-900 pt-8">
+                        {/* CAVEIRA NEON CENTRAL */}
+                        <Skull
+                            className="mb-6 w-12 h-12 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.9)] hover:scale-110 transition-transform duration-300 cursor-pointer"
+                            strokeWidth={1.5}
+                        />
+
+                        <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+                        <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
+                        <p className="text-cyan-600/60 text-xs font-mono mt-6">REVOLUXTI © 2025 - Todos os direitos reservados</p>
+                    </div>
+                </div>
+            </footer>
         </div >
     );
 };
