@@ -10,16 +10,15 @@ const App = () => {
     <div className="flex flex-col h-screen bg-slate-950 overflow-hidden font-sans">
       
       {/* Barra de Navegação Superior Fixa */}
-      <nav className="h-14 border-b border-slate-800 bg-slate-900/95 backdrop-blur flex items-center justify-between px-6 z-50 shrink-0 shadow-lg shadow-black/20">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
-          <span className="text-slate-200 font-bold tracking-widest text-sm">
-            MUSEU <span className="text-slate-500">DO HARDWARE</span>
-          </span>
-        </div>
+      {/* Adicionado 'relative' para permitir o posicionamento absoluto do menu central */}
+      <nav className="h-14 border-b border-slate-800 bg-slate-900/95 backdrop-blur flex items-center justify-between px-6 z-50 shrink-0 shadow-lg shadow-black/20 relative">
+        
+        {/* Lado Esquerdo: Logo */}
+        
 
-        {/* Menu de Capítulos */}
-        <div className="flex gap-2 bg-slate-950/50 p-1 rounded-full border border-slate-800">
+        {/* Centro: Menu de Capítulos */}
+        {/* Adicionado 'absolute left-1/2 -translate-x-1/2' para centralização perfeita */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex gap-2 bg-slate-950/50 p-1 rounded-full border border-slate-800">
           
           <button 
             onClick={() => setCurrentChapter('00')}
@@ -67,15 +66,13 @@ const App = () => {
 
         </div>
 
+        {/* Lado Direito: Versão */}
         <div className="text-[10px] text-slate-500 font-mono hidden md:block opacity-60">
           V.1.0.5 | SYSTEM READY
         </div>
       </nav>
 
-      {/* CORREÇÃO AQUI: 
-         overflow-y-auto: Permite rolar o conteúdo verticalmente.
-         scroll-smooth: Deixa a rolagem suave.
-      */}
+      {/* Conteúdo Principal */}
       <div className="flex-1 relative overflow-y-auto scroll-smooth bg-slate-950">
         
         {currentChapter === '00' && <HistoryInfographic />}

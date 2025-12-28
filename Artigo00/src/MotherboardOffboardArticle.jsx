@@ -104,7 +104,7 @@ const MotherboardOffboardArticle = () => {
             </h1>
             <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
               Placa Mãe Parte II Off-board<br />
-              
+
             </h2>
             <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
             <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
@@ -471,7 +471,7 @@ const MotherboardOffboardArticle = () => {
 
             {/* Coluna Visual (Vitrine de Slots) */}
             <div className="md:col-span-6 space-y-8 mt-4">
-              
+
               <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
                 2.3 Drivers Profissionais e    <span className="text-fuchsia-500">Baixa Latência</span>
               </h3>
@@ -481,7 +481,7 @@ const MotherboardOffboardArticle = () => {
                 e o hardware, contornando o stack genérico do sistema operacional.
               </p>
 
-              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-l-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
                 <ul className="space-y-4 text-slate-400 text-sm">
                   <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
                     <Zap className="w-5 h-5" />Os ganhos práticos incluem: :
@@ -512,16 +512,16 @@ const MotherboardOffboardArticle = () => {
               <div className="flex items-center gap-4 mb-16">
                 <div className="bg-fuchsia-500 h-0.5 w-16 shadow-[0_0_10px_rgba(217,70,239,0.8)]"></div>
                 <span className="text-fuchsia-400 font-mono font-bold text-lg tracking-widest uppercase">Conectividade Moderna e Desacoplamento da Placa-mãe </span>
-                
+
               </div>
               <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
                 A migração das placas de som para USB-C e Thunderbolt representa uma mudança arquitetural relevante.
-                Em especial, o Thunderbolt oferece comunicação ponto-a-ponto, baixa latência e largura de banda 
-                comparável ao PCI Express, permitindo que interfaces de áudio externas atuem como coprocessadores 
-                especializados. 
+                Em especial, o Thunderbolt oferece comunicação ponto-a-ponto, baixa latência e largura de banda
+                comparável ao PCI Express, permitindo que interfaces de áudio externas atuem como coprocessadores
+                especializados.
               </p>
 
-              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-l-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
                 <ul className="space-y-4 text-slate-400 text-sm">
                   <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
                     <Zap className="w-5 h-5" />Esse desacoplamento físico da placa-mãe favorece:
@@ -543,10 +543,37 @@ const MotherboardOffboardArticle = () => {
 
                 </ul>
               </div> <br />
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Perspectivas Futuras do Áudio Off-board
+              </h4>
+              <p>
+                <strong>No médio e longo prazo, a evolução das tecnologias de áudio off-board tende a convergir para: </strong>
+              </p>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li>Processamento espacial avançado (áudio 3D e binaural em tempo real), </li>
+                  <li>Correção acústica automatizada baseada em IA, adaptando o som ao ambiente físico, </li>
+                  <li>Separação de fontes por inferência neural, aplicada à mixagem e pós-produção, </li>
+                  <li>Otimização energética, com foco em performance por watt. </li>
+                </ul>
+              </div>
+              <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                Nesse cenário, a placa de som deixa de ser apenas um conversor digital-analógico
+                e consolida-se como um processador especializado de sinal acústico,
+                reforçando o papel da arquitetura off-board como vetor de inovação tecnológica.
+
+              </p>
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Síntese
+              </h4>
+              <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                Enquanto o áudio on-board atende adequadamente às necessidades de consumo geral,
+                a arquitetura de áudio off-board demonstra que fidelidade, baixa latência e previsibilidade
+                temporal são alcançáveis apenas por meio de hardware dedicado, isolamento físico e processamento
+                especializado, tornando-se indispensável em aplicações profissionais de alta exigência técnica.               </p>
             </div>
           </div> <br />
-
-           <br />
+          <br />
         </article>
       </section>
       {/* =====================================================================================
@@ -556,39 +583,61 @@ const MotherboardOffboardArticle = () => {
       <section className="py-24 px-4 relative">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-16">
+
             <div className="flex items-center gap-4">
               <div className="bg-indigo-500 h-0.5 w-16 shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
-              <h3 className="text-3xl font-bold text-white flex items-center gap-3">
-                <Server className="text-indigo-500 w-8 h-8" /> 03. Redes de Alta Performance
+              <Server className="text-indigo-500 w-8 h-8" />
+              <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
+                03. Placa de Rede (NIC) de Alta Performance – Além do Gigabit :
+                <span className="text-fuchsia-500"> Desempenho, Offloading e o Futuro das Redes </span>
               </h3>
             </div>
-            <span className="hidden md:inline-block px-4 py-1.5 rounded-full bg-indigo-950 border border-indigo-500/30 text-indigo-300 text-xs font-mono tracking-widest uppercase">
-              Status: Offloading Ativo
-            </span>
           </div>
 
           <div className="grid md:grid-cols-12 gap-12">
             {/* Texto Principal */}
             <div className="md:col-span-7 space-y-8">
               <div>
-                <h4 className="text-2xl font-bold text-white mb-4">O Problema do Pacote</h4>
+                <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                  Exemplos: Intel X550-T2 (10GbE), Mellanox/NVIDIA ConnectX (SFP+/QSFP – Fibra Óptica).
+                </h4>
+                <h4 className="text-2xl font-bold text-white mb-4">Análise Técnica </h4>
+
                 <p className="text-slate-300 text-lg leading-relaxed text-justify">
-                  Em data centers, a transmissão de milhões de pacotes por segundo impõe uma carga massiva à CPU. [cite_start]As <strong>NICs (Network Interface Cards)</strong> off-board atuam como coprocessadores especializados[cite: 79, 81].
+                  Em ambientes de servidores, data centers e computação distribuída,
+                  a transmissão e recepção de milhões de pacotes por segundo impõe uma carga massiva à CPU. <br />
+                  Quando realizada por controladores de rede integrados. Cada pacote exige operações de verificação, segmentação, ordenação e interrupções de hardware,
+                  criando gargalos que comprometem a escalabilidade do sistema. <br />
+                  As <strong>NICs (Network Interface Cards)</strong> off-board atuam como coprocessadores especializados. <br />
+                  As placas de rede off-board surgem como solução arquitetural ao desacoplar o processamento de rede da CPU,
+                  transformando a NIC em um coprocessador especializado de comunicação.
                 </p>
               </div>
 
               <div className="bg-indigo-950/30 p-6 rounded-xl border-l-4 border-indigo-500">
-                [cite_start]<h5 className="text-indigo-300 font-bold mb-2 flex items-center gap-2"><Cpu size={16} /> Offloading de Processamento [cite: 83, 84]</h5>
+                <h5 className="text-indigo-300 font-bold mb-2 flex items-center gap-2"><Cpu size={16} /> Offloading de Processamento de Rede</h5>
                 <p className="text-slate-400 text-sm mb-4 leading-relaxed text-justify">
-                  NICs dedicadas executam tarefas diretamente no hardware:
-                </p>
+                  NICs dedicadas incorporam processadores embarcados capazes de executar diretamente no hardware tarefas 
+                  tradicionalmente delegadas à CPU, entre elas:                
+               </p>
                 <ul className="grid grid-cols-2 gap-2 text-xs text-indigo-200 font-mono">
-                  <li className="bg-indigo-900/50 p-2 rounded">• Checksum Offload</li>
-                  <li className="bg-indigo-900/50 p-2 rounded">• TCP Segmentation</li>
-                  <li className="bg-indigo-900/50 p-2 rounded">• RSS Scaling</li>
+                  <li className="bg-indigo-900/50 p-2 rounded">• Checksum Offload (verificação de integridade),</li>
+                  <li className="bg-indigo-900/50 p-2 rounded">• TCP Segmentation (divisão e reagrupamento de pacotes),</li>
+                  <li className="bg-indigo-900/50 p-2 rounded">• Receive Side Scaling (RSS), </li>
+                  <li className="bg-indigo-900/50 p-2 rounded">• TCP/UDP Offload. </li>
                   <li className="bg-indigo-900/50 p-2 rounded">• Criptografia</li>
                 </ul>
               </div>
+
+              <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Esse modelo reduz drasticamente interrupções de CPU, 
+                  melhora a latência e aumenta a taxa de transferência efetiva, 
+                  especialmente em cargas intensivas como virtualização, containers, 
+                  bancos de dados distribuídos e aplicações de baixa latência. <br /> <br />
+                  NICs modernas avançam ainda mais, incorporando SmartNICs e DPUs (Data Processing Units), 
+                  capazes de executar firewall, criptografia, virtualização de rede e políticas de segurança 
+                  diretamente no hardware.     
+               </p>
 
               <div>
                 <h4 className="text-xl font-bold text-white mb-3">Conectividade Física</h4>
