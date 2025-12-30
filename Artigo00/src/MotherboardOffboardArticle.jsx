@@ -267,9 +267,9 @@ const MotherboardOffboardArticle = () => {
                 eliminando a contenção por largura de banda.
               </p>
 
-              
+
             </div>
-            
+
           </div> <br />
 
           <div className="flex items-center gap-4 mb-16">
@@ -281,8 +281,8 @@ const MotherboardOffboardArticle = () => {
             A seguir, detalhamos os principais subsistemas que se beneficiam da<br /> arquitetura off-board,  com foco nas especificações que interessa a <br />
             engenheiros e projetistas.
           </p>
-          
-          
+
+
 
         </article>
       </section>
@@ -469,13 +469,13 @@ const MotherboardOffboardArticle = () => {
                 </div> <br />
               </div> <br /> <br />
               <div className="w-full h-auto min-h-[300px] object-cover"
-                    glowColor="rgba(217, 70, 239,">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur amet, quidem, doloremque omnis, eaque inventore ducimus hic odio commodi non voluptates perferendis in aperiam nesciunt nisi eum magnam facere asperiores!
-                      </p>
+                glowColor="rgba(217, 70, 239,">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur amet, quidem, doloremque omnis, eaque inventore ducimus hic odio commodi non voluptates perferendis in aperiam nesciunt nisi eum magnam facere asperiores!
+                </p>
                 <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
               </div>
-              
+
 
               {/* Destaque Técnico */}
 
@@ -754,7 +754,7 @@ const MotherboardOffboardArticle = () => {
                   <li>Filtros RF dedicados,  </li>
                   <li>Processadores embarcados para gestão de pacotes e criptografia. </li>
                 </ul>
-              </div> 
+              </div>
               <p className="text-slate-300 text-lg leading-relaxed text-justify">
                 Esses elementos reduzem a dependência da CPU e melhoram a qualidade do link em ambientes congestionados.
               </p>
@@ -978,67 +978,12 @@ const MotherboardOffboardArticle = () => {
           </div>
 
           <div className="pt-6 border-t border-slate-800">
-            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              3.6 Integração com a Arquitetura Off-board
-            </h4>
 
             {/* Grid de 2 Colunas */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
 
               {/* Coluna 1: Texto Explicativo */}
-              <div>
-                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                  Esses aceleradores são conectados via PCI Express de alta largura de banda ou interconexões dedicadas (NVLink), funcionando como subsistemas computacionais independentes, com:
-                </p>
-                <div className="bg-slate-900/50 p-6 rounded-xl border border-fuchsia-500/20 shadow-lg shadow-fuchsia-500/5">
 
-                  <ul className="space-y-3 text-slate-300 text-sm">
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Memória própria (HBM),  </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Gerenciamento térmico dedicado, </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Consumo energético elevado, porém, altamente eficiente por operação. .</span>
-                    </li>
-                  </ul> <br />
-                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                    A CPU, nesse contexto, atua apenas como orquestrador, reforçando a filosofia off-board de especialização extrema.
-                  </p>
-
-                  <ul className="space-y-3 text-slate-300 text-sm">
-                    <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                      O futuro aponta para:
-                    </h4>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Consolidação de aceleradores heterogêneos (CPU + GPU + IA), </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Crescente limitação por energia e dissipação térmica, </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Métricas baseadas em performance por watt, não apenas FLOPS. </span>
-                    </li>
-                  </ul> <br />
-                </div>
-
-
-              </div>
-
-
-
-
-
-
-
-              {/* Coluna 2: Arquitetura Tensorial (Lista) */}
               <div>
                 <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                   3.7 Controladoras de Armazenamento (RAID / HBA) – Integridade e Desempenho de Dados
@@ -1078,39 +1023,33 @@ const MotherboardOffboardArticle = () => {
 
                 </div>
               </div>
-            </div>
-          </div> <br />
-          <div className="pt-6 border-t border-slate-800"></div> <br />
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Coluna 1: Texto Explicativo */}
+              {/* Coluna 2: Arquitetura Tensorial (Lista) */}
+              <div>
+                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  3.8 Processamento de RAID em Hardware
+                </h4>
 
-            <div>
-              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                3.8 Processamento de RAID em Hardware
-              </h4>
+                <p>
+                  O cálculo de paridade em níveis como RAID 5 e RAID 6 é computacionalmente intensivo.
+                  Controladoras dedicadas realizam essas operações em:
+                </p> <br />
+                <ul className="space-y-3 text-slate-300 text-sm">
 
-              <p>
-                O cálculo de paridade em níveis como RAID 5 e RAID 6 é computacionalmente intensivo.
-                Controladoras dedicadas realizam essas operações em:
-              </p> <br />
-              <ul className="space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                    <span>Chips proprietários (ROC – RAID on Chip), </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                    <span>Totalmente independentes da CPU principal.  </span>
+                  </li>
 
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Chips proprietários (ROC – RAID on Chip), </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Totalmente independentes da CPU principal.  </span>
-                </li>
-
-              </ul> <br />
-              <p>
-                Em contraste, o chamado “RAID on-board” é majoritariamente implementado via software,
-                consumindo ciclos da CPU e impactando o desempenho geral do sistema.</p> <br />
-            </div>
-            {/* Coluna 2: Texto Explicativo */}
-            <div>
+                </ul> <br />
+                <p>
+                  Em contraste, o chamado “RAID on-board” é majoritariamente implementado via software,
+                  consumindo ciclos da CPU e impactando o desempenho geral do sistema.
+                  </p> <br />
+                  <div>
               <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 Tendências Futuras
               </h4>
@@ -1147,6 +1086,20 @@ const MotherboardOffboardArticle = () => {
 
 
             </div>
+
+              </div>
+
+              
+
+            </div>
+          </div> <br />
+          <div className="pt-6 border-t border-slate-800"></div> <br />
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Coluna 1: Texto Explicativo */}
+
+
+            {/* Coluna 2: Texto Explicativo */}
+            
 
           </div>
 
