@@ -102,7 +102,7 @@ const HistoryInfographic = () => {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Capítulo 00</span>
                         </h1>
                         <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
-                            Monitor<br /> <br /> das válvulas aos pixels autoemissores.
+                            Monitor<br /> das válvulas aos pixels autoemissores.
                         </h2>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
                         <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>

@@ -266,7 +266,10 @@ const MotherboardOffboardArticle = () => {
                 o sistema libera a CPU (Unidade Central de Processamento) e amemória RAM do sistema (DDR) para executarem as instruções de propósito geral,
                 eliminando a contenção por largura de banda.
               </p>
+
+              
             </div>
+            
           </div> <br />
 
           <div className="flex items-center gap-4 mb-16">
@@ -278,6 +281,8 @@ const MotherboardOffboardArticle = () => {
             A seguir, detalhamos os principais subsistemas que se beneficiam da<br /> arquitetura off-board,  com foco nas especificações que interessa a <br />
             engenheiros e projetistas.
           </p>
+          
+          
 
         </article>
       </section>
@@ -461,9 +466,16 @@ const MotherboardOffboardArticle = () => {
                     className="w-full h-auto min-h-[300px] object-cover"
                     glowColor="rgba(217, 70, 239,"
                   />
-
                 </div> <br />
+              </div> <br /> <br />
+              <div className="w-full h-auto min-h-[300px] object-cover"
+                    glowColor="rgba(217, 70, 239,">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur amet, quidem, doloremque omnis, eaque inventore ducimus hic odio commodi non voluptates perferendis in aperiam nesciunt nisi eum magnam facere asperiores!
+                      </p>
+                <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
               </div>
+              
 
               {/* Destaque Técnico */}
 
@@ -599,7 +611,7 @@ const MotherboardOffboardArticle = () => {
             <div className="md:col-span-7 space-y-8">
               <div>
                 <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
-                  Exemplos: Intel X550-T2 (10GbE), Mellanox/NVIDIA ConnectX (SFP+/QSFP – Fibra Óptica).
+                  3.1 - Exemplos: Intel X550-T2 (10GbE), Mellanox/NVIDIA ConnectX (SFP+/QSFP – Fibra Óptica).
                 </h4>
                 <h4 className="text-2xl font-bold text-white mb-4">Análise Técnica </h4>
 
@@ -617,9 +629,9 @@ const MotherboardOffboardArticle = () => {
               <div className="bg-indigo-950/30 p-6 rounded-xl border-l-4 border-indigo-500">
                 <h5 className="text-indigo-300 font-bold mb-2 flex items-center gap-2"><Cpu size={16} /> Offloading de Processamento de Rede</h5>
                 <p className="text-slate-400 text-sm mb-4 leading-relaxed text-justify">
-                  NICs dedicadas incorporam processadores embarcados capazes de executar diretamente no hardware tarefas 
-                  tradicionalmente delegadas à CPU, entre elas:                
-               </p>
+                  NICs dedicadas incorporam processadores embarcados capazes de executar diretamente no hardware tarefas
+                  tradicionalmente delegadas à CPU, entre elas:
+                </p>
                 <ul className="grid grid-cols-2 gap-2 text-xs text-indigo-200 font-mono">
                   <li className="bg-indigo-900/50 p-2 rounded">• Checksum Offload (verificação de integridade),</li>
                   <li className="bg-indigo-900/50 p-2 rounded">• TCP Segmentation (divisão e reagrupamento de pacotes),</li>
@@ -630,45 +642,93 @@ const MotherboardOffboardArticle = () => {
               </div>
 
               <p className="text-slate-300 text-lg leading-relaxed text-justify">
-                  Esse modelo reduz drasticamente interrupções de CPU, 
-                  melhora a latência e aumenta a taxa de transferência efetiva, 
-                  especialmente em cargas intensivas como virtualização, containers, 
-                  bancos de dados distribuídos e aplicações de baixa latência. <br /> <br />
-                  NICs modernas avançam ainda mais, incorporando SmartNICs e DPUs (Data Processing Units), 
-                  capazes de executar firewall, criptografia, virtualização de rede e políticas de segurança 
-                  diretamente no hardware.     
-               </p>
+                Esse modelo reduz drasticamente interrupções de CPU,
+                melhora a latência e aumenta a taxa de transferência efetiva,
+                especialmente em cargas intensivas como virtualização, containers,
+                bancos de dados distribuídos e aplicações de baixa latência. <br /> <br />
+                NICs modernas avançam ainda mais, incorporando SmartNICs e DPUs (Data Processing Units),
+                capazes de executar firewall, criptografia, virtualização de rede e políticas de segurança
+                diretamente no hardware.
+              </p>
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                3.2 Conectividade Física e Escalabilidade
+              </h4>
+              <p>
+                <strong>Diferentemente das soluções integradas baseadas em RJ-45 (1GbE ou 2.5GbE), placas de rede off-board permitem:  </strong>
+              </p>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-l-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li>Uso de transceptores SFP+, QSFP e QSFP28, </li>
+                  <li>Conexões em fibra óptica ou cabos DAC,  </li>
+                  <li>Velocidades de 10, 25, 40, 100 Gbps ou superiores. </li>
+                </ul>
+              </div>
+              <p>
+                Essa escalabilidade física é essencial para backbone de data centers, clusters HPC e infraestruturas de nuvem, onde a limitação não é apenas computacional, mas também de latência e throughput de rede.
+              </p>
 
               <div>
-                <h4 className="text-xl font-bold text-white mb-3">Conectividade Física</h4>
-                <p className="text-slate-300 text-base leading-relaxed text-justify">
-                  [cite_start]Diferente do RJ-45 padrão, placas off-board permitem uso de transceptores <strong>SFP+, QSFP e Fibra Óptica</strong>, atingindo velocidades de 10, 40 ou 100 Gbps[cite: 89, 92].
-                </p>
-              </div>
+                <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                  3.3 Perspectivas Futuras
+                </h4>
+                <h4 className="text-2xl font-bold text-white mb-4">A evolução das NICs aponta para: </h4>
+                <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-l-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                  <ul className="space-y-4 text-slate-400 text-sm">
+                    <li>Crescente adoção de DPUs programáveis,  </li>
+                    <li>Integração com aceleradores de IA para processamento de tráfego, </li>
+                    <li>Offloading completo da pilha de rede, </li>
+                    <li>Redução do consumo energético por pacote transmitido. </li>
+                  </ul>
+                </div> <br />
 
-              <div className="pt-6 border-t border-slate-800">
-                <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"><Wifi size={20} className="text-indigo-400" /> Wi-Fi Off-board</h4>
-                <p className="text-slate-400 text-sm leading-relaxed text-justify">
-                  [cite_start]Soluções dedicadas (PCIe) permitem amplificadores de sinal (LNA) robustos e antenas externas posicionáveis, essenciais para reduzir a interferência e suportar padrões como <strong>Wi-Fi 7</strong> com latência ultra-baixa[cite: 106, 111].
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Nesse cenário, a placa de rede deixa de ser um periférico e passa a ser um elemento central da arquitetura de sistemas distribuídos.
                 </p>
+                <div className="bg-slate-900 p-6 rounded-2xl border border-indigo-500/20 shadow-lg shadow-indigo-500/5 hover:border-indigo-500/50 transition-colors">
+                  <div className="flex justify-between mb-4">
+                    <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest">Enterprise NIC</span>
+                    <Server size={16} className="text-indigo-500" />
+                  </div>
+                  <TunnelImage
+                    src="nic-10gbe-card.jpg"
+                    alt="Placa de Rede Intel X550 10GbE"
+                    className="w-full h-auto max-h-[200px] object-contain"
+                    glowColor="rgba(99, 102, 241,"
+                  />
+                  <p className="text-[10px] text-slate-500 text-center mt-2">Conexão SFP+ para Fibra Óptica</p>
+                </div> <br />
+                <div className="pt-6 border-t border-slate-800">
+                  <Wifi size={20} className="text-indigo-400" />
+                  <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"> 3.4 Interfaces Sem Fio (Wi-Fi Off-board) – Limites Físicos, RF e Evolução Tecnológica </h4>
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                    Exemplos: Intel AX210 / BE200, Qualcomm FastConnect, Adaptadores Wi-Fi PCIe e M.2 com antenas dedicadas.
+                  </p>
+                  <p className="text-slate-400 text-sm leading-relaxed text-justify">
+                    Soluções dedicadas (PCIe) permitem amplificadores de sinal (LNA) robustos e antenas externas posicionáveis, essenciais para reduzir a interferência e suportar padrões como <strong>Wi-Fi 7</strong> com latência ultra-baixa.
+                  </p>
+                </div>
+                <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                  Análise Técnica
+                </h4>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Diferentemente das interfaces cabeadas, o Wi-Fi opera em um meio de transmissão compartilhado
+                  e não determinístico, sujeito a interferência eletromagnética, atenuação de sinal e variações ambientais. <br /> <br />
+                  Essas características impõem desafios específicos de latência, estabilidade e throughput efetivo,
+                  tornando a arquitetura off-board particularmente relevante. <br /> <br />
+
+                </p>
+
               </div>
             </div>
 
             {/* Vitrine de Placas de Rede */}
-            <div className="md:col-span-5 flex flex-col gap-6">
-              <div className="bg-slate-900 p-6 rounded-2xl border border-indigo-500/20 shadow-lg shadow-indigo-500/5 hover:border-indigo-500/50 transition-colors">
-                <div className="flex justify-between mb-4">
-                  <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest">Enterprise NIC</span>
-                  <Server size={16} className="text-indigo-500" />
-                </div>
-                <TunnelImage
-                  src="nic-10gbe-card.jpg"
-                  alt="Placa de Rede Intel X550 10GbE"
-                  className="w-full h-auto max-h-[200px] object-contain"
-                  glowColor="rgba(99, 102, 241,"
-                />
-                <p className="text-[10px] text-slate-500 text-center mt-2">Conexão SFP+ para Fibra Óptica</p>
-              </div>
+            <div className="md:col-span-5 flex flex-col gap-4">
+              <p>
+                Soluções Wi-Fi dedicadas, seja em formato PCI Express ou M.2 com antenas externas,
+                oferecem vantagens substanciais sobre implementações integradas, principalmente no que se refere
+                a sensibilidade de recepção, isolamento de RF e capacidade de processamento de pacotes.
+              </p>
+
 
               <div className="bg-slate-900 p-6 rounded-2xl border border-indigo-500/20 shadow-lg shadow-indigo-500/5 hover:border-indigo-500/50 transition-colors">
                 <div className="flex justify-between mb-4">
@@ -683,6 +743,71 @@ const MotherboardOffboardArticle = () => {
                 />
                 <p className="text-[10px] text-slate-500 text-center mt-2">MIMO Massivo e Antenas Externas</p>
               </div>
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Arquitetura de Rádio e Processamento de RF
+              </h4>
+              <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-1"> Placas Wi-Fi off-board incorporam:  </h4>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-4 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li><strong>Múltiplas cadeias de rádio (MIMO e MU-MIMO), </strong> </li>
+                  <li>Amplificadores de baixo ruído (LNA), </li>
+                  <li>Filtros RF dedicados,  </li>
+                  <li>Processadores embarcados para gestão de pacotes e criptografia. </li>
+                </ul>
+              </div> 
+              <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                Esses elementos reduzem a dependência da CPU e melhoram a qualidade do link em ambientes congestionados.
+              </p>
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Evolução dos Padrões Wi-Fi
+              </h4>
+              <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"> A progressão tecnológica dos padrões sem fio demonstra ganhos significativos:  </h4>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li>Wi-Fi 5 (802.11ac): foco em throughput. </li>
+                  <li>Wi-Fi 6 / 6E (802.11ax): introdução de OFDMA e menor latência. </li>
+                  <li>Wi-Fi 7 (802.11be): agregação de canais, MLO (Multi-Link Operation) e latência ultra-baixa.  </li>
+
+                </ul> <br />
+                <p>
+                  Esses avanços aproximam o desempenho do Wi-Fi das redes cabeadas em cenários específicos, embora ainda sem garantir determinismo absoluto
+                </p>
+              </div>
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Antenas, Posicionamento e Isolamento
+              </h4>
+              <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"> Ao contrário das soluções integradas, placas Wi-Fi off-board permitem:  </h4>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li>Uso de antenas externas direcionais, </li>
+                  <li>Melhor posicionamento físico,  </li>
+                  <li>Redução de interferência interna do chassi.  </li>
+                </ul>
+                <p>
+                  Esses fatores impactam diretamente a qualidade do sinal e a estabilidade da conexão.
+                </p>
+              </div> <br />
+              <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                Perspectivas Futuras
+              </h4>
+              <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"> O futuro das interfaces Wi-Fi aponta para:  </h4>
+              <div className="bg-gradient-to-br from-fuchsia-950/40 to-slate-900 border-r-4 border-fuchsia-500 p-6 rounded-r-xl backdrop-blur-sm">
+                <ul className="space-y-4 text-slate-400 text-sm">
+                  <li>Integração com IA para gestão adaptativa de canais,  </li>
+                  <li>Redução de latência para aplicações em tempo real, </li>
+                  <li>Convergência parcial com redes cabeadas em ambientes controlados,  </li>
+                  <li>Crescente foco em eficiência espectral e energética. </li><br />
+                </ul><p>
+                  Apesar dos avanços, o Wi-Fi permanece limitado pelas leis físicas da propagação eletromagnética, reforçando seu papel como solução de mobilidade e flexibilidade, não como substituto absoluto das conexões cabeadas em ambientes críticos.
+                </p>
+              </div> <br />
+              <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2"> Conclusão arquitetural (importante)</h4>
+              <ul className="space-y-4 text-slate-400 text-sm">
+                <li>NIC cabeada → espinha dorsal </li>
+                <li>Wi-Fi → extensão móvel </li>
+                <li>Ambos off-board → especialização e isolamento  </li>
+                <li>Ambos subordinados à filosofia modular  </li><br />
+              </ul>
             </div>
           </div>
         </div>
@@ -698,64 +823,334 @@ const MotherboardOffboardArticle = () => {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">
-              Computação <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600">Acelerada</span>
-            </h2>
+            <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
+              3.5 Aceleradores de IA e Computação Paralela
+              <span className="text-fuchsia-500"> – O Hardware da Era dos Dados </span>
+            </h3>
             <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto">
               GPUs dedicadas, Tensor Cores e o fim da memória compartilhada.
             </p>
+            <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto">
+              <strong>Exemplos: NVIDIA A100/H100, Google TPU (Tensor Processing Unit).</strong>
+            </p>
+
           </div>
+          <div className="pt-6 border-t border-slate-800">
+            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              Análise Técnica
+            </h4>
 
-          {/* CARD GIGANTE DA GPU */}
-          <div className="w-full bg-slate-900/60 backdrop-blur-md rounded-3xl border border-fuchsia-600/30 p-8 md:p-12 shadow-[0_0_60px_rgba(217,70,239,0.15)] mb-16 relative group">
-            <div className="absolute top-0 right-0 bg-fuchsia-600 text-white px-6 py-2 rounded-bl-2xl font-bold text-xs uppercase tracking-widest shadow-lg">High Performance Computing</div>
+            {/* Grid de 2 Colunas */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                {/* Imagem Gigante da GPU */}
-                <TunnelImage
-                  src="rtx-4090-exploded.jpg"
-                  alt="Arquitetura interna de uma GPU High-End (Ex: RTX 4090)"
-                  className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700"
-                  glowColor="rgba(217, 70, 239,"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-black/90 border border-fuchsia-500 p-3 rounded-lg text-fuchsia-300 text-xs font-mono shadow-xl">
-                  Largura de Banda: &gt; 1.000 GB/s
-                </div>
+              {/* Coluna 1: Texto Explicativo */}
+              <div>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                  A engenharia de dados moderna, impulsionada por Machine Learning e Deep Learning, exige um paradigma computacional distinto do modelo tradicional baseado em CPU[cite: 553]. A natureza matricial e altamente paralela dos algoritmos de IA torna ineficiente a execução em arquiteturas x86 ou ARM convencionais[cite: 554].
+                </p>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Aceleradores de IA são projetados como processadores matemáticos especializados, focados em operações de multiplicação e acumulação de matrizes (MAC operations)[cite: 555].
+                </p>
               </div>
 
-              <div className="space-y-8">
+              {/* Coluna 2: Arquitetura Tensorial (Lista) */}
+              <div className="bg-slate-900/50 p-6 rounded-xl border border-fuchsia-500/20 shadow-lg shadow-fuchsia-500/5">
+                <h4 className="text-fuchsia-300 font-bold flex items-center gap-2 mb-4 text-lg">
+                  <Cpu className="w-5 h-5" /> Arquitetura Tensorial
+                </h4>
+                <p className="text-slate-400 text-sm mb-4">
+                  Esses dispositivos operam com:
+                </p>
+                <ul className="space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                    <span>Precisão reduzida (FP16, BF16, INT8),</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                    <span>Unidades tensorais dedicadas,</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                    <span>Paralelismo massivo orientado a throughput, não a latência serial.</span>
+                  </li>
+                </ul>
+              </div> <br />
+
+            </div>
+            <div className="pt-6 border-t border-slate-800">
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                3.6 Integração com a Arquitetura Off-board
+              </h4>
+
+              {/* Grid de 2 Colunas */}
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+
+                {/* Coluna 1: Texto Explicativo */}
                 <div>
-                  <h3 className="text-3xl font-bold text-white mb-4">VRAM vs. RAM do Sistema</h3>
-                  <p className="text-slate-300 text-lg leading-relaxed text-justify">
-                    A principal distinção para a solução on-board é a memória. Enquanto o vídeo integrado usa a RAM lenta do sistema (50-80 GB/s), uma GPU dedicada possui <strong>VRAM (GDDR6X ou HBM)</strong>, podendo ultrapassar <strong>1 TB/s</strong>. [cite_start]Isso é crucial para texturas 8K e geometria complexa[cite: 245, 246, 248].
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                    Esses aceleradores são conectados via PCI Express de alta largura de banda ou interconexões dedicadas (NVLink), funcionando como subsistemas computacionais independentes, com:
                   </p>
+                  <div className="bg-slate-900/50 p-6 rounded-xl border border-fuchsia-500/20 shadow-lg shadow-fuchsia-500/5">
+
+                    <ul className="space-y-3 text-slate-300 text-sm">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Memória própria (HBM),  </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Gerenciamento térmico dedicado, </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Consumo energético elevado, porém, altamente eficiente por operação. .</span>
+                      </li>
+                    </ul> <br />
+                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                      A CPU, nesse contexto, atua apenas como orquestrador, reforçando a filosofia off-board de especialização extrema.
+                    </p>
+
+                    <ul className="space-y-3 text-slate-300 text-sm">
+                      <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        O futuro aponta para:
+                      </h4>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Consolidação de aceleradores heterogêneos (CPU + GPU + IA), </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Crescente limitação por energia e dissipação térmica, </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Métricas baseadas em performance por watt, não apenas FLOPS. </span>
+                      </li>
+                    </ul> <br />
+                  </div>
+
+
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
-                      <Maximize2 className="text-fuchsia-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold">Paralelismo Massivo</h4>
-                      <p className="text-sm text-slate-400 text-justify">Milhares de núcleos (CUDA Cores) vs dezenas de núcleos de CPU. [cite_start]A GPU deixa de ser um periférico gráfico e vira um processador central em HPC[cite: 250, 256].</p>
-                    </div>
+                {/* Coluna 2: Arquitetura Tensorial (Lista) */}
+                <div>
+                  <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    Análise Técnica
+                  </h4>
+
+                  <div>
+                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                      Em ambientes corporativos e científicos, a integridade e a disponibilidade dos dados são tão críticas quanto o desempenho. Controladoras de armazenamento off-board foram desenvolvidas para retirar da CPU a complexidade da gestão de múltiplos discos.
+                    </p>
+                    <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                      Cache Dedicado e Proteção de Dados
+                    </h4>
+
+                    <ul className="space-y-3 text-slate-300 text-sm">
+                      <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        Controladoras profissionais incorporam:
+                      </h4>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Memória cache DRAM dedicada,  </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Baterias de backup (BBU) ou supercapacitores, </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                        <span>Escrita segura (write-back cache). </span>
+                      </li>
+                    </ul> <br />
+                    <p>
+                      Esses mecanismos garantem que dados não sejam perdidos em caso de falha energética antes da persistência em disco, algo inexistente em soluções on-board.
+                    </p>
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
-                      <Cpu className="text-fuchsia-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold">Aceleração de IA</h4>
-                      <p className="text-sm text-slate-400 text-justify">Tensor Cores especializados para multiplicação de matrizes. [cite_start]O gargalo atual não é mais computacional, mas energético e térmico[cite: 271, 273].</p>
-                    </div>
-                  </div>
+                </div>
+
+
+              </div>
+
+            </div> <br />
+          </div>
+
+          <div className="pt-6 border-t border-slate-800">
+            <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              3.6 Integração com a Arquitetura Off-board
+            </h4>
+
+            {/* Grid de 2 Colunas */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+
+              {/* Coluna 1: Texto Explicativo */}
+              <div>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                  Esses aceleradores são conectados via PCI Express de alta largura de banda ou interconexões dedicadas (NVLink), funcionando como subsistemas computacionais independentes, com:
+                </p>
+                <div className="bg-slate-900/50 p-6 rounded-xl border border-fuchsia-500/20 shadow-lg shadow-fuchsia-500/5">
+
+                  <ul className="space-y-3 text-slate-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Memória própria (HBM),  </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Gerenciamento térmico dedicado, </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Consumo energético elevado, porém, altamente eficiente por operação. .</span>
+                    </li>
+                  </ul> <br />
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                    A CPU, nesse contexto, atua apenas como orquestrador, reforçando a filosofia off-board de especialização extrema.
+                  </p>
+
+                  <ul className="space-y-3 text-slate-300 text-sm">
+                    <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                      O futuro aponta para:
+                    </h4>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Consolidação de aceleradores heterogêneos (CPU + GPU + IA), </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Crescente limitação por energia e dissipação térmica, </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Métricas baseadas em performance por watt, não apenas FLOPS. </span>
+                    </li>
+                  </ul> <br />
+                </div>
+
+
+              </div>
+
+
+
+
+
+
+
+              {/* Coluna 2: Arquitetura Tensorial (Lista) */}
+              <div>
+                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  3.7 Controladoras de Armazenamento (RAID / HBA) – Integridade e Desempenho de Dados
+                </h4>
+                <p>
+                  Exemplos: Broadcom LSI MegaRAID, HighPoint NVMe Controllers.
+                </p>
+
+                <div>
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                    Em ambientes corporativos e científicos, a integridade e a disponibilidade dos dados são tão críticas quanto o desempenho. Controladoras de armazenamento off-board foram desenvolvidas para retirar da CPU a complexidade da gestão de múltiplos discos.
+                  </p>
+                  <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    Cache Dedicado e Proteção de Dados
+                  </h4>
+
+                  <ul className="space-y-3 text-slate-300 text-sm">
+                    <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                      Controladoras profissionais incorporam:
+                    </h4>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Memória cache DRAM dedicada,  </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Baterias de backup (BBU) ou supercapacitores, </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Escrita segura (write-back cache). </span>
+                    </li>
+                  </ul> <br />
+                  <p>
+                    Esses mecanismos garantem que dados não sejam perdidos em caso de falha energética antes da persistência em disco, algo inexistente em soluções on-board.
+                  </p>
+
                 </div>
               </div>
             </div>
+          </div> <br />
+          <div className="pt-6 border-t border-slate-800"></div> <br />
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Coluna 1: Texto Explicativo */}
+
+            <div>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                3.8 Processamento de RAID em Hardware
+              </h4>
+
+              <p>
+                O cálculo de paridade em níveis como RAID 5 e RAID 6 é computacionalmente intensivo.
+                Controladoras dedicadas realizam essas operações em:
+              </p> <br />
+              <ul className="space-y-3 text-slate-300 text-sm">
+
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Chips proprietários (ROC – RAID on Chip), </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Totalmente independentes da CPU principal.  </span>
+                </li>
+
+              </ul> <br />
+              <p>
+                Em contraste, o chamado “RAID on-board” é majoritariamente implementado via software,
+                consumindo ciclos da CPU e impactando o desempenho geral do sistema.</p> <br />
+            </div>
+            {/* Coluna 2: Texto Explicativo */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                Tendências Futuras
+              </h4>
+              <p><strong>A evolução das controladoras aponta para: </strong></p> <br />
+              <ul className="space-y-3 text-slate-300 text-sm">
+
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Suporte nativo a NVMe over PCIe,  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Integração com memórias persistentes,  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Gerenciamento inteligente baseado em telemetria e IA, </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                  <span>Foco em alta disponibilidade e confiabilidade, não apenas velocidade.  </span>
+                </li>
+              </ul> <br />
+
+              <p>
+                <strong>Síntese das Seções</strong>
+              </p> <br />
+              <p>
+                Placas de rede, aceleradores de IA e controladoras de armazenamento representam a materialização plena da arquitetura off-board: hardware especializado, processamento dedicado e isolamento funcional.
+                Esses componentes evidenciam que, em sistemas modernos de alta performance, a CPU não é mais o centro absoluto do processamento, mas parte de um ecossistema heterogêneo e cooperativo.
+              </p> <br />
+
+
+
+
+            </div>
+
           </div>
+
+
 
           {/* Cards Finais: Energia e Armazenamento */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -793,6 +1188,61 @@ const MotherboardOffboardArticle = () => {
               <p className="text-slate-400 text-sm text-justify leading-relaxed">
                 A energia off-board é dinâmica. GPUs modernas superam 450W, exigindo <strong>VRMs (Voltage Regulator Modules)</strong> com múltiplas fases e controle ativo. [cite_start]A engenharia migrou do desempenho bruto para a "performance por watt"[cite: 301, 309, 316].
               </p>
+            </div>
+          </div>
+        </div> <br />
+
+        {/* CARD GIGANTE DA GPU */}
+        <div className="w-full bg-slate-900/60 backdrop-blur-md rounded-3xl border border-fuchsia-600/30 p-8 md:p-12 shadow-[0_0_60px_rgba(217,70,239,0.15)] mb-16 relative group">
+          <div className="absolute top-0 right-0 bg-fuchsia-600 text-white px-6 py-2 rounded-bl-2xl font-bold text-xs uppercase tracking-widest shadow-lg">High Performance Computing</div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+            <div className="relative">
+              {/* Imagem Gigante da GPU */}
+              <TunnelImage
+                src="rtx-4090-exploded.jpg"
+                alt="Arquitetura interna de uma GPU High-End (Ex: RTX 4090)"
+                className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700"
+                glowColor="rgba(217, 70, 239,"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-black/90 border border-fuchsia-500 p-3 rounded-lg text-fuchsia-300 text-xs font-mono shadow-xl">
+                Largura de Banda: &gt; 1.000 GB/s
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+
+
+                <h3 className="text-3xl font-bold text-white mb-4">VRAM vs. RAM do Sistema</h3>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+
+                </p>
+
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
+                    <Maximize2 className="text-fuchsia-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold">Paralelismo Massivo</h4>
+                    <p className="text-sm text-slate-400 text-justify">Milhares de núcleos (CUDA Cores) vs dezenas de núcleos de CPU. [cite_start]A GPU deixa de ser um periférico gráfico e vira um processador central em HPC[cite: 250, 256].</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
+                    <Cpu className="text-fuchsia-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold">Aceleração de IA</h4>
+                    <p className="text-sm text-slate-400 text-justify">Tensor Cores especializados para multiplicação de matrizes. [cite_start]O gargalo atual não é mais computacional, mas energético e térmico[cite: 271, 273].</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -843,11 +1293,7 @@ const MotherboardOffboardArticle = () => {
                 strokeWidth={1.5}
               />
             </div>
-            <div className="bg-slate-800 h-px flex-1">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio deserunt voluptatum provident quibusdam atque nam ab reprehenderit inventore a libero possimus iusto, similique necessitatibus consequuntur ratione, dolor quam labore ea.
-              </p>
-            </div>
+
 
             <p className="text-slate-300 font-bold mb-2 tracking-wide text-sm">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
             <p className="text-slate-500 text-xs mb-1 uppercase tracking-[0.2em]">Engenharia de Computação</p>
