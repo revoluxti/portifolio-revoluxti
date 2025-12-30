@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import {
   Cpu, Monitor, Zap, Server, Database, Layers, ArrowRight, ShieldCheck,
   BookOpen, AlertTriangle, Terminal, Recycle, Crosshair, ChevronRight,
-  Speaker, Wifi, HardDrive, Skull, Mic2, Activity, Radio, Lock, Maximize2
+  Speaker, Wifi, HardDrive, Skull, Mic2, Activity, Radio, Lock, Maximize2,
+  Brain, MemoryStick, Sliders, Clock, Microchip
 } from 'lucide-react';
 
 /* =====================================================================================
@@ -814,7 +815,7 @@ const MotherboardOffboardArticle = () => {
       </section>
 
       {/* =====================================================================================
-               SEÇÃO 4: GPU & IA - O PESO PESADO (Páginas 14-16 PDF)
+               SEÇÃO 3.5: GPU & IA - O PESO PESADO (Páginas 14-16 PDF)
                ===================================================================================== 
             */}
       <section className="py-24 px-4 bg-black relative overflow-hidden">
@@ -823,10 +824,16 @@ const MotherboardOffboardArticle = () => {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
-              3.5 Aceleradores de IA e Computação Paralela
-              <span className="text-fuchsia-500"> – O Hardware da Era dos Dados </span>
-            </h3>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              {/* Ícone de Cérebro/IA centralizado com o texto */}
+              <div className="p-3 bg-fuchsia-950/30 rounded-lg border border-fuchsia-500/30 shadow-[0_0_15px_rgba(217,70,239,0.3)]">
+                <Brain className="text-fuchsia-500 w-8 h-8" />
+              </div>
+              <h3 className="text-3xl font-bold text-white leading-tight text-center">
+                3.5 Aceleradores de IA e Computação Paralela <br />
+                <span className="text-fuchsia-500"> – O Hardware da Era dos Dados </span>
+              </h3>
+            </div>
             <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto">
               GPUs dedicadas, Tensor Cores e o fim da memória compartilhada.
             </p>
@@ -846,10 +853,14 @@ const MotherboardOffboardArticle = () => {
               {/* Coluna 1: Texto Explicativo */}
               <div>
                 <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                  A engenharia de dados moderna, impulsionada por Machine Learning e Deep Learning, exige um paradigma computacional distinto do modelo tradicional baseado em CPU[cite: 553]. A natureza matricial e altamente paralela dos algoritmos de IA torna ineficiente a execução em arquiteturas x86 ou ARM convencionais[cite: 554].
+                  A engenharia de dados moderna, impulsionada por Machine Learning e Deep Learning,
+                  exige um paradigma computacional distinto do modelo tradicional baseado em CPU.
+                  A natureza matricial e altamente paralela dos algoritmos de IA torna ineficiente
+                  a execução em arquiteturas x86 ou ARM convencionais.
                 </p>
                 <p className="text-slate-300 text-lg leading-relaxed text-justify">
-                  Aceleradores de IA são projetados como processadores matemáticos especializados, focados em operações de multiplicação e acumulação de matrizes (MAC operations)[cite: 555].
+                  Aceleradores de IA são projetados como processadores matemáticos especializados,
+                  focados em operações de multiplicação e acumulação de matrizes (MAC operations).
                 </p>
               </div>
 
@@ -936,12 +947,17 @@ const MotherboardOffboardArticle = () => {
                 {/* Coluna 2: Arquitetura Tensorial (Lista) */}
                 <div>
                   <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    Análise Técnica
+                    3.7 Controladoras de Armazenamento (RAID / HBA) – Integridade e Desempenho de Dados
                   </h4>
+                  <p>
+                    Exemplos: Broadcom LSI MegaRAID, HighPoint NVMe Controllers.
+                  </p>
 
                   <div>
                     <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                      Em ambientes corporativos e científicos, a integridade e a disponibilidade dos dados são tão críticas quanto o desempenho. Controladoras de armazenamento off-board foram desenvolvidas para retirar da CPU a complexidade da gestão de múltiplos discos.
+                      Em ambientes corporativos e científicos, a integridade e a disponibilidade dos dados são tão críticas
+                      quanto o desempenho. Controladoras de armazenamento off-board foram desenvolvidas para retirar da CPU a
+                      complexidade da gestão de múltiplos discos.
                     </p>
                     <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                       Cache Dedicado e Proteção de Dados
@@ -964,72 +980,28 @@ const MotherboardOffboardArticle = () => {
                         <span>Escrita segura (write-back cache). </span>
                       </li>
                     </ul> <br />
-                    <p>
-                      Esses mecanismos garantem que dados não sejam perdidos em caso de falha energética antes da persistência em disco, algo inexistente em soluções on-board.
-                    </p>
+                    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                      Esses mecanismos garantem que dados não sejam perdidos em caso de falha energética antes da
+                      persistência em disco, algo inexistente em soluções on-board.
+                    </p> <br />
                   </div>
-
                 </div>
-
-
               </div>
-
             </div> <br />
           </div>
-
           <div className="pt-6 border-t border-slate-800">
 
             {/* Grid de 2 Colunas */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
 
-              {/* Coluna 1: Texto Explicativo */}
 
-              <div>
-                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  3.7 Controladoras de Armazenamento (RAID / HBA) – Integridade e Desempenho de Dados
-                </h4>
-                <p>
-                  Exemplos: Broadcom LSI MegaRAID, HighPoint NVMe Controllers.
-                </p>
-
-                <div>
-                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                    Em ambientes corporativos e científicos, a integridade e a disponibilidade dos dados são tão críticas quanto o desempenho. Controladoras de armazenamento off-board foram desenvolvidas para retirar da CPU a complexidade da gestão de múltiplos discos.
-                  </p>
-                  <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    Cache Dedicado e Proteção de Dados
-                  </h4>
-
-                  <ul className="space-y-3 text-slate-300 text-sm">
-                    <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                      Controladoras profissionais incorporam:
-                    </h4>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Memória cache DRAM dedicada,  </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Baterias de backup (BBU) ou supercapacitores, </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                      <span>Escrita segura (write-back cache). </span>
-                    </li>
-                  </ul> <br />
-                  <p>
-                    Esses mecanismos garantem que dados não sejam perdidos em caso de falha energética antes da persistência em disco, algo inexistente em soluções on-board.
-                  </p>
-
-                </div>
-              </div>
-              {/* Coluna 2: Arquitetura Tensorial (Lista) */}
+              {/* Coluna 1:  */}
               <div>
                 <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                   3.8 Processamento de RAID em Hardware
                 </h4>
 
-                <p>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                   O cálculo de paridade em níveis como RAID 5 e RAID 6 é computacionalmente intensivo.
                   Controladoras dedicadas realizam essas operações em:
                 </p> <br />
@@ -1045,85 +1017,423 @@ const MotherboardOffboardArticle = () => {
                   </li>
 
                 </ul> <br />
-                <p>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                   Em contraste, o chamado “RAID on-board” é majoritariamente implementado via software,
                   consumindo ciclos da CPU e impactando o desempenho geral do sistema.
-                  </p> <br />
-                  <div>
-              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                Tendências Futuras
-              </h4>
-              <p><strong>A evolução das controladoras aponta para: </strong></p> <br />
-              <ul className="space-y-3 text-slate-300 text-sm">
+                </p> <br />
+                <div>
+                  <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    Tendências Futuras
+                  </h4>
+                  <p><strong>A evolução das controladoras aponta para: </strong></p> <br />
+                  <ul className="space-y-3 text-slate-300 text-sm">
 
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Suporte nativo a NVMe over PCIe,  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Integração com memórias persistentes,  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Gerenciamento inteligente baseado em telemetria e IA, </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
-                  <span>Foco em alta disponibilidade e confiabilidade, não apenas velocidade.  </span>
-                </li>
-              </ul> <br />
-
-              <p>
-                <strong>Síntese das Seções</strong>
-              </p> <br />
-              <p>
-                Placas de rede, aceleradores de IA e controladoras de armazenamento representam a materialização plena da arquitetura off-board: hardware especializado, processamento dedicado e isolamento funcional.
-                Esses componentes evidenciam que, em sistemas modernos de alta performance, a CPU não é mais o centro absoluto do processamento, mas parte de um ecossistema heterogêneo e cooperativo.
-              </p> <br />
-
-
-
-
-            </div>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Suporte nativo a NVMe over PCIe,  </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Integração com memórias persistentes,  </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Gerenciamento inteligente baseado em telemetria e IA, </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-4 h-4 text-fuchsia-500 mt-1 shrink-0" />
+                      <span>Foco em alta disponibilidade e confiabilidade, não apenas velocidade.  </span>
+                    </li>
+                  </ul> <br />
+                </div>
 
               </div>
+              {/* Coluna 2: Texto Explicativo */}
+              <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-colors group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+                <div className="flex items-center gap-3 mb-6 relative z-10">
+                  <HardDrive className="text-blue-500 w-8 h-8" />
+                  <h3 className="text-2xl font-bold text-white">Armazenamento (RAID)</h3>
+                </div>
+                <TunnelImage
+                  src="raid-controller.jpg"
+                  alt="Controladora RAID Hardware com Cache"
+                  className="w-full h-40 object-contain mb-6"
+                  glowColor="rgba(59, 130, 246,"
+                />
+                <p className="text-slate-400 text-sm text-justify leading-relaxed">
+                  Controladoras dedicadas possuem cache DRAM próprio e baterias de backup. Elas realizam cálculos de paridade (RAID 5/6) em chips proprietários (ROC), sem consumir a CPU principal, garantindo integridade de dados que soluções on-board não conseguem oferecer.
+                </p>
+              </div>
 
-              
+            </div>
+            {/* Bloco de Síntese com Imagem ao Lado */}
+            <div className="grid md:grid-cols-2 gap-8 items-center mt-8">
+
+              {/* Coluna da Esquerda: Texto */}
+              <div>
+                <h4 className="text-xl font-bold text-white mb-4">
+                  Síntese das Seções
+                </h4>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Placas de rede, aceleradores de IA e controladoras de armazenamento representam
+                  a materialização plena da arquitetura off-board:
+                  <strong> Hardware especializado, processamento dedicado e isolamento funcional.</strong>
+                </p>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify mt-4">
+                  Esses componentes evidenciam que, em sistemas modernos de alta performance,
+                  a CPU não é mais o centro absoluto do processamento, mas parte de um ecossistema
+                  heterogêneo e cooperativo.
+                </p>
+              </div>
+
+              {/* Coluna da Direita: Imagem Retangular */}
+              <div className="h-full flex items-center">
+                <TunnelImage
+                  src="server-rack-perspective.jpg" // Coloque o nome da sua imagem aqui
+                  alt="Ecossistema Heterogêneo de Hardware"
+                  className="w-full h-64 object-cover" // h-64 força o formato retangular
+                  glowColor="rgba(217, 70, 239," // Glow Magenta/Roxo para combinar
+                />
+              </div>
 
             </div>
           </div> <br />
-          <div className="pt-6 border-t border-slate-800"></div> <br />
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Coluna 1: Texto Explicativo */}
+          {/* =====================================================================================
+               NOVA SEÇÃO 4: GPU
+               ===================================================================================== 
+            */}
 
+          <div className="flex items-center justify-center gap-4 mb-8">
+            {/* Ícone de Memória RAM estilizado */}
+          </div>
+          {/* --- SEÇÃO 4: MEMÓRIA DEDICADA (THE GREEN ZONE - ATUALIZADO) --- */}
+      <section className="py-24 px-4 bg-slate-900/40 border-t border-slate-800 relative overflow-hidden">
+        {/* Efeitos de fundo Verde (Matrix/Silicon style) */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none"></div>
 
-            {/* Coluna 2: Texto Explicativo */}
-            
-
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* TÍTULO COM ÍCONE */}
+          <div className="flex items-center justify-center gap-4 mb-16">
+            <div className="p-3 bg-emerald-950/30 rounded-lg border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                <MemoryStick className="text-emerald-500 w-8 h-8" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight text-center">
+                04. Memória Dedicada – Do Suporte Passivo ao <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-400"> Pilar da Computação Moderna </span>
+            </h3>
           </div>
 
+          {/* GRID DE DUAS COLUNAS */}
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            
+            {/* --- COLUNA 1 --- */}
+            <div className="space-y-8">
+                
+                {/* Introdução */}
+                <div className="prose prose-invert">
+                    <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                        Durante décadas, a memória RAM foi tratada como um recurso homogêneo e centralizado, acessado quase exclusivamente pela CPU. No entanto, a evolução da arquitetura off-board transformou a memória em um recurso especializado, distribuído entre subsistemas dedicados, cada qual otimizado para um tipo específico de carga computacional.
+                    </p>
+                    <p className="text-emerald-400 font-medium italic border-l-2 border-emerald-500 pl-4 mt-4">
+                        "Hoje, falar em desempenho computacional sem discutir memória dedicada é ignorar o principal gargalo dos sistemas modernos: movimentação de dados."
+                    </p>
+                </div>
 
+                {/* Passado: A Era Compartilhada */}
+                <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-2 opacity-10"><Clock size={40}/></div>
+                    <h4 className="text-slate-200 font-bold mb-3 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-slate-500 rounded-full"></span> Passado: A Era Compartilhada
+                    </h4>
+                    <p className="text-slate-400 text-sm mb-4 text-justify">
+                        Nos sistemas tradicionais, CPUs e periféricos competiam pela mesma DRAM (UMA - Unified Memory Architecture). O resultado era latência alta e gargalos constantes.
+                    </p>
+                    <ul className="space-y-2 text-xs text-slate-500 font-mono">
+                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Baixa largura de banda relativa</li>
+                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Alta latência para dispositivos externos</li>
+                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Contenção de acesso (CPU vs Vídeo vs I/O)</li>
+                    </ul>
+                </div>
+
+                {/* IMAGEM: GDDR6 / RAM */}
+                <TunnelImage 
+                    src="gddr6-memory-modules.jpg" 
+                    alt="Módulos de Memória GDDR6" 
+                    className="w-full h-48 object-cover opacity-90 hover:opacity-100 transition-opacity"
+                    glowColor="rgba(16, 185, 129," // Emerald Glow
+                />
+
+                {/* Presente: Memória como Acelerador */}
+                <div className="space-y-6">
+                    <h4 className="text-2xl font-bold text-white flex items-center gap-3">
+                        <Zap className="text-emerald-500"/> Presente: O Acelerador
+                    </h4>
+                    <p className="text-slate-300 text-justify">
+                        A arquitetura off-board rompe o paradigma ao introduzir memória dedicada por subsistema.
+                    </p>
+
+                    {/* Cards VRAM & HBM */}
+                    <div className="grid grid-cols-1 gap-4">
+                        <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
+                            <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
+                                VRAM (Vídeo) <span>GDDR6X</span>
+                            </h5>
+                            <ul className="text-xs text-slate-400 space-y-1">
+                                <li>• Largura de banda extrema (TB/s)</li>
+                                <li>• Acesso massivamente paralelo</li>
+                                <li>• Fisicamente próxima à GPU (menor latência)</li>
+                            </ul>
+                        </div>
+
+                        <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
+                            <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
+                                HBM (High Bandwidth) <span>Empilhamento 3D</span>
+                            </h5>
+                            <ul className="text-xs text-slate-400 space-y-1">
+                                <li>• Memória empilhada em 3D (Silicon Interposer)</li>
+                                <li>• Interconexões ultra-curtas</li>
+                                <li>• Redefine o equilíbrio processamento/dados em IA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* --- COLUNA 2 --- */}
+            <div className="space-y-8">
+
+                 {/* IMAGEM: HBM Stack */}
+                 <TunnelImage 
+                    src="hbm-memory-stack.jpg" 
+                    alt="Memória HBM Empilhada 3D" 
+                    className="w-full h-64 object-contain"
+                    glowColor="rgba(132, 204, 22," // Lime Glow
+                />
+
+                {/* Memória em NICs e Controladoras */}
+                <div>
+                    <h4 className="text-xl font-bold text-white mb-4">Memória em NICs e Controladoras</h4>
+                    <div className="bg-slate-900 p-6 rounded-xl border-l-4 border-lime-500 shadow-lg">
+                        <p className="text-slate-300 text-sm mb-4 text-justify">
+                            Placas de rede e controladoras de armazenamento incorporam buffers e caches próprios para enfileiramento e reordenação, liberando a CPU de tarefas repetitivas (Offloading completo).
+                        </p>
+                    </div>
+                </div>
+
+                {/* Arquiteturas Híbridas */}
+                <div>
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <Layers className="text-emerald-500"/> Arquiteturas Híbridas
+                    </h4>
+                    <div className="flex gap-2 mb-4">
+                        <span className="px-3 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">DDR5</span>
+                        <span className="px-3 py-1 bg-emerald-900/30 rounded text-xs text-emerald-400 border border-emerald-500/30">HBM</span>
+                        <span className="px-3 py-1 bg-blue-900/30 rounded text-xs text-blue-400 border border-blue-500/30">NVMe</span>
+                    </div>
+                    <p className="text-slate-400 text-sm text-justify">
+                        Esse modelo transforma o sistema em uma <strong>hierarquia distribuída</strong>, onde cada nível atende a uma necessidade específica de desempenho, custo e persistência.
+                    </p>
+                </div>
+
+                {/* O FUTURO (Caixa de Destaque Cyberpunk) */}
+                <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-lime-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div className="relative bg-black p-6 rounded-xl border border-emerald-500/50">
+                        <div className="flex items-center justify-between mb-4">
+                            <h4 className="text-lime-400 font-bold uppercase tracking-widest text-sm">Futuro: Protagonismo</h4>
+                            <Microchip className="text-lime-500 animate-pulse" size={20}/>
+                        </div>
+                        
+                        <p className="text-slate-300 text-sm mb-4">
+                            O processamento se adapta à memória, não o contrário.
+                        </p>
+                        
+                        <ul className="space-y-3 text-xs text-slate-400 font-mono">
+                            <li className="flex items-start gap-2">
+                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
+                                <span><strong>CXL (Compute Express Link):</strong> Compartilhamento coerente entre CPU, GPU e Aceleradores.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
+                                <span><strong>Near-Memory Computing:</strong> Redução extrema de latência.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
+                                <span><strong>In-Memory Computing:</strong> Processar direto nos bancos de memória.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Impacto e Síntese */}
+                <div className="pt-6 border-t border-slate-800">
+                    <h5 className="text-white font-bold mb-2">Impacto para Engenheiros</h5>
+                    <p className="text-slate-300 text-sm mb-4 text-justify">
+                        Para leitores jovens: performance não é só GHz. Para experientes: quem domina memória domina o sistema. Ela deixa de ser detalhe técnico para ser <strong>elemento estratégico</strong>.
+                    </p>
+                    
+                    <div className="bg-emerald-900/10 p-4 rounded border border-emerald-500/20 text-center">
+                        <p className="text-emerald-300 text-xs font-bold uppercase tracking-wide">
+                            Síntese
+                        </p>
+                        <p className="text-slate-400 text-xs italic mt-2">
+                            "A memória emerge não como suporte, mas como fundamento da engenharia de sistemas computacionais."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+          
+          
+          {/* CARD GIGANTE DA GPU */}
+          <div className="w-full bg-slate-900/60 backdrop-blur-md rounded-3xl border border-fuchsia-600/30 p-8 md:p-12 shadow-[0_0_60px_rgba(217,70,239,0.15)] mb-16 relative group">
+            <div className="absolute top-0 right-0 bg-fuchsia-600 text-white px-6 py-2 rounded-bl-2xl font-bold text-xs uppercase tracking-widest shadow-lg">High Performance Computing</div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+              <div className="relative">
+                {/* Imagem Gigante da GPU */}
+                <TunnelImage
+                  src="rtx-4090-exploded.jpg"
+                  alt="Arquitetura interna de uma GPU High-End (Ex: RTX 4090)"
+                  className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700"
+                  glowColor="rgba(217, 70, 239,"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-black/90 border border-fuchsia-500 p-3 rounded-lg text-fuchsia-300 text-xs font-mono shadow-xl">
+                  Largura de Banda: &gt; 1.000 GB/s
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                <div>
+
+
+                  <h3 className="text-3xl font-bold text-white mb-4">VRAM vs. RAM do Sistema</h3>
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify">
+
+                  </p>
+
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
+                      <Maximize2 className="text-fuchsia-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold">Paralelismo Massivo</h4>
+                      <p className="text-sm text-slate-400 text-justify">Milhares de núcleos (CUDA Cores) vs dezenas de núcleos de CPU. [cite_start]A GPU deixa de ser um periférico gráfico e vira um processador central em HPC[cite: 250, 256].</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
+                      <Cpu className="text-fuchsia-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold">Aceleração de IA</h4>
+                      <p className="text-sm text-slate-400 text-justify">Tensor Cores especializados para multiplicação de matrizes. [cite_start]O gargalo atual não é mais computacional, mas energético e térmico[cite: 271, 273].</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* =====================================================================================
+               NOVA SEÇÃO 5: SISTEMA DE ENERGIA & VRMS (Baseado nas Páginas 17-19 do PDF)
+               Tema: Amarelo/Gold (Amber)
+               ===================================================================================== 
+            */}
+          <section className="py-24 px-4 relative bg-slate-900/30 border-t border-slate-800">
+            <div className="max-w-6xl mx-auto">
+              {/* Cabeçalho da Seção */}
+              <div className="flex items-center justify-between mb-16">
+                <div className="flex items-center gap-4">
+                  <div className="bg-amber-500 h-0.5 w-16 shadow-[0_0_10px_rgba(245,158,11,0.8)]"></div>
+                  <Zap className="text-amber-500 w-8 h-8" />
+                  <h3 className="text-3xl font-bold text-white leading-tight">
+                    05. Engenharia de Potência: <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">A Distribuição Distribuída</span>
+                  </h3>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-12 gap-12 items-center">
+
+                {/* Coluna Visual (Esquerda) */}
+                <div className="md:col-span-5 space-y-6">
+                  <div className="relative group">
+                    <div className="absolute -top-4 -left-4 bg-amber-500 text-black font-bold text-xs px-2 py-1 z-20">FIG 4.0</div>
+                    <TunnelImage
+                      src="vrm-motherboard-phase.jpg"
+                      alt="Fases de VRM e Capacitores Sólidos"
+                      className="w-full h-auto object-cover"
+                      glowColor="rgba(245, 158, 11," // Amber Glow
+                    />
+                    <p className="text-xs text-slate-500 text-center font-mono mt-2">VRMs: O coração elétrico do hardware off-board.</p>
+                  </div>
+
+                  {/* Card de Destaque - Telemetria */}
+                  <div className="bg-slate-900 p-6 rounded-2xl border border-amber-500/20 shadow-[0_0_20px_rgba(245,158,11,0.05)]">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Activity className="text-amber-500" />
+                      <h4 className="text-white font-bold text-sm uppercase tracking-wider">Telemetria em Tempo Real</h4>
+                    </div>
+                    <p className="text-xs text-slate-400 text-justify leading-relaxed">
+                      Placas modernas não apenas consomem energia, elas a monitoram. Sensores ajustam tensão e corrente em microssegundos para evitar picos destrutivos e maximizar a vida útil.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Coluna Texto (Direita) */}
+                <div className="md:col-span-7">
+                  <h4 className="text-2xl font-bold text-white mb-6">De Recurso Passivo a Gargalo Arquitetural</h4>
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                    Durante décadas, a fonte de alimentação foi secundária. [cite_start]Contudo, a arquitetura off-board transformou a energia em um fator estratégico. [cite: 698]
+                    Hoje, componentes de alta performance como GPUs e Aceleradores de IA demandam uma engenharia elétrica própria, independente da placa-mãe.
+                  </p>
+
+                  {/* Lista Estilizada Amarela */}
+                  <div className="bg-gradient-to-br from-amber-950/20 to-slate-900 border-l-4 border-amber-500 p-6 rounded-r-xl backdrop-blur-sm mb-8">
+                    <h5 className="text-amber-400 font-bold flex items-center gap-2 mb-4 text-lg">
+                      <Zap className="w-5 h-5" /> Componentes Off-board Modernos Incorporam:
+                    </h5>
+                    <ul className="space-y-3 text-slate-400 text-sm">
+                      <li className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                        <span><strong>VRMs Próprios:</strong> Módulos reguladores de tensão dedicados para garantir estabilidade.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                        <span><strong>Múltiplas Fases:</strong> Distribuição de carga para evitar superaquecimento de componentes.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                        <span><strong>Performance por Watt:</strong> O foco migrou do desempenho bruto para a eficiência energética operacional. [cite: 726]</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                    Em ambientes de HPC (High Performance Computing), a limitação física deixou de ser quantos dados podemos processar, e passou a ser <strong>quanta energia podemos entregar e dissipar com segurança</strong>[cite: 746].
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div className="pt-6 border-t border-slate-800"></div> <br />
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+          </div>
 
           {/* Cards Finais: Energia e Armazenamento */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Storage Controller */}
-            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-colors group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
-              <div className="flex items-center gap-3 mb-6 relative z-10">
-                <HardDrive className="text-blue-500 w-8 h-8" />
-                <h3 className="text-2xl font-bold text-white">Armazenamento (RAID)</h3>
-              </div>
-              <TunnelImage
-                src="raid-controller.jpg"
-                alt="Controladora RAID Hardware com Cache"
-                className="w-full h-40 object-contain mb-6"
-                glowColor="rgba(59, 130, 246,"
-              />
-              <p className="text-slate-400 text-sm text-justify leading-relaxed">
-                Controladoras dedicadas possuem cache DRAM próprio e baterias de backup. [cite_start]Elas realizam cálculos de paridade (RAID 5/6) em chips proprietários (ROC), sem consumir a CPU principal, garantindo integridade de dados que soluções on-board não conseguem oferecer[cite: 168, 174, 176].
-              </p>
-            </div>
+
 
             {/* Power Engineering */}
             <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-yellow-500/50 transition-colors group relative overflow-hidden">
@@ -1139,66 +1449,12 @@ const MotherboardOffboardArticle = () => {
                 glowColor="rgba(234, 179, 8,"
               />
               <p className="text-slate-400 text-sm text-justify leading-relaxed">
-                A energia off-board é dinâmica. GPUs modernas superam 450W, exigindo <strong>VRMs (Voltage Regulator Modules)</strong> com múltiplas fases e controle ativo. [cite_start]A engenharia migrou do desempenho bruto para a "performance por watt"[cite: 301, 309, 316].
+                A energia off-board é dinâmica. GPUs modernas superam 450W, exigindo <strong>VRMs (Voltage Regulator Modules)</strong> com múltiplas fases e controle ativo. A engenharia migrou do desempenho bruto para a "performance por watt".
               </p>
             </div>
           </div>
         </div> <br />
 
-        {/* CARD GIGANTE DA GPU */}
-        <div className="w-full bg-slate-900/60 backdrop-blur-md rounded-3xl border border-fuchsia-600/30 p-8 md:p-12 shadow-[0_0_60px_rgba(217,70,239,0.15)] mb-16 relative group">
-          <div className="absolute top-0 right-0 bg-fuchsia-600 text-white px-6 py-2 rounded-bl-2xl font-bold text-xs uppercase tracking-widest shadow-lg">High Performance Computing</div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div className="relative">
-              {/* Imagem Gigante da GPU */}
-              <TunnelImage
-                src="rtx-4090-exploded.jpg"
-                alt="Arquitetura interna de uma GPU High-End (Ex: RTX 4090)"
-                className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700"
-                glowColor="rgba(217, 70, 239,"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-black/90 border border-fuchsia-500 p-3 rounded-lg text-fuchsia-300 text-xs font-mono shadow-xl">
-                Largura de Banda: &gt; 1.000 GB/s
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div>
-
-
-                <h3 className="text-3xl font-bold text-white mb-4">VRAM vs. RAM do Sistema</h3>
-                <p className="text-slate-300 text-lg leading-relaxed text-justify">
-
-                </p>
-
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
-                    <Maximize2 className="text-fuchsia-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">Paralelismo Massivo</h4>
-                    <p className="text-sm text-slate-400 text-justify">Milhares de núcleos (CUDA Cores) vs dezenas de núcleos de CPU. [cite_start]A GPU deixa de ser um periférico gráfico e vira um processador central em HPC[cite: 250, 256].</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-fuchsia-900/30 rounded-lg flex items-center justify-center border border-fuchsia-500/30 shrink-0">
-                    <Cpu className="text-fuchsia-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">Aceleração de IA</h4>
-                    <p className="text-sm text-slate-400 text-justify">Tensor Cores especializados para multiplicação de matrizes. [cite_start]O gargalo atual não é mais computacional, mas energético e térmico[cite: 271, 273].</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* =====================================================================================
@@ -1254,6 +1510,8 @@ const MotherboardOffboardArticle = () => {
           </div>
         </div>
       </footer>
+
+      
     </div>
   );
 };
