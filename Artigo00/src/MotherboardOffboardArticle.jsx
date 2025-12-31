@@ -201,7 +201,7 @@ const MotherboardOffboardArticle = () => {
                 <div className="relative bg-slate-900 rounded-xl overflow-hidden border border-fuchsia-500/20">
                   <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-fuchsia-500/30 text-xs text-fuchsia-300 font-mono z-10">
                     FIG 1.0 - SLOTS DE EXPANSÃO
-                  </div>
+                  </div> <br />
                   <TunnelImage
                     src="pcie-slots-motherboard.jpg"
                     alt="Slots PCI Express em Placa Mãe High End"
@@ -352,7 +352,7 @@ const MotherboardOffboardArticle = () => {
                     <h5 className="font-bold text-pink-100">Baixa Latência</h5>
                   </div>
                   <p className="text-xs text-slate-400 leading-relaxed text-justify">
-                    Drivers ASIO permitem comunicação direta com o hardware, reduzindo a latência de 40-50ms (on-board) para menos de <strong>5ms</strong>[cite: 57, 59].
+                    Drivers ASIO permitem comunicação direta com o hardware, reduzindo a latência de 40-50ms (on-board) para menos de <strong>5ms</strong>.
                   </p>
                 </div>
                 <div className="bg-slate-950 p-5 rounded-xl border border-pink-900/40 hover:border-pink-500/50 transition-colors">
@@ -361,7 +361,7 @@ const MotherboardOffboardArticle = () => {
                     <h5 className="font-bold text-pink-100">Isolamento</h5>
                   </div>
                   <p className="text-xs text-slate-400 leading-relaxed text-justify">
-                    [cite_start]Layouts de PCB otimizados e blindagens (EMI Shields) protegem o sinal analógico do ambiente ruidoso da placa-mãe[cite: 34].
+                    Layouts de PCB otimizados e blindagens (EMI Shields) protegem o sinal analógico do ambiente ruidoso da placa-mãe.
                   </p>
                 </div>
               </div>
@@ -459,11 +459,11 @@ const MotherboardOffboardArticle = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-fuchsia-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-50 transition duration-1000"></div>
                 <div className="relative bg-slate-900 rounded-xl overflow-hidden border border-fuchsia-500/20">
                   <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-fuchsia-500/30 text-xs text-fuchsia-300 font-mono z-10">
-                    FIG 2.0 - ###########
+                    FIG 2.0 placas de som dedicadas incorporação de DSPs embarcados
                   </div>
                   <TunnelImage
-                    src="pcie-slots-motherboard.jpg"
-                    alt="Slots PCI Express em Placa Mãe High End"
+                    src="placa-incorporação-de-DSPs-embarcados.jpg"
+                    alt="placas de som dedicadas incorporação de DSPs embarcados"
                     className="w-full h-auto min-h-[300px] object-cover"
                     glowColor="rgba(217, 70, 239,"
                   />
@@ -471,9 +471,7 @@ const MotherboardOffboardArticle = () => {
               </div> <br /> <br />
               <div className="w-full h-auto min-h-[300px] object-cover"
                 glowColor="rgba(217, 70, 239,">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur amet, quidem, doloremque omnis, eaque inventore ducimus hic odio commodi non voluptates perferendis in aperiam nesciunt nisi eum magnam facere asperiores!
-                </p>
+
                 <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
               </div>
 
@@ -809,8 +807,16 @@ const MotherboardOffboardArticle = () => {
                 <li>Ambos off-board → especialização e isolamento  </li>
                 <li>Ambos subordinados à filosofia modular  </li><br />
               </ul>
+              <div className="w-full h-auto min-h-[300px] object-cover"
+                glowColor="rgba(217, 70, 239,">
+
+                <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
+              </div>
+
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -1090,7 +1096,7 @@ const MotherboardOffboardArticle = () => {
               {/* Coluna da Direita: Imagem Retangular */}
               <div className="h-full flex items-center">
                 <TunnelImage
-                  src="server-rack-perspective.jpg" // Coloque o nome da sua imagem aqui
+                  src="ecossistema-Heterogêneo-de-hardware.jpg" // Coloque o nome da sua imagem aqui
                   alt="Ecossistema Heterogêneo de Hardware"
                   className="w-full h-64 object-cover" // h-64 força o formato retangular
                   glowColor="rgba(217, 70, 239," // Glow Magenta/Roxo para combinar
@@ -1205,7 +1211,7 @@ const MotherboardOffboardArticle = () => {
                           Essa memória é fisicamente próxima ao processador gráfico, reduzindo atrasos e
                           eliminando contenção com a RAM do sistema.
                         </p>
-                      </div>
+                      </div> <br />
 
                       <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
                         <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
@@ -1417,6 +1423,12 @@ const MotherboardOffboardArticle = () => {
                         computacionais.
                       </p>
                     </div>
+                    <div className="w-full h-auto min-h-[300px] object-cover"
+                      glowColor="rgba(217, 70, 239,">
+
+                      <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
+                    </div>
+
                   </div>
 
                 </div>
@@ -1773,7 +1785,7 @@ const MotherboardOffboardArticle = () => {
                   <div className="relative group">
                     <div className="absolute -top-4 -left-4 bg-amber-500 text-black font-bold text-xs px-2 py-1 z-20">FIG 4.0</div>
                     <TunnelImage
-                      src="vrm-motherboard-phase.jpg"
+                      src="vrm-power-stages.jpg"
                       alt="Fases de VRM e Capacitores Sólidos"
                       className="w-full h-auto object-cover"
                       glowColor="rgba(245, 158, 11," // Amber Glow
@@ -1903,6 +1915,24 @@ const MotherboardOffboardArticle = () => {
                     <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Trilhos de alta corrente.</li>
                     <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Monitoramento contínuo de carga.</li>
                   </ul>
+                </div> <br />
+                <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <AlertTriangle className="text-amber-500" /> Presente Avançado: Telemetria e Gerenciamento Inteligente
+                </h4>
+
+
+                <div className="bg-amber-950/20 border-l-4 border-amber-500 p-5 rounded-r-lg">
+                  <strong className="text-amber-400 block mb-2 text-sm">Placas modernas incorporam:</strong>
+                  <ul className="space-y-2 text-slate-400 text-sm">
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Sensores térmicos e elétricos.</li>
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Telemetria em tempo real, </li>
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Firmware capaz de ajustar tensão, frequência e consumo dinamicamente.</li>
+                    <strong className="text-amber-400 block mb-2 text-sm">Esse gerenciamento fino permite: </strong>
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Evitar picos destrutivos, </li>
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Maximizar vida útil, </li>
+                    <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" /> • Ajustar desempenho conforme SLA (Service Level Agreement). </li>
+
+                  </ul>
                 </div>
                 {/* BLOCO: DISTRIBUIÇÃO DE ENERGIA OFF-BOARD */}
                 <div className="bg-slate-900/80 p-6 rounded-xl border border-amber-500/20 shadow-lg relative overflow-hidden mt-6">
@@ -1922,16 +1952,16 @@ const MotherboardOffboardArticle = () => {
                       </p>
                       <ul className="space-y-3 text-sm text-slate-300">
                         <li className="flex justify-between items-center border-b border-slate-800 pb-2">
-                          <span>CPU (Picos Curtos)</span>
-                          <span className="text-white font-mono bg-slate-800 px-2 py-0.5 rounded">~Centenas de Watts</span>
+                          <span>CPU </span>
+                          <span className="text-white font-mono bg-slate-800 px-2 py-0.5 rounded">pode consumir centenas de watts em picos curtos</span>
                         </li>
                         <li className="flex justify-between items-center border-b border-slate-800 pb-2">
                           <span className="font-bold text-white">GPUs High-End</span>
-                          <span className="text-black font-bold font-mono bg-amber-500 px-2 py-0.5 rounded">400–700 W</span>
+                          <span className="text-white font-mono bg-slate-800 px-2 py-0.5 rounded">superam facilmente 400–700 W</span>
                         </li>
                         <li className="flex justify-between items-center pt-1">
                           <span>Aceleradores e NICs</span>
-                          <span className="text-slate-400 font-mono italic">Adição Significativa</span>
+                          <span className="text-white font-mono bg-slate-800 px-2 py-0.5 rounded"> adicionam consumo significativo</span>
                         </li>
                       </ul>
                     </div>
@@ -1973,16 +2003,23 @@ const MotherboardOffboardArticle = () => {
 
             {/* --- COLUNA 2: FUTURO, TELEMETRIA E IMPACTO --- */}
             <div className="space-y-8">
-
-              {/* Presente Avançado: Telemetria */}
-
-
-              {/* Futuro: Recurso Programável */}
-              <div>
-                <h4 className="text-lg font-bold text-white mb-2">Eficiência & Performance/Watt</h4>
-                <p className="text-slate-400 text-sm text-justify leading-relaxed">
-                  O foco migrou do desempenho bruto para a <strong>performance por watt</strong>. Essa métrica define a viabilidade em data centers e limites térmicos. Componentes off-board são projetados para maximizar trabalho útil por unidade de energia.
-                </p>
+              <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700 relative overflow-hidden group">
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">Eficiência & Performance/Watt</h4>
+                  <p className="text-slate-400 text-sm text-justify leading-relaxed">
+                    O foco migrou do desempenho bruto para a <strong>performance por watt</strong>. Essa métrica define a viabilidade em data centers e limites térmicos.
+                    Componentes off-board são projetados para maximizar trabalho útil por unidade de energia.
+                  </p> <br />
+                  <ul className="text-xs text-slate-500 font-mono space-y-1 ml-2">
+                    <li>• Viabilidade em data centers</li>
+                    <li>• Custos operacionais (OPEX)</li>
+                    <li>• Limites térmicos e físicos</li>
+                  </ul> <br />
+                  <p className="text-slate-400 text-sm text-justify leading-relaxed">
+                    Componentes off-board são projetados para maximizar trabalho útil por unidade de
+                    energia consumida, reforçando a especialização funcional.
+                  </p>
+                </div>
               </div>
 
               <div className="relative group">
@@ -1990,18 +2027,35 @@ const MotherboardOffboardArticle = () => {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                 <div className="relative bg-black p-6 rounded-xl border border-amber-500/30">
                   <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-amber-400 font-bold uppercase tracking-widest text-sm">Futuro: Orquestração</h4>
+                    <h4 className="text-amber-400 font-bold uppercase tracking-widest text-sm">Futuro Orquestração : Energia como Recurso Programável </h4>
                     <Zap className="text-amber-500 animate-pulse" size={18} />
                   </div>
 
                   <p className="text-slate-300 text-sm mb-4 text-justify">
-                    A energia deixa de ser apenas fornecida e passa a ser orquestrada por software (Power-aware computing).
+                    O futuro da engenharia computacional aponta para uma visão onde a energia deixa de ser apenas fornecida e passa a ser orquestrada por software (Power-aware computing).
                   </p>
                   <p className="text-slate-400 text-xs italic text-justify border-t border-amber-500/20 pt-3">
                     "Em ambientes extremos, a limitação será: não quantos dados podem ser processados, mas quanta energia pode ser entregue e dissipada com segurança."
-                  </p>
+                  </p> <br />
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <AlertTriangle className="text-amber-500" /> Tendências Emergentes
+                  </h4>
+
+
+                  <div className="bg-amber-950/20 border-l-4 border-amber-500 p-5 rounded-r-lg">
+                    <ul className="space-y-2 text-slate-400 text-sm">
+                      <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" />• Power-aware computing: software consciente do custo energético, </li>
+                      <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" />• DVFS avançado (Dynamic Voltage and Frequency Scaling), </li>
+                      <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" />• Integração entre CPU, GPU e aceleradores com políticas energéticas globais,</li>
+                      <li className="flex gap-2 items-center"><ChevronRight size={14} className="text-amber-500" />• Data centers orientados por limites energéticos e não apenas computacionais. </li>
+
+
+
+                    </ul>
+                  </div>
                 </div>
               </div>
+
 
               {/* Impacto e Síntese */}
               <div>
@@ -2014,40 +2068,45 @@ const MotherboardOffboardArticle = () => {
                   <div className="bg-amber-950/30 p-5 rounded-lg border-l-4 border-amber-500">
                     <strong className="text-amber-500 block text-xs uppercase tracking-wide mb-2">Síntese Final</strong>
                     <p className="text-slate-200 text-sm text-justify leading-relaxed">
-                      A evolução do sistema de energia evidencia que a computação moderna é um desafio físico. A energia emerge como um dos pilares fundamentais da arquitetura off-board, determinando desempenho, confiabilidade e sustentabilidade.
+                      A evolução do sistema de energia evidencia que a computação moderna não é
+                      apenas um problema lógico, é um desafio físico e energético. Da alimentação
+                      centralizada à engenharia de potência distribuída, a energia emerge como um dos
+                      pilares fundamentais da arquitetura off-board, determinando desempenho,
+                      confiabilidade e sustentabilidade dos sistemas computacionais do presente e do
+                      futuro.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 w-full">
-    
-    {/* Cabeçalho: Ícone + Título */}
-    <div className="flex items-center gap-3 mb-8">
-        <Zap className="text-yellow-500 w-8 h-8" />
-        <h3 className="text-2xl font-bold text-white">Engenharia de Potência</h3>
-    </div>
 
-    {/* Placeholder da Imagem (Simulando o box tracejado roxo) */}
-    <div className="w-full h-64 rounded-xl border-2 border-dashed border-fuchsia-500/30 bg-fuchsia-500/5 flex flex-col items-center justify-center text-center p-6 mb-8">
-        <span className="text-fuchsia-500 font-bold text-lg mb-2">
-            Imagem: Fases de Alimentação VRM em Placa Offboard
-        </span>
-        <span className="text-slate-500 text-sm">
-            Adicione o arquivo "vrm-power-stages.jpg" na pasta public do projeto.
-        </span>
-    </div>
+                {/* Cabeçalho: Ícone + Título */}
+                <div className="flex items-center gap-3 mb-8">
+                  <Zap className="text-yellow-500 w-8 h-8" />
+                  <h3 className="text-2xl font-bold text-white">Engenharia de Potência</h3>
+                </div> <br />
 
-    {/* Texto Descritivo */}
-    <p className="text-slate-400 text-base text-justify leading-relaxed">
-        A energia off-board é dinâmica. GPUs modernas superam 450W, exigindo <strong className="text-slate-200">VRMs (Voltage Regulator Modules)</strong> com múltiplas fases e controle ativo. A engenharia migrou do desempenho bruto para a "performance por watt".
-    </p>
+                {/* Placeholder da Imagem (Simulando o box tracejado roxo) */}
+                {/* Contêiner da Imagem (Arrumado) */}
+                <div className="w-full h-64 rounded-xl border border-slate-700 overflow-hidden mb-8 shadow-lg relative z-10">
+                  <img
+                    src="fonte.jpg"
+                    alt="Detalhe das Fases de Alimentação VRM e Capacitores Sólidos em Placa Offboard"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
 
-</div>
+                {/* Texto Descritivo */}
+                <p className="text-slate-400 text-base text-justify leading-relaxed">
+                  A energia off-board é dinâmica. GPUs modernas superam 450W, exigindo <strong className="text-slate-200">VRMs (Voltage Regulator Modules)</strong> com múltiplas fases e controle ativo. A engenharia migrou do desempenho bruto para a "performance por watt".
+                </p>
+
+              </div>
 
             </div>
           </div>
 
-          
+
         </div> <br />
 
       </section>
