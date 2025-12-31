@@ -2113,7 +2113,7 @@ const MotherboardOnboardArticle = () => {
                 ===================================================================================== */}
             <footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
                 {/* Efeito de Luz de Fundo */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
                 {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
                 <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">

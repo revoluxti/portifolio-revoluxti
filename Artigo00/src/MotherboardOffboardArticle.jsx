@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import {
   Cpu, Monitor, Zap, Server, Database, Layers, ArrowRight, ShieldCheck,
   BookOpen, AlertTriangle, Terminal, Recycle, Crosshair, ChevronRight,
-  Speaker, Wifi, HardDrive, Skull, Mic2, Activity, Radio, Lock, Maximize2,
-  Brain, MemoryStick, Sliders, Clock, Microchip, Grid,
+  Speaker, Wifi, HardDrive, Skull, Mic2, Radio, Lock, Maximize2,
+  Brain, MemoryStick, Sliders, Clock, Microchip, Grid, Activity, Cable
 } from 'lucide-react';
 
 /* =====================================================================================
@@ -98,22 +98,24 @@ const MotherboardOffboardArticle = () => {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <hgroup>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-              SALA DO ENIAC 1946 <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Capítulo 02</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
-              Placa Mãe Parte II Off-board<br />
-
-            </h2>
-            <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
-            <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
-          </hgroup>
+        <hgroup>
+                        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                            SALA DO ENIAC 1946 <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                                Capítulo 01
+                            </span>
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
+                            Placa Mãe Parte II Off-board<br />
+                           
+                        </h2>
+                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
+                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
+                    </hgroup>
 
           {/* Badge do Autor (Estilo Vitrine) */}
           <div className="inline-flex flex-col md:flex-row items-center gap-5 bg-slate-950/50 p-6 md:py-3 md:px-8 rounded-2xl md:rounded-full border border-fuchsia-500/40 backdrop-blur-md shadow-[0_0_30px_rgba(217,70,239,0.1)]">
-            <div className="bg-fuchsia-600 p-2.5 rounded-full shadow-lg shadow-fuchsia-600/40">
+            <div className="bg-cyan-600 p-2.5 rounded-full shadow-lg shadow-cyan-600/40">
               <Cpu size={24} className="text-white" />
             </div>
             <div className="text-center md:text-left">
@@ -2090,7 +2092,7 @@ const MotherboardOffboardArticle = () => {
                 {/* Contêiner da Imagem (Arrumado) */}
                 <div className="w-full h-64 rounded-xl border border-slate-700 overflow-hidden mb-8 shadow-lg relative z-10">
                   <img
-                    src="fonte.jpg"
+                    src="vrm-power-stages.jpg"
                     alt="Detalhe das Fases de Alimentação VRM e Capacitores Sólidos em Placa Offboard"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
@@ -2105,9 +2107,111 @@ const MotherboardOffboardArticle = () => {
 
             </div>
           </div>
-
-
         </div> <br />
+        {/* =====================================================================================
+            SUB-SEÇÃO: PSU (FONTE DE ALIMENTAÇÃO) - CORRIGIDA
+          ===================================================================================== 
+        */}
+        <div className="w-full mt-16">
+
+          {/* 2. CAIXA DE CONTEÚDO TÉCNICO DA PSU */}
+          <div className="bg-slate-900 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl mb-8">
+            {/* GRID TÉCNICO: Duas Colunas */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative">
+
+              {/* Divisória vertical sutil (apenas desktop) */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-slate-800 via-slate-700/50 to-slate-800"></div>
+              {/* COLUNA 1 (Esquerda): Conversão e Regulação */}
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-none mb-2">
+                  Gerenciamento de Energia
+                </h2>
+                <p >
+                  O Coração Estável do Ecossistema de Hardware
+                </p> <br />
+                <div>
+                  <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                    Frequentemente subestimada, a PSU é o componente mais crítico do PC. Ela não é apenas um "cabo de força", mas uma complexa estação de regulação responsável por manter o hardware estável.
+                    {/* Destaque integrado no parágrafo */}
+                    <span className="font-semibold text-slate-100 ml-1 border-b-2 border-yellow-500/50">
+                      Uma PSU de alta qualidade não apenas fornece energia bruta; ela entrega energia limpa.
+                    </span>
+                  </p>
+                </div> <br />
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <Activity className="w-5 h-5 text-yellow-500" />
+                  Conversão e Regulação (AC → DC)
+                </h4>
+                <div className="space-y-4 text-slate-300 leading-relaxed text-justify">
+                  <p>
+                    A função primária é converter a alta voltagem Alternada (AC) da tomada em Corrente Contínua (DC) de baixa voltagem com precisão extrema através de "trilhos" específicos:
+                  </p>
+                  {/* Lista técnica com design limpo */}
+                  <div className="bg-slate-800/30 rounded-xl border border-slate-700/50 overflow-hidden">
+                    <div className="flex gap-3 p-3 border-b border-slate-700/50 items-center bg-slate-800/50">
+                      <span className="text-yellow-400 font-mono font-bold text-lg">+12V</span>
+                      <span className="text-sm leading-tight"><strong>Crítico.</strong> Alimenta CPU e GPU. Exige estabilidade máxima sob carga.</span>
+                    </div>
+                    <div className="flex gap-3 p-3 items-center">
+                      <span className="text-yellow-600 font-mono font-bold text-lg">+5V/3.3V</span>
+                      <span className="text-sm leading-tight">Alimentam SSDs, Chipset, RAM e periféricos USB.</span>
+                    </div>
+                  </div>
+
+                  {/* Alerta de Risco Compacto - FECHANDO AS TAGS QUE FALTAVAM AQUI */}
+                  <div className="flex gap-3 items-start mt-2 p-3 rounded-lg bg-red-500/5 border border-red-500/10">
+                    <AlertTriangle className="text-red-400 w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-red-300/90 leading-snug text-justify">
+                      <strong className="text-red-400">O perigo do "Ripple":</strong> Fontes ruins permitem ruído elétrico (oscilação residual AC) que degrada componentes digitais sensíveis, causando instabilidade (telas azuis) e reduzindo a vida útil do hardware.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* COLUNA 2 (Direita): Eficiência e Proteção */}
+              <div className="relative z-10">
+
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-yellow-500" />
+                  Eficiência (80 Plus) e Proteção
+                </h4>
+                <div className="space-y-4">
+                  <p className="text-slate-300 text-sm text-justify leading-relaxed">
+                    A certificação <strong>80 Plus</strong> (White, Bronze, Gold, Platinum, Titanium) indica a eficiência energética. Uma fonte 80 Plus Gold desperdiça menos de 10-13% de energia em calor.
+                  </p>
+
+                  {/* Box Proteções */}
+                  <div className="bg-slate-950/50 p-4 rounded-xl border border-yellow-500/10">
+                    <span className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-2 block">Proteções Essenciais</span>
+                    <ul className="grid grid-cols-2 gap-2 text-xs text-slate-400 font-mono">
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>OVP (Sobretensão)</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>UVP (Subtensão)</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>SCP (Curto-circuito)</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>OPP (Sobrecarga)</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-xs text-slate-500 italic text-justify">
+                      *Em arquiteturas Off-board de alto desempenho, economizar na fonte é o erro mais caro que um engenheiro pode cometer.
+                    </p>
+                  </div>
+                  <div className="w-full h-64 rounded-xl border border-slate-700 overflow-hidden mb-8 shadow-lg relative z-10">
+                    <img
+                      src="fonte.jpg"
+                      alt="Detalhe das Fases de Alimentação VRM e Capacitores Sólidos em Placa Offboard"
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        {/* INSERIR AQUI LOGO ABAIXO A DIV DA IMAGEM DA FONTE CORSAIR QUE CRIAMOS ANTES */}
 
       </section>
 
@@ -2115,52 +2219,62 @@ const MotherboardOffboardArticle = () => {
                RODAPÉ E REFERÊNCIAS (Páginas 21-23 PDF)
                ===================================================================================== 
             */}
-      <footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-20 pb-12 relative overflow-hidden">
-        {/* Luz de Fundo Magenta */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-fuchsia-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <footer className="mt-0 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden">
+        {/* Efeito de Luz de Fundo */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-fuchsia-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-        {/* Caveira Decorativa de Fundo */}
-        <div className="absolute -bottom-10 -right-10 opacity-[0.03] pointer-events-none -rotate-12 z-0">
-          <Skull size={400} className="text-fuchsia-500 blur-sm" />
+        {/* CAVEIRA DE FUNDO (Canto Esquerdo) */}
+        <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
+          <Skull size={300} className="text-fuchsia-400 blur-sm" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <div className="flex flex-col items-center gap-4 mb-12 opacity-80">
-            <div className="p-4 bg-slate-900 rounded-full border border-slate-800 shadow-lg shadow-black">
-              <BookOpen className="w-6 h-6 text-slate-400" />
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+
+          {/* Cabeçalho das Referências */}
+          <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
+            <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
+              <Database className="w-6 h-6 text-slate-400" />
             </div>
-            <h3 className="uppercase tracking-[0.3em] text-xs font-bold text-slate-400">Referências Bibliográficas & Normas</h3>
+            <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas & Normas</h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto mb-16">
-            <div className="bg-slate-900/60 p-6 rounded-xl border border-fuchsia-500/10 text-[11px] text-slate-500 font-mono space-y-4 hover:border-fuchsia-500/30 transition-colors">
-              <p className="border-l-2 border-fuchsia-500 pl-3 leading-relaxed">[1] PCI-SIG. PCI Express® Base Specification Revision 6.0. [cite_start]Beaverton: PCI Special Interest Group, 2022. [cite: 345]</p>
-              <p className="border-l-2 border-fuchsia-500 pl-3 leading-relaxed">[2] NVIDIA CORPORATION. NVIDIA Ada Lovelace Architecture Whitepaper. [cite_start]Santa Clara: Nvidia Corp, 2022. [cite: 346]</p>
-              <p className="border-l-2 border-fuchsia-500 pl-3 leading-relaxed">[3] HENNESSY, J. L.; PATTERSON, D. A. Computer Architecture: A Quantitative Approach. 6. ed. [cite_start]Cambridge, 2017. [cite: 347]</p>
+          {/* Grid de Referências (Atualizado) */}
+          <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-12">
+
+            {/* Coluna 1: Fabricantes & Componentes */}
+            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-cyan-500/20 transition-colors">
+              <strong className="block text-cyan-500/50 uppercase tracking-wider mb-2">Componentes & Datasheets</strong>
+              <p>REALTEK. ALC1220-VB: High Performance Audio Codec. 2017.</p>
+              <p>INTEL CORP. Ethernet Controller I225-V Datasheet. 2021.</p>
+              <p>INFINEON. VRM Power Delivery Solutions for Intel. 2022.</p>
+              <p>AUDIO SCIENCE REVIEW. ALC1220 Measurements. 2020.</p>
+              <p>GIGABYTE TECHNOLOGY. AORUS Audio Implementation. 2023.</p>
+              <p>RIVET NETWORKS. Killer Prioritization Engine Whitepaper. 2019.</p>
             </div>
-            <div className="bg-slate-900/60 p-6 rounded-xl border border-fuchsia-500/10 text-[11px] text-slate-500 font-mono space-y-4 hover:border-fuchsia-500/30 transition-colors">
-              <p className="border-l-2 border-purple-500 pl-3 leading-relaxed">[4] CREATIVE TECHNOLOGY LTD. Sound Blaster AE-9 Audiophile DAC Datasheet. [cite_start]Singapore, 2020. [cite: 350]</p>
-              <p className="border-l-2 border-purple-500 pl-3 leading-relaxed">[5] INTEL CORPORATION. Intel® Ethernet Controller X550 Datasheet. [cite_start]Santa Clara: Intel Corp, 2019. [cite: 352]</p>
-              [cite_start]<p className="border-l-2 border-purple-500 pl-3 leading-relaxed">[6] ABNT NBR 6023:2018 - Informação e documentação - Referências - Elaboração. [cite: 403]</p>
+
+            {/* Coluna 2: Padrões da Indústria (A parte nova) */}
+            <div className="bg-slate-900/50 p-5 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-3 hover:border-purple-500/20 transition-colors">
+              <strong className="block text-purple-500/50 uppercase tracking-wider mb-2">Arquitetura & Padrões</strong>
+              <p>PCI-SIG. PCI Express® Base Specification Rev 5.0. 2019.</p>
+              <p>NVM EXPRESS. NVM Express Base Specification Rev 2.0. 2021.</p>
+              <p>JEDEC. DDR5 SDRAM Standard (JESD79-5). 2020.</p>
+              <p>INTEL CORP. Iris® Xe Graphics Architecture Guide. 2020.</p>
+              <p>IEEE. 802.3az-2010: Energy Efficient Ethernet Standards.</p>
+              <p>AMD. Ryzen Processor Architecture Whitepaper. 2021.</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center border-t border-slate-900 pt-10">
-            {/* CAVEIRA MAGENTA CENTRAL (Interativa)
-                           Efeito: Glow ao passar o mouse
-                        */}
-            <div className="relative group cursor-pointer mb-8">
-              <div className="absolute -inset-6 bg-fuchsia-600/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <Skull
-                className="w-16 h-16 text-fuchsia-500 drop-shadow-[0_0_15px_rgba(217,70,239,0.9)] hover:scale-110 transition-transform duration-300 relative z-10"
-                strokeWidth={1.5}
-              />
-            </div>
+          {/* Assinatura Final */}
+          <div className="flex flex-col items-center border-t border-slate-900 pt-8">
+            {/* CAVEIRA NEON CENTRAL */}
+            <Skull
+              className="mb-6 w-12 h-12 text-fuchsia-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.9)] hover:scale-110 transition-transform duration-300 cursor-pointer"
+              strokeWidth={1.5}
+            />
 
-
-            <p className="text-slate-300 font-bold mb-2 tracking-wide text-sm">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
-            <p className="text-slate-500 text-xs mb-1 uppercase tracking-[0.2em]">Engenharia de Computação</p>
-            <p className="text-fuchsia-600/50 text-[10px] font-mono mt-8">REVOLUXTI © 2025 - Todos os direitos reservados</p>
+            <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+            <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
+            <p className="text-fuchsia-600/60 text-xs font-mono mt-6">REVOLUXTI © 2025 - Todos os direitos reservados</p>
           </div>
         </div>
       </footer>
