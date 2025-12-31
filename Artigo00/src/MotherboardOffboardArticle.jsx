@@ -3,7 +3,7 @@ import {
   Cpu, Monitor, Zap, Server, Database, Layers, ArrowRight, ShieldCheck,
   BookOpen, AlertTriangle, Terminal, Recycle, Crosshair, ChevronRight,
   Speaker, Wifi, HardDrive, Skull, Mic2, Activity, Radio, Lock, Maximize2,
-  Brain, MemoryStick, Sliders, Clock, Microchip
+  Brain, MemoryStick, Sliders, Clock, Microchip, Grid,
 } from 'lucide-react';
 
 /* =====================================================================================
@@ -1108,188 +1108,411 @@ const MotherboardOffboardArticle = () => {
             {/* Ícone de Memória RAM estilizado */}
           </div>
           {/* --- SEÇÃO 4: MEMÓRIA DEDICADA (THE GREEN ZONE - ATUALIZADO) --- */}
-      <section className="py-24 px-4 bg-slate-900/40 border-t border-slate-800 relative overflow-hidden">
-        {/* Efeitos de fundo Verde (Matrix/Silicon style) */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none"></div>
+          <section className="py-24 px-4 bg-slate-900/40 border-t border-slate-800 relative overflow-hidden">
+            {/* Efeitos de fundo Verde (Matrix/Silicon style) */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          
-          {/* TÍTULO COM ÍCONE */}
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <div className="p-3 bg-emerald-950/30 rounded-lg border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                <MemoryStick className="text-emerald-500 w-8 h-8" />
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight text-center">
-                04. Memória Dedicada – Do Suporte Passivo ao <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-400"> Pilar da Computação Moderna </span>
-            </h3>
-          </div>
+            <div className="max-w-7xl mx-auto relative z-10">
 
-          {/* GRID DE DUAS COLUNAS */}
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            
-            {/* --- COLUNA 1 --- */}
-            <div className="space-y-8">
-                
-                {/* Introdução */}
-                <div className="prose prose-invert">
+              {/* TÍTULO COM ÍCONE */}
+              <div className="flex items-center justify-center gap-4 mb-16">
+                <div className="p-3 bg-emerald-950/30 rounded-lg border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                  <MemoryStick className="text-emerald-500 w-8 h-8" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight text-center">
+                  04. Memória Dedicada – Do Suporte Passivo ao <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-400"> Pilar da Computação Moderna </span>
+                </h3>
+              </div>
+
+              {/* GRID DE DUAS COLUNAS */}
+              <div className="grid md:grid-cols-2 gap-16 items-start">
+
+                {/* --- COLUNA 1 --- */}
+                <div className="space-y-8">
+
+                  {/* Introdução */}
+                  <div className="prose prose-invert">
                     <p className="text-slate-300 text-lg leading-relaxed text-justify">
-                        Durante décadas, a memória RAM foi tratada como um recurso homogêneo e centralizado, acessado quase exclusivamente pela CPU. No entanto, a evolução da arquitetura off-board transformou a memória em um recurso especializado, distribuído entre subsistemas dedicados, cada qual otimizado para um tipo específico de carga computacional.
+                      Durante décadas, a memória RAM foi tratada como um recurso homogêneo e centralizado,
+                      acessado quase exclusivamente pela CPU. No entanto, a evolução da arquitetura off-board
+                      transformou a memória em um recurso especializado, distribuído entre subsistemas dedicados,
+                      cada qual otimizado para um tipo específico de carga computacional.
                     </p>
                     <p className="text-emerald-400 font-medium italic border-l-2 border-emerald-500 pl-4 mt-4">
-                        "Hoje, falar em desempenho computacional sem discutir memória dedicada é ignorar o principal gargalo dos sistemas modernos: movimentação de dados."
+                      "Hoje, falar em desempenho computacional sem discutir memória dedicada é ignorar o principal gargalo dos sistemas modernos: movimentação de dados."
                     </p>
-                </div>
+                  </div>
 
-                {/* Passado: A Era Compartilhada */}
-                <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-2 opacity-10"><Clock size={40}/></div>
+                  {/* Passado: A Era Compartilhada */}
+                  <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-2 opacity-10"><Clock size={40} /></div>
                     <h4 className="text-slate-200 font-bold mb-3 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-slate-500 rounded-full"></span> Passado: A Era Compartilhada
+                      <span className="w-2 h-2 bg-slate-500 rounded-full"></span> Passado: A Era Compartilhada
                     </h4>
                     <p className="text-slate-400 text-sm mb-4 text-justify">
-                        Nos sistemas tradicionais, CPUs e periféricos competiam pela mesma DRAM (UMA - Unified Memory Architecture). O resultado era latência alta e gargalos constantes.
+                      Em arquiteturas on-board, especialmente com vídeo integrado, esse modelo
+                      persiste por meio da UMA (Unified Memory Architecture), onde gráficos e sistema
+                      competem pela mesma RAM, limitando escalabilidade e previsibilidade.
                     </p>
                     <ul className="space-y-2 text-xs text-slate-500 font-mono">
-                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Baixa largura de banda relativa</li>
-                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Alta latência para dispositivos externos</li>
-                        <li className="flex items-center gap-2"><AlertTriangle size={12}/> Contenção de acesso (CPU vs Vídeo vs I/O)</li>
+                      <li className="flex items-center gap-2"><AlertTriangle size={12} /> Baixa largura de banda relativa</li>
+                      <li className="flex items-center gap-2"><AlertTriangle size={12} /> Alta latência para dispositivos externos</li>
+                      <li className="flex items-center gap-2"><AlertTriangle size={12} /> Contenção de acesso (CPU vs Vídeo vs I/O)</li>
                     </ul>
-                </div>
+                  </div>
 
-                {/* IMAGEM: GDDR6 / RAM */}
-                <TunnelImage 
-                    src="gddr6-memory-modules.jpg" 
-                    alt="Módulos de Memória GDDR6" 
+                  {/* IMAGEM: GDDR6 / RAM */}
+                  <TunnelImage
+                    src="gddr6-memory-modules.jpg"
+                    alt="Módulos de Memória GDDR6"
                     className="w-full h-48 object-cover opacity-90 hover:opacity-100 transition-opacity"
                     glowColor="rgba(16, 185, 129," // Emerald Glow
-                />
+                  />
 
-                {/* Presente: Memória como Acelerador */}
-                <div className="space-y-6">
+                  {/* Presente: Memória como Acelerador */}
+                  <div className="space-y-6">
                     <h4 className="text-2xl font-bold text-white flex items-center gap-3">
-                        <Zap className="text-emerald-500"/> Presente: O Acelerador
+                      <Zap className="text-emerald-500" /> Presente: Memória Dedicada como Acelerador de Desempenho
                     </h4>
                     <p className="text-slate-300 text-justify">
-                        A arquitetura off-board rompe o paradigma ao introduzir memória dedicada por subsistema.
-                    </p>
+                      A arquitetura off-board rompe esse paradigma ao introduzir memória dedicada por
+                      subsistema, otimizando acesso, latência e largura de banda.                    </p>
 
                     {/* Cards VRAM & HBM */}
                     <div className="grid grid-cols-1 gap-4">
-                        <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
-                            <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
-                                VRAM (Vídeo) <span>GDDR6X</span>
-                            </h5>
-                            <ul className="text-xs text-slate-400 space-y-1">
-                                <li>• Largura de banda extrema (TB/s)</li>
-                                <li>• Acesso massivamente paralelo</li>
-                                <li>• Fisicamente próxima à GPU (menor latência)</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
-                            <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
-                                HBM (High Bandwidth) <span>Empilhamento 3D</span>
-                            </h5>
-                            <ul className="text-xs text-slate-400 space-y-1">
-                                <li>• Memória empilhada em 3D (Silicon Interposer)</li>
-                                <li>• Interconexões ultra-curtas</li>
-                                <li>• Redefine o equilíbrio processamento/dados em IA</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* --- COLUNA 2 --- */}
-            <div className="space-y-8">
-
-                 {/* IMAGEM: HBM Stack */}
-                 <TunnelImage 
-                    src="hbm-memory-stack.jpg" 
-                    alt="Memória HBM Empilhada 3D" 
-                    className="w-full h-64 object-contain"
-                    glowColor="rgba(132, 204, 22," // Lime Glow
-                />
-
-                {/* Memória em NICs e Controladoras */}
-                <div>
-                    <h4 className="text-xl font-bold text-white mb-4">Memória em NICs e Controladoras</h4>
-                    <div className="bg-slate-900 p-6 rounded-xl border-l-4 border-lime-500 shadow-lg">
-                        <p className="text-slate-300 text-sm mb-4 text-justify">
-                            Placas de rede e controladoras de armazenamento incorporam buffers e caches próprios para enfileiramento e reordenação, liberando a CPU de tarefas repetitivas (Offloading completo).
+                      <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
+                        <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
+                          VRAM  Memória de Vídeo<span>GDDR6X</span>
+                        </h5>
+                        <p className="text-xs text-slate-400 space-y-1">
+                          <strong>GPUs dedicadas utilizam VRAM (GDDR6, GDDR6X ou HBM), projetadas para:</strong>  <br /> <br />
                         </p>
+                        <ul className="text-xs text-slate-400 space-y-1">
+                          <li>• Largura de banda extrema (TB/s)</li>
+                          <li>• Acesso massivamente paralelo</li>
+                          <li>• Fisicamente próxima à GPU (menor latência)</li>
+                        </ul> <br />
+                        <p className="text-xs text-slate-400 space-y-1">
+                          Essa memória é fisicamente próxima ao processador gráfico, reduzindo atrasos e
+                          eliminando contenção com a RAM do sistema.
+                        </p>
+                      </div>
+
+                      <div className="bg-emerald-950/20 p-5 rounded-lg border border-emerald-500/20 hover:border-emerald-500/50 transition-colors">
+                        <h5 className="text-emerald-400 font-bold mb-2 flex justify-between">
+                          HBM (High Bandwidth) <span>Empilhamento 3D</span>
+                        </h5>
+                        <p className="text-xs text-slate-400 space-y-1">
+                          <strong> Em aceleradores de IA e HPC, a HBM representa o estado da arte: </strong> <br /> <br />
+                        </p>
+                        <ul className="text-xs text-slate-400 space-y-1">
+                          <li>• Memória empilhada em 3D (Silicon Interposer)</li>
+                          <li>• Interconexões ultra-curtas</li>
+                          <li>• Redefine o equilíbrio processamento/dados em IA</li>
+                        </ul>
+                        <p className="text-xs text-slate-400 space-y-1"> <br />
+                          HBM não é apenas rápida — ela redefine o equilíbrio entre processamento e
+                          movimentação de dados, fator crítico em IA.
+                        </p>
+                      </div>
+                      {/* IMAGEM: HBM Stack */}
+                      <TunnelImage
+                        src="hbm-memory-stack.jpg"
+                        alt="Memória HBM Empilhada 3D"
+                        className="w-full h-64 object-contain"
+                        glowColor="rgba(132, 204, 22," // Lime Glow
+                      />
                     </div>
+                  </div>
                 </div>
 
-                {/* Arquiteturas Híbridas */}
-                <div>
+                {/* --- COLUNA 2 --- */}
+                <div className="space-y-8">
+                  {/* Memória em NICs e Controladoras */}
+
+                  {/* Bloco: Memória em NICs e Controladoras */}
+                  <div>
                     <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <Layers className="text-emerald-500"/> Arquiteturas Híbridas
+                      <Server className="text-lime-500" /> Memória em NICs e Controladoras
+                    </h4>
+
+                    <div className="bg-slate-900/80 p-6 rounded-xl border-l-4 border-lime-500 shadow-[0_0_20px_rgba(132,204,22,0.05)] hover:bg-slate-900 transition-colors">
+                      <p className="text-slate-300 text-lg leading-relaxed text-justify mb-4">
+                        Placas de rede e controladoras de armazenamento incorporam buffers e caches próprios, utilizados para:
+                      </p>
+
+                      <ul className="space-y-3 text-sm text-slate-400 font-mono mb-6">
+                        <li className="flex items-start gap-3">
+                          <ChevronRight className="w-4 h-4 text-lime-500 mt-0.5 shrink-0" />
+                          <span>Enfileiramento de pacotes,</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <ChevronRight className="w-4 h-4 text-lime-500 mt-0.5 shrink-0" />
+                          <span>Reordenação de dados,</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <ChevronRight className="w-4 h-4 text-lime-500 mt-0.5 shrink-0" />
+                          <span>Cache de escrita e leitura.</span>
+                        </li>
+                      </ul>
+                      <p>
+                        Liberando a CPU de tarefas repetitivas (Offloading completo).
+                      </p>
+
+                      <div className="pt-4 border-t border-slate-800">
+                        <p className="text-slate-300 text-sm text-justify italic">
+                          <span className="text-lime-400 font-bold">Impacto:</span> Essa memória local reduz latência e libera a CPU de tarefas repetitivas, reforçando o conceito de <strong>offloading completo</strong>.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Bloco: Arquiteturas Híbridas de Memória */}
+                  {/* Arquiteturas Híbridas */}
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <Layers className="text-emerald-500" /> Presente Avançado: Arquiteturas Híbridas
                     </h4>
                     <div className="flex gap-2 mb-4">
-                        <span className="px-3 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">DDR5</span>
-                        <span className="px-3 py-1 bg-emerald-900/30 rounded text-xs text-emerald-400 border border-emerald-500/30">HBM</span>
-                        <span className="px-3 py-1 bg-blue-900/30 rounded text-xs text-blue-400 border border-blue-500/30">NVMe</span>
+                      <span className="px-3 py-1 bg-slate-800 rounded text-xs text-slate-300 border border-slate-700">DDR5</span>
+                      <span className="px-3 py-1 bg-emerald-900/30 rounded text-xs text-emerald-400 border border-emerald-500/30">HBM</span>
+                      <span className="px-3 py-1 bg-blue-900/30 rounded text-xs text-blue-400 border border-blue-500/30">NVMe</span>
                     </div>
-                    <p className="text-slate-400 text-sm text-justify">
-                        Esse modelo transforma o sistema em uma <strong>hierarquia distribuída</strong>, onde cada nível atende a uma necessidade específica de desempenho, custo e persistência.
-                    </p>
-                </div>
 
-                {/* O FUTURO (Caixa de Destaque Cyberpunk) */}
-                <div className="relative group">
+                  </div>
+                  <div className="mt-8">
+
+
+                    <div className="bg-slate-900/80 p-6 rounded-xl border border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden group">
+                      {/* Efeito decorativo de fundo */}
+                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/20 transition-colors"></div>
+
+                      <p className="text-slate-300 text-sm mb-5">
+                        Sistemas modernos não dependem de um único tipo. Eles combinam camadas para eficiência máxima:
+                      </p>
+
+                      {/* Lista Visual em Camadas */}
+                      <div className="space-y-3 mb-6 relative z-10">
+
+                        {/* Camada 1: RAM */}
+                        <div className="flex items-center gap-4 p-3 rounded-lg bg-black/40 border border-emerald-500/10 hover:border-emerald-500/40 transition-colors">
+                          <div className="p-2 bg-emerald-900/20 rounded text-emerald-400">
+                            <Cpu size={18} />
+                          </div>
+                          <div>
+                            <strong className="text-white text-sm block">RAM de Sistema (DDR5)</strong>
+                            <span className="text-[10px] text-slate-500 uppercase tracking-wider">Uso Geral • Latência Média</span>
+                          </div>
+                        </div>
+
+                        {/* Camada 2: Dedicada */}
+                        <div className="flex items-center gap-4 p-3 rounded-lg bg-black/40 border border-emerald-500/10 hover:border-emerald-500/40 transition-colors">
+                          <div className="p-2 bg-emerald-900/20 rounded text-emerald-400">
+                            <Zap size={18} />
+                          </div>
+                          <div>
+                            <strong className="text-white text-sm block">Memória Dedicada (VRAM, HBM)</strong>
+                            <span className="text-[10px] text-slate-500 uppercase tracking-wider">Alta Velocidade • GPU/IA</span>
+                          </div>
+                        </div>
+
+                        {/* Camada 3: Persistente */}
+                        <div className="flex items-center gap-4 p-3 rounded-lg bg-black/40 border border-emerald-500/10 hover:border-emerald-500/40 transition-colors">
+                          <div className="p-2 bg-emerald-900/20 rounded text-emerald-400">
+                            <HardDrive size={18} />
+                          </div>
+                          <div>
+                            <strong className="text-white text-sm block">Memória Persistente (NVMe, PMEM)</strong>
+                            <span className="text-[10px] text-slate-500 uppercase tracking-wider">Armazenamento • Alta Capacidade</span>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {/* Conclusão */}
+                      <div className="pt-4 border-t border-emerald-500/20">
+                        <p className="text-slate-400 text-sm text-justify">
+                          Esse modelo híbrido transforma o sistema em uma <strong>hierarquia distribuída</strong> de
+                          memória, onde cada nível atende a uma necessidade específica de desempenho, custo e persistência.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  {/* O FUTURO (Caixa de Destaque Cyberpunk) */}
+                  <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-lime-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                     <div className="relative bg-black p-6 rounded-xl border border-emerald-500/50">
-                        <div className="flex items-center justify-between mb-4">
-                            <h4 className="text-lime-400 font-bold uppercase tracking-widest text-sm">Futuro: Protagonismo</h4>
-                            <Microchip className="text-lime-500 animate-pulse" size={20}/>
-                        </div>
-                        
-                        <p className="text-slate-300 text-sm mb-4">
-                            O processamento se adapta à memória, não o contrário.
-                        </p>
-                        
-                        <ul className="space-y-3 text-xs text-slate-400 font-mono">
-                            <li className="flex items-start gap-2">
-                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
-                                <span><strong>CXL (Compute Express Link):</strong> Compartilhamento coerente entre CPU, GPU e Aceleradores.</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
-                                <span><strong>Near-Memory Computing:</strong> Redução extrema de latência.</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0"/>
-                                <span><strong>In-Memory Computing:</strong> Processar direto nos bancos de memória.</span>
-                            </li>
-                        </ul>
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="text-lime-400 font-bold uppercase tracking-widest text-sm">Futuro: Memória como Protagonista da Arquitetura</h4>
+                        <Microchip className="text-lime-500 animate-pulse" size={20} />
+                      </div>
+
+
+                      <p className="text-slate-300 text-sm mb-4">
+                        O futuro da engenharia computacional aponta para uma inversão de protagonismo: <br />
+                        O processamento se adapta à memória, e não o contrário.
+                      </p>
+
+                      <h5 className="text-lime-400 font-bold uppercase tracking-widest text-sm">
+                        Tendências Emergentes: <br /> <br />
+                      </h5>
+
+                      <ul className="space-y-3 text-xs text-slate-400 font-mono">
+                        <li className="flex items-start gap-2">
+                          <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0" />
+                          <span><strong>CXL (Compute Express Link):</strong> Compartilhamento coerente entre CPU, GPU e Aceleradores.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0" />
+                          <span><strong>Near-Memory Computing:</strong> Redução extrema de latência.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0" />
+                          <span><strong>In-Memory Computing:</strong> Processar direto nos bancos de memória.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <ArrowRight className="text-emerald-500 w-4 h-4 shrink-0" />
+                          <span><strong>Unificação lógica com especialização física: </strong> Visão única para o software,
+                            especialização no hardware.</span>
+                        </li>
+                      </ul>
                     </div>
+                  </div>
+
+                  {/* Impacto e Síntese */}
+                  <div className="pt-6 border-t border-slate-800">
+                    <h5 className="text-white font-bold mb-2">Impacto Para Novas Gerações de Engenheiros </h5>
+                    <p className="text-slate-300 text-sm mb-4 text-justify">
+                      Para leitores jovens a mensagem é clara: performance não é só GHz ou núcleos.
+                      Para profissionais experienteso recado é direto: Quem domina memória domina o sistema.
+                      Ela deixa de ser detalhe técnico para ser <strong>elemento estratégico</strong>. <br /> <br />
+                      A memória dedicada deixa de ser um detalhe técnico e passa a ser elemento
+                      estratégico, definindo limites de desempenho, eficiência energética e viabilidade de
+                      novas aplicações.
+                    </p>
+
+                    <div className="bg-emerald-900/10 p-4 rounded border border-emerald-500/20 text-center">
+                      <p className="text-emerald-300 text-xs font-bold uppercase tracking-wide">
+                        Síntese
+                      </p>
+                      <p className="text-slate-400 text-xs italic mt-2">
+
+                        A evolução da memória dedicada consolida a arquitetura off-board como resposta
+                        técnica ao maior desafio da computação moderna: movimentar dados com
+                        eficiência. Do passado centralizado ao futuro distribuído e inteligente. <br />
+                        "A memória emerge não como suporte, mas como fundamento da engenharia de sistemas computacionais."
+                        computacionais.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          {/* SEÇÃO GPU: O FIM DA MEMÓRIA COMPARTILHADA */}
+          <div className="mt-16 mb-16">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              {/* COLUNA 1: TEXTO TÉCNICO E EXEMPLOS */}
+              <div className="space-y-6">
+                <h3 className="text-3xl font-bold text-white leading-tight">
+                  Placa de Vídeo (GPU) <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
+                    O Fim da Memória Compartilhada
+                  </span>
+                </h3>
+
+                {/* Box de Exemplos */}
+                <div className="bg-slate-900 border-l-4 border-fuchsia-500 p-4 rounded-r-lg">
+                  <span className="text-xs text-fuchsia-400 font-bold uppercase tracking-widest block mb-2">
+                    Exemplos de Mercado
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 rounded bg-fuchsia-950/40 border border-fuchsia-500/30 text-xs text-slate-300 font-mono">NVIDIA RTX Series</span>
+                    <span className="px-2 py-1 rounded bg-red-950/40 border border-red-500/30 text-xs text-slate-300 font-mono">AMD Radeon RX</span>
+                    <span className="px-2 py-1 rounded bg-blue-950/40 border border-blue-500/30 text-xs text-slate-300 font-mono">NVIDIA Quadro/Ada</span>
+                  </div>
                 </div>
 
-                {/* Impacto e Síntese */}
-                <div className="pt-6 border-t border-slate-800">
-                    <h5 className="text-white font-bold mb-2">Impacto para Engenheiros</h5>
-                    <p className="text-slate-300 text-sm mb-4 text-justify">
-                        Para leitores jovens: performance não é só GHz. Para experientes: quem domina memória domina o sistema. Ela deixa de ser detalhe técnico para ser <strong>elemento estratégico</strong>.
-                    </p>
-                    
-                    <div className="bg-emerald-900/10 p-4 rounded border border-emerald-500/20 text-center">
-                        <p className="text-emerald-300 text-xs font-bold uppercase tracking-wide">
-                            Síntese
-                        </p>
-                        <p className="text-slate-400 text-xs italic mt-2">
-                            "A memória emerge não como suporte, mas como fundamento da engenharia de sistemas computacionais."
-                        </p>
+                <p className="text-slate-300 text-lg text-justify leading-relaxed">
+                  A principal distinção para a solução onboard é a memória. Enquanto o vídeo integrado utiliza a RAM do sistema (lenta e compartilhada), uma GPU dedicada possui <strong>VRAM (Video RAM)</strong> própria, geralmente padrões GDDR6 ou GDDR6X.
+                </p>
+
+                {/* Comparativo de Cores (Processamento) */}
+                <div className="bg-slate-900/50 p-5 rounded-xl border border-slate-700 hover:border-fuchsia-500/50 transition-colors group">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-fuchsia-900/20 rounded-lg text-fuchsia-400 group-hover:scale-110 transition-transform">
+                      <Grid size={20} />
                     </div>
+                    <h4 className="text-white font-bold">Paralelismo Massivo</h4>
+                  </div>
+                  <p className="text-sm text-slate-400 text-justify">
+                    Diferente da CPU (poucos núcleos seriais), a GPU possui <strong>milhares de núcleos</strong> (CUDA Cores ou Stream Processors) projetados para computação paralela, essencial para geometria e texturas complexas.
+                  </p>
+
                 </div>
+              </div>
+
+              {/* COLUNA 2: VISUALIZAÇÃO DE LARGURA DE BANDA (DDR5 vs GDDR6X) */}
+              <div className="bg-black/40 p-8 rounded-2xl border border-fuchsia-500/20 shadow-[0_0_40px_rgba(217,70,239,0.1)] relative overflow-hidden">
+                {/* Background Glow */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  <Activity className="text-fuchsia-500" /> Batalha de Bandwidth
+                </h4>
+
+                <div className="space-y-8">
+                  {/* Barra RAM Sistema */}
+                  <div>
+                    <div className="flex justify-between text-xs font-mono mb-2">
+                      <span className="text-slate-400">RAM Sistema (DDR5)</span>
+                      <span className="text-slate-400">~50-80 GB/s</span>
+                    </div>
+                    <div className="h-4 w-full bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-500 w-[8%] rounded-full relative group cursor-help">
+                        <span className="absolute -top-8 left-0 bg-slate-700 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                          Lenta para gráficos 4K
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Barra VRAM GPU */}
+                  <div>
+                    <div className="flex justify-between text-xs font-mono mb-2">
+                      <span className="text-fuchsia-400 font-bold">VRAM Dedicada (GDDR6X)</span>
+                      <span className="text-fuchsia-400 font-bold">&gt; 1.000 GB/s (1 TB/s)</span>
+                    </div>
+                    <div className="h-6 w-full bg-slate-800 rounded-full overflow-hidden border border-fuchsia-500/30">
+                      <div className="h-full bg-gradient-to-r from-fuchsia-600 via-purple-500 to-fuchsia-400 w-full rounded-full relative animate-pulse">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-slate-500 mt-3 italic text-right">
+                      *Crucial para texturas 8K e Ray Tracing em tempo real.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Icone Decorativo Extra */}
+                <div className="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
+                  <div className="text-xs text-slate-500">
+                    STATUS: <span className="text-green-500">LINKED</span>
+                  </div>
+                  <Maximize2 className="text-fuchsia-500/50 w-8 h-8" />
+                </div>
+              </div>
 
             </div>
           </div>
-        </div>
-      </section>
-          
-          
+
           {/* CARD GIGANTE DA GPU */}
           <div className="w-full bg-slate-900/60 backdrop-blur-md rounded-3xl border border-fuchsia-600/30 p-8 md:p-12 shadow-[0_0_60px_rgba(217,70,239,0.15)] mb-16 relative group">
             <div className="absolute top-0 right-0 bg-fuchsia-600 text-white px-6 py-2 rounded-bl-2xl font-bold text-xs uppercase tracking-widest shadow-lg">High Performance Computing</div>
@@ -1311,11 +1534,8 @@ const MotherboardOffboardArticle = () => {
 
               <div className="space-y-8">
                 <div>
-
-
                   <h3 className="text-3xl font-bold text-white mb-4">VRAM vs. RAM do Sistema</h3>
                   <p className="text-slate-300 text-lg leading-relaxed text-justify">
-
                   </p>
 
                 </div>
@@ -1344,6 +1564,199 @@ const MotherboardOffboardArticle = () => {
               </div>
             </div>
           </div>
+
+          {/* BLOCO: EVOLUÇÃO E NOMENCLATURA (GPGPU) */}
+          <div className="my-16 grid md:grid-cols-2 gap-12 items-start">
+
+            {/* COLUNA 1: DA RASTERIZAÇÃO AO GPGPU */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                <Layers className="text-fuchsia-500" /> Evolução: De placas de vídeo a processadores paralelos
+              </h3>
+
+              <div className="prose prose-invert">
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  Originalmente, as GPUs surgiram como aceleradores gráficos de função fixa, focados apenas em rasterização 2D/3D para aliviar a CPU.
+                </p>
+                <p className="text-slate-300 text-lg leading-relaxed text-justify">
+                  A revolução veio com os <strong>Shaders Programáveis</strong>. Isso permitiu que a GPU executasse pequenos programas paralelos, inaugurando a era <strong>GPGPU (General Purpose GPU)</strong>.
+                </p>
+              </div>
+
+              <div className="bg-fuchsia-950/20 p-6 rounded-xl border-l-4 border-fuchsia-500">
+                <p className="text-slate-400 text-sm italic text-justify">
+                  "A partir desse ponto, a GPU deixa de ser um periférico gráfico e passa a ocupar um papel central em HPC, simulações científicas e Inteligência Artificial, executando milhares de threads simultaneamente."
+                </p>
+              </div>
+            </div>
+
+            {/* COLUNA 2: DECODIFICANDO A NOMENCLATURA */}
+            <div className="bg-slate-900/80 p-6 rounded-2xl border border-fuchsia-500/20 shadow-[0_0_30px_rgba(217,70,239,0.05)]">
+              <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+                <Terminal className="text-fuchsia-500" />
+                <h4 className="text-xl font-bold text-white">Decodificando o Produto</h4>
+              </div>
+
+              {/* Exemplo Prático: RTX 4080 */}
+              <div className="mb-8">
+                <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-2 block">Exemplo: NVIDIA</span>
+                <div className="flex items-center gap-2 text-2xl font-black font-mono text-white mb-4">
+                  <span className="text-fuchsia-400">RTX</span>
+                  <span>40</span>
+                  <span>80</span>
+                </div>
+
+                <ul className="space-y-3 text-sm text-slate-400">
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-[40px] font-bold text-fuchsia-500 text-right">RTX</div>
+                    <span>Suporte a Ray Tracing (RT Cores) e IA (Tensor Cores).</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-[40px] font-bold text-white text-right">40</div>
+                    <span>Geração da Arquitetura (Ex: Ada Lovelace).</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-[40px] font-bold text-white text-right">80</div>
+                    <span>Classe de desempenho (Quanto maior, mais núcleos e VRAM).</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Comparativo de Famílias */}
+              <div>
+                <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-3 block">Famílias de GPUs</span>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+                    <span className="text-slate-400 font-bold text-xs">GTX</span>
+                    <span className="text-slate-500 text-[10px] uppercase">Legado (Sem IA/RT)</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 rounded bg-fuchsia-900/20 border border-fuchsia-500/30">
+                    <span className="text-fuchsia-400 font-bold text-xs">RTX</span>
+                    <span className="text-fuchsia-300/70 text-[10px] uppercase">Padrão Atual (Consumer)</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 rounded bg-blue-900/20 border border-blue-500/30">
+                    <span className="text-blue-400 font-bold text-xs">RTX Ada / Quadro</span>
+                    <span className="text-blue-300/70 text-[10px] uppercase">Workstation / Pro</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO: NOMENCLATURA, IA E MERCADO (Texto Completo) */}
+<div className="my-16 space-y-8">
+
+{/* 1. Nomenclatura */}
+<div className="bg-slate-900/80 p-8 rounded-2xl border border-fuchsia-500/20 shadow-[0_0_30px_rgba(217,70,239,0.05)]">
+    <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+        <Terminal className="text-fuchsia-500" size={24} />
+        <h4 className="text-2xl font-bold text-white">Nomenclatura das GPUs – Decodificando o Produto</h4>
+    </div>
+
+    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+        A nomenclatura das GPUs modernas segue uma lógica que reflete geração, segmento e capacidade computacional.
+    </p>
+
+    <div className="grid md:grid-cols-2 gap-8">
+        {/* NVIDIA Exemplo */}
+        <div className="bg-black/30 p-6 rounded-xl border border-fuchsia-500/10">
+            <strong className="text-fuchsia-400 block mb-4 border-b border-fuchsia-500/20 pb-2">NVIDIA (Exemplo: RTX 4080)</strong>
+            <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>RTX:</strong> Indica suporte a Ray Tracing em hardware e Tensor Cores para IA.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>40:</strong> Geração (Ada Lovelace).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>80:</strong> Classe de desempenho dentro da geração (quanto maior, mais núcleos, mais VRAM, mais largura de banda).</span>
+                </li>
+            </ul>
+        </div>
+
+        {/* Comparativo de Famílias */}
+        <div className="bg-black/30 p-6 rounded-xl border border-fuchsia-500/10">
+            <strong className="text-fuchsia-400 block mb-4 border-b border-fuchsia-500/20 pb-2">Comparativo de Famílias:</strong>
+            <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>GTX:</strong> GPUs sem RT Cores e Tensor Cores (legado).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>RTX:</strong> GPUs com aceleração dedicada para Ray Tracing e IA.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <span className="text-fuchsia-500 font-bold">•</span>
+                    <span><strong>RTX Ada / Quadro:</strong> GPUs profissionais com drivers certificados, maior estabilidade e foco em precisão numérica.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <p className="text-slate-400 text-sm italic mt-6 border-l-4 border-fuchsia-500 pl-4">
+        Essa nomenclatura permite identificar rapidamente o posicionamento técnico do hardware, evitando análises superficiais baseadas apenas em marketing.
+    </p>
+</div>
+
+{/* 2. Influência da IA */}
+<div className="bg-gradient-to-br from-fuchsia-950/20 to-slate-900 p-8 rounded-2xl border-l-4 border-fuchsia-600">
+    <h4 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <Microchip className="text-fuchsia-500" /> A Influência da Inteligência Artificial no Hardware Gráfico
+    </h4>
+    
+    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+        A introdução da inteligência artificial não criou uma nova classe de hardware, mas explorou ao limite a arquitetura paralela das GPUs.
+    </p>
+
+    <div className="mb-6">
+        <strong className="text-white block mb-3">Elementos-chave:</strong>
+        <ul className="space-y-2 text-slate-300 text-sm ml-4">
+            <li className="flex items-center gap-2"><ChevronRight size={14} className="text-fuchsia-500"/> Tensor Cores: Unidades especializadas para multiplicação de matrizes.</li>
+            <li className="flex items-center gap-2"><ChevronRight size={14} className="text-fuchsia-500"/> Precisão reduzida: FP16, BF16 e INT8 para acelerar inferência e treinamento.</li>
+            <li className="flex items-center gap-2"><ChevronRight size={14} className="text-fuchsia-500"/> Offloading massivo: A CPU atua apenas como orquestrador.</li>
+        </ul>
+    </div>
+
+    <p className="text-slate-300 text-lg leading-relaxed text-justify mb-4">
+        O principal gargalo atual não é computacional, mas energético e térmico. GPUs modernas consomem centenas de watts, exigindo:
+    </p>
+    <ul className="list-disc list-inside text-slate-400 text-sm mb-6 ml-4 space-y-1">
+        <li>Fontes de alimentação de alta capacidade,</li>
+        <li>Sistemas avançados de refrigeração,</li>
+        <li>Infraestrutura elétrica robusta em data centers.</li>
+    </ul>
+
+    <p className="text-fuchsia-300 font-medium">
+        O futuro da computação acelerada não será limitado pela quantidade de núcleos, mas pela eficiência energética por operação executada.
+    </p>
+</div>
+
+{/* 3. Impactos no Mercado */}
+<div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+    <h4 className="text-xl font-bold text-white mb-6">Impactos no Mercado e Perspectivas Futuras</h4>
+    
+    <p className="text-slate-300 mb-4">No médio e longo prazo, observa-se:</p>
+    <ul className="grid md:grid-cols-2 gap-3 text-sm text-slate-400 mb-6">
+        <li className="bg-slate-950 p-3 rounded border border-slate-800">• Consolidação das GPUs como coprocessadores universais;</li>
+        <li className="bg-slate-950 p-3 rounded border border-slate-800">• Crescimento do custo por sistema completo (TCO – Total Cost of Ownership);</li>
+        <li className="bg-slate-950 p-3 rounded border border-slate-800">• Aumento da importância de métricas como performance por watt;</li>
+        <li className="bg-slate-950 p-3 rounded border border-slate-800">• Integração crescente entre CPU, GPU e aceleradores dedicados.</li>
+    </ul>
+
+    <div className="bg-fuchsia-900/10 p-4 rounded border border-fuchsia-500/20 text-center">
+        <p className="text-slate-300 text-sm">
+            Essa tendência reforça a arquitetura off-board como indispensável em ambientes de alta demanda computacional, enquanto sistemas on-board permanecem adequados para uso generalista.
+        </p>
+    </div>
+</div>
+
+</div>
+
+
 
           {/* =====================================================================================
                NOVA SEÇÃO 5: SISTEMA DE ENERGIA & VRMS (Baseado nas Páginas 17-19 do PDF)
@@ -1511,7 +1924,7 @@ const MotherboardOffboardArticle = () => {
         </div>
       </footer>
 
-      
+
     </div>
   );
 };
