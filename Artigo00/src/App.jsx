@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HistoryInfographic from './HistoryInfographic';
 import MotherboardOnboardArticle from './MotherboardOnboardArticle';
 import MotherboardOffboardArticle from './MotherboardOffboardArticle';
+import ProcessorsArticle from './ProcessorsArticle';
 
 const App = () => {
   const [currentChapter, setCurrentChapter] = useState('00'); // Começando no Cap 02 para testar
@@ -78,19 +79,8 @@ const App = () => {
         {currentChapter === '00' && <HistoryInfographic />}
         {currentChapter === '01' && <MotherboardOnboardArticle />}
         {currentChapter === '02' && <MotherboardOffboardArticle />}
-
-        {currentChapter === '03' && (
-          <div className="flex flex-col items-center justify-center min-h-full text-white font-mono bg-black relative">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(34,197,94,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] opacity-20"></div>
-            <div className="z-10 text-center p-12 border border-green-500/30 rounded-2xl bg-slate-900/80 backdrop-blur-xl shadow-2xl shadow-green-900/20">
-              <h1 className="text-6xl font-black text-green-500 mb-4 tracking-tighter animate-pulse">CAPÍTULO 03</h1>
-              <h2 className="text-3xl text-slate-200 font-light mb-8">PROCESSADORES</h2>
-              <div className="text-green-400/60 text-sm font-mono border-t border-green-500/20 pt-4">
-                STATUS: AGUARDANDO DADOS...
-              </div>
-            </div>
-          </div>
-        )}
+        {currentChapter === '03' && <ProcessorsArticle />}
+        
 
       </div>
     </div>
