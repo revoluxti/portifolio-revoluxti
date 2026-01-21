@@ -107,7 +107,7 @@ header .grid-container {
 /* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
     display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
-    padding: 0 35px; /* Adiciona espaçamento lateral entre os itens do menu. */
+    padding: 0 25px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
 /* <a> (links) do .menu-desktop */
@@ -157,6 +157,7 @@ header .grid-container {
 .btn-contato button:hover {
     transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
     box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado */
+    color: var(--cor-de-abobora);
 }
 
 /*=============================================
@@ -987,6 +988,130 @@ footer .line-footer a {
         flex-shrink: 0; /* Impede que a bolinha amasse se o texto for grande */
         margin-right: 10px;
     }
+}
+/* ==========================================================================
+   TABLET E DISPOSITIVOS DOBRÁVEIS (601px até 1024px)
+   Ajuste: Imagens Inteiras (Sem Cortes) + Mascote Gigante
+   ========================================================================== */
+   @media screen and (min-width: 601px) and (max-width: 1024px) {
+
+    /* --- 1. CABEÇALHO --- */
+    .menu-desktop,
+    .btn-contato { display: none; }
+    .btn-abrir-menu { display: block; font-size: 3rem; }
+    header .grid-container { grid-template-columns: auto 1fr; }
+    .txt-capa h1 { font-size: 3rem; }
+
+    /* --- 2. CONTEÚDO CENTRAL --- */
+    .conteudo-central {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    /* ORDEM 1: Capa */
+    .img-capa {
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .img-capa img { max-width: 70%; height: auto; }
+
+    /* ORDEM 2: Feed de Notícias */
+    .noticias-feed {
+        order: 2;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    /* ESTILO DOS BOXES */
+    .box {
+        width: 100%;
+        max-width: 525px; 
+        height: 420px;    
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: black; /* Garante fundo preto se a imagem não preencher tudo */
+    }
+    
+    /* --- CORREÇÃO DA IMAGEM --- */
+    .box img {
+        width: 100%;
+        height: 100%; 
+        
+        /* MUDANÇA PRINCIPAL: 'contain' mostra a imagem INTEIRA */
+        object-fit: contain;  
+        
+        flex-grow: 1;
+    }
+
+    /* Ajuste do Texto do Título */
+    .box h3.especial {
+        font-size: 1.5rem;
+        padding: 8px 15px;
+        margin-bottom: 15px;
+        position: absolute; /* Fixa o título no topo sobre a imagem */
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        z-index: 10;
+    }
+
+    /* Ajuste do Texto do Ticket */
+    .ticker-container {
+        height: 35px;
+        bottom: 0; /* Cola no fundo do box */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro para leitura */
+    }
+
+    .ticker-text {
+        font-size: 1.2rem;
+        line-height: 35px;
+    }
+
+    /* Box Notícia Principal */
+    #noticia-principal {
+        width: 100% !important;
+        max-width: 525px !important;
+        height: 420px !important;
+        margin: 0 auto;
+    }
+
+    /* ORDEM 3: Mascote Rhino */
+    .imagem-flutuante {
+        order: 3;
+        margin-top: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: visible; 
+    }
+
+    .imagem-do-rhino {
+        max-width: 100%;
+        transform: scale(1.5); 
+        animation: flutuar-mobile 4s ease-in-out infinite alternate;
+    }
+
+    /* --- 3. ESPECIALIDADES --- */
+    .especialidades-box {
+        width: calc(50% - 20px);
+        flex-grow: 0;
+    }
+
+    /* --- 4. RODAPÉ --- */
+    footer .line-footer { flex-direction: column; gap: 20px; }
+    .escala-urgencia { justify-content: center; gap: 15px; }
+    .numeros-escala { gap: 30px; }
 }
 
 /*=============================================

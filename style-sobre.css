@@ -106,7 +106,7 @@ header .grid-container {
 /* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
     display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
-    padding: 0 35px; /* Adiciona espaçamento lateral entre os itens do menu. */
+    padding: 0 25px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
 /* <a> (links) do .menu-desktop */
@@ -156,6 +156,7 @@ header .grid-container {
 .btn-contato button:hover {
     transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
     box-shadow: 0px 0px 15px var(--cor-destaque-dourado); /* Brilho dourado */
+    color: var(--cor-de-abobora);
 }
 
 /*=============================================
@@ -293,7 +294,7 @@ main {
     flex: 1; 
     
     /* DEFINIÇÃO DE ALTURA E SCROLL */
-    height: 1200px; /* Altura fixa da "janela" onde o texto vai passar */
+    height: 1550px; /* Altura fixa da "janela" onde o texto vai passar */
     overflow: hidden; /* Esconde o texto que estiver fora da "janela" */
     position: relative; /* Necessário para o conteúdo absoluto dentro dele */
     

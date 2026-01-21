@@ -105,7 +105,7 @@ header .grid-container {
 /* <li> dentro de .menu-desktop -> Cada item individual do menu. */
 .menu-desktop li {
     display: inline-block; /* Faz com que os itens da lista fiquem lado a lado, em vez de um sobre o outro. */
-    padding: 0 35px; /* Adiciona espaçamento lateral entre os itens do menu. */
+    padding: 0 25px; /* Adiciona espaçamento lateral entre os itens do menu. */
 }
 
 /* <a> (links) do .menu-desktop */
@@ -689,6 +689,7 @@ footer .line-footer a {
         max-width: 100%;
     }
 }
+
 
 /*=============================================
 7. ANIMAÇÃO SCROLL REVEAL (CSS)

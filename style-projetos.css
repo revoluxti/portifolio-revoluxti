@@ -1,43 +1,53 @@
 /*=============================================
 1. ESTILOS GERAIS E VARIÁVEIS
 =============================================*/
-:root {
-    --cor-principal: #b3120c;
-    --cor-borda: #631212;
-    --cor-texto-secundario: #a09494;
+
+/* :root -> Um seletor que representa o elemento raiz do documento (a tag <html>). 
+   É o melhor local para declarar variáveis CSS globais, que podem ser reutilizadas em todo o site. */
+   :root {
+    /* --nome-da-variavel: valor; -> Sintaxe para criar uma variável CSS. */
+    --cor-principal: #b3120c; /* Armazena a cor vermelha principal do site. */
+    --cor-borda: #631212; /* Armazena a cor vermelha escura para as bordas. */
+    --cor-texto-secundario: #a09494; /* Armazena a cor cinza para textos de menor destaque. */
+    /* Tom dourado/amarelo com transparência. */
     --cor-destaque-dourado: #ffcc00a1;
     --cor-de-abobora: #fd8f00;
-}
+   }
 
+/* * -> O seletor universal. Aplica estas regras a TODOS os elementos da página. É usado para resetar estilos. */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Antonio', sans-serif;
+    margin: 0; /* Remove as margens externas padrão que os navegadores aplicam a elementos como <p>, <h1>, etc. */
+    padding: 0; /* Remove os preenchimentos internos padrão dos elementos. */
+    box-sizing: border-box; /* Altera a forma como a largura e altura dos elementos são calculadas. Com 'border-box', o padding e a borda ficam DENTRO do tamanho definido, em vez de o aumentarem. */
+    font-family: 'Antonio', sans-serif; /* Define a família de fontes padrão para todo o site. Se 'Antonio' não carregar, ele usará uma fonte 'sans-serif' genérica. */
 }
 
+/* <body> -> Estilos aplicados ao corpo principal do documento. */
 body {
-    background-color: black;
-    color: white;
-    min-height: 100vh;
+    background-color: black; /* Define a cor de fundo da página inteira como preta. */
+    color: white; /* Define a cor padrão do texto para branco. */
+    min-height: 100vh; /* Garante que o corpo tenha, no mínimo, a altura total do ecrã visível (100% da Viewport Height). */
 }
 
+/* .interface -> Uma classe "container" que usamos para centralizar o conteúdo. */
 .interface {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 4%;
+    max-width: 1280px; /* Define a largura máxima que o conteúdo pode atingir. Em ecrãs maiores, não se esticará infinitamente. */
+    margin: 0 auto; /* Um truque clássico: margem 0 para cima/baixo e 'auto' para os lados, o que centraliza horizontalmente o elemento. */
+    padding: 0 4%; /* Adiciona um preenchimento interno de 4% da largura do ecrã nos lados, para que o conteúdo não cole nas bordas. */
 }
 
+/* <button> -> Estilo geral que se aplica a todos os elementos <button> do site. */
 button {
-    cursor: pointer;
-    transition: .2s;
+    cursor: pointer; /* Muda o ponteiro do rato para uma "mãozinha", indicando que o elemento é clicável. */
+    transition: .2s; /* Adiciona uma animação suave de 0.2 segundos a qualquer mudança de propriedade (ex: no efeito :hover). */
 }
 
+/* .titulo-secao -> Classe padrão para os títulos de cada seção (ex: "MINHAS ESPECIALIDADES"). */
 .titulo-secao {
-    font-family: 'Alegreya SC', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
+    font-family: 'Alegreya SC', serif; /* Usa a fonte especial que importamos do Google Fonts, específica para títulos. */
+    font-size: 2.5rem; /* Define o tamanho da fonte. 'rem' é uma unidade relativa ao tamanho da fonte raiz, excelente para responsividade e acessibilidade. */
+    text-align: center; /* Alinha o texto do título ao centro. */
+    margin-bottom: 40px; /* Cria um espaço de 40px abaixo do título, separando-o do conteúdo da seção. */
 }
 
 .regras{
@@ -92,7 +102,7 @@ header .grid-container {
 
 .menu-desktop li {
     display: inline-block;
-    padding: 0 35px;
+    padding: 0 25px;
 }
 
 .menu-desktop a {
