@@ -134,7 +134,7 @@ const ProcessorsArticle = () => {
                {/* Marcador de Seção */}
                <div className="flex items-center gap-4 mb-16">
                   <div className="bg-emerald-500 h-0.5 w-16 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
-                  <span className="text-emerald-400 font-mono font-bold text-lg tracking-widest uppercase">01. O Átomo da Computação</span>
+                  <span className="text-emerald-400 font-mono font-bold text-lg tracking-widest uppercase">00. O Átomo da Computação</span>
                   <div className="bg-slate-800 h-px flex-1"></div>
                </div>
 
@@ -182,7 +182,7 @@ const ProcessorsArticle = () => {
                               e quando ele bloqueia. É a torneira digital mais precisa do universo."
                            </p>
                         </div>
-                     </hgroup>
+                     </hgroup><br /> <br /> <br />
 
                   </div>
 
@@ -191,7 +191,7 @@ const ProcessorsArticle = () => {
                      <hgroup>
                         <div className="relative group">
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.0 - WAFER DE SILÍCIO
+                              FIG 0.0 - Processo Czochralski
                            </div>
                            <TunnelImage
                               src="processador-fabrica-rvlxti.jpg"
@@ -295,7 +295,7 @@ const ProcessorsArticle = () => {
                   <div className="md:col-span-6 space-y-8 mt-4">
                      <div className="relative group">
                         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                           FIG 1.0 - WAFER DE SILÍCIO
+                           FIG 0.1 - O lingote
                         </div>
                         <TunnelImage
                            src="lingote.jpg"
@@ -372,11 +372,182 @@ const ProcessorsArticle = () => {
                            eles escrevem a história da civilização moderna.
                         </p> <br />
                         <p className="text-sm text-slate-400 italic">
-                           Um processador moderno (CPU) nada mais é do que uma orquestra colossal de interruptores 
-                           microscópicos, gravados via fotolitografia em silício ultra-puro. 
+                           Um processador moderno (CPU) nada mais é do que uma orquestra colossal de interruptores
+                           microscópicos, gravados via fotolitografia em silício ultra-puro.
                            A mágica acontece quando organizamos esses interruptores para criar Portas Lógicas.
                         </p>
                      </div>
+                  </div>
+               </div>
+            </article>
+
+
+            <article className="max-w-6xl mx-auto">
+               {/* Marcador de Seção */}
+               <div className="flex items-center gap-4 mb-16">
+                  <div className="bg-emerald-500 h-0.5 w-16 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
+                  <span className="text-emerald-400 font-mono font-bold text-lg tracking-widest uppercase">1.0 O Átomo da Computação</span>
+                  <div className="bg-slate-800 h-px flex-1"></div>
+               </div>
+
+               <div className="grid md:grid-cols-12 gap-16 items-start">
+                  <div className="md:col-span-6 relative z-10">
+                     <hgroup>
+                        <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
+                           O Interruptor de <span className="text-emerald-500">Bilhões</span>
+                        </h3>
+                        <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
+                           Cada camada litografada corresponde a uma parte da estrutura dos transistores (portas,
+                           regiões dopadas, tridimensionais de circuitos eletrônicos em escala nanométrica).
+                        </p>
+                        <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                           Após a litografia, os waffer passam por processos de dopagem, em que átomos como fósforo ou boro são introduzidos
+                           no silício por implantação iônica para alterar sua condutividade elétrica.
+                           Em seguida começa, a construção das interconexões metálicas, usando cobre ou tungstênio,
+                           entre bilhões de transistores criados. Essas interligações são feitas com precisão subnanométrica e
+                           isoladas com camadas dielétricas. O conjunto de processadores é dividido em:
+                        </p>
+
+
+
+
+                        <div className="bg-slate-900/50 border-l-4 border-emerald-500 p-6 rounded-r-xl">
+                           <h4 className="text-emerald-300 font-bold mb-2 flex items-center gap-2"><Binary size={18} /> A Lógica do 0 e 1</h4>
+                           <p className="text-sm text-slate-400 italic">
+                              <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                                 FEOL (Front-End of Line): criação de transistores.
+                              </p>
+
+                              <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
+                                 BEOL (Beck-End of Line): metalização e conexão entre transistores.
+                              </p>
+                           </p>
+                        </div>
+                     </hgroup><br /> <br /> <br />
+
+                     <hgroup>
+                        <div className="relative group">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
+                              FIG 1.1 - WAFER DE SILÍCIO
+                           </div>
+                           <TunnelImage
+                              src="fotolitografia00.jpg"
+                              alt="Wafer de Silício com Chips"
+                              className="w-full h-auto min-h-[300px] object-cover"
+                              glowColor="rgba(16, 185, 129,"
+                           />
+                           <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
+                              <hgroup>
+                                 <strong>
+                                    <h1> 1. Exposição do Padrão via Fotolitografia UV  </h1>
+
+                                 </strong>
+                                 <p className="text-xs text-slate-500 font-mono">
+                                 <br />
+                                 Esta imagem mostra o início do processo. Um feixe de luz ultravioleta extrema (EUV) 
+                                 é projetado através de uma máscara (uma espécie de estêncil microscópico) sobre a superfície 
+                                 do wafer de silício revestido com um material fotossensível (o fotorresiste).
+                                 A luz altera quimicamente as áreas expostas, transferindo o padrão do circuito para o wafer.
+                                 </p>
+
+                              </hgroup>
+                           </div>
+                        </div>
+                     </hgroup>
+
+                  </div>
+
+                  <div className="md:col-span-6 space-y-8 mt-4">
+
+                     <hgroup>
+                        <div className="relative group">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
+                              FIG 1.2 - WAFER DE SILÍCIO
+                           </div>
+                           <TunnelImage
+                              src="corrosao-por-plasma-etching.jpg"
+                              alt="Wafer de Silício com Chips"
+                              className="w-full h-auto min-h-[300px] object-cover"
+                              glowColor="rgba(16, 185, 129,"
+                           />
+                           <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
+                              <hgroup>
+                                 <strong>
+                                    <h1> 2. Corrosão por Plasma (Etching) </h1>
+
+                                 </strong>
+                                 <p className="text-xs text-slate-500 font-mono">
+                                 Após a exposição UV, o wafer é colocado em uma câmara de vácuo onde um gás ionizado (plasma) 
+                                 remove quimicamente e fisicamente o material das áreas que foram expostas à luz (ou das áreas que não foram, 
+                                 dependendo do tipo de fotorresiste). Isso cria trincheiras e estruturas tridimensionais no silício, 
+                                 que são a base para os transistores. A imagem mostra a luz azul característica do plasma atuando sobre o wafer. <br />
+                                 </p>
+                              </hgroup>
+                           </div>
+                        </div>
+                     </hgroup>
+
+                     
+                     <hgroup>
+                        <div className="relative group">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
+                              FIG 1.2 - WAFER DE SILÍCIO
+                           </div>
+                           <TunnelImage
+                              src="interconexões.jpg"
+                              alt="Wafer de Silício com Chips"
+                              className="w-full h-auto min-h-[300px] object-cover"
+                              glowColor="rgba(16, 185, 129,"
+                           />
+                           <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
+                              <hgroup>
+                                 <strong>
+                                    <h1> 3. Deposição de Metais e Interconexões </h1>
+
+                                 </strong>
+                                 <p className="text-xs text-slate-500 font-mono">
+                                 Com as estruturas dos transistores criadas no silício, o próximo passo é conectá-las. 
+                                 Esta imagem mostra um corte transversal microscópico onde metais, como o cobre, 
+                                 são depositados para preencher as trincheiras e criar uma rede complexa de fios e vias que ligam 
+                                 os bilhões de transistores entre si. São criadas múltiplas camadas de metal, cada uma separada 
+                                 por um material isolante (dielétrico). <br />
+                                 </p>
+
+                              </hgroup>
+                           </div>
+                        </div>
+                     </hgroup>
+
+
+                     <hgroup>
+                        <div className="relative group">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
+                              FIG 1.2 - WAFER DE SILÍCIO
+                           </div>
+                           <TunnelImage
+                              src="chip-com-transistores-conexões.jpg"
+                              alt="Wafer de Silício com Chips"
+                              className="w-full h-auto min-h-[300px] object-cover"
+                              glowColor="rgba(16, 185, 129,"
+                           />
+                           <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
+                              <hgroup>
+                                 <strong>
+                                    <h1> 4. Chip com Transistores e Conexões </h1>
+
+                                 </strong>
+                                 <p className="text-xs text-slate-500 font-mono">
+                                 A última imagem é uma fotografia em alta ampliação da superfície de um chip de CPU finalizado. 
+                                 Ela revela a intrincada e densa "cidade" de transistores e suas conexões de cobre que formam 
+                                 o circuito integrado. Os padrões iridescentes são resultado da luz refletida nas 
+                                 nanoestruturas complexas, mostrando o resultado final do processo de fotolitografia e 
+                                 fabricação. <br />
+                                 </p>
+
+                              </hgroup>
+                           </div>
+                        </div>
+                     </hgroup>
                   </div>
                </div>
             </article>
@@ -431,7 +602,7 @@ const ProcessorsArticle = () => {
                      </div>
                   </div>
                </div>
-               
+
 
                <div className="grid md:grid-cols-2 gap-16 items-center">
                   <div>
