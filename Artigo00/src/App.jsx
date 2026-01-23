@@ -59,7 +59,7 @@ const App = () => {
              className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${
               currentChapter === '03' 
                 ? 'bg-green-600 text-white shadow-lg shadow-green-900/50' 
-                : 'text-slate-600 hover:text-slate-300 hover:bg-slate-900'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
             CAP 03
