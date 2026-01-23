@@ -7,7 +7,15 @@ import {
    Grid, Shield, ToggleRight, GitCommit, ArrowDown, Minus, Plus, Workflow,
    BatteryCharging, Keyboard, ToggleLeft, Type, ZapOff, Equal, MoveHorizontal,
    ShieldAlert, Sliders, Scaling, Waves, Radio, ArrowLeftRight, Battery, Disc, Gem,
-   Magnet, Orbit, Repeat, Wind, HardDrive, Wifi, History
+   Magnet, Orbit, Repeat, Wind, HardDrive, Wifi, History, GitMerge,
+   GitPullRequest, FastForward, AlertTriangle, CornerDownRight, XCircle,
+   Shuffle, RotateCw, ListOrdered, BrainCircuit,
+   Clock, Tags, PlayCircle, RotateCcw, Check, AlertCircle,
+   Calculator, Maximize2, GitBranch, ChevronsUp,
+   HelpCircle, TrendingUp, Trash2, AlertOctagon, Target,
+   Lightbulb, Rocket, Quote, Code, EyeOff, CheckCheck,
+   ArrowDownToLine, Anchor, Minimize2,
+   ThermometerSun,
 
 } from 'lucide-react';
 
@@ -288,7 +296,10 @@ const ProcessorsArticle = () => {
                   </div>
                </div>
             </article>
-
+            {/* =====================================================================================
+                        SEÇÃO 2: ARQUITETURA E CICLO DE INSTRUÇÃO
+               ===================================================================================== 
+            */}
             <article className="max-w-6xl mx-auto">
                {/* Marcador de Seção */}
                <div className="flex items-center gap-4 mb-16">
@@ -333,7 +344,7 @@ const ProcessorsArticle = () => {
                         <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
                            <p className="text-xs text-slate-500 font-mono">
                               Após o resfriamento e inspeção, este lingote maciço terá suas extremidades cônicas
-                              cortadas e o corpo cilíndrico será fatiado em discos extremamente finos, os wafers,
+                              cortadas e o corpo cilíndrico será fatiado em discos extremamente finos, os waffers,
                               que servirão de base para a fabricação dos processadores.
                            </p>
                         </div>
@@ -353,14 +364,14 @@ const ProcessorsArticle = () => {
                         entre 5.000 e 15.000 dólares, dependendo do nó tecnológico (ex: 10nm, 7nm, 5nm).
                      </p>
                      <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
-                        Cada wafer passa por etapas de polimento ópticos, limpeza química e testes de planicidade.
+                        Cada waffer passa por etapas de polimento ópticos, limpeza química e testes de planicidade.
                         A menor imperfeição neste estágio pode comprometer dezenas ou centenas de chips.
                      </p>
 
 
                      <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                         O próximo estágio é a fotolitografia, processo que utiliza luz ultravioleta extrema
-                        (EUV) para “imprimir” padrões sobre o wafer. Primeiramente, aplica – se uma camada de fotoresiste,
+                        (EUV) para “imprimir” padrões sobre o waffer. Primeiramente, aplica – se uma camada de fotoresiste,
                         um material sensível a luz, que é exposto através de máscaras chamadas retílicos,
                         as quais contêm os padrões dos circuitos integrados.
                         Cada camada litografada corresponde a uma parte da estrutura dos transistores
@@ -415,9 +426,6 @@ const ProcessorsArticle = () => {
                            isoladas com camadas dielétricas. O conjunto de processadores é dividido em:
                         </p>
 
-
-
-
                         <div className="bg-slate-900/50 border-l-4 border-emerald-500 p-6 rounded-r-xl">
                            <h4 className="text-emerald-300 font-bold mb-2 flex items-center gap-2"><Binary size={18} /> A Lógica do 0 e 1</h4>
                            <p className="text-sm text-slate-400 italic">
@@ -434,6 +442,15 @@ const ProcessorsArticle = () => {
 
                      <hgroup>
                         <div className="relative group">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
+                              FIG 1.1 - Mascara retílicos
+                           </div>
+                           <TunnelImage
+                              src="teste2.jpg"
+                              alt="Wafer de Silício com Chips"
+                              className="w-full h-auto min-h-[300px] object-cover"
+                              glowColor="rgba(16, 185, 129,"
+                           />
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
                               FIG 1.1 - WAFER DE SILÍCIO
                            </div>
@@ -484,7 +501,7 @@ const ProcessorsArticle = () => {
 
                                  </strong>
                                  <p className="text-xs text-slate-500 font-mono">
-                                    Após a exposição UV, o wafer é colocado em uma câmara de vácuo onde um gás ionizado (plasma)
+                                    Após a exposição UV, o waffer é colocado em uma câmara de vácuo onde um gás ionizado (plasma)
                                     remove quimicamente e fisicamente o material das áreas que foram expostas à luz (ou das áreas que não foram,
                                     dependendo do tipo de fotorresiste). Isso cria trincheiras e estruturas tridimensionais no silício,
                                     que são a base para os transistores. A imagem mostra a luz azul característica do plasma atuando sobre o wafer. <br />
@@ -559,13 +576,6 @@ const ProcessorsArticle = () => {
                </div>
             </article>
          </section>
-
-         {/* =====================================================================================
-           SEÇÃO 2: ARQUITETURA E CICLO DE INSTRUÇÃO
-           ===================================================================================== 
-      */}
-
-
          {/* =====================================================================================
            SEÇÃO: TESTES ELÉTRICOS, BINNING E INTERCONEXÃO
            ===================================================================================== 
@@ -592,7 +602,7 @@ const ProcessorsArticle = () => {
                   <div>
                      <h3 className="text-2xl font-bold text-white mb-4">Testes Elétricos no Wafer</h3>
                      <p className="text-slate-300 text-lg leading-relaxed text-justify mb-8">
-                        Concluída a etapa de fabricação, cada unidade ainda presa ao wafer é submetida a
+                        Concluída a etapa de fabricação, cada unidade ainda presa ao waffer é submetida a
                         uma bateria brutal de testes usando sondas microscópicas. O objetivo é verificar
                         a saúde física e elétrica de cada nanômetro. <br />
                         Esses testes avaliam:
@@ -679,14 +689,14 @@ const ProcessorsArticle = () => {
                         className="w-full h-auto object-cover rounded-2xl border border-emerald-500/20 shadow-2xl"
                         glowColor="rgba(16, 185, 129,"
                      />
-                     <p className="text-center text-xs text-emerald-500/60 font-mono mt-2">Fig 2.2 - Mapa de calor dos chips funcionais</p>
+                     <p className="text-center text-xs text-emerald-500/60 font-mono mt-2">Fig 2.2 - Corte dos chips</p>
                      <TunnelImage
                         src="corte1.jpg" // Usando a imagem correta do upload (Mapa colorido)
                         alt="Mapa de Wafer (Binning Map)"
                         className="w-full h-auto object-cover rounded-2xl border border-emerald-500/20 shadow-2xl"
                         glowColor="rgba(16, 185, 129,"
                      />
-                     <p className="text-center text-xs text-emerald-500/60 font-mono mt-2">Fig 2.2 - Mapa de calor dos chips funcionais</p>
+                     <p className="text-center text-xs text-emerald-500/60 font-mono mt-2">Fig 2.2 - corte dos chips</p>
 
 
                   </div>
@@ -710,7 +720,7 @@ const ProcessorsArticle = () => {
                            <div>
                               <h3 className="text-lg font-bold text-lime-50">Classificação Industrial</h3>
                               <p className="text-xs text-lime-400/70 font-mono tracking-wider">BINNING PROCESS</p>
-                           </div>
+                           </div> <br /> <br />
                         </div>
 
                         <div className="space-y-3 relative z-10">
@@ -722,7 +732,7 @@ const ProcessorsArticle = () => {
                                  <p className="text-xs text-slate-400 mt-1 mb-2">Totalmente funcionais. Destinados às linhas superiores.</p>
                                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-emerald-950 text-emerald-300 border border-emerald-900">Ex: Intel i9, Xeon [cite: 41]</span>
                               </div>
-                           </div>
+                           </div> <br />
                            {/* Nível 2 */}
                            <div className="flex gap-4 p-3 rounded-lg bg-slate-900/50 border border-yellow-500/20 hover:border-yellow-500/40 transition-colors group/item">
                               <Split className="w-5 h-5 text-yellow-600 group-hover/item:text-yellow-400 mt-1 shrink-0 transition-colors" />
@@ -731,7 +741,7 @@ const ProcessorsArticle = () => {
                                  <p className="text-xs text-slate-400 mt-1 mb-2">Núcleos defeituosos são reconfigurados para versões menores.</p>
                                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-yellow-950/50 text-yellow-300 border border-yellow-900/50">Ex: i5, i3</span>
                               </div>
-                           </div>
+                           </div> <br />
                            {/* Nível 3 */}
                            <div className="flex gap-4 p-3 rounded-lg bg-slate-900/50 border border-red-500/20 hover:border-red-500/40 transition-colors group/item">
                               <MonitorOff className="w-5 h-5 text-red-600 group-hover/item:text-red-400 mt-1 shrink-0 transition-colors" />
@@ -740,7 +750,7 @@ const ProcessorsArticle = () => {
                                  <p className="text-xs text-slate-400 mt-1 mb-2">Vendidos como modelos sem gráficos integrados.</p>
                                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-red-950/50 text-red-300 border border-red-900/50">Ex: i5-12400F </span>
                               </div>
-                           </div>
+                           </div> <br />
                         </div>
                      </div>
                   </div>
@@ -770,7 +780,7 @@ const ProcessorsArticle = () => {
                            <h4 className="text-2xl font-bold text-white mb-2">03.1 Corte e Interconexão</h4>
                            <p className="text-slate-300 text-base leading-relaxed max-w-3xl">
                               Após os testes, os chips funcionais são  então recortados com
-                              <span className="text-emerald-300 font-medium">corte a laser</span> industrial em condições limpas e controladas e separados do wafer.
+                              <span className="text-emerald-300 font-medium"> corte a laser</span> industrial em condições limpas e controladas e separados do waffer.
                               Cada dado individual é montado sobre um substrato cerâmico ou de silício, chamado (interposer)
                               Este elemento contém milhares de microvias condutivas que ligam terminais do chip aos
                               contatos externos que se conectam à placa mãe usando uma das duas técnicas abaixo:
@@ -1060,8 +1070,8 @@ const ProcessorsArticle = () => {
                      <p className="text-slate-300 text-lg leading-relaxed mb-8 text-justify">
                         O transistor é o bloco construtivo fundamental da computação moderna. Ele é para a eletrônica o que o neurónio é para o cérebro humano:
                         uma unidade básica que, quando replicada em grandes quantidades e organizada em estruturas complexas, permite o surgimento de componentes inteligentes,
-                        podemos usar como referência um interruptor eletrônico controlável, que pode como chave digital amplificar sinais elétricos ou atuar ou
-                        atuar como chave digital, abrindo ou fechando caminhos para a corrente elétrica com base em uma tensão de entrada. Na sua essência funciona
+                        podemos usar como referência um interruptor eletrônico controlável, que pode atuar como chave digital, amplificar sinais elétricos,
+                        abrindo ou fechando caminhos para a corrente elétrica com base em uma tensão de entrada. Na sua essência funciona
                         como um interruptor eletrônico controlável, que pode amplificar sinais elétricos com base em uma tensão de entrada. Dependendo da
                         sua da tensão aplicada em seu terminal de controle, ele pode permitir ou bloquear a passagem de corrente elétrica. Esse comportamento
                         possibilita duas funções essenciais: </p>
@@ -1459,14 +1469,1074 @@ const ProcessorsArticle = () => {
             </div>
          </section>
 
-         <section className="py-24 px-4 bg-black relative">
-            {/* CONTAINER DE ALINHAMENTO (A PEÇA QUE FALTAVA) */}
-            <div className="max-w-6xl mx-auto">
+         <section className="py-24 px-4 bg-black relative overflow-hidden">
 
-               {/* =====================================================================================
+            {/* Fundo "Blueprint" Arquitetural */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+
+            <div className="max-w-6xl mx-auto relative z-10">
+
+               {/* 1. Título Principal */}
+               <div className="mb-12 border-b border-indigo-500/30 pb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                     <div className="p-3 bg-indigo-950/30 rounded-xl border border-indigo-500/30">
+                        <Cpu className="w-8 h-8 text-indigo-400" />
+                     </div>
+                     <h2 className="text-3xl md:text-4xl font-bold text-white">
+                        Arquitetura Interna Moderna: muito além do transistor
+                     </h2>
+                  </div>
+                  <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
+                     Processadores modernos não “executam uma instrução por vez”. Eles são linhas de montagem cognitivas.
+
+                  </p>
+               </div>
+
+               {/* 1.1 Sub-seção */}
+               <div className="grid lg:grid-cols-2 gap-12">
+
+                  {/* Coluna Esquerda: Texto e Pontos */}
+                  <div>
+                     <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <span className="w-1 h-8 bg-indigo-500"></span>
+                        1. Pipeline, IPC e Execução Fora de Ordem (OoO)
+                     </h3>
+
+                     <p className="text-slate-300 mb-8 leading-relaxed">
+                        Após compreender o transistor como unidade fundamental da computação, o próximo passo conceitual
+                        é entender como bilhões dessas chaves são coordenadas para executar múltiplas instruções
+                        simultaneamente, com máxima eficiência temporal e energética. Essa coordenação ocorre no nível
+                        da microarquitetura, onde o desempenho real de um processador é definido.
+                     </p>
+
+                     <p className="text-slate-300 mb-8 leading-relaxed">
+                        Processadores modernos não operam de forma sequencial simples.
+                        Eles funcionam como sistemas altamente paralelos, capazes de antecipar,
+                        reordenar e especular operações para manter todas as unidades internas ocupadas.
+                        O objetivo é simples e brutal: não desperdiçar ciclos de clock.
+
+                     </p>
+                     {/* Lista de Pontos para Incluir */}
+                     <div className="space-y-6">
+
+                        {/* Ponto 1 */}
+                        <div className="flex gap-4 items-start">
+                           <div className="mt-1 p-2 bg-indigo-950/30 rounded border border-indigo-500/30 shrink-0">
+                              <Layers className="w-5 h-5 text-indigo-400" />
+                           </div>
+                           <div>
+                              <h4 className="text-white font-bold text-sm uppercase mb-1">Pipeline Profundo</h4>
+                              <p className="text-slate-400 text-sm">
+                                 Pipeline profundo (15–30 estágios em CPUs modernas).
+                              </p>
+                           </div>
+                        </div>
+
+                        {/* Ponto 2 */}
+                        <div className="flex gap-4 items-start">
+                           <div className="mt-1 p-2 bg-indigo-950/30 rounded border border-indigo-500/30 shrink-0">
+                              <GitMerge className="w-5 h-5 text-indigo-400" />
+                           </div>
+                           <div>
+                              <h4 className="text-white font-bold text-sm uppercase mb-1">Out-of-Order Execution</h4>
+                              <p className="text-slate-400 text-sm">
+                                 Execução fora de ordem (Out-of-Order Execution): o processador reorganiza instruções para não ficar ocioso.
+                              </p>
+                           </div>
+                        </div>
+
+                        {/* Ponto 3 */}
+                        <div className="flex gap-4 items-start">
+                           <div className="mt-1 p-2 bg-indigo-950/30 rounded border border-indigo-500/30 shrink-0">
+                              <Gauge className="w-5 h-5 text-indigo-400" />
+                           </div>
+                           <div>
+                              <h4 className="text-white font-bold text-sm uppercase mb-1">A Métrica Real (IPC)</h4>
+                              <p className="text-slate-400 text-sm">
+                                 IPC (Instructions Per Cycle) como métrica real de desempenho — clock sozinho é KPI de PowerPoint.
+                              </p>
+                           </div>
+                        </div>
+
+                     </div> <br />
+
+                     {/* GRID INFERIOR: TRADE-OFFS E CONCLUSÃO */}
+                     <div className="grid lg:grid-cols-2 gap-8">
+
+                        {/* Coluna 1: O Dilema do Pipeline Profundo */}
+                        <div className="bg-slate-900/40 rounded-xl p-6 border border-slate-800">
+                           <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+                              <AlertTriangle className="w-5 h-5 text-yellow-500" />
+                              Trade-off do Pipeline Profundo
+                           </h4>
+
+                           <div className="space-y-4">
+
+                              {/* Vantagens */}
+                              <div className="p-4 rounded-lg bg-emerald-950/10 border border-emerald-500/20">
+                                 <h5 className="text-emerald-400 text-xs font-bold uppercase mb-2 flex items-center gap-2">
+                                    <CheckCircle2 className="w-4 h-4" /> O que ganhamos
+                                 </h5>
+                                 <ul className="text-slate-300 text-sm space-y-1 list-disc pl-4 marker:text-emerald-500">
+                                    <li>Frequências de clock mais altas.</li>
+                                    <li>Maior paralelismo de instruções.</li>
+                                 </ul>
+                              </div>
+
+                              {/* Desvantagens */}
+                              <div className="p-4 rounded-lg bg-red-950/10 border border-red-500/20">
+                                 <h5 className="text-red-400 text-xs font-bold uppercase mb-2 flex items-center gap-2">
+                                    <XCircle className="w-4 h-4" /> O preço a pagar
+                                 </h5>
+                                 <ul className="text-slate-300 text-sm space-y-1 list-disc pl-4 marker:text-red-500">
+                                    <li>Penalidade severa em caso de <em>branch misprediction</em> (erro de predição).</li>
+                                    <li>Complexidade brutal de controle de fluxo.</li>
+                                 </ul>
+                              </div>
+
+                           </div>
+                        </div>
+
+                        {/* Coluna 2: Tradução Executiva (Insight) */}
+                        <div className="relative flex items-center">
+                           <div className="w-full bg-gradient-to-br from-indigo-900/20 to-slate-950 border border-indigo-500/40 rounded-2xl p-8 relative overflow-hidden group">
+
+                              {/* Elemento decorativo de fundo */}
+                              <div className="absolute right-0 top-0 w-32 h-32 bg-indigo-500/10 blur-3xl rounded-full"></div>
+
+                              <div className="relative z-10">
+                                 <div className="flex items-center gap-2 mb-4">
+                                    <span className="w-8 h-1 bg-indigo-500 rounded-full"></span>
+                                    <span className="text-indigo-400 font-mono text-xs uppercase">Insight Estratégico</span>
+                                 </div>
+
+                                 <h3 className="text-2xl text-white font-bold leading-snug mb-4">
+                                    "Pipeline profundo é alavancagem."
+                                 </h3>
+
+                                 <p className="text-slate-300 text-lg italic border-l-2 border-indigo-500 pl-4">
+                                    "Aumenta drasticamente a performance quando tudo corre bem, mas amplifica o custo do erro quando a predição falha."
+                                 </p>
+                              </div>
+
+                           </div>
+                        </div>
+
+                     </div>
+
+                  </div>
+
+                  {/* Coluna Direita: Opinião Direta (Destaque Visual) */}
+                  <div className="flex items-center justify-center">
+
+                     <div className="relative w-full bg-slate-900/50 border border-indigo-500/30 rounded-2xl p-8 overflow-hidden group hover:border-indigo-500/60 transition-colors">
+                        {/* Efeito de brilho de fundo */}
+                        <div className="absolute -right-10 -top-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all"></div>
+
+                        <div className="relative z-10">
+                           <div className="flex items-center gap-2 mb-6 text-indigo-400 font-mono text-xs uppercase tracking-widest">
+                              <Brain className="w-4 h-4" />
+                              Opinião Direta
+                           </div>
+
+                           <blockquote className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                              “GHz alto sem IPC é <span className="text-indigo-400">músculo sem cérebro</span>.”
+                           </blockquote>
+
+                           <div className="mt-6 h-1 w-24 bg-gradient-to-r from-indigo-500 to-transparent rounded-full"></div>
+                           <div className="mt-16 border-t border-indigo-500/30 pt-12">
+
+                              {/* INTRODUÇÃO: O CONCEITO */}
+                              <div className="mb-12">
+                                 <div className="flex items-center gap-3 mb-4">
+                                    <div className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                                       <GitPullRequest className="w-6 h-6 text-indigo-400" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white">
+                                       1.1 Pipeline: A Linha de Montagem
+                                    </h3>
+                                 </div>
+                                 <p className="text-slate-300 leading-relaxed text-lg max-w-4xl">
+                                    O pipeline é a técnica central que permite sobrepor a execução de instruções. Em vez de concluir uma instrução antes de iniciar outra, o processador divide o ciclo de execução em múltiplos estágios independentes, como uma linha de produção industrial de alta velocidade.
+                                 </p>
+                              </div>
+
+                              {/* VISUALIZAÇÃO DOS ESTÁGIOS (A Esteira) */}
+                              <div className="bg-slate-900/40 border border-indigo-500/20 rounded-2xl p-6 mb-12 overflow-hidden relative">
+                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+
+                                 <h4 className="text-indigo-400 font-mono text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                                    Fluxo de Execução Típico
+                                 </h4>
+
+                                 <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start relative z-10">
+
+                                    {/* Mapeando os Estágios */}
+                                    {[
+                                       { id: 1, label: "Fetch", desc: "Busca" },
+                                       { id: 2, label: "Decode", desc: "Decodificação" },
+                                       { id: 3, label: "Rename", desc: "Renomeação" },
+                                       { id: 4, label: "Dispatch", desc: "Filas" },
+                                       { id: 5, label: "Issue", desc: "Seleção" },
+                                       { id: 6, label: "Execute", desc: "ALU/FPU" },
+                                       { id: 7, label: "Mem Access", desc: "L1/L2 Cache" },
+                                       { id: 8, label: "Writeback", desc: "Escrita" },
+                                       { id: 9, label: "Retire", desc: "Commit" },
+                                    ].map((stage, index) => (
+                                       <div key={stage.id} className="flex items-center">
+
+                                          {/* O Bloco do Estágio */}
+                                          <div className="flex flex-col items-center justify-center w-24 h-20 bg-slate-950 border border-slate-800 rounded-lg hover:border-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all group cursor-default">
+                                             <div className="text-[10px] font-mono text-indigo-500/50 mb-1">0{stage.id}</div>
+                                             <div className="text-white font-bold text-xs text-center">{stage.label}</div>
+                                             <div className="text-[9px] text-slate-500 text-center mt-1 group-hover:text-indigo-300 transition-colors">{stage.desc}</div>
+                                          </div>
+
+                                          {/* Seta conectora (exceto no último) */}
+                                          {index !== 8 && (
+                                             <div className="mx-2 text-slate-700">
+                                                <FastForward className="w-4 h-4 opacity-50" />
+                                             </div>
+                                          )}
+                                       </div>
+                                    ))}
+
+                                 </div>
+
+                                 <div className="mt-6 pt-4 border-t border-indigo-500/10 text-xs text-slate-400 flex items-center gap-2">
+                                    <CornerDownRight className="w-4 h-4 text-indigo-500" />
+                                    <span>
+                                       Em CPUs modernas (Intel Core, AMD Zen, Apple Silicon), esse processo é altamente fragmentado, resultando em pipelines profundos de <strong>15 a 30 estágios</strong>.
+                                    </span>
+                                 </div>
+                              </div>
+
+
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                  </div>
+               </div>
+               <div className="mt-16 border-t border-indigo-500/30 pt-12">
+
+                  {/* CABEÇALHO DO TÓPICO */}
+                  <div className="mb-10">
+                     <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                           <Shuffle className="w-6 h-6 text-indigo-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white">
+                           1.2 Execução Fora de Ordem (OoO)
+                        </h3>
+                     </div>
+                     <p className="text-slate-300 leading-relaxed text-lg max-w-4xl">
+                        Mesmo com pipeline, dependências causariam gargalos se a execução fosse estritamente sequencial. Para resolver isso, CPUs modernas quebram a fila e executam o que estiver pronto.
+                     </p>
+                  </div>
+
+                  {/* VISUALIZAÇÃO DO PROBLEMA VS SOLUÇÃO (TIMELINE) */}
+                  <div className="grid lg:grid-cols-2 gap-8 mb-12">
+
+                     {/* CENÁRIO 1: SEM OoO (Ineficiente) */}
+                     <div className="bg-slate-900/40 border border-red-500/20 rounded-xl p-6 relative overflow-hidden">
+                        <h4 className="text-red-400 font-bold text-xs uppercase mb-4 flex items-center gap-2">
+                           <AlertCircle className="w-4 h-4" /> Sem OoO (Gargalo)
+                        </h4>
+
+                        {/* Timeline Visual */}
+                        <div className="flex flex-col gap-2">
+                           {/* Instrução A (Lenta) */}
+                           <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded bg-red-900/50 border border-red-500/50 flex items-center justify-center text-xs font-bold text-red-200">A</div>
+                              <div className="flex-1 h-8 bg-red-950/30 rounded flex items-center px-2 text-[10px] text-red-400 border border-dashed border-red-900">
+                                 <Clock className="w-3 h-3 mr-1 animate-pulse" /> ESPERANDO DADO DA MEMÓRIA...
+                              </div>
+                           </div>
+                           {/* Ciclos Perdidos */}
+                           <div className="flex gap-1 ml-10">
+                              <div className="w-8 h-8 rounded border border-dashed border-slate-700 flex items-center justify-center text-[10px] text-slate-600">IDLE</div>
+                              <div className="w-8 h-8 rounded border border-dashed border-slate-700 flex items-center justify-center text-[10px] text-slate-600">IDLE</div>
+                              <div className="w-8 h-8 rounded border border-dashed border-slate-700 flex items-center justify-center text-[10px] text-slate-600">IDLE</div>
+                           </div>
+                           {/* Instrução B (Só começa depois) */}
+                           <div className="flex items-center gap-2 opacity-50">
+                              <div className="w-8 h-8 rounded bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-slate-500">B</div>
+                              <span className="text-[10px] text-slate-600">Bloqueada</span>
+                           </div>
+                        </div>
+                     </div>
+
+                     {/* CENÁRIO 2: COM OoO (Eficiente) */}
+                     <div className="bg-slate-900/40 border border-indigo-500/20 rounded-xl p-6 relative overflow-hidden">
+                        <h4 className="text-indigo-400 font-bold text-xs uppercase mb-4 flex items-center gap-2">
+                           <PlayCircle className="w-4 h-4" /> Com OoO (Otimizado)
+                        </h4>
+
+                        {/* Timeline Visual */}
+                        <div className="flex flex-col gap-2 relative">
+                           {/* Instrução A (Fica esperando em background) */}
+                           <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded bg-indigo-900/50 border border-indigo-500/50 flex items-center justify-center text-xs font-bold text-indigo-200">A</div>
+                              <div className="flex-1 h-8 bg-indigo-950/30 rounded flex items-center px-2 text-[10px] text-indigo-400">
+                                 <span className="animate-pulse">Aguardando dado...</span>
+                              </div>
+                           </div>
+
+                           {/* O "Pulo do Gato": B, C, D executam enquanto A espera */}
+                           <div className="absolute top-10 left-0 w-full pl-10 flex gap-2">
+                              <div className="w-8 h-8 rounded bg-emerald-900/40 border border-emerald-500/50 flex items-center justify-center text-xs font-bold text-emerald-200 shadow-[0_0_10px_rgba(16,185,129,0.2)]">B</div>
+                              <div className="w-8 h-8 rounded bg-emerald-900/40 border border-emerald-500/50 flex items-center justify-center text-xs font-bold text-emerald-200 shadow-[0_0_10px_rgba(16,185,129,0.2)]">C</div>
+                              <div className="w-8 h-8 rounded bg-emerald-900/40 border border-emerald-500/50 flex items-center justify-center text-xs font-bold text-emerald-200 shadow-[0_0_10px_rgba(16,185,129,0.2)]">D</div>
+                           </div>
+
+                           <div className="mt-10 text-[10px] text-slate-400 pl-10">
+                              *Unidades funcionais ocupadas enquanto 'A' espera.
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+
+                  {/* OS 4 PILARES DO MECANISMO OoO */}
+                  <h4 className="text-xl font-bold text-white mb-6 border-l-4 border-indigo-500 pl-4">
+                     O Motor do Caos (Componentes)
+                  </h4>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-12">
+
+                     {/* Bloco 1: Reservation Stations */}
+                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex gap-4 group hover:border-indigo-500/50 transition-colors">
+                        <div className="p-3 bg-indigo-950/20 rounded-lg h-fit text-indigo-400">
+                           <Clock className="w-5 h-5" />
+                        </div>
+                        <div>
+                           <h5 className="text-indigo-200 font-bold text-sm mb-1">Reservation Stations</h5>
+                           <p className="text-slate-400 text-xs leading-relaxed">
+                              Filas de espera inteligentes. As instruções ficam aqui aguardando seus (operandos) chegarem para poderem ser cozinhadas.
+                           </p>
+                        </div>
+                     </div>
+
+                     {/* Bloco 2: Register Renaming */}
+                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex gap-4 group hover:border-indigo-500/50 transition-colors">
+                        <div className="p-3 bg-indigo-950/20 rounded-lg h-fit text-indigo-400">
+                           <Tags className="w-5 h-5" />
+                        </div>
+                        <div>
+                           <h5 className="text-indigo-200 font-bold text-sm mb-1">Register Renaming</h5>
+                           <p className="text-slate-400 text-xs leading-relaxed">
+                              Elimina dependências falsas (WAR/WAW) criando "apelidos" para registradores, permitindo que o processador use mais espaço do que a arquitetura original prevê.
+                           </p>
+                        </div>
+                     </div>
+
+                     {/* Bloco 3: Scheduler Dinâmico */}
+                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex gap-4 group hover:border-indigo-500/50 transition-colors">
+                        <div className="p-3 bg-indigo-950/20 rounded-lg h-fit text-indigo-400">
+                           <PlayCircle className="w-5 h-5" />
+                        </div>
+                        <div>
+                           <h5 className="text-indigo-200 font-bold text-sm mb-1">Scheduler Dinâmico</h5>
+                           <p className="text-slate-400 text-xs leading-relaxed">
+                              O maestro. Ele analisa ciclo a ciclo quais instruções nas Reservation Stations têm tudo o que precisam e as despacha para execução.
+                           </p>
+                        </div>
+                     </div>
+
+                     {/* Bloco 4: ROB (Reorder Buffer) */}
+                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex gap-4 group hover:border-indigo-500/50 transition-colors">
+                        <div className="p-3 bg-indigo-950/20 rounded-lg h-fit text-indigo-400">
+                           <Layers className="w-5 h-5" />
+                        </div>
+                        <div>
+                           <h5 className="text-indigo-200 font-bold text-sm mb-1">Reorder Buffer (ROB)</h5>
+                           <p className="text-slate-400 text-xs leading-relaxed">
+                              O guardião da ordem. Garante que, mesmo executando fora de ordem, os resultados sejam gravados (commit) na ordem original do programa.
+                           </p>
+                        </div>
+                     </div>
+
+                  </div>
+
+                  {/* FRASE TÉCNICA FORTE (Footer) */}
+                  <div className="relative">
+                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-transparent blur-xl"></div>
+                     <div className="relative bg-black/60 border-y border-indigo-500/30 py-8 px-6 text-center backdrop-blur-sm">
+                        <div className="flex justify-center mb-4 text-indigo-500 opacity-50">
+                           <RotateCcw className="w-8 h-8" />
+                        </div>
+                        <p className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-slate-400">
+                           “OoO é caos controlado com governança arquitetural.”
+                        </p>
+                        <p className="text-xs text-slate-500 mt-2 font-mono uppercase tracking-widest">
+                           A ilusão da sequência perfeita
+                        </p>
+                     </div>
+                  </div>
+
+                  <div className="mt-16 border-t border-indigo-500/30 pt-12">
+
+                     {/* CABEÇALHO: O MITO DO CLOCK */}
+                     <div className="mb-12">
+                        <div className="flex items-center gap-3 mb-4">
+                           <div className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                              <Gauge className="w-6 h-6 text-indigo-400" />
+                           </div>
+                           <h3 className="text-2xl font-bold text-white">
+                              1.3 IPC: A Métrica que Realmente Importa
+                           </h3>
+                        </div>
+                        <p className="text-slate-300 leading-relaxed text-lg max-w-4xl">
+                           Durante décadas, o marketing vendeu clock (GHz). A engenharia sempre soube que isso era insuficiente.
+                           IPC (<span className="text-indigo-400 font-bold">Instructions Per Cycle</span>) é a medida de eficiência real: quantas instruções úteis o processador completa a cada batida do relógio.
+                        </p>
+                     </div>
+
+                     {/* A EQUAÇÃO FUNDAMENTAL (Centro de Destaque) */}
+                     <div className="relative mb-16 group">
+                        <div className="absolute inset-0 bg-indigo-500/10 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity"></div>
+
+                        <div className="relative bg-slate-950 border border-indigo-500/50 rounded-2xl p-8 md:p-12 text-center overflow-hidden">
+                           {/* Background Grid */}
+                           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(99,102,241,0.05)_50%,transparent_75%,transparent_100%)] bg-[size:20px_20px]"></div>
+
+                           <h4 className="text-indigo-400 font-mono text-xs uppercase tracking-[0.3em] mb-6 relative z-10">Lei Fundamental de Desempenho</h4>
+
+                           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-4xl md:text-6xl font-bold text-white relative z-10 font-mono">
+                              <span className="text-slate-200">Perf</span>
+                              <span className="text-indigo-500">≈</span>
+                              <span className="flex flex-col items-center">
+                                 <span className="text-slate-400">Clock</span>
+                                 <span className="text-[10px] md:text-xs text-slate-600 font-sans tracking-normal uppercase mt-2">Força Bruta</span>
+                              </span>
+                              <span className="text-indigo-500">×</span>
+                              <span className="flex flex-col items-center">
+                                 <span className="text-indigo-400">IPC</span>
+                                 <span className="text-[10px] md:text-xs text-indigo-500/70 font-sans tracking-normal uppercase mt-2">Inteligência</span>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+
+                     {/* OS 7 FATORES DE IMPACTO NO IPC (Expandido e Detalhado) */}
+                     <div className="mb-16">
+                        <h4 className="text-xl font-bold text-white mb-8 pl-4 border-l-4 border-indigo-500 flex items-center gap-2">
+                           <Calculator className="w-5 h-5 text-indigo-400" />
+                           Fatores Críticos do IPC
+                        </h4>
+
+                        <div className="grid md:grid-cols-2 gap-4">
+
+                           {/* Fator 1: Largura do Pipeline */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <Maximize2 className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Largura do Pipeline (Pipeline Width)</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    Define quantas instruções o processador consegue buscar e decodificar simultaneamente (arquitetura <em>Superscalar</em>). CPUs modernas são "largas" (4 a 8 instruções/ciclo) para alimentar as unidades de execução.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 2: Profundidade OoO */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <Layers className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Profundidade das Filas OoO</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    O tamanho do <strong>Reorder Buffer (ROB)</strong> e das janelas de instrução. Quanto maior a fila, mais longe no código o processador pode "olhar" para encontrar trabalho independente e evitar ficar parado.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 3: Unidades Funcionais */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <Cpu className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Número de Unidades Funcionais</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    A quantidade física de ALUs (cálculos inteiros) e FPUs (ponto flutuante). Não adianta ter um pipeline largo se não houver "operários" suficientes para executar as contas simultaneamente.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 4: Branch Predictor */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <GitBranch className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Eficiência do Branch Predictor</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    A precisão na adivinhação de desvios (if/else). Um erro aqui custa caro (flush do pipeline), derrubando o IPC drasticamente. Preditores modernos usam IA simples para acertar &gt;95% das vezes.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 5: Cache */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <Database className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Hierarquia de Cache</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    Tamanho e velocidade dos Caches L1, L2 e L3. O objetivo é manter os dados próximos. Um <em>cache miss</em> força o processador a esperar centenas de ciclos pela memória RAM.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 6: Latência de Memória */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <Clock className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Latência de Memória</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    O tempo real (em nanossegundos) para buscar dados na RAM quando o cache falha. Alta latência mata o IPC, pois as unidades funcionais ficam ociosas (stalled) esperando dados.
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* Fator 7: SIMD */}
+                           <div className="bg-slate-900/40 border border-slate-800 p-5 rounded-xl flex gap-4 hover:border-indigo-500/40 transition-all group md:col-span-2">
+                              <div className="mt-1 p-2 bg-slate-950 rounded-lg text-indigo-400 h-fit group-hover:bg-indigo-950/30 transition-colors">
+                                 <ChevronsUp className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <h5 className="text-white font-bold text-sm mb-1">Capacidade de Execução Vetorial (SIMD)</h5>
+                                 <p className="text-slate-400 text-xs leading-relaxed">
+                                    Instruções como AVX-512 ou NEON que operam múltiplos dados com uma única instrução (Single Instruction, Multiple Data). Aumentam o IPC "artificialmente" ao fazer muito mais trabalho por ciclo em cargas de vídeo e IA.
+                                 </p>
+                              </div>
+
+
+
+                           </div>
+                           {/* O COMPARATIVO FINAL (Insight Visual) */}
+                           <div className="bg-slate-900/20 border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col justify-center">
+                              <div className="text-center mb-8">
+                                 <p className="text-slate-300 text-sm md:text-base">
+                                    "Dois processadores a <strong className="text-white">4 GHz</strong> podem ter desempenhos radicalmente diferentes se seus IPCs forem distintos."
+                                 </p>
+                              </div>
+
+                              {/* Cenário 1: Clock Alto / IPC Baixo */}
+                              <div className="mb-8 opacity-60">
+                                 <div className="flex justify-between text-xs mb-2">
+                                    <span className="text-red-400 font-bold flex items-center gap-2"><ZapOff className="w-4 h-4" /> Arquitetura Antiga / Ineficiente</span>
+                                    <span className="text-slate-500 font-mono">4 GHz × 0.5 IPC = 2 GIPS</span>
+                                 </div>
+                                 <div className="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="h-full bg-red-500/50 w-[25%]"></div>
+                                 </div>
+                                 <div className="text-[10px] text-red-400 mt-2 flex items-center gap-1 justify-end">
+                                    <AlertTriangle className="w-3 h-3" /> Consumo Alto, Retorno Baixo
+                                 </div>
+                              </div>
+
+                              {/* Cenário 2: IPC Alto */}
+                              <div>
+                                 <div className="flex justify-between text-xs mb-2">
+                                    <span className="text-indigo-400 font-bold flex items-center gap-2"><Zap className="w-4 h-4" /> Arquitetura Moderna (High IPC)</span>
+                                    <span className="text-white font-mono">4 GHz × 2.0 IPC = 8 GIPS</span>
+                                 </div>
+                                 <div className="w-full h-4 bg-slate-800 rounded-full overflow-hidden shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+                                    <div className="h-full bg-gradient-to-r from-indigo-600 to-indigo-400 w-[100%] animate-[shimmer_2s_infinite]"></div>
+                                 </div>
+                                 <div className="text-xs text-indigo-300 mt-2 text-right font-bold">
+                                    4x Mais Desempenho Real (Eficiência & Escalabilidade)
+                                 </div>
+                              </div>
+
+
+
+                           </div>
+
+                        </div>
+                     </div>
+
+                     <div className="mt-16 border-t border-indigo-500/30 pt-12">
+
+                        {/* CABEÇALHO: A APOSTA */}
+                        <div className="mb-12">
+                           <div className="flex items-center gap-3 mb-4">
+                              <div className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                                 <Split className="w-6 h-6 text-indigo-400" />
+                              </div>
+                              <h3 className="text-2xl font-bold text-white">
+                                 1.4 O Papel da Especulação e Branch Prediction
+                              </h3>
+                           </div>
+                           <p className="text-slate-300 leading-relaxed text-lg max-w-4xl">
+                              Para manter o pipeline cheio, CPUs modernas não podem se dar ao luxo de esperar. Elas <strong className="text-indigo-400">apostam no futuro</strong>. O <em>Branch Prediction</em> tenta adivinhar o caminho antes da encruzilhada chegar.
+                           </p>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12 mb-12">
+
+                           {/* COLUNA 1: A MENTE DO PREDITOR (VISUAL) */}
+                           <div>
+                              <div className="bg-slate-900/40 border border-indigo-500/30 rounded-2xl p-6 relative overflow-hidden group">
+
+                                 {/* Título do Card */}
+                                 <h4 className="text-indigo-400 font-mono text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <BrainCircuit className="w-4 h-4" /> BPU (Branch Prediction Unit)
+                                 </h4>
+
+                                 {/* A Encruzilhada Visual */}
+                                 <div className="relative flex flex-col items-center py-4">
+
+                                    {/* O Caminho Atual */}
+                                    <div className="w-1 h-12 bg-indigo-500/50 mb-2"></div>
+
+                                    {/* O Ponto de Decisão */}
+                                    <div className="w-4 h-4 rounded-full bg-white shadow-[0_0_15px_white] z-10 mb-2"></div>
+
+                                    {/* Os Caminhos Possíveis */}
+                                    <div className="flex justify-between w-full max-w-[200px] relative">
+                                       {/* Caminho A (Provável) */}
+                                       <div className="flex flex-col items-center flex-1 group/path">
+                                          <div className="w-full h-[2px] bg-gradient-to-l from-emerald-500 to-indigo-500 transform -rotate-12 origin-right translate-y-2 opacity-80"></div>
+                                          <div className="mt-4 p-2 rounded bg-emerald-950/30 border border-emerald-500/30 text-emerald-400 text-xs font-mono text-center w-24 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                                             <div className="font-bold">TAKEN</div>
+                                             <div className="text-[10px] opacity-70">Prob: 92%</div>
+                                          </div>
+                                          {/* Ghost Runner (Execução Especulativa) */}
+                                          <div className="mt-2 text-[9px] text-emerald-300 animate-pulse font-bold tracking-widest uppercase">
+                                             Executando...
+                                          </div>
+                                       </div>
+
+                                       {/* Caminho B (Improvável) */}
+                                       <div className="flex flex-col items-center flex-1 opacity-30">
+                                          <div className="w-full h-[2px] bg-gradient-to-r from-slate-700 to-indigo-900 transform rotate-12 origin-left translate-y-2"></div>
+                                          <div className="mt-4 p-2 rounded bg-slate-900 border border-slate-700 text-slate-500 text-xs font-mono text-center w-24">
+                                             <div className="font-bold">NOT TAKEN</div>
+                                             <div className="text-[10px] opacity-70">Prob: 8%</div>
+                                          </div>
+                                       </div>
+                                    </div>
+
+                                 </div>
+
+                                 {/* Métodos de Predição (Tags) */}
+                                 <div className="mt-8 flex flex-wrap justify-center gap-2">
+                                    {['Histórico Global', 'Histórico Local', 'Tabelas Híbridas', 'Perceptron ML'].map((tech) => (
+                                       <span key={tech} className="px-2 py-1 rounded bg-slate-950 border border-indigo-500/20 text-[10px] text-indigo-300 font-mono">
+                                          {tech}
+                                       </span>
+                                    ))}
+                                 </div>
+
+                              </div>
+                           </div>
+
+                           {/* COLUNA 2: CONSEQUÊNCIAS (RISCO E RETORNO) */}
+                           <div className="flex flex-col gap-4">
+
+                              {/* Cenário: ACERTO */}
+                              <div className="flex items-start gap-4 p-4 rounded-xl bg-emerald-950/10 border border-emerald-500/20">
+                                 <div className="p-2 bg-emerald-900/20 rounded-lg text-emerald-400 mt-1">
+                                    <Zap className="w-5 h-5" />
+                                 </div>
+                                 <div>
+                                    <h5 className="text-emerald-300 font-bold text-sm uppercase mb-1">Quando acertam (Hit)</h5>
+                                    <p className="text-slate-400 text-sm">
+                                       Desempenho explode. O processador nem percebe que houve uma dúvida; as instruções já estão prontas. Fluxo contínuo.
+                                    </p>
+                                 </div>
+                              </div>
+
+                              {/* Cenário: ERRO */}
+                              <div className="flex items-start gap-4 p-4 rounded-xl bg-red-950/10 border border-red-500/20">
+                                 <div className="p-2 bg-red-900/20 rounded-lg text-red-400 mt-1">
+                                    <Trash2 className="w-5 h-5" />
+                                 </div>
+                                 <div>
+                                    <h5 className="text-red-300 font-bold text-sm uppercase mb-1">Quando erram (Miss)</h5>
+                                    <p className="text-slate-400 text-sm">
+                                       Catástrofe de performance. O pipeline inteiro precisa ser limpo (<em className="text-red-400">Flush</em>). Dezenas de ciclos de trabalho jogados no lixo.
+                                    </p>
+                                 </div>
+                              </div>
+
+                              {/* Cenário: SEGURANÇA (Spectre/Meltdown) */}
+                              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-950 border border-slate-800">
+                                 <div className="p-2 bg-slate-900 rounded-lg text-yellow-500 mt-1">
+                                    <AlertOctagon className="w-5 h-5" />
+                                 </div>
+                                 <div>
+                                    <h5 className="text-yellow-500 font-bold text-sm uppercase mb-1">O Custo da Agressividade</h5>
+                                    <p className="text-slate-500 text-xs">
+                                       Casos como <strong>Spectre</strong> e <strong>Meltdown</strong> exploraram justamente isso: acessar dados protegidos durante a execução especulativa antes que o processador percebesse o "erro" e descartasse o resultado.
+                                    </p>
+                                 </div>
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                        {/* SÍNTESE ELEGANTE (Footer) */}
+                        <div className="relative">
+                           <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 via-transparent to-indigo-900/20 blur-xl"></div>
+                           <div className="relative bg-black border-y border-indigo-500/30 py-8 px-6 text-center backdrop-blur-sm">
+                              <div className="flex justify-center mb-4 text-indigo-500 opacity-50">
+                                 <HelpCircle className="w-8 h-8" />
+                              </div>
+                              <p className="text-xl md:text-2xl font-bold text-white italic font-serif">
+                                 “Processadores modernos não esperam certeza. Eles apostam — e torcem para estar certos.”
+                              </p>
+                           </div>
+                        </div>
+
+                     </div>
+
+                     <div className="mt-16 border-t border-indigo-500/30 pt-12 mb-24">
+
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+                           {/* COLUNA 1: O ELO PERDIDO (Resumo Técnico) */}
+                           <div>
+                              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                                 <span className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                                    <Lightbulb className="w-6 h-6 text-indigo-400" />
+                                 </span>
+                                 1.5 Conclusão Técnica
+                              </h3>
+
+                              <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                                 Esse aprofundamento fecha o elo entre a física do transistor e a performance observável. A conclusão é clara:
+                              </p>
+
+                              <div className="space-y-4">
+
+                                 {/* Ponto 1 */}
+                                 <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/30 transition-colors">
+                                    <div className="mt-1 p-1 bg-slate-800 rounded-full text-indigo-400">
+                                       <Check className="w-3 h-3" />
+                                    </div>
+                                    <div>
+                                       <h4 className="text-white font-bold text-sm">O Silício Sozinho não Basta</h4>
+                                       <p className="text-slate-400 text-sm">Desempenho bruto não vem apenas do material ou do tamanho do transistor.</p>
+                                    </div>
+                                 </div>
+
+                                 {/* Ponto 2 */}
+                                 <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/30 transition-colors">
+                                    <div className="mt-1 p-1 bg-slate-800 rounded-full text-indigo-400">
+                                       <Layers className="w-3 h-3" />
+                                    </div>
+                                    <div>
+                                       <h4 className="text-white font-bold text-sm">A Orquestração é Rei</h4>
+                                       <p className="text-slate-400 text-sm">A performance real nasce da microarquitetura que gerencia o fluxo de dados.</p>
+                                    </div>
+                                 </div>
+
+                                 {/* Ponto 3 */}
+                                 <div className="flex gap-4 items-start p-4 rounded-xl bg-slate-900/40 border border-slate-800 hover:border-indigo-500/30 transition-colors">
+                                    <div className="mt-1 p-1 bg-slate-800 rounded-full text-indigo-400">
+                                       <Rocket className="w-3 h-3" />
+                                    </div>
+                                    <div>
+                                       <h4 className="text-white font-bold text-sm">Os Multiplicadores de Poder</h4>
+                                       <p className="text-slate-400 text-sm">OoO, Pipeline e IPC são as alavancas que transformam eletricidade em inteligência.</p>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+
+                           {/* COLUNA 2: A FRASE DE FECHAMENTO (Quote Épico) */}
+                           <div className="relative">
+                              {/* Efeitos de fundo */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 blur-2xl rounded-full opacity-50"></div>
+
+                              <div className="relative bg-black border border-indigo-500/50 rounded-2xl p-8 md:p-10 shadow-2xl overflow-hidden group">
+
+                                 {/* Ícone de Aspas gigante decorativo */}
+                                 <div className="absolute top-4 right-6 text-indigo-500/10 transform rotate-12 scale-150">
+                                    <Quote className="w-32 h-32" />
+                                 </div>
+
+                                 <div className="relative z-10 flex flex-col h-full justify-center">
+                                    <Quote className="w-8 h-8 text-indigo-400 mb-6" />
+
+                                    <blockquote className="text-2xl md:text-3xl font-serif text-white leading-relaxed mb-6">
+                                       “Na computação moderna, o transistor é apenas o <span className="text-indigo-400">átomo</span>.
+                                       <br /><br />
+                                       A performance nasce da <span className="text-white font-bold border-b-2 border-indigo-500">arquitetura</span> que decide quando, como e em que ordem esses átomos pensam.”
+                                    </blockquote>
+
+                                    <div className="flex items-center gap-3 mt-auto pt-6 border-t border-indigo-500/20">
+                                       <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white text-xs">
+                                          L
+                                       </div>
+                                       <div className="text-xs uppercase tracking-widest text-indigo-300">
+                                          Lucas / CEO Revoluxti
+                                       </div>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                     <div className="mt-16 border-t border-indigo-500/30 pt-12 mb-24">
+
+                        {/* 1. CABEÇALHO E DEFINIÇÃO */}
+                        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+
+                           <div>
+                              <div className="flex items-center gap-3 mb-4">
+                                 <div className="p-2 bg-indigo-950/30 rounded-lg border border-indigo-500/30">
+                                    <Shuffle className="w-6 h-6 text-indigo-400" />
+                                 </div>
+                                 <h3 className="text-2xl font-bold text-white">
+                                    O que é OoO (Out-of-Order)?
+                                 </h3>
+                              </div>
+
+                              <p className="text-slate-300 leading-relaxed mb-6">
+                                 Execução fora de ordem é uma técnica onde o processador executa instruções em uma ordem diferente da escrita no programa, desde que o resultado final seja o mesmo.
+                              </p>
+
+                              {/* Box "Corporativês" */}
+                              <div className="bg-indigo-950/20 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                                 <p className="text-indigo-200 text-sm font-mono">
+                                    "OoO é otimização agressiva de throughput com preservação de semântica arquitetural."
+                                 </p>
+                              </div>
+                           </div>
+
+                           {/* POR QUE EXISTE? (O Problema) */}
+                           <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6">
+                              <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                                 <Clock className="w-5 h-5 text-red-400" />
+                                 O Problema da Ordem Literal
+                              </h4>
+                              <ul className="space-y-3">
+                                 <li className="flex gap-3 text-slate-400 text-sm">
+                                    <span className="text-red-500 font-bold">1.</span>
+                                    Uma instrução lenta (acesso à memória) bloqueia o fluxo.
+                                 </li>
+                                 <li className="flex gap-3 text-slate-400 text-sm">
+                                    <span className="text-red-500 font-bold">2.</span>
+                                    Tudo atrás dela trava (gargalo).
+                                 </li>
+                                 <li className="flex gap-3 text-slate-400 text-sm">
+                                    <span className="text-red-500 font-bold">3.</span>
+                                    Pipeline vazio = performance jogada no lixo.
+                                 </li>
+                              </ul>
+                              <div className="mt-4 pt-4 border-t border-slate-800 text-indigo-400 text-sm font-bold flex gap-2 items-center">
+                                 <CheckCheck className="w-4 h-4" /> Solução: Reordenar dinamicamente.
+                              </div>
+                           </div>
+
+                        </div>
+
+                        {/* 2. EXEMPLO PRÁTICO (VISUALIZAÇÃO DE CÓDIGO) */}
+                        <div className="mb-16">
+                           <h4 className="text-xl font-bold text-white mb-6">Exemplo Prático (Sem Firula)</h4>
+
+                           <div className="grid lg:grid-cols-2 gap-8">
+
+                              {/* Lado Esquerdo: O Código */}
+                              <div className="bg-slate-950 border border-slate-800 rounded-xl p-6 font-mono text-sm relative overflow-hidden group">
+                                 <div className="absolute top-0 right-0 p-2 bg-slate-900 text-slate-500 text-[10px] uppercase border-bl rounded-bl">Source Code</div>
+                                 <div className="space-y-4 relative z-10">
+                                    <div className="flex items-center gap-4 p-2 bg-emerald-900/10 rounded border border-emerald-500/20">
+                                       <span className="text-slate-500">01</span>
+                                       <span className="text-emerald-400">A = B + C</span>
+                                       <span className="text-xs text-slate-500 ml-auto">// Rápido</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 p-2 bg-red-900/10 rounded border border-red-500/20">
+                                       <span className="text-slate-500">02</span>
+                                       <span className="text-red-400">D = MEM[E]</span>
+                                       <span className="text-xs text-slate-500 ml-auto">// Lento (Memória)</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 p-2 bg-emerald-900/10 rounded border border-emerald-500/20">
+                                       <span className="text-slate-500">03</span>
+                                       <span className="text-emerald-400">F = G + H</span>
+                                       <span className="text-xs text-slate-500 ml-auto">// Rápido (Independente)</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              {/* Lado Direito: A Execução OoO */}
+                              <div className="relative bg-slate-900/40 border border-indigo-500/30 rounded-xl p-6 flex flex-col justify-center items-center">
+                                 <div className="absolute inset-0 bg-indigo-500/5 blur-xl"></div>
+
+                                 <div className="relative z-10 w-full space-y-2">
+                                    <div className="flex justify-between text-xs text-indigo-300 uppercase font-bold tracking-widest mb-2">
+                                       <span>Fluxo Real</span>
+                                       <span>Tempo Economizado</span>
+                                    </div>
+
+                                    {/* Passo 1 */}
+                                    <div className="flex items-center gap-3">
+                                       <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-black font-bold text-xs">A</div>
+                                       <div className="h-1 flex-1 bg-emerald-500/50 rounded"></div>
+                                       <CheckCheck className="w-4 h-4 text-emerald-500" />
+                                    </div>
+
+                                    {/* Passo 2 (A Mágica) */}
+                                    <div className="flex items-center gap-3 relative">
+                                       {/* D fica esperando */}
+                                       <div className="w-8 h-8 rounded-full bg-red-900 border border-red-500 text-red-500 flex items-center justify-center font-bold text-xs opacity-50">D</div>
+                                       <div className="h-1 flex-1 bg-red-500/20 border-t border-dashed border-red-500/50 rounded relative overflow-hidden">
+                                          <div className="absolute inset-0 bg-red-500/10 animate-pulse"></div>
+                                       </div>
+
+                                       {/* F passa na frente (Overlay) */}
+                                       <div className="absolute top-0 left-0 w-full h-full flex items-center gap-3 transform translate-y-1 z-10 pl-10">
+                                          <div className="h-[2px] w-8 bg-indigo-500 rotate-90 absolute left-4 -top-2"></div> {/* Conector visual de pulo */}
+                                          <div className="w-8 h-8 rounded-full bg-emerald-500 border-2 border-indigo-400 flex items-center justify-center text-black font-bold text-xs shadow-[0_0_15px_#6366f1]">F</div>
+                                          <div className="text-[10px] text-indigo-300 bg-indigo-950/80 px-2 py-1 rounded border border-indigo-500/30">
+                                             Executando enquanto D espera
+                                          </div>
+                                       </div>
+                                    </div>
+
+                                    <div className="mt-6 text-center">
+                                       <span className="text-xs font-mono text-white bg-slate-800 px-3 py-1 rounded-full border border-slate-600">
+                                          Ordem de Execução ≠ Ordem do Código
+                                       </span>
+                                    </div>
+
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+
+                        {/* 3. NÚCLEO TÉCNICO (COMO É FEITO) */}
+                        <h4 className="text-xl font-bold text-white mb-6 pl-4 border-l-4 border-indigo-500">
+                           Como isso é feito (Núcleo Técnico)
+                        </h4>
+
+                        <div className="grid md:grid-cols-3 gap-4 mb-12">
+
+                           {/* Bloco 1: Renaming */}
+                           <div className="bg-slate-950 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/40 transition-colors group">
+                              <div className="mb-3 text-indigo-400 group-hover:scale-110 transition-transform origin-left">
+                                 <Code className="w-6 h-6" />
+                              </div>
+                              <h5 className="text-white font-bold mb-2">Register Renaming</h5>
+                              <p className="text-slate-400 text-xs leading-relaxed">
+                                 Elimina dependências falsas entre instruções, permitindo usar mais registradores do que o código vê.
+                              </p>
+                           </div>
+
+                           {/* Bloco 2: Reservation Stations */}
+                           <div className="bg-slate-950 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/40 transition-colors group">
+                              <div className="mb-3 text-indigo-400 group-hover:scale-110 transition-transform origin-left">
+                                 <ListOrdered className="w-6 h-6" />
+                              </div>
+                              <h5 className="text-white font-bold mb-2">Reservation Stations</h5>
+                              <p className="text-slate-400 text-xs leading-relaxed">
+                                 A "sala de espera" onde instruções aguardam seus dados estarem prontos para serem lançadas.
+                              </p>
+                           </div>
+
+                           {/* Bloco 3: ROB */}
+                           <div className="bg-slate-950 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/40 transition-colors group">
+                              <div className="mb-3 text-indigo-400 group-hover:scale-110 transition-transform origin-left">
+                                 <CheckCheck className="w-6 h-6" />
+                              </div>
+                              <h5 className="text-white font-bold mb-2">Reorder Buffer (ROB)</h5>
+                              <p className="text-slate-400 text-xs leading-relaxed">
+                                 O fiscal final. Garante que, mesmo executando fora de ordem, os resultados sejam gravados na ordem certa.
+                              </p>
+                           </div>
+
+                        </div>
+
+                        {/* 4. TRANSPARÊNCIA E QUEM USA */}
+                        <div className="grid lg:grid-cols-2 gap-8 items-center bg-slate-900/20 rounded-2xl p-8 border border-slate-800/50">
+
+                           {/* Invisibilidade */}
+                           <div>
+                              <h4 className="text-white font-bold mb-2 flex items-center gap-2">
+                                 <EyeOff className="w-5 h-5 text-indigo-400" />
+                                 Invisível para o Programador
+                              </h4>
+                              <p className="text-slate-400 text-sm mb-4">
+                                 Para o software, tudo parece sequencial. Nenhuma instrução "fura fila" logicamente. O OoO é transparente e interno à CPU.
+                              </p>
+                              <div className="flex gap-2 text-[10px] font-mono uppercase text-indigo-300/70">
+                                 <span>Executa Fora de Ordem</span>
+                                 <ArrowRight className="w-3 h-3" />
+                                 <span>Confirma em Ordem</span>
+                              </div>
+                           </div>
+
+                           {/* Quem Usa */}
+                           <div className="border-l border-slate-700 pl-8">
+                              <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+                                 <Server className="w-5 h-5 text-indigo-400" />
+                                 Padrão da Indústria
+                              </h4>
+                              <div className="flex flex-wrap gap-2">
+                                 {['Intel Core / Xeon', 'AMD Ryzen / EPYC', 'Apple M-Series', 'ARM High-Perf'].map(brand => (
+                                    <span key={brand} className="px-3 py-1 bg-slate-950 border border-slate-700 rounded-full text-xs text-slate-300">
+                                       {brand}
+                                    </span>
+                                 ))}
+                              </div>
+                              <p className="text-xs text-slate-500 mt-3 italic">
+                                 Sem OoO, o IPC despenca. Simples assim.
+                              </p>
+                           </div>
+
+                        </div>
+
+                        {/* FECHAMENTO ESTILIZADO */}
+                        <div className="mt-16 text-center">
+                           <div className="inline-block relative p-8">
+                              <div className="absolute top-0 left-0 text-indigo-500/20 text-6xl font-serif">“</div>
+                              <p className="text-2xl md:text-3xl font-bold text-white relative z-10 px-6">
+                                 Out-of-Order Execution permite que o processador <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">pense rápido</span> sem agir errado.
+                              </p>
+                              <div className="absolute bottom-0 right-0 text-indigo-500/20 text-6xl font-serif leading-[0]">”</div>
+                           </div>
+                        </div>
+
+                     </div>
+
+
+                  </div>
+
+               </div>
+            </div>
+         </section >
+
+         {/* =====================================================================================
         SEÇÃO: RESISTORES (O MODERADOR)
         ===================================================================================== 
     */}
+         < section className="py-24 px-4 bg-black relative" >
+            {/* CONTAINER DE ALINHAMENTO (A PEÇA QUE FALTAVA) */}
+            < div className="max-w-6xl mx-auto" >
+
+
                <div className="py-12 border-t border-slate-800/50">
 
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -1666,8 +2736,86 @@ const ProcessorsArticle = () => {
                   </div>
 
                </div>
-            </div>
-         </section>
+               <div className="mt-16 border-t border-amber-800/30 pt-12 mb-12">
+
+                  <h4 className="text-xl font-bold text-white mb-8 pl-4 border-l-4 border-amber-500 flex items-center gap-2">
+                     <Microchip className="w-5 h-5 text-amber-500" />
+                     A Realidade do Hardware Moderno
+                  </h4>
+
+                  <div className="grid lg:grid-cols-2 gap-8">
+
+                     {/* BLOCO 1: O MUNDO SMD (O que tem na placa-mãe) */}
+                     <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl hover:border-amber-500/40 transition-colors group">
+                        <div className="flex items-start gap-4 mb-4">
+                           <div className="p-3 bg-amber-950/20 rounded-lg text-amber-500 group-hover:bg-amber-900/30 transition-colors">
+                              <ScanBarcode className="w-6 h-6" />
+                           </div>
+                           <div>
+                              <h5 className="text-amber-100 font-bold text-lg">Tecnologia SMD</h5>
+                              <p className="text-amber-500/60 text-xs font-mono uppercase tracking-widest">Surface Mount Device</p>
+                           </div>
+                        </div>
+
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                           Em computação moderna, não há espaço para componentes grandes. Usamos resistores <strong>SMD</strong> (aqueles minúsculos retângulos pretos na placa-mãe). Eles não usam faixas coloridas, mas códigos numéricos microscópicos.
+                        </p>
+
+                        {/* Visualização do Resistor SMD */}
+                        <div className="bg-slate-950 p-4 rounded-lg flex items-center justify-center gap-4 border border-slate-800 relative overflow-hidden">
+                           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(245,158,11,0.05)_50%,transparent_75%,transparent_100%)] bg-[size:10px_10px]"></div>
+
+                           {/* O Componente Visual */}
+                           <div className="w-32 h-16 bg-[#1a1a1a] rounded-sm border-x-8 border-slate-300 flex items-center justify-center shadow-lg relative z-10">
+                              <span className="text-slate-200 font-mono text-xl tracking-widest opacity-80">103</span>
+                           </div>
+
+                           <div className="text-xs text-slate-500 font-mono">
+                              Código "103" = <span className="text-amber-500">10kΩ</span>
+                           </div>
+                        </div>
+                     </div>
+
+                     {/* BLOCO 2: LÓGICA PULL-UP/DOWN (Essencial para CPUs) */}
+                     <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl hover:border-amber-500/40 transition-colors group">
+                        <div className="flex items-start gap-4 mb-4">
+                           <div className="p-3 bg-amber-950/20 rounded-lg text-amber-500 group-hover:bg-amber-900/30 transition-colors">
+                              <Anchor className="w-6 h-6" />
+                           </div>
+                           <div>
+                              <h5 className="text-amber-100 font-bold text-lg">A "Gravidade" Lógica</h5>
+                              <p className="text-amber-500/60 text-xs font-mono uppercase tracking-widest">Pull-up & Pull-down</p>
+                           </div>
+                        </div>
+
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                           Sem resistores, um pino de processador desconectado não é "zero" nem "um", ele flutua (floating) captando ruído. Resistores de <em>Pull-up/down</em> agem como uma "âncora", forçando o estado lógico para 3.3V ou Terra quando o circuito está ocioso.
+                        </p>
+
+                        {/* Visualização Pull-Up */}
+                        <div className="flex items-center gap-2 bg-slate-950 p-4 rounded-lg border border-slate-800">
+                           <div className="flex flex-col items-center gap-1">
+                              <span className="text-[10px] text-amber-500 font-bold">3.3V</span>
+                              <div className="w-[2px] h-4 bg-amber-500/50"></div>
+                              {/* Resistor Símbolo */}
+                              <div className="w-4 h-8 border-2 border-amber-500 bg-slate-900 z-10"></div>
+                              <div className="w-[2px] h-4 bg-amber-500/50"></div>
+                              <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]"></div>
+                           </div>
+                           <ArrowDownToLine className="text-slate-600 w-4 h-4 rotate-90" />
+                           <div className="text-xs text-slate-400 leading-tight">
+                              Mantém o sinal <strong className="text-white">ALTO</strong> até que o botão seja pressionado.
+                              <br /><span className="text-[10px] opacity-50 italic">Essencial para botões e sensores.</span>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+
+
+            </div >
+         </section >
 
 
          <section className="py-24 px-4 bg-black relative overflow-hidden">
@@ -1920,6 +3068,8 @@ const ProcessorsArticle = () => {
                   </div>
 
                </div>
+
+               
 
             </div>
          </section>
@@ -2188,7 +3338,7 @@ const ProcessorsArticle = () => {
                               <div>
                                  <h5 className="text-white font-bold mb-1">VRMs (Reguladores de Tensão)</h5>
                                  <p className="text-sm text-slate-400">
-                                    Em processadores e placas-mãe, indutores são usados em conjunto com capacitores para formar circuitos reguladores de tensão. 
+                                    Em processadores e placas-mãe, indutores são usados em conjunto com capacitores para formar circuitos reguladores de tensão.
                                     Esses reguladores garantem que o processador receba energia estável, sem oscilações que poderiam comprometer sua performance ou causar falhas.                                 </p>
                               </div>
                            </div>
@@ -2276,6 +3426,9 @@ const ProcessorsArticle = () => {
 
             </div>
          </section>
+
+
+
 
 
          {/* =====================================================================================
@@ -2507,7 +3660,7 @@ const ProcessorsArticle = () => {
             </div>
          </footer>
 
-      </div>
+      </div >
    );
 };
 
