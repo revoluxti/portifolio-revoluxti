@@ -1,86 +1,124 @@
 import React, { useState } from 'react';
+import { Cpu, ShieldCheck, Terminal } from 'lucide-react';
+
+// IMPORTS DOS SEUS ARTIGOS EXISTENTES
 import HistoryInfographic from './HistoryInfographic';
 import MotherboardOnboardArticle from './MotherboardOnboardArticle';
 import MotherboardOffboardArticle from './MotherboardOffboardArticle';
 import ProcessorsArticle from './ProcessorsArticle';
 
 const App = () => {
-  const [currentChapter, setCurrentChapter] = useState('00'); // Começando no Cap 02 para testar
+  const [currentChapter, setCurrentChapter] = useState('00');
+  const [systemMode, setSystemMode] = useState('HARDWARE'); // HARDWARE ou DEVSECOPS
+
+  // Paleta Revoluxti para referência inline
+  const brandRed = '#b3120c';
+
+  const handleNavigation = (cap, mode) => {
+    setCurrentChapter(cap);
+    setSystemMode(mode);
+  };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-950 overflow-hidden font-sans">
+    <div className="flex flex-col h-screen bg-slate-950 overflow-hidden font-sans selection:bg-[#b3120c]/30">
       
-      {/* Barra de Navegação Superior Fixa */}
-      {/* Adicionado 'relative' para permitir o posicionamento absoluto do menu central */}
-      <nav className="h-14 border-b border-slate-800 bg-slate-900/95 backdrop-blur flex items-center justify-between px-6 z-50 shrink-0 shadow-lg shadow-black/20 relative">
+      {/* --- BARRA DE NAVEGAÇÃO SUPERIOR (HUD) --- */}
+      <nav className="h-16 border-b border-slate-800 bg-slate-900/95 backdrop-blur flex items-center justify-between px-6 z-50 shrink-0 shadow-lg shadow-black/40 relative">
         
-        {/* Lado Esquerdo: Logo */}
-        
+        {/* Lado Esquerdo: Identidade Dinâmica */}
+        <div className="flex items-center gap-3 w-40">
+           <div className={`p-2 rounded-lg border transition-all duration-500 ${
+              systemMode === 'DEVSECOPS' 
+                ? 'bg-[#2a0505] border-[#b3120c]/50 text-[#fd8f00]' // Revoluxti Theme
+                : 'bg-blue-950/50 border-blue-500/50 text-blue-400'
+           }`}>
+              {systemMode === 'DEVSECOPS' ? <ShieldCheck className="w-5 h-5" /> : <Cpu className="w-5 h-5" />}
+           </div>
+           <div className="flex flex-col">
+              <span className="text-[10px] text-[#a09494] font-mono tracking-widest uppercase">Módulo Ativo</span>
+              <span className={`text-xs font-bold transition-colors duration-500`} 
+                    style={{ color: systemMode === 'DEVSECOPS' ? brandRed : '#60a5fa' }}>
+                 {systemMode}
+              </span>
+           </div>
+        </div>
 
-        {/* Centro: Menu de Capítulos */}
-        {/* Adicionado 'absolute left-1/2 -translate-x-1/2' para centralização perfeita */}
-        <div className="absolute left-1/2 -translate-x-1/2 flex gap-2 bg-slate-950/50 p-1 rounded-full border border-slate-800">
+        {/* Centro: Controlador de Capítulos (Ilha Flutuante) */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1 bg-slate-950 p-1.5 rounded-full border border-slate-800 shadow-2xl">
           
-          <button 
-            onClick={() => setCurrentChapter('00')}
-            className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${
-              currentChapter === '00' 
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
-            }`}
-          >
-            CAP 00
-          </button>
+          {/* GRUPO 1: HARDWARE (Eniac Room) */}
+          <div className="flex gap-1 pr-3 border-r border-slate-800 mr-1">
+            <button 
+              onClick={() => handleNavigation('00', 'HARDWARE')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                currentChapter === '00' 
+                  ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' 
+                  : 'text-[#a09494] hover:text-white hover:bg-slate-900'
+              }`}
+            >
+              CAP 00
+            </button>
 
-          <button 
-            onClick={() => setCurrentChapter('01')}
-            className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${
-              currentChapter === '01' 
-                ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-900/50' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
-            }`}
-          >
-            CAP 01
-          </button>
+            <button 
+              onClick={() => handleNavigation('01', 'HARDWARE')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                currentChapter === '01' 
+                  ? 'bg-indigo-600 text-white shadow-[0_0_15px_rgba(79,70,229,0.4)]' 
+                  : 'text-[#a09494] hover:text-white hover:bg-slate-900'
+              }`}
+            >
+              CAP 01
+            </button>
 
-          <button 
-            onClick={() => setCurrentChapter('02')}
-            className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${
-              currentChapter === '02' 
-                ? 'bg-fuchsia-600 text-white shadow-lg shadow-fuchsia-900/50 scale-105' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
-            }`}
-          >
-            CAP 02
-          </button>
+            <button 
+              onClick={() => handleNavigation('02', 'HARDWARE')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                currentChapter === '02' 
+                  ? 'bg-fuchsia-600 text-white shadow-[0_0_15px_rgba(192,38,211,0.4)]' 
+                  : 'text-[#a09494] hover:text-white hover:bg-slate-900'
+              }`}
+            >
+              CAP 02
+            </button>
 
-          <button 
-             onClick={() => setCurrentChapter('03')}
-             className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${
-              currentChapter === '03' 
-                ? 'bg-green-600 text-white shadow-lg shadow-green-900/50' 
-                : 'text-slate-400 hover:text-white hover:bg-slate-800'
-            }`}
-          >
-            CAP 03
-          </button>
+            <button 
+              onClick={() => handleNavigation('03', 'HARDWARE')}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                currentChapter === '03' 
+                  ? 'bg-violet-600 text-white shadow-[0_0_15px_rgba(124,58,237,0.4)]' 
+                  : 'text-[#a09494] hover:text-white hover:bg-slate-900'
+              }`}
+            >
+              CAP 03
+            </button>
+          </div>
+
 
         </div>
 
-        {/* Lado Direito: Versão */}
-        <div className="text-[10px] text-slate-500 font-mono hidden md:block opacity-60">
-          V.1.0.5 | SYSTEM READY
+        {/* Lado Direito: Status do Sistema */}
+        <div className="w-40 flex flex-col items-end opacity-70 hidden md:flex">
+          <div className="flex items-center gap-2 text-[10px] font-mono text-[#a09494]">
+             <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: systemMode === 'DEVSECOPS' ? '#fd8f00' : '#10b981' }}></span>
+             SYSTEM ONLINE
+          </div>
+          <div className="text-[9px] font-mono mt-0.5" style={{ color: systemMode === 'DEVSECOPS' ? '#ffcc00' : '#475569' }}>
+             ISO 20000: COMPLIANT
+          </div>
         </div>
+
       </nav>
 
-      {/* Conteúdo Principal */}
-      <div className="flex-1 relative overflow-y-auto scroll-smooth bg-slate-950">
+      {/* --- ÁREA DE CONTEÚDO PRINCIPAL --- */}
+      <div className="flex-1 relative overflow-y-auto scroll-smooth bg-slate-950 custom-scrollbar">
         
+        {/* Renderização Condicional dos Módulos */}
+        
+        {/* Niche 1: Hardware Lab */}
         {currentChapter === '00' && <HistoryInfographic />}
         {currentChapter === '01' && <MotherboardOnboardArticle />}
         {currentChapter === '02' && <MotherboardOffboardArticle />}
         {currentChapter === '03' && <ProcessorsArticle />}
-        
 
       </div>
     </div>

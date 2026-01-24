@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/revoluxti/portifolio-revoluxti#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.23",
     "javascript-obfuscator": "^5.0.1",
+    "postcss": "^8.5.6",
     "rollup-plugin-obfuscator": "^1.1.0",
+    "tailwindcss": "^4.1.18",
     "vite": "^7.2.7"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0"
   }
 }
