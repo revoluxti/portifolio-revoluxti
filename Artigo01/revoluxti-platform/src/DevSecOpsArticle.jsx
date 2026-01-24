@@ -279,11 +279,18 @@ const DevSecOpsArticle = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.abobora }}>
-              Edição Final #01
+              Edição Inicial #01
             </span>
             <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              ISO 20000 Compliant
+              Conformidade ISO 20000 
             </span>
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              Governança
+            </span>
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              DevSecOps 
+            </span>
+           
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
