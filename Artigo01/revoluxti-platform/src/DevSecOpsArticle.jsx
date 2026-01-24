@@ -10,10 +10,12 @@ import {
   Users, ArrowLeftCircle, GraduationCap,
   Target, FileCheck, BarChart3, ShieldAlert,
   CheckCircle, Play, Bug, X, ChevronRight,
-  Github, Linkedin, Facebook, Mail, Fingerprint, Smartphone, Key, Hash,
-  ShieldCheck, Container, CloudLightning, Layers, Network, Radar, Workflow, Radio, Siren,
-  LifeBuoy, ZapOff, TimerReset, HardDrive, RefreshCcw
-  
+  Github, Linkedin, Facebook, Mail, Fingerprint,
+  Smartphone, Key, Hash, ShieldCheck, Container,
+  CloudLightning, Layers, Network, Radar, Workflow,
+  Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
+  RefreshCcw
+
 
 
 } from 'lucide-react';
@@ -89,6 +91,167 @@ const PipelineSimulator = ({ colors }) => {
   );
 };
 
+
+// -----------------------------------------------------------------------------
+// SUB-COMPONENTE: SIMULADOR DE DISASTER RECOVERY (DR)
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+const DisasterRecoverySim = ({ colors }) => {
+  const [drState, setDrState] = useState('NORMAL'); // NORMAL, CRITICAL, RESTORING
+  const [uptime, setUptime] = useState(99.99);
+
+  const triggerDisaster = () => {
+    setDrState('CRITICAL');
+    setUptime(0.00);
+  };
+
+  const activateRecovery = () => {
+    setDrState('RESTORING');
+    setTimeout(() => {
+      setDrState('NORMAL');
+      setUptime(99.95);
+    }, 2500);
+  };
+
+  return (
+    <div className="border rounded-xl p-6 relative overflow-hidden shadow-2xl"
+      style={{ backgroundColor: '#050101', borderColor: drState === 'CRITICAL' ? colors.principal : colors.borda }}>
+
+      <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
+        <div className="flex items-center gap-2">
+          <div className={`w-3 h-3 rounded-full ${drState === 'NORMAL' ? 'bg-green-500 animate-pulse' : drState === 'CRITICAL' ? 'bg-red-600 animate-ping' : 'bg-yellow-500'}`}></div>
+          <span className="font-mono text-xs text-slate-300">SYSTEM_HEARTBEAT</span>
+        </div>
+        <div className="font-mono text-xs">
+          UPTIME: <span style={{ color: drState === 'NORMAL' ? '#22c55e' : colors.principal }}>{uptime}%</span>
+        </div>
+      </div>
+
+      <div className="flex justify-center gap-4 mb-8">
+        {[1, 2, 3].map((server) => (
+          <div key={server} className={`w-16 h-24 rounded border-2 flex flex-col justify-end items-center p-2 transition-all duration-500 ${drState === 'NORMAL' ? 'border-slate-700 bg-slate-900' :
+            drState === 'CRITICAL' ? 'border-red-600 bg-red-950/30 animate-pulse' :
+              'border-yellow-500 bg-yellow-950/30'
+            }`}>
+            <div className="w-full h-[1px] bg-slate-800 mb-1"></div>
+            <div className="w-full h-[1px] bg-slate-800 mb-1"></div>
+            <div className="w-full h-[1px] bg-slate-800 mb-2"></div>
+            <div className={`w-2 h-2 rounded-full ${drState === 'NORMAL' ? 'bg-green-500' :
+              drState === 'CRITICAL' ? 'bg-red-500' : 'bg-yellow-500'
+              }`}></div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-[#1a0505] rounded-lg p-4 border border-dashed" style={{ borderColor: colors.borda }}>
+        {drState === 'NORMAL' && (
+          <div className="text-center">
+            <p className="text-xs text-slate-400 mb-3">SYSTEM OPERATING NORMALLY</p>
+            <button
+              onClick={triggerDisaster}
+              className="w-full py-2 bg-slate-800 hover:bg-red-900/50 text-white text-xs font-bold rounded flex items-center justify-center gap-2 transition-all border border-slate-700 hover:border-red-500"
+            >
+              <ZapOff className="w-4 h-4" /> SIMULATE RANSOMWARE
+            </button>
+          </div>
+        )}
+
+        {drState === 'CRITICAL' && (
+          <div className="text-center animate-in fade-in zoom-in duration-300">
+            <p className="text-xs font-bold mb-3 animate-pulse" style={{ color: colors.principal }}>
+              ⚠️ CRITICAL FAILURE: DATA ENCRYPTED
+            </p>
+            <button
+              onClick={activateRecovery}
+              className="w-full py-2 text-black text-xs font-bold rounded flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(253,143,0,0.5)] hover:scale-105"
+              style={{ backgroundColor: colors.abobora }}
+            >
+              <RefreshCcw className="w-4 h-4 animate-spin" /> INITIATE DISASTER RECOVERY
+            </button>
+          </div>
+        )}
+
+        {drState === 'RESTORING' && (
+          <div className="text-center">
+            <p className="text-xs text-yellow-500 mb-2">RESTORING FROM IMMUTABLE BACKUP...</p>
+            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+              <div className="h-full bg-yellow-500 animate-[width_2s_ease-in-out]" style={{ width: '100%' }}></div>
+            </div>
+          </div>
+        )}
+      </div>
+      {drState === 'CRITICAL' && (
+        <div className="absolute inset-0 bg-red-600/10 pointer-events-none animate-pulse"></div>
+      )}
+    </div>
+  );
+};
+
+
+// -----------------------------------------------------------------------------
+// SUB-COMPONENTE: DIAGRAMA DE CONVERGÊNCIA (CAP 1)
+// -----------------------------------------------------------------------------
+const ConvergenceDiagram = ({ colors }) => {
+  return (
+    <div className="w-full max-w-lg mx-auto mb-10 p-4">
+      <svg viewBox="0 0 400 320" className="w-full h-auto drop-shadow-2xl">
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill={colors.textoSec} />
+          </marker>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Linhas de Fundo (Grid Técnico) */}
+        <path d="M50,150 L350,150 M200,50 L200,300" stroke={colors.borda} strokeWidth="0.5" strokeDasharray="5,5" opacity="0.3" />
+        <circle cx="200" cy="180" r="120" stroke={colors.borda} strokeWidth="0.5" fill="none" opacity="0.2" />
+
+        {/* Círculo SEC (Topo) */}
+        <g transform="translate(200, 60)">
+          <circle r="40" fill="#0f0202" stroke={colors.principal} strokeWidth="2" filter="url(#glow)" />
+          <text x="0" y="5" textAnchor="middle" fill="#fff" fontWeight="bold" fontSize="16" fontFamily="monospace">SEC</text>
+          <text x="0" y="25" textAnchor="middle" fill={colors.principal} fontSize="8" fontFamily="monospace">ISO 20000</text>
+        </g>
+
+        {/* Círculo DEV (Esquerda) */}
+        <g transform="translate(80, 180)">
+          <circle r="40" fill="#0f0202" stroke={colors.abobora} strokeWidth="2" />
+          <text x="0" y="5" textAnchor="middle" fill="#fff" fontWeight="bold" fontSize="16" fontFamily="monospace">DEV</text>
+          <text x="0" y="25" textAnchor="middle" fill={colors.abobora} fontSize="8" fontFamily="monospace">AGILE</text>
+        </g>
+
+        {/* Círculo OPS (Direita) */}
+        <g transform="translate(320, 180)">
+          <circle r="40" fill="#0f0202" stroke={colors.dourado} strokeWidth="2" />
+          <text x="0" y="5" textAnchor="middle" fill="#fff" fontWeight="bold" fontSize="16" fontFamily="monospace">OPS</text>
+          <text x="0" y="25" textAnchor="middle" fill={colors.dourado} fontSize="8" fontFamily="monospace">ITIL v4</text>
+        </g>
+
+        {/* Triângulo Central (A Convergência) */}
+        <g transform="translate(200, 260)">
+          <path d="M0,-40 L-35,20 L35,20 Z" fill="none" stroke="#fff" strokeWidth="2" filter="url(#glow)" />
+          <circle r="5" fill="#fff" className="animate-pulse" />
+        </g>
+
+        {/* Setas Conectando ao Triângulo */}
+        {/* SEC -> Centro */}
+        <line x1="200" y1="105" x2="200" y2="210" stroke={colors.textoSec} strokeWidth="1" markerEnd="url(#arrowhead)" />
+        {/* DEV -> Centro */}
+        <line x1="115" y1="195" x2="160" y2="250" stroke={colors.textoSec} strokeWidth="1" markerEnd="url(#arrowhead)" />
+        {/* OPS -> Centro */}
+        <line x1="285" y1="195" x2="240" y2="250" stroke={colors.textoSec} strokeWidth="1" markerEnd="url(#arrowhead)" />
+
+      </svg>
+    </div>
+  );
+};
 // -----------------------------------------------------------------------------
 // COMPONENTE PRINCIPAL
 // -----------------------------------------------------------------------------
@@ -282,15 +445,15 @@ const DevSecOpsArticle = () => {
               Edição Inicial #01
             </span>
             <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              Conformidade ISO 20000 
+              Conformidade ISO 20000
             </span>
             <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
               Governança
             </span>
             <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              DevSecOps 
+              DevSecOps
             </span>
-           
+
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
@@ -341,12 +504,25 @@ const DevSecOpsArticle = () => {
               Capítulo 1: A Convergência de Culturas
             </h3>
           </div>
-          <p className="leading-relaxed text-lg max-w-4xl" style={{ color: colors.textoSec }}>
-            Onde a <strong className="text-white">ISO 20000</strong> encontra o Manifesto Ágil.
+          <p className="leading-relaxed text-lg max-w-4xl mx-auto md:mx-0" style={{ color: colors.textoSec }}>
+            O fim do "Blame Game". A transição não é apenas de ferramentas, mas de mentalidade. Onde a <strong className="text-white">ISO 20000</strong> encontra o Manifesto Ágil.
           </p>
         </div>
+        {/* Dentro da seção do Capítulo 1 */}
+        <div className="mb-8 text-center md:text-left">
+          {/* Títulos e textos... */}
+        </div>
+
+        {/* APENAS A CHAMADA AQUI: */}
+        <ConvergenceDiagram colors={colors} />
 
         <div className="grid md:grid-cols-2 gap-6">
+          {/* Cards... */}
+        </div>
+
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* CARD 1: A Nova Era da TI */}
           <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.borda }}>
@@ -361,6 +537,7 @@ const DevSecOpsArticle = () => {
             </div>
           </div>
 
+          {/* CARD 2: Do Waterfall ao DevOps */}
           <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.borda }}>
@@ -375,7 +552,8 @@ const DevSecOpsArticle = () => {
             </div>
           </div>
 
-          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1 md:col-span-2 relative overflow-hidden"
+          {/* CARD 3: Shift-Left (AGORA OCUPA SÓ 1 COLUNA) */}
+          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1 relative overflow-hidden"
             style={{ backgroundColor: 'rgba(26, 5, 5, 0.6)', borderColor: colors.principal }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-transparent to-red-900/20 rounded-bl-full"></div>
             <div className="flex items-start gap-4 relative z-10">
@@ -385,16 +563,18 @@ const DevSecOpsArticle = () => {
               <div>
                 <h4 className="font-bold text-lg mb-2 text-white flex items-center gap-2">
                   Conceito Shift-Left
-                  <span className="text-[10px] px-2 py-0.5 rounded border uppercase tracking-wider" style={{ borderColor: colors.abobora, color: colors.abobora }}>Estratégia Vital</span>
+                  {/* Ajustei o badge para caber melhor em 1 coluna */}
+                  <span className="text-[9px] px-1.5 py-0.5 rounded border uppercase tracking-wider hidden xl:block" style={{ borderColor: colors.abobora, color: colors.abobora }}>Vital</span>
                 </h4>
-                <p className="text-sm leading-relaxed max-w-2xl" style={{ color: colors.textoSec }}>
+                <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
                   Antecipar a segurança para as fases de <strong>design e codificação</strong>.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1 md:col-span-2" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
+          {/* CARD 4: Cultura Sem Culpa (AGORA OCUPA SÓ 1 COLUNA) */}
+          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.borda }}>
                 <GraduationCap className="w-6 h-6" style={{ color: '#fff' }} />
@@ -402,7 +582,7 @@ const DevSecOpsArticle = () => {
               <div>
                 <h4 className="font-bold text-lg mb-2 text-white">Cultura Sem Culpa</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                  O papel do Educador (CCEP) na mudança de mentalidade. Foco no processo, não na pessoa.
+                  O papel do Educador (CCEP) na mudança de mentalidade.
                 </p>
               </div>
             </div>
@@ -1101,15 +1281,40 @@ const DevSecOpsArticle = () => {
                 Não é só log. É a tríade: <strong>Logs</strong> (o que aconteceu), <strong>Métricas</strong> (performance) e <strong>Traces</strong> (onde aconteceu). O SOC moderno vê tudo.
               </p>
             </div>
-
           </div>
 
         </div>
+
       </section>
 
-      
+      {/* CAP 8: DISASTER RECOVERY */}
+      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
+        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><LifeBuoy className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 8: Resiliência Cibernética</h3></div><p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>Continuidade de Negócios (BCP) e Recuperação de Desastres (DR).</p></div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><TimerReset className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">RTO & RPO</h4></div><ul className="text-sm space-y-2" style={{ color: colors.textoSec }}><li>RTO: Tempo máx parado.</li><li>RPO: Perda máx de dados.</li></ul></div>
+            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><HardDrive className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Backup Imutável</h4></div><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>Contra Ransomware (WORM).</p></div>
+            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform relative overflow-hidden" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><RefreshCcw className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">Active-Active</h4></div><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>Redundância geográfica total.</p></div>
+          </div>
+          <DisasterRecoverySim colors={colors} />
+        </div>
+      </section>
 
+      {/* WAR GAMES */}
+      <section className="py-20 px-6 max-w-5xl mx-auto border-t" style={{ borderColor: colors.borda }}>
+        <div className="flex justify-between items-end mb-8 border-b pb-4" style={{ borderColor: colors.borda }}><div><h2 className="text-3xl font-bold text-white mb-2">War Games: Estratégias</h2><p style={{ color: colors.textoSec }}>Escolha seu lado na simulação.</p></div><div className="flex bg-slate-900 p-1 rounded-lg border" style={{ borderColor: colors.borda }}><button onClick={() => setWarGameMode('blue')} className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'blue' ? 'text-slate-900' : 'text-slate-500 hover:text-white'}`} style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : 'transparent' }}>BLUE TEAM</button><button onClick={() => setWarGameMode('red')} className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'red' ? 'text-white shadow-[0_0_15px_rgba(179,18,12,0.5)]' : 'text-slate-500 hover:text-white'}`} style={{ backgroundColor: warGameMode === 'red' ? colors.principal : 'transparent' }}>RED TEAM</button></div></div>
+        <div className="bg-slate-900/40 border rounded-2xl p-8 min-h-[300px] relative overflow-hidden transition-all duration-500" style={{ borderColor: colors.borda }}><div className={`absolute inset-0 opacity-10 transition-colors duration-500`} style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : colors.principal }}></div>{warGameMode === 'blue' ? (<div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500"><div className="flex items-center gap-3 mb-6"><Shield className="w-8 h-8" style={{ color: colors.abobora }} /><h3 className="text-2xl font-bold text-white">Estratégias Defensivas</h3></div><ul className="space-y-4"><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.abobora }}></div><div><strong className="block" style={{ color: colors.abobora }}>Zero Trust (ZTNA)</strong></div></li><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.abobora }}></div><div><strong className="block" style={{ color: colors.abobora }}>Forense Digital</strong></div></li></ul></div>) : (<div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500"><div className="flex items-center gap-3 mb-6"><Zap className="w-8 h-8" style={{ color: colors.principal }} /><h3 className="text-2xl font-bold text-white">Operações Ofensivas</h3></div><ul className="space-y-4"><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.principal }}></div><div><strong className="block" style={{ color: colors.principal }}>Bug Bounty</strong></div></li><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.principal }}></div><div><strong className="block" style={{ color: colors.principal }}>Chaos Engineering</strong></div></li></ul></div>)}</div>
+      </section>
 
+      {/* ROADMAP */}
+      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
+        <div className="text-center mb-12"><h2 className="text-3xl font-bold text-white mb-4">Roadmap de Execução</h2><p className="max-w-2xl mx-auto" style={{ color: colors.textoSec }}>O plano de batalha para transformar a cultura em 100 dias.</p></div>
+        <div className="relative"><div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-800 -translate-x-1/2"></div><div className="space-y-12">
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 group"><div className="md:w-5/12 text-right"><h3 className="text-xl font-bold text-white mb-2">Dia 1-30: Quick Wins</h3><p className="text-sm" style={{ color: colors.textoSec }}>MFA, SCA e Diagnóstico.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(253,143,0,0.3)]" style={{ borderColor: colors.abobora }}><span className="font-bold text-xs" style={{ color: colors.abobora }}>30D</span></div><div className="md:w-5/12 p-4 rounded-xl border bg-[#1a0505]/50" style={{ borderColor: colors.borda }}><ul className="space-y-2 text-xs" style={{ color: colors.textoSec }}><li>Análise de Vulnerabilidades</li><li>Ativação de MFA</li></ul></div></div>
+          <div className="relative flex flex-col md:flex-row-reverse items-center justify-between gap-8 group"><div className="md:w-5/12 text-left"><h3 className="text-xl font-bold text-white mb-2">Dia 31-60: Automação</h3><p className="text-sm" style={{ color: colors.textoSec }}>Pipeline e Guardrails.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(179,18,12,0.3)]" style={{ borderColor: colors.principal }}><span className="font-bold text-xs" style={{ color: colors.principal }}>60D</span></div><div className="md:w-5/12 p-4 rounded-xl border bg-[#1a0505]/50" style={{ borderColor: colors.borda }}><ul className="space-y-2 text-xs" style={{ color: colors.textoSec }}><li>Pipeline com OPA</li><li>Security Champions</li></ul></div></div>
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 group"><div className="md:w-5/12 text-right"><h3 className="text-xl font-bold text-white mb-2">Dia 61-90: Governança</h3><p className="text-sm" style={{ color: colors.textoSec }}>DORA, Dashboards e Auditoria.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(255,204,0,0.3)]" style={{ borderColor: colors.dourado }}><span className="font-bold text-xs" style={{ color: colors.dourado }}>90D</span></div><div className="md:w-5/12 p-4 rounded-xl border bg-[#1a0505]/50" style={{ borderColor: colors.borda }}><ul className="space-y-2 text-xs" style={{ color: colors.textoSec }}><li>DORA Metrics</li><li>Simulação de Crise</li></ul></div></div>
+        </div><div className="mt-16 text-center"><div className="inline-block px-8 py-4 rounded-2xl border bg-gradient-to-r from-[#b3120c] to-[#631212] text-white font-bold shadow-2xl hover:scale-105 transition-transform cursor-pointer" style={{ borderColor: colors.dourado }}>PRONTO PARA INICIAR A TRANSFORMAÇÃO?</div></div></div>
+      </section>
 
 
     </div>
