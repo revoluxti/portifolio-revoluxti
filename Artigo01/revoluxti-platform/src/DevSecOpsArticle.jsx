@@ -14,8 +14,7 @@ import {
   Smartphone, Key, Hash, ShieldCheck, Container,
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
-  RefreshCcw
-
+  RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen
 
 
 } from 'lucide-react';
@@ -501,24 +500,380 @@ const DevSecOpsArticle = () => {
               <Globe className="w-6 h-6" style={{ color: colors.dourado }} />
             </div>
             <h3 className="text-2xl font-bold text-white">
-              Capítulo 1: A Convergência de Culturas
+              Capítulo 1: A Convergência de Culturas e Processos
             </h3>
           </div>
-          <p className="leading-relaxed text-lg max-w-4xl mx-auto md:mx-0" style={{ color: colors.textoSec }}>
-            O fim do "Blame Game". A transição não é apenas de ferramentas, mas de mentalidade. Onde a <strong className="text-white">ISO 20000</strong> encontra o Manifesto Ágil.
-          </p>
-        </div>
-        {/* Dentro da seção do Capítulo 1 */}
-        <div className="mb-8 text-center md:text-left">
-          {/* Títulos e textos... */}
+          {/* ---------------------------------------------------------------------
+          SEÇÃO EDUCACIONAL: FEUDOS VS SILOS
+      ---------------------------------------------------------------------- */}
+
+          {/* Introdução Contextual (Full Width) */}
+          <div className="mb-12 p-6 rounded-2xl border bg-gradient-to-r from-[#0f0202] to-[#1a0505]" style={{ borderColor: colors.borda }}>
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <Globe className="w-6 h-6" style={{ color: colors.dourado }} />
+              Onde a ISO 20000 encontra o Manifesto Ágil?
+            </h4>
+            <p className="leading-relaxed text-lg" style={{ color: colors.textoSec }}>
+              A crescente complexidade dos serviços de Tecnologia da Informação tem pressionado as organizações a buscar
+              simultaneamente controle operacional, qualidade de serviços e capacidade de adaptação contínua.
+              Nesse contexto, a <strong>ISO/IEC 20000</strong> consolida-se como um framework normativo voltado à governança e
+              à padronização, enquanto o <strong>Manifesto Ágil</strong> propõe flexibilidade e entrega incremental.
+              <br /><br />
+              À primeira vista, parecem conflitantes. No entanto, este estudo parte da premissa de que a integração entre eles
+              não apenas é possível, como representa um diferencial competitivo vital para ambientes regulados.
+            </p>
+          </div>
+
+          {/* Dentro da seção do Capítulo 1 */}
+          <div className="mb-8 text-center md:text-left">
+            {/* Títulos e textos... */}
+          </div>
+
+          {/* APENAS A CHAMADA AQUI: */}
+          <ConvergenceDiagram colors={colors} />
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Cards... */}
+          </div>
+
+          {/* Grid de 2 Colunas (O Passado vs O Futuro) */}
+          <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* COLUNA 1: O PROBLEMA DOS FEUDOS */}
+            <div className="p-6 rounded-xl border relative overflow-hidden group" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <Castle className="w-24 h-24 text-red-800" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4 border-b border-red-900/30 pb-4">
+                  <div className="p-2 rounded bg-red-950/30 border border-red-900">
+                    <Crown className="w-6 h-6 text-red-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">A Era dos "Feudos"</h3>
+                </div>
+
+                <div className="space-y-6 text-sm" style={{ color: colors.textoSec }}>
+                  <p>
+                    A expressão "chega de feudos" na área de TI refere-se à necessidade de acabar com os silos organizacionais,
+                    onde equipes ou departamentos trabalham de forma isolada, retêm informações e priorizam seus próprios objetivos
+                    em vez do sucesso do projeto como um todo.
+                    O termo faz uma analogia ao feudalismo medieval, onde cada senhor governava seu próprio território de forma
+                    independente e muitas vezes em conflito com os vizinhos.
+
+                  </p>
+
+                  <div className="bg-red-950/10 p-4 rounded-lg border border-red-900/20">
+                    <strong className="block text-red-400 mb-2 uppercase text-xs tracking-wider">O que caracteriza um "feudo" em TI:</strong>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <X className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                        <span><strong>Falta de Colaboração:</strong>  Equipes de Desenvolvimento (Dev), Operações (Ops) e Segurança (Sec)
+                          que não se comunicam e culpam umas às outras por erros.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <X className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                        <span><strong>Retenção de Conhecimento:</strong> Especialistas que guardam informações críticas para si para manterem-se
+                          "indispensáveis". </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <X className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                        <span><strong>Ferramentas Exclusivas:</strong> Departamentos que adotam tecnologias diferentes que não se integram,
+                          dificultando o fluxo de dados.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <X className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                        <span><strong>Burocracia Excessiva:</strong> Processos rígidos criados para proteger o controle de uma equipe sobre determinada área.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* CARD: MANIFESTO "CHEGA DE FEUDOS" */}
+                  <div className="mt-6 p-5 rounded-xl border relative overflow-hidden"
+                    style={{ backgroundColor: 'rgba(253, 143, 0, 0.05)', borderColor: colors.abobora }}>
+
+                    {/* Efeito de brilho de fundo */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-bl-full pointer-events-none"></div>
+
+                    <h5 className="text-lg font-bold text-white mb-4 flex items-center gap-2 relative z-10">
+                      <MessageSquareQuote className="w-5 h-5" style={{ color: colors.abobora }} />
+                      Por que "Chega de Feudos"?
+                    </h5>
+
+                    <p className="text-sm mb-6 relative z-10" style={{ color: colors.textoSec }}>
+                      Não é apenas um slogan. É um apelo pela Cultura DevSecOps. Um chamado urgente para a implementação real da <strong>Cultura DevSecOps</strong> e agilidade.
+                      Desenvolvimento, Segurança e Operações não podem mais operar como startups rivais dentro da mesma empresa. O jogo agora é integração radical. O objetivo é promover:
+                    </p>
+
+                    <div className="space-y-4 relative z-10">
+                      {/* Pilar 1: Responsabilidade */}
+                      <div className="flex items-start gap-3 p-3 rounded-lg border border-dashed hover:border-solid transition-all bg-[#0f0202]/50" style={{ borderColor: colors.borda }}>
+                        <div className="mt-1 p-1.5 rounded bg-slate-900">
+                          <Users className="w-4 h-4" style={{ color: colors.dourado }} />
+                        </div>
+                        <div>
+                          <strong className="block text-white text-xs uppercase tracking-wider mb-1">Responsabilidade Compartilhada</strong>
+                          <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+                            Todos são donos do produto. Do primeiro código até a sustentação em produção.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Pilar 2: Transparência */}
+                      <div className="flex items-start gap-3 p-3 rounded-lg border border-dashed hover:border-solid transition-all bg-[#0f0202]/50" style={{ borderColor: colors.borda }}>
+                        <div className="mt-1 p-1.5 rounded bg-slate-900">
+                          <Eye className="w-4 h-4" style={{ color: colors.dourado }} />
+                        </div>
+                        <div>
+                          <strong className="block text-white text-xs uppercase tracking-wider mb-1">Transparência Radical</strong>
+                          <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+                            Informações, logs e métricas disponíveis para todos. O fim das "caixas pretas".
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Pilar 3: Agilidade */}
+                      <div className="flex items-start gap-3 p-3 rounded-lg border border-dashed hover:border-solid transition-all bg-[#0f0202]/50" style={{ borderColor: colors.borda }}>
+                        <div className="mt-1 p-1.5 rounded bg-slate-900">
+                          <Zap className="w-4 h-4" style={{ color: colors.dourado }} />
+                        </div>
+                        <div>
+                          <strong className="block text-white text-xs uppercase tracking-wider mb-1">Agilidade Extrema</strong>
+                          <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+                            Sem barreiras burocráticas entre departamentos, o valor chega mais rápido ao cliente.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Link Externo */}
+                    <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between relative z-10">
+                      <span className="text-[10px] text-slate-500 uppercase tracking-widest">Fonte Recomendada</span>
+                      <a href="https://www.atlassian.com/br/devops" target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-xs font-bold hover:underline transition-all"
+                        style={{ color: colors.abobora }}>
+                        <BookOpen className="w-3 h-3" /> Guia Cultura DevOps (Atlassian)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* COLUNA 2: A SOLUÇÃO (QUEBRA DE SILOS) */}
+            <div className="p-6 rounded-xl border relative overflow-hidden group" style={{ backgroundColor: '#0f0202', borderColor: colors.dourado }}>
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <Network className="w-24 h-24" style={{ color: colors.dourado }} />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4 border-b border-yellow-900/30 pb-4">
+                  <div className="p-2 rounded bg-yellow-950/30 border border-yellow-900">
+                    <Hammer className="w-6 h-6" style={{ color: colors.dourado }} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">A Quebra de Silos (2026)</h3>
+                </div>
+
+                <div className="space-y-6 text-sm" style={{ color: colors.textoSec }}>
+                  <p>
+                    A convergência não é tendência, é sobrevivência. DevOps deixou de ser buzzword e virou disciplina operacional.
+                    Quando somamos Segurança desde o início, nasce o <strong>DevSecOps</strong>, onde proteção não é um “gate final”,
+                    mas um requisito de design.
+
+                    A quebra de silos elimina as barreiras invisíveis que impedem a colaboração.
+                  </p>
+
+                  {/* CARD: RESULTADOS PRÁTICOS */}
+                  <div className="mt-8 p-6 rounded-xl border bg-gradient-to-br from-[#0f0202] to-[#1a0505]"
+                    style={{ borderColor: colors.dourado }}>
+
+                    <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                      <Target className="w-5 h-5" style={{ color: colors.dourado }} />
+                      O Resultado?
+                    </h4>
+
+                    <ul className="space-y-4">
+
+                      {/* Item 1 */}
+                      <li className="flex items-start gap-3">
+                        <div className="mt-1 p-1 rounded-full bg-green-900/30 border border-green-500/50">
+                          <CheckCircle className="w-3 h-3 text-green-500" />
+                        </div>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
+                          <strong className="text-white">Qualidade de Vida:</strong> Menos retrabalho, menos incidentes em produção e o fim das "reuniões de crise" às 2h da manhã.
+                        </p>
+                      </li>
+
+                      {/* Item 2 */}
+                      <li className="flex items-start gap-3">
+                        <div className="mt-1 p-1 rounded-full bg-green-900/30 border border-green-500/50">
+                          <CheckCircle className="w-3 h-3 text-green-500" />
+                        </div>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
+                          <strong className="text-white">Sinergia Real:</strong> Ambientes complexos exigem colaboração contínua, automação inteligente e responsabilidade compartilhada.
+                        </p>
+                      </li>
+
+                      {/* Item 3 */}
+                      <li className="flex items-start gap-3">
+                        <div className="mt-1 p-1 rounded-full bg-green-900/30 border border-green-500/50">
+                          <CheckCircle className="w-3 h-3 text-green-500" />
+                        </div>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
+                          <strong className="text-white">Segurança Habilitadora:</strong> Deixa de ser um gargalo e passa a ser um diferencial estratégico, inserida desde o primeiro commit até o monitoramento.
+                        </p>
+                      </li>
+
+                    </ul>
+                  </div>
+
+                  <div className="bg-yellow-950/10 p-4 rounded-lg border border-yellow-900/20">
+                    <strong className="block mb-2 uppercase text-xs tracking-wider" style={{ color: colors.dourado }}>Tipos de Silos a Combater:</strong>
+                    <p className="block mb-2 uppercase text-xs tracking-wider" style={{ color: colors.dourado }}>
+                      Em 2026, esse conceito é central para a maturidade digital
+                      e operacional<br /> das empresas. Abaixo, os principais tipos e como eles são combatidos:
+                    </p>
+
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <span><strong>Organizacionais:</strong>
+                          <p>
+                            Departamentos (como Dev, Sec e Ops e ) que <br /> trabalham
+                            como "compartimentos estanques", sem compartilhar<br />  metas comuns ou
+                            responsabilidades, e metas divergentes entre <br />
+                            setores.
+                          </p></span>
+
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <div>
+                          <strong>IA com Governança:</strong>
+                          <p className="text-xs mt-1 text-slate-400">
+                            Dados integrados para a IA, mas segregados por <strong>Menor Privilégio</strong>. <br />
+                            A IA só responde o que o usuário tem permissão para ver (ACLs).
+                          </p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <span><strong>De Dados:</strong>  Unidades de armazenamento de informações que não se<br />
+                          comunicam, onde dados importantes ficam presos em planilhas ou <br />
+                          sistemas de um único setor, dificultando decisões baseadas em IA e automação.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <span><strong>Operacionais:</strong> Equipes isoladas por fluxos de trabalho interrompidos, <br /> gerando redundância de tarefas e atrasos nas entregas.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <strong className="text-white">Por que é essencial agora?</strong>
+                    <ul className="grid grid-cols-2 gap-2 text-xs">
+                      <li className="bg-[#1a0505] p-2 rounded border border-dashed border-slate-800">🚀 Adoção de IA Generativa</li>
+                      <li className="bg-[#1a0505] p-2 rounded border border-dashed border-slate-800">⚡ Agilidade de Mercado</li>
+                      <li className="bg-[#1a0505] p-2 rounded border border-dashed border-slate-800">💰 FinOps (Redução de Custos)</li>
+                      <li className="bg-[#1a0505] p-2 rounded border border-dashed border-slate-800">🔄 Cultura DevOps Real</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* APENAS A CHAMADA AQUI: */}
-        <ConvergenceDiagram colors={colors} />
+        {/* SEÇÃO: O DILEMA DA IA VS MENOR PRIVILÉGIO */}
+        <div className="mt-8 mb-8 grid lg:grid-cols-12 gap-6">
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Cards... */}
+          {/* COLUNA DA ESQUERDA: O IMPERATIVO DA IA (Silos Quebrados) */}
+          <div className="lg:col-span-7 p-6 rounded-xl border relative overflow-hidden"
+            style={{ backgroundColor: 'rgba(99, 102, 241, 0.05)', borderColor: '#6366f1' }}> {/* Indigo para Tech/IA */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded bg-indigo-900/30 border border-indigo-500/50">
+                <Cpu className="w-5 h-5 text-indigo-400" />
+              </div>
+              <h4 className="font-bold text-white">Por que quebrar silos em 2026?</h4>
+            </div>
+            <p className="text-sm leading-relaxed mb-4 text-slate-300">
+              <strong>Adoção de IA Generativa:</strong> Para que a IA não "alucine", ela precisa de contexto. Dados de vendas, suporte e engenharia precisam residir em um <em>Data Lake</em> unificado, e não escondidos em departamentos isolados.
+            </p>
+            <div className="text-xs font-mono text-indigo-300 bg-indigo-950/30 p-2 rounded border border-indigo-900/50">
+              &gt; CONTEXTO = INTELIGÊNCIA
+            </div>
+          </div>
+
+          {/* COLUNA DA DIREITA: O MENOR PRIVILÉGIO (Segurança) */}
+          <div className="lg:col-span-5 p-6 rounded-xl border relative overflow-hidden"
+            style={{ backgroundColor: 'rgba(179, 18, 12, 0.05)', borderColor: colors.principal }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded bg-red-900/30 border border-red-500/50">
+                <ShieldCheck className="w-5 h-5" style={{ color: colors.principal }} />
+              </div>
+              <h4 className="font-bold text-white">Onde entra o Menor Privilégio?</h4>
+            </div>
+            <p className="text-sm leading-relaxed mb-4 text-slate-300">
+              Acesso unificado não significa acesso público. Aplicamos <strong>RBAC (Role-Based Access Control)</strong> na camada da IA.
+            </p>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-3 h-3 text-green-500" />
+                <span>O dado está acessível ao <strong>Sistema</strong>.</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Lock className="w-3 h-3 text-red-500" />
+                <span>O dado é restrito ao <strong>Usuário</strong>.</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
+
+        {/* SECURITY INSIGHT: O PARADOXO DO ACESSO */}
+        <div className="mt-8 mb-8 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent blur-xl"></div>
+
+          <div className="relative z-10 border-l-4 p-6 rounded-r-xl border bg-[#0a0a0a]/80 backdrop-blur-sm"
+            style={{ borderColor: colors.principal, borderLeftColor: colors.principal }}>
+
+            <h5 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+              <ShieldAlert className="w-5 h-5" style={{ color: colors.principal }} />
+              Onde entra o "Menor Privilégio"?
+            </h5>
+
+            <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
+              Você notou o perigo? <strong className="text-white">"Dados acessíveis a toda a organização"</strong> soa como um pesadelo de segurança se não houver contexto.
+              Aqui está a diferença vital entre <em>Disponibilidade Técnica</em> e <em>Autorização Lógica</em>:
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4">
+
+              {/* Lado Errado */}
+              <div className="p-3 rounded border border-dashed border-red-900/50 bg-red-950/10">
+                <div className="flex items-center gap-2 mb-2 text-red-400 font-bold text-xs uppercase tracking-wider">
+                  <X className="w-3 h-3" /> Acesso Irrestrito (Errado)
+                </div>
+                <p className="text-xs text-slate-400">
+                  Quebrar silos = Dar permissão de "admin" para a IA ler tudo e contar tudo para qualquer um. Isso viola a ISO 27001.
+                </p>
+              </div>
+
+              {/* Lado Certo (DevSecOps) */}
+              <div className="p-3 rounded border border-dashed border-green-900/50 bg-green-950/10">
+                <div className="flex items-center gap-2 mb-2 text-green-400 font-bold text-xs uppercase tracking-wider">
+                  <CheckCircle className="w-3 h-3" /> RBAC para IA (Certo)
+                </div>
+                <p className="text-xs text-slate-400">
+                  Quebrar silos = Unificar os dados tecnicamente, mas aplicar <strong>RBAC (Role-Based Access Control)</strong> na resposta da IA. O dado existe, mas a IA só o revela se o usuário tiver a permissão necessária.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
 
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -532,6 +887,14 @@ const DevSecOpsArticle = () => {
                 <h4 className="font-bold text-lg mb-2 text-white">A Nova Era da TI</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
                   A quebra de silos entre Desenvolvimento, Segurança e Operações.
+                  Ambientes complexos exigem colaboração contínua, automação inteligente e responsabilidade 
+                  compartilhada.
+                  Historicamente, cada área defendia seu território.
+                  Desenvolvimento queria velocidade. Operações queria estabilidade. 
+                  Segurança queria controle.
+                  Resultado? Conflito, atraso e risco não gerenciado.
+                  O modelo moderno dissolve essas fronteiras e substitui disputa por accountability compartilhada. 
+                  DevSecOps não é ferramenta — é alinhamento cultural com objetivos comuns: entregar rápido, entregar bem e entregar seguro.
                 </p>
               </div>
             </div>
@@ -544,9 +907,14 @@ const DevSecOpsArticle = () => {
                 <RefreshCw className="w-6 h-6" style={{ color: colors.principal }} />
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-2 text-white">Do Waterfall ao DevOps</h4>
+                <h4 className="font-bold text-lg mb-2 text-white">Do Waterfall ao DevOps: A evolução inevitável</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
                   A evolução da entrega de valor e a transição dos processos tradicionais.
+                  Modelos tradicionais como ITIL e Waterfall cumpriram seu papel em um mundo previsível.
+                  A transição para métodos ágeis não elimina governança,
+                  ela a moderniza. A ISO 20000 continua relevante, mas agora integrada a pipelines CI/CD,
+                  automação e feedback contínuo. Entregar valor rápido, com qualidade e controle,
+                  virou KPI estratégico — não opcional.
                 </p>
               </div>
             </div>
@@ -562,12 +930,14 @@ const DevSecOpsArticle = () => {
               </div>
               <div>
                 <h4 className="font-bold text-lg mb-2 text-white flex items-center gap-2">
-                  Conceito Shift-Left
+                  Conceito Shift-Left: Segurança antes do problema existir.
                   {/* Ajustei o badge para caber melhor em 1 coluna */}
                   <span className="text-[9px] px-1.5 py-0.5 rounded border uppercase tracking-wider hidden xl:block" style={{ borderColor: colors.abobora, color: colors.abobora }}>Vital</span>
                 </h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                  Antecipar a segurança para as fases de <strong>design e codificação</strong>.
+                  O conceito de Shift-Left é simples e poderoso: antecipar segurança para as fases de design e codificação.
+                  Em vez de auditar falhas depois do deploy, o jogo muda para prevenir vulnerabilidades antes que elas nasçam.
+                  Static Code Analysis, Threat Modeling e testes automatizados entram cedo no pipeline. Menos custo, menos risco e menos dor de cabeça. ROI agradece..
                 </p>
               </div>
             </div>
@@ -580,13 +950,17 @@ const DevSecOpsArticle = () => {
                 <GraduationCap className="w-6 h-6" style={{ color: '#fff' }} />
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-2 text-white">Cultura Sem Culpa</h4>
+                <h4 className="font-bold text-lg mb-2 text-white">Cultura Sem Culpa: Pessoas antes de processos</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                  O papel do Educador (CCEP) na mudança de mentalidade.
+                  Aqui entra o fator humano. Sem uma cultura sem culpa, nenhuma transformação se sustenta.
+                  O papel do Educador — como o CCEP — é crítico para mediar conflitos, alinhar expectativas
+                  e transformar erro em aprendizado. Incidente não é caça às bruxas, é insumo para melhoria contínua.
+                  Times maduros não apontam dedos; ajustam sistemas. Isso é mentalidade de alta performance.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
