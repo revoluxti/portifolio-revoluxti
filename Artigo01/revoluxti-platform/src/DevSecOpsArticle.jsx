@@ -2,7 +2,7 @@
 // ARQUIVO: DevSecOpsArticle.jsx (LOGIN COM SECURITY CODE)
 // -----------------------------------------------------------------------------
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Shield, Lock, Server, Zap, Globe, AlertTriangle,
   Terminal, Activity, Box, Database, Search,
@@ -258,6 +258,47 @@ const DevSecOpsArticle = () => {
   const [warGameMode, setWarGameMode] = useState('blue');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState('LOGIN'); // 'LOGIN' ou 'REGISTER'
+
+  // --- 🛡️ BLINDAGEM DE CÓDIGO (Protocolo Sala do Eniac) ---
+  useEffect(() => {
+    // 1. Bloquear Botão Direito
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    // 2. Bloquear Atalhos de Desenvolvedor (F12, Ctrl+Shift+I, Ctrl+U)
+    const handleKeyDown = (e) => {
+      if (
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I') || // Inspetor
+        (e.ctrlKey && e.shiftKey && e.key === 'J') || // Console
+        (e.ctrlKey && e.key === 'u') // Ver Código Fonte
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    // 3. Mensagem "Troll" no Console (Para quem conseguir abrir)
+    console.log(
+      "%c⚠️ ACESSO RESTRITO ⚠️", 
+      "color: red; font-size: 24px; font-weight: bold; background: black; padding: 10px; border: 2px solid red;"
+    );
+    console.log(
+      "%cEste é um ambiente monitorado pela REVOLUXTI. A engenharia reversa é proibida.", 
+      "color: white; font-size: 14px; background: black; padding: 5px;"
+    );
+
+    // Ativar os ouvintes
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Limpar ao sair
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+  // --- FIM DA BLINDAGEM ---
 
   // PALETA REVOLUXTI
   const colors = {
@@ -887,13 +928,13 @@ const DevSecOpsArticle = () => {
                 <h4 className="font-bold text-lg mb-2 text-white">A Nova Era da TI</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
                   A quebra de silos entre Desenvolvimento, Segurança e Operações.
-                  Ambientes complexos exigem colaboração contínua, automação inteligente e responsabilidade 
+                  Ambientes complexos exigem colaboração contínua, automação inteligente e responsabilidade
                   compartilhada.
                   Historicamente, cada área defendia seu território.
-                  Desenvolvimento queria velocidade. Operações queria estabilidade. 
+                  Desenvolvimento queria velocidade. Operações queria estabilidade.
                   Segurança queria controle.
                   Resultado? Conflito, atraso e risco não gerenciado.
-                  O modelo moderno dissolve essas fronteiras e substitui disputa por accountability compartilhada. 
+                  O modelo moderno dissolve essas fronteiras e substitui disputa por accountability compartilhada.
                   DevSecOps não é ferramenta — é alinhamento cultural com objetivos comuns: entregar rápido, entregar bem e entregar seguro.
                 </p>
               </div>
@@ -974,15 +1015,40 @@ const DevSecOpsArticle = () => {
               <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
                 <Server className="w-6 h-6" style={{ color: colors.abobora }} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Capítulo 2: Infraestrutura Blindada</h3>
+              <h3 className="text-2xl font-bold text-white">Capítulo 2: Infraestrutura Blindada e Conectividade Segura</h3>
             </div>
             <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
               Construindo pontes seguras. A arquitetura de redes (VLANs, BGP, Firewalls) como base.
             </p>
+            <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
+              Sem infraestrutura sólida, todo discurso de transformação digital vira poesia.
+              Não existe cloud mágica nem software milagroso que sobreviva a uma infraestrutura mal desenhada.
+            </p>
+            <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
+
+
+            </p>
           </div>
-          <div className="px-4 py-2 rounded border bg-[#1a0505] text-xs font-mono" style={{ borderColor: colors.dourado, color: colors.dourado }}>
-            NETWORK_SEGMENTATION: ACTIVE
+
+          <div className="relative group">
+            <div className="h-full p-6 rounded-xl border-2 transition-all shadow-[0_0_20px_rgba(179,18,12,0.1)]" style={{ borderColor: colors.principal, backgroundColor: 'rgba(179, 18, 12, 0.05)' }}>
+              <h4 className="text-white font-bold mb-2">As Estradas Blindadas</h4>
+              <p className="text-xs" style={{ color: colors.textoSec }}>
+                Sem infraestrutura sólida, todo discurso de transformação<br />
+
+                digital vira poesia vazia.
+                Redes são as estradas da<br /> informação
+                — e estrada sem proteção vira rota de assalto.</p>
+            </div> <br />
+
+            <div className="px-6 py-4 border bg-[#1a0505] text-xs font-mono uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(255,204,0,0.1)]"
+              style={{ borderColor: colors.dourado, color: colors.dourado }}>
+              <div className="w-2 h-2 bg-yellow-500 animate-pulse"></div> {/* Ícone quadrado piscando */}
+              NETWORK_SEGMENTATION: ACTIVE <br />
+            </div>
           </div>
+
+
         </div>
 
         <div className="relative p-8 rounded-2xl border overflow-hidden" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
@@ -1018,7 +1084,24 @@ const DevSecOpsArticle = () => {
               <div className="absolute bottom-4 right-4"><Lock className="w-4 h-4" style={{ color: colors.dourado }} /></div>
             </div>
           </div>
+
         </div>
+        <p>
+          Arquitetura de Redes: o básico bem feito
+          Os pilares clássicos continuam válidos: TCP/IP, subnetting e roteamento não
+          são assuntos “básicos” — continuam sendo o alfabeto da TI.
+          Ambientes corporativos maduros tratam NTP e logs centralizados como ativos críticos.
+          NTP sincronizado e logs centralizados não são detalhes técnicos e operacionais; são pré-requisitosde auditoria, forense, troubleshooting e conformidade.
+          Sem sincronização de tempo e trilha de auditoria confiável, não há investigação,
+          não há compliance e não há governança. É caos com SLA.
+        </p>
+
+
+        <p>
+          Segmentação de rede
+
+          VLAN não é luxo, é higiene básica. Segmentação cria compartimentos estanques, reduz superfície de ataque e evita que um simples broadcast storm vire um apagão corporativo. Microsegmentação é o upgrade natural para ambientes mais maduros.
+        </p>
       </section>
 
       {/* ---------------------------------------------------------------------
