@@ -14,7 +14,8 @@ import {
   Smartphone, Key, Hash, ShieldCheck, Container,
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
-  RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen
+  RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
+  Clock
 
 
 } from 'lucide-react';
@@ -269,7 +270,7 @@ const DevSecOpsArticle = () => {
     // 2. Bloquear Atalhos de Desenvolvedor (F12, Ctrl+Shift+I, Ctrl+U)
     const handleKeyDown = (e) => {
       if (
-        e.key === 'F12' || 
+        e.key === 'F12' ||
         (e.ctrlKey && e.shiftKey && e.key === 'I') || // Inspetor
         (e.ctrlKey && e.shiftKey && e.key === 'J') || // Console
         (e.ctrlKey && e.key === 'u') // Ver Código Fonte
@@ -280,11 +281,11 @@ const DevSecOpsArticle = () => {
 
     // 3. Mensagem "Troll" no Console (Para quem conseguir abrir)
     console.log(
-      "%c⚠️ ACESSO RESTRITO ⚠️", 
+      "%c⚠️ ACESSO RESTRITO ⚠️",
       "color: red; font-size: 24px; font-weight: bold; background: black; padding: 10px; border: 2px solid red;"
     );
     console.log(
-      "%cEste é um ambiente monitorado pela REVOLUXTI. A engenharia reversa é proibida.", 
+      "%cEste é um ambiente monitorado pela REVOLUXTI. A engenharia reversa é proibida.",
       "color: white; font-size: 14px; background: black; padding: 5px;"
     );
 
@@ -1021,7 +1022,7 @@ const DevSecOpsArticle = () => {
               Construindo pontes seguras. A arquitetura de redes (VLANs, BGP, Firewalls) como base.
             </p>
             <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
-              Sem infraestrutura sólida, todo discurso de transformação digital vira poesia.
+              "Sem infraestrutura sólida, todo discurso de transformação digital vira poesia."
               Não existe cloud mágica nem software milagroso que sobreviva a uma infraestrutura mal desenhada.
             </p>
             <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
@@ -1034,10 +1035,7 @@ const DevSecOpsArticle = () => {
             <div className="h-full p-6 rounded-xl border-2 transition-all shadow-[0_0_20px_rgba(179,18,12,0.1)]" style={{ borderColor: colors.principal, backgroundColor: 'rgba(179, 18, 12, 0.05)' }}>
               <h4 className="text-white font-bold mb-2">As Estradas Blindadas</h4>
               <p className="text-xs" style={{ color: colors.textoSec }}>
-                Sem infraestrutura sólida, todo discurso de transformação<br />
-
-                digital vira poesia vazia.
-                Redes são as estradas da<br /> informação
+                Redes são as estradas da informação<br />
                 — e estrada sem proteção vira rota de assalto.</p>
             </div> <br />
 
@@ -1086,22 +1084,408 @@ const DevSecOpsArticle = () => {
           </div>
 
         </div>
-        <p>
-          Arquitetura de Redes: o básico bem feito
-          Os pilares clássicos continuam válidos: TCP/IP, subnetting e roteamento não
-          são assuntos “básicos” — continuam sendo o alfabeto da TI.
-          Ambientes corporativos maduros tratam NTP e logs centralizados como ativos críticos.
-          NTP sincronizado e logs centralizados não são detalhes técnicos e operacionais; são pré-requisitosde auditoria, forense, troubleshooting e conformidade.
-          Sem sincronização de tempo e trilha de auditoria confiável, não há investigação,
-          não há compliance e não há governança. É caos com SLA.
-        </p>
+        {/* ---------------------------------------------------------------------
+          GRID TÁTICO: PILARES DA INFRAESTRUTURA
+      ---------------------------------------------------------------------- */}
+        <div className="mt-12 mb-16">
+          <h4 className="text-xl font-bold text-white mb-8 flex items-center gap-2 border-b border-slate-800 pb-4">
+            <Network className="w-6 h-6" style={{ color: colors.dourado }} />
+            Os 4 Pilares da Engenharia de Redes Segura
+          </h4>
+
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* CARD 1: ARQUITETURA DE REDES */}
+            <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(253,143,0,0.1)]"
+              style={{ backgroundColor: '#0a0a0a', borderColor: colors.borda }}>
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Workflow className="w-24 h-24 text-white" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-[#fd8f00] transition-colors">
+                    <Network className="w-6 h-6" style={{ color: colors.abobora }} />
+                  </div>
+                  <h5 className="font-bold text-white text-lg">Arquitetura: O Básico Bem Feito</h5>
+                </div>
+
+                <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
+                  Os pilares clássicos continuam válidos: TCP/IP, subnetting e roteamento não
+                  são assuntos “básicos” — continuam sendo o alfabeto da TI.
+                  Ambientes corporativos maduros tratam <strong>NTP e logs centralizados</strong> como ativos críticos.
+                  NTP sincronizado e logs centralizados não são detalhes técnicos e operacionais;
+                  são pré-requisitos de auditoria, forense, troubleshooting e conformidade.
+                  Sem sincronização de tempo e trilha de auditoria confiável, não há investigação,
+                  não há compliance e não há governança. É caos com SLA.
+                </p>
+
+                {/* LADO DIREITO: VISUALIZAÇÃO DE STATUS (NTP & LOGS) */}
+                <div className="relative">
+                  {/* Efeito de brilho de fundo */}
+                  <div className="absolute inset-0 bg-blue-900/10 blur-3xl rounded-full pointer-events-none"></div>
+
+                  <div className="relative z-10 space-y-4 font-mono text-xs">
+
+                    {/* CARD: NTP STATUS */}
+                    <div className="bg-[#0f0202] border rounded-lg p-4 flex items-center justify-between shadow-lg" style={{ borderColor: 'rgba(59, 130, 246, 0.3)' }}>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded bg-blue-950/30 border border-blue-900">
+                          <Clock className="w-5 h-5 text-blue-400" />
+                        </div>
+                        <div>
+                          <div className="text-blue-400 font-bold tracking-widest">NTP_SERVER_POOL</div>
+                          <div className="text-slate-500">stratum-1.revoluxti.net</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-green-500 font-bold animate-pulse">SYNCED</div>
+                        <div className="text-[10px] text-slate-500">Offset: 0.002ms</div>
+                      </div>
+                    </div>
+
+                    {/* CARD: LOGS CENTRALIZADOS */}
+                    <div className="bg-[#0f0202] border rounded-lg p-4 flex items-center justify-between shadow-lg" style={{ borderColor: colors.abobora }}>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded bg-orange-950/30 border border-orange-900">
+                          <Database className="w-5 h-5" style={{ color: colors.abobora }} />
+                        </div>
+                        <div>
+                          <div className="font-bold tracking-widest" style={{ color: colors.abobora }}>SYSLOG_AGGREGATOR</div>
+                          <div className="text-slate-500">Retention: 365 Days (Immutable)</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-green-500 font-bold">ACTIVE</div>
+                        <div className="text-[10px] text-slate-500">24k events/sec</div>
+                      </div>
+                    </div>
+
+                    {/* CONEXÃO VISUAL */}
+                    <div className="flex justify-between px-4 text-[10px] text-slate-600">
+                      <span>timestamp: {new Date().toISOString()}</span>
+                      <span>integrity_check: PASS</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="pl-3 border-l-2 border-slate-700 text-xs italic text-slate-400">
+                  "Sem sincronização de tempo e trilha confiável, não há governança. É caos com SLA."
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 2: SEGMENTAÇÃO DE REDE */}
+            <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(179,18,12,0.1)]"
+              style={{ backgroundColor: '#0a0a0a', borderColor: colors.borda }}>
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Layers className="w-24 h-24 text-white" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-[#b3120c] transition-colors">
+                    <Layers className="w-6 h-6" style={{ color: colors.principal }} />
+                  </div>
+                  <h5 className="font-bold text-white text-lg">Segmentação & VLANs</h5>
+                </div>
+
+                <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
+                  VLAN não é luxo, é higiene básica. Segmentação cria compartimentos estanques, que
+                  reduz superfície de ataque e evita que efeitos colaterais e fenômenos clássicos como broadcast storms vire um apagão corporativo.
+                  Microsegmentação é o upgrade natural para ambientes mais maduros. Ambientes bem segmentados limitam danos,
+                  facilitam compliance e tornam a resposta a incidentes mais cirúrgica. Segurança por design, não por remendo é reduzir impacto e aumentar controle.                </p>
+                <div className="flex flex-wrap gap-2 text-[10px] font-mono uppercase">
+                  <span className="px-2 py-1 rounded bg-[#1a0505] border border-red-900/50 text-red-400">Microsegmentação</span>
+                  <span className="px-2 py-1 rounded bg-[#1a0505] border border-red-900/50 text-red-400">Containment</span>
+                </div> <br />
+
+                {/* ---------------------------------------------------------------------
+                DEEP DIVE: SEGMENTAÇÃO & VLANS (VISUALIZAÇÃO DE CONTENÇÃO)
+                ---------------------------------------------------------------------- */}
+
+                {/* LADO DIREITO: SIMULAÇÃO VISUAL */}
+                <div className="bg-[#050101] border rounded-xl p-6 pt-10 relative overflow-hidden shadow-2xl" style={{ borderColor: colors.borda }}>
+
+                  {/* Header do Card */}
+                  <div className="absolute top-0 right-0 px-3 py-1 bg-[#1a0505] border-b border-l border-slate-800 text-[10px] font-mono text-slate-400 rounded-bl">
+                    NETWORK_TOPOLOGY_VIEW
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+
+                    {/* Linha Horizontal para VLAN 10 e 20 */}
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* VLAN 10 */}
+                      <div className="flex items-center justify-between p-3 rounded border bg-slate-900/50 border-slate-800">
+                        <div className="flex items-center gap-3">
+                          <div className="p-1.5 rounded bg-green-900/20 border border-green-900">
+                            <Users className="w-4 h-4 text-green-500" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-bold text-white truncate">VLAN 10</div>
+                            <div className="text-[10px] text-green-500 truncate">Traffic: Normal</div>
+                          </div>
+                        </div>
+                        <Activity className="w-4 h-4 text-green-500 shrink-0" />
+                      </div>
+
+                      {/* VLAN 20 */}
+                      <div className="flex items-center justify-between p-3 rounded border bg-slate-900/50 border-slate-800">
+                        <div className="flex items-center gap-3">
+                          <div className="p-1.5 rounded bg-blue-900/20 border border-blue-900">
+                            <Server className="w-4 h-4 text-blue-500" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-bold text-white truncate">VLAN 20</div>
+                            <div className="text-[10px] text-blue-500 truncate">Traffic: Optimized</div>
+                          </div>
+                        </div>
+                        <Activity className="w-4 h-4 text-blue-500 shrink-0" />
+                      </div>
+                    </div>
+
+                    {/* VLAN 99 - Banner de Alerta Horizontal */}
+                    <div className="flex items-center justify-between w-full p-4 rounded border bg-red-950/20 border-red-900/50 relative z-10">
+                      <div className="flex items-center gap-3">
+                        <div className="p-1.5 rounded bg-red-900/20 border border-red-500 animate-bounce">
+                          <CloudLightning className="w-4 h-4 text-red-500" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-red-400">VLAN 99: IOT_GUEST</div>
+                          <div className="text-[10px] text-red-500 font-bold uppercase tracking-wider">
+                            ⚠️ Broadcast Storm Detected
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="px-3 py-1.5 bg-red-600 text-white text-[10px] font-black rounded shadow-lg border border-red-400 flex items-center gap-2 shrink-0">
+                        <Lock className="w-3 h-3" /> CONTAINED
+                      </div>
+                    </div>
+
+                    {/* Footer Técnico */}
+                    <div className="mt-4 pt-3 border-t border-slate-800 flex justify-between items-center text-[10px] font-mono text-slate-500">
+                      <span>Inter-VLAN: RESTRICTED</span>
+                      <span className="text-green-500">IMPACT: 0% on Corp</span>
+                    </div>
+
+                    {/* A Citação (Integrada no Card) */}
+                    <div className="bg-[#1a0505] p-3 rounded border border-dashed border-red-900/40 mt-4">
+                      <p className="text-xs font-bold text-white flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4" style={{ color: colors.principal }} />
+                        "Segurança por design, não por remendo."
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
 
 
-        <p>
-          Segmentação de rede
+              </div>
+            </div>
 
-          VLAN não é luxo, é higiene básica. Segmentação cria compartimentos estanques, reduz superfície de ataque e evita que um simples broadcast storm vire um apagão corporativo. Microsegmentação é o upgrade natural para ambientes mais maduros.
-        </p>
+            {/* CARD 3: SEGURANÇA CAMADA 2 */}
+            <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+              style={{ backgroundColor: '#0a0a0a', borderColor: colors.borda }}>
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <ShieldAlert className="w-24 h-24 text-white" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-white transition-colors">
+                    <ShieldAlert className="w-6 h-6 text-slate-200" />
+                  </div>
+                  <h5 className="font-bold text-white text-lg">Segurança L2 & Roteamento</h5>
+                </div>
+
+                <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
+                  Ataques não começam no firewall; muitos nascem na camada 2.
+                  Ataques sofisticados começam no simples e ainda funcionam porque o básico não é feito.
+                  <strong>DHCP Snooping</strong> e <strong>Dynamic ARP Inspection</strong> e proteção dede
+                  protocolos de roteamento como BGP deixam de ser “nice to have” e passam a ser controles essenciais.
+                  Segurança começa onde o pacote nasce.
+                </p>
+
+                {/* ---------------------------------------------------------------------
+                    VISUALIZAÇÃO TÉCNICA: L2 DEFENSE MATRIX
+                  ---------------------------------------------------------------------- */}
+                <div className="mt-8 mb-12 bg-[#050101] border rounded-xl overflow-hidden shadow-2xl" style={{ borderColor: colors.borda }}>
+
+                  {/* Cabeçalho do Terminal */}
+                  <div className="bg-[#1a0505] px-4 py-2 border-b flex items-center justify-between" style={{ borderColor: colors.borda }}>
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-green-500" />
+                      <span className="text-xs font-mono font-bold text-slate-300">SWITCH_CORE_01: PORT_SECURITY_LOGS</span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500"></div>
+                    </div>
+                  </div>
+
+                  {/* Corpo da Simulação */}
+                  <div className="p-6 grid md:grid-cols-2 gap-8 font-mono text-xs relative">
+
+                    {/* LADO ESQUERDO: O ATAQUE (RED TEAM) */}
+                    <div className="space-y-4 opacity-50 grayscale transition-all hover:grayscale-0 hover:opacity-100">
+                      <div className="flex items-center gap-2 text-red-500 mb-2">
+                        <AlertTriangle className="w-4 h-4" />
+                        <strong className="tracking-widest">THREAT DETECTED</strong>
+                      </div>
+                      <div className="space-y-2 border-l-2 border-red-900/50 pl-4">
+                        <div className="text-slate-400">
+                          <span className="text-red-500 font-bold">ATTACKER &gt;</span> Broadcasting Fake DHCP Offer...
+                        </div>
+                        <div className="text-slate-400">
+                          <span className="text-red-500 font-bold">ATTACKER &gt;</span> Sending Gratuitous ARP (Spoofing Gateway)...
+                        </div>
+                        <div className="text-slate-400">
+                          <span className="text-red-500 font-bold">TARGET IP &gt;</span> 192.168.10.50
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* LADO DIREITO: A DEFESA (BLUE TEAM) */}
+                    <div className="relative">
+                      <div className="absolute -left-4 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-slate-800 to-transparent hidden md:block"></div>
+
+                      <div className="flex items-center gap-2 text-green-500 mb-4">
+                        <Activity className="w-4 h-4 animate-pulse" />
+                        <strong className="tracking-widest">DEFENSE PROTOCOLS ACTIVE</strong>
+                      </div>
+
+                      <div className="bg-[#0f0202] rounded p-4 border border-green-900/30 space-y-3 shadow-[0_0_20px_rgba(22,163,74,0.1)]">
+                        {/* Evento 1: DHCP Snooping */}
+                        <div className="flex items-start gap-3">
+                          <div className="mt-0.5 min-w-[15px]">
+                            <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          </div>
+                          <div>
+                            <span className="text-green-400 font-bold block mb-0.5">DHCP SNOOPING</span>
+                            <p className="text-slate-500 leading-tight">
+                              Untrusted port <span className="text-white">Gi0/1</span> attempted to send DHCP Offer.
+                              <span className="text-red-400 ml-1">[BLOCKED]</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Evento 2: DAI */}
+                        <div className="flex items-start gap-3">
+                          <div className="mt-0.5 min-w-[15px]">
+                            <CheckCircle className="w-3.5 h-3.5 text-green-500" />
+                          </div>
+                          <div>
+                            <span className="text-green-400 font-bold block mb-0.5">DYNAMIC ARP INSPECTION</span>
+                            <p className="text-slate-500 leading-tight">
+                              MAC <span className="text-slate-300">aa:bb:cc...</span> does not match binding table.
+                              Packet dropped.
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Ação Final */}
+                        <div className="mt-2 pt-2 border-t border-dashed border-slate-800 text-center">
+                          <span className="bg-red-950/50 text-red-500 px-2 py-1 rounded border border-red-900/50 text-[10px] uppercase">
+                            Port Security Violation: Interface Disabled
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 4: ZERO TRUST (ZTNA) */}
+            <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,204,0,0.1)]"
+              style={{ backgroundColor: '#0a0a0a', borderColor: colors.dourado }}>
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Fingerprint className="w-24 h-24 text-yellow-500" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-[#ffcc00] transition-colors">
+                    <Fingerprint className="w-6 h-6" style={{ color: colors.dourado }} />
+                  </div>
+                  <h5 className="font-bold text-white text-lg">Zero Trust (ZTNA)</h5>
+                </div>
+
+                <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
+                  A VPN tradicional morreu. O novo lema é: <strong>"Nunca confie, sempre verifique"</strong>. O perímetro agora é a identidade do usuário, com verificação contínua de contexto.
+
+                  Zero Trust Network Access (ZTNA):
+
+                  VPN tradicional confia demais e verifica de menos. O modelo ZTNA redefine acesso e inverte o jogo: nunca confie, sempre verifique.
+
+                  ZTNA assume o mundo como hostil com verificação contínua de identidade, postura do dispositivo e contexto passam a ser pré-requisitos contínuos de acesso, não um evento único de login.
+
+                  Resultado? Menos movimento lateral, mais controle e acesso sob demanda. Segurança que acompanha o negócio, não que o trava.
+
+                  A rede deixa de ser o perímetro; o usuário vira o novo perímetro. É segurança adaptativa para um mundo distribuído, remoto e imprevisível.
+                </p>
+
+                <div className="w-full bg-slate-800/50 rounded p-2 border border-dashed border-yellow-900/50 flex items-center justify-between text-[10px] font-mono text-yellow-500">
+                  <span>IDENTITY: VERIFIED</span>
+                  <span className="animate-pulse">ACCESS: GRANTED</span>
+                </div>
+              </div>
+
+              {/* SEÇÃO INTERATIVA: VERIFICAÇÃO DE POSTURA EM TEMPO REAL */}
+<div className="mt-6 pt-6 border-t border-slate-800/50">
+  <div className="text-[10px] font-mono text-slate-500 mb-3 uppercase tracking-widest">
+    Continuous Trust Evaluation
+  </div>
+  
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+    {[
+      { label: "IDENTITY", status: "VERIFIED", color: "text-green-500" },
+      { label: "DEVICE", status: "SECURE", color: "text-green-500" },
+      { label: "LOCATION", status: "KNOWN", color: "text-blue-400" },
+      { label: "CONTEXT", status: "LOW_RISK", color: "text-yellow-500" }
+    ].map((check, i) => (
+      <div key={i} className="bg-black/40 border border-slate-800 p-2 rounded flex flex-col gap-1">
+        <span className="text-[9px] text-slate-500 font-mono">{check.label}</span>
+        <div className="flex items-center gap-1.5">
+          <div className={`w-1.5 h-1.5 rounded-full bg-current animate-pulse ${check.color}`} />
+          <span className={`text-[10px] font-bold font-mono ${check.color}`}>{check.status}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* BARRA DE ACESSO DINÂMICO */}
+  <div className="mt-4 p-3 bg-yellow-500/5 border border-yellow-500/20 rounded-lg flex items-center gap-4">
+    <div className="shrink-0">
+      <div className="relative">
+        <ShieldCheck className="w-5 h-5 text-yellow-500" />
+        <div className="absolute inset-0 text-yellow-500 animate-ping opacity-20">
+          <ShieldCheck className="w-5 h-5" />
+        </div>
+      </div>
+    </div>
+    <div className="flex-1 space-y-1.5">
+      <div className="flex justify-between text-[10px] font-mono">
+        <span className="text-yellow-500/70">TRUST_SCORE</span>
+        <span className="text-yellow-500">98%</span>
+      </div>
+      <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+        <div className="h-full bg-yellow-500 w-[98%] transition-all duration-1000" />
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+
+            
+
+          </div>
+        </div>
       </section>
 
       {/* ---------------------------------------------------------------------
