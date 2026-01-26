@@ -1118,7 +1118,7 @@ const DevSecOpsArticle = () => {
                   são pré-requisitos de auditoria, forense, troubleshooting e conformidade.
                   Sem sincronização de tempo e trilha de auditoria confiável, não há investigação,
                   não há compliance e não há governança. É caos com SLA.
-                </p>
+                </p> <br /> 
 
                 {/* LADO DIREITO: VISUALIZAÇÃO DE STATUS (NTP & LOGS) */}
                 <div className="relative">
@@ -1142,7 +1142,7 @@ const DevSecOpsArticle = () => {
                         <div className="text-green-500 font-bold animate-pulse">SYNCED</div>
                         <div className="text-[10px] text-slate-500">Offset: 0.002ms</div>
                       </div>
-                    </div>
+                    </div> <br />
 
                     {/* CARD: LOGS CENTRALIZADOS */}
                     <div className="bg-[#0f0202] border rounded-lg p-4 flex items-center justify-between shadow-lg" style={{ borderColor: colors.abobora }}>
@@ -1159,7 +1159,7 @@ const DevSecOpsArticle = () => {
                         <div className="text-green-500 font-bold">ACTIVE</div>
                         <div className="text-[10px] text-slate-500">24k events/sec</div>
                       </div>
-                    </div>
+                    </div> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 
                     {/* CONEXÃO VISUAL */}
                     <div className="flex justify-between px-4 text-[10px] text-slate-600">
@@ -1307,7 +1307,7 @@ const DevSecOpsArticle = () => {
                   <strong>DHCP Snooping</strong> e <strong>Dynamic ARP Inspection</strong> e proteção dede
                   protocolos de roteamento como BGP deixam de ser “nice to have” e passam a ser controles essenciais.
                   Segurança começa onde o pacote nasce.
-                </p>
+                </p> <br />
 
                 {/* ---------------------------------------------------------------------
                     VISUALIZAÇÃO TÉCNICA: L2 DEFENSE MATRIX
@@ -1428,7 +1428,7 @@ const DevSecOpsArticle = () => {
                   Resultado? Menos movimento lateral, mais controle e acesso sob demanda. Segurança que acompanha o negócio, não que o trava.
 
                   A rede deixa de ser o perímetro; o usuário vira o novo perímetro. É segurança adaptativa para um mundo distribuído, remoto e imprevisível.
-                </p>
+                </p> <br /> 
 
                 <div className="w-full bg-slate-800/50 rounded p-2 border border-dashed border-yellow-900/50 flex items-center justify-between text-[10px] font-mono text-yellow-500">
                   <span>IDENTITY: VERIFIED</span>
@@ -1437,52 +1437,52 @@ const DevSecOpsArticle = () => {
               </div>
 
               {/* SEÇÃO INTERATIVA: VERIFICAÇÃO DE POSTURA EM TEMPO REAL */}
-<div className="mt-6 pt-6 border-t border-slate-800/50">
-  <div className="text-[10px] font-mono text-slate-500 mb-3 uppercase tracking-widest">
-    Continuous Trust Evaluation
-  </div>
-  
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-    {[
-      { label: "IDENTITY", status: "VERIFIED", color: "text-green-500" },
-      { label: "DEVICE", status: "SECURE", color: "text-green-500" },
-      { label: "LOCATION", status: "KNOWN", color: "text-blue-400" },
-      { label: "CONTEXT", status: "LOW_RISK", color: "text-yellow-500" }
-    ].map((check, i) => (
-      <div key={i} className="bg-black/40 border border-slate-800 p-2 rounded flex flex-col gap-1">
-        <span className="text-[9px] text-slate-500 font-mono">{check.label}</span>
-        <div className="flex items-center gap-1.5">
-          <div className={`w-1.5 h-1.5 rounded-full bg-current animate-pulse ${check.color}`} />
-          <span className={`text-[10px] font-bold font-mono ${check.color}`}>{check.status}</span>
-        </div>
-      </div>
-    ))}
-  </div>
+              <div className="mt-6 pt-6 border-t border-slate-800/50">
+                <div className="text-[10px] font-mono text-slate-500 mb-3 uppercase tracking-widest">
+                  Continuous Trust Evaluation
+                </div>
 
-  {/* BARRA DE ACESSO DINÂMICO */}
-  <div className="mt-4 p-3 bg-yellow-500/5 border border-yellow-500/20 rounded-lg flex items-center gap-4">
-    <div className="shrink-0">
-      <div className="relative">
-        <ShieldCheck className="w-5 h-5 text-yellow-500" />
-        <div className="absolute inset-0 text-yellow-500 animate-ping opacity-20">
-          <ShieldCheck className="w-5 h-5" />
-        </div>
-      </div>
-    </div>
-    <div className="flex-1 space-y-1.5">
-      <div className="flex justify-between text-[10px] font-mono">
-        <span className="text-yellow-500/70">TRUST_SCORE</span>
-        <span className="text-yellow-500">98%</span>
-      </div>
-      <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-        <div className="h-full bg-yellow-500 w-[98%] transition-all duration-1000" />
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { label: "IDENTITY", status: "VERIFIED", color: "text-green-500" },
+                    { label: "DEVICE", status: "SECURE", color: "text-green-500" },
+                    { label: "LOCATION", status: "KNOWN", color: "text-blue-400" },
+                    { label: "CONTEXT", status: "LOW_RISK", color: "text-yellow-500" }
+                  ].map((check, i) => (
+                    <div key={i} className="bg-black/40 border border-slate-800 p-2 rounded flex flex-col gap-1">
+                      <span className="text-[9px] text-slate-500 font-mono">{check.label}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className={`w-1.5 h-1.5 rounded-full bg-current animate-pulse ${check.color}`} />
+                        <span className={`text-[10px] font-bold font-mono ${check.color}`}>{check.status}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div> <br /> <br />
+
+                {/* BARRA DE ACESSO DINÂMICO */}
+                <div className="mt-4 p-3 bg-yellow-500/5 border border-yellow-500/20 rounded-lg flex items-center gap-4">
+                  <div className="shrink-0">
+                    <div className="relative">
+                      <ShieldCheck className="w-5 h-5 text-yellow-500" />
+                      <div className="absolute inset-0 text-yellow-500 animate-ping opacity-20">
+                        <ShieldCheck className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-1.5">
+                    <div className="flex justify-between text-[10px] font-mono">
+                      <span className="text-yellow-500/70">TRUST_SCORE</span>
+                      <span className="text-yellow-500">98%</span>
+                    </div>
+                    <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-yellow-500 w-[98%] transition-all duration-1000" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            
+
 
           </div>
         </div>
