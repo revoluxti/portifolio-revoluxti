@@ -505,7 +505,7 @@ const DevSecOpsArticle = () => {
           </h1>
 
           <p className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-8" style={{ color: colors.textoSec }}>
-            O Playbook Definitivo de <strong className="text-white">DevSecOps</strong>.
+            <strong className="text-white">DevSecOps</strong>.
             A quebra de silos e a evolução da entrega de valor.
             <br />
             <span className="text-sm font-mono mt-2 block" style={{ color: colors.abobora }}>
