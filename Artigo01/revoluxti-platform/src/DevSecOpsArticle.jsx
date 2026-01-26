@@ -15,7 +15,7 @@ import {
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
   RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
-  Clock
+  Clock, LayoutGrid,
 
 
 } from 'lucide-react';
@@ -1118,7 +1118,7 @@ const DevSecOpsArticle = () => {
                   são pré-requisitos de auditoria, forense, troubleshooting e conformidade.
                   Sem sincronização de tempo e trilha de auditoria confiável, não há investigação,
                   não há compliance e não há governança. É caos com SLA.
-                </p> <br /> 
+                </p> <br />
 
                 {/* LADO DIREITO: VISUALIZAÇÃO DE STATUS (NTP & LOGS) */}
                 <div className="relative">
@@ -1428,7 +1428,7 @@ const DevSecOpsArticle = () => {
                   Resultado? Menos movimento lateral, mais controle e acesso sob demanda. Segurança que acompanha o negócio, não que o trava.
 
                   A rede deixa de ser o perímetro; o usuário vira o novo perímetro. É segurança adaptativa para um mundo distribuído, remoto e imprevisível.
-                </p> <br /> 
+                </p> <br />
 
                 <div className="w-full bg-slate-800/50 rounded p-2 border border-dashed border-yellow-900/50 flex items-center justify-between text-[10px] font-mono text-yellow-500">
                   <span>IDENTITY: VERIFIED</span>
@@ -1497,12 +1497,109 @@ const DevSecOpsArticle = () => {
             <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
               <Activity className="w-6 h-6" style={{ color: colors.dourado }} />
             </div>
-            <h3 className="text-2xl font-bold text-white">Capítulo 3: Governança & Métricas</h3>
+            <h3 className="text-2xl font-bold text-white">Capítulo 3: Governança, Risco e Conformidade (GRC)</h3>
           </div>
           <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
-            A elite da engenharia mede a eficiência através das <strong>DORA Metrics</strong>.
+            Sem GRC, a TI vira um foguete sem painel. Anda rápido, mas ninguém sabe para onde.
+            Governança moderna não é burocracia; é tomada de decisão baseada em dados.
           </p>
         </div>
+
+
+
+        {/* CARD 3: GESTÃO DE RISCOS (ISO 20000 / 31000) */}
+        <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)]"
+          style={{ backgroundColor: '#0a0a0a', borderColor: colors.azul || '#1e40af' }}>
+
+          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <LayoutGrid className="w-24 h-24 text-blue-500" />
+          </div>
+
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-blue-500 transition-colors">
+                  <ShieldAlert className="w-6 h-6 text-blue-500" />
+                </div>
+                <h5 className="font-bold text-white text-lg"> Gestão de Riscos</h5>
+              </div>
+              <div className="px-2 py-0.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-[9px] font-bold text-blue-400 uppercase tracking-tighter">
+                ISO 31000 Framework
+              </div>
+            </div>
+
+            <p className="text-sm leading-relaxed mb-6" style={{ color: colors.textoSec }}>
+              <strong>Governança não é intuição, é método.</strong> Aplico o framework de Gestão de Riscos para transformar ameaças em decisões estratégicas. Utilizo a Matriz de Probabilidade x Impacto para garantir que o <strong>SLA</strong> e a <strong>Continuidade do Negócio</strong> não sejam comprometidos por vulnerabilidades não mapeadas.
+            </p>
+
+            {/* SEÇÃO TÉCNICA: ESTRATÉGIAS DE TRATAMENTO */}
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              {[
+                { title: "EVITAR", desc: "Mudar o plano para eliminar o risco", icon: "🚫" },
+                { title: "MITIGAR", desc: "Reduzir probabilidade ou impacto", icon: "🛡️" },
+                { title: "TRANSFERIR", desc: "Compartilhar com terceiros/seguro", icon: "🔄" },
+                { title: "ACEITAR", desc: "Assumir risco residual monitorado", icon: "✅" }
+              ].map((item, i) => (
+                <div key={i} className="p-2 bg-slate-900/40 border border-slate-800/50 rounded hover:border-slate-700 transition-colors">
+                  <div className="text-[10px] font-bold text-white flex items-center gap-1.5">
+                    <span>{item.icon}</span> {item.title}
+                  </div>
+                  <div className="text-[9px] text-slate-500 leading-tight mt-0.5">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* MATRIZ E CHECKLIST */}
+            <div className="space-y-4">
+              <div className="flex justify-between items-end mb-1">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest italic font-bold">Heatmap Operacional</span>
+                <div className="flex gap-2">
+                  <span className="text-[9px] font-mono text-blue-500 bg-blue-500/10 px-1.5 border border-blue-500/20 rounded">ISO 20000-1:2018</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 h-20">
+                <div className="bg-green-500/5 border border-green-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell">
+                  <span className="text-[8px] text-green-500/50 absolute top-1 left-1 font-mono">L</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 opacity-40 group-hover/cell:scale-150 transition-transform" />
+                </div>
+                <div className="bg-yellow-500/5 border border-yellow-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell">
+                  <span className="text-[8px] text-yellow-500/50 absolute top-1 left-1 font-mono">M</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-500 opacity-40 group-hover/cell:scale-150 transition-transform" />
+                </div>
+                <div className="bg-red-500/10 border border-red-500/30 rounded flex flex-col items-center justify-center relative overflow-hidden animate-pulse group/cell">
+                  <span className="text-[8px] text-red-500/70 absolute top-1 left-1 font-mono">H</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+                </div>
+              </div>
+
+              {/* STATUS DE GOVERNANÇA */}
+              <div className="p-3 bg-blue-950/10 rounded border border-blue-500/20 space-y-2">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-slate-400 uppercase">Análise Qualitativa</span>
+                  <span className="text-blue-400">ATIVO</span>
+                </div>
+                <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-blue-500 w-[75%] shadow-[0_0_10px_#3b82f6]" />
+                </div>
+                <div className="flex justify-between items-center text-[9px] text-slate-500 italic">
+                  <span>Identificação {'>'} Análise {'>'} Avaliação</span>
+                  <span className="text-white font-bold">Monitoramento Contínuo</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-3 bg-red-950/10 rounded border border-red-900/30">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-red-600 animate-ping" />
+                <div className="text-[10px] font-mono text-red-400 leading-tight">
+                  <span className="font-bold">INSIGHT DE GOVERNANÇA:</span> Riscos não são apenas perdas; são incertezas que afetam os objetivos. Risco ignorado é incidente garantido.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
 
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="space-y-6">
