@@ -18,7 +18,7 @@ import {
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
   RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
-  Clock, LayoutGrid
+  Clock, LayoutGrid, Compass, Scale, Ban
 
 
 } from 'lucide-react';
@@ -1495,24 +1495,19 @@ const DevSecOpsArticle = () => {
           CAPÍTULO 3: DORA METRICS & GRC
       ---------------------------------------------------------------------- */}
       <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-              <Activity className="w-6 h-6" style={{ color: colors.dourado }} />
-            </div>
-            <h3 className="text-2xl font-bold text-white">Capítulo 3: Governança, Risco e Conformidade (GRC)</h3>
-          </div>
-          <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
-            Sem GRC, a TI vira um foguete sem painel. Anda rápido, mas ninguém sabe para onde.
-            Governança moderna não é burocracia; é tomada de decisão baseada em dados.
-          </p>
-        </div>
-
-
-
         {/* CARD 3: GESTÃO DE RISCOS (ISO 20000 / 31000) */}
         <div className="group p-6 rounded-xl border relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)]"
           style={{ backgroundColor: '#0a0a0a', borderColor: colors.azul || '#1e40af' }}>
+
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+                <Activity className="w-6 h-6" style={{ color: colors.dourado }} />
+              </div>
+              <h3 className="text-2xl font-bold text-white">Capítulo 3: Governança, Risco e Conformidade (GRC)</h3>
+            </div>
+
+          </div>
 
           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <LayoutGrid className="w-24 h-24 text-blue-500" />
@@ -1524,24 +1519,111 @@ const DevSecOpsArticle = () => {
                 <div className="p-2 rounded bg-slate-900 border border-slate-800 group-hover:border-blue-500 transition-colors">
                   <ShieldAlert className="w-6 h-6 text-blue-500" />
                 </div>
-                <h5 className="font-bold text-white text-lg"> Gestão de Riscos</h5>
+                <h5 className="font-bold text-white text-lg"> Gestão de Riscos a Bússola e o Mapa: <br /><strong>A Gestão baseada em dados</strong></h5> <br />
               </div>
+
               <div className="px-2 py-0.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-[9px] font-bold text-blue-400 uppercase tracking-tighter">
                 ISO 31000 Framework
               </div>
-            </div>
 
-            <p className="text-sm leading-relaxed mb-6" style={{ color: colors.textoSec }}>
-              <strong>Governança não é intuição, é método.</strong> Aplico o framework de Gestão de Riscos para transformar ameaças em decisões estratégicas. Utilizo a Matriz de Probabilidade x Impacto para garantir que o <strong>SLA</strong> e a <strong>Continuidade do Negócio</strong> não sejam comprometidos por vulnerabilidades não mapeadas.
-            </p>
+            </div>
+            {/* ---------------------------------------------------------------------
+            SEÇÃO GRC: GOVERNANÇA E RISCOS (TEXTO ESTILIZADO)
+            ---------------------------------------------------------------------- */}
+            <div className="mt-12 mb-16 grid lg:grid-cols-12 gap-8">
+
+              {/* LADO ESQUERDO: A TESE (GOVERNANÇA) */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="p-6 rounded-xl border relative overflow-hidden h-full flex flex-col justify-center"
+                  style={{ backgroundColor: '#0a0a0a', borderColor: colors.dourado }}>
+
+                  {/* Ícone de Fundo */}
+                  <div className="absolute top-0 right-0 p-4 opacity-5">
+                    <Compass className="w-32 h-32" style={{ color: colors.dourado }} />
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-6 border-b border-yellow-900/30 pb-4">
+                      <div className="p-2 rounded bg-yellow-950/20 border border-yellow-900/50">
+                        <Compass className="w-6 h-6" style={{ color: colors.dourado }} />
+                      </div>
+                      <h4 className="font-bold text-lg text-white">Diretriz Estratégica</h4>
+                    </div>
+
+                    <h5 className="text-xl font-bold mb-4 leading-tight text-white">
+                      "Governança não é intuição, <span style={{ color: colors.dourado }}>é método.</span>"
+                    </h5>
+
+                    <p className="text-sm leading-relaxed mb-6" style={{ color: colors.textoSec }}>
+                      <strong>Governança não é intuição, é método.</strong> <br /> <br />
+                      Sem GRC, a TI vira um foguete sem painel. Anda rápido, mas ninguém sabe para onde.
+                      Governança moderna não é burocracia; não vive de checklists, vive de informação acionável
+                      é tomada de decisão baseada em dados, é estratégia com método. GRC deixou de ser área
+                      burocrática e virou instrumento estratégico de decisão.
+                      Aplico o framework de Gestão de Riscos para transformar ameaças em decisões estratégicas.
+                      Utilizo a Matriz de Probabilidade x Impacto para garantir que o <strong>SLA</strong>
+                      e a <strong>Continuidade do Negócio</strong> não sejam comprometidos por vulnerabilidades não mapeadas.
+                    </p>
+
+                    <div className="bg-yellow-950/10 p-4 rounded border border-yellow-900/20 text-xs text-yellow-500/80 italic">
+                      "GRC deixou de ser área burocrática e virou instrumento estratégico de decisão."
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* LADO DIREITO: O MÉTODO (MATRIZ DE RISCO) */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="p-6 rounded-xl border relative overflow-hidden h-full"
+                  style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+
+                  <div className="flex items-center gap-3 mb-6">
+                    <Scale className="w-6 h-6" style={{ color: colors.principal }} />
+                    <h4 className="font-bold text-lg text-white">Matriz de Probabilidade x Impacto</h4>
+                  </div>
+
+                  <div className="space-y-5 text-sm leading-relaxed" style={{ color: colors.textoSec }}>
+                    <p>
+                      O mapeamento da Matriz de Riscos (Probabilidade x Impacto), integrado aos processos da ISO 20000,
+                      permite priorizar o que realmente ameaça o negócio e direcionar esforços para onde o impacto é real.
+                      Isso garante que riscos operacionais sejam tratados com método, dados e responsabilidade — não com intuição.
+                      Risco que não é mensurado e não tem responsável é apenas opinião, e opinião vira incidente.
+                      Incidente recorrente vira falha de gestão. A matriz só gera valor quando alinhada ao apetite
+                      e à tolerância ao risco definidos pela alta gestão, com responsáveis claros (risk owners) e revisão
+                      contínua baseada em indicadores operacionais.
+                      Não se trata de eliminar riscos — isso é fantasia corporativa — mas de assumir riscos conscientes,
+                      mitigados e explicitamente aceitos como parte da estratégia de negócio.
+                    </p> <br /> <br /> <br /> <br /> <br /> <br />
+
+                    {/* DESTAQUE: A FRASE DE IMPACTO */}
+                    <div className="mt-6 p-4 rounded-lg border-l-4 bg-gradient-to-r from-red-950/30 to-transparent"
+                      style={{ borderColor: colors.principal }}>
+                      <div className="flex items-start gap-3">
+                        <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: colors.principal }} />
+                        <div>
+                          <strong className="block text-white mb-1">O Axioma do Risco:</strong>
+                          <p className="italic text-slate-300">
+                            "Risco que não é mensurado e não tem dono (Risk Owner) é apenas opinião, e opinião vira incidente.
+                            Incidente recorrente vira falha de gestão."
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
             {/* SEÇÃO TÉCNICA: ESTRATÉGIAS DE TRATAMENTO */}
             <div className="grid grid-cols-2 gap-2 mb-6">
               {[
                 { title: "EVITAR", desc: "Mudar o plano para eliminar o risco", icon: "🚫" },
+                { title: "ACEITAR", desc: "Assumir risco residual monitorado", icon: "✅" },
                 { title: "MITIGAR", desc: "Reduzir probabilidade ou impacto", icon: "🛡️" },
-                { title: "TRANSFERIR", desc: "Compartilhar com terceiros/seguro", icon: "🔄" },
-                { title: "ACEITAR", desc: "Assumir risco residual monitorado", icon: "✅" }
+                { title: "TRANSFERIR", desc: "Compartilhar com terceiros/seguro", icon: "🔄" }
+
               ].map((item, i) => (
                 <div key={i} className="p-2 bg-slate-900/40 border border-slate-800/50 rounded hover:border-slate-700 transition-colors">
                   <div className="text-[10px] font-bold text-white flex items-center gap-1.5">
@@ -1552,6 +1634,240 @@ const DevSecOpsArticle = () => {
               ))}
             </div>
 
+            {/* CARD EXPANDIDO: EVITAR (RISK AVOIDANCE) */}
+            <div className="col-span-1 md:col-span-2 p-4 rounded-lg border bg-gradient-to-br from-[#1a0505] to-[#0f0202] relative overflow-hidden group hover:border-red-500 transition-all duration-300"
+              style={{ borderColor: colors.borda }}>
+
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center gap-3 mb-3 border-b border-red-900/30 pb-2">
+                <div className="p-1.5 rounded bg-red-900/20 border border-red-500">
+                  <Ban className="w-5 h-5 text-red-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wider">Estratégia: Evitar</h4>
+                  <p className="text-[10px] text-red-400">Eliminação da Causa Raiz</p>
+                </div>
+              </div>
+
+              {/* Grid dos 4 Porquês */}
+              <div className="grid grid-cols-2 gap-4 text-xs mt-2">
+
+                {/* 1. O QUE É */}
+                <div>
+                  <strong className="block text-red-500 mb-1 font-mono">01. O QUE É?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    A decisão estratégica de descontinuar ou não iniciar a atividade que gera o risco. É a única forma de zerar a exposição.
+                  </p>
+                </div>
+
+                {/* 2. COMO FAZER */}
+                <div>
+                  <strong className="block text-red-500 mb-1 font-mono">02. COMO?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Alterando o escopo (ex: remover feature legada), pivotando a tecnologia ou bloqueando geograficamente uma região hostil.
+                  </p>
+                </div>
+
+                {/* 3. ONDE APLICAR */}
+                <div>
+                  <strong className="block text-red-500 mb-1 font-mono">03. ONDE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Quando o Risco Inerente é catastrófico e nenhuma mitigação reduz o risco residual para níveis aceitáveis pelo negócio.
+                  </p>
+                </div>
+
+                {/* 4. POR QUE */}
+                <div>
+                  <strong className="block text-red-500 mb-1 font-mono">04. POR QUE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Quando o custo do controle (segurança) excede o valor do ativo ou o retorno financeiro da operação (ROI Negativo).
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Ícone de Fundo Decorativo */}
+              <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                <Ban className="w-24 h-24 text-red-500" />
+              </div>
+            </div> <br /> <br />
+
+            {/* CARD EXPANDIDO: MITIGAR (RISK MITIGATION) */}
+            <div className="col-span-1 md:col-span-2 p-4 rounded-lg border bg-gradient-to-br from-[#0f0202] to-[#172554] relative overflow-hidden group hover:border-blue-500 transition-all duration-300"
+              style={{ borderColor: colors.borda }}>
+
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center gap-3 mb-3 border-b border-blue-900/30 pb-2">
+                <div className="p-1.5 rounded bg-blue-900/20 border border-blue-500">
+                  <Shield className="w-5 h-5 text-blue-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wider">Estratégia: Mitigar</h4>
+                  <p className="text-[10px] text-blue-400">Redução de Probabilidade ou Impacto</p>
+                </div>
+              </div>
+
+              {/* Grid dos 4 Porquês */}
+              <div className="grid grid-cols-2 gap-4 text-xs mt-2">
+
+                {/* 1. O QUE É */}
+                <div>
+                  <strong className="block text-blue-500 mb-1 font-mono">01. O QUE É?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Ação de implementar controles técnicos ou administrativos para diminuir a chance do risco ocorrer ou minimizar seu dano.
+                  </p>
+                </div>
+
+                {/* 2. COMO FAZER */}
+                <div>
+                  <strong className="block text-blue-500 mb-1 font-mono">02. COMO?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Implementando MFA, WAF, Criptografia, Redundância (HA), Backups Imutáveis e Planos de Resposta (IRP).
+                  </p>
+                </div>
+
+                {/* 3. ONDE APLICAR */}
+                <div>
+                  <strong className="block text-blue-500 mb-1 font-mono">03. ONDE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Em riscos onde a tecnologia de proteção é viável e o custo do controle é menor que o prejuízo esperado (ROI Positivo).
+                  </p>
+                </div>
+
+                {/* 4. POR QUE */}
+                <div>
+                  <strong className="block text-blue-500 mb-1 font-mono">04. POR QUE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Para trazer o Risco Inerente para níveis aceitáveis (Risco Residual), alinhado ao apetite de risco da empresa.
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Ícone de Fundo Decorativo */}
+              <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                <Shield className="w-24 h-24 text-blue-500" />
+              </div>
+            </div> <br /> <br />
+
+            {/* CARD EXPANDIDO: ACEITAR (RISK ACCEPTANCE) */}
+
+            <div className="col-span-1 md:col-span-2 p-4 rounded-lg border bg-gradient-to-br from-[#0f0202] to-[#422006] relative overflow-hidden group hover:border-yellow-500 transition-all duration-300"
+              style={{ borderColor: colors.borda }}>
+
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center gap-3 mb-3 border-b border-yellow-900/30 pb-2">
+                <div className="p-1.5 rounded bg-yellow-900/20 border border-yellow-500">
+                  <CheckCircle className="w-5 h-5 text-yellow-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wider">Estratégia: Aceitar</h4>
+                  <p className="text-[10px] text-yellow-400">Assumir Risco Residual Monitorado</p>
+                </div>
+              </div>
+
+              {/* Grid dos 4 Porquês */}
+              <div className="grid grid-cols-2 gap-4 text-xs mt-2">
+
+                {/* 1. O QUE É */}
+                <div>
+                  <strong className="block text-yellow-500 mb-1 font-mono">01. O QUE É?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Decisão formal de operar convivendo com o risco. Não é ignorância ("não vi"), é uma escolha consciente baseada em dados.
+                  </p>
+                </div>
+
+                {/* 2. COMO FAZER */}
+                <div>
+                  <strong className="block text-yellow-500 mb-1 font-mono">02. COMO?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Formalização via Termo de Aceite de Risco, monitoramento contínuo de gatilhos e revisão periódica obrigatória.
+                  </p>
+                </div>
+
+                {/* 3. ONDE APLICAR */}
+                <div>
+                  <strong className="block text-yellow-500 mb-1 font-mono">03. ONDE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Quando o risco é baixo (dentro do Apetite) ou quando o custo da mitigação supera o valor do ativo protegido.
+                  </p>
+                </div>
+
+                {/* 4. POR QUE */}
+                <div>
+                  <strong className="block text-yellow-500 mb-1 font-mono">04. POR QUE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Para viabilizar inovação. Eliminar 100% dos riscos paralisaria o negócio. "O barco no porto é seguro, mas não navega."
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Ícone de Fundo Decorativo */}
+              <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                <CheckCircle className="w-24 h-24 text-yellow-500" />
+              </div>
+            </div> <br /> <br />
+
+
+            {/* CARD EXPANDIDO: TRANSFERIR (RISK TRANSFER) */}
+            <div className="col-span-1 md:col-span-2 p-4 rounded-lg border bg-gradient-to-br from-[#0f0202] to-[#064e3b] relative overflow-hidden group hover:border-green-500 transition-all duration-300"
+              style={{ borderColor: colors.borda }}>
+
+              {/* Cabeçalho do Card */}
+              <div className="flex items-center gap-3 mb-3 border-b border-green-900/30 pb-2">
+                <div className="p-1.5 rounded bg-green-900/20 border border-green-500">
+                  <RefreshCw className="w-5 h-5 text-green-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wider">Estratégia: Transferir</h4>
+                  <p className="text-[10px] text-green-400">Compartilhar com Terceiros / Seguro</p>
+                </div>
+              </div>
+
+              {/* Grid dos 4 Porquês */}
+              <div className="grid grid-cols-2 gap-4 text-xs mt-2">
+
+                {/* 1. O QUE É */}
+                <div>
+                  <strong className="block text-green-500 mb-1 font-mono">01. O QUE É?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Mover a responsabilidade financeira ou gestão do risco para uma terceira parte. O risco não some, mas o prejuízo é compartilhado.
+                  </p>
+                </div>
+
+                {/* 2. COMO FAZER */}
+                <div>
+                  <strong className="block text-green-500 mb-1 font-mono">02. COMO?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Apólices de Seguro Cibernético, terceirização de SOC (MSSP) e contratos com cláusulas de SLA rigorosas (Cloud Providers).
+                  </p>
+                </div>
+
+                {/* 3. ONDE APLICAR */}
+                <div>
+                  <strong className="block text-green-500 mb-1 font-mono">03. ONDE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Em riscos de baixa probabilidade mas impacto financeiro catastrófico ("Cisne Negro") ou operações fora do <em>Core Business</em>.
+                  </p>
+                </div>
+
+                {/* 4. POR QUE */}
+                <div>
+                  <strong className="block text-green-500 mb-1 font-mono">04. POR QUE?</strong>
+                  <p className="text-slate-400 leading-tight">
+                    Transforma um custo imprevisível e devastador (o incidente) em uma despesa fixa e previsível (o prêmio do seguro).
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Ícone de Fundo Decorativo */}
+              <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                <RefreshCw className="w-24 h-24 text-green-500" />
+              </div>
+            </div> <br /> <br />
+
             {/* MATRIZ E CHECKLIST */}
             <div className="space-y-4">
               <div className="flex justify-between items-end mb-1">
@@ -1561,19 +1877,41 @@ const DevSecOpsArticle = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 h-20">
-                <div className="bg-green-500/5 border border-green-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell">
-                  <span className="text-[8px] text-green-500/50 absolute top-1 left-1 font-mono">L</span>
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 opacity-40 group-hover/cell:scale-150 transition-transform" />
+              {/* HEATMAP OPERACIONAL (COM DADOS SIMULADOS) */}
+              <div className="grid grid-cols-3 gap-2 h-24">
+
+                {/* RISCO BAIXO (L) */}
+                <div className="bg-green-500/5 border border-green-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell transition-all hover:bg-green-500/10">
+                  <span className="text-[9px] text-green-400 absolute top-1 left-2 font-mono font-bold">BAIXO</span>
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-green-500">12</span>
+                    <p className="text-[7px] text-green-400/70 uppercase">Monitorados</p>
+                  </div>
                 </div>
-                <div className="bg-yellow-500/5 border border-yellow-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell">
-                  <span className="text-[8px] text-yellow-500/50 absolute top-1 left-1 font-mono">M</span>
-                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-500 opacity-40 group-hover/cell:scale-150 transition-transform" />
+
+                {/* RISCO MÉDIO (M) */}
+                <div className="bg-yellow-500/5 border border-yellow-500/20 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell transition-all hover:bg-yellow-500/10">
+                  <span className="text-[9px] text-yellow-400 absolute top-1 left-2 font-mono font-bold">MÉDIO</span>
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-yellow-500">5</span>
+                    <p className="text-[7px] text-yellow-400/70 uppercase">Mitigação</p>
+                  </div>
                 </div>
-                <div className="bg-red-500/10 border border-red-500/30 rounded flex flex-col items-center justify-center relative overflow-hidden animate-pulse group/cell">
-                  <span className="text-[8px] text-red-500/70 absolute top-1 left-1 font-mono">H</span>
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+
+                {/* RISCO ALTO (H) */}
+                <div className="bg-red-500/10 border border-red-500/30 rounded flex flex-col items-center justify-center relative overflow-hidden group/cell transition-all hover:bg-red-500/20">
+                  <div className="absolute inset-0 bg-red-500/5 animate-pulse pointer-events-none"></div>
+                  <span className="text-[9px] text-red-400 absolute top-1 left-2 font-mono font-bold">CRÍTICO</span>
+
+                  <div className="text-center relative z-10">
+                    <div className="flex items-center gap-1 justify-center">
+                      <AlertTriangle className="w-3 h-3 text-red-500" />
+                      <span className="text-2xl font-bold text-red-500">1</span>
+                    </div>
+                    <p className="text-[7px] text-red-400/70 uppercase font-bold">Ação Imediata</p>
+                  </div>
                 </div>
+
               </div>
 
               {/* STATUS DE GOVERNANÇA */}
@@ -1597,9 +1935,9 @@ const DevSecOpsArticle = () => {
                   <span className="font-bold">INSIGHT DE GOVERNANÇA:</span> Riscos não são apenas perdas; são incertezas que afetam os objetivos. Risco ignorado é incidente garantido.
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
-        </div>
+        </div><br /> <br />
 
 
 
