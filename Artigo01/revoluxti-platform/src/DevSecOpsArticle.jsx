@@ -15,7 +15,7 @@ import {
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
   RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
-  Clock, LayoutGrid,
+  Clock, LayoutGrid
 
 
 } from 'lucide-react';
