@@ -294,7 +294,7 @@ main {
     flex: 1; 
     
     /* DEFINIÇÃO DE ALTURA E SCROLL */
-    height: 1550px; /* Altura fixa da "janela" onde o texto vai passar */
+    height: 1165px; /* Altura fixa da "janela" onde o texto vai passar */
     overflow: hidden; /* Esconde o texto que estiver fora da "janela" */
     position: relative; /* Necessário para o conteúdo absoluto dentro dele */
     

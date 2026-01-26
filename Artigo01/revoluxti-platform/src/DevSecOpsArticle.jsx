@@ -2,6 +2,9 @@
 // ARQUIVO: DevSecOpsArticle.jsx (LOGIN COM SECURITY CODE)
 // -----------------------------------------------------------------------------
 
+//1. Forçar a adição da pasta dist (mesmo se estiver no .gitignore)
+//git add Artigo01/revoluxti-platform/dist -f
+
 import React, { useState, useEffect } from 'react';
 import {
   Shield, Lock, Server, Zap, Globe, AlertTriangle,
