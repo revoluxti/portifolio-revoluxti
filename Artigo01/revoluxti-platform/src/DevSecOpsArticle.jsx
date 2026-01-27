@@ -20,7 +20,8 @@ import {
   RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
   Clock, LayoutGrid, Compass, Scale, Ban, TrendingUp,
   BarChart2, Crosshair, Wallet, FileText, Gavel,
-  Trophy, GitPullRequest, Link2
+  Trophy, GitPullRequest, Link2, ChevronsLeft, GitCommit, UserCheck,
+  FileCode
 
 
 } from 'lucide-react';
@@ -2523,115 +2524,291 @@ const DevSecOpsArticle = () => {
             <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
               <Code className="w-6 h-6" style={{ color: colors.abobora }} />
             </div>
-            <h3 className="text-2xl font-bold text-white">Capítulo 4 – Arquitetura Cloud e Application Security (AppSec)</h3>
+            <h3 className="text-2xl font-bold text-white">
+              Capítulo 4 – Arquitetura Cloud e Application Security (AppSec)
+            </h3>
           </div>
         </div>
 
         {/* ---------------------------------------------------------------------
           SEÇÃO DUALITY: CLOUD (MOTOR) VS APPSEC (FREIOS)
       ---------------------------------------------------------------------- */}
-      <div className="mt-16 mb-20 space-y-6">
-        
-        
-        {/* 1. O GRID DE DUALIDADE */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="mt-16 mb-20 space-y-6">
 
-          {/* CARD ESQUERDA: CLOUD (O MOTOR) */}
-          <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-[#0f0202] transition-all hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]">
-            <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
-              
-              {/* Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-lg bg-cyan-950/20 border border-cyan-500/30">
-                  <CloudLightning className="w-8 h-8 text-cyan-400" />
+
+          {/* 1. O GRID DE DUALIDADE */}
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* CARD ESQUERDA: CLOUD (O MOTOR) */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-[#0f0202] transition-all hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+              <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
+
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-lg bg-cyan-950/20 border border-cyan-500/30">
+                    <CloudLightning className="w-8 h-8 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white">Arquitetura Cloud</h4>
+                    <span className="text-[10px] font-mono text-cyan-500 uppercase tracking-widest">O Motor da TI Moderna</span>
+                  </div>
+
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">Arquitetura Cloud</h4>
-                  <span className="text-[10px] font-mono text-cyan-500 uppercase tracking-widest">O Motor da TI Moderna</span>
+                <h4>
+                  Arquitetura Cloud-Native como habilitadora do DevSecOps.
+                </h4> <br />
+
+                {/* Conteúdo */}
+                <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
+                  <p>
+                    A nuvem transformou a infraestrutura em software programável. <br />
+                    O motor da TI moderna sustenta o DevSecOps ao oferecer elasticidade,
+                    automação e escala necessárias para que o negócio inove em alta velocidade. 
+                    É a infraestrutura dinâmica onde as aplicações residem. <br />
+                    Porém, é preciso ser brutalmente honesto: <br /> 
+                    <strong className=" rounded text-xs text-cyan-300"> Cloud sem AppSec não é agilidade, 
+                    é caos escalável, é apenas complexidade distribuída.</strong> <br /> <br />
+                    A segurança baseada em IP e firewall de borda tornou-se obsoleta em um mundo onde containers nascem e morrem em minutos.
+                    Sem governança, você não distribui apenas sistemas; você distribui complexidade e
+                    vulnerabilidades. O que antes era um monólito com uma porta de entrada,
+                    agora são mil microsserviços com mil portas destrancadas. <br /> <br />
+                    O Desafio da Superfície de Ataque Ambientes cloud-native (K8s, Serverless) mataram
+                    o perímetro tradicional. Não existe mais "dentro" e "fora" da rede; a identidade
+                    tornou-se o novo perímetro. A elasticidade que permite atender milhões de usuários
+                    é a mesma que permite a um atacante escalar privilégios lateralmente em segundos. 
+                    Por isso, AppSec não pode ser um "gate" no final da esteira; precisa ser intrínseco
+                    à infraestrutura. Segurança deixa de ser um evento pontual de auditoria e passa a
+                    ser um atributo imutável do sistema. <br /> <br />
+
+                    <strong>Do Monólito ao Microserviço:</strong> <br /> 
+                    <strong className=" rounded text-xs text-cyan-300"> A Nova Fronteira A orquestração moderna (Kubernetes) </strong>   
+                    permite isolamento de falhas, mas amplia exponencialmente a superfície de ataque 
+                    (Tráfego Leste-Oeste). Cada microserviço, cada API e cada bucket é uma nova fronteira 
+                    de risco que precisa se autoproteger. A maturidade arquitetural acontece quando 
+                    entendemos que segurança não é algo que se adiciona ao cloud; é a forma como se 
+                    constrói o cloud. AppSec deve garantir que a infraestrutura seja segura por padrão 
+                    (Secure by Default), transformando risco em decisão de design.
+                  </p>
+                  <div className="p-3 bg-cyan-950/10 border border-cyan-900/30 rounded text-xs text-cyan-300">
+                    ⚠️ <strong>Risco:</strong> Cloud sem AppSec é apenas "complexidade distribuída".
+                  </div>
+                </div>
+
+                {/* Background Decorativo */}
+                <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
+                  <Cpu className="w-48 h-48 text-cyan-500" />
                 </div>
               </div>
+            </div>
 
-              {/* Conteúdo */}
-              <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
-                <p>
-                  Sustenta o DevSecOps ao oferecer <strong>elasticidade, automação e escala</strong>. 
-                  É a infraestrutura dinâmica onde as aplicações residem é o motor da TI moderna.
-                  Cloud sem Application Security (AppSec) é apenas complexidade distribuída
-                </p>
-                <div className="p-3 bg-cyan-950/10 border border-cyan-900/30 rounded text-xs text-cyan-300">
-                  ⚠️ <strong>Risco:</strong> Cloud sem AppSec é apenas "complexidade distribuída".
+            {/* CARD DIREITA: APPSEC (OS FREIOS) */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-violet-900/40 to-[#0f0202] transition-all hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]">
+              <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
+
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-lg bg-violet-950/20 border border-violet-500/30">
+                    <Shield className="w-8 h-8 text-violet-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white">Application Security</h4>
+                    <span className="text-[10px] font-mono text-violet-500 uppercase tracking-widest">O Sistema de Freios</span>
+                  </div>
                 </div>
-              </div>
+                <h4>
+                  Application Security by Design
+                </h4> <br />
 
-              {/* Background Decorativo */}
-              <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
-                <Cpu className="w-48 h-48 text-cyan-500" />
+
+                {/* Conteúdo */}
+                <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
+                  <p>
+                    AppSec é o sistema de freios. Foca em proteger o software e seu código. O foco sai de 
+                    "bloquear o deploy" para "proteger o software e seu código" desde a concepção.
+                    Segurança precisa nascer junto com a arquitetura e ser um atributo de qualidade 
+                    inegociável, não ser adicionada como "band-aid" tardio aplicado em produção 
+                    quando o custo de correção é 100x maior.
+                  </p>
+                  <p>
+                    AppSec moderno começa no desenho da aplicação antes da primeira linha de código. <br />
+                    Threat Modeling (Modelagem de Ameaças) análise de superfície de ataque e definição 
+                    de fronteiras de confiança tornam-se rituais obrigatórios, definição de fluxos de dados
+                    e identificação de ativos críticos passam a ser etapas obrigatórias do design.
+                    Neste modelo, vulnerabilidades deixam de ser vistas como "bugs acidentais  inesperados" 
+                    e passam a ser falhas de decisão evitáveis e são encaradas como dívidas técnicas de arquitetura. Uma falha de injeção de SQL, por exemplo, não é um erro de digitação; é uma falha na decisão de como os dados são sanitizados na arquitetura.                  </p> <br />
+
+                  {/* ---------------------------------------------------------------------
+          ENCAPSULAMENTO SIMPLES: SHIFT-LEFT LIST
+      ---------------------------------------------------------------------- */}
+                  <div className="my-8 p-6 rounded-xl border border-slate-800 bg-[#0a0202]">
+
+                    {/* Cabeçalho Simples */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <ChevronsLeft className="w-5 h-5 text-indigo-500" />
+                      <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                        Aqui, o Shift-Left se consolida
+                      </h4>
+                    </div>
+
+                    {/* Lista Vertical Conectada */}
+                    <div className="space-y-3 relative">
+
+                      {/* Linha conectora vertical (opcional, para dar ideia de fluxo) */}
+                      <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-slate-800 z-0"></div>
+
+                      {/* ITEM 1: COMMIT */}
+                      <div className="relative z-10 flex items-center gap-4 p-3 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-indigo-500/50 transition-colors">
+                        <div className="w-10 h-10 rounded bg-[#0f0202] border border-slate-700 flex items-center justify-center shrink-0">
+                          <GitCommit className="w-5 h-5 text-slate-400" />
+                        </div>
+                        <span className="text-sm text-slate-300 font-medium">Segurança antes do <strong className="text-white">Commit</strong></span>
+                      </div>
+
+                      {/* ITEM 2: DEPLOY */}
+                      <div className="relative z-10 flex items-center gap-4 p-3 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-purple-500/50 transition-colors">
+                        <div className="w-10 h-10 rounded bg-[#0f0202] border border-slate-700 flex items-center justify-center shrink-0">
+                          <Box className="w-5 h-5 text-slate-400" />
+                        </div>
+                        <span className="text-sm text-slate-300 font-medium">Segurança antes do <strong className="text-white">Deploy</strong></span>
+                      </div>
+
+                      {/* ITEM 3: USUÁRIO */}
+                      <div className="relative z-10 flex items-center gap-4 p-3 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-emerald-500/50 transition-colors">
+                        <div className="w-10 h-10 rounded bg-[#0f0202] border border-slate-700 flex items-center justify-center shrink-0">
+                          <UserCheck className="w-5 h-5 text-slate-400" />
+                        </div>
+                        <span className="text-sm text-slate-300 font-medium">Segurança antes do <strong className="text-white">Usuário</strong></span>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div className="mt-4 p-3 rounded border bg-violet-950/10 border-violet-900/30 text-xs text-violet-300 flex items-start gap-2"
+                    style={{ borderColor: colors.principal }}> {/* Ajuste a cor da borda se quiser usar a principal ou uma específica violeta */}
+                    <ShieldCheck className="w-4 h-4 mt-0.5 shrink-0" style={{ color: colors.principal }} />
+                    <span>
+                      <strong className="text-white">Objetivo:</strong> Transformar segurança em atributo arquitetural, não em uma etapa de correção tardia.
+                    </span>
+                  </div>
+                </div>
+                {/* Background Decorativo */}
+                <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
+                  <Lock className="w-48 h-48 text-violet-500" />
+                </div>
               </div>
             </div>
           </div>
+          {/* ---------------------------------------------------------------------
+          SEÇÃO: APPSEC NO PIPELINE & IAC (DUAL COLUMNS)
+      ---------------------------------------------------------------------- */}
+          <div className="mt-12 mb-16 grid md:grid-cols-2 gap-8">
 
-          {/* CARD DIREITA: APPSEC (OS FREIOS) */}
-          <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-violet-900/40 to-[#0f0202] transition-all hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]">
-            <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
-              
-              {/* Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-lg bg-violet-950/20 border border-violet-500/30">
-                  <Shield className="w-8 h-8 text-violet-400" />
+            {/* COLUNA 1: APPSEC NO PIPELINE (FLUXO) */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-blue-900/40 to-[#0f0202] hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all">
+              <div className="h-full bg-[#050101] rounded-xl p-6 flex flex-col relative overflow-hidden">
+
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-4 border-b border-blue-900/30 pb-4">
+                  <div className="p-2 rounded bg-blue-950/30 border border-blue-500/30">
+                    <Workflow className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-lg">AppSec no Pipeline CI/CD</h4>
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">Application Security</h4>
-                  <span className="text-[10px] font-mono text-violet-500 uppercase tracking-widest">O Sistema de Freios</span>
+
+                {/* Conteúdo Principal */}
+                <div className="space-y-4 text-sm text-slate-400 leading-relaxed flex-grow">
+                  <p>
+                    A integração de <span className="text-blue-400 font-mono">SAST, DAST, SCA</span> e análise de secrets transforma a segurança em um processo contínuo.
+                  </p>
+                  <p>
+                    O código é avaliado automaticamente, em escala e com critérios objetivos. O pipeline vira um <strong className="text-white">gate inteligente</strong>, não um gargalo burocrático.
+                  </p>
+                </div>
+
+                {/* Rodapé: Valor Corporativo */}
+                <div className="mt-6 p-3 rounded bg-blue-950/10 border border-blue-900/30 flex items-start gap-2">
+                  <TrendingUp className="w-4 h-4 text-blue-500 mt-1 shrink-0" />
+                  <p className="text-xs text-blue-300">
+                    <strong className="text-white block mb-1">Impacto Corporativo:</strong>
+                    Menos risco jurídico, menos retrabalho, menos incidentes em produção.
+                  </p>
+                </div>
+
+                {/* Decorativo */}
+                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                  <Workflow className="w-24 h-24 text-blue-500" />
                 </div>
               </div>
+            </div>
 
-              {/* Conteúdo */}
-              <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
-                <p>
-                AppSec é o sistema de freios. Foca em proteger o software e seu código. Segurança precisa nascer junto com a arquitetura, não ser adicionada como "band-aid" tardio.
-                </p>
-                <div className="p-3 bg-violet-950/10 border border-violet-900/30 rounded text-xs text-violet-300">
-                  🛡️ <strong>Objetivo:</strong> Transformar segurança em atributo arquitetural.
+            {/* COLUNA 2: IAC & POLICY AS CODE (ESTRUTURA) */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-[#0f0202] hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all">
+              <div className="h-full bg-[#050101] rounded-xl p-6 flex flex-col relative overflow-hidden">
+
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-4 border-b border-emerald-900/30 pb-4">
+                  <div className="p-2 rounded bg-emerald-950/30 border border-emerald-500/30">
+                    <FileCode className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-lg">IaC e Policy as Code</h4>
+                </div>
+
+                {/* Conteúdo Principal */}
+                <div className="space-y-4 text-sm text-slate-400 leading-relaxed flex-grow">
+                  <p>
+                    IaC consolida a previsibilidade da Cloud. AppSec adiciona <span className="text-emerald-400 font-mono">Policy as Code</span>, garantindo que configurações inseguras simplesmente não avancem.
+                  </p>
+                  <p>
+                    Compliance deixa de ser reativa e se torna <strong className="text-white">determinística</strong>.
+                  </p>
+                </div>
+
+                {/* Rodapé: Valor Corporativo */}
+                <div className="mt-6 p-3 rounded bg-emerald-950/10 border border-emerald-900/30 flex items-start gap-2">
+                  <Scale className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
+                  <p className="text-xs text-emerald-300">
+                    <strong className="text-white block mb-1">Nova Auditoria:</strong>
+                    A auditoria passa a ler código, não documentos de Word.
+                  </p>
+                </div>
+
+                {/* Decorativo */}
+                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                  <FileCode className="w-24 h-24 text-emerald-500" />
                 </div>
               </div>
+            </div>
 
-              {/* Background Decorativo */}
-              <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
-                <Lock className="w-48 h-48 text-violet-500" />
+          </div>
+
+          {/* 2. A SÍNTESE (MATURIDADE) */}
+          <div className="relative p-6 rounded-xl border border-dashed border-slate-700 bg-gradient-to-r from-[#0a0a0a] via-[#151515] to-[#0a0a0a]">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
+              <div className="p-2 rounded-full bg-slate-800 border border-slate-600">
+                <Link2 className="w-5 h-5 text-white" />
               </div>
+              <p className="text-sm text-slate-300">
+                Em DevSecOps, Motor e Freios são inseparáveis. A maturidade começa quando a segurança
+                deixa de ser uma camada adicional e vira parte do DNA da nuvem. <br />
+                <strong className="text-white">A relação é de profunda interdependência</strong>,
+                especialmente com o avanço de tecnologias nativas da nuvem, onde uma define
+                o ambiente e a outra protege o conteudo e o código.
+              </p>
+            </div>
+          </div>
+
+          {/* O ALERTA (HEADLINE DE IMPACTO) */}
+          <div className="relative p-1 rounded-xl bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 animate-pulse-slow">
+            <div className="bg-[#1a0505] rounded-lg p-4 flex items-center justify-center text-center border border-red-900/50 shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+              <AlertTriangle className="w-6 h-6 text-red-500 mr-3 animate-bounce" />
+              <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
+                "Velocidade sem segurança é apenas <span className="text-red-500 border-b border-red-500">aceleração rumo ao incidente</span>."
+              </h3>
+
             </div>
           </div>
 
         </div>
-
-        {/* 2. A SÍNTESE (MATURIDADE) */}
-        <div className="relative p-6 rounded-xl border border-dashed border-slate-700 bg-gradient-to-r from-[#0a0a0a] via-[#151515] to-[#0a0a0a]">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <div className="p-2 rounded-full bg-slate-800 border border-slate-600">
-              <Link2 className="w-5 h-5 text-white" />
-            </div>
-            <p className="text-sm text-slate-300">
-              Em DevSecOps, Motor e Freios são inseparáveis. A maturidade começa quando a segurança 
-              deixa de ser uma camada adicional e vira parte do DNA da nuvem. <br />
-              <strong className="text-white">A relação é de profunda interdependência</strong>, 
-              especialmente com o avanço de tecnologias nativas da nuvem, onde uma define 
-              o ambiente e a outra protege o conteudo e o código.
-            </p>
-          </div>
-        </div>
-
-        {/* O ALERTA (HEADLINE DE IMPACTO) */}
-        <div className="relative p-1 rounded-xl bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 animate-pulse-slow">
-          <div className="bg-[#1a0505] rounded-lg p-4 flex items-center justify-center text-center border border-red-900/50 shadow-[0_0_20px_rgba(220,38,38,0.2)]">
-            <AlertTriangle className="w-6 h-6 text-red-500 mr-3 animate-bounce" />
-            <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
-              "Velocidade sem segurança é apenas <span className="text-red-500 border-b border-red-500">aceleração rumo ao incidente</span>."
-            </h3>
-            
-          </div>
-        </div>
-
-      </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
