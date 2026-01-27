@@ -18,7 +18,9 @@ import {
   CloudLightning, Layers, Network, Radar, Workflow,
   Radio, Siren, LifeBuoy, ZapOff, TimerReset, HardDrive,
   RefreshCcw, Crown, Castle, Hammer, MessageSquareQuote, BookOpen,
-  Clock, LayoutGrid, Compass, Scale, Ban
+  Clock, LayoutGrid, Compass, Scale, Ban, TrendingUp,
+  BarChart2, Crosshair, Wallet, FileText, Gavel,
+  Trophy, GitPullRequest
 
 
 } from 'lucide-react';
@@ -484,21 +486,7 @@ const DevSecOpsArticle = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(179,18,12,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(179,18,12,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.abobora }}>
-              Edição Inicial #01
-            </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              Conformidade ISO 20000
-            </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              Governança
-            </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              DevSecOps
-            </span>
 
-          </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
             REVOLUXTI <span style={{ color: colors.principal }}>2000</span>
@@ -509,7 +497,7 @@ const DevSecOpsArticle = () => {
             A quebra de silos e a evolução da entrega de valor.
             <br />
             <span className="text-sm font-mono mt-2 block" style={{ color: colors.abobora }}>
-              &gt; SYSTEM_STATUS: RED_RHINO_OPERATIONAL
+              &gt; SYSTEM_STATUS: RHINO_OPERATIONAL
             </span>
           </p>
 
@@ -521,16 +509,26 @@ const DevSecOpsArticle = () => {
               style={{ backgroundColor: colors.principal }}
             >
               <Terminal className="w-5 h-5" />
+              <Lock className="w-5 h-5 text-[#fd8f00]" />
               Iniciar Protocolo
             </button>
-            <button
-              onClick={() => { setShowAuthModal(true); setAuthMode('LOGIN'); }} // Atalho direto para Login
-              className="px-6 py-3 bg-slate-900 text-white font-bold rounded flex items-center gap-2 transition-all border hover:bg-slate-800"
-              style={{ borderColor: colors.borda }}
-            >
-              <Lock className="w-5 h-5 text-[#fd8f00]" />
-              Acesso Restrito
-            </button>
+
+          </div> <br />
+
+          <div className="flex items-center gap-4 mb-6">
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.abobora }}>
+              Edição #01
+            </span>
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              Conformidade ISO 20000
+            </span>
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              Governança
+            </span>
+            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              DevSecOps
+            </span>
+
           </div>
         </div>
       </section>
@@ -784,34 +782,40 @@ const DevSecOpsArticle = () => {
                         <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
                         <span><strong>Organizacionais:</strong>
                           <p>
-                            Departamentos (como Dev, Sec e Ops e ) que <br /> trabalham
-                            como "compartimentos estanques", sem compartilhar<br />  metas comuns ou
-                            responsabilidades, e metas divergentes entre <br />
-                            setores.
+                            Departamentos (como Dev, Sec e Ops e ) que  trabalham como
+                            <br />"compartimentos estanques", sem compartilhar metas comuns<br />  ou
+                            responsabilidades, e metas divergentes entre setores. <br />
+
                           </p></span>
 
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <span><strong>De Dados:</strong>
+                          <p>
+                            Unidades de armazenamento de informações que não se comunicam,<br />
+                            onde dados importantes ficam presos em planilhas ou sistemas  de um<br />
+                            único setor, dificultando decisões baseadas em IA e automação.
+                          </p>
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
+                        <span><strong>Operacionais:</strong>
+                          <p>
+                            Equipes isoladas por fluxos de trabalho interrompidos, <br /> gerando redundância de tarefas e atrasos nas entregas.
+                          </p>
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
                         <div>
                           <strong>IA com Governança:</strong>
-                          <p className="text-xs mt-1 text-slate-400">
+                          <p >
                             Dados integrados para a IA, mas segregados por <strong>Menor Privilégio</strong>. <br />
                             A IA só responde o que o usuário tem permissão para ver (ACLs).
                           </p>
                         </div>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
-                        <span><strong>De Dados:</strong>  Unidades de armazenamento de informações que não se<br />
-                          comunicam, onde dados importantes ficam presos em planilhas ou <br />
-                          sistemas de um único setor, dificultando decisões baseadas em IA e automação.
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.abobora }}></div>
-                        <span><strong>Operacionais:</strong> Equipes isoladas por fluxos de trabalho interrompidos, <br /> gerando redundância de tarefas e atrasos nas entregas.
-                        </span>
                       </li>
                     </ul>
                   </div>
@@ -884,8 +888,7 @@ const DevSecOpsArticle = () => {
             style={{ borderColor: colors.principal, borderLeftColor: colors.principal }}>
 
             <h5 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-              <ShieldAlert className="w-5 h-5" style={{ color: colors.principal }} />
-              Onde entra o "Menor Privilégio"?
+              "Menor Privilégio"
             </h5>
 
             <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
@@ -931,7 +934,7 @@ const DevSecOpsArticle = () => {
               <div>
                 <h4 className="font-bold text-lg mb-2 text-white">A Nova Era da TI</h4>
                 <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                  A quebra de silos entre Desenvolvimento, Segurança e Operações.
+                  <strong>A quebra de silos entre Desenvolvimento, Segurança e Operações.</strong> <br />
                   Ambientes complexos exigem colaboração contínua, automação inteligente e responsabilidade
                   compartilhada.
                   Historicamente, cada área defendia seu território.
@@ -1256,7 +1259,7 @@ const DevSecOpsArticle = () => {
                           <CloudLightning className="w-4 h-4 text-red-500" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-red-400">VLAN 99: IOT_GUEST</div>
+                          <div className="text-xs font-bold text-red-400">VLAN 40: IOT_GUEST</div>
                           <div className="text-[10px] text-red-500 font-bold uppercase tracking-wider">
                             ⚠️ Broadcast Storm Detected
                           </div>
@@ -1307,7 +1310,7 @@ const DevSecOpsArticle = () => {
                 <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
                   Ataques não começam no firewall; muitos nascem na camada 2.
                   Ataques sofisticados começam no simples e ainda funcionam porque o básico não é feito.
-                  <strong>DHCP Snooping</strong> e <strong>Dynamic ARP Inspection</strong> e proteção dede
+                  <strong> DHCP Snooping</strong> e <strong>Dynamic ARP Inspection</strong> e proteção de
                   protocolos de roteamento como BGP deixam de ser “nice to have” e passam a ser controles essenciais.
                   Segurança começa onde o pacote nasce.
                 </p> <br />
@@ -1935,67 +1938,579 @@ const DevSecOpsArticle = () => {
                   <span className="font-bold">INSIGHT DE GOVERNANÇA:</span> Riscos não são apenas perdas; são incertezas que afetam os objetivos. Risco ignorado é incidente garantido.
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div><br /> <br />
-
-
-
 
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div className="p-6 rounded-xl border transition-all hover:bg-[#1a0505]" style={{ borderColor: colors.borda }}>
               <div className="flex items-center gap-3 mb-3">
                 <Target className="w-5 h-5" style={{ color: colors.abobora }} />
-                <h4 className="font-bold text-white">SLA, SLO e SLI</h4>
+                <h4 className="font-bold text-white">A Trindade da Confiabilidade: SLA, SLO e SLI</h4>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                A trindade da confiabilidade. SLI mede a realidade, SLA é o contrato.
+                No mundo da engenharia de confiabilidade (SRE) e DevSecOps, a estabilidade não é um
+                sentimento — é uma métrica. Para transformar "achismos" em dados, utilizamos três
+                siglas que formam a espinha dorsal da governança de TI: SLI, SLO e SLA.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border transition-all hover:bg-[#1a0505] group" style={{ borderColor: colors.principal }}>
-              <div className="flex items-center gap-3 mb-3">
-                <FileCheck className="w-5 h-5" style={{ color: colors.principal }} />
-                <h4 className="font-bold text-white">Compliance Automatizado</h4>
+            {/* ---------------------------------------------------------------------
+          CARD: SLI (A REALIDADE)
+      ---------------------------------------------------------------------- */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-b from-cyan-900/50 to-[#0f0202] transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.15)]">
+
+              <div className="h-full bg-[#050101] rounded-xl p-6 relative overflow-hidden">
+
+                {/* Header do Card */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-cyan-950/30 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <Activity className="w-8 h-8 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">SLI</h3>
+                      <p className="text-xs text-cyan-500 font-mono tracking-widest uppercase">Service Level Indicator</p>
+                    </div>
+                  </div>
+
+                  <div className="px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    A Realidade
+                  </div>
+                </div>
+
+                {/* Definição */}
+                <div className="mb-8 space-y-4">
+                  <p className="text-lg text-slate-300 font-light leading-relaxed">
+                    <strong className="text-white">O termômetro do paciente.</strong> É a métrica direta que diz exatamente o que está acontecendo agora.
+                  </p>
+                  <div className="pl-4 border-l-2 border-cyan-800 text-sm text-slate-400 italic">
+                    "Uma medida quantitativa do nível de serviço fornecido. Sem achismo, apenas dados."
+                  </div>
+                </div>
+
+                {/* Exemplos Práticos Grid */}
+                <div className="grid md:grid-cols-2 gap-4">
+
+                  {/* Exemplo 1: Disponibilidade */}
+                  <div className="p-4 rounded-lg bg-cyan-950/10 border border-cyan-900/30 group-hover:border-cyan-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Globe className="w-4 h-4 text-cyan-400" />
+                      <span className="text-xs font-bold text-white uppercase">Exemplo: Disponibilidade</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "API respondeu com sucesso a <span className="text-cyan-400 font-bold">99,8%</span> das requisições nos últimos 30 dias."
+                    </p>
+                  </div>
+
+                  {/* Exemplo 2: Segurança */}
+                  <div className="p-4 rounded-lg bg-cyan-950/10 border border-cyan-900/30 group-hover:border-cyan-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Shield className="w-4 h-4 text-cyan-400" />
+                      <span className="text-xs font-bold text-white uppercase">Exemplo: DevSecOps</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "O tempo médio para corrigir vulnerabilidades críticas (MTTR) foi de <span className="text-cyan-400 font-bold">24 horas</span>."
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Visual Decorativo (Data Stream) */}
+                <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                  <BarChart2 className="w-32 h-32 text-cyan-500" />
+                </div>
+
               </div>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textoSec }}>
-                Usamos <strong>OPA (Open Policy Agent)</strong> para garantir a ISO 27001 no código.
-              </p>
-              <div className="p-3 bg-black rounded border border-dashed font-mono text-xs" style={{ borderColor: colors.borda }}>
-                <span style={{ color: colors.textoSec }}>$ check_compliance --target=prod</span><br />
-                <span style={{ color: colors.principal }}>&gt; STATUS: PASSED (ISO_27001)</span>
+            </div>
+
+
+            {/* ---------------------------------------------------------------------
+          CARD: SLO (A META)
+      ---------------------------------------------------------------------- */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-b from-purple-900/50 to-[#0f0202] transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] mt-8">
+
+              <div className="h-full bg-[#050101] rounded-xl p-6 relative overflow-hidden">
+
+                {/* Header do Card */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-purple-950/30 border border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                      <Crosshair className="w-8 h-8 text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">SLO</h3>
+                      <p className="text-xs text-purple-500 font-mono tracking-widest uppercase">Service Level Objective</p>
+                    </div>
+                  </div>
+
+                  <div className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-950/20 text-purple-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                    A Meta Interna
+                  </div>
+                </div>
+
+                {/* Definição */}
+                <div className="mb-8 space-y-4">
+                  <p className="text-lg text-slate-300 font-light leading-relaxed">
+                    <strong className="text-white">O alvo interno.</strong> É onde definimos o que é "bom o suficiente" antes que o usuário reclame.
+                  </p>
+                  <div className="pl-4 border-l-2 border-purple-800 text-sm text-slate-400 italic">
+                    "Deve ser sempre mais rigoroso que o SLA para criar uma margem de segurança técnica."
+                  </div>
+                </div>
+
+                {/* Exemplos Práticos Grid */}
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+
+                  {/* Exemplo 1: Meta de Disponibilidade */}
+                  <div className="p-4 rounded-lg bg-purple-950/10 border border-purple-900/30 group-hover:border-purple-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Target className="w-4 h-4 text-purple-400" />
+                      <span className="text-xs font-bold text-white uppercase">Meta: Disponibilidade</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "Queremos que <span className="text-purple-400 font-bold">99,9%</span> das requisições sejam bem-sucedidas."
+                    </p>
+                  </div>
+
+                  {/* Exemplo 2: Meta de Segurança */}
+                  <div className="p-4 rounded-lg bg-purple-950/10 border border-purple-900/30 group-hover:border-purple-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <ShieldCheck className="w-4 h-4 text-purple-400" />
+                      <span className="text-xs font-bold text-white uppercase">Meta: Segurança</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "Nenhum container com vulneabilidade crítica em produção por mais de <span className="text-purple-400 font-bold">48 horas</span>."
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Conceito Chave: Error Budget */}
+                <div className="p-4 rounded-lg border border-dashed border-purple-500/40 bg-purple-900/10 flex items-start gap-3">
+                  <Wallet className="w-5 h-5 text-purple-400 mt-1 shrink-0" />
+                  <div>
+                    <strong className="text-purple-400 text-sm uppercase tracking-wider block mb-1">Conceito Chave: Error Budget</strong>
+                    <p className="text-xs text-slate-300 leading-relaxed">
+                      Se você viola o SLO, você consome seu <strong>Orçamento de Erro</strong>. Isso sinaliza que é hora de <span className="text-white underline decoration-purple-500">parar de lançar novas features</span> e focar 100% em estabilidade.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Visual Decorativo */}
+                <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                  <Target className="w-32 h-32 text-purple-500" />
+                </div>
+
+              </div>
+            </div>
+
+            {/* ---------------------------------------------------------------------
+          CARD: SLA (O CONTRATO)
+      ---------------------------------------------------------------------- */}
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-b from-amber-600/50 to-[#0f0202] transition-all hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] mt-8 mb-16">
+
+              <div className="h-full bg-[#050101] rounded-xl p-6 relative overflow-hidden">
+
+                {/* Header do Card */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-500/50 shadow-[0_0_15px_rgba(217,119,6,0.2)]">
+                      <FileText className="w-8 h-8 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">SLA</h3>
+                      <p className="text-xs text-amber-500 font-mono tracking-widest uppercase">Service Level Agreement</p>
+                    </div>
+                  </div>
+
+                  <div className="px-3 py-1 rounded-full border border-amber-500/30 bg-amber-950/20 text-amber-500 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    O Contrato Legal
+                  </div>
+                </div>
+
+                {/* Definição */}
+                <div className="mb-8 space-y-4">
+                  <p className="text-lg text-slate-300 font-light leading-relaxed">
+                    <strong className="text-white">A promessa externa.</strong> É o acordo legal entre provedor e cliente. Se quebrado, existem consequências reais.
+                  </p>
+                  <div className="pl-4 border-l-2 border-amber-800 text-sm text-slate-400 italic">
+                    "Um contrato explícito que define as penalidades (multas, créditos) de não atingir os padrões."
+                  </div>
+                </div>
+
+                {/* Exemplos Práticos Grid */}
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+
+                  {/* Exemplo 1: O Contrato Financeiro */}
+                  <div className="p-4 rounded-lg bg-amber-950/10 border border-amber-900/30 group-hover:border-amber-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Scale className="w-4 h-4 text-amber-500" />
+                      <span className="text-xs font-bold text-white uppercase">Cláusula: Disponibilidade</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "Garantimos <span className="text-amber-500 font-bold">99,5%</span> mensal. Se ficarmos abaixo, reembolsamos <span className="text-red-400 font-bold">10% da fatura</span>."
+                    </p>
+                  </div>
+
+                  {/* Nota de Segurança (O Segredo) */}
+                  <div className="p-4 rounded-lg bg-amber-950/10 border border-amber-900/30 group-hover:border-amber-500/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <ShieldAlert className="w-4 h-4 text-amber-500" />
+                      <span className="text-xs font-bold text-white uppercase">Nota de Segurança</span>
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed font-mono">
+                      "Não expomos métricas internas (ex: tempo de patch) no SLA externo. Focamos na <span className="text-amber-500 font-bold">Experiência do Usuário</span>."
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Consequência Real */}
+                <div className="p-4 rounded-lg border border-dashed border-red-500/30 bg-red-950/10 flex items-start gap-3">
+                  <Gavel className="w-5 h-5 text-red-500 mt-1 shrink-0" />
+                  <div>
+                    <strong className="text-red-400 text-sm uppercase tracking-wider block mb-1">Impacto de Negócio</strong>
+                    <p className="text-xs text-slate-300 leading-relaxed">
+                      Violar o SLA não é apenas um problema técnico, é um problema <span className="text-white font-bold">jurídico e financeiro</span>. Envolve advogados, multas e perda de reputação.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="my-6 grid grid-cols-2 gap-4">
+
+                  {['Frequência de Deploy', 'Lead Time para Mudanças', 'MTTR (Restauração)', 'Taxa de Falha'].map((metric, i) => (
+
+                    <div key={i} className="bg-[#0f0202] border border-slate-800 p-3 rounded text-center">
+
+                      <span className="text-xs font-mono text-slate-400 uppercase tracking-widest">{metric}</span>
+
+                    </div>
+                  ))}
+                </div>
+                {/* Visual Decorativo */}
+                <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                  <FileText className="w-32 h-32 text-amber-500" />
+                </div>
+
               </div>
             </div>
           </div>
 
-          <div className="relative p-1 rounded-2xl bg-gradient-to-b from-[#b3120c] to-transparent">
-            <div className="h-full bg-[#0a0202] rounded-xl p-6 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(253,143,0,0.05)_50%,transparent_75%,transparent_100%)] bg-[size:10px_10px]"></div>
-              <div className="relative z-10">
-                <div className="flex justify-between items-center mb-6">
-                  <h4 className="font-bold text-white flex items-center gap-2">
-                    <BarChart3 className="w-5 h-5" style={{ color: colors.abobora }} />
-                    DORA Metrics: Live Status
+          {/* COLUNA DA DIREITA: DORA METRICS (AGORA COM TAMANHO FIXO) */}
+          <div className="relative p-1 rounded-2xl bg-gradient-to-b from-[#b3120c] to-transparent h-fit"> {/* <--- ADICIONEI h-fit AQUI */}
+
+            <div className="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
+              <div className="p-2 rounded bg-slate-900 border border-slate-700">
+                <BarChart3 className="w-6 h-6" style={{ color: colors.dourado }} />
+              </div>
+              <h3 className="text-2xl font-bold text-white">DORA Metrics: Dados, não Feeling</h3>
+            </div>
+            <div className="space-y-8">
+              {/* COLUNA ESQUERDA: A TEORIA (MANIFESTO) */}
+              <div className="space-y-8 sticky top-8 self-start">
+                <div className="p-8 rounded-2xl border relative overflow-hidden h-full flex flex-col bg-gradient-to-b from-[#0a0a0a] to-[#050101]"
+                  style={{ borderColor: colors.borda }}>
+
+                  {/* Elemento Decorativo de Fundo */}
+                  <div className="absolute top-0 right-0 p-6 opacity-5">
+                    <BarChart3 className="w-40 h-40" style={{ color: colors.principal }} />
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-8 border-b border-slate-800 pb-6">
+                      <div className="p-3 rounded-xl bg-slate-900 border border-slate-700 shadow-lg">
+                        <Activity className="w-8 h-8" style={{ color: colors.dourado }} />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">Alta Performance</h3>
+                        <p className="text-xs font-mono uppercase tracking-widest text-slate-500">DORA Metrics Standards</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-6 text-base leading-relaxed" style={{ color: colors.textoSec }}>
+                      <p>
+                        <strong className="text-white">Alta performance não se mede por feeling; se mede por dados.</strong><br />
+                        As DORA Metrics tornaram-se o termômetro real da eficiência operacional e hoje são padrão de mercado:
+                        Frequência de Deploy, Lead Time para Mudanças, Tempo Médio para Restauração de Serviço (MTTR)
+                        e Taxa de Falha em Mudanças.
+                      </p>
+
+                      <p>
+                        Essas métricas conectam agilidade com estabilidade e expõem, sem romantismo,
+                        se a organização entrega valor de forma sustentável ou apenas "trabalha muito".
+                      </p>
+
+                      <div className="pl-4 border-l-2" style={{ borderColor: colors.abobora }}>
+                        <p className="italic text-slate-300 text-sm">
+                          O MTTR, em especial, funciona como indicador direto de resiliência operacional:
+                          quanto menor, maior a capacidade do time de detectar, responder e se recuperar de
+                          incidentes com impacto controlado ao negócio.
+                        </p>
+                      </div>
+
+                      {/* Parágrafo 3: Maturidade (Taxa de Falha) */}
+                      <p className="text-slate-400 leading-relaxed bg-[#0a0202] p-4 rounded-lg border border-slate-800">
+                        Já a <strong className="text-white">Taxa de Falha em Mudanças</strong> revela a maturidade dos processos de entrega. Uma taxa elevada indica ausência de testes automatizados e falhas de governança; uma taxa baixa reflete pipelines robustos, automação eficaz e mudanças bem avaliadas.
+                      </p>
+                    </div>
+
+                    {/* Frase de Fechamento */}
+                    <div className="mt-8 pt-6 border-t border-slate-800">
+                      <p className="text-sm font-bold text-white flex items-center gap-2">
+                        <Target className="w-5 h-5" style={{ color: colors.principal }} />
+                        Decisão baseada em evidência, não em narrativa.
+                      </p>
+
+                      <div className="mt-4 pt-4">
+                        <p className="text-sm text-slate-400 italic">
+
+                          <span>
+                            Em conjunto, essas métricas transformam operações de TI em decisões estratégicas, permitindo equilibrar velocidade, risco e continuidade de negócio com base em <span style={{ color: colors.dourado, borderBottom: `1px solid ${colors.dourado}` }}>evidência — não em narrativa.</span>
+                          </span>
+                        </p>
+                      </div> <br />
+                      <div className="relative z-10">
+                        <div className="flex justify-between items-center mb-6">
+                          <h4 className="font-bold text-white flex items-center gap-2">
+                            <BarChart3 className="w-5 h-5" style={{ color: colors.abobora }} />
+                            DORA Metrics: Live Status
+                          </h4>
+                          <span className="text-[10px] px-2 py-1 rounded bg-[#2a0505] border animate-pulse" style={{ borderColor: colors.principal, color: colors.principal }}>LIVE_FEED</span>
+                        </div>
+
+                        <div className="space-y-6">
+                          <div>
+                            <div className="flex justify-between text-xs mb-2"><span style={{ color: colors.textoSec }}>Deployment Frequency</span><span className="font-bold" style={{ color: colors.dourado }}>ON-DEMAND (Elite)</span></div>
+                            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden"><div className="h-full rounded-full animate-[width_2s_ease-in-out]" style={{ width: '98%', backgroundColor: colors.principal, boxShadow: `0 0 10px ${colors.principal}` }}></div></div>
+                          </div>
+                          <div>
+                            <div className="flex justify-between text-xs mb-2"><span style={{ color: colors.textoSec }}>Lead Time for Changes</span><span className="font-bold" style={{ color: colors.abobora }}>&lt; 1 HOUR (Elite)</span></div>
+                            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden"><div className="h-full rounded-full animate-[width_2.5s_ease-in-out]" style={{ width: '92%', backgroundColor: colors.abobora, boxShadow: `0 0 10px ${colors.abobora}` }}></div></div>
+                          </div>
+                        </div>
+
+                        <div className="mt-6 pt-4 border-t text-xs italic text-center" style={{ borderColor: colors.borda, color: colors.textoSec }}>
+                          "Se a segurança melhora o MTTR sem piorar o Lead Time, você atingiu a maturidade."
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div> <br />
+            <div className="space-y-6">
+
+              {/* Header da Coluna Direita */}
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Análise de Indicadores</span>
+                <span className="text-[10px] font-bold text-yellow-500 flex items-center gap-1">
+                  <Compass className="w-3 h-3" /> De Checklist para Bússola
+                </span>
+              </div>
+
+              {/* CARD 1: MTTR (Resiliência) */}
+              <div className="bg-[#050101] border rounded-xl overflow-hidden group hover:border-blue-500 transition-all duration-300" style={{ borderColor: colors.borda }}>
+                <div className="bg-[#0f0202] px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+                  <h4 className="font-bold text-white text-sm flex items-center gap-2">
+                    <TimerReset className="w-4 h-4 text-blue-500" /> 1. MTTR (Mean Time To Restore)
                   </h4>
-                  <span className="text-[10px] px-2 py-1 rounded bg-[#2a0505] border animate-pulse" style={{ borderColor: colors.principal, color: colors.principal }}>LIVE_FEED</span>
+                  <span className="text-[9px] bg-blue-900/20 text-blue-400 px-2 py-0.5 rounded border border-blue-900">Maturidade</span>
                 </div>
-                <div className="space-y-6">
-                  <div>
-                    <div className="flex justify-between text-xs mb-2"><span style={{ color: colors.textoSec }}>Deployment Frequency</span><span className="font-bold" style={{ color: colors.dourado }}>ON-DEMAND (Elite)</span></div>
-                    <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden"><div className="h-full rounded-full animate-[width_2s_ease-in-out]" style={{ width: '98%', backgroundColor: colors.principal, boxShadow: `0 0 10px ${colors.principal}` }}></div></div>
+
+                <div className="p-4 grid grid-cols-2 gap-4 text-xs">
+                  {/* Lado Bom */}
+                  <div className="space-y-2">
+                    <strong className="text-green-500 block mb-1">MTTR BAIXO INDICA:</strong>
+                    <ul className="space-y-1 text-slate-400">
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Observabilidade eficiente (logs/tracing).</li>
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Runbooks claros e automação.</li>
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Times treinados para incidentes reais.</li>
+                    </ul>
                   </div>
-                  <div>
-                    <div className="flex justify-between text-xs mb-2"><span style={{ color: colors.textoSec }}>Lead Time for Changes</span><span className="font-bold" style={{ color: colors.abobora }}>&lt; 1 HOUR (Elite)</span></div>
-                    <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden"><div className="h-full rounded-full animate-[width_2.5s_ease-in-out]" style={{ width: '92%', backgroundColor: colors.abobora, boxShadow: `0 0 10px ${colors.abobora}` }}></div></div>
+                  {/* Lado Ruim */}
+                  <div className="space-y-2 border-l border-slate-800 pl-4">
+                    <strong className="text-red-500 block mb-1">MTTR ALTO DENUNCIA:</strong>
+                    <ul className="space-y-1 text-slate-400">
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" /> Falta de visibilidade ("voo cego").</li>
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" /> Burocracia no escalonamento.</li>
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" /> Dependência de "heróis".</li>
+                    </ul>
                   </div>
                 </div>
-                <div className="mt-6 pt-4 border-t text-xs italic text-center" style={{ borderColor: colors.borda, color: colors.textoSec }}>
-                  "Se a segurança melhora o MTTR sem piorar o Lead Time, você atingiu a maturidade."
+
+                <div className="px-6 py-3 bg-[#050101] border-t border-slate-800 flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-blue-500" />
+                  <p className="text-xs text-slate-300 italic">
+                    <strong className="text-blue-400">Tradução Executiva:</strong> Quanto menor o MTTR, menor o impacto financeiro e reputacional.
+                  </p>
                 </div>
+              </div>
+
+              {/* CARD 2: TAXA DE FALHA (Qualidade) */}
+              <div className="bg-[#050101] border rounded-xl overflow-hidden group hover:border-red-500 transition-all duration-300" style={{ borderColor: colors.borda }}>
+                <div className="bg-[#0f0202] px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+                  <h4 className="font-bold text-white text-sm flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-red-500" /> 2. Taxa de Falha em Mudanças
+                  </h4>
+                  <span className="text-[9px] bg-red-900/20 text-red-400 px-2 py-0.5 rounded border border-red-900">Qualidade</span>
+                </div>
+
+                <div className="p-4 grid grid-cols-2 gap-4 text-xs">
+                  {/* Lado Bom */}
+                  <div className="space-y-2">
+                    <strong className="text-green-500 block mb-1">TAXA BAIXA INDICA:</strong>
+                    <ul className="space-y-1 text-slate-400">
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Pipelines maduros de CI/CD.</li>
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Testes automatizados confiáveis.</li>
+                      <li className="flex gap-1.5"><CheckCircle className="w-3 h-3 text-green-500 shrink-0" /> Uso de Feature Flags e Rollback.</li>
+                    </ul>
+                  </div>
+                  {/* Lado Ruim */}
+                  <div className="space-y-2 border-l border-slate-800 pl-4">
+                    <strong className="text-red-500 block mb-1">TAXA ALTA REVELA:</strong>
+                    <ul className="space-y-1 text-slate-400">
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" /> Mudanças mal avaliadas</li>
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" /> Segurança/Testes como "pós-deploy".</li>
+                      <li className="flex gap-1.5"><X className="w-3 h-3 text-red-500 shrink-0" />  Governança fraca disfarçada de agilidade (Falsa agilidade).</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="px-6 py-3 bg-[#050101] border-t border-slate-800 flex items-center gap-2">
+                  <Target className="w-4 h-4 text-orange-500" />
+                  <p className="text-xs text-slate-300 italic">
+                    <strong className="text-orange-400">Recado Final:</strong> Não é sobre mudar menos, é sobre mudar melhor.
+                  </p>
+                </div>
+              </div>
+
+              {/* CARD 3: VISÃO DE NEGÓCIO */}
+              <div className="p-4 rounded-xl border border-dashed bg-[#1a0505]" style={{ borderColor: colors.dourado }}>
+                <div className="flex items-start gap-3">
+                  <TrendingUp className="w-5 h-5 mt-1" style={{ color: colors.dourado }} />
+                  <div>
+                    <h5 className="font-bold text-white text-sm mb-1">Visão de Sobrevivência</h5>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      Restaurar rápido um serviço irrelevante não é vitória.
+                      <strong className="text-white"> Restaurar rápido um serviço crítico é sobrevivência corporativa.</strong>
+                      <br />
+                      <span className="block mt-2 opacity-70">Leitura obrigatória: Impacto Cliente + Financeiro + Regulatório.</span>
+                    </p>
+                  </div>
+                </div>
+              </div> <br />
+            </div>
+          </div>
+
+        </div>
+        {/* ---------------------------------------------------------------------
+          SEÇÃO DUAL: PRIVACIDADE & GESTÃO DE MUDANÇAS
+      ---------------------------------------------------------------------- */}
+        <div className="mt-16 mb-20 grid lg:grid-cols-2 gap-8">
+
+          {/* COLUNA ESQUERDA: PRIVACIDADE (COMPLIANCE BY DESIGN) */}
+          <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-[#0f0202] transition-all hover:shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+            <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
+
+              {/* Header */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/30">
+                  <Fingerprint className="w-6 h-6 text-emerald-500" />
+                </div>
+                <h4 className="text-xl font-bold text-white">Privacidade e Proteção: Compliance by design</h4>
+              </div>
+
+              {/* Tags de Contexto */}
+              <div className="flex gap-2 mb-6">
+                <span className="text-[10px] font-mono border border-emerald-900 text-emerald-400 px-2 py-1 rounded bg-emerald-950/30">LGPD</span>
+                <span className="text-[10px] font-mono border border-emerald-900 text-emerald-400 px-2 py-1 rounded bg-emerald-950/30">GDPR</span>
+                <span className="text-[10px] font-mono border border-emerald-900 text-emerald-400 px-2 py-1 rounded bg-emerald-950/30">ISO 27701</span>
+              </div>
+
+              {/* Conteúdo Principal */}
+              <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
+                <p>
+                  LGPD e GDPR não são projetos paralelos nem “problemas jurídicos”; são
+                  <strong className="text-white"> requisitos arquiteturais </strong>,
+                  critérios de qualidade e fatores de decisão de negócio.
+                  Classificação de dados, proteção de PII e controles de acesso precisam nascer
+                  junto com o sistema — não depois do vazamento nem sob pressão regulatória.
+                </p>
+                <p>
+                  Privacy by Design incorpora princípios como minimização de dados, segregação de ambientes,
+                  rastreabilidade e retenção consciente, transformando compliance em vantagem competitiva.
+                  O efeito colateral positivo é direto: redução de risco operacional, fortalecimento da
+                  marca e eliminação de multas que ninguém quer defender no comitê executivo.
+                  Governança de dados madura não freia inovação — ela viabiliza escala segura.
+                </p>
+
+                <div className="p-4 rounded border border-emerald-900/30 bg-emerald-950/10 mt-4">
+                  <p className="text-xs text-emerald-400 italic">
+                    "Privacy by Design é redução de risco, fortalece a marca e evita multas que ninguém quer explicar no comitê executivo."
+                  </p>
+                </div>
+              </div>
+
+              {/* Ícone Decorativo */}
+              <div className="absolute -right-6 -bottom-6 opacity-5 pointer-events-none">
+                <ShieldCheck className="w-40 h-40 text-emerald-500" />
               </div>
             </div>
           </div>
+
+          {/* COLUNA DIREITA: GESTÃO DE MUDANÇAS (AGILE GOVERNANCE) */}
+          <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-indigo-900/40 to-[#0f0202] transition-all hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]">
+            <div className="h-full bg-[#050101] rounded-xl p-8 relative overflow-hidden flex flex-col">
+
+              {/* Header */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30">
+                  <GitPullRequest className="w-6 h-6 text-indigo-500" />
+                </div>
+                <h4 className="text-xl font-bold text-white">Gestão de Mudanças Ágil</h4>
+              </div>
+
+              {/* Tags de Contexto */}
+              <div className="flex gap-2 mb-6">
+                <span className="text-[10px] font-mono border border-indigo-900 text-indigo-400 px-2 py-1 rounded bg-indigo-950/30">CI/CD</span>
+                <span className="text-[10px] font-mono border border-indigo-900 text-indigo-400 px-2 py-1 rounded bg-indigo-950/30">NO-CAB</span>
+                <span className="text-[10px] font-mono border border-indigo-900 text-indigo-400 px-2 py-1 rounded bg-indigo-950/30">AUTOMATION</span>
+              </div>
+
+              {/* Conteúdo Principal */}
+              <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
+                <p>
+                  O <strong className="text-red-400">CAB tradicional</strong> não escala na velocidade do CI/CD. Simples assim.
+                  A governança moderna abandona reuniões intermináveis e evolui para modelos automatizados, orientados a risco e integrados ao pipeline,
+                  com aprovações embutidas, segregação de funções como código e observabilidade contínua ponta a ponta.
+
+                </p>
+                <p>
+                  Aprovação embutida no pipeline e observabilidade contínua transformam a mudança. <br />
+                  A mudança deixa de ser evento raro, traumático e burocrático para se tornar fluxo contínuo, previsível, controlado e auditável. O foco migra do “quem autorizou” para o “qual o impacto e como mitigamos”.
+                  O resultado é pragmático: agilidade com responsabilidade, velocidade sem perda de controle. Governança que acompanha o negócio — não que corre atrás dele. O melhor dos dois mundos, sem romantismo.
+                </p>
+
+                <div className="p-4 rounded border border-indigo-900/30 bg-indigo-950/10 mt-4">
+                  <p className="text-xs text-indigo-400 italic">
+                    "Agilidade com responsabilidade. Governança que acompanha a velocidade do negócio — o melhor dos dois mundos."
+                  </p>
+                </div>
+              </div>
+
+              {/* Ícone Decorativo */}
+              <div className="absolute -right-6 -bottom-6 opacity-5 pointer-events-none">
+                <RefreshCw className="w-40 h-40 text-indigo-500" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
