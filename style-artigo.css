@@ -717,3 +717,32 @@ footer .line-footer a {
         max-width: 100%;
     }
 }
+
+/* Correção específica para a seção de Artigos no Mobile */
+@media screen and (max-width: 600px) {
+    .grid-artigos {
+        /* Força um card por linha para dar espaço ao iframe */
+        grid-template-columns: 1fr !important; 
+        gap: 20px;
+    }
+
+    .card-artigos {
+        /* Garante que o card tenha altura visível no celular */
+        height: 500px !important; 
+        width: 100%;
+    }
+
+    .card-artigos iframe {
+        /* Ajusta o zoom do iframe para não "fugir" da tela do celular */
+        transform: scale(0.8) !important; 
+        width: 125% !important;
+        left: -12.5% !important;
+        top: 0 !important;
+    }
+
+    .card-artigos .overlay {
+        /* Garante que o texto "Clique para Expandir" apareça no mobile */
+        transform: translateY(0); 
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
