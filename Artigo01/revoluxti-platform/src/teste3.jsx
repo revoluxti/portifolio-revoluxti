@@ -1,440 +1,332 @@
-// -----------------------------------------------------------------------------
-// ARQUIVO: DevSecOpsArticle.jsx (VERSÃO FINAL GOLD MASTER)
-// -----------------------------------------------------------------------------
-
-import React, { useState } from 'react';
-import { 
-  Shield, Lock, Server, Zap, Globe, AlertTriangle, 
-  Terminal, Activity, Box, Database, Search, 
-  GitBranch, Code, Eye, RefreshCw, Cpu,
-  Users, ArrowLeftCircle, GraduationCap,
-  Target, FileCheck, BarChart3, ShieldAlert, 
-  CheckCircle, Play, Bug, X, ChevronRight,
-  Github, Linkedin, Facebook, Mail, Fingerprint, Smartphone, Key, Hash, ShieldCheck,
-  Container, CloudLightning, Layers, Network, // Cap 6
-  Radar, Workflow, Radio, Siren, // Cap 7
-  LifeBuoy, ZapOff, TimerReset, HardDrive, RefreshCcw // Cap 8
-} from 'lucide-react';
-
-// -----------------------------------------------------------------------------
-// SUB-COMPONENTE 1: SIMULADOR DE PIPELINE (CI/CD)
-// -----------------------------------------------------------------------------
-const PipelineSimulator = ({ colors }) => {
-  const [status, setStatus] = useState('IDLE'); 
-  const [logs, setLogs] = useState(['> SYSTEM READY...', '> WAITING FOR COMMIT...']);
+{/* ---------------------------------------------------------------------
+    MÓDULO: REVOLUXTI COMMAND CENTER - ULTIMATE EDITION
+---------------------------------------------------------------------- */}
+<section className="py-20 px-4 max-w-[1400px] mx-auto border-t border-slate-800 relative overflow-hidden">
   
-  const runPipeline = () => {
-    setStatus('RUNNING');
-    setLogs(['> INITIATING PIPELINE...', '> CLONING REPO...', '> RUNNING SAST CHECK...']);
-    setTimeout(() => {
-      setLogs(prev => [...prev, '> SAST: PASSED (0 Critical)', '> RUNNING SCA (DEPENDENCY CHECK)...']);
-      setTimeout(() => {
-        setLogs(prev => [
-           ...prev, '> SCA: ANALYZING PACKAGES...', '> CRITICAL VULNERABILITY FOUND: log4j-core:2.14.1', 
-           '> CVE-2021-44228 DETECTED', '> BLOCKING DEPLOYMENT...'
-        ]);
-        setStatus('BLOCKED');
-      }, 1500);
-    }, 1500);
-  };
+  {/* 1. AMBIENTE IMERSIVO (Background Dinâmico) */}
+  <div className={`absolute top-0 left-0 w-full h-full pointer-events-none transition-all duration-1000
+    ${warGameMode === 'blue' ? 'bg-blue-950/10' : 'bg-red-950/10'}`}>
+    {/* Scanlines e Ruído */}
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 bg-[length:100%_2px,3px_100%] opacity-20"></div>
+    {/* Glow Ambiental Central */}
+    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] rounded-full blur-[100px] opacity-10 
+      ${warGameMode === 'blue' ? 'bg-blue-600' : 'bg-red-600'}`}></div>
+  </div>
 
-  const resetPipeline = () => {
-     setStatus('IDLE');
-     setLogs(['> SYSTEM RESET.', '> WAITING FOR COMMIT...']);
-  };
-
-  return (
-    <div className="rounded-xl border shadow-2xl overflow-hidden relative" style={{ backgroundColor: '#020617', borderColor: status === 'BLOCKED' ? colors.principal : colors.borda }}>
-       <div className="px-4 py-2 border-b flex items-center justify-between bg-[#0f0202]" style={{ borderColor: colors.borda }}>
-          <div className="flex gap-2">
-             <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500"></div>
-             <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500"></div>
-             <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500"></div>
-          </div>
-          <div className="text-[10px] font-mono text-slate-500">CI/CD SECURITY CONSOLE</div>
+  {/* 2. HEADER TÁTICO & CONTROLES */}
+  <div className="flex flex-col lg:flex-row justify-between items-end mb-10 border-b border-slate-800 pb-6 relative z-10 gap-6">
+    <div className="flex items-center gap-5">
+       {/* Insígnia do Modo */}
+       <div className={`p-4 rounded-2xl border backdrop-blur-md shadow-2xl transition-all duration-500
+          ${warGameMode === 'blue' ? 'bg-blue-950/50 border-blue-500/50 text-blue-400' : 'bg-red-950/50 border-red-500/50 text-red-500'}`}>
+          {warGameMode === 'blue' ? <Shield className="w-12 h-12 animate-pulse" /> : <Swords className="w-12 h-12 animate-bounce" />}
        </div>
-       <div className="p-6 font-mono text-xs h-64 overflow-y-auto custom-scrollbar flex flex-col-reverse">
-          <div className="space-y-2">
-             {logs.map((log, i) => (
-                <div key={i} className={`${log.includes('CRITICAL') || log.includes('BLOCKING') ? 'text-red-500 font-bold animate-pulse' : log.includes('PASSED') ? 'text-green-500' : 'text-slate-400'}`}>{log}</div>
-             ))}
-             {status === 'RUNNING' && <div className="text-slate-500 animate-pulse">_ processing...</div>}
-          </div>
-       </div>
-       <div className="p-4 border-t bg-[#0f0202] flex justify-between items-center" style={{ borderColor: colors.borda }}>
-          <div className="flex items-center gap-2">
-             {status === 'IDLE' && <div className="w-2 h-2 rounded-full bg-slate-500"></div>}
-             {status === 'RUNNING' && <div className="w-2 h-2 rounded-full bg-yellow-500 animate-spin"></div>}
-             {status === 'BLOCKED' && <ShieldAlert className="w-5 h-5 text-red-600 animate-bounce" />}
-             <span className="text-xs font-bold" style={{ color: status === 'BLOCKED' ? colors.principal : colors.textoSec }}>STATUS: {status}</span>
-          </div>
-          {status === 'IDLE' ? (
-             <button onClick={runPipeline} className="px-4 py-2 rounded text-xs font-bold text-white flex items-center gap-2 hover:brightness-110 transition-all" style={{ backgroundColor: colors.abobora }}><Play className="w-3 h-3" /> DEPLOY CODE</button>
-          ) : (
-             <button onClick={resetPipeline} className="px-4 py-2 rounded text-xs font-bold text-white border hover:bg-slate-800 transition-all" style={{ borderColor: colors.textoSec }}>RESET SIMULATION</button>
-          )}
-       </div>
-       {status === 'BLOCKED' && (
-          <div className="absolute inset-0 bg-red-950/20 pointer-events-none flex items-center justify-center">
-             <div className="bg-black/90 border border-red-600 p-4 rounded-xl text-center shadow-[0_0_30px_rgba(220,38,38,0.5)] transform animate-in zoom-in duration-300">
-                <Bug className="w-12 h-12 text-red-500 mx-auto mb-2" />
-                <h3 className="text-red-500 font-bold text-xl">DEPLOY ABORTED</h3>
-                <p className="text-red-300 text-xs mt-1">Policy Violation: High Severity CVE Detected</p>
-             </div>
-          </div>
-       )}
-    </div>
-  );
-};
-
-// -----------------------------------------------------------------------------
-// SUB-COMPONENTE 2: SIMULADOR DE DISASTER RECOVERY (BCP/DR)
-// -----------------------------------------------------------------------------
-const DisasterRecoverySim = ({ colors }) => {
-  const [drState, setDrState] = useState('NORMAL'); // NORMAL, CRITICAL, RESTORING
-  const [uptime, setUptime] = useState(99.99);
-
-  const triggerDisaster = () => {
-     setDrState('CRITICAL');
-     setUptime(0.00);
-  };
-
-  const activateRecovery = () => {
-     setDrState('RESTORING');
-     setTimeout(() => {
-        setDrState('NORMAL');
-        setUptime(99.95);
-     }, 2500);
-  };
-
-  return (
-    <div className="border rounded-xl p-6 relative overflow-hidden shadow-2xl" 
-         style={{ backgroundColor: '#050101', borderColor: drState === 'CRITICAL' ? colors.principal : colors.borda }}>
        
-       <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
-          <div className="flex items-center gap-2">
-             <div className={`w-3 h-3 rounded-full ${drState === 'NORMAL' ? 'bg-green-500 animate-pulse' : drState === 'CRITICAL' ? 'bg-red-600 animate-ping' : 'bg-yellow-500'}`}></div>
-             <span className="font-mono text-xs text-slate-300">SYSTEM_HEARTBEAT</span>
+       <div>
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase mb-1">
+            War Games <span className="text-slate-600">|</span> <span className={warGameMode === 'blue' ? 'text-blue-500' : 'text-red-600'}>
+              {warGameMode === 'blue' ? 'DEFENSE' : 'OFFENSE'}
+            </span>
+          </h2>
+          <div className="flex items-center gap-3">
+            <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest border
+              ${warGameMode === 'blue' ? 'bg-blue-900/30 border-blue-500/30 text-blue-300' : 'bg-red-900/30 border-red-500/30 text-red-300'}`}>
+              {warGameMode === 'blue' ? 'SIMULATION: ACTIVE DEFENSE' : 'SIMULATION: RED STORM'}
+            </span>
+            <span className="flex items-center gap-1.5 text-[10px] text-slate-400 font-mono uppercase">
+               <span className={`relative flex h-2 w-2`}>
+                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${warGameMode === 'blue' ? 'bg-blue-400' : 'bg-red-400'}`}></span>
+                 <span className={`relative inline-flex rounded-full h-2 w-2 ${warGameMode === 'blue' ? 'bg-blue-500' : 'bg-red-500'}`}></span>
+               </span>
+               System Online
+            </span>
           </div>
-          <div className="font-mono text-xs">
-             UPTIME: <span style={{ color: drState === 'NORMAL' ? '#22c55e' : colors.principal }}>{uptime}%</span>
-          </div>
        </div>
-
-       <div className="flex justify-center gap-4 mb-8">
-          {[1, 2, 3].map((server) => (
-             <div key={server} className={`w-16 h-24 rounded border-2 flex flex-col justify-end items-center p-2 transition-all duration-500 ${
-                drState === 'NORMAL' ? 'border-slate-700 bg-slate-900' :
-                drState === 'CRITICAL' ? 'border-red-600 bg-red-950/30 animate-pulse' :
-                'border-yellow-500 bg-yellow-950/30'
-             }`}>
-                <div className="w-full h-[1px] bg-slate-800 mb-1"></div>
-                <div className="w-full h-[1px] bg-slate-800 mb-1"></div>
-                <div className="w-full h-[1px] bg-slate-800 mb-2"></div>
-                <div className={`w-2 h-2 rounded-full ${
-                   drState === 'NORMAL' ? 'bg-green-500' : 
-                   drState === 'CRITICAL' ? 'bg-red-500' : 'bg-yellow-500'
-                }`}></div>
-             </div>
-          ))}
-       </div>
-
-       <div className="bg-[#1a0505] rounded-lg p-4 border border-dashed" style={{ borderColor: colors.borda }}>
-          {drState === 'NORMAL' && (
-             <div className="text-center">
-                <p className="text-xs text-slate-400 mb-3">SYSTEM OPERATING NORMALLY</p>
-                <button 
-                  onClick={triggerDisaster}
-                  className="w-full py-2 bg-slate-800 hover:bg-red-900/50 text-white text-xs font-bold rounded flex items-center justify-center gap-2 transition-all border border-slate-700 hover:border-red-500"
-                >
-                  <ZapOff className="w-4 h-4" /> SIMULATE RANSOMWARE
-                </button>
-             </div>
-          )}
-
-          {drState === 'CRITICAL' && (
-             <div className="text-center animate-in fade-in zoom-in duration-300">
-                <p className="text-xs font-bold mb-3 animate-pulse" style={{ color: colors.principal }}>
-                   ⚠️ CRITICAL FAILURE: DATA ENCRYPTED
-                </p>
-                <button 
-                  onClick={activateRecovery}
-                  className="w-full py-2 text-black text-xs font-bold rounded flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(253,143,0,0.5)] hover:scale-105"
-                  style={{ backgroundColor: colors.abobora }}
-                >
-                  <RefreshCcw className="w-4 h-4 animate-spin" /> INITIATE DISASTER RECOVERY
-                </button>
-             </div>
-          )}
-
-          {drState === 'RESTORING' && (
-             <div className="text-center">
-                <p className="text-xs text-yellow-500 mb-2">RESTORING FROM IMMUTABLE BACKUP...</p>
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                   <div className="h-full bg-yellow-500 animate-[width_2s_ease-in-out]" style={{ width: '100%' }}></div>
-                </div>
-             </div>
-          )}
-       </div>
-       {drState === 'CRITICAL' && (
-          <div className="absolute inset-0 bg-red-600/10 pointer-events-none animate-pulse"></div>
-       )}
     </div>
-  );
-};
 
-// -----------------------------------------------------------------------------
-// COMPONENTE PRINCIPAL (SALA 2000)
-// -----------------------------------------------------------------------------
-const DevSecOpsArticle = () => {
-  const [warGameMode, setWarGameMode] = useState('blue');
-  const [showAuthModal, setShowAuthModal] = useState(false); 
-  const [authMode, setAuthMode] = useState('LOGIN'); 
+    {/* Switch de Times (Estilo Cyberpunk) */}
+    <div className="flex bg-[#050101]/80 p-1.5 rounded-xl border border-slate-700/50 shadow-2xl backdrop-blur-sm">
+      <button onClick={() => setWarGameMode('blue')}
+        className={`relative flex items-center gap-2 px-8 py-3 rounded-lg text-xs font-bold transition-all duration-300 uppercase tracking-wider
+        ${warGameMode === 'blue' ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.6)]' : 'text-slate-500 hover:text-blue-400 hover:bg-blue-900/20'}`}>
+        <Shield className="w-4 h-4" /> BLUE TEAM
+      </button>
+      <button onClick={() => setWarGameMode('red')}
+        className={`relative flex items-center gap-2 px-8 py-3 rounded-lg text-xs font-bold transition-all duration-300 uppercase tracking-wider
+        ${warGameMode === 'red' ? 'bg-red-600 text-white shadow-[0_0_25px_rgba(220,38,38,0.6)]' : 'text-slate-500 hover:text-red-400 hover:bg-red-900/20'}`}>
+        <Swords className="w-4 h-4" /> RED TEAM
+      </button>
+    </div>
+  </div>
 
-  // PALETA REVOLUXTI
-  const colors = {
-    principal: '#b3120c',       // Vermelho Forte
-    borda: '#631212',           // Vermelho Escuro
-    textoSec: '#a09494',        // Cinza Texto
-    dourado: '#ffcc00',         // Amarelo/Dourado
-    abobora: '#fd8f00',         // Laranja
-    fundoCard: '#1a0505',       // Fundo avermelhado muito escuro
-    bgPage: '#020617'           // Slate 950
-  };
-
-  return (
-    <div className="min-h-screen font-sans selection:bg-[#b3120c]/30 pb-24 relative" style={{ backgroundColor: colors.bgPage, color: '#e2e8f0' }}>
-      
-      {/* --- MODAL DE AUTENTICAÇÃO --- */}
-      {showAuthModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in duration-300">
-            <div className="w-full max-w-lg border-2 shadow-[0_0_50px_rgba(253,143,0,0.15)] relative overflow-hidden font-mono" 
-                 style={{ borderColor: colors.borda, backgroundColor: '#000' }}>
-                <div className="flex justify-between items-center px-4 py-0 border-b bg-[#0f0202]" style={{ borderColor: colors.borda }}>
-                    <div className="flex">
-                        <button onClick={() => setAuthMode('LOGIN')} className={`px-4 py-3 text-[10px] font-bold tracking-widest uppercase transition-colors border-r ${authMode === 'LOGIN' ? 'bg-[#2a0505] text-[#fd8f00]' : 'text-slate-600 hover:text-white'}`} style={{ borderColor: colors.borda }}>[ ACCESS_LOGIN ]</button>
-                        <button onClick={() => setAuthMode('REGISTER')} className={`px-4 py-3 text-[10px] font-bold tracking-widest uppercase transition-colors border-r ${authMode === 'REGISTER' ? 'bg-[#2a0505] text-[#fd8f00]' : 'text-slate-600 hover:text-white'}`} style={{ borderColor: colors.borda }}>[ NEW_OPERATOR ]</button>
-                    </div>
-                    <button onClick={() => setShowAuthModal(false)} className="text-slate-500 hover:text-red-500 p-2"><X className="w-5 h-5" /></button>
-                </div>
-                <div className="p-8 relative min-h-[450px]" style={{ backgroundColor: 'rgba(253, 143, 0, 0.08)' }}>
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 pointer-events-none bg-[size:100%_2px,3px_100%]"></div>
-                    <div className="relative z-10">
-                        <div className="text-green-500 text-xs mb-6 typing-effect leading-relaxed font-mono">
-                            &gt; ENCRYPTED CHANNEL ESTABLISHED (TLS 1.3)<br/>
-                            &gt; IDENTITY PROVIDER: <span className="text-[#fd8f00]">REVOLUXTI_AUTH_V2</span><br/>
-                            &gt; WAITING FOR CREDENTIALS...
-                        </div>
-                        {authMode === 'LOGIN' ? (
-                            <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                                <div>
-                                    <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Codename / Email</label>
-                                    <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors"><ChevronRight className="w-3 h-3 text-green-500" /><input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30" placeholder="operator@revoluxti.com" autoFocus /></div>
-                                </div>
-                                <div>
-                                    <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Security Code (Token)</label>
-                                    <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors"><Hash className="w-3 h-3 text-green-500" /><input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30" placeholder="XK9-###-###" /></div>
-                                </div>
-                                <button className="w-full mt-2 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(22,163,74,0.3)] clip-path-polygon"><Fingerprint className="w-4 h-4" /> AUTHENTICATE</button>
-                                <div className="mt-8 pt-6 border-t border-dashed border-green-900/30">
-                                    <p className="text-[9px] text-center text-green-700 uppercase tracking-[0.2em] mb-4 bg-transparent relative"><span className="bg-transparent px-2">Or Use Federated Identity (OAuth 2.0)</span></p>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"><Github className="w-4 h-4 text-green-600 group-hover:text-white" /><div className="text-left"><div className="text-[10px] font-bold text-green-500 group-hover:text-white">GITHUB</div><div className="text-[8px] text-green-800">Dev_Access_Token</div></div></button>
-                                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"><Mail className="w-4 h-4 text-green-600 group-hover:text-white" /><div className="text-left"><div className="text-[10px] font-bold text-green-500 group-hover:text-white">GOOGLE</div><div className="text-[8px] text-green-800">Workspace_SSO</div></div></button>
-                                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"><Linkedin className="w-4 h-4 text-green-600 group-hover:text-white" /><div className="text-left"><div className="text-[10px] font-bold text-green-500 group-hover:text-white">LINKEDIN</div><div className="text-[8px] text-green-800">Corp_Verification</div></div></button>
-                                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"><Facebook className="w-4 h-4 text-green-600 group-hover:text-white" /><div className="text-left"><div className="text-[10px] font-bold text-green-500 group-hover:text-white">FACEBOOK</div><div className="text-[8px] text-green-800">Meta_Graph_API</div></div></button>
-                                    </div>
-                                </div>
-                            </div>
-                        ) : (
-                            <div className="space-y-4 animate-in fade-in slide-in-from-left-4 duration-300">
-                                <div><label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Create Codename</label><div className="flex items-center gap-2 border-b border-green-800 pb-1"><ChevronRight className="w-3 h-3 text-green-500 animate-pulse" /><input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50" placeholder="Type_Your_Alias" autoFocus /></div></div>
-                                <div><label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Secure Frequency (Email)</label><div className="flex items-center gap-2 border-b border-green-800 pb-1"><ChevronRight className="w-3 h-3 text-green-500" /><input type="email" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50" placeholder="user@encrypted.net" /></div></div>
-                                <div><label className="block text-[10px] text-green-600 mb-2 uppercase tracking-widest">Select Allegiance</label><div className="grid grid-cols-2 gap-3"><button className="border border-green-800 hover:bg-green-900/30 text-green-500 text-xs py-2 px-3 rounded text-left transition-colors flex items-center gap-2"><div className="w-2 h-2 bg-blue-500 rounded-full"></div> Blue Team</button><button className="border border-green-800 hover:bg-green-900/30 text-green-500 text-xs py-2 px-3 rounded text-left transition-colors flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"></div> Red Team</button></div></div>
-                                <button className="w-full mt-6 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)]"><Terminal className="w-4 h-4" /> Execute_Join_Command</button>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </div>
-      )}
-
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-20 pb-16 px-6 overflow-hidden border-b" style={{ borderColor: colors.borda }}>
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#2a0505] via-slate-950 to-slate-950 opacity-90"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(179,18,12,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(179,18,12,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.abobora }}>Edição Final #01</span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>ISO 20000 Compliant</span>
+  {/* 3. DASHBOARD PRINCIPAL (GRID COMPLEXO) */}
+  <div className="grid lg:grid-cols-12 gap-6 relative z-10">
+    
+    {/* --- ESQUERDA: ESTRATÉGIA & KPI (Colspan 3) --- */}
+    <div className="lg:col-span-3 space-y-4">
+       {/* KPI CARD 1 */}
+       <div className={`p-5 rounded-xl border bg-[#0a0202]/90 backdrop-blur transition-colors ${warGameMode === 'blue' ? 'border-blue-900/50' : 'border-red-900/50'}`}>
+          <div className="flex justify-between mb-2">
+             <span className={`text-[10px] font-bold uppercase tracking-widest ${warGameMode === 'blue' ? 'text-blue-400' : 'text-red-400'}`}>
+               {warGameMode === 'blue' ? 'MTTD (Detection)' : 'Time to Compromise'}
+             </span>
+             <TimerReset className={`w-4 h-4 ${warGameMode === 'blue' ? 'text-blue-500' : 'text-red-500'}`} />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">REVOLUXTI <span style={{ color: colors.principal }}>2000</span></h1>
-          <p className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-8" style={{ color: colors.textoSec }}>
-            O Playbook Definitivo de <strong className="text-white">DevSecOps</strong>.<br />
-            <span className="text-sm font-mono mt-2 block" style={{ color: colors.abobora }}>&gt; SYSTEM_STATUS: RED_RHINO_OPERATIONAL</span>
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button onClick={() => { setShowAuthModal(true); setAuthMode('REGISTER'); }} className="px-6 py-3 text-white font-bold rounded flex items-center gap-2 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95" style={{ backgroundColor: colors.principal }}><Terminal className="w-5 h-5" /> Iniciar Protocolo</button>
-            <button onClick={() => { setShowAuthModal(true); setAuthMode('LOGIN'); }} className="px-6 py-3 bg-slate-900 text-white font-bold rounded flex items-center gap-2 transition-all border hover:bg-slate-800" style={{ borderColor: colors.borda }}><Lock className="w-5 h-5 text-[#fd8f00]" /> Acesso Restrito</button>
+          <div className="text-3xl font-bold text-white tracking-tight">{warGameMode === 'blue' ? '4m 32s' : '2h 14m'}</div>
+       </div>
+
+       {/* KPI CARD 2 */}
+       <div className={`p-5 rounded-xl border bg-[#0a0202]/90 backdrop-blur transition-colors ${warGameMode === 'blue' ? 'border-blue-900/50' : 'border-red-900/50'}`}>
+          <div className="flex justify-between mb-2">
+             <span className={`text-[10px] font-bold uppercase tracking-widest ${warGameMode === 'blue' ? 'text-blue-400' : 'text-red-400'}`}>
+               {warGameMode === 'blue' ? 'MTTR (Response)' : 'Dwell Time'}
+             </span>
+             <Activity className={`w-4 h-4 ${warGameMode === 'blue' ? 'text-blue-500' : 'text-red-500'}`} />
           </div>
-        </div>
-      </section>
+          <div className="text-3xl font-bold text-white tracking-tight">{warGameMode === 'blue' ? '12m 15s' : '14 Days'}</div>
+       </div>
 
-      {/* --- CAP 1: CULTURA --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t mt-12" style={{ borderColor: colors.borda }}>
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Globe className="w-6 h-6" style={{ color: colors.dourado }} /></div>
-            <h3 className="text-2xl font-bold text-white">Capítulo 1: A Convergência de Culturas</h3>
+       {/* DOUTRINA LIST (NIST / MITRE) */}
+       <div className={`p-5 rounded-xl border bg-gradient-to-br from-[#0a0202] to-slate-900/50 ${warGameMode === 'blue' ? 'border-blue-900/50' : 'border-red-900/50'}`}>
+          <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+             <BookOpen className={`w-4 h-4 ${warGameMode === 'blue' ? 'text-blue-400' : 'text-red-400'}`} />
+             <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                {warGameMode === 'blue' ? 'NIST CSF 2.0' : 'Cyber Kill Chain'}
+             </h3>
           </div>
-          <p className="leading-relaxed text-lg max-w-4xl" style={{ color: colors.textoSec }}>Onde a <strong className="text-white">ISO 20000</strong> encontra o Manifesto Ágil.</p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.borda }}><Users className="w-6 h-6" style={{ color: colors.abobora }} /></div>
-              <div><h4 className="font-bold text-lg mb-2 text-white">A Nova Era da TI</h4><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>A quebra de silos entre Desenvolvimento, Segurança e Operações.</p></div>
-            </div>
-          </div>
-          <div className="group p-6 rounded-xl border transition-all hover:-translate-y-1" style={{ backgroundColor: 'rgba(26, 5, 5, 0.4)', borderColor: colors.borda }}>
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.borda }}><RefreshCw className="w-6 h-6" style={{ color: colors.principal }} /></div>
-              <div><h4 className="font-bold text-lg mb-2 text-white">Do Waterfall ao DevOps</h4><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>A evolução da entrega de valor.</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- CAP 2: INFRA --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Server className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 2: Infraestrutura Blindada</h3></div><p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>Construindo pontes seguras. VLANs, BGP e Firewalls.</p></div>
-        <div className="relative p-8 rounded-2xl border overflow-hidden" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `radial-gradient(${colors.borda} 1px, transparent 1px)`, backgroundSize: '20px 20px' }}></div>
-           <div className="relative z-10 grid md:grid-cols-3 gap-8">
-              <div className="relative group"><div className="absolute -top-3 left-4 px-2 text-[10px] font-bold bg-[#0f0202] border rounded uppercase tracking-widest" style={{ borderColor: colors.abobora, color: colors.abobora }}>VLAN 10 (DMZ)</div><div className="h-full p-6 rounded-xl border border-dashed hover:border-solid transition-all" style={{ borderColor: colors.textoSec, backgroundColor: 'rgba(253, 143, 0, 0.05)' }}><Globe className="w-8 h-8 mb-4 opacity-80" style={{ color: colors.textoSec }} /><h4 className="text-white font-bold mb-2">Frontend</h4></div></div>
-              <div className="relative group"><div className="absolute -top-3 left-4 px-2 text-[10px] font-bold bg-[#0f0202] border rounded uppercase tracking-widest" style={{ borderColor: colors.principal, color: colors.principal }}>VLAN 20 (APP)</div><div className="h-full p-6 rounded-xl border-2 transition-all shadow-[0_0_20px_rgba(179,18,12,0.1)]" style={{ borderColor: colors.principal, backgroundColor: 'rgba(179, 18, 12, 0.05)' }}><Server className="w-8 h-8 mb-4" style={{ color: colors.principal }} /><h4 className="text-white font-bold mb-2">Microservices</h4></div></div>
-              <div className="relative group"><div className="absolute -top-3 left-4 px-2 text-[10px] font-bold bg-[#0f0202] border rounded uppercase tracking-widest" style={{ borderColor: colors.dourado, color: colors.dourado }}>VLAN 30 (DATA)</div><div className="h-full p-6 rounded-xl border border-dashed hover:border-solid transition-all" style={{ borderColor: colors.textoSec, backgroundColor: 'rgba(255, 204, 0, 0.05)' }}><Database className="w-8 h-8 mb-4 opacity-80" style={{ color: colors.dourado }} /><h4 className="text-white font-bold mb-2">DB Vault</h4></div></div>
-           </div>
-        </div>
-      </section>
-
-      {/* --- CAP 3: DORA METRICS --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Activity className="w-6 h-6" style={{ color: colors.dourado }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 3: Governança & Métricas</h3></div><p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>A elite da engenharia mede eficiência com <strong>DORA Metrics</strong>.</p></div>
-        <div className="grid lg:grid-cols-2 gap-8">
-           <div className="space-y-6">
-             <div className="p-6 rounded-xl border transition-all hover:bg-[#1a0505]" style={{ borderColor: colors.borda }}><div className="flex items-center gap-3 mb-3"><Target className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">SLA, SLO e SLI</h4></div><p className="text-sm" style={{ color: colors.textoSec }}>Trindade da confiabilidade.</p></div>
-             <div className="p-6 rounded-xl border transition-all hover:bg-[#1a0505]" style={{ borderColor: colors.principal }}><div className="flex items-center gap-3 mb-3"><FileCheck className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Compliance as Code</h4></div><p className="text-sm" style={{ color: colors.textoSec }}>OPA & Policy Checking.</p></div>
-           </div>
-           <div className="relative p-1 rounded-2xl bg-gradient-to-b from-[#b3120c] to-transparent"><div className="h-full bg-[#0a0202] rounded-xl p-6 relative overflow-hidden"><div className="flex justify-between items-center mb-6"><h4 className="font-bold text-white flex items-center gap-2"><BarChart3 className="w-5 h-5" style={{ color: colors.abobora }} /> DORA Metrics</h4></div><div className="space-y-6"><div><div className="flex justify-between text-xs mb-2"><span style={{ color: colors.textoSec }}>Deploy Freq.</span><span className="font-bold" style={{ color: colors.dourado }}>Elite</span></div><div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden"><div className="h-full rounded-full animate-[width_2s_ease-in-out]" style={{ width: '98%', backgroundColor: colors.principal }}></div></div></div></div></div></div>
-        </div>
-      </section>
-
-      {/* --- CAP 4: APPSEC & PIPELINE --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Code className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 4: AppSec & Simulador</h3></div><p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>Segurança como código. Guardrails em ação.</p></div>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-           <div className="space-y-6">
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Search className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">SAST</h4></div></div>
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Box className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">SCA</h4></div></div>
-           </div>
-           <PipelineSimulator colors={colors} />
-        </div>
-      </section>
-
-      {/* --- CAP 5: IA & LLM --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Cpu className="w-6 h-6" style={{ color: colors.dourado }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 5: IA & OWASP LLM</h3></div></div>
-        <div className="grid lg:grid-cols-2 gap-12">
-           <div className="space-y-6">
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-3"><Terminal className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Prompt Injection</h4></div></div>
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-3"><ShieldCheck className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">LLM Firewall</h4></div></div>
-           </div>
-           <div className="bg-black border rounded-xl p-6 font-mono text-xs relative overflow-hidden" style={{ borderColor: colors.borda }}>
-              <div className="space-y-3"><div className="text-slate-300">$ scan_model --target="GPT-4"</div><div className="text-red-500 font-bold">[ALERT] JAILBREAK ATTEMPT BLOCKED</div><div className="text-green-500">&gt; FIREWALL UPDATED.</div></div>
-           </div>
-        </div>
-      </section>
-
-      {/* --- CAP 6: KUBERNETES & CLOUD --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Container className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 6: Orquestração (K8s)</h3></div></div>
-        <div className="grid lg:grid-cols-12 gap-8">
-           <div className="lg:col-span-4 space-y-4">
-              <div className="p-5 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Activity className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">eBPF Security</h4></div></div>
-              <div className="p-5 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Network className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">Service Mesh</h4></div></div>
-           </div>
-           <div className="lg:col-span-8 bg-[#050101] border rounded-xl p-6 relative overflow-hidden" style={{ borderColor: colors.borda }}>
-              <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-2"><CloudLightning className="w-4 h-4 text-slate-400" /><span className="text-xs font-mono text-slate-300">K8S_CLUSTER_VIEW</span></div>
-              <div className="grid grid-cols-4 gap-4 relative z-10">{[...Array(8)].map((_, i) => (<div key={i} className="aspect-square relative flex items-center justify-center rounded-lg bg-[#1a0505] border" style={{ borderColor: colors.borda }}><Box className="w-6 h-6" style={{ color: i%2===0 ? colors.abobora : colors.principal }} /></div>))}</div>
-           </div>
-        </div>
-      </section>
-
-      {/* --- CAP 7: SIEM & SOAR --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><Radar className="w-6 h-6" style={{ color: colors.dourado }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 7: Vigilância Total</h3></div></div>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-           <div className="relative flex justify-center items-center py-8"><div className="relative w-80 h-80 rounded-full border border-slate-800 bg-[#050101] flex items-center justify-center shadow-2xl"><div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,rgba(253,143,0,0.1)_60deg,rgba(253,143,0,0.5)_360deg)] animate-[spin_4s_linear_infinite]"></div><div className="absolute top-16 right-20 w-3 h-3 bg-red-600 rounded-full animate-ping"></div></div></div>
-           <div className="space-y-6">
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Activity className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">SIEM</h4></div><p className="text-sm" style={{ color: colors.textoSec }}>O Cérebro da Operação.</p></div>
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><Workflow className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">SOAR</h4></div><p className="text-sm" style={{ color: colors.textoSec }}>Resposta Automatizada.</p></div>
-           </div>
-        </div>
-      </section>
-
-      {/* --- CAP 8: RESILIÊNCIA & DR --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><LifeBuoy className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 8: Resiliência Cibernética</h3></div><p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>BCP e Disaster Recovery (DR).</p></div>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-           <div className="space-y-6">
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><TimerReset className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">RTO & RPO</h4></div></div>
-              <div className="p-6 rounded-xl border" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><HardDrive className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Backup Imutável</h4></div></div>
-           </div>
-           <DisasterRecoverySim colors={colors} />
-        </div>
-      </section>
-
-      {/* --- ROADMAP --- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-         <div className="text-center mb-12"><h2 className="text-3xl font-bold text-white mb-4">Roadmap de Execução</h2></div>
-         <div className="relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-800 -translate-x-1/2"></div>
-            <div className="space-y-12">
-               <div className="relative flex flex-col md:flex-row items-center justify-between gap-8"><div className="md:w-5/12 text-right"><h3 className="text-xl font-bold text-white">Dia 1-30: Quick Wins</h3><p className="text-sm" style={{ color: colors.textoSec }}>MFA & SCA.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(253,143,0,0.3)]" style={{ borderColor: colors.abobora }}><span className="font-bold text-xs" style={{ color: colors.abobora }}>30D</span></div><div className="md:w-5/12"></div></div>
-               <div className="relative flex flex-col md:flex-row-reverse items-center justify-between gap-8"><div className="md:w-5/12 text-left"><h3 className="text-xl font-bold text-white">Dia 31-60: Automação</h3><p className="text-sm" style={{ color: colors.textoSec }}>Pipeline & SAST.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(179,18,12,0.3)]" style={{ borderColor: colors.principal }}><span className="font-bold text-xs" style={{ color: colors.principal }}>60D</span></div><div className="md:w-5/12"></div></div>
-               <div className="relative flex flex-col md:flex-row items-center justify-between gap-8"><div className="md:w-5/12 text-right"><h3 className="text-xl font-bold text-white">Dia 61-90: Governança</h3><p className="text-sm" style={{ color: colors.textoSec }}>DORA Metrics & War Games.</p></div><div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#0f0202] shadow-[0_0_15px_rgba(255,204,0,0.3)]" style={{ borderColor: colors.dourado }}><span className="font-bold text-xs" style={{ color: colors.dourado }}>90D</span></div><div className="md:w-5/12"></div></div>
-            </div>
-            <div className="mt-16 text-center"><div className="inline-block px-8 py-4 rounded-2xl border bg-gradient-to-r from-[#b3120c] to-[#631212] text-white font-bold shadow-2xl hover:scale-105 transition-transform cursor-pointer" style={{ borderColor: colors.dourado }}>PRONTO PARA INICIAR A TRANSFORMAÇÃO?</div></div>
-         </div>
-      </section>
-
-      
-
-      {/* --- WAR GAMES TOGGLE --- */}
-      <section className="py-20 px-6 max-w-5xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-         <div className="flex justify-between items-end mb-8 border-b pb-4" style={{ borderColor: colors.borda }}>
-            <div><h2 className="text-3xl font-bold text-white mb-2">War Games: Estratégias</h2></div>
-            <div className="flex bg-slate-900 p-1 rounded-lg border" style={{ borderColor: colors.borda }}>
-               <button onClick={() => setWarGameMode('blue')} className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'blue' ? 'text-slate-900' : 'text-slate-500 hover:text-white'}`} style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : 'transparent' }}>BLUE TEAM</button>
-               <button onClick={() => setWarGameMode('red')} className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'red' ? 'text-white shadow-[0_0_15px_rgba(179,18,12,0.5)]' : 'text-slate-500 hover:text-white'}`} style={{ backgroundColor: warGameMode === 'red' ? colors.principal : 'transparent' }}>RED TEAM</button>
-            </div>
-         </div>
-         <div className="bg-slate-900/40 border rounded-2xl p-8 min-h-[200px] relative overflow-hidden" style={{ borderColor: colors.borda }}>
-            <div className={`absolute inset-0 opacity-10 transition-colors duration-500`} style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : colors.principal }}></div>
+          <div className="space-y-2">
             {warGameMode === 'blue' ? (
-              <div className="relative z-10"><div className="flex items-center gap-3 mb-6"><Shield className="w-8 h-8" style={{ color: colors.abobora }} /><h3 className="text-2xl font-bold text-white">Defesa Ativa</h3></div><ul className="space-y-4"><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.abobora }}></div><div><strong className="block" style={{ color: colors.abobora }}>Zero Trust</strong><span className="text-sm" style={{ color: colors.textoSec }}>Microssegmentação.</span></div></li></ul></div>
+               // Blue List
+               ['GOVERN', 'IDENTIFY', 'PROTECT', 'DETECT', 'RESPOND', 'RECOVER'].map((item, i) => (
+                  <div key={item} className="flex items-center justify-between text-xs text-slate-400 p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors">
+                     <span>0{i+1}. {item}</span>
+                     <CheckCircle2 className="w-3 h-3 text-blue-500" />
+                  </div>
+               ))
             ) : (
-              <div className="relative z-10"><div className="flex items-center gap-3 mb-6"><Zap className="w-8 h-8" style={{ color: colors.principal }} /><h3 className="text-2xl font-bold text-white">Ataque Simulado</h3></div><ul className="space-y-4"><li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.principal }}></div><div><strong className="block" style={{ color: colors.principal }}>Red Teaming</strong><span className="text-sm" style={{ color: colors.textoSec }}>Exploração de falhas reais.</span></div></li></ul></div>
+               // Red List
+               ['Reconnaissance', 'Weaponization', 'Delivery', 'Exploitation', 'Installation', 'C2', 'Actions on Obj.'].map((item, i) => (
+                  <div key={item} className="flex items-center justify-between text-xs text-slate-400 p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors">
+                     <span>Phase {i+1}: {item}</span>
+                     {i === 5 ? <span className="text-[9px] bg-red-600 text-white px-1 rounded animate-pulse">ACTIVE</span> : <CheckCircle2 className="w-3 h-3 text-red-900" />}
+                  </div>
+               ))
             )}
-         </div>
-      </section>
-
+          </div>
+       </div>
     </div>
-  );
-};
 
+    {/* --- CENTRO: RADAR & VISUALIZAÇÃO (Colspan 5) --- */}
+    <div className="lg:col-span-6 flex flex-col gap-4">
+       
+       {/* COMPONENTE VISUAL PRINCIPAL (RADAR) */}
+       <div className={`flex-1 min-h-[400px] rounded-xl border bg-[#050101] relative overflow-hidden group
+           ${warGameMode === 'blue' ? 'border-blue-900/30' : 'border-red-900/30'}`}>
+           
+           {/* Grid de Fundo */}
+           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"></div>
+           
+           {/* Título do Radar */}
+           <div className="absolute top-4 left-4 z-10">
+              <div className={`flex items-center gap-2 px-3 py-1 rounded-full border bg-black/50 backdrop-blur ${warGameMode === 'blue' ? 'border-blue-500/30 text-blue-400' : 'border-red-500/30 text-red-400'}`}>
+                 <Radar className={`w-4 h-4 ${warGameMode === 'blue' ? 'animate-spin-slow' : 'animate-pulse'}`} />
+                 <span className="text-xs font-bold uppercase tracking-widest">{warGameMode === 'blue' ? 'Network Topology' : 'Target Surface'}</span>
+              </div>
+           </div>
 
+           {/* VISUALIZAÇÃO CENTRAL */}
+           <div className="absolute inset-0 flex items-center justify-center">
+              {warGameMode === 'blue' ? (
+                 // BLUE MODE: ESCUDO E SATÉLITES
+                 <div className="relative">
+                    {/* Core Shield */}
+                    <div className="w-40 h-40 rounded-full border-4 border-blue-500/20 flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.3)] animate-pulse">
+                       <ShieldCheck className="w-16 h-16 text-blue-500" />
+                    </div>
+                    {/* Orbit 1 */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-blue-500/20 rounded-full animate-[spin_10s_linear_infinite]">
+                       <div className="absolute top-0 left-1/2 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_15px_blue] -translate-x-1/2 -translate-y-1.5"></div>
+                    </div>
+                    {/* Orbit 2 */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-blue-500/10 rounded-full animate-[spin_15s_linear_infinite_reverse]">
+                       <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_10px_emerald] -translate-x-1/2 translate-y-1"></div>
+                    </div>
+                    {/* Data Streams */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-blue-900 to-transparent rotate-45"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-blue-900 to-transparent -rotate-45"></div>
+                 </div>
+              ) : (
+                 // RED MODE: CROSSHAIR & LOCK-ON
+                 <div className="relative">
+                    {/* Core Target */}
+                    <div className="w-40 h-40 rounded-full border-2 border-dashed border-red-500/40 flex items-center justify-center shadow-[0_0_50px_rgba(239,68,68,0.3)] animate-[spin_20s_linear_infinite]">
+                       <Crosshair className="w-16 h-16 text-red-600" />
+                    </div>
+                    {/* Locking Brackets */}
+                    <div className="absolute -inset-10 border-2 border-red-500/30 rounded-lg border-t-0 border-b-0 animate-pulse"></div>
+                    <div className="absolute -inset-10 border-2 border-red-500/30 rounded-lg border-l-0 border-r-0 animate-pulse scale-90"></div>
+                    {/* Lock Text */}
+                    <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-red-600 text-black px-2 py-0.5 text-[10px] font-bold font-mono rounded">
+                       LOCK_ESTABLISHED
+                    </div>
+                    {/* Laser Lines */}
+                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-900/50"></div>
+                    <div className="absolute top-0 left-1/2 h-full w-[1px] bg-red-900/50"></div>
+                 </div>
+              )}
+           </div>
+       </div>
+    </div>
 
-export default DevSecOpsArticle;
+    {/* --- DIREITA: ARSENAL & OPS (Colspan 3) --- */}
+    <div className="lg:col-span-3 space-y-4">
+       
+       {/* CARD DE STACK TECNOLÓGICO */}
+       <div className={`p-5 rounded-xl border bg-gradient-to-br from-[#0a0202] to-slate-900/50 ${warGameMode === 'blue' ? 'border-blue-900/50' : 'border-red-900/50'}`}>
+          <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+             <Layers className={`w-4 h-4 ${warGameMode === 'blue' ? 'text-blue-400' : 'text-red-400'}`} />
+             <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                {warGameMode === 'blue' ? 'Defense Stack' : 'Offense Stack'}
+             </h3>
+          </div>
+          
+          <div className="flex flex-wrap gap-2 mb-4">
+             {warGameMode === 'blue' ? (
+                // Blue Tools
+                ['Splunk', 'CrowdStrike', 'Wazuh', 'MISP'].map(tool => (
+                   <span key={tool} className="px-2 py-1 bg-[#050101] border border-blue-900/50 rounded text-[10px] text-blue-100 font-mono shadow-sm">
+                      {tool}
+                   </span>
+                ))
+             ) : (
+                // Red Tools
+                ['Cobalt Strike', 'Metasploit', 'Mimikatz', 'BloodHound'].map(tool => (
+                   <span key={tool} className="px-2 py-1 bg-[#050101] border border-red-900/50 rounded text-[10px] text-red-100 font-mono shadow-sm">
+                      {tool}
+                   </span>
+                ))
+             )}
+          </div>
+
+          {/* Destaque Tático */}
+          <div className={`p-3 rounded border ${warGameMode === 'blue' ? 'bg-blue-950/20 border-blue-900/30' : 'bg-red-950/20 border-red-900/30'}`}>
+             <div className="flex items-center gap-2 mb-1">
+                {warGameMode === 'blue' ? <Search className="w-3 h-3 text-blue-400" /> : <Zap className="w-3 h-3 text-red-400" />}
+                <strong className={`text-xs ${warGameMode === 'blue' ? 'text-blue-300' : 'text-red-300'}`}>
+                   {warGameMode === 'blue' ? 'Threat Hunting' : 'Living off the Land'}
+                </strong>
+             </div>
+             <p className="text-[10px] text-slate-400 leading-tight">
+                {warGameMode === 'blue' 
+                   ? 'Busca proativa por anomalias de comportamento e TTPs desconhecidos.' 
+                   : 'Uso de binários nativos (PowerShell/WMI) para evitar detecção.'}
+             </p>
+          </div>
+       </div>
+
+       {/* CARD DE AÇÕES INTERATIVAS (Os Botões que você pediu) */}
+       <div className={`p-5 rounded-xl border bg-gradient-to-br from-[#0a0202] to-slate-900/50 ${warGameMode === 'blue' ? 'border-blue-900/50' : 'border-red-900/50'}`}>
+          <div className="flex items-center gap-2 mb-4">
+             <TerminalSquare className={`w-4 h-4 ${warGameMode === 'blue' ? 'text-blue-400' : 'text-red-400'}`} />
+             <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                Protocol Actions
+             </h3>
+          </div>
+          
+          <div className="space-y-2">
+             {/* Action 1 */}
+             <button className={`w-full flex items-center justify-between p-2.5 rounded text-[11px] font-bold uppercase transition-all border group
+                ${warGameMode === 'blue' 
+                ? 'bg-blue-950/30 border-blue-900 hover:bg-blue-600 hover:border-blue-500 text-blue-300 hover:text-white' 
+                : 'bg-red-950/30 border-red-900 hover:bg-red-600 hover:border-red-500 text-red-300 hover:text-white'}`}>
+                <span className="flex items-center gap-2">
+                   {warGameMode === 'blue' ? <ShieldAlert className="w-3 h-3" /> : <Bug className="w-3 h-3" />}
+                   {warGameMode === 'blue' ? 'Deploy Honeypot' : 'Inject Payload'}
+                </span>
+                <Play className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+             </button>
+
+             {/* Action 2 */}
+             <button className={`w-full flex items-center justify-between p-2.5 rounded text-[11px] font-bold uppercase transition-all border group
+                ${warGameMode === 'blue' 
+                ? 'bg-blue-950/30 border-blue-900 hover:bg-blue-600 hover:border-blue-500 text-blue-300 hover:text-white' 
+                : 'bg-red-950/30 border-red-900 hover:bg-red-600 hover:border-red-500 text-red-300 hover:text-white'}`}>
+                <span className="flex items-center gap-2">
+                   {warGameMode === 'blue' ? <Network className="w-3 h-3" /> : <Fingerprint className="w-3 h-3" />}
+                   {warGameMode === 'blue' ? 'Scan for IOCs' : 'Enumerate AD'}
+                </span>
+                <Play className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+             </button>
+
+             {/* Action 3 */}
+             <button className={`w-full flex items-center justify-between p-2.5 rounded text-[11px] font-bold uppercase transition-all border group
+                ${warGameMode === 'blue' 
+                ? 'bg-blue-950/30 border-blue-900 hover:bg-blue-600 hover:border-blue-500 text-blue-300 hover:text-white' 
+                : 'bg-red-950/30 border-red-900 hover:bg-red-600 hover:border-red-500 text-red-300 hover:text-white'}`}>
+                <span className="flex items-center gap-2">
+                   {warGameMode === 'blue' ? <Lock className="w-3 h-3" /> : <Database className="w-3 h-3" />}
+                   {warGameMode === 'blue' ? 'Isolate Host' : 'Dump Hashes'}
+                </span>
+                <Play className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+             </button>
+          </div>
+       </div>
+    </div>
+
+  </div>
+
+  {/* 4. LIVE TERMINAL CONSOLE (Footer) */}
+  <div className="mt-6 rounded-xl border border-slate-800 bg-[#080808] font-mono text-xs overflow-hidden shadow-2xl relative z-10">
+     {/* Terminal Header */}
+     <div className="flex items-center justify-between px-4 py-2 bg-[#121212] border-b border-slate-800">
+        <div className="flex gap-1.5">
+           <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50"></div>
+           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+           <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50"></div>
+        </div>
+        <div className="text-[10px] text-slate-500 uppercase tracking-wider flex items-center gap-2">
+           <Code2 className="w-3 h-3" />
+           {warGameMode === 'blue' ? 'SOC_INTEGRATED_CONSOLE_V4' : 'ROOT@KALI:~/OPS/RED_STORM'}
+        </div>
+     </div>
+
+     {/* Logs Body */}
+     <div className="p-4 h-48 overflow-y-auto space-y-1.5 opacity-90">
+        {warGameMode === 'blue' ? (
+           <>
+              <p className="text-slate-400 border-l-2 border-blue-500 pl-2">
+                 <span className="text-blue-500 font-bold">SYSTEM:</span> Initializing Active Defense Matrix...
+              </p>
+              <p className="text-slate-500">[14:30:01] Connected to Splunk Enterprise Security.</p>
+              <p className="text-slate-300"><span className="text-emerald-500">✓</span> Threat Intelligence Feeds (MISP) synced.</p>
+              <p className="text-slate-300"><span className="text-emerald-500">✓</span> EDR Agents (CrowdStrike) reporting status: <span className="text-emerald-400">HEALTHY</span></p>
+              <p className="text-slate-400 mt-2">[14:32:15] <span className="text-yellow-500 animate-pulse">ALERT:</span> Suspicious PowerShell execution detected on Host-009.</p>
+              <p className="text-slate-200 ml-4">Command: <code>Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass..."</code></p>
+              <p className="text-blue-400">[AUTOMATION] Triggering Playbook: "Isolate_Machine_Tier1"</p>
+              <p className="text-emerald-400">[SUCCESS] Host-009 isolated from main VLAN.</p>
+              <div className="flex items-center gap-1 mt-2 text-blue-500">
+                 <span className="animate-pulse">_waiting_for_analyst_input</span><span className="w-2 h-4 bg-blue-500 animate-blink"></span>
+              </div>
+           </>
+        ) : (
+           <>
+              <p className="text-slate-400 border-l-2 border-red-500 pl-2">
+                 <span className="text-red-500 font-bold">ROOT:</span> Loaded framework: Metasploit Pro.
+              </p>
+              <p className="text-slate-500">[14:30:01] Setting LHOST=10.10.14.5, LPORT=443</p>
+              <p className="text-slate-300"><span className="text-red-500">➜</span> Scanning target subnet 192.168.10.0/24...</p>
+              <p className="text-slate-400 mt-2">[+] Found Target: 192.168.10.55 (Windows Server 2019)</p>
+              <p className="text-slate-400">[*] Service identified: SMB (Port 445)</p>
+              <p className="text-red-400">msf6 > use exploit/multi/handler</p>
+              <p className="text-red-400">msf6 > set payload windows/x64/meterpreter/reverse_https</p>
+              <p className="text-emerald-500">[*] Sending stage (20026 bytes) to 192.168.10.55</p>
+              <p className="text-white font-bold bg-red-900/20 p-1 inline-block">[!] Meterpreter session 1 opened.</p>
+              <div className="flex items-center gap-1 mt-2 text-red-500">
+                 <span>meterpreter ></span><span className="w-2 h-4 bg-red-500 animate-blink"></span>
+              </div>
+           </>
+        )}
+     </div>
+  </div>
+
+</section>
