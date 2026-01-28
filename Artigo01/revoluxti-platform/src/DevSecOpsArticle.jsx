@@ -21,7 +21,13 @@ import {
   Clock, LayoutGrid, Compass, Scale, Ban, TrendingUp,
   BarChart2, Crosshair, Wallet, FileText, Gavel,
   Trophy, GitPullRequest, Link2, ChevronsLeft, GitCommit, UserCheck,
-  FileCode
+  FileCode, FileSearch, ScanLine, Share2, Code2, GitMerge,
+  TrendingDown, Lightbulb, ScanEye, LockKeyhole, DatabaseZap,
+  Cookie, Settings2, CheckCircle2, Minimize2, Puzzle,
+  PackageOpen, ArchiveRestore, Link, EyeOff, Bot,
+  KeyRound, GitPullRequestClosed, Binary, 
+  ArrowDown, Infinity, Swords, Ghost, Skull
+
 
 
 } from 'lucide-react';
@@ -2563,11 +2569,11 @@ const DevSecOpsArticle = () => {
                   <p>
                     A nuvem transformou a infraestrutura em software programável. <br />
                     O motor da TI moderna sustenta o DevSecOps ao oferecer elasticidade,
-                    automação e escala necessárias para que o negócio inove em alta velocidade. 
+                    automação e escala necessárias para que o negócio inove em alta velocidade.
                     É a infraestrutura dinâmica onde as aplicações residem. <br />
-                    Porém, é preciso ser brutalmente honesto: <br /> 
-                    <strong className=" rounded text-xs text-cyan-300"> Cloud sem AppSec não é agilidade, 
-                    é caos escalável, é apenas complexidade distribuída.</strong> <br /> <br />
+                    Porém, é preciso ser brutalmente honesto: <br />
+                    <strong className=" rounded text-xs text-cyan-300"> Cloud sem AppSec não é agilidade,
+                      é caos escalável, é apenas complexidade distribuída.</strong> <br /> <br />
                     A segurança baseada em IP e firewall de borda tornou-se obsoleta em um mundo onde containers nascem e morrem em minutos.
                     Sem governança, você não distribui apenas sistemas; você distribui complexidade e
                     vulnerabilidades. O que antes era um monólito com uma porta de entrada,
@@ -2575,18 +2581,18 @@ const DevSecOpsArticle = () => {
                     O Desafio da Superfície de Ataque Ambientes cloud-native (K8s, Serverless) mataram
                     o perímetro tradicional. Não existe mais "dentro" e "fora" da rede; a identidade
                     tornou-se o novo perímetro. A elasticidade que permite atender milhões de usuários
-                    é a mesma que permite a um atacante escalar privilégios lateralmente em segundos. 
+                    é a mesma que permite a um atacante escalar privilégios lateralmente em segundos.
                     Por isso, AppSec não pode ser um "gate" no final da esteira; precisa ser intrínseco
                     à infraestrutura. Segurança deixa de ser um evento pontual de auditoria e passa a
                     ser um atributo imutável do sistema. <br /> <br />
 
-                    <strong>Do Monólito ao Microserviço:</strong> <br /> 
-                    <strong className=" rounded text-xs text-cyan-300"> A Nova Fronteira A orquestração moderna (Kubernetes) </strong>   
-                    permite isolamento de falhas, mas amplia exponencialmente a superfície de ataque 
-                    (Tráfego Leste-Oeste). Cada microserviço, cada API e cada bucket é uma nova fronteira 
-                    de risco que precisa se autoproteger. A maturidade arquitetural acontece quando 
-                    entendemos que segurança não é algo que se adiciona ao cloud; é a forma como se 
-                    constrói o cloud. AppSec deve garantir que a infraestrutura seja segura por padrão 
+                    <strong>Do Monólito ao Microserviço:</strong> <br />
+                    <strong className=" rounded text-xs text-cyan-300"> A Nova Fronteira A orquestração moderna (Kubernetes) </strong>
+                    permite isolamento de falhas, mas amplia exponencialmente a superfície de ataque
+                    (Tráfego Leste-Oeste). Cada microserviço, cada API e cada bucket é uma nova fronteira
+                    de risco que precisa se autoproteger. A maturidade arquitetural acontece quando
+                    entendemos que segurança não é algo que se adiciona ao cloud; é a forma como se
+                    constrói o cloud. AppSec deve garantir que a infraestrutura seja segura por padrão
                     (Secure by Default), transformando risco em decisão de design.
                   </p>
                   <div className="p-3 bg-cyan-950/10 border border-cyan-900/30 rounded text-xs text-cyan-300">
@@ -2623,19 +2629,27 @@ const DevSecOpsArticle = () => {
                 {/* Conteúdo */}
                 <div className="space-y-4 text-slate-400 text-sm leading-relaxed flex-grow">
                   <p>
-                    AppSec é o sistema de freios. Foca em proteger o software e seu código. O foco sai de 
+                    AppSec é o sistema de freios. Foca em proteger o software e seu código. O foco sai de
                     "bloquear o deploy" para "proteger o software e seu código" desde a concepção.
-                    Segurança precisa nascer junto com a arquitetura e ser um atributo de qualidade 
-                    inegociável, não ser adicionada como "band-aid" tardio aplicado em produção 
+                    Segurança precisa nascer junto com a arquitetura e ser um atributo de qualidade
+                    inegociável, não ser adicionada como "band-aid" tardio aplicado em produção
                     quando o custo de correção é 100x maior.
                   </p>
                   <p>
-                    AppSec moderno começa no desenho da aplicação antes da primeira linha de código. <br />
-                    Threat Modeling (Modelagem de Ameaças) análise de superfície de ataque e definição 
-                    de fronteiras de confiança tornam-se rituais obrigatórios, definição de fluxos de dados
+                    AppSec moderno começa no desenho da aplicação antes da primeira linha de código.
+                    Através da Threat Modeling (Modelagem de Ameaças), análise de superfície de ataque e definição
+                    de fronteiras de confiança,  identificamos ativos críticos antes que eles sejam expostos
+                    e tornam-se rituais obrigatórios,  definição de fluxos de dados
                     e identificação de ativos críticos passam a ser etapas obrigatórias do design.
-                    Neste modelo, vulnerabilidades deixam de ser vistas como "bugs acidentais  inesperados" 
-                    e passam a ser falhas de decisão evitáveis e são encaradas como dívidas técnicas de arquitetura. Uma falha de injeção de SQL, por exemplo, não é um erro de digitação; é uma falha na decisão de como os dados são sanitizados na arquitetura.                  </p> <br />
+                    Vulnerabilidades críticas muitas vezes não são erros de código, são erros de design.
+                    Corrigir um erro de design em produção custa uma fortuna e expõe a marca; corrigi-lo
+                    no quadro branco custa apenas alguns minutos de discussão.
+                    Neste modelo, vulnerabilidades deixam de ser vistas como "bugs acidentais inesperados"
+                    e passam a ser falhas de decisão evitáveis e são encaradas como dívidas técnicas de arquitetura.
+                    Uma falha de injeção de SQL, por exemplo, não é um erro de digitação;
+                    é uma falha na decisão de como os dados são sanitizados na arquitetura.
+                    Definition of Done (DoD) o software não está pronto se não está seguro.
+                  </p> <br />
 
                   {/* ---------------------------------------------------------------------
           ENCAPSULAMENTO SIMPLES: SHIFT-LEFT LIST
@@ -2698,6 +2712,21 @@ const DevSecOpsArticle = () => {
               </div>
             </div>
           </div>
+          {/* 2. A SÍNTESE (MATURIDADE) */}
+          <div className="relative p-6 rounded-xl border border-dashed border-slate-700 bg-gradient-to-r from-[#0a0a0a] via-[#151515] to-[#0a0a0a]">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
+              <div className="p-2 rounded-full bg-slate-800 border border-slate-600">
+                <Link2 className="w-5 h-5 text-white" />
+              </div>
+              <p className="text-sm text-slate-300">
+                Em DevSecOps, Motor e Freios são inseparáveis. A maturidade começa quando a segurança
+                deixa de ser uma camada adicional e vira parte do DNA da nuvem. <br />
+                <strong className="text-white">A relação é de profunda interdependência</strong>,
+                especialmente com o avanço de tecnologias nativas da nuvem, onde uma define
+                o ambiente e a outra protege o conteudo e o código.
+              </p>
+            </div>
+          </div>
           {/* ---------------------------------------------------------------------
           SEÇÃO: APPSEC NO PIPELINE & IAC (DUAL COLUMNS)
       ---------------------------------------------------------------------- */}
@@ -2718,10 +2747,28 @@ const DevSecOpsArticle = () => {
                 {/* Conteúdo Principal */}
                 <div className="space-y-4 text-sm text-slate-400 leading-relaxed flex-grow">
                   <p>
-                    A integração de <span className="text-blue-400 font-mono">SAST, DAST, SCA</span> e análise de secrets transforma a segurança em um processo contínuo.
-                  </p>
-                  <p>
-                    O código é avaliado automaticamente, em escala e com critérios objetivos. O pipeline vira um <strong className="text-white">gate inteligente</strong>, não um gargalo burocrático.
+                    A verdadeira transformação do DevSecOps acontece quando a segurança deixa de ser um evento pontual
+                    e passa a operar como função nativa do pipeline.
+                    Integrar Application Security ao pipeline CI/CD não é sobre adicionar mais etapas e empilhar scanners;
+                    é sobre mudar o momento em que os riscos são tratados, é orquestrar controles complementares que cobrem
+                    o ciclo completo do software — do commit ao runtime. <br /> <br />
+
+                    A segurança deixa de ser um checkpoint tardio,
+                    o pipeline deixa de ser esteira de entrega e passa a operar como um sistema nervoso automatizado,
+                    o sistema imunológico da aplicação, avaliando o código a cada mudança relevante.
+                    Rápido, automático e implacável com falhas reais. <br /> <br />
+
+                    A incorporação de SAST, DAST, SCA e análise de secrets no pipeline CI/CD marca a virada
+                    definitiva da segurança reativa, para a segurança sistêmica e preventiva.
+                    Nesse modelo, SAST, DAST, SCA e análise de secrets trabalham de forma complementar,
+                    a segurança deixa de ser uma etapa isolada, cobrindo diferentes dimensões do risco
+                    aplicacional conduzida ao final do ciclo e passa a operar como um mecanismo contínuo
+                    de validação de qualidade e risco. <br /> <br />
+                    Não competem entre si — se sobrepõem de forma estratégica.
+
+                    O pipeline não atua mais como simples orquestrador de builds e deploys.
+                    Ele se transforma em um gate inteligente, orientado por evidências técnicas,
+                    métricas e políticas corporativas. Segurança não bloqueia por dogma; bloqueia por critério.
                   </p>
                 </div>
 
@@ -2750,16 +2797,33 @@ const DevSecOpsArticle = () => {
                   <div className="p-2 rounded bg-emerald-950/30 border border-emerald-500/30">
                     <FileCode className="w-5 h-5 text-emerald-400" />
                   </div>
-                  <h4 className="font-bold text-white text-lg">IaC e Policy as Code</h4>
+                  <h4 className="font-bold text-white text-lg"> IaC (Infraestrutura como Código) & Policy as Code: A Auditoria Determinística</h4>
                 </div>
 
                 {/* Conteúdo Principal */}
                 <div className="space-y-4 text-sm text-slate-400 leading-relaxed flex-grow">
                   <p>
-                    IaC consolida a previsibilidade da Cloud. AppSec adiciona <span className="text-emerald-400 font-mono">Policy as Code</span>, garantindo que configurações inseguras simplesmente não avancem.
+                    IaC consolida a previsibilidade da Cloud. AppSec adiciona <span className="text-emerald-400 font-mono">Policy as Code</span>,
+                    garantindo que configurações inseguras simplesmente não avancem. <br />
+                    Acabaram-se os servidores "artesanais" configurados manualmente. <br /> <br />
+                    No entanto, IaC sem segurança é apenas uma maneira mais rápida de replicar erros de configuração em escala. <br /><br />
+                    É aqui que AppSec entra com Policy as Code (PaC). Ao traduzir políticas de segurança
+                    (como ISO 27001 ou PCI-DSS) em código executável,
+                    garantimos que configurações inseguras — como um bucket S3 público ou um
+                    Security Group permissivo — sejam bloqueadas matematicamente antes mesmo de existirem. <br />
+                    <strong>O Fim da Compliance Reativa Neste modelo, a Compliance deixa de ser uma atividade reativa e amostral</strong>
+                    (auditar 10% dos servidores uma vez por ano) e torna-se <strong>determinística e contínua.</strong>
                   </p>
+
                   <p>
                     Compliance deixa de ser reativa e se torna <strong className="text-white">determinística</strong>.
+
+                  </p>
+                  <p>
+                    Antes: "Eu acho que estamos seguros baseados neste relatório de PDF do mês passado."
+                  </p>
+                  <p>
+                    Agora: "Eu sei que estamos seguros porque o pipeline rejeita qualquer código que viole a política."
                   </p>
                 </div>
 
@@ -2768,7 +2832,8 @@ const DevSecOpsArticle = () => {
                   <Scale className="w-4 h-4 text-emerald-500 mt-1 shrink-0" />
                   <p className="text-xs text-emerald-300">
                     <strong className="text-white block mb-1">Nova Auditoria:</strong>
-                    A auditoria passa a ler código, não documentos de Word.
+                    A auditoria moderniza-se: ela para de ler documentos estáticos e documentos de Word.
+                    e passa a a ler código e auditar a própria definição do código.
                   </p>
                 </div>
 
@@ -2781,21 +2846,6 @@ const DevSecOpsArticle = () => {
 
           </div>
 
-          {/* 2. A SÍNTESE (MATURIDADE) */}
-          <div className="relative p-6 rounded-xl border border-dashed border-slate-700 bg-gradient-to-r from-[#0a0a0a] via-[#151515] to-[#0a0a0a]">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-              <div className="p-2 rounded-full bg-slate-800 border border-slate-600">
-                <Link2 className="w-5 h-5 text-white" />
-              </div>
-              <p className="text-sm text-slate-300">
-                Em DevSecOps, Motor e Freios são inseparáveis. A maturidade começa quando a segurança
-                deixa de ser uma camada adicional e vira parte do DNA da nuvem. <br />
-                <strong className="text-white">A relação é de profunda interdependência</strong>,
-                especialmente com o avanço de tecnologias nativas da nuvem, onde uma define
-                o ambiente e a outra protege o conteudo e o código.
-              </p>
-            </div>
-          </div>
 
           {/* O ALERTA (HEADLINE DE IMPACTO) */}
           <div className="relative p-1 rounded-xl bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 animate-pulse-slow">
@@ -2804,84 +2854,875 @@ const DevSecOpsArticle = () => {
               <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
                 "Velocidade sem segurança é apenas <span className="text-red-500 border-b border-red-500">aceleração rumo ao incidente</span>."
               </h3>
-
             </div>
           </div>
-
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+          {/* COLUNA DA ESQUERDA: SAST e DAST */}
           <div className="space-y-6">
+
+            {/* CARD SAST */}
             <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2"><Search className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">SAST</h4></div>
-              <p className="text-sm" style={{ color: colors.textoSec }}>Analisa o código fonte parado, buscando padrões inseguros.</p>
+              <div className="flex items-center gap-3 mb-2"><Search className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">SAST – Static Application Security Testing</h4></div>
+              <p className="text-sm" style={{ color: colors.textoSec }}>
+                <strong>Segurança no código, antes da execução</strong> <br /> <br />
+                O SAST realiza a análise estática do código-fonte, bytecode ou binários sem executar a aplicação.
+                Seu objetivo é identificar vulnerabilidades estruturais ainda na fase de desenvolvimento,
+                quando o custo de correção é drasticamente menor.<br /> <br />
+
+                O valor estratégico do SAST está no Shift-Left real. Ele educa desenvolvedores continuamente,
+                reduzindo reincidência de falhas e criando um ciclo virtuoso entre código e segurança. <br /> <br />
+
+                Limitação conhecida? Falsos positivos.
+                Resposta madura? <br />
+                Ajuste de regras, priorização por risco e integração com o contexto do negócio. <br />
+                Ferramenta sem governança vira ruído; com governança, vira ativo.
+                quando o custo de correção é drasticamente menor.
+              </p> <br />
+
+              <div>
+                {/* Header da Lista */}
+                <div className="flex items-center gap-3 border-b border-cyan-900/30 pb-3 mb-2">
+                  <Bug className="w-5 h-5 text-cyan-400" />
+                  <h4 className="font-bold text-white uppercase tracking-wider text-sm">O que o SAST detecta</h4>
+                </div>
+
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <Database className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>SQL Injection</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <Code2 className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>Cross-Site Scripting (XSS)</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <Lock className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>Uso inseguro de criptografia</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <AlertTriangle className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>Falhas de validação de entrada</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <GitMerge className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>Erros de controle de fluxo e exceções</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-slate-300">
+                    <Key className="w-4 h-4 text-cyan-600 mt-0.5 shrink-0" />
+                    <span>Hardcoded credentials (Senhas no código)</span>
+                  </li>
+                </ul> <br /> <br />
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+                  <div className="p-1.5 rounded bg-cyan-950/30 border border-cyan-500/30">
+                    <FileCode className="w-4 h-4 text-cyan-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wide">No contexto de DevSecOps, o SAST:</h4>
+                </div>
+
+                {/* Lista de Itens */}
+                <div className="space-y-3">
+                  {/* Item 1 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-cyan-500/30 transition-colors">
+                    <Bug className="w-4 h-4 text-cyan-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Detecta falhas como <strong className="text-white">SQL Injection, XSS</strong>, uso inseguro de criptografia e erros de validação.
+                    </span>
+                  </div>
+                  {/* Item 2 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-cyan-500/30 transition-colors">
+                    <ScanLine className="w-4 h-4 text-cyan-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Analisa <strong className="text-white">padrões de codificação inseguros</strong> diretamente no código-fonte.
+                    </span>
+                  </div>
+                  {/* Item 3 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-cyan-500/30 transition-colors">
+                    <ShieldCheck className="w-4 h-4 text-cyan-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Impõe <strong className="text-white">secure coding standards</strong> de forma automatizada.
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 border-b border-cyan-900/30 pb-3 mb-2">
+                    <TrendingUp className="w-5 h-5 text-cyan-400" />
+                    <h4 className="font-bold text-white uppercase tracking-wider text-sm">Valor Estratégico</h4>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {/* Item 1 */}
+                    <li className="flex gap-4 p-3 rounded bg-cyan-950/10 border border-cyan-900/20">
+                      <div className="mt-1">
+                        <Clock className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Atua antes do Deploy</strong>
+                        <span className="text-xs text-slate-400">Shift-Left na prática, impedindo que o erro nasça.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 2 */}
+                    <li className="flex gap-4 p-3 rounded bg-cyan-950/10 border border-cyan-900/20">
+                      <div className="mt-1">
+                        <TrendingDown className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Redução Drástica de Custo</strong>
+                        <span className="text-xs text-slate-400">Corrigir no design é 100x mais barato que em produção.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 3 */}
+                    <li className="flex gap-4 p-3 rounded bg-cyan-950/10 border border-cyan-900/20">
+                      <div className="mt-1">
+                        <Lightbulb className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Educação Contínua</strong>
+                        <span className="text-xs text-slate-400">Educa devs ao apontar padrões inseguros em tempo real.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 4 */}
+                    <li className="flex gap-4 p-3 rounded bg-cyan-950/10 border border-cyan-900/20">
+                      <div className="mt-1">
+                        <ShieldCheck className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Padronização</strong>
+                        <span className="text-xs text-slate-400">Garante boas práticas de codificação segura.</span>
+                      </div>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
             </div>
+
+            {/* CARD DAST */}
             <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2"><Box className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">SCA</h4></div>
-              <p className="text-sm" style={{ color: colors.textoSec }}>Verifica bibliotecas de terceiros (Log4j).</p>
+              <div className="flex items-center gap-3 mb-2">
+                <Globe className="w-5 h-5" style={{ color: '#3b82f6' }} />
+                <h4 className="font-bold text-white">DAST</h4>
+              </div>
+              <p className="text-sm" style={{ color: colors.textoSec }}>
+                <strong>Segurança em tempo de execução, do ponto de vista do atacante</strong> <br /> <br />
+                Simula ataques reais na aplicação em execução (Black-box).
+                O DAST avalia a aplicação em execução, simulando interações externas,
+                como faria um atacante real. Ele ignora o código-fonte e foca
+                no comportamento observável do sistema.
+                DAST é particularmente poderoso porque testa o sistema como ele realmente é,
+                não como foi projetado. Ele complementa o SAST, cobrindo lacunas
+                inevitáveis da análise estática.
+              </p> <br /> <br />
+              <div className="flex items-center gap-3 border-b border-blue-900/30 pb-3 mb-2">
+                <ScanEye className="w-5 h-5 text-blue-400" />
+                <h4 className="font-bold text-white uppercase tracking-wider text-sm">O que o DAST detecta</h4>
+              </div>
+
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <LockKeyhole className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span>Falhas de autenticação e autorização</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Code className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span>XSS refletido e armazenado</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <DatabaseZap className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span>SQL Injection explorável</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Cookie className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span>Problemas de sessão e cookies</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Settings2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span>Configurações inseguras em runtime</span>
+                </li>
+              </ul> <br />
+              <div >
+                {/* Header da Lista */}
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+                  <div className="p-1.5 rounded bg-blue-950/30 border border-blue-500/30">
+                    <Globe className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wide">No pipeline CI/CD, o DAST:</h4>
+                </div>
+                {/* Lista de Itens */}
+                <div className="space-y-3">
+                  {/* Item 1 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-blue-500/30 transition-colors">
+                    <Lock className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Identifica falhas de <strong className="text-white">autenticação e autorização</strong> em execução.
+                    </span>
+                  </div>
+                  {/* Item 2 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-blue-500/30 transition-colors">
+                    <Zap className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Detecta vulnerabilidades de <strong className="text-white">runtime e lógica de negócio</strong> (que o código estático não vê).
+                    </span>
+                  </div>
+                  {/* Item 3 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-blue-500/30 transition-colors">
+                    <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Valida a <strong className="text-white">eficácia de controles</strong> de segurança implementados.
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3 border-b border-blue-900/30 pb-3 mb-2">
+                    <Target className="w-5 h-5 text-blue-400" />
+                    <h4 className="font-bold text-white uppercase tracking-wider text-sm">Valor Estratégico</h4>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {/* Item 1 */}
+                    <li className="flex gap-4 p-3 rounded bg-blue-950/10 border border-blue-900/20">
+                      <div className="mt-1">
+                        <Play className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Vulnerabilidades de Execução</strong>
+                        <span className="text-xs text-slate-400">Detecta o que só aparece quando o sistema está rodando.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 2 */}
+                    <li className="flex gap-4 p-3 rounded bg-blue-950/10 border border-blue-900/20">
+                      <div className="mt-1">
+                        <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Validação Real</strong>
+                        <span className="text-xs text-slate-400">Valida se os controles de segurança realmente funcionam.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 3 */}
+                    <li className="flex gap-4 p-3 rounded bg-blue-950/10 border border-blue-900/20">
+                      <div className="mt-1">
+                        <Minimize2 className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Teoria vs. Prática</strong>
+                        <span className="text-xs text-slate-400">Reduz a distância entre o código escrito e o sistema vivo.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 4 */}
+                    <li className="flex gap-4 p-3 rounded bg-blue-950/10 border border-blue-900/20">
+                      <div className="mt-1">
+                        <Puzzle className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Evidência Empírica</strong>
+                        <span className="text-xs text-slate-400">Complementa o SAST provando que o erro é explorável.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+
+              </div>
+
             </div>
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2"><ShieldAlert className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Guardrails</h4></div>
-              <p className="text-sm" style={{ color: colors.textoSec }}>Se não for seguro, o Guardrail quebra o build.</p>
+            {/* CARD: SÍNTESE ESTRATÉGICA (GRAND FINALE) */}
+            <div className="mt-12 mb-8 relative group">
+
+              {/* Efeito de Glow Dourado no Fundo (Sutil) */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/20 via-transparent to-yellow-600/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+
+              <div className="relative p-8 rounded-xl border bg-[#0a0202] overflow-hidden" style={{ borderColor: colors.borda }}>
+
+                {/* Header */}
+                <div className="flex flex-col items-center text-center mb-10">
+                  <div className="p-3 rounded-full bg-yellow-950/20 border border-yellow-500/30 mb-4 shadow-[0_0_20px_rgba(234,179,8,0.1)]">
+                    <Layers className="w-8 h-8 text-yellow-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white tracking-tight">Síntese Estratégica</h3>
+                  <p className="text-slate-400 mt-2 text-sm max-w-lg">
+                    A orquestração dessas quatro camadas cria a defesa em profundidade necessária para a era Cloud-Native.
+                  </p>
+                </div>
+
+                {/* GRID DOS 4 PILARES */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+                  {/* 1. SAST (Ciano) */}
+                  <div className="p-4 rounded-lg bg-cyan-950/5 border border-cyan-900/30 flex flex-col items-center text-center gap-3 hover:border-cyan-500/50 transition-colors">
+                    <FileCode className="w-6 h-6 text-cyan-500" />
+                    <div>
+                      <strong className="text-white text-sm block mb-1">SAST</strong>
+                      <p className="text-xs text-slate-400">Previne erros de design e implementação.</p>
+                    </div>
+                  </div>
+
+                  {/* 2. DAST (Azul) */}
+                  <div className="p-4 rounded-lg bg-blue-950/5 border border-blue-900/30 flex flex-col items-center text-center gap-3 hover:border-blue-500/50 transition-colors">
+                    <Globe className="w-6 h-6 text-blue-500" />
+                    <div>
+                      <strong className="text-white text-sm block mb-1">DAST</strong>
+                      <p className="text-xs text-slate-400">Valida o comportamento real em execução.</p>
+                    </div>
+                  </div>
+
+                  {/* 3. SCA (Laranja) */}
+                  <div className="p-4 rounded-lg bg-orange-950/5 border border-orange-900/30 flex flex-col items-center text-center gap-3 hover:border-orange-500/50 transition-colors">
+                    <PackageOpen className="w-6 h-6 text-orange-500" />
+                    <div>
+                      <strong className="text-white text-sm block mb-1">SCA</strong>
+                      <p className="text-xs text-slate-400">Protege a cadeia de suprimentos.</p>
+                    </div>
+                  </div>
+
+                  {/* 4. Secrets (Rosa) */}
+                  <div className="p-4 rounded-lg bg-rose-950/5 border border-rose-900/30 flex flex-col items-center text-center gap-3 hover:border-rose-500/50 transition-colors">
+                    <KeyRound className="w-6 h-6 text-rose-500" />
+                    <div>
+                      <strong className="text-white text-sm block mb-1">Secrets</strong>
+                      <p className="text-xs text-slate-400">Elimina falhas básicas e fatais.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* CONECTOR VISUAL (Seta para baixo) */}
+                <div className="flex justify-center mb-6">
+                  <ArrowDown className="w-6 h-6 text-slate-700 animate-bounce" />
+                </div>
+
+                {/* CONCLUSÃO (O Princípio DevSecOps) */}
+                <div className="relative rounded-xl border border-yellow-500/30 bg-gradient-to-r from-yellow-950/10 via-[#1a1005] to-yellow-950/10 p-6 text-center">
+
+                  {/* Ícone de Fundo Decorativo */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
+                    <Infinity className="w-48 h-48 text-yellow-500" />
+                  </div>
+
+                  <div className="relative z-10">
+                    <h4 className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-2">
+                      O Resultado Final
+                    </h4>
+                    <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed">
+                      Juntos, eles materializam o princípio central do DevSecOps:
+                      <span className="block mt-2 text-white font-bold text-xl md:text-2xl drop-shadow-lg">
+                        "Segurança <span className="text-yellow-400">contínua</span>, <span className="text-yellow-400">automatizada</span> e <span className="text-yellow-400">integrada</span> ao fluxo de entrega de valor."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
           </div>
 
-          {/* Console Interativo */}
-          <PipelineSimulator colors={colors} />
+          {/* COLUNA DA DIREITA: SCA, Guardrails e PipelineSimulator */}
+          <div className="space-y-6">
+
+            {/* CARD SCA */}
+            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+              <div className="flex items-center gap-3 mb-2"><Box className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">SCA</h4></div>
+              <p className="text-sm" style={{ color: colors.textoSec }}>
+                <strong>O risco invisível do código que você não escreveu</strong> <br /> <br />
+                Verifica bibliotecas de terceiros (Log4j).
+                O SCA analisa dependências de terceiros — bibliotecas, frameworks e pacotes open
+                source — identificando vulnerabilidades conhecidas, licenças incompatíveis e componentes obsoletos.
+                Em ambientes modernos, grande parte do código não é autoral. Logo, grande parte do risco também não é.
+              </p> <br />
+
+              <div className="flex items-center gap-3 border-b border-orange-900/30 pb-3 mb-2">
+                <Search className="w-5 h-5 text-orange-500" />
+                <h4 className="font-bold text-white uppercase tracking-wider text-sm">O que o SCA detecta</h4>
+              </div>
+
+              <ul className="space-y-3">
+                {/* Item 1 */}
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Share2 className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                  <span>
+                    Mapeia <strong className="text-white">dependências diretas e transitivas</strong> (a árvore completa de software).
+                  </span>
+                </li>
+                {/* Item 2 */}
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Database className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                  <span>
+                    Correlaciona versões instaladas com <strong className="text-white">bancos globais de CVEs</strong> (NVD).
+                  </span>
+                </li>
+                {/* Item 3 */}
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <AlertTriangle className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                  <span>
+                    Avalia o <strong className="text-white">impacto real</strong> da vulnerabilidade no contexto da aplicação.
+                  </span>
+                </li>
+                {/* Item 4 (Adicional para completar a lista visual se necessário, baseado no contexto anterior) */}
+                <li className="flex items-start gap-3 text-sm text-slate-300">
+                  <Link className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                  <span>Cadeias de dependência vulneráveis</span>
+                </li>
+              </ul>
+              <div>
+                {/* Header da Lista */}
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+                  <div className="p-1.5 rounded bg-orange-950/30 border border-orange-500/30">
+                    <Box className="w-4 h-4 text-orange-400" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm uppercase tracking-wide">O SCA:</h4>
+                </div>
+                {/* Lista de Itens */}
+                <div className="space-y-3">
+                  {/* Item 1 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-orange-500/30 transition-colors">
+                    <Share2 className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Mapeia <strong className="text-white">dependências diretas e transitivas</strong> (a árvore completa de software).
+                    </span>
+                  </div>
+                  {/* Item 2 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-orange-500/30 transition-colors">
+                    <Database className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Correlaciona versões instaladas com <strong className="text-white">bancos globais de CVEs</strong> (NVD).
+                    </span>
+                  </div>
+                  {/* Item 3 */}
+                  <div className="flex items-start gap-3 p-3 rounded border border-slate-800 bg-slate-900/20 hover:border-orange-500/30 transition-colors">
+                    <AlertTriangle className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-slate-300">
+                      Avalia o <strong className="text-white">impacto real</strong> da vulnerabilidade no contexto da aplicação.
+                    </span>
+
+                  </div>
+                  <div className="flex items-center gap-3 border-b border-orange-900/30 pb-3 mb-2">
+                    <TrendingUp className="w-5 h-5 text-orange-500" />
+                    <h4 className="font-bold text-white uppercase tracking-wider text-sm">Valor Estratégico</h4>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {/* Item 1 */}
+                    <li className="flex gap-4 p-3 rounded bg-orange-950/10 border border-orange-900/20 hover:border-orange-500/30 transition-colors">
+                      <div className="mt-1">
+                        <Container className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Supply Chain Security</strong>
+                        <span className="text-xs text-slate-400">Mitiga risco da cadeia de suprimentos de software.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 2 */}
+                    <li className="flex gap-4 p-3 rounded bg-orange-950/10 border border-orange-900/20 hover:border-orange-500/30 transition-colors">
+                      <div className="mt-1">
+                        <EyeOff className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Visibilidade Preventiva</strong>
+                        <span className="text-xs text-slate-400">Evita exposição a vulnerabilidades públicas conhecidas.</span>
+                      </div>
+                    </li>
+
+                    {/* Item 3 */}
+                    <li className="flex gap-4 p-3 rounded bg-orange-950/10 border border-orange-900/20 hover:border-orange-500/30 transition-colors">
+                      <div className="mt-1">
+                        <Gavel className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Redução de Risco Legal</strong>
+                        <span className="text-xs text-slate-400">Garante compliance de licenças (ex: evita GPL em código proprietário).</span>
+                      </div>
+                    </li>
+
+                    {/* Item 4 */}
+                    <li className="flex gap-4 p-3 rounded bg-orange-950/10 border border-orange-900/20 hover:border-orange-500/30 transition-colors">
+                      <div className="mt-1">
+                        <Bot className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <strong className="text-white text-sm block">Decisão Automatizada</strong>
+                        <span className="text-xs text-slate-400">Automatiza decisões sobre dependências que antes eram invisíveis.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* CARD GUARDRAILS */}
+            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+              <div className="flex items-center gap-3 mb-2"><ShieldAlert className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Guardrails: A Governança Automatizada</h4></div>
+              <p className="text-sm" style={{ color: colors.textoSec }}>
+                Se o pipeline de CI/CD é a rodovia por onde o código trafega em alta velocidade, os Guardrails são,
+                literalmente, as barreiras de proteção laterais.
+                A premissa é simples e binária: se não for seguro, o Guardrail quebra o build.
+                Diferente de ferramentas tradicionais de auditoria que geram relatórios (que muitas vezes são ignorados),
+                o Guardrail atua como um Hard Gate. Ele transforma políticas de segurança abstratas em restrições técnicas
+                intransponíveis.
+                <br /> <br />
+                1. Do "Subjetivo" para o "Determinístico"
+                Em modelos antigos, a segurança dependia de uma revisão humana ou de um "Ok" de um gerente,
+                o que é lento e propenso a falhas. Com Guardrails baseados em Policy as Code (PaC), a governança
+                torna-se determinística.
+                Exemplo: Uma regra de negócio que diz "Nenhum banco de dados pode estar exposto publicamente"
+                vira um script automatizado. Se um desenvolvedor tentar commitar um Terraform com essa configuração,
+                o pipeline falha instantaneamente. Não há discussão, há correção imediata.
+                <br /><br />
+                2. Liberdade com Responsabilidade
+                Paradoxalmente, Guardrails rígidos dão mais liberdade aos desenvolvedores. Quando o time de engenharia sabe que existem sistemas
+                de proteção ativos que impedem erros catastróficos (como vazar chaves de API ou abrir portas críticas), eles se sentem seguros
+                para inovar e implantar código com mais frequência. A segurança deixa de ser o "Departamento do Não" e passa a ser a "Plataforma de Proteção".
+                <br /> <br />
+                3. Auditoria em Tempo Real
+                Guardrails resolvem o problema do Drift (quando a infraestrutura real diverge do que foi documentado).
+                Como a regra é validada a cada commit e a cada deploy, a auditoria deixa de ser um evento anual traumático
+                e passa a ser um estado contínuo. O código que está em produção é, por definição, um código que passou
+                pelas regras de compliance.
+              </p>
+            </div>
+
+
+            {/* CARD: ANÁLISE DE SECRETS */}
+            <div className="p-1 rounded-xl bg-gradient-to-b from-rose-900/20 to-transparent mt-6">
+              <div className="p-8 rounded-xl border bg-[#0f0202] relative overflow-hidden" style={{ borderColor: colors.borda }}>
+
+                {/* Background Decorativo */}
+                <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                  <Key className="w-64 h-64 text-rose-500" />
+                </div>
+
+                <div className="relative z-10 space-y-8">
+
+                  {/* Cabeçalho */}
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-rose-950/20 border border-rose-500/30 shadow-[0_0_15px_rgba(244,63,94,0.1)]">
+                      <KeyRound className="w-8 h-8 text-rose-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white tracking-tight">Análise de Secrets</h3>
+                      <p className="text-xs text-rose-400 font-mono uppercase tracking-widest">Hardcoded Credentials Detection</p>
+                    </div>
+                  </div>
+
+                  {/* Texto de Impacto */}
+                  <div className="text-lg text-slate-300 leading-relaxed max-w-3xl">
+                    <p>
+                      Credenciais nunca deveriam estar no código. <strong className="text-white bg-rose-950/30 px-1 rounded border border-rose-900/50">Nunca.</strong>
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      A análise de secrets detecta tokens, chaves de API, senhas e certificados expostos no código ou em repositórios. É simples, direta e brutalmente necessária.
+                    </p>
+                  </div>
+
+                  {/* Grid: Por que isso importa */}
+                  <div>
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-white mb-4">
+                      <ShieldAlert className="w-4 h-4 text-rose-500" />
+                      Por que isso importa:
+                    </h4>
+
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {/* Card 1 */}
+                      <div className="p-4 rounded bg-rose-950/5 border border-rose-900/20 hover:border-rose-500/30 transition-colors">
+                        <Zap className="w-5 h-5 text-rose-500 mb-2" />
+                        <strong className="text-white text-sm block mb-1">Exploração Instantânea</strong>
+                        <p className="text-xs text-slate-400">Secrets vazados são capturados por bots em segundos.</p>
+                      </div>
+
+                      {/* Card 2 */}
+                      <div className="p-4 rounded bg-rose-950/5 border border-rose-900/20 hover:border-rose-500/30 transition-colors">
+                        <GitBranch className="w-5 h-5 text-rose-500 mb-2" />
+                        <strong className="text-white text-sm block mb-1">Git nunca esquece</strong>
+                        <p className="text-xs text-slate-400">Apagar o arquivo não remove o histórico do commit.</p>
+                      </div>
+
+                      {/* Card 3 */}
+                      <div className="p-4 rounded bg-rose-950/5 border border-rose-900/20 hover:border-rose-500/30 transition-colors">
+                        <RefreshCw className="w-5 h-5 text-rose-500 mb-2" />
+                        <strong className="text-white text-sm block mb-1">Custo de Revogação</strong>
+                        <p className="text-xs text-slate-400">Rotacionar chaves em produção é caro e disruptivo.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pipeline Note */}
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-[#0a0202] border border-slate-800">
+                    <CheckCircle2 className="w-5 h-5 text-rose-500 mt-0.5 shrink-0" />
+                    <p className="text-sm text-slate-400">
+                      Integrada ao pipeline, essa análise <strong className="text-white">bloqueia commits inseguros</strong> antes que o dano exista (Pre-receive hooks).
+                    </p>
+                  </div>
+
+                  {/* Mensagem Chave (Footer Destaque) */}
+                  <div className="relative overflow-hidden rounded-xl border border-rose-500/30 bg-gradient-to-r from-rose-950/40 to-[#0f0202] p-6">
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                      <div className="p-3 bg-rose-500 rounded-full text-black shadow-[0_0_15px_rgba(244,63,94,0.4)]">
+                        <Fingerprint className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h5 className="text-rose-400 font-bold uppercase tracking-wider text-xs mb-1">Mensagem-chave</h5>
+                        <p className="text-lg md:text-xl font-bold text-white">
+                          "Secrets no código não são erro técnico. <span className="underline decoration-rose-500 underline-offset-4">São falha de processo.</span>"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              {/* CARD: PIPELINE COMO GATE INTELIGENTE */}
+              <div className="p-1 rounded-xl bg-gradient-to-b from-emerald-900/20 to-transparent mt-8">
+                <div className="p-8 rounded-xl border bg-[#0f0202] relative overflow-hidden" style={{ borderColor: colors.borda }}>
+                  {/* Background Decorativo (Circuito) */}
+                  <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                    <GitPullRequestClosed className="w-64 h-64 text-emerald-500" />
+                  </div>
+                  <div className="relative z-10 space-y-8">
+                    {/* Cabeçalho */}
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                        <Workflow className="w-8 h-8 text-emerald-500" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white tracking-tight">O Pipeline como Gate Inteligente</h3>
+                        <p className="text-xs text-emerald-400 font-mono uppercase tracking-widest">Logic-Based Governance</p>
+                      </div>
+                    </div>
+                    {/* Texto Introdutório */}
+                    <p className="text-slate-300 leading-relaxed max-w-3xl border-l-2 border-emerald-900/50 pl-4">
+                      Quando integrados corretamente, esses controles transformam o pipeline CI/CD em um gate inteligente, baseado em <strong className="text-white">risco e contexto</strong>, não em burocracia.
+                    </p>
+                    {/* Grid de Lógica do Gate */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {/* Condição 1: Crítico (BLOCK) */}
+                      <div className="flex items-start gap-3 p-4 rounded-lg bg-red-950/10 border border-red-900/20 group hover:border-red-500/30 transition-all">
+                        <div className="p-2 rounded bg-red-950/30 border border-red-500/20 mt-0.5">
+                          <Ban className="w-5 h-5 text-red-500" />
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-white text-sm">Vulnerabilidades Críticas</h5>
+                          <p className="text-xs text-red-300 mt-1">Bloqueiam o deploy imediatamente. (Hard Gate)</p>
+                        </div>
+                      </div>
+                      {/* Condição 2: Médio (ALERT) */}
+                      <div className="flex items-start gap-3 p-4 rounded-lg bg-amber-950/10 border border-amber-900/20 group hover:border-amber-500/30 transition-all">
+                        <div className="p-2 rounded bg-amber-950/30 border border-amber-500/20 mt-0.5">
+                          <AlertTriangle className="w-5 h-5 text-amber-500" />
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-white text-sm">Riscos Médios</h5>
+                          <p className="text-xs text-amber-300 mt-1">Geram alertas e criação automática de backlog técnico.</p>
+                        </div>
+                      </div>
+                      {/* Condição 3: Auditoria (LOG) */}
+                      <div className="flex items-start gap-3 p-4 rounded-lg bg-blue-950/10 border border-blue-900/20 group hover:border-blue-500/30 transition-all">
+                        <div className="p-2 rounded bg-blue-950/30 border border-blue-500/20 mt-0.5">
+                          <FileText className="w-5 h-5 text-blue-500" />
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-white text-sm">Evidências Registradas</h5>
+                          <p className="text-xs text-blue-300 mt-1">Logs imutáveis para auditoria contínua.</p>
+                        </div>
+                      </div>
+                      {/* Condição 4: Rastreabilidade (TRACE) */}
+                      <div className="flex items-start gap-3 p-4 rounded-lg bg-purple-950/10 border border-purple-900/20 group hover:border-purple-500/30 transition-all">
+                        <div className="p-2 rounded bg-purple-950/30 border border-purple-500/20 mt-0.5">
+                          <GitCommit className="w-5 h-5 text-purple-500" />
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-white text-sm">Decisões Rastreáveis</h5>
+                          <p className="text-xs text-purple-300 mt-1">Critérios objetivos e históricos claros.</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Conclusão (Code Block Visual - Explicando a mudança de cultura) */}
+                    <div className="p-5 rounded-lg bg-[#050101] border border-emerald-900/30 font-mono text-sm shadow-inner">
+                      <div className="flex items-center gap-2 mb-2 text-slate-500 text-xs uppercase tracking-wider">
+                        <Binary className="w-3 h-3" />
+                        Mudança de Cultura em Código
+                      </div>
+                      <p className="text-slate-500 italic">
+                        // O modelo antigo dependia de boa vontade e memória humana
+                      </p>
+                      <p className="text-red-400 line-through decoration-red-500/50">
+                        <span className="text-purple-500">if</span> (dev_diz_que_esta_ok) <span className="text-white">deploy();</span>
+                      </p>
+                      <p className="text-slate-500 italic mt-3">
+                        // O novo modelo exige prova matemática de segurança
+                      </p>
+                      <p className="text-emerald-400">
+                        <span className="text-purple-500">if</span> (security_scan == <span className="text-yellow-400">"PASS"</span>) <span className="text-white">deploy();</span>
+                      </p>
+                      <p className="text-slate-400 text-xs mt-3 border-t border-slate-800 pt-2">
+                        "Substituímos a confiança cega pela verificação contínua."
+                      </p>
+                    </div>
+                  </div>
+                </div> <br />
+                {/* CONSOLE INTERATIVO */}
+                <PipelineSimulator colors={colors} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ---------------------------------------------------------------------
-          MÓDULO: WAR GAMES & ESTRATÉGIAS
+          MÓDULO: WAR GAMES & ESTRATÉGIAS (IMPROVED)
       ---------------------------------------------------------------------- */}
-      <section className="py-20 px-6 max-w-5xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="flex justify-between items-end mb-8 border-b pb-4" style={{ borderColor: colors.borda }}>
+      <section className="py-20 px-6 max-w-5xl mx-auto">
+        
+        {/* Header com Status Ativo */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 pb-6 border-b border-slate-800">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">War Games: Estratégias</h2>
-            <p style={{ color: colors.textoSec }}>Escolha seu lado na simulação.</p>
+            <div className="flex items-center gap-2 mb-2">
+              <Activity className={`w-5 h-5 ${warGameMode === 'blue' ? 'text-orange-500' : 'text-red-500'} animate-pulse`} />
+              <h2 className="text-3xl font-bold text-white tracking-tight">War Games: Estratégias</h2>
+            </div>
+            <p className="text-slate-400">
+              Simulação de conflito cibernético. <span className="text-slate-500">// Escolha seu vetor de atuação.</span>
+            </p>
           </div>
 
-          <div className="flex bg-slate-900 p-1 rounded-lg border" style={{ borderColor: colors.borda }}>
+          {/* Toggle Tático */}
+          <div className="flex bg-[#0a0202] p-1.5 rounded-xl border border-slate-800 mt-4 md:mt-0 relative">
+            
+            {/* Botão BLUE TEAM */}
             <button
               onClick={() => setWarGameMode('blue')}
-              className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'blue' ? 'text-slate-900' : 'text-slate-500 hover:text-white'}`}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold transition-all duration-300 relative z-10 ${
+                warGameMode === 'blue' 
+                  ? 'text-[#0a0202] shadow-[0_0_20px_rgba(249,115,22,0.4)] scale-105' 
+                  : 'text-slate-500 hover:text-orange-400'
+              }`}
               style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : 'transparent' }}
             >
+              <Shield className="w-4 h-4" />
               BLUE TEAM
             </button>
+
+            {/* Botão RED TEAM */}
             <button
               onClick={() => setWarGameMode('red')}
-              className={`px-4 py-2 rounded text-xs font-bold transition-all ${warGameMode === 'red' ? 'text-white shadow-[0_0_15px_rgba(179,18,12,0.5)]' : 'text-slate-500 hover:text-white'}`}
-              style={{ backgroundColor: warGameMode === 'red' ? colors.principal : 'transparent' }}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold transition-all duration-300 relative z-10 ${
+                warGameMode === 'red' 
+                  ? 'text-white shadow-[0_0_20px_rgba(220,38,38,0.6)] scale-105' 
+                  : 'text-slate-500 hover:text-red-400'
+              }`}
+              style={{ backgroundColor: warGameMode === 'red' ? colors.principal : 'transparent' }} // Assumindo colors.principal como Vermelho
             >
+              <Swords className="w-4 h-4" />
               RED TEAM
             </button>
           </div>
         </div>
 
-        <div className="bg-slate-900/40 border rounded-2xl p-8 min-h-[300px] relative overflow-hidden transition-all duration-500" style={{ borderColor: colors.borda }}>
-          <div className={`absolute inset-0 opacity-10 transition-colors duration-500`} style={{ backgroundColor: warGameMode === 'blue' ? colors.abobora : colors.principal }}></div>
+        {/* ÁREA DE CONTEÚDO TÁTICO (DISPLAY) */}
+        <div 
+          className="relative rounded-2xl border transition-all duration-500 overflow-hidden min-h-[300px]"
+          style={{ 
+            borderColor: warGameMode === 'blue' ? colors.abobora : colors.principal,
+            boxShadow: warGameMode === 'blue' 
+              ? `0 0 40px -10px ${colors.abobora}20` // Glow Laranja suave
+              : `0 0 40px -10px ${colors.principal}20` // Glow Vermelho suave
+          }}
+        >
+          {/* Fundo "Grid" Tático (Efeito visual de fundo) */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none" 
+               style={{ 
+                 backgroundImage: `radial-gradient(${warGameMode === 'blue' ? colors.abobora : colors.principal} 1px, transparent 1px)`, 
+                 backgroundSize: '30px 30px' 
+               }}>
+          </div>
+          
+          {/* Overlay Gradiente */}
+          <div className={`absolute inset-0 bg-gradient-to-br transition-colors duration-500 ${
+            warGameMode === 'blue' 
+              ? 'from-orange-900/10 via-[#0a0202] to-[#0a0202]' 
+              : 'from-red-900/10 via-[#0a0202] to-[#0a0202]'
+          }`}></div>
 
-          {warGameMode === 'blue' ? (
-            <div className="relative z-10 animate-in fade-in slide-in-from-left-4 duration-500">
-              <div className="flex items-center gap-3 mb-6"><Shield className="w-8 h-8" style={{ color: colors.abobora }} /><h3 className="text-2xl font-bold text-white">Estratégias Defensivas</h3></div>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.abobora }}></div><div><strong className="block" style={{ color: colors.abobora }}>Zero Trust (ZTNA)</strong><span className="text-sm" style={{ color: colors.textoSec }}>"Nunca confie, sempre verifique".</span></div></li>
-                <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.abobora }}></div><div><strong className="block" style={{ color: colors.abobora }}>Forense Digital</strong><span className="text-sm" style={{ color: colors.textoSec }}>Ciclo PICERL: Preparação e Identificação.</span></div></li>
-              </ul>
+          {/* CONTEÚDO INTERNO */}
+          <div className="relative z-10 p-8 md:p-10">
+            
+            {warGameMode === 'blue' ? (
+              // ---------------- BLUE TEAM CONTENT ----------------
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded bg-orange-500/10 border border-orange-500/30">
+                    <Lock className="w-6 h-6 text-orange-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Estratégias Defensivas</h3>
+                </div>
+                
+                <p className="text-slate-400 max-w-2xl text-lg">
+                  A defesa não é passiva. O Blue Team opera na <strong className="text-orange-400">resiliência</strong>, monitorando anomalias e fechando brechas antes da exploração.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
+                  {/* Card 1 */}
+                  <div className="p-4 rounded-xl bg-[#0f0202] border border-orange-900/30 hover:border-orange-500/50 transition-colors group">
+                    <h4 className="text-orange-400 font-bold mb-1 group-hover:text-orange-300">Zero Trust (ZTNA)</h4>
+                    <p className="text-sm text-slate-500">"Nunca confie, sempre verifique". Segmentação total.</p>
+                  </div>
+                   {/* Card 2 */}
+                   <div className="p-4 rounded-xl bg-[#0f0202] border border-orange-900/30 hover:border-orange-500/50 transition-colors group">
+                    <h4 className="text-orange-400 font-bold mb-1 group-hover:text-orange-300">Forense Digital</h4>
+                    <p className="text-sm text-slate-500">Ciclo PICERL: Preparação, Identificação, Contenção e Lições Aprendidas.</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // ---------------- RED TEAM CONTENT ----------------
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                 <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded bg-red-500/10 border border-red-500/30">
+                    <Crosshair className="w-6 h-6 text-red-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Ofensiva & Exploração</h3>
+                </div>
+
+                <p className="text-slate-400 max-w-2xl text-lg">
+                  Para defender, é preciso saber atacar. O Red Team simula <strong className="text-red-400">adversários reais</strong> para testar os limites da infraestrutura.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
+                  {/* Card 1 */}
+                  <div className="p-4 rounded-xl bg-[#0f0202] border border-red-900/30 hover:border-red-500/50 transition-colors group">
+                    <h4 className="text-red-400 font-bold mb-1 group-hover:text-red-300">Cyber Kill Chain</h4>
+                    <p className="text-sm text-slate-500">Reconhecimento, Armamento, Entrega e Exploração.</p>
+                  </div>
+                   {/* Card 2 */}
+                   <div className="p-4 rounded-xl bg-[#0f0202] border border-red-900/30 hover:border-red-500/50 transition-colors group">
+                    <h4 className="text-red-400 font-bold mb-1 group-hover:text-red-300">MITRE ATT&CK</h4>
+                    <p className="text-sm text-slate-500">Mapeamento de Táticas, Técnicas e Procedimentos (TTPs).</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Terminal Footer Decorativo */}
+            <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest opacity-50">
+               <span className="flex items-center gap-2">
+                 <Terminal className="w-3 h-3" />
+                 System_Status: {warGameMode === 'blue' ? 'HARDENED' : 'COMPROMISED'}
+               </span>
+               <span>ID: SEC-2024-OP</span>
             </div>
-          ) : (
-            <div className="relative z-10 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="flex items-center gap-3 mb-6"><Zap className="w-8 h-8" style={{ color: colors.principal }} /><h3 className="text-2xl font-bold text-white">Operações Ofensivas</h3></div>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.principal }}></div><div><strong className="block" style={{ color: colors.principal }}>Bug Bounty</strong><span className="text-sm" style={{ color: colors.textoSec }}>Identificar falhas antes dos criminosos.</span></div></li>
-                <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: colors.principal }}></div><div><strong className="block" style={{ color: colors.principal }}>Chaos Engineering</strong><span className="text-sm" style={{ color: colors.textoSec }}>Derrube servidores para testar resiliência.</span></div></li>
-              </ul>
-            </div>
-          )}
+
+          </div>
         </div>
-      </section>
 
+      </section>
       {/* ---------------------------------------------------------------------
           MÓDULO: FUTURO & IA
       ---------------------------------------------------------------------- */}
