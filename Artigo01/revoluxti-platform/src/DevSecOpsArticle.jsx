@@ -35,6 +35,8 @@ import {
 
 
 
+
+
 } from 'lucide-react';
 
 // -----------------------------------------------------------------------------
@@ -3613,6 +3615,267 @@ const DevSecOpsArticle = () => {
           </div>
         </div>
       </section>
+
+      {/* ---------------------------------------------------------------------
+    CAPÍTULO 5: OBSERVABILIDADE INTEGRADA (EDITORIAL STYLE)
+---------------------------------------------------------------------- */}
+
+
+      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
+
+        {/* MANCHETE (HEADLINE) */}
+
+        <div className="mb-20 flex flex-col items-center justify-center text-center w-full">
+          <div className="mb-6 p-3 rounded-lg border bg-slate-900/50 border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] inline-flex items-center justify-center">
+            <Eye className="w-6 h-6 text-cyan-400" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight text-center">
+            Observabilidade Integrada à <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+              Segurança Orientada a Dados
+            </span>
+          </h2>
+        </div>
+
+        <div className="mb-20 text-center">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+            "Não basta observar sistemas. É preciso observar <strong className="text-white font-bold">comportamentos</strong>."
+          </p>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+            Visibilidade total para decisões rápidas e seguras: performance,
+            risco e comportamento em tempo real.
+
+          </p>
+        </div>
+
+        {/* COLUNA CENTRAL: TEXTO INTRODUTÓRIO */}
+        <div className="max-w-3xl mx-auto mb-20 space-y-6 text-slate-300 text-lg leading-relaxed border-l-2 border-slate-800 pl-6 md:pl-10">
+          <p>
+            Observabilidade moderna transforma dados brutos em contexto acionável. É o elo perdido entre operação, segurança e negócio.
+          </p>
+          <p>
+            Em ambientes distribuídos, não basta saber se o sistema está "de pé".
+            É preciso entender o comportamento do sistema em tempo real e como se comporta,
+            se o sistema está sendo abusado, explorado ou degradado silenciosamente.
+            <span className="text-cyan-400"> Quem acessa? De onde acessa? E com qual intenção?</span>
+          </p>
+        </div>
+
+        {/* OS 3 PILARES (GRID CARD) */}
+        <h3 >
+          Os Três Pilares da Observabilidade com viés de segurança:
+        </h3> <br />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+
+          {/* Card 1: Logs */}
+          <div className="p-8 bg-slate-900/20 border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+            <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <FileText className="w-6 h-6 text-slate-400 group-hover:text-cyan-400" />
+            </div>
+            <h3 className="text-white font-bold text-xl mb-3">Logs</h3>
+            <p className="text-sm text-slate-400 font-mono mb-4 border-b border-slate-800 pb-4">
+              "Revelam tentativas de exploração"
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Explicam eventos passados. Tentativas de login, erros de validação e payloads maliciosos ficam registrados aqui.
+            </p>
+          </div>
+
+          {/* Card 2: Métricas */}
+          <div className="p-8 bg-slate-900/20 border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+            <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <BarChart2 className="w-6 h-6 text-slate-400 group-hover:text-cyan-400" />
+            </div>
+            <h3 className="text-white font-bold text-xl mb-3">Métricas</h3>
+            <p className="text-sm text-slate-400 font-mono mb-4 border-b border-slate-800 pb-4">
+              "Métricas mostram padrões anômalos"
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Indicam tendências. Picos de CPU podem ser cryptojacking. Picos de 403 Forbidden podem ser Scans de força bruta.
+            </p>
+          </div>
+
+          {/* Card 3: Traces */}
+          <div className="p-8 bg-slate-900/20 border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+            <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Share2 className="w-6 h-6 text-slate-400 group-hover:text-cyan-400" />
+            </div>
+            <h3 className="text-white font-bold text-xl mb-3">Traces</h3>
+            <p className="text-sm text-slate-400 font-mono mb-4 border-b border-slate-800 pb-4">
+              "Expõem fluxos suspeitos entre serviços"
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Deixam de ser silos técnicos. Revelam o caminho lateral das requisições de um atacante entre microserviços, ganham novas funções e quando integrados ao AppSec,
+              passam a ser ativos estratégicos.
+            </p>
+          </div>
+        </div>
+        {/* ---------------------------------------------------------------------
+    INSIGHT CARD: PRECISÃO CIRÚRGICA
+---------------------------------------------------------------------- */}
+        <div className="relative p-8 md:p-10 my-16 rounded-2xl bg-gradient-to-br from-[#0b1221] to-[#020617] border border-slate-800 shadow-2xl overflow-hidden group hover:border-cyan-500/30 transition-all duration-500">
+
+          {/* Background Grid Effect (Textura Tática) */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:30px_30px] opacity-50"></div>
+
+          {/* Glow Decorativo no Topo */}
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
+
+            {/* Ícone de Destaque (Mira) */}
+            <div className="flex-shrink-0 p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/20 shadow-[0_0_15px_rgba(6,182,212,0.1)] group-hover:scale-105 transition-transform duration-500">
+              <Crosshair className="w-10 h-10 text-cyan-400" />
+            </div>
+
+            {/* Conteúdo do Texto */}
+            <div className="space-y-4">
+              <p className="text-xl md:text-2xl text-white font-medium leading-tight">
+                Quando correlacionados, esses pilares permitem detectar e entender falhas, gargalos e comportamentos anômalos e incidentes com <span className="text-cyan-400 font-bold underline decoration-cyan-900 underline-offset-4">precisão cirúrgica</span>.
+              </p>
+
+              {/* Divisor Visual */}
+              <div className="h-px w-24 bg-gradient-to-r from-cyan-500/50 to-transparent my-2"></div>
+
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Sem observabilidade, incidentes de segurança permanecem <span className="text-red-400/90 italic">invisíveis</span> até causarem impacto real.
+                Esses sinais permitem a detecção precoce, <strong className="text-slate-200">antes que o incidente vire crise</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* INTEGRAÇÃO APM + SIEM (Banner Horizontal) */}
+        <div className="relative p-8 md:p-12 border border-slate-800 bg-gradient-to-r from-slate-900/50 to-slate-950 mb-24 overflow-hidden">
+          <div className="absolute top-0 left-0 p-4 opacity-10 pointer-events-none">
+            <Database className="w-64 h-64 text-slate-500" />
+          </div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
+            <div className="md:w-1/2">
+              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <Activity className="w-6 h-6 text-cyan-400" />
+                APM encontra SIEM
+              </h3>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                Application Security se fortalece quando integrada à observabilidade.
+                Vulnerabilidades exploradas, padrões suspeitos de uso de APIs, falhas de
+                autenticação e comportamentos fora do baseline passam a ser detectados automaticamente.
+                Aqui, a aplicação passa a se defender, <strong className="text-white"> observando o próprio comportamento,
+                  APM encontra SIEM,
+                  criando uma camada de segurança orientada a evidências.
+                </strong>.
+
+              </p>
+
+            </div>
+
+            {/* Mini Dashboard Visual */}
+            <div className="md:w-1/2 w-full bg-[#0a0a0a] border border-slate-800 p-4 rounded-lg font-mono text-xs shadow-2xl">
+              <ul className="space-y-2 font-mono text-xs text-cyan-500/80">
+                <p>
+                  Observabilidade madura responde rapidamente:
+                </p>
+                <li className="flex items-center gap-2">✓ O QUE falhou</li>
+                <li className="flex items-center gap-2">✓ ONDE falhou</li>
+                <li className="flex items-center gap-2">✓ POR QUE falhou</li>
+              </ul> <br />
+              <div className="flex justify-between text-slate-500 mb-2 border-b border-slate-800 pb-2">
+                <span>LIVE METRICS</span>
+                <span className="text-red-500 animate-pulse">● REC</span>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-slate-400 mb-1">
+                    <span>Auth Failures</span>
+                    <span className="text-red-400">890/s (CRITICAL)</span>
+                  </div>
+                  <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-red-500 w-[90%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-slate-400 mb-1">
+                    <span>API Latency</span>
+                    <span className="text-cyan-400">45ms (NORMAL)</span>
+                  </div>
+                  <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-cyan-500 w-[30%]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* 4. GOVERNANÇA: ERROR BUDGET (FEATURE BOX) */}
+        <div className="relative bg-slate-900/30 border border-slate-800 p-8 md:p-12 text-center rounded-sm mb-24">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#050505] px-4 py-1 border border-slate-800 text-xs font-mono text-yellow-500 uppercase tracking-widest flex items-center gap-2">
+            <Scale className="w-4 h-4" /> Controle de Risco
+          </div>
+          <div>
+            <h3 className="text-3xl font-black text-white mb-6 uppercase tracking-tight">
+              SLOs, SLAs e <span className="text-yellow-500">Error Budget</span> como controle de risco
+            </h3>
+            <p>
+              Quando um sistema ultrapassa seu error budget, o pipeline desacelera.
+            </p> <br />
+          </div>
+
+          <p className="max-w-3xl mx-auto text-slate-300 text-lg mb-8 leading-relaxed">
+            Indicadores de confiabilidade e error budget deixam de ser apenas métricas
+            operacionais e medir apenas disponibilidade e passam a influenciar
+            decisões de segurança e a incorporar estabilidade,
+            viram instrumentos de governança: se o sistema está instável ou sob ataque,
+            <strong className="text-white bg-red-900/20 px-1">o ritmo de mudanças diminui automaticamente.</strong> <br />
+            Um aumento
+            de falhas de autenticação ou exceções inesperadas é sinal de alerta,
+            não ruído operacional. Mudanças são revistas, decisão técnica e efeito estratégico.
+            O risco passa a ser controlado por dados, não por pressão de agenda.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+            <div className="p-4 border border-slate-800 bg-black/20">
+              <div className="flex items-center gap-2 mb-2 text-yellow-500 font-bold font-mono text-sm">
+                <AlertTriangle className="w-4 h-4" /> SINAL DE ALERTA
+              </div>
+              <p className="text-sm text-slate-400">
+                Aumento de falhas de autenticação não é ruído operacional; é um indicador de ataque. O pipeline deve desacelerar.
+              </p>
+            </div>
+            <div className="p-4 border border-slate-800 bg-black/20">
+              <div className="flex items-center gap-2 mb-2 text-emerald-500 font-bold font-mono text-sm">
+                <ShieldCheck className="w-4 h-4" /> DECISÃO TÉCNICA
+              </div>
+              <p className="text-sm text-slate-400">
+                O risco passa a ser controlado por dados reais, não por pressão de agenda ou intuição da diretoria.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* FECHAMENTO: FEEDBACK LOOP */}
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center p-3 rounded-full bg-emerald-950/30 border border-emerald-900/50 mb-6">
+            <Activity className="w-6 h-6 text-emerald-500" />
+          </div>
+          <h3 className="text-3xl font-bold text-white mb-6">Produção vira Laboratório</h3>
+          <p className="text-slate-400 text-lg leading-relaxed mb-8">
+            AppSec se alimenta desse feedback para ajustar regras, testes e políticas. <br />
+            Cada deploy gera sinais. Cada dado gera aprendizado. <br />
+            A observabilidade fecha o ciclo do DevSecOps: <br />
+            <span className="text-emerald-500 font-mono font-bold mt-4 block">
+              CÓDIGO &rarr; PRODUÇÃO &rarr; DADOS &rarr; MELHORIA
+            </span>
+          </p>
+          <p className="text-sm text-slate-600 font-mono">
+            O sistema aprende com a própria operação. Transformando produção em laboratório controlado.<br />
+
+            Segurança deixa de ser suposição e passa a ser evidência mensurável. <br />
+          </p>
+        </div>
+
+
+
+      </section>
       {/* ---------------------------------------------------------------------
           CAPÍTULO 5: O FUTURO - IA & OWASP LLM (NOVO MÓDULO)
       ---------------------------------------------------------------------- */}
@@ -3626,7 +3889,7 @@ const DevSecOpsArticle = () => {
                 <Cpu className="w-6 h-6" style={{ color: colors.dourado }} />
               </div>
               <h3 className="text-2xl font-bold text-white">
-                Capítulo 5: A Nova Fronteira (IA & LLMs)
+                Capítulo #: A Nova Fronteira (IA & LLMs)
               </h3>
             </div>
             <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
