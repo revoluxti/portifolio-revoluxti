@@ -3613,38 +3613,38 @@ const DevSecOpsArticle = () => {
       </section>
 
       {/* ---------------------------------------------------------------------
-    CAPÍTULO 5: OBSERVABILIDADE INTEGRADA (EDITORIAL STYLE)
----------------------------------------------------------------------- */}
+                      CAPÍTULO 5: OBSERVABILIDADE INTEGRADA (EDITORIAL STYLE)
+                  ---------------------------------------------------------------------- */}
 
 
       <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
 
         {/* MANCHETE (HEADLINE) */}
 
-        <div className="mb-20 flex flex-col items-center justify-center text-center w-full">
-          <div className="mb-6 p-3 rounded-lg border bg-slate-900/50 border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] inline-flex items-center justify-center">
-            <Eye className="w-6 h-6 text-cyan-400" />
+        {/* CABEÇALHO (Espaçamento Ajustado) */}
+        <div className="mb-8 flex flex-col items-center justify-center text-center w-full">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+              <Eye className="w-6 h-6 text-cyan-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-white">
+              Capítulo 5 – Observabilidade Integrada à Segurança Orientada a Dados
+            </h3>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight text-center">
-            Observabilidade Integrada à <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-              Segurança Orientada a Dados
-            </span>
-          </h2>
         </div>
 
-        <div className="mb-20 text-center">
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+        {/* CITAÇÃO (Espaçamento Ajustado) */}
+        <div className="mb-12 text-center">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-4">
             "Não basta observar sistemas. É preciso observar <strong className="text-white font-bold">comportamentos</strong>."
           </p>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
             Visibilidade total para decisões rápidas e seguras: performance,
             risco e comportamento em tempo real.
-
           </p>
         </div>
 
-        {/* COLUNA CENTRAL: TEXTO INTRODUTÓRIO */}
+        {/* COLUNA CENTRAL: TEXTO (Espaçamento Ajustado) */}
         <div className="max-w-3xl mx-auto mb-20 space-y-6 text-slate-300 text-lg leading-relaxed border-l-2 border-slate-800 pl-6 md:pl-10">
           <p>
             Observabilidade moderna transforma dados brutos em contexto acionável. É o elo perdido entre operação, segurança e negócio.
@@ -3656,7 +3656,6 @@ const DevSecOpsArticle = () => {
             <span className="text-cyan-400"> Quem acessa? De onde acessa? E com qual intenção?</span>
           </p>
         </div>
-
         {/* OS 3 PILARES (GRID CARD) */}
         <h3 >
           Os Três Pilares da Observabilidade com viés de segurança:
@@ -3884,8 +3883,15 @@ const DevSecOpsArticle = () => {
 
         {/* HERO SECTION: "FALHAR É INEVITÁVEL" */}
         <div className="relative z-10 text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-orange-500/30 bg-orange-950/20 text-[10px] font-mono text-orange-400 uppercase tracking-widest mb-6">
-            <ShieldCheck className="w-3 h-3" /> Capítulo 06 :: Anti-Fragility
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+                <ShieldCheck className="w-6 h-6 text-orange-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">
+                Capítulo 6 –  Anti-Fragility
+              </h3>
+            </div>
           </div>
           <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter uppercase">
             <span className="relative inline-block text-slate-600 line-through decoration-red-500 decoration-4">
@@ -4160,11 +4166,9 @@ const DevSecOpsArticle = () => {
                   </div>
                 </div> <br />
               </div>
-
             </div>
-
-
           </div>
+          <DisasterRecoverySim colors={colors} /> <br /> <br />
           {/* SÍNTESE ESTRATÉGICA (O TRIÂNGULO FINAL) */}
           <div className="relative py-16 border-t border-slate-800 bg-gradient-to-b from-[#050101] to-slate-950 text-center">
             <div>
@@ -4176,6 +4180,7 @@ const DevSecOpsArticle = () => {
               </div>
             </div> <br /> <br />
             
+
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative">
 
               {/* Conectores Visuais (Linhas) - Apenas Desktop */}
@@ -4226,6 +4231,9 @@ const DevSecOpsArticle = () => {
         {/* Cabeçalho do Capítulo */}
         <div className="mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
+
+
+
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
                 <Cpu className="w-6 h-6" style={{ color: colors.dourado }} />
