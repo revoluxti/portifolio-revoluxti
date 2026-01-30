@@ -3707,8 +3707,8 @@ const DevSecOpsArticle = () => {
           </div>
         </div>
         {/* ---------------------------------------------------------------------
-    INSIGHT CARD: PRECISÃO CIRÚRGICA
----------------------------------------------------------------------- */}
+            INSIGHT CARD: PRECISÃO CIRÚRGICA
+        ---------------------------------------------------------------------- */}
         <div className="relative p-8 md:p-10 my-16 rounded-2xl bg-gradient-to-br from-[#0b1221] to-[#020617] border border-slate-800 shadow-2xl overflow-hidden group hover:border-cyan-500/30 transition-all duration-500">
 
           {/* Background Grid Effect (Textura Tática) */}
@@ -3875,8 +3875,8 @@ const DevSecOpsArticle = () => {
 
 
       {/* ---------------------------------------------------------------------
-    CAPÍTULO 6: RESILIÊNCIA OPERACIONAL (FORTRESS DESIGN)
----------------------------------------------------------------------- */}
+                  CAPÍTULO 6: RESILIÊNCIA OPERACIONAL (FORTRESS DESIGN)
+                  ---------------------------------------------------------------------- */}
       <section className="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900 bg-[#050101] relative overflow-hidden">
 
         {/* Background Texture (Malha de Aço) */}
@@ -3997,26 +3997,35 @@ const DevSecOpsArticle = () => {
               <div className="p-6 rounded border border-orange-500/50 bg-orange-950/10 shadow-[0_0_15px_rgba(249,115,22,0.1)] flex flex-col justify-center">
                 <div className="text-xs font-mono uppercase text-slate-500 mb-2">Engenharia Padrão</div>
                 <div className="text-white font-bold text-xl mb-2">Fail-Open</div>
-                <p className="text-sm text-slate-500">"O show tem que continuar." (Risco de vazamento)</p>
+                <p className="text-sm text-slate-500">"O show tem que continuar." (Risco de vazamento) <br /> <br />
+                  Na engenharia comum, se algo falha, tentamos manter funcionando (Fail-Open).
+
+                </p>
               </div>
 
               {/* Fail Safe Visual */}
               <div className="p-6 rounded border border-orange-500/50 bg-orange-950/10 shadow-[0_0_15px_rgba(249,115,22,0.1)] flex flex-col justify-center">
                 <div className="text-xs font-mono uppercase text-orange-400 mb-2">Segurança REVOLUXTI</div>
                 <div className="text-white font-bold text-xl mb-2">Fail-Safe</div>
-                <p className="text-sm text-slate-400">"Se a tranca quebra, a porta permanece fechada."</p>
+                <p className="text-sm text-slate-400">"Se a tranca quebra, a porta permanece fechada." <br /> <br />
+                  Na segurança, se o módulo de autenticação falha, ele deve travar tudo (Fail-Safe/Closed).
+                </p>
               </div>
             </div>
             {/* 1. SEÇÃO DE TEXTO (TOPO E LARGURA TOTAL) */}
             <div className="w-full">
               <h3 className="text-3xl font-black text-white mb-4">
-                Disaster Recovery, Continuidade de Negócios & <span className="text-orange-500">Imutabilidade</span>
-              </h3>
+                Disaster Recovery, Continuidade de Negócios & <span className="text-orange-500">Imutabilidade contra Ransomware</span>
+              </h3> <br />
               <p className="text-slate-400 leading-relaxed mb-6">
                 RTO e RPO guiam decisões arquiteturais, não relatórios esquecidos. Backup sem teste não é estratégia; é ilusão. Mas em tempos de Ransomware, backup sem imutabilidade é ilusão.
               </p>
               <p className="text-white text-lg font-light italic border-l-4 border-slate-700 pl-4">
-                "Ambientes DevSecOps maduros automatizam recuperação, failover e validação periódica, reduzindo perdas financeiras e danos reputacionais e utilizam <strong className="text-orange-500 font-bold">Backups Imutáveis (WORM)</strong> para garantir que nem mesmo o admin possa apagar o histórico."
+                "Ambientes DevSecOps maduros automatizam recuperação, failover e validação periódica,
+                reduzindo perdas financeiras e danos reputacionais e utilizam <strong className="text-orange-500 font-bold">Backups Imutáveis (WORM)</strong>.
+                É a única defesa real contra Ransomware hoje em dia.
+                Isso conecta a "velha guarda" (backup) com a ameaça moderna, para garantir que nem mesmo o admin possa apagar o histórico."
+
               </p>
             </div>
 
@@ -4066,17 +4075,22 @@ const DevSecOpsArticle = () => {
               {/* Bloco 2: Chaos Security */}
               <div className="border border-slate-800 p-8 rounded-2xl relative group hover:bg-slate-900/20 transition-colors">
                 <div className="absolute -top-6 left-8 bg-[#050101] px-4 py-1 border border-slate-800 text-xs font-mono text-slate-400 flex items-center gap-2">
-                  <AlertTriangle className="w-3 h-3 text-red-500" /> CHAOS ENGINEERING
+                  <AlertTriangle className="w-3 h-3 text-red-500" /> CHAOS ENGINEERING com viés de segurança
                 </div>
                 <h4 className="text-xl font-bold text-white mb-4">Quebre antes que o hacker o faça.</h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  A introdução controlada de falhas valida a detecção e o tempo de resposta. Resiliência deixa de ser crença e vira evidência.
+                  A introdução controlada de falhas validam hipóteses arquiteturais, operacionais, a detecção e o tempo de resposta.
+                  Resiliência deixa de ser crença e vira evidência empírica.
+                  Quando aplicada com foco em segurança, testa:
+
                 </p>
                 <div className="flex gap-2 text-xs font-mono mt-6">
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Detecção</span>
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Resposta</span>
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Comunicação</span>
+                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Capacidade de detecção</span>
+                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Tempo de resposta</span> <br />
+                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Clareza de comunicação</span>
+                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Robustez dos controles</span>
                 </div>
+
               </div>
 
             </div>
@@ -4091,13 +4105,16 @@ const DevSecOpsArticle = () => {
                 </div>
 
                 <h3 className="text-3xl font-black text-white">
-                  O Fator Humano da Resiliência
+                  O Fator Humano da Resiliência Organizacional
                 </h3>
 
                 <p className="text-slate-400 text-lg leading-relaxed">
-                  <strong className="text-white">Times também falham.</strong> Playbooks claros,
-                  comunicação objetiva e post-mortems sem culpa fortalecem a organização.
-                  Incidentes viram aprendizado institucional, não caçada as bruchas.
+                  <strong className="text-white">Times também falham.</strong> <br />
+                  Sistemas refletem pessoas. Playbooks claros,
+                  comunicação objetiva, post-mortems sem culpa e aprendizado contínuo garantem que
+                  cada falha fortalecem a organização. <br />
+                  AppSec e Resiliência convergem aqui:
+                  Incidentes viram aprendizado institucional, erro vira insumo estratégico, não caçada as bruchas.
                 </p>
 
                 <div className="p-6 bg-slate-900/50 border-l-4 border-orange-500 rounded-r-xl">
@@ -4119,7 +4136,7 @@ const DevSecOpsArticle = () => {
                     <h4 className="text-white font-bold mb-1">Playbooks Claros</h4>
                     <p className="text-sm text-slate-500">Procedimentos definidos eliminam a hesitação durante a crise.</p>
                   </div>
-                </div>
+                </div> <br />
 
                 {/* Card 2: Comunicação */}
                 <div className="flex items-start gap-4 p-4 rounded-lg bg-[#0a0a0a] border border-slate-800 hover:border-orange-500/30 transition-colors group">
@@ -4130,7 +4147,7 @@ const DevSecOpsArticle = () => {
                     <h4 className="text-white font-bold mb-1">Comunicação Objetiva</h4>
                     <p className="text-sm text-slate-500">Informação precisa flui rápido. Sem ruído, sem pânico.</p>
                   </div>
-                </div>
+                </div> <br />
 
                 {/* Card 3: Post-Mortems */}
                 <div className="flex items-start gap-4 p-4 rounded-lg bg-[#0a0a0a] border border-slate-800 hover:border-orange-500/30 transition-colors group">
@@ -4141,18 +4158,24 @@ const DevSecOpsArticle = () => {
                     <h4 className="text-white font-bold mb-1">Post-Mortems Sem Culpa</h4>
                     <p className="text-sm text-slate-500">Erro vira insumo estratégico. Focamos no processo, não na pessoa.</p>
                   </div>
-                </div>
+                </div> <br />
               </div>
+
             </div>
-          </div> 
+
+
+          </div>
           {/* SÍNTESE ESTRATÉGICA (O TRIÂNGULO FINAL) */}
           <div className="relative py-16 border-t border-slate-800 bg-gradient-to-b from-[#050101] to-slate-950 text-center">
-
-            <div className="mb-10">
-              <h3 className="text-3xl font-black text-white uppercase tracking-widest mb-2">A Tríade DevSecOps</h3>
-              <p className="text-slate-500 font-mono text-sm">REVOLUXTI STRATEGIC FRAMEWORK</p>
-            </div>
-
+            <div>
+              <div className="p-2 bg-orange-950/30 rounded-lg border border-orange-500/30">                <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-widest">
+                Síntese Estratégica
+              </h3>
+                <h3 className="text-3xl font-black text-white uppercase tracking-widest mb-2">A Tríade DevSecOps</h3>
+                <p className="text-slate-500 font-mono text-sm">REVOLUXTI STRATEGIC FRAMEWORK</p>
+              </div>
+            </div> <br /> <br />
+            
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative">
 
               {/* Conectores Visuais (Linhas) - Apenas Desktop */}
@@ -4161,22 +4184,24 @@ const DevSecOpsArticle = () => {
               {/* Pilar 1: Cloud Architecture */}
               <div className="relative z-10 bg-[#0a0a0a] border border-slate-800 p-6 rounded-xl hover:-translate-y-2 transition-transform duration-500 shadow-2xl">
                 <Layers className="w-8 h-8 text-blue-500 mx-auto mb-4" />
-                <h4 className="text-white font-bold text-sm uppercase mb-2">Arquitetura</h4>
-                <p className="text-slate-500 text-xs">Preventiva & Escalável</p>
+                <h4 className="text-white font-bold text-sm uppercase mb-2">Arquitetura Cloud + AppSec </h4>
+                <p className="text-slate-500 text-xs">Segurança preventiva e escalável
+                </p>
               </div>
 
               {/* Pilar 2: Observability (Centro) */}
               <div className="relative z-10 bg-[#0a0a0a] border border-cyan-500/50 p-8 rounded-xl scale-110 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
                 <Activity className="w-10 h-10 text-cyan-400 mx-auto mb-4 animate-pulse" />
                 <h4 className="text-white font-bold text-sm uppercase mb-2">Observabilidade</h4>
-                <p className="text-slate-500 text-xs">Visibilidade & Controle</p>
+                <p className="text-slate-500 text-xs">Visibilidade, Controle & Resposta rápida</p>
               </div>
 
               {/* Pilar 3: Resilience */}
               <div className="relative z-10 bg-[#0a0a0a] border border-slate-800 p-6 rounded-xl hover:-translate-y-2 transition-transform duration-500 shadow-2xl">
                 <RefreshCw className="w-8 h-8 text-orange-500 mx-auto mb-4" />
                 <h4 className="text-white font-bold text-sm uppercase mb-2">Resiliência</h4>
-                <p className="text-slate-500 text-xs">Continuidade & Confiança</p>
+                <p className="text-slate-500 text-xs">Continuidade operacional & Confiança do negócio
+                </p>
               </div>
 
             </div>
