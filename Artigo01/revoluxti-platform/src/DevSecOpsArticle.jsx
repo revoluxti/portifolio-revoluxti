@@ -31,8 +31,8 @@ import {
   FileJson, RotateCw, Map, GitGraph, Flag, ArrowRight,
   Download, BrainCircuit, Anchor,
   ServerCrash, HeartHandshake, Triangle,
-  Cloud, MessageSquare
-
+  Cloud, MessageSquare, Hexagon,
+  XCircle
 } from 'lucide-react';
 
 // -----------------------------------------------------------------------------
@@ -4179,7 +4179,7 @@ const DevSecOpsArticle = () => {
                 <p className="text-slate-500 font-mono text-sm">REVOLUXTI STRATEGIC FRAMEWORK</p>
               </div>
             </div> <br /> <br />
-            
+
 
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative">
 
@@ -4214,14 +4214,442 @@ const DevSecOpsArticle = () => {
             <p className="mt-12 text-slate-400 max-w-2xl mx-auto text-sm">
               "Juntos, esses pilares transformam DevSecOps em <strong className="text-white">vantagem competitiva sustentável</strong>, não apenas em prática técnica."
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------------
+                    CAPÍTULO 7: ORQUESTRAÇÃO DE ELITE (NÍVEL BANCA EXAMINADORA)
+                  ---------------------------------------------------------------------- */}
+      <section className="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900 bg-[#050101] relative overflow-hidden">
+
+        {/* Background Texture (Hexagons & Data Streams) */}
+        <div className="absolute inset-0 bg-[radial-gradient(#2e1065_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+        {/* 1. CABEÇALHO PADRONIZADO */}
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+              <Hexagon className="w-6 h-6 text-violet-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-white">
+              Capítulo 7 – Orquestração de Elite: Kubernetes e Cloud em Escala
+            </h3>
+          </div>
+        </div>
+
+        {/* 2. HERO SECTION: MATURIDADE & CONTROLE */}
+        <div className="mb-20 text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
+            Escalar sem controle é só acelerar o colapso<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500">
+              escalar sem perder o controle é maturidade.
+
+            </span>
+          </h2>
+          <div className="max-w-4xl mx-auto mb-20 text-center space-y-6">
+
+            {/* Parágrafo de Impacto (Hook) */}
+            <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
+              Se a Arquitetura Cloud define onde a aplicação vive, o <strong className="text-white font-bold">Kubernetes (K8s) define como ela sobrevive</strong>.
+            </p>
+
+            {/* Parágrafo de Contexto e Maturidade */}
+            <p className="text-lg text-slate-400 leading-relaxed">
+              Após estabelecer Arquitetura Cloud, AppSec, Observabilidade e Resiliência, o próximo salto é a orquestração em escala de maturidade operacional. A organização está pronta para operar em escala.
+            </p>
+
+            {/* Parágrafo de Definição (O Sistema Operacional) */}
+            <p className="text-lg text-slate-400 leading-relaxed">
+              Nesse momento entra o Kubernetes como motor de padronização, automação e isolamento. Não é ferramenta para iniciantes — é plataforma para organizações disciplinadas. É o <span className="text-violet-400 font-medium">sistema operacional da TI moderna</span>, o mecanismo que sustenta crescimento sem colapso.
+            </p>
+
+            {/* Parágrafo Estratégico ("Bem" vs "Certo") */}
+            <p className="text-lg text-slate-400 leading-relaxed border-l-2 border-violet-500/30 pl-4 italic">
+              Neste estágio, a orquestração deixa de ser operacional e torna-se estratégica. Quando a arquitetura deixa de funcionar “bem” e passa a funcionar “certo”.
+            </p>
+
+            {/* Parágrafo de Alerta (Risco) */}
+            <div className="inline-block p-4 rounded-lg bg-red-950/10 border border-red-900/30 mt-4">
+              <p className="text-red-300/90 text-sm font-medium">
+                ⚠️ Mas atenção: ele também amplia drasticamente a superfície de ataque. Sem AppSec prévio, o K8s vira um <strong className="text-white">multiplicador de risco</strong>.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 3. KUBERNETES: O SISTEMA OPERACIONAL & RISCO */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 items-start">
+
+          {/* --- COLUNA DA ESQUERDA (AJUSTADA CONFORME IMAGEM) --- */}
+          <div className="flex flex-col gap-6">
+
+            {/* Cabeçalho fora do Card */}
+            <div>
+              <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest border border-violet-500/30 px-3 py-1 rounded-full bg-violet-950/20 mb-4">
+                <Server className="w-3 h-3" /> Cloud Operating System
+              </div>
+              <h3 className="text-3xl font-bold text-white">
+                Padronização ou Vetor de Ataque?
+              </h3>
+            </div>
+
+            {/* O Card Principal (Kubernetes OS) */}
+            <div className="relative bg-[#0a0a0a] border border-slate-800 rounded-2xl p-8 text-center shadow-2xl overflow-hidden group hover:border-violet-500/30 transition-colors">
+
+              {/* Ícone Flutuante */}
+              <div className="inline-flex items-center justify-center p-4 bg-violet-950/20 rounded-full border border-violet-500/20 mb-6 shadow-[0_0_20px_rgba(139,92,246,0.1)]">
+                <Cloud className="w-8 h-8 text-violet-400" />
+              </div>
+
+              {/* Título Interno */}
+              <h3 className="text-2xl font-black text-white mb-6">
+                Kubernetes como <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
+                  Sistema Operacional da Nuvem
+                </span>
+              </h3>
+
+              {/* Texto Descritivo */}
+              <p className="text-slate-300 leading-relaxed mb-8 text-sm md:text-base">
+                Kubernetes abstrai infraestrutura, padroniza execução e automatiza decisões. Ele transforma ambientes heterogêneos em <strong className="text-white">plataformas previsíveis</strong>. Para o DevSecOps, isso significa <span className="text-violet-300 font-mono text-xs bg-violet-950/30 px-2 py-1 rounded mx-1">consistência</span>, <span className="text-violet-300 font-mono text-xs bg-violet-950/30 px-2 py-1 rounded mx-1">isolamento</span> e <span className="text-violet-300 font-mono text-xs bg-violet-950/30 px-2 py-1 rounded mx-1">controle</span>.
+              </p>
+
+              {/* Alerta Vermelho (Porém...) */}
+              <div className="relative p-4 bg-red-950/10 border-t border-b border-red-900/30 mx-auto -mx-8 mb-[-32px] pb-8">
+                <div className="flex items-center justify-center gap-2 text-red-400 font-bold text-lg mb-1">
+                  <ShieldAlert className="w-5 h-5 animate-pulse" />
+                  <span>Porém...</span>
+                </div>
+                <p className="text-red-300/80 text-sm">
+                  Também amplia drasticamente a superfície de ataque. Sem AppSec prévio, K8s vira um multiplicador de risco.                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* --- COLUNA DA DIREITA (GRID DE DEFESA - MANTIDA IGUAL) --- */}
+          <div className="relative h-auto min-h-full bg-[#0a0a0a] border border-violet-900/30 rounded-2xl p-6 flex flex-col justify-between overflow-hidden group">
+
+            {/* Grid Background */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+
+            {/* Header (Bolinhas + ID) */}
+            <div className="flex justify-between items-start relative z-10 mb-6">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500"></div>
+              </div>
+              <span className="text-[10px] font-mono text-violet-500">K8S_DEFENSE_GRID_V1</span>
+            </div>
+
+            {/* Texto Descritivo */}
+            <p className="text-slate-400 leading-relaxed text-sm mb-6">
+              Um cluster mal configurado é um convite à escalada de privilégios e movimentação lateral. Sem AppSec, o K8s é apenas um multiplicador de risco eficiente.
+            </p>
+
+            {/* Cards Imutabilidade/Self-Healing */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="p-4 bg-slate-900/50 border-l-2 border-violet-500 rounded-r">
+                <span className="block text-white font-bold text-sm">Imutabilidade</span>
+                <span className="text-xs text-slate-500">Nodes descartáveis.</span>
+              </div>
+              <div className="p-4 bg-slate-900/50 border-l-2 border-violet-500 rounded-r">
+                <span className="block text-white font-bold text-sm">Self-Healing</span>
+                <span className="text-xs text-slate-500">Recuperação automática.</span>
+              </div>
+            </div>
+
+            {/* Lista de Status */}
+            <div className="relative z-10 space-y-2 font-mono text-xs">
+              <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded hover:border-violet-500/30 transition-colors">
+                <span className="text-slate-400">Pod Identity</span>
+                <span className="text-green-400">SPIFFE/SPIRE [ACTIVE]</span>
+              </div>
+              <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded hover:border-violet-500/30 transition-colors">
+                <span className="text-slate-400">Network</span>
+                <span className="text-green-400">Cilium eBPF [LOCKED]</span>
+              </div>
+              <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded hover:border-violet-500/30 transition-colors">
+                <span className="text-slate-400">Compliance</span>
+                <span className="text-green-400">CIS Benchmark [PASS]</span>
+              </div>
+            </div>
 
           </div>
 
+        </div>
 
+        {/* 4. KUBERNETES: CATALISADOR & SEGURANÇA NATIVA */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
 
+          {/* COLUNA 1: PILAR CATALISADOR (OPERACIONAL) */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-2xl p-8 hover:border-violet-500/30 transition-colors group">
+
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 bg-violet-950/20 rounded-lg border border-violet-500/20 group-hover:bg-violet-500 group-hover:text-white transition-colors text-violet-400">
+                <Zap className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white leading-tight">
+                Kubernetes como pilar <br />
+                <span className="text-violet-500">catalisador do DevSecOps</span>
+              </h3>
+            </div>
+
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 border-l-2 border-violet-500/30 pl-4">
+              Kubernetes não resolve problemas de arquitetura; ele expõe os que já existem. Quando bem implementado, viabiliza:
+            </p>
+
+            <ul className="space-y-3">
+              {[
+                'Padronização de ambientes de execução',
+                'Isolamento forte de falhas entre workloads',
+                'Escalabilidade automática',
+                'Deploys frequentes controlados e reversíveis',
+                'Alta disponibilidade por design',
+                'Recuperação rápida de falhas'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-violet-500 mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+          {/* COLUNA 2: SEGURANÇA NATIVA (PLATFORM SECURITY) */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/30 transition-colors group relative overflow-hidden">
+
+            {/* Background Glow Sutil */}
+            <div className="absolute top-0 right-0 p-12 bg-cyan-500/5 blur-3xl rounded-full pointer-events-none"></div>
+
+            <div className="flex items-center gap-3 mb-6 relative z-10">
+              <div className="p-3 bg-cyan-950/20 rounded-lg border border-cyan-500/20 group-hover:bg-cyan-500 group-hover:text-black transition-colors text-cyan-400">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white leading-tight">
+                Segurança nativa na <br />
+                <span className="text-cyan-400">orquestração (cluster)</span>
+              </h3>
+            </div>
+
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 relative z-10">
+              Segurança em Kubernetes não é firewall externo, é <strong>controle interno</strong>. Em ambientes orquestrados, AppSec evolui para <em>Platform Security</em>. Controles essenciais incluem:
+            </p>
+
+            <ul className="space-y-3 mb-8 relative z-10">
+              <li className="flex items-start gap-3 text-sm text-slate-300">
+                <Layers className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                <span>Segurança de imagens (Image scanning e assinatura)</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-300">
+                <Network className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                <span>Network Policies para isolamento e microsegmentação</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-300">
+                <ShieldCheck className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                <span>Pod Security Standards</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-300">
+                <Lock className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                <span>Gestão segura de secrets externos ao código</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-slate-300">
+                <Server className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                <span>RBAC granular bem definido</span>
+              </li>
+            </ul>
+
+            {/* Warning Box Final */}
+            <div className="relative z-10 p-4 bg-red-950/10 border border-red-900/30 rounded-lg flex gap-3 items-start">
+              <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+              <p className="text-xs text-red-200/80 leading-relaxed">
+                Sem isso, Kubernetes deixa de ser plataforma e vira vetor de ataque altamente sofisticado.
+              </p>
+            </div>
+
+          </div>
 
         </div>
+
+        {/* 4. GITOPS: A VERDADE ÚNICA (AUDITORIA) */}
+        <div className="mb-24 relative p-8 md:p-10 border border-slate-800 bg-[#0a0a0a] rounded-xl overflow-hidden group hover:border-violet-500/30 transition-colors">
+          <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
+            <GitBranch className="w-40 h-40 text-white" />
+          </div>
+
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <GitBranch className="w-6 h-6 text-fuchsia-500" />
+              GitOps: A Verdade Única & Auditável
+            </h3>
+
+            <div className="flex flex-col md:flex-row gap-10 items-center">
+              <div className="md:w-1/2 space-y-4">
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  Em orquestração de elite, a imperatividade morre. Ninguém roda <code className="bg-slate-800 px-1 py-0.5 rounded text-slate-300 font-mono text-xs">kubectl apply</code>.
+                  O estado do cluster espelha estritamente o repositório Git.
+                </p>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  Isso garante <strong>Imutabilidade</strong> e <strong>Auditabilidade</strong>. Se houver "Configuration Drift" (alguém mexer manualmente), o ArgoCD/Flux corrige automaticamente.
+                </p>
+                <div className="flex gap-2">
+                  <span className="px-2 py-1 rounded bg-fuchsia-950/30 border border-fuchsia-500/30 text-[10px] text-fuchsia-400 font-mono">ArgoCD</span>
+                  <span className="px-2 py-1 rounded bg-fuchsia-950/30 border border-fuchsia-500/30 text-[10px] text-fuchsia-400 font-mono">Flux v2</span>
+                </div>
+              </div>
+
+              {/* GitOps Flow Visual */}
+              <div className="md:w-1/2 w-full flex items-center justify-between gap-2 p-6 bg-slate-900/50 rounded-lg border border-slate-800 font-mono text-xs text-center shadow-xl">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><GitBranch className="w-5 h-5 text-orange-500" /></div>
+                  <span className="text-slate-400 font-bold">Git Repo</span>
+                  <span className="text-[9px] text-slate-600">Source of Truth</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-slate-600 animate-pulse" />
+                <div className="flex flex-col items-center gap-2">
+                  <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><CheckCircle2 className="w-5 h-5 text-green-500" /></div>
+                  <span className="text-slate-400 font-bold">Reconciliation</span>
+                  <span className="text-[9px] text-slate-600">Continuous Sync</span>
+                </div>
+                <ArrowRight className="w-5 h-5 text-slate-600 animate-pulse" />
+                <div className="flex flex-col items-center gap-2">
+                  <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><Hexagon className="w-5 h-5 text-violet-500" /></div>
+                  <span className="text-slate-400 font-bold">Live Cluster</span>
+                  <span className="text-[9px] text-slate-600">Desired State</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 5. PLATFORM SECURITY (DEEP DIVE TÉCNICO) */}
+        <div className="mb-24">
+          <div className="mb-12 border-l-4 border-violet-500 pl-6">
+            <h3 className="text-3xl font-black text-white mb-2">Platform Security 2.0</h3>
+            <p className="text-slate-400">Defesa em profundidade expandida para atender requisitos de missão crítica.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {/* 1. Supply Chain & SBOM */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-blue-400">
+                <FileJson className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">Supply Chain & SBOM</h4>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Não basta scanear. Implementamos <strong>SBOM</strong> (Software Bill of Materials) e assinatura digital (Sigstore/Cosign). Garantia matemática de proveniência.
+              </p>
+              <div className="w-full bg-slate-800 h-px mb-3"></div>
+              <div className="flex gap-2 text-[10px] font-mono text-slate-500">
+                <span>Cosign</span> • <span>Trivy</span> • <span>Syft</span>
+              </div>
+            </div>
+
+            {/* 2. Admission Controllers (OPA) */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-violet-500/20 to-transparent rounded-bl-full"></div>
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-violet-400">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">Policy as Code (OPA)</h4>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                O cluster recusa deploy inseguro. Tentou rodar como <code className="text-red-400">root</code>? Tentou montar o host filesystem? O <strong>Gatekeeper</strong> bloqueia.
+              </p>
+              <div className="flex items-center gap-2 text-[10px] font-mono bg-red-950/20 p-2 rounded border border-red-900/30">
+                <XCircle className="w-3 h-3 text-red-500" />
+                <span className="text-red-400">Privileged Pod Blocked</span>
+              </div>
+            </div>
+
+            {/* 3. Service Mesh & Zero Trust */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-fuchsia-400">
+                <Network className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">Zero Trust & mTLS</h4>
+              <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                Identidade baseada em criptografia, não em IP. <strong>Service Mesh</strong> (Istio/Linkerd) garante mTLS (criptografia mútua) entre todos os serviços.
+              </p>
+              <div className="w-full bg-slate-800 h-px mb-3"></div>
+              <div className="flex gap-2 text-[10px] font-mono text-slate-500">
+                <span>Istio</span> • <span>Linkerd</span> • <span>SPIFFE</span>
+              </div>
+            </div>
+
+            {/* 4. Secrets Management */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-yellow-500">
+                <Key className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">External Secrets</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Fim das variáveis de ambiente. Segredos são injetados em tempo de execução via <strong>Vault Sidecars</strong> diretamente na memória.
+              </p>
+            </div>
+
+            {/* 5. Runtime Security */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-cyan-400">
+                <Activity className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">Runtime (eBPF)</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                E se o ataque for na execução? <strong>Falco/Tetragon</strong> detectam syscalls maliciosas em tempo real direto no kernel.
+              </p>
+            </div>
+
+            {/* 6. Compliance as Code */}
+            <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-green-400">
+                <FileCheck className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-bold mb-2">Compliance (CIS)</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Auditoria contínua automática contra <strong>CIS Benchmarks</strong> e PCI-DSS. O cluster prova que é seguro.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 6. CHECKLIST DE MATURIDADE (FIM) */}
+        <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-slate-900 to-[#0a0a0a] border border-slate-800 rounded-2xl relative overflow-hidden">
+          <div className="absolute right-0 top-0 p-4 opacity-5">
+            <AlertOctagon className="w-32 h-32 text-violet-500" />
+          </div>
+
+          <h4 className="text-white font-bold mb-6 flex items-center gap-2 relative z-10">
+            <AlertOctagon className="w-5 h-5 text-violet-500" />
+            Checklist de Sobrevivência (Maturidade Nível 5)
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 relative z-10">
+            {[
+              'Network Policies (Default Deny)',
+              'Pod Security Standards (Restricted)',
+              'Imutabilidade de Infra (Nodes Descartáveis)',
+              'Assinatura de Imagens (Cosign/Notary)',
+              'Scan de Vulnerabilidades no Registry',
+              'Secrets via Vault (Sem Env Vars)',
+              'mTLS Mesh (Criptografia em Trânsito)',
+              'Audit Logs centralizados (SIEM)'
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3 text-sm text-slate-300 border-b border-slate-800/50 pb-2">
+                <div className="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_5px_rgba(139,92,246,0.8)]"></div>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
       </section>
+
+
 
       {/* ---------------------------------------------------------------------
           CAPÍTULO 5: O FUTURO - IA & OWASP LLM (NOVO MÓDULO)

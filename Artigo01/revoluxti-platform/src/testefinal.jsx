@@ -1,227 +1,225 @@
-{/* ---------------------------------------------------------------------
-    CAPÍTULO 6: RESILIÊNCIA OPERACIONAL (FORTRESS DESIGN)
----------------------------------------------------------------------- */}
-<section className="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900 bg-[#050101] relative overflow-hidden">
+<section>
+        {/* Background Hexagons (K8s Pattern) */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none"
+          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }}>
+        </div>
 
-{/* Background Texture (Malha de Aço) */}
-<div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_2px,transparent_2px),linear-gradient(90deg,rgba(255,255,255,0.02)_2px,transparent_2px)] bg-[size:60px_60px] opacity-20 pointer-events-none"></div>
+        {/* HEADER PADRONIZADO */}
+        <div className="mb-12 relative z-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+              <Hexagon className="w-6 h-6 text-blue-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-white">
+              Capítulo 7 – Orquestração de Elite: Kubernetes e Cloud em Escala
+            </h3>
+          </div>
+        </div>
 
-{/* HERO SECTION: "FALHAR É INEVITÁVEL" */}
-<div className="relative z-10 text-center mb-24">
-  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-orange-500/30 bg-orange-950/20 text-[10px] font-mono text-orange-400 uppercase tracking-widest mb-6">
-    <ShieldCheck className="w-3 h-3" /> Capítulo 06 :: Anti-Fragility
-  </div>
-  <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter uppercase">
-    <span className="relative inline-block text-slate-600 line-through decoration-red-500 decoration-4">
-      Falhar é Inevitável.
-    </span>
-  </h2>
-  <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600 tracking-tighter uppercase mb-8">
-    Colapsar é Opcional.
-  </h2>
-  <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
-    Resiliência não é sorte; é engenharia. É a capacidade de continuar entregando valor mesmo sob <strong className="text-white">erro humano, falha de infraestrutura ou ataque massivo</strong>.
-  </p>
-  <p className="text-slate-400 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-    Resiliência é a capacidade de continuar entregando valor mesmo sob falha, erro humano ou ataque.
-    Em DevSecOps, ela é <strong className="text-white">construída por design</strong> e validada por dados.
-  </p>
-</div>
-{/* GRID DE PADRÕES DE ENGENHARIA (BENTO GRID) */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+        {/* HERO: ESCALAR SEM CONTROLE */}
+        <div className="text-center mb-20 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+            "Escalar sem controle é só <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
+              acelerar o colapso
+            </span>."
+          </h2>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+            Se a Arquitetura Cloud define onde a aplicação vive, o <strong className="text-blue-400">Kubernetes</strong> define como ela sobrevive.
+          </p>
+        </div>
 
-  {/* Card 1: Circuit Breaker */}
-  <div className="p-6 bg-slate-900/30 border border-slate-800 hover:border-orange-500/50 transition-colors group">
-    <Zap className="w-8 h-8 text-slate-500 group-hover:text-yellow-400 mb-4 transition-colors" />
-    <h4 className="text-white font-bold mb-2">Circuit Breaker</h4>
-    <p className="text-xs text-slate-400 leading-relaxed">
-      Impede que falhas em um serviço derrubem o sistema todo. Se falhar, "corta a energia" e evita o efeito cascata.
-    </p>
-  </div>
+        {/* 4. GITOPS: A VERDADE ÚNICA (BANNER) */}
+        <div className="mb-24 relative p-8 md:p-10 bg-gradient-to-r from-[#0f172a] to-[#020617] border-y border-slate-800">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="p-4 bg-slate-900 rounded-full border border-slate-700 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+              <GitBranch className="w-8 h-8 text-indigo-400" />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-bold text-white mb-2">GitOps: A Verdade Única</h3>
+              <p className="text-slate-400 max-w-2xl">
+                Em orquestração de elite, ninguém roda <code className="bg-black px-1 py-0.5 rounded text-indigo-300 font-mono text-sm">kubectl apply</code> na mão.
+                O estado do cluster espelha o Git. Conecta "Dev" (Código) com "Ops" (K8s) de forma auditável.
+              </p>
+            </div>
+          </div>
+        </div>
 
-  {/* Card 2: Bulkhead */}
-  <div className="p-6 bg-slate-900/30 border border-slate-800 hover:border-orange-500/50 transition-colors group">
-    <Anchor className="w-8 h-8 text-slate-500 group-hover:text-orange-400 mb-4 transition-colors" />
-    <h4 className="text-white font-bold mb-2">Bulkhead</h4>
-    <p className="text-xs text-slate-400 leading-relaxed">
-      Compartimentalização estilo submarino. Se um módulo inunda (falha), os outros continuam secos e operacionais.
-    </p>
-  </div>
-  {/* Card 3: Retry Inteligente */}
-  <div className="p-6 bg-slate-900/30 border border-slate-800 hover:border-orange-500/50 transition-colors group">
-    <RefreshCw className="w-8 h-8 text-slate-500 group-hover:text-green-400 mb-4 transition-colors" />
-    <h4 className="text-white font-bold mb-2">Smart Retry</h4>
-    <p className="text-xs text-slate-400 leading-relaxed">
-      Tentar de novo, mas com inteligência (Backoff). Evita sobrecarregar um sistema que já está pedindo socorro.
-    </p>
-  </div>
-  {/* Card 4: Graceful Degradation */}
-  <div className="p-6 bg-slate-900/30 border border-slate-800 hover:border-orange-500/50 transition-colors group">
-    <Layers className="w-8 h-8 text-slate-500 group-hover:text-blue-400 mb-4 transition-colors" />
-    <h4 className="text-white font-bold mb-2">Degradação Suave</h4>
-    <p className="text-xs text-slate-400 leading-relaxed">
-      O sistema não morre, ele simplifica. Se a personalização falhar, mostre o conteúdo genérico. Entregue valor parcial.
-    </p>
-  </div>
-</div>
+        {/* 3. KUBERNETES: O SISTEMA OPERACIONAL (GRID) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
 
-{/* O DILEMA DE SEGURANÇA (FAIL-OPEN vs FAIL-SAFE) */}
-<div className="mb-24 bg-gradient-to-r from-slate-900 to-[#0a0a0a] border-y border-slate-800 p-8 md:p-12 relative overflow-hidden">
-  <div className="absolute top-0 right-0 p-4 opacity-5">
-    <Lock className="w-40 h-40 text-white" />
-  </div>
+          {/* Card: O Motor */}
+          <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl relative overflow-hidden group hover:border-indigo-500/50 transition-all">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Cpu className="w-32 h-32 text-indigo-500" />
+            </div>
+            <div className="relative z-10">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Server className="w-5 h-5 text-indigo-400" /> SO da Nuvem
+              </h4>
+              <p className="text-slate-400 leading-relaxed mb-4">
+                Não é ferramenta para iniciantes — é plataforma para organizações disciplinadas. É o mecanismo que sustenta crescimento sem colapso.
+              </p>
+              <div className="p-3 bg-indigo-950/20 border-l-2 border-indigo-500 text-indigo-300 text-sm">
+                "Quando a arquitetura deixa de funcionar 'bem' e passa a funcionar 'certo'."
+              </div>
+            </div>
+          </div>
 
-  <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
-    <div className="md:w-1/2">
-      <h3 className="text-2xl font-bold text-white mb-4">
-        Resiliência Ofensiva: <span className="text-orange-500">Fail-Safe</span>
-      </h3>
-      <p className="text-slate-400 text-lg leading-relaxed mb-6">
-        Ataques modernos não visam apenas indisponibilidade; visam exaustão e degradação.
-        A engenharia tradicional tende ao <em>"Fail-Open"</em> (manter funcionando), mas a Segurança exige o <strong>"Fail-Safe"</strong> (travar para proteger).
-      </p>
-      <div className="p-4 bg-orange-950/20 border-l-2 border-orange-500 text-orange-200 text-sm italic">
-        "Limitação de impacto e isolamento transformam ataques em incidentes controlados, não em crises corporativas."
-      </div>
-    </div>
+          {/* Card: O Risco */}
+          <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition-all">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <AlertOctagon className="w-32 h-32 text-red-500" />
+            </div>
+            <div className="relative z-10">
+              <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-red-400" /> Multiplicador de Risco
+              </h4>
+              <p className="text-slate-400 leading-relaxed mb-4">
+                Kubernetes abstrai a infraestrutura, mas amplia drasticamente a superfície de ataque.
+              </p>
+              <div className="p-3 bg-red-950/20 border-l-2 border-red-500 text-red-300 text-sm">
+                "Sem AppSec prévio, K8s deixa de ser plataforma e vira vetor de ataque altamente sofisticado."
+              </div>
+            </div>
+          </div>
 
-    <div className="md:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {/* Fail Open Visual */}
-      <div className="p-4 rounded border border-slate-800 opacity-50">
-        <div className="text-xs font-mono uppercase text-slate-500 mb-2">Engenharia Padrão</div>
-        <div className="text-white font-bold">Fail-Open</div>
-        <p className="text-[10px] text-slate-500 mt-1">"O show tem que continuar." (Risco de vazamento)</p>
-      </div>
-      {/* Fail Safe Visual */}
-      <div className="p-4 rounded border border-orange-500/50 bg-orange-950/10 shadow-[0_0_15px_rgba(249,115,22,0.1)]">
-        <div className="text-xs font-mono uppercase text-orange-400 mb-2">Segurança REVOLUXTI</div>
-        <div className="text-white font-bold">Fail-Safe</div>
-        <p className="text-[10px] text-slate-400 mt-1">"Se a tranca quebra, a porta permanece fechada."</p>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
 
-{/* DISASTER RECOVERY & IMUTABILIDADE */}
-<div className="mb-24 relative p-8 md:p-12 bg-[#0a0a0a] border-y border-slate-800">
-  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-600 via-yellow-500 to-orange-600"></div>
+        
 
-  <div className="flex flex-col md:flex-row gap-12 items-center">
-    <div className="md:w-1/2">
-      <h3 className="text-3xl font-black text-white mb-4">
-        Disaster Recovery & <span className="text-orange-500">Imutabilidade</span>
-      </h3>
-      <p className="text-slate-400 leading-relaxed mb-6">
-        RTO e RPO guiam decisões arquiteturais. Mas em tempos de Ransomware, backup sem imutabilidade é ilusão.
-      </p>
-      <p className="text-white text-lg font-light italic border-l-4 border-slate-700 pl-4">
-        "Ambientes DevSecOps maduros automatizam recuperação e utilizam <strong className="text-orange-500 font-bold">Backups Imutáveis (WORM)</strong> para garantir que nem mesmo o admin possa apagar o histórico."
-      </p>
-    </div>
+        {/* PLATFORM SECURITY: AS 3 CAMADAS (Elite Concept) */}
+        <div className="mb-24 relative z-10">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-white mb-4">Platform Security: Defesa em Profundidade</h3>
+            <p className="text-slate-400">Em ambientes orquestrados, a segurança acontece em três camadas críticas.</p>
+          </div>
 
-    <div className="md:w-1/2 grid grid-cols-2 gap-4">
-      <div className="p-4 bg-slate-900 border border-slate-800 text-center rounded">
-        <ServerCrash className="w-8 h-8 text-slate-500 mx-auto mb-2" />
-        <div className="text-2xl font-black text-white">RTO</div>
-        <div className="text-[10px] text-slate-500 font-mono uppercase">Tempo Máximo Parado</div>
-      </div>
-      <div className="p-4 bg-slate-900 border border-slate-800 text-center rounded">
-        <RefreshCw className="w-8 h-8 text-slate-500 mx-auto mb-2" />
-        <div className="text-2xl font-black text-white">RPO</div>
-        <div className="text-[10px] text-slate-500 font-mono uppercase">Dados Perdidos Aceitáveis</div>
-      </div>
-    </div>
-  </div>
-</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-{/* DISASTER RECOVERY & CHAOS ENGINEERING */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 max-w-5xl mx-auto">
+            {/* 1. O PORTEIRO (ADMISSION CONTROLLERS) */}
+            <div className="group relative p-8 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-green-500/30 transition-all">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-800 via-green-500 to-slate-800 opacity-50"></div>
 
-  {/* Bloco 1: DR & Imutabilidade */}
-  <div className="border border-slate-800 p-8 rounded-2xl relative group hover:bg-slate-900/20 transition-colors">
-    <div className="absolute -top-6 left-8 bg-[#050101] px-4 py-1 border border-slate-800 text-xs font-mono text-slate-400 flex items-center gap-2">
-      <Server className="w-3 h-3 text-green-500" /> DISASTER RECOVERY
-    </div>
-    <h4 className="text-xl font-bold text-white mb-4">Backup sem teste é ilusão.</h4>
-    <p className="text-slate-400 text-sm leading-relaxed mb-4">
-      RTO e RPO guiam decisões arquiteturais. Ambientes maduros automatizam o failover.
-    </p>
-    <ul className="space-y-2 text-sm">
-      <li className="flex items-center gap-2 text-slate-300">
-        <CheckCircle2 className="w-4 h-4 text-green-500" /> Recuperação Automatizada
-      </li>
-      <li className="flex items-center gap-2 text-slate-300">
-        <Lock className="w-4 h-4 text-green-500" />
-        <span className="text-white font-bold bg-green-950/30 px-1 rounded">Backups Imutáveis</span> (Anti-Ransomware)
-      </li>
-    </ul>
-  </div>
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h4 className="text-xl font-bold text-white flex items-center gap-2 mb-2">
+                    <Shield className="w-5 h-5 text-green-500" /> O Porteiro
+                  </h4>
+                  <p className="text-xs font-mono text-green-500 uppercase tracking-wider">Admission Controllers</p>
+                </div>
+              </div>
 
-  {/* Bloco 2: Chaos Security */}
-  <div className="border border-slate-800 p-8 rounded-2xl relative group hover:bg-slate-900/20 transition-colors">
-    <div className="absolute -top-6 left-8 bg-[#050101] px-4 py-1 border border-slate-800 text-xs font-mono text-slate-400 flex items-center gap-2">
-      <AlertTriangle className="w-3 h-3 text-red-500" /> CHAOS ENGINEERING
-    </div>
-    <h4 className="text-xl font-bold text-white mb-4">Quebre antes que o hacker o faça.</h4>
-    <p className="text-slate-400 text-sm leading-relaxed mb-4">
-      A introdução controlada de falhas valida a detecção e o tempo de resposta. Resiliência deixa de ser crença e vira evidência.
-    </p>
-    <div className="flex gap-2 text-xs font-mono mt-6">
-      <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Detecção</span>
-      <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Resposta</span>
-      <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Comunicação</span>
-    </div>
-  </div>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                O cluster recusa deploy inseguro automaticamente. Políticas como código (OPA/Kyverno) garantem governança na porta de entrada.
+              </p>
 
-</div>
+              {/* Visual Gatekeeper */}
+              <div className="font-mono text-xs bg-black p-4 rounded border border-slate-800 space-y-2">
+                <div className="flex justify-between items-center text-slate-500">
+                  <span>$ deploy --image=nginx:latest --user=root</span>
+                </div>
+                <div className="flex items-center gap-2 text-red-400 border-l-2 border-red-500 pl-2">
+                  <XCircle className="w-3 h-3" /> DENIED: Container running as ROOT.
+                </div>
+                <div className="flex justify-between items-center text-slate-500 pt-2 border-t border-slate-900 mt-2">
+                  <span>$ deploy --image=nginx:alpine --user=1001</span>
+                </div>
+                <div className="flex items-center gap-2 text-green-400 border-l-2 border-green-500 pl-2">
+                  <CheckCircle2 className="w-3 h-3" /> ALLOWED: Security Context Valid.
+                </div>
+              </div>
+            </div>
 
-{/* SÍNTESE ESTRATÉGICA (O TRIÂNGULO FINAL) */}
-<div className="relative text-center max-w-4xl mx-auto pt-16 border-t border-slate-900">
-  <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-[#050101] px-6 text-slate-500 font-mono text-sm tracking-widest uppercase">
-    Síntese Estratégica
-  </div>
+            {/* 2. O VIGIA INTERNO (RUNTIME SECURITY) */}
+            <div className="group relative p-8 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-red-500/30 transition-all">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-800 via-red-500 to-slate-800 opacity-50"></div>
 
-  <p className="text-slate-400 mb-12">
-    Juntos, esses pilares transformam DevSecOps em vantagem competitiva sustentável.
-  </p>
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h4 className="text-xl font-bold text-white flex items-center gap-2 mb-2">
+                    <Radio className="w-5 h-5 text-red-500" /> O Vigia Interno
+                  </h4>
+                  <p className="text-xs font-mono text-red-500 uppercase tracking-wider">Runtime Security</p>
+                </div>
+                {/* Radar Pulse Effect */}
+                <div className="relative w-3 h-3">
+                  <div className="absolute inset-0 bg-red-500 rounded-full animate-ping"></div>
+                  <div className="absolute inset-0 bg-red-500 rounded-full"></div>
+                </div>
+              </div>
 
-  {/* Diagrama Visual Conceitual */}
-  <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                E se o ataque acontecer <em className="text-white">durante</em> a execução? Monitoramento de comportamento em tempo real detecta anomalias.
+              </p>
 
-    {/* Pilar 1 */}
-    <div className="flex flex-col items-center gap-3 group">
-      <div className="w-16 h-16 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-950/20 transition-all">
-        <Cloud className="w-6 h-6 text-slate-400 group-hover:text-blue-400" />
-      </div>
-      <h5 className="text-white font-bold text-sm">Arquitetura Cloud</h5>
-      <span className="text-[10px] text-slate-500 uppercase tracking-wider">Preventiva & Escalável</span>
-    </div>
+              {/* Visual Terminal Log */}
+              <div className="font-mono text-xs bg-black p-4 rounded border border-slate-800">
+                <div className="flex items-center gap-2 text-slate-500 mb-2 border-b border-slate-900 pb-2">
+                  <Terminal className="w-3 h-3" /> FALCO SECURITY LOGS
+                </div>
+                <div className="space-y-1">
+                  <p className="text-slate-600">[INFO] Pod started (nginx-deployment-x8z)</p>
+                  <p className="text-red-400 animate-pulse">
+                    [ALERT] Unexpected shell spawned in container!
+                  </p>
+                  <p className="text-slate-500 text-[10px] pl-4">
+                    &gt; Command: /bin/bash (User: www-data)
+                  </p>
+                  <p className="text-slate-500 text-[10px] pl-4">
+                    &gt; Action: Connection to 192.168.1.55 (Mining Pool?)
+                  </p>
+                </div>
+              </div>
+            </div>
 
-    {/* Conector */}
-    <div className="hidden md:block w-12 h-px bg-slate-800"></div>
+          </div>
+        </div>
 
-    {/* Pilar 2 */}
-    <div className="flex flex-col items-center gap-3 group">
-      <div className="w-16 h-16 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center group-hover:border-cyan-500 group-hover:bg-cyan-950/20 transition-all">
-        <Activity className="w-6 h-6 text-slate-400 group-hover:text-cyan-400" />
-      </div>
-      <h5 className="text-white font-bold text-sm">Observabilidade</h5>
-      <span className="text-[10px] text-slate-500 uppercase tracking-wider">Visibilidade & Controle</span>
-    </div>
+        {/* 5. PLATFORM SECURITY (TRÍADE DE ELITE) */}
+        <div className="mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    {/* Conector */}
-    <div className="hidden md:block w-12 h-px bg-slate-800"></div>
+            {/* Camada 1: Supply Chain */}
+            <div className="p-6 bg-[#0a0a0a] border border-slate-800 rounded-xl hover:border-indigo-500/30 transition-colors">
+              <div className="text-indigo-500 font-mono text-xs uppercase tracking-widest mb-3">01. Build</div>
+              <h4 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+                <Box className="w-5 h-5" /> Supply Chain
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Assinatura de imagens e scans de vulnerabilidade antes do deploy. O que é sujo não entra no cluster.
+              </p>
+            </div>
 
-    {/* Pilar 3 */}
-    <div className="flex flex-col items-center gap-3 group">
-      <div className="w-16 h-16 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center group-hover:border-orange-500 group-hover:bg-orange-950/20 transition-all">
-        <ShieldAlert className="w-6 h-6 text-slate-400 group-hover:text-orange-400" />
-      </div>
-      <h5 className="text-white font-bold text-sm">Resiliência</h5>
-      <span className="text-[10px] text-slate-500 uppercase tracking-wider">Continuidade & Confiança</span>
-    </div>
+            {/* Camada 2: Admission (O Porteiro) */}
+            <div className="p-6 bg-[#0a0a0a] border border-slate-800 rounded-xl hover:border-indigo-500/30 transition-colors relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-indigo-500/10 rounded-bl-full -mr-8 -mt-8"></div>
+              <div className="text-indigo-500 font-mono text-xs uppercase tracking-widest mb-3">02. Deploy</div>
+              <h4 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+                <Lock className="w-5 h-5" /> O Porteiro
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                <strong>Admission Controllers & OPA:</strong> O cluster recusa deploy inseguro automaticamente. Tentou rodar como root? O K8s diz "Não".
+              </p>
+            </div>
 
-  </div>
-</div>
+            {/* Camada 3: Runtime (O Vigia) */}
+            <div className="p-6 bg-[#0a0a0a] border border-slate-800 rounded-xl hover:border-indigo-500/30 transition-colors">
+              <div className="text-indigo-500 font-mono text-xs uppercase tracking-widest mb-3">03. Runtime</div>
+              <h4 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+                <Eye className="w-5 h-5" /> O Vigia Interno
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Monitoramento em tempo real (ex: Falco). Se um pod legítimo começar a rodar comandos estranhos, ele é detectado e isolado.
+              </p>
+            </div>
 
-</section>
+          </div>
+        </div>
+
+
+        
+
+
+
+      </section>
