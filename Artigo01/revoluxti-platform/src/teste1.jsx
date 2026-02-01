@@ -1,267 +1,236 @@
+// Cores para manter consistência interna deste capítulo
+const theme = {
+  bg: "bg-[#0B1120]", // Azul Profundo (Midnight)
+  accent: "text-sky-400",
+  border: "border-sky-900/30",
+  cardBg: "bg-[#162032]"
+};
+
+
+
 {/* ---------------------------------------------------------------------
-    CAPÍTULO 7: ORQUESTRAÇÃO DE ELITE (NÍVEL BANCA EXAMINADORA)
+    CAPÍTULO 8: IAM & GOVERNANÇA (THEME: MIDNIGHT BLUE)
 ---------------------------------------------------------------------- */}
-<section className="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900 bg-[#050101] relative overflow-hidden">
+{(() => {
+  // Definindo tema local apenas para este bloco para não conflitar
+  const theme = {
+    bg: "bg-[#0B1120]", 
+    border: "border-sky-900/30",
+    cardBg: "bg-[#162032]"
+  };
 
-  {/* Background Texture (Hexagons & Data Streams) */}
-  <div className="absolute inset-0 bg-[radial-gradient(#2e1065_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none"></div>
-  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+  return (
+    <section className={`py-24 px-6 max-w-7xl mx-auto border-t border-slate-800 ${theme.bg} relative overflow-hidden`}>
 
-  {/* 1. CABEÇALHO PADRONIZADO */}
-  <div className="mb-12">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-        <Hexagon className="w-6 h-6 text-violet-500" />
-      </div>
-      <h3 className="text-2xl font-bold text-white">
-        Capítulo 7 – Orquestração de Elite: Kubernetes e Cloud em Escala
-      </h3>
-    </div>
-  </div>
+      {/* Background Texture */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30 pointer-events-none"></div>
+      
+      {/* Glow Superior */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-900/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-  {/* 2. HERO SECTION: MATURIDADE & CONTROLE */}
-  <div className="mb-20 text-center relative z-10">
-    <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-      Escalar sem controle é só <br />
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500">
-        acelerar o colapso.
-      </span>
-    </h2>
-    <p className="text-xl text-slate-400 max-w-4xl mx-auto font-light leading-relaxed">
-      Se a Arquitetura Cloud define onde a aplicação vive, o <strong className="text-white">Kubernetes (K8s) define como ela sobrevive</strong>.
-      Neste estágio, a orquestração deixa de ser operacional e torna-se estratégica: é o motor de padronização, automação e isolamento.
-    </p>
-  </div>
-
-  {/* 3. KUBERNETES: O SISTEMA OPERACIONAL (COM ÊNFASE EM RISCO) */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 items-center">
-
-    <div className="space-y-6">
-      <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest border border-violet-500/30 px-3 py-1 rounded-full bg-violet-950/20">
-        <Server className="w-3 h-3" /> Cloud Operating System
-      </div>
-      <h3 className="text-2xl font-bold text-white">
-        Padronização ou Vetor de Ataque?
-      </h3>
-      <p className="text-slate-400 leading-relaxed text-sm">
-        O K8s abstrai infraestrutura e transforma ambientes heterogêneos em plataformas previsíveis.
-        Porém, ele <span className="text-red-400 font-bold">amplia drasticamente a superfície de ataque</span>.
-      </p>
-      <p className="text-slate-400 leading-relaxed text-sm">
-        Um cluster mal configurado é um convite à escalada de privilégios e movimentação lateral. Sem AppSec, o K8s é apenas um multiplicador de risco eficiente.
-      </p>
-
-      <div className="grid grid-cols-2 gap-4 mt-6">
-        <div className="p-4 bg-slate-900/50 border-l-2 border-violet-500 rounded-r">
-          <span className="block text-white font-bold text-sm">Imutabilidade</span>
-          <span className="text-xs text-slate-500">Nodes descartáveis.</span>
+      {/* 1. CABEÇALHO */}
+      <div className="mb-16 relative z-10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className={`p-3 rounded-xl border ${theme.border} bg-sky-950/30`}>
+            <Fingerprint className="w-8 h-8 text-sky-400" />
+          </div>
+          <div>
+            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Capítulo 8 – IAM e Automação de Compliance
+            </h3>
+            <p className="text-slate-400 text-lg mt-1">Governança como Código</p>
+          </div>
         </div>
-        <div className="p-4 bg-slate-900/50 border-l-2 border-violet-500 rounded-r">
-          <span className="block text-white font-bold text-sm">Self-Healing</span>
-          <span className="text-xs text-slate-500">Recuperação automática.</span>
-        </div>
-      </div>
-    </div>
-
-    {/* Visual: Cluster Defense Grid */}
-    <div className="relative h-72 bg-[#0a0a0a] border border-violet-900/30 rounded-2xl p-6 flex flex-col justify-between overflow-hidden group">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-
-      <div className="flex justify-between items-start relative z-10">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500"></div>
-        </div>
-        <span className="text-[10px] font-mono text-violet-500">K8S_DEFENSE_GRID_V1</span>
+        <div className="h-1 w-32 bg-gradient-to-r from-sky-500 to-transparent rounded-full"></div>
       </div>
 
-      <div className="relative z-10 space-y-2 font-mono text-xs">
-        <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded">
-          <span className="text-slate-400">Pod Identity</span>
-          <span className="text-green-400">SPIFFE/SPIRE [ACTIVE]</span>
-        </div>
-        <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded">
-          <span className="text-slate-400">Network</span>
-          <span className="text-green-400">Cilium eBPF [LOCKED]</span>
-        </div>
-        <div className="flex justify-between p-2 bg-slate-900/80 border border-slate-800 rounded">
-          <span className="text-slate-400">Compliance</span>
-          <span className="text-green-400">CIS Benchmark [PASS]</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* 4. GITOPS: A VERDADE ÚNICA (AUDITORIA) */}
-  <div className="mb-24 relative p-8 md:p-10 border border-slate-800 bg-[#0a0a0a] rounded-xl overflow-hidden group hover:border-violet-500/30 transition-colors">
-    <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
-      <GitBranch className="w-40 h-40 text-white" />
-    </div>
-
-    <div className="relative z-10">
-      <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-        <GitBranch className="w-6 h-6 text-fuchsia-500" />
-        GitOps: A Verdade Única & Auditável
-      </h3>
-
-      <div className="flex flex-col md:flex-row gap-10 items-center">
-        <div className="md:w-1/2 space-y-4">
-          <p className="text-slate-400 leading-relaxed text-sm">
-            Em orquestração de elite, a imperatividade morre. Ninguém roda <code className="bg-slate-800 px-1 py-0.5 rounded text-slate-300 font-mono text-xs">kubectl apply</code>.
-            O estado do cluster espelha estritamente o repositório Git.
+      {/* 2. INTRODUÇÃO */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center relative z-10">
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
+            Governança contínua em <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">
+              ambientes de alta velocidade.
+            </span>
+          </h2>
+          <p className="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+            Com ambientes escaláveis em plena operação, o foco migra para o controle. O desafio é governar quem pode fazer o quê, quando e por quê — sem travar o negócio.
           </p>
-          <p className="text-slate-400 leading-relaxed text-sm">
-            Isso garante <strong>Imutabilidade</strong> e <strong>Auditabilidade</strong>. Se houver "Configuration Drift" (alguém mexer manualmente), o ArgoCD/Flux corrige automaticamente.
-          </p>
-          <div className="flex gap-2">
-            <span className="px-2 py-1 rounded bg-fuchsia-950/30 border border-fuchsia-500/30 text-[10px] text-fuchsia-400 font-mono">ArgoCD</span>
-            <span className="px-2 py-1 rounded bg-fuchsia-950/30 border border-fuchsia-500/30 text-[10px] text-fuchsia-400 font-mono">Flux v2</span>
+          <div className="p-4 border-l-4 border-sky-500 bg-sky-950/10">
+            <p className="text-sky-200 italic font-medium">
+              "Identidade e compliance caminham juntos ou falham juntos."
+            </p>
           </div>
         </div>
 
-        {/* GitOps Flow Visual */}
-        <div className="md:w-1/2 w-full flex items-center justify-between gap-2 p-6 bg-slate-900/50 rounded-lg border border-slate-800 font-mono text-xs text-center shadow-xl">
-          <div className="flex flex-col items-center gap-2">
-            <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><GitBranch className="w-5 h-5 text-orange-500" /></div>
-            <span className="text-slate-400 font-bold">Git Repo</span>
-            <span className="text-[9px] text-slate-600">Source of Truth</span>
-          </div>
-          <ArrowRight className="w-5 h-5 text-slate-600 animate-pulse" />
-          <div className="flex flex-col items-center gap-2">
-            <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><CheckCircle2 className="w-5 h-5 text-green-500" /></div>
-            <span className="text-slate-400 font-bold">Reconciliation</span>
-            <span className="text-[9px] text-slate-600">Continuous Sync</span>
-          </div>
-          <ArrowRight className="w-5 h-5 text-slate-600 animate-pulse" />
-          <div className="flex flex-col items-center gap-2">
-            <div className="p-3 bg-slate-800 rounded-full border border-slate-700 shadow-lg"><Hexagon className="w-5 h-5 text-violet-500" /></div>
-            <span className="text-slate-400 font-bold">Live Cluster</span>
-            <span className="text-[9px] text-slate-600">Desired State</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* 5. PLATFORM SECURITY (DEEP DIVE TÉCNICO) */}
-  <div className="mb-24">
-    <div className="mb-12 border-l-4 border-violet-500 pl-6">
-      <h3 className="text-3xl font-black text-white mb-2">Platform Security 2.0</h3>
-      <p className="text-slate-400">Defesa em profundidade expandida para atender requisitos de missão crítica.</p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      {/* 1. Supply Chain & SBOM */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-blue-400">
-          <FileJson className="w-5 h-5" />
-        </div>
-        <h4 className="text-white font-bold mb-2">Supply Chain & SBOM</h4>
-        <p className="text-xs text-slate-400 leading-relaxed mb-4">
-          Não basta scanear. Implementamos <strong>SBOM</strong> (Software Bill of Materials) e assinatura digital (Sigstore/Cosign). Garantia matemática de proveniência.
-        </p>
-        <div className="w-full bg-slate-800 h-px mb-3"></div>
-        <div className="flex gap-2 text-[10px] font-mono text-slate-500">
-          <span>Cosign</span> • <span>Trivy</span> • <span>Syft</span>
+        {/* Card: Perímetro de Identidade */}
+        <div className={`p-8 rounded-2xl border ${theme.border} ${theme.cardBg} relative group`}>
+           <div className="absolute top-4 right-4 p-2 bg-sky-500/10 rounded-lg">
+             <ShieldCheck className="w-6 h-6 text-sky-400" />
+           </div>
+           <h3 className="text-xl font-bold text-white mb-4">Identidade como Perímetro</h3>
+           <p className="text-slate-400 mb-6">
+             O perímetro não é mais a rede física; é a identidade validada continuamente. O IAM atua como o sistema nervoso central da segurança.
+           </p>
+           <ul className="space-y-3">
+             {['Pessoas', 'Serviços', 'Pipelines', 'APIs'].map((item, i) => (
+               <li key={i} className="flex items-center gap-3 text-slate-300 bg-slate-900/50 p-2 rounded border border-slate-700/50">
+                 <div className="w-2 h-2 rounded-full bg-sky-400"></div> {item}
+               </li>
+             ))}
+           </ul>
         </div>
       </div>
 
-      {/* 2. Admission Controllers (OPA) */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-violet-500/20 to-transparent rounded-bl-full"></div>
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-violet-400">
-          <ShieldCheck className="w-5 h-5" />
+      {/* 3. ZERO TRUST GRID */}
+      <div className="mb-24 relative z-10">
+        <div className="text-center mb-12">
+           <h3 className="text-2xl font-bold text-white mb-4">Zero Trust Operacional</h3>
+           <p className="text-slate-400 max-w-2xl mx-auto">
+             Nenhuma entidade é confiável por padrão. Sem IAM robusto, não existe Zero Trust; há apenas esperança.
+           </p>
         </div>
-        <h4 className="text-white font-bold mb-2">Policy as Code (OPA)</h4>
-        <p className="text-xs text-slate-400 leading-relaxed mb-4">
-          O cluster recusa deploy inseguro. Tentou rodar como <code className="text-red-400">root</code>? Tentou montar o host filesystem? O <strong>Gatekeeper</strong> bloqueia.
-        </p>
-        <div className="flex items-center gap-2 text-[10px] font-mono bg-red-950/20 p-2 rounded border border-red-900/30">
-          <XCircle className="w-3 h-3 text-red-500" />
-          <span className="text-red-400">Privileged Pod Blocked</span>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+           <div className={`p-6 rounded-xl border ${theme.border} hover:border-sky-400/50 transition-all group ${theme.cardBg}`}>
+              <Users className="w-8 h-8 text-sky-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="text-white font-bold mb-2">Identidade</h4>
+              <p className="text-sm text-slate-400">Quem é? (MFA, Biometria)</p>
+           </div>
+           <div className={`p-6 rounded-xl border ${theme.border} hover:border-sky-400/50 transition-all group ${theme.cardBg}`}>
+              <ShieldCheck className="w-8 h-8 text-indigo-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="text-white font-bold mb-2">Contexto</h4>
+              <p className="text-sm text-slate-400">De onde vem? Dispositivo seguro?</p>
+           </div>
+           <div className={`p-6 rounded-xl border ${theme.border} hover:border-sky-400/50 transition-all group ${theme.cardBg}`}>
+              <Scale className="w-8 h-8 text-violet-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="text-white font-bold mb-2">Comportamento</h4>
+              <p className="text-sm text-slate-400">O padrão é anômalo?</p>
+           </div>
+           <div className={`p-6 rounded-xl border ${theme.border} hover:border-sky-400/50 transition-all group ${theme.cardBg}`}>
+              <Clock className="w-8 h-8 text-sky-200 mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="text-white font-bold mb-2">Tempo</h4>
+              <p className="text-sm text-slate-400">Acesso temporário (JIT).</p>
+           </div>
         </div>
       </div>
 
-      {/* 3. Service Mesh & Zero Trust */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-fuchsia-400">
-          <Network className="w-5 h-5" />
+      {/* 4. JIT ACCESS & WORKLOAD IDENTITY */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24 relative z-10">
+        
+        {/* Card JIT */}
+        <div className={`p-8 rounded-2xl border ${theme.border} bg-gradient-to-br from-[#162032] to-[#0f172a]`}>
+           <div className="flex items-center gap-3 mb-6">
+              <Clock className="w-6 h-6 text-sky-400" />
+              <h3 className="text-xl font-bold text-white">Revolução JIT (Just-in-Time)</h3>
+           </div>
+           <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+             O administrador não "é" admin; ele "está" admin. Credenciais permanentes (*Standing Privileges*) morrem aqui.
+           </p>
+           <div className="space-y-4 font-mono text-xs">
+              <div className="flex items-center justify-between text-slate-500">
+                 <span>Request</span>
+                 <span>Approve</span>
+                 <span>Access (1h)</span>
+                 <span>Revoke</span>
+              </div>
+              <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden relative">
+                 <div className="absolute left-0 top-0 h-full w-3/4 bg-gradient-to-r from-sky-600 to-indigo-500"></div>
+              </div>
+              <div className="flex items-center gap-2 text-sky-300 bg-sky-950/30 p-2 rounded border border-sky-900/50">
+                 <CheckCircle2 className="w-4 h-4" /> Auto-Revogação Ativa
+              </div>
+           </div>
         </div>
-        <h4 className="text-white font-bold mb-2">Zero Trust & mTLS</h4>
-        <p className="text-xs text-slate-400 leading-relaxed mb-4">
-          Identidade baseada em criptografia, não em IP. <strong>Service Mesh</strong> (Istio/Linkerd) garante mTLS (criptografia mútua) entre todos os serviços.
-        </p>
-        <div className="w-full bg-slate-800 h-px mb-3"></div>
-        <div className="flex gap-2 text-[10px] font-mono text-slate-500">
-          <span>Istio</span> • <span>Linkerd</span> • <span>SPIFFE</span>
+
+        {/* Card Workload Identity */}
+        <div className={`p-8 rounded-2xl border ${theme.border} bg-gradient-to-br from-[#162032] to-[#0f172a]`}>
+           <div className="flex items-center gap-3 mb-6">
+              <Key className="w-6 h-6 text-indigo-400" />
+              <h3 className="text-xl font-bold text-white">Workload Identity Federation</h3>
+           </div>
+           <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+             Pipelines não devem ter senhas. Trocamos chaves estáticas (Access Keys) por tokens efêmeros assinados.
+           </p>
+           <div className="grid grid-cols-2 gap-4">
+              <div className="p-3 rounded bg-red-950/20 border border-red-900/30 flex flex-col items-center text-center opacity-50">
+                 <span className="text-red-400 font-bold text-xs mb-1">ANTES</span>
+                 <span className="text-slate-500 text-[10px]">Static AWS Keys</span>
+                 <AlertCircle className="w-4 h-4 text-red-500 mt-2" />
+              </div>
+              <div className="p-3 rounded bg-green-950/20 border border-green-900/30 flex flex-col items-center text-center">
+                 <span className="text-green-400 font-bold text-xs mb-1">AGORA</span>
+                 <span className="text-slate-300 text-[10px]">OIDC Token</span>
+                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-2" />
+              </div>
+           </div>
         </div>
       </div>
 
-      {/* 4. Secrets Management */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-yellow-500">
-          <Key className="w-5 h-5" />
-        </div>
-        <h4 className="text-white font-bold mb-2">External Secrets</h4>
-        <p className="text-xs text-slate-400 leading-relaxed">
-          Fim das variáveis de ambiente. Segredos são injetados em tempo de execução via <strong>Vault Sidecars</strong> diretamente na memória.
-        </p>
+      {/* 5. COMPLIANCE AS CODE */}
+      <div className="mb-24 relative z-10">
+         <div className="flex items-center gap-3 mb-8">
+            <FileCheck className="w-6 h-6 text-sky-400" />
+            <h3 className="text-2xl font-bold text-white">Compliance as Code & CSPM</h3>
+         </div>
+         
+         <div className={`p-8 rounded-2xl border ${theme.border} ${theme.cardBg} relative overflow-hidden`}>
+            <div className="absolute right-0 top-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl"></div>
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+               <div className="md:w-2/3">
+                  <p className="text-slate-300 text-lg mb-6">
+                     Auditoria deixa de ser um evento traumático retrospectivo e vira um <strong className="text-white">subproduto natural da operação</strong>.
+                  </p>
+                  <ul className="space-y-3 mb-6">
+                     <li className="flex items-center gap-3 text-slate-400">
+                        <Lock className="w-4 h-4 text-sky-500" /> Policy as Code (Bloqueio no Pipeline)
+                     </li>
+                     <li className="flex items-center gap-3 text-slate-400">
+                        <RefreshCw className="w-4 h-4 text-sky-500" /> CSPM: Detecção de Drift em Tempo Real
+                     </li>
+                     <li className="flex items-center gap-3 text-slate-400">
+                        <FileCheck className="w-4 h-4 text-sky-500" /> Auditoria Contínua (Sem Excel)
+                     </li>
+                  </ul>
+               </div>
+               <div className="md:w-1/3 w-full bg-[#0B1120] border border-slate-800 rounded-lg p-4 font-mono text-xs">
+                  <div className="flex justify-between mb-2 text-slate-500">
+                     <span>COMPLIANCE_SCORE</span>
+                     <span className="text-green-400">98%</span>
+                  </div>
+                  <div className="w-full bg-slate-800 h-2 rounded-full mb-4">
+                     <div className="w-[98%] h-full bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="space-y-2">
+                     <div className="flex justify-between">
+                        <span className="text-slate-400">Storage Encrypted</span>
+                        <span className="text-green-500">[PASS]</span>
+                     </div>
+                     <div className="flex justify-between">
+                        <span className="text-slate-400">MFA Enabled</span>
+                        <span className="text-green-500">[PASS]</span>
+                     </div>
+                     <div className="flex justify-between">
+                        <span className="text-slate-400">Public Access</span>
+                        <span className="text-green-500">[BLOCKED]</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
 
-      {/* 5. Runtime Security */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-cyan-400">
-          <Activity className="w-5 h-5" />
-        </div>
-        <h4 className="text-white font-bold mb-2">Runtime (eBPF)</h4>
-        <p className="text-xs text-slate-400 leading-relaxed">
-          E se o ataque for na execução? <strong>Falco/Tetragon</strong> detectam syscalls maliciosas em tempo real direto no kernel.
-        </p>
+      {/* 6. CONCLUSÃO */}
+      <div className="text-center relative z-10 max-w-3xl mx-auto">
+         <h4 className="text-xl font-bold text-white mb-6">O Acelerador Estratégico</h4>
+         <div className="p-6 rounded-2xl border border-sky-500/30 bg-gradient-to-r from-sky-900/20 to-indigo-900/20">
+            <p className="text-slate-300 italic text-lg">
+               "Governança moderna não desacelera o negócio. <br/>
+               Ela evita que o negócio tenha que frear bruscamente lá na frente."
+            </p>
+         </div>
       </div>
 
-      {/* 6. Compliance as Code */}
-      <div className="bg-slate-900/20 border border-slate-800 p-6 rounded-xl hover:border-violet-500/50 transition-all hover:-translate-y-1 duration-300">
-        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center mb-4 border border-slate-800 text-green-400">
-          <FileCheck className="w-5 h-5" />
-        </div>
-        <h4 className="text-white font-bold mb-2">Compliance (CIS)</h4>
-        <p className="text-xs text-slate-400 leading-relaxed">
-          Auditoria contínua automática contra <strong>CIS Benchmarks</strong> e PCI-DSS. O cluster prova que é seguro.
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-  {/* 6. CHECKLIST DE MATURIDADE (FIM) */}
-  <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-slate-900 to-[#0a0a0a] border border-slate-800 rounded-2xl relative overflow-hidden">
-    <div className="absolute right-0 top-0 p-4 opacity-5">
-      <AlertOctagon className="w-32 h-32 text-violet-500" />
-    </div>
-
-    <h4 className="text-white font-bold mb-6 flex items-center gap-2 relative z-10">
-      <AlertOctagon className="w-5 h-5 text-violet-500" />
-      Checklist de Sobrevivência (Maturidade Nível 5)
-    </h4>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 relative z-10">
-      {[
-        'Network Policies (Default Deny)',
-        'Pod Security Standards (Restricted)',
-        'Imutabilidade de Infra (Nodes Descartáveis)',
-        'Assinatura de Imagens (Cosign/Notary)',
-        'Scan de Vulnerabilidades no Registry',
-        'Secrets via Vault (Sem Env Vars)',
-        'mTLS Mesh (Criptografia em Trânsito)',
-        'Audit Logs centralizados (SIEM)'
-      ].map((item, i) => (
-        <div key={i} className="flex items-center gap-3 text-sm text-slate-300 border-b border-slate-800/50 pb-2">
-          <div className="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_5px_rgba(139,92,246,0.8)]"></div>
-          {item}
-        </div>
-      ))}
-    </div>
-  </div>
-
-</section>
+    </section>
+  );
+})()}
