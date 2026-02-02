@@ -32,7 +32,7 @@ import {
   Download, BrainCircuit, Anchor,
   ServerCrash, HeartHandshake, Triangle,
   Cloud, MessageSquare, Hexagon, XCircle,
-  AlertCircle
+  AlertCircle, Sword, RotateCcw
 
 
 } from 'lucide-react';
@@ -269,6 +269,7 @@ const ConvergenceDiagram = ({ colors }) => {
     </div>
   );
 };
+
 // -----------------------------------------------------------------------------
 // COMPONENTE PRINCIPAL
 // -----------------------------------------------------------------------------
@@ -356,6 +357,8 @@ const DevSecOpsArticle = () => {
     };
 
 
+
+
     // 3. Mensagem "Troll" no Console (Para quem conseguir abrir)
     console.log(
       "%c⚠️ ACESSO RESTRITO ⚠️",
@@ -396,6 +399,13 @@ const DevSecOpsArticle = () => {
     accent: "text-sky-400",
     border: "border-sky-900/30",
     cardBg: "bg-[#162032]"
+  };
+
+  const themeCap9 = {
+    bg: "bg-[#050101]", // Quase preto absoluto
+    accent: "text-rose-500",
+    border: "border-rose-900/30",
+    cardBg: "bg-[#0a0a0a]"
   };
 
   return (
@@ -4929,12 +4939,12 @@ const DevSecOpsArticle = () => {
                 <li className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 text-green-500" /> Monitorado</li>
               </ul> <br />
               <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden mb-2">
-              <div className="h-full w-1/2 bg-sky-500 animate-pulse"></div>
-            </div>
-            <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-              <span>REQUEST ACCESS</span>
-              <span>AUTO-REVOKE (TTL)</span>
-            </div>
+                <div className="h-full w-1/2 bg-sky-500 animate-pulse"></div>
+              </div>
+              <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+                <span>REQUEST ACCESS</span>
+                <span>AUTO-REVOKE (TTL)</span>
+              </div>
             </div>
 
             <p className="text-slate-400 leading-relaxed text-justify">
@@ -4998,9 +5008,9 @@ const DevSecOpsArticle = () => {
                 </div> <br /> <br />
 
                 <div className="flex items-center gap-3 text-xs font-mono bg-black/40 p-3 rounded border border-slate-800">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              <span className="text-slate-300">Token OIDC: <span className="text-green-400">Short-Lived (Ephemeral)</span></span>
-            </div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  <span className="text-slate-300">Token OIDC: <span className="text-green-400">Short-Lived (Ephemeral)</span></span>
+                </div>
               </div>
             </div>
           </div>
@@ -5226,7 +5236,7 @@ const DevSecOpsArticle = () => {
 
         </div>
 
-        {/* 7. AUDITORIA CONTÍNUA (DASHBOARD VISUAL) */}
+        {/* 7. AUDITORIA CONTÍNUA (DASHBOARD VISUAL - FIX FINAL) */}
         <div className="mb-24 relative z-10">
           <div className="bg-[#0f172a]/50 border border-slate-800 rounded-3xl p-8 md:p-10 relative overflow-hidden">
 
@@ -5239,15 +5249,24 @@ const DevSecOpsArticle = () => {
                 Auditoria Contínua Orientada a Dados
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              {/* FIX: items-start garante que o card da direita fique no topo */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
-                {/* Texto */}
+                {/* Texto (Limpo e sem duplicações) */}
                 <div className="space-y-6">
                   <p className="text-slate-400 leading-relaxed text-justify">
-                    A auditoria deixa de ser um <span className="text-red-400 line-through">evento traumático e pontual</span> para se tornar um <strong>subproduto natural da operação</strong>. Logs imutáveis e trilhas de acesso alimentam painéis em tempo real.
+                    Dessa forma, a auditoria deixa de ser um evento retrospectivo <span className="text-red-400 line-through opacity-70">traumático e pontual</span> para se tornar um <strong>subproduto natural da operação </strong>
+                    - um estado contínuo do sistema, alimentado por logs imutáveis e trilhas de acesso alimentam painéis em tempo real.
+
+                    <br className="mb-4" />
+
                   </p>
                   <p className="text-slate-400 leading-relaxed text-justify">
-                    A organização sabe onde está fora do padrão <strong>agora</strong>, não meses depois. O sistema mantém-se em conformidade de forma autônoma, enquanto os times concentram esforço em entregar valor.
+                    A organização sabe onde está fora do padrão <strong>agora</strong>, não meses depois.
+                    Quando IAM e Compliance são automatizados, o risco regulatório cai, o custo operacional reduz e a velocidade aumenta.
+                    <br className="mb-4" />
+                    A Governança moderna não desacelera o negócio; ela evita que o negócio precise frear bruscamente no futuro.
+                    O sistema mantém-se em conformidade de forma autônoma, enquanto os times concentram esforço em entregar valor.
                   </p>
 
                   {/* Lista de Benefícios */}
@@ -5258,8 +5277,8 @@ const DevSecOpsArticle = () => {
                   </div>
                 </div>
 
-                {/* Visual: O "Novo Estado" */}
-                <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-6">
+                {/* Visual: O "Novo Estado" (Card da Direita) */}
+                <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-6 shadow-xl">
                   <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
                     <div className="flex items-center gap-2">
                       <div className="p-2 bg-sky-500/20 rounded text-sky-400"><Database className="w-5 h-5" /></div>
@@ -5295,14 +5314,6 @@ const DevSecOpsArticle = () => {
 
               </div>
             </div>
-          </div>
-
-          {/* A Frase de Fechamento (Destaque Final) */}
-          <div className="mt-12 p-6 border-l-4 border-sky-500 bg-gradient-to-r from-sky-900/10 to-transparent">
-            <p className="text-lg text-white font-medium italic">
-              "A Governança moderna não desacelera o negócio; <br className="hidden md:block" />
-              ela evita que o negócio precise frear bruscamente no futuro."
-            </p>
           </div>
         </div>
 
@@ -5388,7 +5399,8 @@ const DevSecOpsArticle = () => {
         </div>
 
         {/* 8. GOVERNANÇA SEM ATRITO & ACELERADOR ESTRATÉGICO */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center relative z-10">
+        {/* FIX: Troquei 'items-center' por 'items-start' para alinhar ao topo */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-start relative z-10">
 
           {/* --- COLUNA ESQUERDA: GOVERNANÇA SEM ATRITO --- */}
           <div className="space-y-8">
@@ -5398,15 +5410,18 @@ const DevSecOpsArticle = () => {
             </h3>
 
             <p className="text-slate-400 leading-relaxed text-justify">
-              Quando IAM e Compliance são automatizados, auditorias deixam de ser traumáticas. O risco regulatório diminui e a velocidade operacional aumenta drasticamente.
+              Quando IAM e Compliance são automatizados, auditorias deixam de ser traumáticas. O risco regulatório diminui e a velocidade operacional aumenta drasticamente. <br />
+              IAM e Compliance atuam como aceleradores:
+              Quando bem implementados, não atrasam entregas. Reduzem risco, eliminam retrabalho e aumentam a confiança do negócio. Governança moderna é invisível quando funciona.
+
             </p>
 
-            <div className="p-6 bg-gradient-to-r from-sky-900/20 to-transparent border-l-4 border-sky-500 rounded-r-xl">
-              <h4 className="text-white font-bold mb-2">Governança Invisível</h4>
-              <p className="text-sm text-sky-200 italic">
-                "Governança moderna é invisível quando funciona. Ela não desacelera o negócio; ela evita que o negócio precise frear bruscamente no futuro."
-              </p>
-            </div>
+            <p className="text-slate-400 leading-relaxed text-justify">
+              A governança tradicional não acompanha pipelines de CI/CD. A automação de compliance transforma normas em código, versionado, testado e aplicado automaticamente.
+
+            </p>
+
+            {/* (Opcional) Se quiser manter aquele card de destaque aqui, ele preencheria o espaço visual, mas sem ele o alinhamento items-start resolve o "voo" */}
           </div>
 
           {/* --- COLUNA DIREITA: COMPLIANCE COMO ACELERADOR (8.1) --- */}
@@ -5417,7 +5432,8 @@ const DevSecOpsArticle = () => {
             </h3>
 
             <p className="text-slate-400 text-sm leading-relaxed text-justify">
-              Logs imutáveis e validações automáticas criam um estado permanente de conformidade. A auditoria se torna um <strong>subproduto natural da operação</strong>.
+              Logs imutáveis e validações automáticas criam um estado permanente de conformidade. A auditoria se torna um <strong>subproduto natural da operação</strong>. <br className="mb-2" />
+
             </p>
 
             {/* Grid de Benefícios (Aceleradores) */}
@@ -5436,7 +5452,7 @@ const DevSecOpsArticle = () => {
               </div>
               <div className="p-3 bg-slate-900/50 border border-slate-800 rounded flex items-center gap-3 hover:border-violet-500/50 transition-colors group">
                 <div className="p-1.5 bg-violet-500/10 rounded text-violet-400 group-hover:scale-110 transition-transform"><Zap className="w-4 h-4" /></div>
-                <span className="text-slate-300 text-xs font-bold">Libera Inovação</span>
+                <span className="text-slate-300 text-xs font-bold">Elimina retrabalho e Libera Inovação</span>
               </div>
             </div>
           </div>
@@ -5542,12 +5558,8 @@ const DevSecOpsArticle = () => {
                 "IAM e Automação de Compliance consolidam-se como <span className="text-white">infraestrutura crítica de confiança digital</span>."
               </p>
             </div>
-
           </div>
         </div>
-
-
-
         {/* 7. CONCLUSÃO: O ACELERADOR */}
         <div className="text-center max-w-2xl mx-auto relative z-10">
           <p className="text-slate-400 text-sm mb-4 uppercase tracking-widest">Governança sem Atrito</p>
@@ -5560,6 +5572,880 @@ const DevSecOpsArticle = () => {
 
       </section>
 
+      {/* ---------------------------------------------------------------------
+          CAPÍTULO 9: SIMULADORES & RED TEAM (ESTÉTICA TÁTICA / AGRESSIVA)
+      ---------------------------------------------------------------------- */}
+
+      <section className="py-24 px-6 max-w-6xl mx-auto border-t border-slate-900 bg-[#050101] relative overflow-hidden">
+
+        {/* Background Tático (Grid Vermelho Suave) */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(225,29,72,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(225,29,72,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-rose-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        {/* 1. HERO SECTION: A PROVA DE FOGO */}
+        <div className="text-center max-w-4xl mx-auto mb-20 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-rose-500/30 bg-rose-950/20 text-rose-400 text-xs font-mono uppercase tracking-widest mb-6">
+            <Activity className="w-3 h-3" /> Stress Testing & Validation
+          </div>
+
+          <h3 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+            Simuladores, Red Team e <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500">
+              Chaos Security
+            </span>
+          </h3>
+
+          <p className="text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+            "Depois que a Arquitetura, AppSec, IAM e Observabilidade estão consolidados, surge a pergunta inevitável — e estratégica: <strong className="text-white">isso tudo funciona sob pressão real?</strong>
+          </p>
+
+          <div className="p-6 border-l-4 border-rose-500 bg-gradient-to-r from-rose-900/10 to-transparent text-left max-w-2xl mx-auto rounded-r-xl">
+            <p className="text-xl text-white font-bold italic mb-2">
+              É nesse ponto que entram os simuladores.
+              "Simuladores não criam maturidade. Eles a revelam."
+            </p>
+            <p className="text-sm text-slate-400">
+              Simular falhas e ataques não é paranoia operacional; é <span className="text-rose-400 font-bold">liderança técnica orientada a risco</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* 2. GOVERNANÇA & PERGUNTAS CRÍTICAS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 items-center relative z-10">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+              <span className="text-rose-500 font-mono text-lg bg-rose-950/30 px-2 py-1 rounded border border-rose-900/50">01</span>
+              Instrumento de Governança
+            </h3>
+            <p className="text-slate-400 leading-relaxed text-justify">
+              Se os capítulos anteriores tratam de prevenção, governança e controle, este capítulo trata de validação empírica da realidade. Simulações não são exercícios lúdicos. Elas deslocam a segurança do campo da suposição para o campo da <strong>evidência mensurável</strong>. Onde não há dados, há apenas confiança cega.
+            </p>
+            <p className="text-slate-400 leading-relaxed text-justify">
+              Seu objetivo não é "quebrar o sistema", mas responder perguntas que nenhum dashboard estático consegue responder.
+              Organizações maduras não esperam o incidente para aprender. Elas ensaiam o pior cenário antes que ele aconteça.
+            </p>
+          </div>
+
+          {/* Card de Perguntas Críticas */}
+          <div className="bg-[#0a0a0a] border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-rose-900/50 transition-colors">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 min-w-[20px]"><Zap className="w-5 h-5 text-yellow-500" /></div>
+                <span className="text-slate-300 text-sm">Os controles de segurança funcionam como esperado?</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 min-w-[20px]"><Activity className="w-5 h-5 text-rose-500" /></div>
+                <span className="text-slate-300 text-sm">O ataque foi detectado em tempo hábil?</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 min-w-[20px]"><Users className="w-5 h-5 text-blue-500" /></div>
+                <span className="text-slate-300 text-sm">A resposta foi coordenada, clara e eficiente?</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 min-w-[20px]"><Users className="w-5 h-5 text-blue-500" /></div>
+                <span className="text-slate-300 text-sm">As pessoas sabiam exatamente o que fazer?</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 min-w-[20px]"><Shield className="w-5 h-5 text-green-500" /></div>
+                <span className="text-slate-300 text-sm">O impacto foi contido antes de atingir o negócio?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. TAXONOMIA DOS SIMULADORES (SIEM/SOAR, RED & PURPLE) */}
+        <div className="mb-24 relative z-10">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-2xl font-bold text-white text-center md:text-left">Ecossistema de Conflito Cibernético</h3>
+            {/* Badge indicando que SIEM/SOAR foi desbloqueado */}
+            <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-950/20 text-blue-400 text-[10px] font-mono uppercase tracking-widest">
+              <Lock className="w-3 h-3" /> Module: SIEM & SOAR Integrated
+            </div>
+          </div>
+
+          <p className="text-slate-400 leading-relaxed text-justify">
+            1. O Ecossistema de Simulação (Red, Blue e Purple Teams) Não são exercícios lúdicos; são ferramentas de governança.
+          </p> <br />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            {/* BLUE TEAM (O ALVO DA VALIDAÇÃO) - AGORA COM SIEM & SOAR */}
+            <div className="p-6 bg-gradient-to-b from-[#050a1a] to-[#0a0a0a] border border-blue-900/30 rounded-2xl group hover:border-blue-600/50 transition-all relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3 opacity-10"><Shield className="w-24 h-24 text-blue-500" /></div>
+
+              <div className="p-3 bg-blue-950/30 rounded-lg w-min mb-4 text-blue-500 group-hover:scale-110 transition-transform">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h4 className="text-white font-bold text-lg mb-1">Defesa & Resposta</h4>
+              <span className="text-xs font-mono text-blue-400 mb-3 block">Blue Team A Defesa (SIEM & SOAR)</span>
+
+              <p className="text-slate-400 text-xs leading-relaxed mb-4 text-justify">
+                A infraestrutura de defesa e resposta. Utiliza <strong>SIEM</strong> para correlacionar logs e <strong>SOAR</strong> para orquestrar a resposta automática. É quem deve detectar o ataque.
+                O objetivo não é apenas "parar" o ataque, mas detectar rápido.
+
+              </p>
+              <div className="text-[10px] font-mono text-blue-300 bg-blue-950/20 p-2 rounded border border-blue-900/30">
+                [DEFENSE] Splunk/Sentinel<br />
+                Status: <span className="text-green-400 animate-pulse">MONITORING</span>
+              </div>
+            </div>
+
+            {/* RED TEAM (O AGENTE DO CAOS) */}
+            <div className="p-6 bg-gradient-to-b from-[#1a0505] to-[#0a0a0a] border border-rose-900/30 rounded-2xl group hover:border-rose-600/50 transition-all relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3 opacity-10"><Sword className="w-24 h-24 text-rose-500" /></div>
+
+              <div className="p-3 bg-rose-950/30 rounded-lg w-min mb-4 text-rose-500 group-hover:scale-110 transition-transform">
+                <Sword className="w-6 h-6" />
+              </div>
+              <h4 className="text-white font-bold text-lg mb-1">Simulação Ofensiva</h4>
+              <span className="text-xs font-mono text-rose-400 mb-3 block">Red Team O Ataque (MITRE ATT&CK)</span>
+
+              <p className="text-slate-400 text-xs leading-relaxed mb-4 text-justify">
+                Executa ataques testando hipóteses ofensivas reais  (Ransomware, DDoS, Phishing) baseadas no framework MITRE ATT&CK para testar se o SIEM detecta e se o SOAR responde. Simula adversários reais para validar a eficácia das ferramentas de defesa e se as portas estão realmente fechadas.              </p>
+              <div className="text-[10px] font-mono text-rose-300 bg-rose-950/20 p-2 rounded border border-rose-900/30">
+                [ATTACK] Payload Injection<br />
+                Status: <span className="text-rose-500 font-bold">EXECUTING...</span>
+              </div>
+            </div>
+
+            {/* PURPLE TEAM (O ELO DE EVOLUÇÃO) */}
+            <div className="p-6 bg-gradient-to-b from-[#15051a] to-[#0a0a0a] border border-purple-900/30 rounded-2xl group hover:border-purple-600/50 transition-all relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3 opacity-10"><RefreshCw className="w-24 h-24 text-purple-500" /></div>
+
+              <div className="p-3 bg-purple-950/30 rounded-lg w-min mb-4 text-purple-500 group-hover:scale-110 transition-transform">
+                <RefreshCw className="w-6 h-6" />
+              </div>
+              <h4 className="text-white font-bold text-lg mb-1">Ciclo de Melhoria</h4>
+              <span className="text-xs font-mono text-purple-400 mb-3 block">Purple Team A Evolução (Feedback Loop)</span>
+
+              <p className="text-slate-400 text-xs leading-relaxed mb-4 text-justify">
+                O elo estratégico. Transforma o ataque em aprendizado imediato, reduzindo o ciclo de feedback entre a falha encontrada e a correção aplicada. Analisa o "gap" entre o Ataque (Red) e a Defesa (Blue). Ajusta regras de correlação no SIEM e playbooks no SOAR para fechar a brecha.
+              </p>
+              <div className="text-[10px] font-mono text-purple-300 bg-purple-950/20 p-2 rounded border border-purple-900/30">
+                [OPTIMIZE] Policy Update<br />
+                Status: <span className="text-purple-400">DEPLOYING FIX</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------------------------
+          SIMULADORES ORGANIZACIONAIS: TABLETOP & CRISE (A CAMADA HUMANA)
+      ---------------------------------------------------------------------- */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center relative z-10">
+
+          {/* LADO ESQUERDO: O CONCEITO */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+              <span className="text-amber-500 font-mono text-lg bg-amber-950/30 px-2 py-1 rounded border border-amber-900/50">02</span>
+              Simuladores Organizacionais
+              <span className="text-sm font-normal text-slate-500 hidden md:block">(Tabletop & Crise)</span>
+            </h3>
+
+            <p className="text-slate-400 leading-relaxed text-justify">
+              Nem todo incidente é puramente técnico. Simulações de crise testam a comunicação, a tomada de decisão e o alinhamento entre <strong className="text-white">TI, Jurídico, Compliance e Liderança Executiva</strong>.
+            </p>
+
+            <p className="text-slate-400 leading-relaxed text-justify">
+              Segurança deixa de ser um problema técnico e passa a ser uma <strong>capacidade organizacional integrada</strong>.
+            </p>
+
+            <div className="p-4 bg-amber-950/10 border-l-4 border-amber-500 rounded-r-lg">
+              <p className="text-slate-300 text-sm italic">
+                "Quem decide desligar a operação? Quando? Com base em quê?"
+              </p>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: O VISUAL DO "TABLETOP EXERCISE" */}
+          <div className="relative">
+            {/* Card Principal: O Cenário de Crise */}
+            <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden group hover:border-amber-500/30 transition-all">
+
+              {/* Header do Card */}
+              <div className="flex justify-between items-start mb-6 border-b border-slate-800 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-amber-950/30 rounded text-amber-500">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-sm">Tabletop Exercise #24</h4>
+                    <span className="text-[10px] text-amber-400 font-mono uppercase tracking-wider">Scenario: Ransomware Extortion</span>
+                  </div>
+                </div>
+                <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 font-mono">CONFIDENTIAL</span>
+              </div>
+
+              {/* Stakeholders (Quem participa) */}
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> CTO / CISO</span>
+                  <span className="text-white font-mono">Technical Containment</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div> Legal & DPO</span>
+                  <span className="text-white font-mono">Regulatory Notification</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div> CEO / Board</span>
+                  <span className="text-white font-mono">Business Continuity Decision</span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div> PR / Comms</span>
+                  <span className="text-white font-mono">Public Statement</span>
+                </div>
+              </div>
+
+              {/* A Decisão Crítica (Destaque) */}
+              <div className="bg-slate-900/50 p-3 rounded border border-slate-700 flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-amber-500 mt-0.5" />
+                <div>
+                  <strong className="block text-slate-200 text-xs mb-1">Ponto Crítico de Decisão:</strong>
+                  <p className="text-[10px] text-slate-400 leading-snug">
+                    "Os sistemas de faturamento estão comprometidos. Devemos pagar o resgate ou restaurar do backup (RTO: 48h)?"
+                  </p>
+                </div>
+              </div>
+
+              {/* Elemento Decorativo de Fundo */}
+              <div className="absolute -right-6 -bottom-6 opacity-5 rotate-12">
+                <Users className="w-32 h-32 text-amber-500" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ---------------------------------------------------------------------
+          SIMULADORES DE INCIDENTES: RESPOSTA COORDENADA (FLOWCHART VISUAL)
+      ---------------------------------------------------------------------- */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center relative z-10">
+
+          {/* LADO ESQUERDO: O CONCEITO */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+              <span className="text-blue-500 font-mono text-lg bg-blue-950/30 px-2 py-1 rounded border border-blue-900/50">03</span>
+              Resposta Coordenada
+            </h3>
+
+            <p className="text-slate-400 leading-relaxed text-justify">
+              Simulações transformam a resposta improvisada em <strong className="text-white">processo ensaiado</strong>. Elas avaliam não apenas sistemas, mas pessoas, fluxos de comunicação e liderança sob estresse.
+            </p>
+
+            <div className="space-y-3">
+              <h4 className="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-800 pb-2 mb-2">
+                As Perguntas Centrais:
+              </h4>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-3 text-sm text-slate-400 group hover:text-white transition-colors">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                  Quem tomou a decisão?
+                </li>
+                <li className="flex items-center gap-3 text-sm text-slate-400 group hover:text-white transition-colors">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                  Quando (Time-to-Decision)?
+                </li>
+                <li className="flex items-center gap-3 text-sm text-slate-400 group hover:text-white transition-colors">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                  Com base em quais dados (Data-Driven)?
+                </li>
+                <li className="flex items-center gap-3 text-sm text-slate-400 group hover:text-white transition-colors">
+                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                  <strong className="text-emerald-400">O negócio foi protegido?</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: TIMELINE DE DECISÃO (VISUAL) */}
+          <div className="relative">
+            {/* Card Timeline */}
+            <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-8 relative overflow-hidden">
+
+              {/* Título do Card */}
+              <div className="flex justify-between items-center mb-8">
+                <h4 className="text-white font-bold text-sm flex items-center gap-2">
+                  <Workflow className="w-4 h-4 text-blue-500" /> Incident Response Playbook
+                </h4>
+                <div className="flex items-center gap-2 text-[10px] text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800">
+                  <Clock className="w-3 h-3" /> SLA: 15min
+                </div>
+              </div>
+
+              {/* A Timeline Vertical */}
+              <div className="relative pl-4 border-l border-slate-800 space-y-8">
+
+                {/* Step 1: Alert */}
+                <div className="relative group">
+                  <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-800 border-2 border-slate-600 group-hover:border-red-500 group-hover:bg-red-500 transition-colors"></div>
+                  <div className="bg-slate-900/50 p-3 rounded border border-slate-800 group-hover:border-red-500/30 transition-all">
+                    <span className="text-[10px] text-slate-500 font-mono mb-1 block">T+00m: DETECTION</span>
+                    <strong className="text-slate-200 text-xs block">Alerta Crítico no SIEM</strong>
+                  </div>
+                </div>
+
+                {/* Step 2: Triage (Decision Point) */}
+                <div className="relative group">
+                  <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-800 border-2 border-slate-600 group-hover:border-blue-500 group-hover:bg-blue-500 transition-colors"></div>
+                  <div className="bg-slate-900/50 p-3 rounded border border-slate-800 group-hover:border-blue-500/30 transition-all">
+                    <span className="text-[10px] text-slate-500 font-mono mb-1 block">T+05m: WAR ROOM</span>
+                    <strong className="text-slate-200 text-xs block">Liderança Acionada (CISO/Legal)</strong>
+                    <p className="text-[10px] text-slate-500 mt-1">Decisão: Isolar rede vs Manter operação?</p>
+                  </div>
+                </div>
+
+                {/* Step 3: Action */}
+                <div className="relative group">
+                  <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-800 border-2 border-slate-600 group-hover:border-emerald-500 group-hover:bg-emerald-500 transition-colors"></div>
+                  <div className="bg-slate-900/50 p-3 rounded border border-slate-800 group-hover:border-emerald-500/30 transition-all">
+                    <span className="text-[10px] text-slate-500 font-mono mb-1 block">T+12m: CONTAINMENT</span>
+                    <strong className="text-emerald-400 text-xs block">Playbook Executado: "Kill Switch"</strong>
+                    <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-950/30 border border-emerald-900/50 rounded text-[9px] text-emerald-400 font-bold uppercase">
+                      Impacto Mitigado
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Badge de Resultado (Flutuante) */}
+            <div className="absolute -bottom-4 -right-4 bg-[#0f172a] border border-slate-700 p-3 rounded-lg shadow-xl flex items-center gap-3 animate-bounce-slow">
+              <div className="bg-blue-900/30 p-2 rounded text-blue-400"><TrendingDown className="w-5 h-5" /></div>
+              <div>
+                <span className="block text-[10px] text-slate-400 uppercase font-bold">Risk Reduction</span>
+                <strong className="text-white text-sm">-80% Impact</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Background Glow Azulado (Defesa) */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        {/* Cabeçalho do Módulo */}
+        <div className="mb-16 relative z-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl border border-sky-500/30 bg-sky-950/20 shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+              <Radio className="w-8 h-8 text-sky-400" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-sky-500 bg-sky-950/30 px-2 py-0.5 rounded border border-sky-900/50">Defense Grid</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-500 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Live Feed
+                </span>
+              </div>
+              <h3 className="text-3xl font-black text-white">
+                Vigilância Total (SIEM & SOAR)
+              </h3>
+            </div>
+          </div>
+          <p className="leading-relaxed text-lg text-slate-400 max-w-3xl border-l-2 border-sky-500/50 pl-4">
+            Não basta construir muros; é preciso <strong className="text-white">ver o inimigo se movendo</strong>. O radar abaixo representa a unificação de logs e métricas em tempo real.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+          {/* LADO ESQUERDO: O RADAR TÁTICO (ANIMADO) */}
+          <div className="relative flex justify-center items-center py-8">
+
+            {/* Base do Radar */}
+            <div className="relative w-80 h-80 rounded-full border border-slate-800 bg-[#020617] flex items-center justify-center shadow-[0_0_60px_rgba(14,165,233,0.1)]">
+
+              {/* Grid Interno (Anéis) */}
+              <div className="absolute inset-0 rounded-full border border-sky-900/20 scale-[0.85]"></div>
+              <div className="absolute inset-0 rounded-full border border-sky-900/20 scale-[0.65]"></div>
+              <div className="absolute inset-0 rounded-full border border-sky-900/20 scale-[0.45]"></div>
+
+              {/* Eixos */}
+              <div className="absolute w-full h-[1px] bg-sky-900/30"></div>
+              <div className="absolute h-full w-[1px] bg-sky-900/30"></div>
+
+              {/* SCANNER GIRATÓRIO */}
+              <div className="absolute inset-0 rounded-full animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(14,165,233,0.1)_240deg,rgba(14,165,233,0.5)_360deg)]"></div>
+
+              {/* Ameaças (Pontos Piscantes) */}
+
+              {/* Threat 1 (Critical) */}
+              <div className="absolute top-16 right-20 group cursor-crosshair">
+                <span className="absolute -inset-2 rounded-full bg-red-500/20 animate-ping"></span>
+                <div className="w-2.5 h-2.5 bg-red-500 rounded-full relative z-10 shadow-[0_0_10px_#ef4444]"></div>
+                {/* Tooltip */}
+                <div className="absolute left-6 -top-2 bg-slate-900/90 border border-red-500/50 px-3 py-2 text-[10px] text-red-400 opacity-0 group-hover:opacity-100 transition-opacity w-32 backdrop-blur-md rounded z-20 pointer-events-none">
+                  <strong className="block text-red-500 font-mono">THREAT DETECTED</strong>
+                  SRC: 192.168.1.45<br />
+                  TYPE: Brute Force
+                </div>
+              </div>
+
+              {/* Threat 2 (Warning) */}
+              <div className="absolute bottom-20 left-16 group cursor-crosshair">
+                <span className="absolute -inset-2 rounded-full bg-yellow-500/20 animate-ping delay-700"></span>
+                <div className="w-2 h-2 bg-yellow-500 rounded-full relative z-10 shadow-[0_0_10px_#eab308]"></div>
+              </div>
+
+              {/* Center Icon */}
+              <div className="absolute z-20 bg-[#0B1120] p-3 rounded-full border border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.4)]">
+                <Eye className="w-6 h-6 text-sky-400" />
+              </div>
+            </div>
+
+            {/* Status Overlay (Cantos do Radar) */}
+            <div className="absolute bottom-0 right-10 p-2 bg-black/60 border border-slate-800 rounded font-mono text-[9px] backdrop-blur text-right">
+              <div className="text-slate-500">RADAR SWEEP</div>
+              <div className="text-sky-400 animate-pulse">ACTIVE</div>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: EXPLICAÇÃO DO QUE ESTÁ ACONTECENDO */}
+          <div className="space-y-4">
+
+            {/* Card Explicativo: O que é o Radar? */}
+            <div className="p-5 rounded-xl border border-sky-900/30 bg-sky-950/10 relative overflow-hidden">
+              <h4 className="font-bold text-sky-400 text-sm mb-2 flex items-center gap-2">
+                <Activity className="w-4 h-4" /> O que este radar mostra?
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                Esta visualização simula a operação de um <strong>SOC (Security Operations Center)</strong>. O scanner varre a rede em busca de anomalias.
+              </p>
+              <ul className="mt-3 space-y-2 text-xs">
+                <li className="flex items-center gap-2 text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                  <strong>Pontos Vermelhos:</strong> Ataques ativos bloqueados pelo SOAR.
+                </li>
+                <li className="flex items-center gap-2 text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+                  <strong>Pontos Amarelos:</strong> Comportamento anômalo (ex: login fora de hora).
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2: SIEM */}
+            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900/60 hover:border-sky-500/30 transition-all flex items-start gap-4">
+              <div className="mt-1 p-2 bg-slate-800 rounded text-sky-500"><Terminal className="w-4 h-4" /></div>
+              <div>
+                <h4 className="font-bold text-white text-sm">SIEM (Coleta)</h4>
+                <p className="text-xs text-slate-400 mt-1 text-justify">
+                  O "Cérebro" que correlaciona milhões de logs. Ele diferencia um erro de usuário de um ataque coordenado.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: SOAR */}
+            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900/60 hover:border-indigo-500/30 transition-all flex items-start gap-4">
+              <div className="mt-1 p-2 bg-slate-800 rounded text-indigo-500"><Zap className="w-4 h-4" /></div>
+              <div>
+                <h4 className="font-bold text-white text-sm">SOAR (Reação)</h4>
+                <p className="text-xs text-slate-400 mt-1 text-justify">
+                  Os "Músculos". Ao detectar o ponto vermelho no radar, ele aplica regras de firewall automaticamente, em milissegundos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <br />
+        {/* 3. VISUALIZAÇÃO: WAR ROOM (TERMINAL ESTÁTICO) */}
+        <div className="mb-24 relative z-10">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-2xl font-bold text-white">Taxonomia & Simulação (War Room)</h3>
+            <div className="text-[10px] font-mono text-rose-500 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div> LIVE LOGS
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            {/* Painel Explicativo */}
+            <div className="lg:col-span-1 space-y-4">
+              <div className="p-5 bg-slate-900/50 border border-slate-800 rounded-xl">
+                <h4 className="text-white font-bold text-sm mb-3">Cenário: Ransomware Lateral</h4>
+                <p className="text-xs text-slate-400 leading-relaxed mb-4 text-justify">
+                  Neste cenário, o Red Team explora uma CVE conhecida. O Blue Team detecta tráfego anômalo e isola o pod. O Purple Team gera a correção automática.
+                </p>
+                <div className="flex items-center gap-2 text-[10px] font-mono text-green-400 bg-green-950/20 p-2 rounded border border-green-900/30">
+                  <CheckCircle2 className="w-3 h-3" /> RESULTADO: AMEAÇA CONTIDA
+                </div>
+              </div>
+
+              {/* Legenda */}
+              <div className="grid grid-cols-3 gap-2 text-[10px] text-center font-mono uppercase">
+                <div className="p-2 bg-rose-950/20 text-rose-400 border border-rose-900/30 rounded">Red Team</div>
+                <div className="p-2 bg-blue-950/20 text-blue-400 border border-blue-900/30 rounded">Blue Team</div>
+                <div className="p-2 bg-purple-950/20 text-purple-400 border border-purple-900/30 rounded">Purple Team</div>
+              </div>
+            </div>
+
+            {/* Terminal Window (Estático - Visual Only) */}
+            <div className="lg:col-span-2">
+              <div className="bg-[#050505] border border-slate-800 rounded-xl overflow-hidden shadow-2xl h-auto flex flex-col">
+                <div className="bg-[#1a1a1a] px-4 py-2 flex items-center gap-2 border-b border-slate-800">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                  <span className="ml-2 text-xs font-mono text-slate-500">simulation_report_final.log</span>
+                </div>
+                <div className="p-4 font-mono text-xs space-y-3">
+                  <div className="text-slate-500 border-b border-slate-800 pb-2 mb-2">
+                  &gt; Initializing scenario: RANSOMWARE_SIMULATION...
+                  </div>
+                  <div className="text-rose-500">
+                    <span className="opacity-50 mr-2">[10:00:01]</span>
+                    RED TEAM: Scanning ports (Nmap) - Target 10.0.4.20
+                  </div>
+                  <div className="text-rose-500">
+                    <span className="opacity-50 mr-2">[10:00:05]</span>
+                    RED TEAM: Vulnerability found (CVE-2023-XX). Executing exploit...
+                  </div>
+                  <div className="text-yellow-500">
+                    <span className="opacity-50 mr-2">[10:00:08]</span>
+                    SYSTEM: Unusual traffic detected on port 443.
+                  </div>
+                  <div className="text-blue-400">
+                    <span className="opacity-50 mr-2">[10:00:12]</span>
+                    BLUE TEAM: WAF Blocked IP 192.168.X.X
+                  </div>
+                  <div className="text-blue-400">
+                    <span className="opacity-50 mr-2">[10:00:15]</span>
+                    BLUE TEAM: Isolating affected pod (Micro-segmentation active).
+                  </div>
+                  <div className="text-purple-400">
+                    <span className="opacity-50 mr-2">[10:00:20]</span>
+                    PURPLE TEAM: Analyzing vector. Updating Policy #902.
+                  </div>
+                  <div className="text-green-400 font-bold border-t border-slate-800 pt-2 mt-2">
+                    <span className="opacity-50 mr-2">[10:00:25]</span>
+                    SIMULATION COMPLETED. THREAT CONTAINED.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        {/* 4. CHAOS ENGINEERING (VISUAL LAB) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-start relative z-10">
+
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white flex items-center gap-3">
+              <span className="text-orange-500 font-mono text-sm bg-orange-950/30 px-2 py-1 rounded border border-orange-900/50">03</span>
+              Chaos Security Engineering
+            </h3>
+            <p><strong>Resiliência validada, não presumida</strong></p>
+            <p className="text-slate-400 text-sm leading-relaxed text-justify">
+              Chaos Engineering testa a resiliência da organização sob condições adversas controladas injetando falhas propositalmente:
+              indisponibilidade de serviços, degradação de performance, falhas de autenticação ou comprometimentos simulados (latência, queda de pods). O objetivo é garantir que o sistema se recupere sozinho (Self-Healing).
+            </p>
+            <div className="p-5 border border-orange-900/30 bg-orange-950/10 rounded-xl relative overflow-hidden">
+              <div className="absolute right-0 top-0 p-2 opacity-20"><Flame className="w-12 h-12 text-orange-500" /></div>
+              <p className="text-slate-300 italic text-sm relative z-10">
+                <strong>O objetivo é simples e brutal:</strong> <br />
+                "Se o sistema sobrevive, a arquitetura é resiliente. <br />
+                <span className="text-orange-400 font-bold">Se o time entra em pânico, o problema é organizacional."</span>
+              </p>
+            </div>
+            <p className="text-slate-400 text-sm leading-relaxed text-justify">
+              Chaos Security expõe fragilidades invisíveis em ambientes estáveis e reforça a conexão entre resiliência técnica e maturidade humana.
+            </p>
+          </div>
+
+          {/* LAB VISUAL (Estático: Mostra o "Self-Healing" acontecendo) */}
+          <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-6 relative">
+            <div className="flex justify-between items-center mb-6">
+              <h4 className="text-white font-bold text-sm flex items-center gap-2">
+                <Server className="w-4 h-4 text-slate-400" /> Production Cluster
+              </h4>
+              <div className="px-3 py-1.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-950/30 text-orange-400 border border-orange-900/50 flex items-center gap-2">
+                <AlertOctagon className="w-3 h-3" /> Chaos Agent: ACTIVE
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {/* Server 1: Healthy */}
+              <div className="p-4 rounded-lg border bg-slate-900 border-green-900/50 flex items-center gap-3">
+                <div className="p-2 rounded-full bg-green-500/20 text-green-500"><CheckCircle2 className="w-5 h-5" /></div>
+                <div>
+                  <span className="block text-slate-300 text-xs font-bold">Pod-Worker-01</span>
+                  <span className="text-[10px] uppercase font-mono tracking-wider opacity-70">HEALTHY</span>
+                </div>
+              </div>
+
+              {/* Server 2: Dead (Falha Injetada) */}
+              <div className="p-4 rounded-lg border bg-red-950/20 border-red-500/50 flex items-center gap-3">
+                <div className="p-2 rounded-full bg-red-500/20 text-red-500"><Skull className="w-5 h-5" /></div>
+                <div>
+                  <span className="block text-slate-300 text-xs font-bold">Pod-Worker-02</span>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-red-400">CRASHED</span>
+                </div>
+              </div>
+
+              {/* Server 3: Recovering (Self-Healing) */}
+              <div className="p-4 rounded-lg border bg-yellow-950/20 border-yellow-500/50 flex items-center gap-3">
+                <div className="p-2 rounded-full bg-yellow-500/20 text-yellow-500"><RefreshCw className="w-5 h-5 animate-spin" /></div>
+                <div>
+                  <span className="block text-slate-300 text-xs font-bold">Pod-Worker-03</span>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-yellow-400">HEALING...</span>
+                </div>
+              </div>
+
+              {/* Server 4: Healthy */}
+              <div className="p-4 rounded-lg border bg-slate-900 border-green-900/50 flex items-center gap-3">
+                <div className="p-2 rounded-full bg-green-500/20 text-green-500"><CheckCircle2 className="w-5 h-5" /></div>
+                <div>
+                  <span className="block text-slate-300 text-xs font-bold">Pod-Worker-04</span>
+                  <span className="text-[10px] uppercase font-mono tracking-wider opacity-70">HEALTHY</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Status Line */}
+            <div className="mt-4 pt-4 border-t border-slate-800 flex justify-between items-center">
+              <span className="text-[10px] text-slate-500 font-mono">Resilience Score:</span>
+              <div className="flex items-center gap-2">
+                <div className="w-24 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full w-[75%] bg-yellow-500"></div>
+                </div>
+                <span className="text-[10px] font-bold text-yellow-500">75% (Recovering)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------------------------
+          FECHAMENTO ESTRATÉGICO: MÉTRICAS, CONCEITOS E CICLO FINAL
+      ---------------------------------------------------------------------- */}
+        <div className="space-y-24 mb-24 relative z-10">
+
+          {/* 1. MÉTRICAS DE MATURIDADE (DATA-DRIVEN) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                <span className="text-emerald-500 font-mono text-lg bg-emerald-950/30 px-2 py-1 rounded border border-emerald-900/50">04</span>
+                Métricas de Maturidade
+              </h3>
+
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-white mb-4">O Ciclo de Feedback</h3>
+                <p className="text-slate-400 text-sm leading-relaxed text-justify">
+                  Os resultados dos simuladores não encerram o ciclo — eles o realimentam. Falhas identificadas alimentam e viram regras de SAST, bloqueios no pipeline e alertas de observabilidade.
+                </p>
+                <div className="flex gap-2 mt-4">
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">SAST</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">DAST</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">SCA</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">Políticas de bloqueio no pipeline CI/CD</span> <br />
+
+                </div>
+                <div className="flex gap-2 mt-4">
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">Ajustes em controles de IAM</span>
+                  <span className="px-3 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-slate-700">Reforço de observabilidade e alertas</span>
+                </div>
+
+              </div>
+              <div className="p-4 border-l-4 border-emerald-500 bg-emerald-950/10 rounded-r-lg">
+                <p className="text-lg text-white font-bold italic">
+                  "Simulação sem medição é teatro. Simulação com métricas é governança."
+                </p>
+              </div>
+              <p className="text-slate-400 text-justify">
+                Simuladores deixam de ser eventos pontuais e passam a atuar como <strong>sensores avançados de melhoria contínua</strong>.
+
+                Dados geram decisões. Decisões geram vantagem competitiva. Medimos para sair do "achismo" e entrar na engenharia de segurança.
+              </p>
+            </div>
+
+            {/* Dashboard de KPIs */}
+            <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3 opacity-10"><BarChart3 className="w-24 h-24 text-emerald-500" /></div>
+
+              <h4 className="text-slate-400 text-xs font-bold uppercase mb-6 flex items-center gap-2">
+                <Activity className="w-4 h-4 text-emerald-500" /> Performance Indicators
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed text-justify">
+                  Dessa forma, simuladores deixam de ser eventos pontuais e passam a atuar como sensores avançados de melhoria contínua dentro do DevSecOps.
+                </p> <br />
+
+              <div className="space-y-5">
+                {/* KPI 1: MTTD */}
+                <div>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="text-slate-300">MTTD (Detecção Média)</span>
+                    <span className="text-emerald-400 font-mono font-bold">4m 12s</span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 w-[85%] rounded-full shadow-[0_0_10px_#10b981]"></div>
+                  </div>
+                </div>
+
+                {/* KPI 2: MTTR */}
+                <div>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="text-slate-300">MTTR (Resposta/Contenção)</span>
+                    <span className="text-emerald-400 font-mono font-bold">12m 30s</span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 w-[70%] rounded-full"></div>
+                  </div>
+                </div>
+
+                {/* KPI 3: Detection Rate */}
+                <div>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="text-slate-300">Ataques Simulados Detectados</span>
+                    <span className="text-emerald-400 font-mono font-bold">94.5%</span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full bg-purple-500 w-[94.5%] rounded-full"></div>
+                  </div>
+                </div>
+
+                {/* Stat Cards Mini */}
+                <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-800">
+                  <div className="text-center">
+                    <span className="block text-[10px] text-slate-500 uppercase">Impacto no Negócio</span>
+                    <strong className="text-white text-sm">NULO (Contido)</strong>
+                  </div>
+                  <div className="text-center border-l border-slate-800">
+                    <span className="block text-[10px] text-slate-500 uppercase">Status dos Controles</span>
+                    <strong className="text-green-400 text-sm">EFETIVOS</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. O QUE NÃO SÃO (ANTI-PATTERNS) */}
+          <div className="bg-slate-900/30 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
+            {/* Fundo sutil de alerta */}
+            <div className="absolute -left-10 -top-10 w-40 h-40 bg-red-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+              <div className="md:w-1/3">
+                <h3 className="text-xl font-bold text-white mb-2">O que Simuladores <span className="text-red-500">NÃO</span> São</h3>
+                <p className="text-sm text-slate-400 text-justify">
+                  Para evitar distorções e expectativas erradas, é fundamental esclarecer as limitações. Simuladores validam, não compensam ausência de fundamentos.
+                </p>
+              </div>
+
+              <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-3 bg-[#0B1120] border border-slate-800 rounded hover:border-red-900/50 transition-colors">
+                  <div className="p-1 bg-red-950/30 rounded-full text-red-500"><XCircle className="w-4 h-4" /></div>
+                  <span className="text-slate-300 text-xs">Não são Pentests Pontuais</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-[#0B1120] border border-slate-800 rounded hover:border-red-900/50 transition-colors">
+                  <div className="p-1 bg-red-950/30 rounded-full text-red-500"><XCircle className="w-4 h-4" /></div>
+                  <span className="text-slate-300 text-xs">Não são Auditorias Tradicionais</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-[#0B1120] border border-slate-800 rounded hover:border-red-900/50 transition-colors">
+                  <div className="p-1 bg-red-950/30 rounded-full text-red-500"><XCircle className="w-4 h-4" /></div>
+                  <span className="text-slate-300 text-xs">Não são "Caça às Bruxas"</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-[#0B1120] border border-slate-800 rounded hover:border-red-900/50 transition-colors">
+                  <div className="p-1 bg-red-950/30 rounded-full text-red-500"><XCircle className="w-4 h-4" /></div>
+                  <span className="text-slate-300 text-xs">Não substituem AppSec</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. SÍNTESE ESTRATÉGICA & CICLO FINAL */}
+          <div className="relative">
+            <div className="text-center mb-10">
+              <h3 className="text-3xl font-bold text-white mb-4">Síntese Estratégica</h3>
+              <p className="text-slate-400 max-w-2xl mx-auto">
+                Como as peças do quebra-cabeça de segurança se encaixam para formar a maturidade.
+              </p>
+              <span className="text-slate-400 text-sm">O Ciclo DevSecOps Maduro:</span>
+            </div>
+
+            {/* Grid de Conexão */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+              {/* IAM */}
+              <div className="group relative p-6 bg-[#0B1120] border border-slate-800 rounded-xl hover:border-indigo-500/50 transition-all text-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-indigo-500 rounded-b-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-12 h-12 mx-auto bg-indigo-950/30 rounded-full flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                  <Users className="w-6 h-6" />
+                </div>
+                <strong className="block text-white mb-1">IAM</strong>
+                <span className="text-slate-400 text-xs">Define <span className="text-indigo-400 font-bold">QUEM</span> pode agir</span>
+              </div>
+
+              {/* Compliance */}
+              <div className="group relative p-6 bg-[#0B1120] border border-slate-800 rounded-xl hover:border-sky-500/50 transition-all text-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-sky-500 rounded-b-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-12 h-12 mx-auto bg-sky-950/30 rounded-full flex items-center justify-center text-sky-400 mb-4 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <strong className="block text-white mb-1">Compliance</strong>
+                <span className="text-slate-400 text-xs">Define <span className="text-sky-400 font-bold">COMO</span> agir</span>
+              </div>
+
+              {/* Simuladores */}
+              <div className="group relative p-6 bg-[#0B1120] border border-slate-800 rounded-xl hover:border-rose-500/50 transition-all text-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-rose-500 rounded-b-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-12 h-12 mx-auto bg-rose-950/30 rounded-full flex items-center justify-center text-rose-400 mb-4 group-hover:scale-110 transition-transform">
+                  <Activity className="w-6 h-6" />
+                </div>
+                <strong className="block text-white mb-1">Simuladores</strong>
+                <span className="text-slate-400 text-xs">Provam se <span className="text-rose-400 font-bold">FUNCIONA</span></span>
+              </div>
+            </div>
+
+            {/* O Ciclo DevSecOps (Flowchart Horizontal) */}
+            
+            <div className="rounded-full bg-slate-900/50 border border-slate-800 p-2 max-w-4xl mx-auto backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 px-4 py-2">
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 text-xs font-bold">1</div>
+                  <span className="text-white font-bold text-sm">Prevenir</span>
+                </div>
+
+                <div className="hidden md:block w-full h-[1px] bg-slate-700 mx-4 relative">
+                  <div className="absolute right-0 -top-1 w-2 h-2 border-t border-r border-slate-700 rotate-45"></div>
+                </div>
+                <ArrowRight className="md:hidden text-slate-600 rotate-90 md:rotate-0" />
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 text-xs font-bold">2</div>
+                  <span className="text-white font-bold text-sm">Governar</span>
+                </div>
+
+                <div className="hidden md:block w-full h-[1px] bg-slate-700 mx-4 relative">
+                  <div className="absolute right-0 -top-1 w-2 h-2 border-t border-r border-slate-700 rotate-45"></div>
+                </div>
+                <ArrowRight className="md:hidden text-slate-600 rotate-90 md:rotate-0" />
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-rose-900/50 border border-rose-500 flex items-center justify-center text-rose-400 text-xs font-bold shadow-[0_0_15px_rgba(244,63,94,0.4)]">3</div>
+                  <span className="text-rose-400 font-bold text-sm">Validar</span>
+                </div>
+
+                <div className="hidden md:block w-full h-[1px] bg-slate-700 mx-4 relative">
+                  <div className="absolute right-0 -top-1 w-2 h-2 border-t border-r border-slate-700 rotate-45"></div>
+                </div>
+                <ArrowRight className="md:hidden text-slate-600 rotate-90 md:rotate-0" />
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-900/50 border border-emerald-500 flex items-center justify-center text-emerald-400 text-xs font-bold">4</div>
+                  <span className="text-emerald-400 font-bold text-sm">Evoluir</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
 
 
@@ -5572,9 +6458,6 @@ const DevSecOpsArticle = () => {
         {/* Cabeçalho do Capítulo */}
         <div className="mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-
-
-
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
                 <Cpu className="w-6 h-6" style={{ color: colors.dourado }} />
@@ -5889,129 +6772,6 @@ const DevSecOpsArticle = () => {
 
 
         </div>
-      </section>
-
-      {/* ---------------------------------------------------------------------
-          CAPÍTULO 7: VIGILÂNCIA TOTAL - SIEM & SOAR (NOVO)
-      ---------------------------------------------------------------------- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-
-        {/* Cabeçalho do Capítulo */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-              <Radar className="w-6 h-6" style={{ color: colors.dourado }} />
-            </div>
-            <h3 className="text-2xl font-bold text-white">
-              Capítulo 7: Vigilância Total (SIEM & SOAR)
-            </h3>
-          </div>
-          <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
-            Não basta construir muros; é preciso ver o inimigo se movendo. Unificamos logs, métricas e traces para criar o <strong>SOC (Security Operations Center)</strong> do futuro.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-          {/* LADO ESQUERDO: O RADAR TÁTICO (VISUAL) */}
-          <div className="relative flex justify-center items-center py-8">
-
-            {/* Círculos do Radar */}
-            <div className="relative w-80 h-80 rounded-full border border-slate-800 bg-[#050101] flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-
-              {/* Grid Interno */}
-              <div className="absolute inset-0 rounded-full border border-slate-800 scale-75"></div>
-              <div className="absolute inset-0 rounded-full border border-slate-800 scale-50"></div>
-              <div className="absolute inset-0 rounded-full border border-slate-800 scale-25"></div>
-              <div className="absolute w-full h-[1px] bg-slate-800/50"></div>
-              <div className="absolute h-full w-[1px] bg-slate-800/50"></div>
-
-              {/* Scanner Giratório (Animação) */}
-              <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,rgba(253,143,0,0.1)_60deg,rgba(253,143,0,0.5)_360deg)] animate-[spin_4s_linear_infinite] border-r border-[#fd8f00]/50 mask-image-radial-gradient"></div>
-
-              {/* Ameaças (Pontos Piscantes) */}
-              {/* Threat 1 (Critical) */}
-              <div className="absolute top-16 right-20 group">
-                <div className="w-3 h-3 bg-red-600 rounded-full animate-ping absolute"></div>
-                <div className="w-3 h-3 bg-red-600 rounded-full relative z-10 cursor-pointer"></div>
-                <div className="absolute left-4 -top-2 bg-black border border-red-600 px-2 py-1 text-[9px] text-red-400 opacity-0 group-hover:opacity-100 transition-opacity w-24">
-                  IP: 192.168.1.X<br />Brute Force
-                </div>
-              </div>
-
-              {/* Threat 2 (Warning) */}
-              <div className="absolute bottom-20 left-16 group">
-                <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse relative z-10 cursor-pointer"></div>
-                <div className="absolute left-4 -top-2 bg-black border border-yellow-500 px-2 py-1 text-[9px] text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity w-24">
-                  Login Anomaly
-                </div>
-              </div>
-
-              {/* Center Icon */}
-              <div className="absolute z-20 bg-[#1a0505] p-2 rounded-full border" style={{ borderColor: colors.principal }}>
-                <Eye className="w-6 h-6" style={{ color: colors.principal }} />
-              </div>
-
-            </div>
-
-            {/* Status Overlay */}
-            <div className="absolute bottom-0 right-0 p-3 bg-black/80 border border-slate-800 rounded font-mono text-[10px]">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                <span className="text-red-500">THREATS: 2 ACTIVE</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Radio className="w-3 h-3 text-slate-500" />
-                <span className="text-slate-400">SCANNING...</span>
-              </div>
-            </div>
-          </div>
-
-          {/* LADO DIREITO: CONCEITOS ESTRATÉGICOS */}
-          <div className="space-y-6">
-
-            {/* Card 1: SIEM */}
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2">
-                <Activity className="w-5 h-5" style={{ color: colors.abobora }} />
-                <h4 className="font-bold text-white">SIEM (O Cérebro)</h4>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                (Security Information and Event Management). Centraliza logs de Firewall, K8s, Cloud e App. Correlaciona eventos para diferenciar um "erro de usuário" de um "ataque APT".
-              </p>
-            </div>
-
-            {/* Card 2: SOAR */}
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2">
-                <Workflow className="w-5 h-5" style={{ color: colors.dourado }} />
-                <h4 className="font-bold text-white">SOAR (A Resposta)</h4>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                (Orchestration, Automation and Response). Detectou um IP malicioso no SIEM? O SOAR <strong>automaticamente</strong> adiciona uma regra de bloqueio no Firewall, sem intervenção humana.
-              </p>
-            </div>
-
-            {/* Card 3: Observabilidade 2.0 */}
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform relative overflow-hidden"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="absolute top-0 right-0 p-2 opacity-20">
-                <Siren className="w-12 h-12 text-red-600" />
-              </div>
-              <div className="flex items-center gap-3 mb-2">
-                <Eye className="w-5 h-5" style={{ color: colors.principal }} />
-                <h4 className="font-bold text-white">Observabilidade Total</h4>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>
-                Não é só log. É a tríade: <strong>Logs</strong> (o que aconteceu), <strong>Métricas</strong> (performance) e <strong>Traces</strong> (onde aconteceu). O SOC moderno vê tudo.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
       </section>
 
       {/* CAP 8: DISASTER RECOVERY */}
