@@ -379,6 +379,27 @@ const DevSecOpsArticle = () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  // --- ESTADOS E DADOS DO CAPÍTULO 6 (KUBERNETES) ---
+  const [selectedK8sPod, setSelectedK8sPod] = useState(null);
+
+  const k8sPods = [
+    { id: 'p1', name: 'auth-guard',   status: 'Running',   restarts: 0,  cpu: '15m',  mem: '64Mi',  risk: 'low',    sidecar: true, icon: <Lock className="w-4 h-4" /> },
+    { id: 'p2', name: 'pay-gateway',  status: 'Running',   restarts: 2,  cpu: '120m', mem: '256Mi', risk: 'medium', sidecar: true, icon: <Wallet className="w-4 h-4" /> },
+    { id: 'p3', name: 'frontend-ui',  status: 'Running',   restarts: 0,  cpu: '45m',  mem: '128Mi', risk: 'low',    sidecar: true, icon: <Globe className="w-4 h-4" /> },
+    { id: 'p4', name: 'redis-cache',  status: 'Running',   restarts: 0,  cpu: '80m',  mem: '512Mi', risk: 'low',    sidecar: false,icon: <DatabaseZap className="w-4 h-4" /> },
+    { id: 'p5', name: 'user-db-01',   status: 'Degraded',  restarts: 12, cpu: '900m', mem: '2Gi',   risk: 'critical',sidecar: true, icon: <Database className="w-4 h-4" /> },
+    { id: 'p6', name: 'audit-log',    status: 'Running',   restarts: 1,  cpu: '20m',  mem: '64Mi',  risk: 'low',    sidecar: true, icon: <FileText className="w-4 h-4" /> },
+    { id: 'p7', name: 'api-gateway',  status: 'Running',   restarts: 0,  cpu: '200m', mem: '256Mi', risk: 'low',    sidecar: true, icon: <Network className="w-4 h-4" /> },
+    { id: 'p8', name: 'cron-jobs',    status: 'Completed', restarts: 0,  cpu: '0m',   mem: '0Mi',   risk: 'low',    sidecar: false,icon: <Clock className="w-4 h-4" /> },
+  ];
+
+  const getPodColor = (status, risk) => {
+    if (status === 'Degraded') return 'border-red-500/50 bg-red-950/10 text-red-500';
+    if (status === 'Completed') return 'border-slate-700 bg-slate-900/30 text-slate-500';
+    if (risk === 'medium') return 'border-yellow-500/50 bg-yellow-950/10 text-yellow-500';
+    return 'border-green-500/30 bg-green-950/10 text-green-500';
+  };
   // --- FIM DA BLINDAGEM ---
 
   // PALETA REVOLUXTI
@@ -569,58 +590,68 @@ const DevSecOpsArticle = () => {
         </div>
       )}
 
+      
+
       {/* ---------------------------------------------------------------------
           HERO SECTION
       ---------------------------------------------------------------------- */}
-      <section className="relative pt-20 pb-16 px-6 overflow-hidden border-b" style={{ borderColor: colors.borda }}>
+      <section className="relative pt-24 pb-20 px-6 overflow-hidden border-b min-h-[80vh] flex items-center" style={{ borderColor: colors.borda }}>
+        {/* Backgrounds mantidos */}
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#2a0505] via-slate-950 to-slate-950 opacity-90"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(179,18,12,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(179,18,12,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10 w-full">
 
-
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          {/* Título: Aumentei o peso da fonte (font-black) e ajustei o tamanho */}
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-[0.9] break-words">
             REVOLUXTI <span style={{ color: colors.principal }}>2000</span>
           </h1>
 
-          <p className="text-xl md:text-2xl max-w-3xl leading-relaxed mb-8" style={{ color: colors.textoSec }}>
-            <strong className="text-white">DevSecOps</strong>.
-            A quebra de silos e a evolução da entrega de valor.
-            <br />
-            <span className="text-sm font-mono mt-2 block" style={{ color: colors.abobora }}>
-              &gt; SYSTEM_STATUS: RHINO_OPERATIONAL
-            </span>
-          </p>
+          {/* Texto descritivo: Aumentei para text-xl no mobile e melhorei a leitura */}
+          <div className="mb-10 max-w-2xl">
+            <p className="text-xl md:text-3xl leading-snug font-light" style={{ color: colors.textoSec }}>
+              <strong className="text-white font-bold border-b-2" style={{ borderColor: colors.principal }}>DevSecOps.</strong>
+              <br className="md:hidden" /> A quebra de silos e a evolução da entrega de valor.
+            </p>
 
-          <div className="flex flex-wrap gap-4">
-            {/* BOTÃO QUE ABRE O TERMINAL DE AUTH */}
+            {/* System Status: Aumentei levemente a fonte */}
+            <div className="mt-6 inline-block">
+              <span className="text-xs sm:text-sm font-mono mt-2 block font-bold tracking-widest" style={{ color: colors.abobora }}>
+                &gt; SYSTEM_STATUS: RHINO_OPERATIONAL
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4 mb-10">
+            {/* BOTÃO: Aumentei o padding (py-4) e o texto (text-lg) para ficar bom de clicar no celular */}
             <button
-              onClick={() => { setShowAuthModal(true); setAuthMode('REGISTER'); }} // Abre no modo Register por padrão, mas pode trocar
-              className="px-6 py-3 text-white font-bold rounded flex items-center gap-2 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95"
+              onClick={() => { setShowAuthModal(true); setAuthMode('REGISTER'); }}
+              className="w-full sm:w-auto px-8 py-4 text-white font-bold text-lg rounded flex items-center justify-center gap-3 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95"
               style={{ backgroundColor: colors.principal }}
             >
-              <Terminal className="w-5 h-5" />
+              <Terminal className="w-6 h-6" />
+              <span>INICIAR PROTOCOLO</span>
               <Lock className="w-5 h-5 text-[#fd8f00]" />
-              Iniciar Protocolo
             </button>
+          </div>
 
-          </div> <br />
-
-          <div className="flex items-center gap-4 mb-6">
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.abobora }}>
+          {/* ÁREA DOS BADGES (CORRIGIDA: LETRAS MAIORES) */}
+          {/* Mudei de text-[10px] para text-xs (12px) e adicionei font-bold */}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-4 py-2 rounded bg-[#2a0505] border text-xs sm:text-sm font-bold font-mono tracking-widest uppercase whitespace-nowrap" style={{ borderColor: colors.principal, color: colors.abobora }}>
               Edição #01
             </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
-              Conformidade ISO 20000
+            <span className="px-4 py-2 rounded bg-[#2a0505] border text-xs sm:text-sm font-bold font-mono tracking-widest uppercase whitespace-nowrap" style={{ borderColor: colors.principal, color: colors.dourado }}>
+              ISO/IEC 20000
             </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+            <span className="px-4 py-2 rounded bg-[#2a0505] border text-xs sm:text-sm font-bold font-mono tracking-widest uppercase whitespace-nowrap" style={{ borderColor: colors.principal, color: colors.dourado }}>
               Governança
             </span>
-            <span className="px-3 py-1 rounded bg-[#2a0505] border text-xs font-mono tracking-widest uppercase" style={{ borderColor: colors.principal, color: colors.dourado }}>
+            <span className="px-4 py-2 rounded bg-[#2a0505] border text-xs sm:text-sm font-bold font-mono tracking-widest uppercase whitespace-nowrap" style={{ borderColor: colors.principal, color: colors.dourado }}>
               DevSecOps
             </span>
-
           </div>
+
         </div>
       </section>
 
@@ -1302,7 +1333,7 @@ const DevSecOpsArticle = () => {
                 DEEP DIVE: SEGMENTAÇÃO & VLANS (VISUALIZAÇÃO DE CONTENÇÃO)
                 ---------------------------------------------------------------------- */}
 
-                {/* LADO DIREITO: SIMULAÇÃO VISUAL */}
+                {/* LADO DIREITO: SIMULAÇÃO VISUAL (RESPONSIVO) */}
                 <div className="bg-[#050101] border rounded-xl p-6 pt-10 relative overflow-hidden shadow-2xl" style={{ borderColor: colors.borda }}>
 
                   {/* Header do Card */}
@@ -1312,8 +1343,9 @@ const DevSecOpsArticle = () => {
 
                   <div className="flex flex-col gap-4">
 
-                    {/* Linha Horizontal para VLAN 10 e 20 */}
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* LINHA 1: VLAN 10 e 20 */}
+                    {/* Mudei para grid-cols-1 no mobile e sm:grid-cols-2 no desktop */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* VLAN 10 */}
                       <div className="flex items-center justify-between p-3 rounded border bg-slate-900/50 border-slate-800">
                         <div className="flex items-center gap-3">
@@ -1343,10 +1375,12 @@ const DevSecOpsArticle = () => {
                       </div>
                     </div>
 
-                    {/* VLAN 99 - Banner de Alerta Horizontal */}
-                    <div className="flex items-center justify-between w-full p-4 rounded border bg-red-950/20 border-red-900/50 relative z-10">
-                      <div className="flex items-center gap-3">
-                        <div className="p-1.5 rounded bg-red-900/20 border border-red-500 animate-bounce">
+                    {/* LINHA 2: VLAN 40 - Banner de Alerta */}
+                    {/* Ajuste: flex-col no mobile (um embaixo do outro) e flex-row no desktop */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full p-4 rounded border bg-red-950/20 border-red-900/50 relative z-10 gap-4 sm:gap-0">
+
+                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                        <div className="p-1.5 rounded bg-red-900/20 border border-red-500 animate-bounce shrink-0">
                           <CloudLightning className="w-4 h-4 text-red-500" />
                         </div>
                         <div>
@@ -1357,8 +1391,11 @@ const DevSecOpsArticle = () => {
                         </div>
                       </div>
 
-                      <div className="px-3 py-1.5 bg-red-600 text-white text-[10px] font-black rounded shadow-lg border border-red-400 flex items-center gap-2 shrink-0">
-                        <Lock className="w-3 h-3" /> CONTAINED
+                      {/* Botão agora ocupa 100% da largura no mobile para ficar bonito */}
+                      <div className="w-full sm:w-auto flex justify-end">
+                        <div className="w-full sm:w-auto px-3 py-1.5 bg-red-600 text-white text-[10px] font-black rounded shadow-lg border border-red-400 flex items-center justify-center gap-2 shrink-0">
+                          <Lock className="w-3 h-3" /> CONTAINED
+                        </div>
                       </div>
                     </div>
 
@@ -1371,8 +1408,8 @@ const DevSecOpsArticle = () => {
                     {/* A Citação (Integrada no Card) */}
                     <div className="bg-[#1a0505] p-3 rounded border border-dashed border-red-900/40 mt-4">
                       <p className="text-xs font-bold text-white flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4" style={{ color: colors.principal }} />
-                        "Segurança por design, não por remendo."
+                        <ShieldCheck className="w-4 h-4 shrink-0" style={{ color: colors.principal }} />
+                        <span className="italic">"Segurança por design, não por remendo."</span>
                       </p>
                     </div>
 
@@ -4099,23 +4136,39 @@ const DevSecOpsArticle = () => {
                 </ul>
               </div>
 
-              {/* Bloco 2: Chaos Security */}
-              <div className="border border-slate-800 p-8 rounded-2xl relative group hover:bg-slate-900/20 transition-colors">
-                <div className="absolute -top-6 left-8 bg-[#050101] px-4 py-1 border border-slate-800 text-xs font-mono text-slate-400 flex items-center gap-2">
+              {/* Bloco 2: Chaos Security (Responsivo) */}
+              <div className="border border-slate-800 p-6 md:p-8 rounded-2xl relative group hover:bg-slate-900/20 transition-colors mt-8 md:mt-0">
+
+                {/* Etiqueta de Topo */}
+                <div className="absolute -top-4 left-4 md:-top-6 md:left-8 bg-[#050101] px-3 py-1 border border-slate-800 text-[10px] md:text-xs font-mono text-slate-400 flex items-center gap-2 shadow-xl">
                   <AlertTriangle className="w-3 h-3 text-red-500" /> CHAOS ENGINEERING com viés de segurança
                 </div>
-                <h4 className="text-xl font-bold text-white mb-4">Quebre antes que o hacker o faça.</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  A introdução controlada de falhas validam hipóteses arquiteturais, operacionais, a detecção e o tempo de resposta.
+
+                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 mt-2">
+                  Quebre antes que o hacker o faça.
+                </h4>
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+                  A introdução controlada de falhas valida hipóteses arquiteturais, operacionais, a detecção e o tempo de resposta.
                   Resiliência deixa de ser crença e vira evidência empírica.
                   Quando aplicada com foco em segurança, testa:
-
                 </p>
-                <div className="flex gap-2 text-xs font-mono mt-6">
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Capacidade de detecção</span>
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Tempo de resposta</span> <br />
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Clareza de comunicação</span>
-                  <span className="px-2 py-1 bg-red-950/20 border border-red-900 text-red-400 rounded">Robustez dos controles</span>
+
+                {/* Área de Badges Corrigida */}
+                {/* flex-wrap: Permite que os itens caiam para a próxima linha se faltar espaço */}
+                <div className="flex flex-wrap gap-2 text-xs font-mono">
+                  <span className="px-3 py-1.5 bg-red-950/20 border border-red-900 text-red-400 rounded hover:bg-red-900/40 transition-colors cursor-default">
+                    Capacidade de detecção
+                  </span>
+                  <span className="px-3 py-1.5 bg-red-950/20 border border-red-900 text-red-400 rounded hover:bg-red-900/40 transition-colors cursor-default">
+                    Tempo de resposta
+                  </span>
+                  <span className="px-3 py-1.5 bg-red-950/20 border border-red-900 text-red-400 rounded hover:bg-red-900/40 transition-colors cursor-default">
+                    Clareza de comunicação
+                  </span>
+                  <span className="px-3 py-1.5 bg-red-950/20 border border-red-900 text-red-400 rounded hover:bg-red-900/40 transition-colors cursor-default">
+                    Robustez dos controles
+                  </span>
                 </div>
 
               </div>
@@ -4638,6 +4691,126 @@ const DevSecOpsArticle = () => {
 
           </div>
         </div>
+
+        {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (VERSÃO EQUILIBRADA) */}
+        <div 
+            className="lg:col-span-8 bg-[#020617] border rounded-xl p-5 relative overflow-hidden flex flex-col h-full shadow-2xl group"
+            style={{ borderColor: colors.borda }}
+          >
+            {/* BACKGROUND GRID */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.3)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none"></div>
+
+            {/* Header Técnico */}
+            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-3 relative z-10">
+              <div className="flex items-center gap-2">
+                <CloudLightning className="w-4 h-4 text-blue-400" />
+                <div>
+                   <span className="text-xs font-bold text-slate-200 block tracking-widest">K8S_PRODUCTION</span>
+                   <span className="text-[10px] text-slate-500 font-mono">cluster-01 • v1.29</span>
+                </div>
+              </div>
+              <div className="text-[10px] font-mono text-emerald-500 flex items-center gap-2 bg-emerald-950/30 px-2 py-1 rounded border border-emerald-900/50">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                SYSTEM HEALTHY
+              </div>
+            </div>
+
+            {/* GRID DE PODS (2x4 Mobile / 4x2 Desktop) */}
+            {/* Isso garante que os ícones tenham tamanho digno de leitura */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4 relative z-10">
+              {k8sPods.map((pod) => (
+                <div 
+                  key={pod.id} 
+                  onClick={() => setSelectedK8sPod(pod)}
+                  onMouseEnter={() => setSelectedK8sPod(pod)}
+                  className={`
+                    h-24 relative cursor-pointer border rounded-lg flex flex-col items-center justify-center transition-all duration-200
+                    ${selectedK8sPod?.id === pod.id 
+                        ? 'bg-slate-800 border-white shadow-[0_0_15px_rgba(255,255,255,0.1)] z-10 scale-105' 
+                        : `${getPodColor(pod.status, pod.risk)} hover:bg-slate-800/80 opacity-90`
+                    }
+                  `}
+                >
+                  {/* Ícone (Tamanho normal w-5 h-5) */}
+                  <div className={`mb-2 transition-all ${selectedK8sPod?.id === pod.id ? 'text-white scale-110' : 'opacity-80'}`}>
+                    {React.cloneElement(pod.icon, { className: "w-5 h-5" })}
+                  </div>
+
+                  {/* Nome (Legível) */}
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-tight truncate w-full text-center px-2">
+                    {pod.name}
+                  </div>
+                  
+                  {/* Status Text (Micro) */}
+                  <div className="text-[8px] font-mono opacity-60 mt-1">
+                    {pod.status}
+                  </div>
+
+                  {/* Status Dot */}
+                  <div 
+                    className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full shadow-sm 
+                    ${pod.risk === 'critical' ? 'bg-red-500 animate-ping' : pod.risk === 'medium' ? 'bg-yellow-500' : 'bg-emerald-500'}`}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* PAINEL DE INSPEÇÃO (Altura Fixa Confortável) */}
+            <div className="mt-auto bg-[#0B1120] border border-slate-800 rounded-lg overflow-hidden min-h-[90px] relative z-20 shadow-inner">
+               {/* Barra HUD */}
+               <div className="bg-[#162032] px-3 py-1.5 border-b border-slate-800 flex justify-between items-center">
+                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                    <Activity className="w-3 h-3" />
+                    {selectedK8sPod ? 'LIVE_TELEMETRY' : 'STANDBY'}
+                  </span>
+                  {selectedK8sPod && <span className="text-[9px] text-slate-500 font-mono">ID: {selectedK8sPod.id}</span>}
+               </div>
+
+               {/* Dados HUD */}
+               <div className="p-3">
+                 {selectedK8sPod ? (
+                   <div className="animate-in fade-in slide-in-from-bottom-2 duration-200">
+                      <div className="flex justify-between items-start mb-2">
+                         <span className="text-xs font-bold text-white font-mono flex items-center gap-2">
+                           {selectedK8sPod.name.toUpperCase()}
+                         </span>
+                         {/* Tag de Status Colorida */}
+                         <span className={`text-[9px] px-2 py-0.5 rounded font-bold border ${selectedK8sPod.status === 'Running' ? 'bg-emerald-950/50 text-emerald-400 border-emerald-900' : 'bg-red-950/50 text-red-400 border-red-900'}`}>
+                           {selectedK8sPod.status}
+                         </span>
+                      </div>
+                      
+                      {/* Grid de Métricas (Espaçado) */}
+                      <div className="grid grid-cols-4 gap-2 text-[10px] font-mono text-slate-400">
+                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
+                            <div className="text-[8px] text-slate-500 mb-0.5">CPU</div>
+                            <div className="text-slate-200 font-bold">{selectedK8sPod.cpu}</div>
+                         </div>
+                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
+                            <div className="text-[8px] text-slate-500 mb-0.5">MEM</div>
+                            <div className="text-slate-200 font-bold">{selectedK8sPod.mem}</div>
+                         </div>
+                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
+                            <div className="text-[8px] text-slate-500 mb-0.5">RESTARTS</div>
+                            <div className={selectedK8sPod.restarts > 0 ? 'text-red-400 font-bold' : 'text-slate-200 font-bold'}>{selectedK8sPod.restarts}</div>
+                         </div>
+                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
+                            <div className="text-[8px] text-slate-500 mb-0.5">mTLS</div>
+                            <div className="text-emerald-400 font-bold">LOCK</div>
+                         </div>
+                      </div>
+                   </div>
+                 ) : (
+                   <div className="flex items-center justify-center h-12 gap-2 opacity-40">
+                      <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce delay-75"></div>
+                      <span className="text-[10px] font-mono text-slate-400 ml-2 tracking-widest">SELECT A POD</span>
+                   </div>
+                 )}
+               </div>
+            </div>
+
+          </div> <br />
 
         {/* 6. CHECKLIST DE MATURIDADE (FIM) */}
         <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-slate-900 to-[#0a0a0a] border border-slate-800 rounded-2xl relative overflow-hidden">
@@ -6089,7 +6262,7 @@ const DevSecOpsArticle = () => {
                 </div>
                 <div className="p-4 font-mono text-xs space-y-3">
                   <div className="text-slate-500 border-b border-slate-800 pb-2 mb-2">
-                  &gt; Initializing scenario: RANSOMWARE_SIMULATION...
+                    &gt; Initializing scenario: RANSOMWARE_SIMULATION...
                   </div>
                   <div className="text-rose-500">
                     <span className="opacity-50 mr-2">[10:00:01]</span>
@@ -6269,8 +6442,8 @@ const DevSecOpsArticle = () => {
                 <Activity className="w-4 h-4 text-emerald-500" /> Performance Indicators
               </h4>
               <p className="text-slate-400 text-sm leading-relaxed text-justify">
-                  Dessa forma, simuladores deixam de ser eventos pontuais e passam a atuar como sensores avançados de melhoria contínua dentro do DevSecOps.
-                </p> <br />
+                Dessa forma, simuladores deixam de ser eventos pontuais e passam a atuar como sensores avançados de melhoria contínua dentro do DevSecOps.
+              </p> <br />
 
               <div className="space-y-5">
                 {/* KPI 1: MTTD */}
@@ -6399,7 +6572,7 @@ const DevSecOpsArticle = () => {
             </div>
 
             {/* O Ciclo DevSecOps (Flowchart Horizontal) */}
-            
+
             <div className="rounded-full bg-slate-900/50 border border-slate-800 p-2 max-w-4xl mx-auto backdrop-blur-sm">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 px-4 py-2">
 
@@ -6590,189 +6763,196 @@ const DevSecOpsArticle = () => {
       </section>
 
       {/* ---------------------------------------------------------------------
-          CAPÍTULO 6: CLOUD NATIVE & KUBERNETES SECURITY (NOVO)
+          CAPÍTULO 6: CLOUD NATIVE & KUBERNETES SECURITY
       ---------------------------------------------------------------------- */}
       <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
 
-        {/* Cabeçalho do Capítulo */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-              <Container className="w-6 h-6" style={{ color: colors.abobora }} />
-            </div>
-            <h3 className="text-2xl font-bold text-white">
-              Capítulo 6: Orquestração de Elite (K8s & Cloud)
-            </h3>
-          </div>
-          <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
-            O cluster Kubernetes é o novo sistema operacional. Protegemos a carga de trabalho com <strong>eBPF</strong>, <strong>Service Mesh</strong> e Imagens Imutáveis.
-          </p>
-        </div>
+{/* Cabeçalho do Capítulo */}
+<div className="mb-12">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
+      <Container className="w-6 h-6" style={{ color: colors.abobora }} />
+    </div>
+    <h3 className="text-2xl font-bold text-white">
+      Capítulo 6: Orquestração de Elite (K8s & Cloud)
+    </h3>
+  </div>
+  <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
+    O cluster Kubernetes é o novo sistema operacional. Protegemos a carga de trabalho com <strong>eBPF</strong>, <strong>Service Mesh</strong> e Imagens Imutáveis.
+  </p>
+</div>
 
-        {/* CLUSTER VISUALIZER */}
-        <div className="grid lg:grid-cols-12 gap-8">
+{/* CLUSTER VISUALIZER */}
+<div className="grid lg:grid-cols-12 gap-8">
 
-          {/* LADO ESQUERDO: PILARES TÉCNICOS (4 COLUNAS) */}
-          <div className="lg:col-span-4 space-y-4">
+  {/* LADO ESQUERDO: PILARES TÉCNICOS (4 COLUNAS) */}
+  <div className="lg:col-span-4 space-y-4">
+    
+    {/* Card: eBPF */}
+    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
+      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+      <div className="flex items-center gap-3 mb-2">
+        <Activity className="w-5 h-5" style={{ color: colors.principal }} />
+        <h4 className="font-bold text-white">Runtime com eBPF</h4>
+      </div>
+      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+        Esqueça antivírus tradicionais. Usamos eBPF (ex: Tetragon/Falco) para monitorar o Kernel do Linux em tempo real. Se um pod tentar abrir um shell reverso, o Kernel o mata.
+      </p>
+    </div>
 
-            {/* Card: eBPF */}
-            <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2">
-                <Activity className="w-5 h-5" style={{ color: colors.principal }} />
-                <h4 className="font-bold text-white">Runtime com eBPF</h4>
-              </div>
-              <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-                Esqueça antivírus tradicionais. Usamos eBPF (ex: Tetragon/Falco) para monitorar o Kernel do Linux em tempo real. Se um pod tentar abrir um shell reverso, o Kernel o mata.
-              </p>
-            </div>
+    {/* Card: Service Mesh */}
+    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
+      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+      <div className="flex items-center gap-3 mb-2">
+        <Network className="w-5 h-5" style={{ color: colors.dourado }} />
+        <h4 className="font-bold text-white">Service Mesh (mTLS)</h4>
+      </div>
+      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+        Zero Trust dentro do cluster. Todo tráfego entre microsserviços é criptografado e autenticado (mTLS). Se não tem certificado, não entra.
+      </p>
+    </div>
 
-            {/* Card: Service Mesh */}
-            <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2">
-                <Network className="w-5 h-5" style={{ color: colors.dourado }} />
-                <h4 className="font-bold text-white">Service Mesh (mTLS)</h4>
-              </div>
-              <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-                Zero Trust dentro do cluster. Todo tráfego entre microsserviços é criptografado e autenticado (mTLS). Se não tem certificado, não entra.
-              </p>
-            </div>
+    {/* Card: Supply Chain */}
+    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
+      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+      <div className="flex items-center gap-3 mb-2">
+        <Layers className="w-5 h-5" style={{ color: colors.abobora }} />
+        <h4 className="font-bold text-white">Assinatura de Imagens</h4>
+      </div>
+      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+        (Cosign/Notary). O Kubernetes só aceita rodar containers que foram assinados digitalmente pelo nosso pipeline. Nada de rodar `docker pull` desconhecido.
+      </p>
+    </div>
+  </div>
 
-            {/* Card: Supply Chain */}
-            <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-              <div className="flex items-center gap-3 mb-2">
-                <Layers className="w-5 h-5" style={{ color: colors.abobora }} />
-                <h4 className="font-bold text-white">Assinatura de Imagens</h4>
-              </div>
-              <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-                (Cosign/Notary). O Kubernetes só aceita rodar containers que foram assinados digitalmente pelo nosso pipeline. Nada de rodar `docker pull` desconhecido.
-              </p>
-            </div>
-
-          </div>
-
-          {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (8 COLUNAS) */}
-          <div
-            className="lg:col-span-8 bg-[#050101] border rounded-xl p-6 relative overflow-hidden"
+  {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (VERSÃO PREMIUM) */}
+  <div 
+            className="lg:col-span-8 bg-[#020617] border rounded-xl p-6 relative overflow-hidden flex flex-col h-full shadow-2xl group"
             style={{ borderColor: colors.borda }}
           >
+            {/* BACKGROUND TÉCNICO (GRID) - O TOQUE FINAL */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.3)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"></div>
 
-            {(() => {
-              /* ===== MODELO DE DADOS (8 PODS) ===== */
-              const pods = [
-                { name: "pod-01", node: "node-a", status: "Running", restarts: 0, cpu: "120m", mem: "256Mi", sidecar: true, mtls: true, risk: "low" },
-                { name: "pod-02", node: "node-b", status: "Running", restarts: 0, cpu: "90m", mem: "128Mi", sidecar: true, mtls: true, risk: "low" },
-                { name: "pod-03", node: "node-c", status: "Degraded", restarts: 2, cpu: "410m", mem: "512Mi", sidecar: true, mtls: true, risk: "medium" },
-                { name: "pod-04", node: "node-a", status: "Running", restarts: 0, cpu: "70m", mem: "128Mi", sidecar: true, mtls: true, risk: "low" },
-                { name: "pod-05", node: "node-b", status: "Running", restarts: 1, cpu: "150m", mem: "256Mi", sidecar: false, mtls: false, risk: "high" },
-                { name: "pod-06", node: "node-c", status: "Running", restarts: 0, cpu: "110m", mem: "256Mi", sidecar: true, mtls: true, risk: "low" },
-                { name: "pod-07", node: "node-a", status: "Degraded", restarts: 3, cpu: "480m", mem: "768Mi", sidecar: true, mtls: true, risk: "medium" },
-                { name: "pod-08", node: "node-b", status: "Running", restarts: 0, cpu: "60m", mem: "128Mi", sidecar: true, mtls: true, risk: "low" },
-              ];
+            {/* Header Técnico */}
+            <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-3 relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 bg-blue-950/30 rounded border border-blue-900">
+                   <CloudLightning className="w-4 h-4 text-blue-400" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-slate-200 block tracking-widest">K8S_PROD</span>
+                  <span className="text-[9px] font-mono text-slate-500">us-east-1a • v1.29 • EKS</span>
+                </div>
+              </div>
+              <div className="text-right hidden sm:block">
+                <div className="text-[10px] font-mono text-emerald-500 flex items-center justify-end gap-2">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                  SYSTEM HEALTHY
+                </div>
+              </div>
+            </div>
 
-              /* ===== HELPERS VISUAIS ===== */
-              const statusBorder = (status) =>
-                status === "Running"
-                  ? "border-green-500"
-                  : status === "Degraded"
-                    ? "border-yellow-500"
-                    : "border-red-500";
-
-              const riskDot = (risk) =>
-                risk === "low"
-                  ? "bg-green-500"
-                  : risk === "medium"
-                    ? "bg-yellow-500"
-                    : "bg-red-500";
-
-              const healthyPods = pods.filter(p => p.status === "Running").length;
-              const healthPercent = Math.round((healthyPods / pods.length) * 100);
-
-              return (
-                <>
-                  {/* ===== HEADER ===== */}
-                  <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-2">
-                    <div className="flex items-center gap-2">
-                      <CloudLightning className="w-4 h-4 text-slate-400" />
-                      <span className="text-xs font-mono text-slate-300">
-                        K8S_PRODUCTION_CLUSTER
-                      </span>
-                    </div>
-                    <div className="flex gap-3 text-[10px] font-mono">
-                      <span className="text-green-500">NODES: 3</span>
-                      <span className="text-green-500">PODS: {pods.length}</span>
-                      <span className="text-green-500">HEALTH: {healthPercent}%</span>
-                    </div>
+            {/* GRID DE PODS */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 relative z-10">
+              {k8sPods.map((pod) => (
+                <div 
+                  key={pod.id} 
+                  onClick={() => setSelectedK8sPod(pod)}
+                  onMouseEnter={() => setSelectedK8sPod(pod)}
+                  className={`
+                    aspect-square relative cursor-pointer border rounded-lg flex flex-col items-center justify-center transition-all duration-300
+                    ${selectedK8sPod?.id === pod.id 
+                        ? 'bg-slate-800 border-white shadow-[0_0_15px_rgba(255,255,255,0.15)] scale-105 z-10' // Efeito Selecionado
+                        : `${getPodColor(pod.status, pod.risk)} hover:scale-105 hover:brightness-110 opacity-90` // Efeito Normal
+                    }
+                  `}
+                >
+                  {/* Ícone */}
+                  <div className={`mb-2 transition-all ${selectedK8sPod?.id === pod.id ? 'text-white scale-110' : 'opacity-80'}`}>
+                    {pod.icon}
                   </div>
 
-                  {/* ===== GRID DE PODS (4x2) ===== */}
-                  <div className="grid grid-cols-4 gap-4 relative z-10">
-                    {pods.map((pod) => (
-                      <div key={pod.name} className="aspect-square relative group cursor-pointer">
+                  {/* Nome */}
+                  <div className="text-[9px] font-mono font-bold uppercase tracking-tighter truncate w-full text-center px-1">
+                    {pod.name}
+                  </div>
 
-                        <div
-                          className={`absolute inset-0 bg-[#1a0505] border rounded-lg flex flex-col items-center justify-center transition-all duration-300 ${statusBorder(pod.status)}`}
-                        >
-                          {/* ÍCONE */}
-                          <Box
-                            className="w-6 h-6 mb-1"
-                            style={{ color: pod.sidecar ? colors.abobora : colors.principal }}
-                          />
+                  {/* Status Dot (Animado se for crítico) */}
+                  <div 
+                    className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full shadow-sm 
+                    ${pod.risk === 'critical' ? 'bg-red-500 animate-ping' : pod.risk === 'medium' ? 'bg-yellow-500' : 'bg-emerald-500'}`}
+                  />
+                </div>
+              ))}
+            </div>
 
-                          {/* POD */}
-                          <div className="text-[9px] font-mono text-slate-400">
-                            {pod.name.toUpperCase()}
-                          </div>
+            {/* PAINEL DE INSPEÇÃO (HUD) */}
+            <div className="mt-auto bg-[#0B1120] border border-slate-800 rounded-lg p-0 relative z-20 overflow-hidden min-h-[90px]">
+               {/* Barra de título do HUD */}
+               <div className="bg-[#162032] px-3 py-1.5 border-b border-slate-800 flex justify-between items-center">
+                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
+                    {selectedK8sPod ? 'POD_TELEMETRY' : 'AWAITING_SELECTION'}
+                  </span>
+                  {selectedK8sPod && (
+                     <div className="flex gap-2">
+                        <span className="text-[8px] px-1.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ID: {selectedK8sPod.id}</span>
+                     </div>
+                  )}
+               </div>
 
-                          {/* NODE */}
-                          <div className="text-[8px] font-mono text-slate-600">
-                            {pod.node}
-                          </div>
-
-                          {/* RISCO */}
-                          <div
-                            className={`absolute top-1 right-1 w-2 h-2 rounded-full shadow ${riskDot(pod.risk)}`}
-                            title={`Risk: ${pod.risk}`}
-                          />
-                        </div>
-
-                        {/* TOOLTIP */}
-                        <div
-                          className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-44 bg-black border p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 text-[9px] font-mono"
-                          style={{ borderColor: colors.dourado, color: colors.dourado }}
-                        >
-                          <div>Status: {pod.status}</div>
-                          <div>Node: {pod.node}</div>
-                          <div>CPU: {pod.cpu} | MEM: {pod.mem}</div>
-                          <div>Restarts: {pod.restarts}</div>
-                          <div>Sidecar: {pod.sidecar ? "Envoy" : "None"}</div>
-                          <div>mTLS: {pod.mtls ? "Enforced" : "Disabled"}</div>
-                        </div>
+               {/* Conteúdo do HUD */}
+               <div className="p-3">
+                 {selectedK8sPod ? (
+                   <div className="animate-in fade-in slide-in-from-bottom-2 duration-200">
+                      <div className="flex justify-between items-start mb-2">
+                         <span className="text-xs font-bold text-white font-mono flex items-center gap-2">
+                           {selectedK8sPod.name.toUpperCase()}
+                         </span>
+                         <span className={`text-[9px] px-2 py-0.5 rounded font-bold ${selectedK8sPod.status === 'Running' ? 'bg-emerald-950 text-emerald-400 border border-emerald-900' : 'bg-red-950 text-red-400 border border-red-900'}`}>
+                           {selectedK8sPod.status}
+                         </span>
                       </div>
-                    ))}
-                  </div>
+                      
+                      {/* Grid de Métricas */}
+                      <div className="grid grid-cols-4 gap-2 text-[9px] font-mono text-slate-400">
+                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                            <span className="block text-[8px] text-slate-500">CPU</span>
+                            <span className="text-slate-200">{selectedK8sPod.cpu}</span>
+                         </div>
+                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                            <span className="block text-[8px] text-slate-500">MEM</span>
+                            <span className="text-slate-200">{selectedK8sPod.mem}</span>
+                         </div>
+                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                            <span className="block text-[8px] text-slate-500">RST</span>
+                            <span className={selectedK8sPod.restarts > 0 ? 'text-red-400' : 'text-slate-200'}>{selectedK8sPod.restarts}</span>
+                         </div>
+                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                            <span className="block text-[8px] text-slate-500">mTLS</span>
+                            <span className="text-emerald-400">ON</span>
+                         </div>
+                      </div>
+                   </div>
+                 ) : (
+                   <div className="flex items-center justify-center h-12 gap-2 opacity-40">
+                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce"></div>
+                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-75"></div>
+                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-150"></div>
+                      <span className="text-[10px] font-mono text-slate-400 ml-2">SELECT POD</span>
+                   </div>
+                 )}
+               </div>
+            </div>
 
-                  {/* ===== SCAN OVERLAY ===== */}
-                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    <div className="w-full h-1 bg-green-500/30 blur-sm absolute top-0 animate-[scan_3s_linear_infinite]"></div>
-                  </div>
+            {/* Scanline Effect (Sutil) */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+               <div className="w-full h-[1px] bg-blue-400/10 blur-[1px] absolute top-0 animate-[scan_6s_linear_infinite]"></div>
+            </div>
 
-                  {/* ===== DECORATIVO ===== */}
-                  <div className="absolute bottom-4 right-4 text-[9px] font-mono text-slate-800 text-right opacity-50">
-                    apiVersion: security.istio.io/v1beta1<br />
-                    kind: AuthorizationPolicy<br />
-                    action: ALLOW
-                  </div>
-                </>
-              );
-            })()}
           </div>
 
-
-        </div>
-      </section>
+</div>
+</section>
 
       {/* CAP 8: DISASTER RECOVERY */}
       <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
