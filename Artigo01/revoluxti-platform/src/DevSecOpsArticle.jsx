@@ -32,7 +32,9 @@ import {
   Download, BrainCircuit, Anchor,
   ServerCrash, HeartHandshake, Triangle,
   Cloud, MessageSquare, Hexagon, XCircle,
-  AlertCircle, Sword, RotateCcw
+  AlertCircle, Sword, RotateCcw,
+  Sparkles, ChevronsUp, Shuffle, Layout, Briefcase, Truck,
+
 
 
 } from 'lucide-react';
@@ -270,6 +272,8 @@ const ConvergenceDiagram = ({ colors }) => {
   );
 };
 
+
+
 // -----------------------------------------------------------------------------
 // COMPONENTE PRINCIPAL
 // -----------------------------------------------------------------------------
@@ -384,14 +388,14 @@ const DevSecOpsArticle = () => {
   const [selectedK8sPod, setSelectedK8sPod] = useState(null);
 
   const k8sPods = [
-    { id: 'p1', name: 'auth-guard',   status: 'Running',   restarts: 0,  cpu: '15m',  mem: '64Mi',  risk: 'low',    sidecar: true, icon: <Lock className="w-4 h-4" /> },
-    { id: 'p2', name: 'pay-gateway',  status: 'Running',   restarts: 2,  cpu: '120m', mem: '256Mi', risk: 'medium', sidecar: true, icon: <Wallet className="w-4 h-4" /> },
-    { id: 'p3', name: 'frontend-ui',  status: 'Running',   restarts: 0,  cpu: '45m',  mem: '128Mi', risk: 'low',    sidecar: true, icon: <Globe className="w-4 h-4" /> },
-    { id: 'p4', name: 'redis-cache',  status: 'Running',   restarts: 0,  cpu: '80m',  mem: '512Mi', risk: 'low',    sidecar: false,icon: <DatabaseZap className="w-4 h-4" /> },
-    { id: 'p5', name: 'user-db-01',   status: 'Degraded',  restarts: 12, cpu: '900m', mem: '2Gi',   risk: 'critical',sidecar: true, icon: <Database className="w-4 h-4" /> },
-    { id: 'p6', name: 'audit-log',    status: 'Running',   restarts: 1,  cpu: '20m',  mem: '64Mi',  risk: 'low',    sidecar: true, icon: <FileText className="w-4 h-4" /> },
-    { id: 'p7', name: 'api-gateway',  status: 'Running',   restarts: 0,  cpu: '200m', mem: '256Mi', risk: 'low',    sidecar: true, icon: <Network className="w-4 h-4" /> },
-    { id: 'p8', name: 'cron-jobs',    status: 'Completed', restarts: 0,  cpu: '0m',   mem: '0Mi',   risk: 'low',    sidecar: false,icon: <Clock className="w-4 h-4" /> },
+    { id: 'p1', name: 'auth-guard', status: 'Running', restarts: 0, cpu: '15m', mem: '64Mi', risk: 'low', sidecar: true, icon: <Lock className="w-4 h-4" /> },
+    { id: 'p2', name: 'pay-gateway', status: 'Running', restarts: 2, cpu: '120m', mem: '256Mi', risk: 'medium', sidecar: true, icon: <Wallet className="w-4 h-4" /> },
+    { id: 'p3', name: 'frontend-ui', status: 'Running', restarts: 0, cpu: '45m', mem: '128Mi', risk: 'low', sidecar: true, icon: <Globe className="w-4 h-4" /> },
+    { id: 'p4', name: 'redis-cache', status: 'Running', restarts: 0, cpu: '80m', mem: '512Mi', risk: 'low', sidecar: false, icon: <DatabaseZap className="w-4 h-4" /> },
+    { id: 'p5', name: 'user-db-01', status: 'Degraded', restarts: 12, cpu: '900m', mem: '2Gi', risk: 'critical', sidecar: true, icon: <Database className="w-4 h-4" /> },
+    { id: 'p6', name: 'audit-log', status: 'Running', restarts: 1, cpu: '20m', mem: '64Mi', risk: 'low', sidecar: true, icon: <FileText className="w-4 h-4" /> },
+    { id: 'p7', name: 'api-gateway', status: 'Running', restarts: 0, cpu: '200m', mem: '256Mi', risk: 'low', sidecar: true, icon: <Network className="w-4 h-4" /> },
+    { id: 'p8', name: 'cron-jobs', status: 'Completed', restarts: 0, cpu: '0m', mem: '0Mi', risk: 'low', sidecar: false, icon: <Clock className="w-4 h-4" /> },
   ];
 
   const getPodColor = (status, risk) => {
@@ -428,6 +432,51 @@ const DevSecOpsArticle = () => {
     border: "border-rose-900/30",
     cardBg: "bg-[#0a0a0a]"
   };
+
+
+  // --- DADOS DO CAPÍTULO ESPECIAL (IA) ---
+  const [activeAiTab, setActiveAiTab] = useState('responde');
+
+  const aiLevels = {
+    responde: {
+      id: 'responde',
+      title: '1. IA que Responde',
+      icon: <MessageSquare className="w-5 h-5" />,
+      desc: 'Interfaces cognitivas (Chatbots, Copilotos). Interpretam e geram texto.',
+      risk: 'Alucinação, Vazamento de Dados, Viés.',
+      color: 'text-blue-400',
+      bar: 'w-1/4 bg-blue-500'
+    },
+    recomenda: {
+      id: 'recomenda',
+      title: '2. IA que Recomenda',
+      icon: <Sparkles className="w-5 h-5" />,
+      desc: 'Analisa dados e sugere ações (Triagem, Priorização de Riscos).',
+      risk: 'Viés Algorítmico, Automation Bias (confiança cega).',
+      color: 'text-purple-400',
+      bar: 'w-2/4 bg-purple-500'
+    },
+    age: {
+      id: 'age',
+      title: '3. IA que Age',
+      icon: <Zap className="w-5 h-5" />,
+      desc: 'Executa ações via API (Playbooks, Agentes Autônomos).',
+      risk: 'Excessive Agency, Ações não intencionais em escala.',
+      color: 'text-amber-400',
+      bar: 'w-3/4 bg-amber-500'
+    },
+    decide: {
+      id: 'decide',
+      title: '4. IA que Decide',
+      icon: <Gavel className="w-5 h-5" />,
+      desc: 'Tomada de decisão crítica autônoma (Antifraude, Bloqueios).',
+      risk: 'Risco Estratégico e Legal. Impacto direto no negócio.',
+      color: 'text-red-500',
+      bar: 'w-full bg-red-500'
+    }
+  };
+
+
 
   return (
     <div className="min-h-screen font-sans selection:bg-[#b3120c]/30 pb-24 relative" style={{ backgroundColor: colors.bgPage, color: '#e2e8f0' }}>
@@ -590,7 +639,7 @@ const DevSecOpsArticle = () => {
         </div>
       )}
 
-      
+
 
       {/* ---------------------------------------------------------------------
           HERO SECTION
@@ -4692,62 +4741,104 @@ const DevSecOpsArticle = () => {
           </div>
         </div>
 
-        {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (VERSÃO EQUILIBRADA) */}
-        <div 
-            className="lg:col-span-8 bg-[#020617] border rounded-xl p-5 relative overflow-hidden flex flex-col h-full shadow-2xl group"
+        {/* Cabeçalho do Capítulo */}
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+
+          </div>
+          <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
+            O cluster Kubernetes é o novo sistema operacional. Protegemos a carga de trabalho com <strong>eBPF</strong>, <strong>Service Mesh</strong> e Imagens Imutáveis.
+          </p>
+        </div>
+
+        {/* CLUSTER VISUALIZER */}
+        <div className="grid lg:grid-cols-12 gap-8">
+
+          {/* LADO ESQUERDO: PILARES TÉCNICOS (4 COLUNAS) */}
+          <div className="lg:col-span-4 space-y-4">
+
+            {/* Card: eBPF */}
+
+
+            {/* Card: Service Mesh */}
+            <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
+              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+              <div className="flex items-center gap-3 mb-2">
+                <Network className="w-5 h-5" style={{ color: colors.dourado }} />
+                <h4 className="font-bold text-white">Service Mesh (mTLS)</h4>
+              </div>
+              <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+                Zero Trust dentro do cluster. Todo tráfego entre microsserviços é criptografado e autenticado (mTLS). Se não tem certificado, não entra.
+              </p>
+            </div>
+
+            {/* Card: Supply Chain */}
+            <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
+              style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
+              <div className="flex items-center gap-3 mb-2">
+                <Layers className="w-5 h-5" style={{ color: colors.abobora }} />
+                <h4 className="font-bold text-white">Assinatura de Imagens</h4>
+              </div>
+              <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
+                (Cosign/Notary). O Kubernetes só aceita rodar containers que foram assinados digitalmente pelo nosso pipeline. Nada de rodar `docker pull` desconhecido.
+              </p>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (VERSÃO PREMIUM) */}
+          <div
+            className="lg:col-span-8 bg-[#020617] border rounded-xl p-6 relative overflow-hidden flex flex-col h-full shadow-2xl group"
             style={{ borderColor: colors.borda }}
           >
-            {/* BACKGROUND GRID */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.3)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none"></div>
+            {/* BACKGROUND TÉCNICO (GRID) - O TOQUE FINAL */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.3)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"></div>
 
             {/* Header Técnico */}
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-3 relative z-10">
-              <div className="flex items-center gap-2">
-                <CloudLightning className="w-4 h-4 text-blue-400" />
+            <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-3 relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 bg-blue-950/30 rounded border border-blue-900">
+                  <CloudLightning className="w-4 h-4 text-blue-400" />
+                </div>
                 <div>
-                   <span className="text-xs font-bold text-slate-200 block tracking-widest">K8S_PRODUCTION</span>
-                   <span className="text-[10px] text-slate-500 font-mono">cluster-01 • v1.29</span>
+                  <span className="text-xs font-bold text-slate-200 block tracking-widest">K8S_PROD</span>
+                  <span className="text-[9px] font-mono text-slate-500">us-east-1a • v1.29 • EKS</span>
                 </div>
               </div>
-              <div className="text-[10px] font-mono text-emerald-500 flex items-center gap-2 bg-emerald-950/30 px-2 py-1 rounded border border-emerald-900/50">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                SYSTEM HEALTHY
+              <div className="text-right hidden sm:block">
+                <div className="text-[10px] font-mono text-emerald-500 flex items-center justify-end gap-2">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                  SYSTEM HEALTHY
+                </div>
               </div>
             </div>
 
-            {/* GRID DE PODS (2x4 Mobile / 4x2 Desktop) */}
-            {/* Isso garante que os ícones tenham tamanho digno de leitura */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4 relative z-10">
+            {/* GRID DE PODS */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 relative z-10">
               {k8sPods.map((pod) => (
-                <div 
-                  key={pod.id} 
+                <div
+                  key={pod.id}
                   onClick={() => setSelectedK8sPod(pod)}
                   onMouseEnter={() => setSelectedK8sPod(pod)}
                   className={`
-                    h-24 relative cursor-pointer border rounded-lg flex flex-col items-center justify-center transition-all duration-200
-                    ${selectedK8sPod?.id === pod.id 
-                        ? 'bg-slate-800 border-white shadow-[0_0_15px_rgba(255,255,255,0.1)] z-10 scale-105' 
-                        : `${getPodColor(pod.status, pod.risk)} hover:bg-slate-800/80 opacity-90`
+                    aspect-square relative cursor-pointer border rounded-lg flex flex-col items-center justify-center transition-all duration-300
+                    ${selectedK8sPod?.id === pod.id
+                      ? 'bg-slate-800 border-white shadow-[0_0_15px_rgba(255,255,255,0.15)] scale-105 z-10' // Efeito Selecionado
+                      : `${getPodColor(pod.status, pod.risk)} hover:scale-105 hover:brightness-110 opacity-90` // Efeito Normal
                     }
                   `}
                 >
-                  {/* Ícone (Tamanho normal w-5 h-5) */}
+                  {/* Ícone */}
                   <div className={`mb-2 transition-all ${selectedK8sPod?.id === pod.id ? 'text-white scale-110' : 'opacity-80'}`}>
-                    {React.cloneElement(pod.icon, { className: "w-5 h-5" })}
+                    {pod.icon}
                   </div>
 
-                  {/* Nome (Legível) */}
-                  <div className="text-[10px] font-mono font-bold uppercase tracking-tight truncate w-full text-center px-2">
+                  {/* Nome */}
+                  <div className="text-[9px] font-mono font-bold uppercase tracking-tighter truncate w-full text-center px-1">
                     {pod.name}
                   </div>
-                  
-                  {/* Status Text (Micro) */}
-                  <div className="text-[8px] font-mono opacity-60 mt-1">
-                    {pod.status}
-                  </div>
 
-                  {/* Status Dot */}
-                  <div 
+                  {/* Status Dot (Animado se for crítico) */}
+                  <div
                     className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full shadow-sm 
                     ${pod.risk === 'critical' ? 'bg-red-500 animate-ping' : pod.risk === 'medium' ? 'bg-yellow-500' : 'bg-emerald-500'}`}
                   />
@@ -4755,62 +4846,72 @@ const DevSecOpsArticle = () => {
               ))}
             </div>
 
-            {/* PAINEL DE INSPEÇÃO (Altura Fixa Confortável) */}
-            <div className="mt-auto bg-[#0B1120] border border-slate-800 rounded-lg overflow-hidden min-h-[90px] relative z-20 shadow-inner">
-               {/* Barra HUD */}
-               <div className="bg-[#162032] px-3 py-1.5 border-b border-slate-800 flex justify-between items-center">
-                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                    <Activity className="w-3 h-3" />
-                    {selectedK8sPod ? 'LIVE_TELEMETRY' : 'STANDBY'}
-                  </span>
-                  {selectedK8sPod && <span className="text-[9px] text-slate-500 font-mono">ID: {selectedK8sPod.id}</span>}
-               </div>
+            {/* PAINEL DE INSPEÇÃO (HUD) */}
+            <div className="mt-auto bg-[#0B1120] border border-slate-800 rounded-lg p-0 relative z-20 overflow-hidden min-h-[90px]">
+              {/* Barra de título do HUD */}
+              <div className="bg-[#162032] px-3 py-1.5 border-b border-slate-800 flex justify-between items-center">
+                <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
+                  {selectedK8sPod ? 'POD_TELEMETRY' : 'AWAITING_SELECTION'}
+                </span>
+                {selectedK8sPod && (
+                  <div className="flex gap-2">
+                    <span className="text-[8px] px-1.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ID: {selectedK8sPod.id}</span>
+                  </div>
+                )}
+              </div>
 
-               {/* Dados HUD */}
-               <div className="p-3">
-                 {selectedK8sPod ? (
-                   <div className="animate-in fade-in slide-in-from-bottom-2 duration-200">
-                      <div className="flex justify-between items-start mb-2">
-                         <span className="text-xs font-bold text-white font-mono flex items-center gap-2">
-                           {selectedK8sPod.name.toUpperCase()}
-                         </span>
-                         {/* Tag de Status Colorida */}
-                         <span className={`text-[9px] px-2 py-0.5 rounded font-bold border ${selectedK8sPod.status === 'Running' ? 'bg-emerald-950/50 text-emerald-400 border-emerald-900' : 'bg-red-950/50 text-red-400 border-red-900'}`}>
-                           {selectedK8sPod.status}
-                         </span>
+              {/* Conteúdo do HUD */}
+              <div className="p-3">
+                {selectedK8sPod ? (
+                  <div className="animate-in fade-in slide-in-from-bottom-2 duration-200">
+                    <div className="flex justify-between items-start mb-2">
+                      <span className="text-xs font-bold text-white font-mono flex items-center gap-2">
+                        {selectedK8sPod.name.toUpperCase()}
+                      </span>
+                      <span className={`text-[9px] px-2 py-0.5 rounded font-bold ${selectedK8sPod.status === 'Running' ? 'bg-emerald-950 text-emerald-400 border border-emerald-900' : 'bg-red-950 text-red-400 border border-red-900'}`}>
+                        {selectedK8sPod.status}
+                      </span>
+                    </div>
+
+                    {/* Grid de Métricas */}
+                    <div className="grid grid-cols-4 gap-2 text-[9px] font-mono text-slate-400">
+                      <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                        <span className="block text-[8px] text-slate-500">CPU</span>
+                        <span className="text-slate-200">{selectedK8sPod.cpu}</span>
                       </div>
-                      
-                      {/* Grid de Métricas (Espaçado) */}
-                      <div className="grid grid-cols-4 gap-2 text-[10px] font-mono text-slate-400">
-                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
-                            <div className="text-[8px] text-slate-500 mb-0.5">CPU</div>
-                            <div className="text-slate-200 font-bold">{selectedK8sPod.cpu}</div>
-                         </div>
-                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
-                            <div className="text-[8px] text-slate-500 mb-0.5">MEM</div>
-                            <div className="text-slate-200 font-bold">{selectedK8sPod.mem}</div>
-                         </div>
-                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
-                            <div className="text-[8px] text-slate-500 mb-0.5">RESTARTS</div>
-                            <div className={selectedK8sPod.restarts > 0 ? 'text-red-400 font-bold' : 'text-slate-200 font-bold'}>{selectedK8sPod.restarts}</div>
-                         </div>
-                         <div className="bg-slate-900 rounded p-1 text-center border border-slate-800">
-                            <div className="text-[8px] text-slate-500 mb-0.5">mTLS</div>
-                            <div className="text-emerald-400 font-bold">LOCK</div>
-                         </div>
+                      <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                        <span className="block text-[8px] text-slate-500">MEM</span>
+                        <span className="text-slate-200">{selectedK8sPod.mem}</span>
                       </div>
-                   </div>
-                 ) : (
-                   <div className="flex items-center justify-center h-12 gap-2 opacity-40">
-                      <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce delay-75"></div>
-                      <span className="text-[10px] font-mono text-slate-400 ml-2 tracking-widest">SELECT A POD</span>
-                   </div>
-                 )}
-               </div>
+                      <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                        <span className="block text-[8px] text-slate-500">RST</span>
+                        <span className={selectedK8sPod.restarts > 0 ? 'text-red-400' : 'text-slate-200'}>{selectedK8sPod.restarts}</span>
+                      </div>
+                      <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
+                        <span className="block text-[8px] text-slate-500">mTLS</span>
+                        <span className="text-emerald-400">ON</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-12 gap-2 opacity-40">
+                    <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce"></div>
+                    <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-75"></div>
+                    <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-150"></div>
+                    <span className="text-[10px] font-mono text-slate-400 ml-2">SELECT POD</span>
+                  </div>
+                )}
+              </div>
             </div>
 
-          </div> <br />
+            {/* Scanline Effect (Sutil) */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+              <div className="w-full h-[1px] bg-blue-400/10 blur-[1px] absolute top-0 animate-[scan_6s_linear_infinite]"></div>
+            </div>
+
+          </div>
+
+        </div> <br />
 
         {/* 6. CHECKLIST DE MATURIDADE (FIM) */}
         <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-slate-900 to-[#0a0a0a] border border-slate-800 rounded-2xl relative overflow-hidden">
@@ -6623,22 +6724,1509 @@ const DevSecOpsArticle = () => {
 
 
 
-      {/* ---------------------------------------------------------------------
-          CAPÍTULO 5: O FUTURO - IA & OWASP LLM (NOVO MÓDULO)
-      ---------------------------------------------------------------------- */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
 
-        {/* Cabeçalho do Capítulo */}
+      {/* ---------------------------------------------------------------------
+          CAPÍTULO ESPECIAL: O FUTURO (IA & LLMS)
+      ---------------------------------------------------------------------- */}
+      <section className="py-20 px-6 max-w-6xl mx-auto border-t relative overflow-hidden" style={{ borderColor: colors.borda }}>
+
+        {/* Background Decorativo (Roxo/Neon para IA) */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+
+        {/* CABEÇALHO */}
+        <div className="mb-16 relative z-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg border border-purple-500/50 bg-purple-950/20">
+              <BrainCircuit className="w-6 h-6 text-purple-400" />
+            </div>
+            <h3 className="text-3xl font-bold text-white tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">O Futuro: Inteligência Artificial, LLMs e a Nova Superfície de Ataque
+              </span>
+            </h3>
+
+          </div>
+          <h4>
+            <strong>Governando IA com os mesmos princípios do DevSecOps Maduro</strong>
+
+          </h4>
+          <p className="leading-relaxed text-lg max-w-3xl text-slate-400">
+            <strong className="text-white">amplifica</strong>
+          </p>
+        </div>
+        {/* ---------------------------------------------------------------------
+            INTRODUÇÃO ESTRATÉGICA: O MANIFESTO DA IA
+        ---------------------------------------------------------------------- */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-24 relative z-10">
+
+          {/* LADO ESQUERDO: O CONCEITO (TEXTO) */}
+          <div className="space-y-8">
+            <div className="border-l-4 border-purple-500 pl-6">
+              <h4 className="text-xl font-bold text-white mb-2">
+                Governando IA com os princípios do <br />
+                <span className="text-purple-400">DevSecOps Maduro</span>
+              </h4>
+              <p className="text-slate-400 leading-relaxed text-justify">
+                A adoção de Inteligência Artificial e LLMs inaugura uma nova fase da engenharia de software e da segurança da informação.
+                No entanto, assim como ocorreu com a Cloud e microserviços, a IA não elimina riscos: ela <strong className="text-white">amplifica o nível de maturidade existente</strong>.
+                Ela os redefine, amplia e acelera — para o bem ou para o caos.
+              </p>
+            </div>
+
+            {/* Comparativo: Promessa vs Risco */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-[#0f172a] p-4 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-2 mb-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                  <Zap className="w-4 h-4" /> A promessa é clara:
+                </div>
+                <p className="text-slate-400 text-sm">
+                  Produtividade extrema, automação cognitiva e aceleração de decisões complexas.
+                </p>
+              </div>
+
+              <div className="bg-[#0f172a] p-4 rounded-lg border border-slate-800">
+                <div className="flex items-center gap-2 mb-2 text-red-400 font-bold text-xs uppercase tracking-wider">
+                  <ShieldAlert className="w-4 h-4" /> O risco também é claro:
+                </div>
+                <p className="text-slate-400 text-sm">
+                  Uma superfície de ataque inédita, dinâmica, probabilística e mal compreendida.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-purple-950/20 border border-purple-900/30 p-4 rounded-lg">
+              <p className="text-purple-200 text-sm italic text-center">
+                "O desafio não é apenas proteger aplicações que usam IA, mas governar sistemas que pensam, aprendem e interagem com dados sensíveis."
+              </p>
+            </div>
+          </div>
+
+          {/* LADO DIREITO: O DIFERENCIAL (VISUAL) */}
+          <div className="relative">
+            {/* Card de Contraste Estratégico */}
+            <div className="bg-[#020617] border border-slate-800 rounded-2xl p-6 relative overflow-hidden shadow-2xl group hover:border-purple-500/30 transition-colors">
+
+              {/* Background Grid */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+              <div className="relative z-10 space-y-6">
+                {/* O ERRO */}
+                <div className="flex gap-4 opacity-50 group-hover:opacity-40 transition-opacity">
+                  <div className="flex flex-col items-center">
+                    <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-500">
+                      <AlertTriangle className="w-4 h-4" />
+                    </div>
+                    <div className="w-0.5 h-full bg-slate-800 my-2"></div>
+                  </div>
+                  <div>
+                    <h5 className="text-slate-400 font-bold text-sm">O Erro Estratégico</h5>
+                    <p className="text-slate-600 text-xs mt-1">Tratar IA como um domínio isolado, criando silos de segurança paralelos.</p>
+                  </div>
+                </div>
+
+                {/* O ACERTO (Highlight) */}
+                <div className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-8 h-8 rounded-full bg-purple-600 border border-purple-400 flex items-center justify-center text-white shadow-[0_0_15px_rgba(168,85,247,0.5)]">
+                      <BrainCircuit className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="text-white font-bold text-sm">O Acerto Maduro</h5>
+                    <p className="text-slate-300 text-xs mt-1">
+                      Governá-la dentro do modelo <strong className="text-purple-400">DevSecOps</strong> existente.
+                      A IA se encaixa nas camadas de prevenção, governança e evolução.
+                    </p>
+                  </div>
+                </div>
+                <p>
+                  Neste contexto, a IA não cria um novo framework.
+                  Ela se encaixa nas camadas existentes, respeitando a lógica de prevenção,
+                  governança, validação e evolução contínua. É aqui que o framework de
+                  Governança DevSecOps demonstra sua extensibilidade e relevância futura.
+                </p>
+              </div>
+
+              {/* Faixa decorativa inferior */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-slate-800 via-purple-600 to-slate-800"></div>
+            </div>
+
+            {/* Elemento Decorativo flutuante atrás */}
+            <div className="absolute -z-10 -top-4 -right-4 w-24 h-24 bg-purple-600/20 rounded-full blur-2xl"></div>
+          </div>
+
+        </div>
+
+
+        {/* ---------------------------------------------------------------------
+            POSICIONAMENTO ESTRATÉGICO (O QUE A IA É vs O QUE NÃO É)
+            ---------------------------------------------------------------------- */}
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-1.5 h-1.5 bg-slate-500 rounded-full"></span>
+            <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Alinhamento de Expectativa</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            {/* ITEM 1: APPSEC */}
+            <div className="bg-[#0f0202] border border-slate-800 p-4 rounded-lg flex flex-col items-center text-center group hover:border-red-900/50 transition-colors">
+              <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mb-3 group-hover:bg-red-950/30 group-hover:border-red-900/50 transition-colors">
+                <X className="w-4 h-4 text-slate-500 group-hover:text-red-500" />
+              </div>
+              <span className="text-slate-500 text-xs font-mono mb-1">IA NÃO SUBSTITUI</span>
+              <strong className="text-slate-300 font-bold">AppSec</strong>
+            </div>
+
+            {/* ITEM 2: OBSERVABILIDADE */}
+            <div className="bg-[#0f0202] border border-slate-800 p-4 rounded-lg flex flex-col items-center text-center group hover:border-red-900/50 transition-colors">
+              <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mb-3 group-hover:bg-red-950/30 group-hover:border-red-900/50 transition-colors">
+                <X className="w-4 h-4 text-slate-500 group-hover:text-red-500" />
+              </div>
+              <span className="text-slate-500 text-xs font-mono mb-1">IA NÃO SUBSTITUI</span>
+              <strong className="text-slate-300 font-bold">Observabilidade</strong>
+            </div>
+
+            {/* ITEM 3: GOVERNANÇA */}
+            <div className="bg-[#0f0202] border border-slate-800 p-4 rounded-lg flex flex-col items-center text-center group hover:border-red-900/50 transition-colors">
+              <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mb-3 group-hover:bg-red-950/30 group-hover:border-red-900/50 transition-colors">
+                <X className="w-4 h-4 text-slate-500 group-hover:text-red-500" />
+              </div>
+              <span className="text-slate-500 text-xs font-mono mb-1">IA NÃO SUBSTITUI</span>
+              <strong className="text-slate-300 font-bold">Governança</strong>
+            </div>
+
+            {/* ITEM 4: O AMPLIFICADOR (DESTAQUE) */}
+            <div className="bg-gradient-to-br from-purple-900/20 to-slate-900 border border-purple-500/50 p-4 rounded-lg flex flex-col items-center text-center shadow-[0_0_20px_rgba(168,85,247,0.15)] relative overflow-hidden">
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+
+              <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mb-3 shadow-lg animate-pulse">
+                <ChevronsUp className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-purple-300 text-xs font-mono mb-1 font-bold">A IA AMPLIFICA</span>
+              <strong className="text-white font-bold">O Nível de Maturidade</strong>
+
+              {/* Setinha decorativa */}
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+            </div>
+
+          </div> <br />
+          {/* TÍTULO DA SEÇÃO */}
+          <div className="text-center mb-10">
+            <h4 className="text-2xl font-bold text-white mb-2">
+              IA como <span className="text-purple-400">Extensão</span> no Contexto do DevSecOps Maduro
+            </h4>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              Inteligência Artificial não cria um novo DevSecOps. Ela se encaixa nas mesmas camadas de maturidade, exigindo os mesmos princípios — agora sob maior complexidade.
+            </p>
+          </div>
+
+          {/* 1. O AMPLIFICADOR DE MATURIDADE (GRID COMPARATIVO) */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+
+            {/* Lado: Organização Imatura */}
+            <div className="bg-[#1a0505] border border-red-900/30 p-6 rounded-xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
+                <AlertTriangle className="w-16 h-16 text-red-500" />
+              </div>
+              <h5 className="text-red-400 font-bold text-lg mb-2 flex items-center gap-2">
+                <TrendingDown className="w-5 h-5" /> Organização Imatura
+              </h5>
+              <h4 className="text-2xl font-bold text-white mb-4">IA Acelera o Caos</h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Se o processo já é falho, a IA escala o erro, encontra brechas e alucina sem controle. A falta de governança vira vazamento de dados em massa e código inseguro gerado em segundos.
+              </p> <br /> <br />
+
+              <div className="bg-black/40 p-3 rounded border border-red-900/50 text-center">
+                <span className="text-red-500 font-mono text-sm font-bold">IA ACELERA FALHAS</span>
+              </div>
+            </div>
+
+            {/* Lado: Organização Madura */}
+            <div className="bg-[#022c22] border border-emerald-900/30 p-6 rounded-xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
+                <Zap className="w-16 h-16 text-emerald-500" />
+              </div>
+              <h5 className="text-emerald-400 font-bold text-lg mb-2 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5" /> Organização Madura
+              </h5>
+              <h5 className="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-2">Organização Madura</h5>
+              <h4 className="text-2xl font-bold text-white mb-4">IA Acelera a Resposta</h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                A IA se encaixa nas camadas existentes. Ela não substitui a observabilidade, ela a torna preditiva. Ela não substitui o AppSec, ela o torna autônomo.
+                Com processos sólidos, a IA otimiza a triagem, detecta padrões e responde a incidentes.
+              </p>
+              <div className="bg-black/40 p-3 rounded border border-emerald-900/50 text-center">
+                <span className="text-emerald-500 font-mono text-sm font-bold">IA ACELERA APRENDIZADO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------------------------
+            CARACTERÍSTICAS DE RISCO DOS LLMS
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          <div className="text-center mb-8">
+            <h4 className="text-xl font-bold text-white">
+              LLMs não são apenas componentes técnicos. <span className="text-purple-400">Eles são agentes ativos.</span>
+            </h4>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            {/* 1. DADOS SENSÍVEIS */}
+            <div className="bg-[#1a0505] border border-red-900/30 p-6 rounded-xl group hover:border-red-500/50 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-red-950/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Fingerprint className="w-5 h-5 text-red-400" />
+              </div>
+              <p className="text-slate-300 font-bold text-sm mb-1 group-hover:text-white">
+                Processam dados sensíveis
+              </p>
+              <span className="text-[10px] text-slate-500 font-mono">PII, Segredos e Propriedade Intelectual viram vetores.</span>
+            </div>
+
+            {/* 2. INFLUÊNCIA HUMANA */}
+            <div className="bg-[#0B1120] border border-blue-900/30 p-6 rounded-xl group hover:border-blue-500/50 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-blue-950/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Users className="w-5 h-5 text-blue-400" />
+              </div>
+              <p className="text-slate-300 font-bold text-sm mb-1 group-hover:text-white">
+                Influenciam decisões humanas
+              </p>
+              <span className="text-[10px] text-slate-500 font-mono">Engenharia Social em escala e Automation Bias.</span>
+            </div>
+
+            {/* 3. IMPREVISIBILIDADE */}
+            <div className="bg-[#1a1002] border border-amber-900/30 p-6 rounded-xl group hover:border-amber-500/50 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-amber-950/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Shuffle className="w-5 h-5 text-amber-400" />
+              </div>
+              <p className="text-slate-300 font-bold text-sm mb-1 group-hover:text-white">
+                Geram respostas imprevisíveis
+              </p>
+              <span className="text-[10px] text-slate-500 font-mono">Não determinísticos. O mesmo input gera outputs diferentes.</span>
+            </div>
+
+            {/* 4. MANIPULAÇÃO SEMÂNTICA */}
+            <div className="bg-[#180a1e] border border-purple-900/30 p-6 rounded-xl group hover:border-purple-500/50 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-purple-950/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Terminal className="w-5 h-5 text-purple-400" />
+              </div>
+              <p className="text-slate-300 font-bold text-sm mb-1 group-hover:text-white">
+                Manipuláveis semanticamente
+              </p>
+              <span className="text-[10px] text-slate-500 font-mono">"Prompt Injection" quebra a lógica sem tocar no código.</span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------------------------
+            BLOCO: A REALIDADE OPERACIONAL DA IA (EXTENSÃO & DUALIDADE)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          {/* 2. A "FÓRMULA" DA IA (BANNER CENTRAL) */}
+          <div className="bg-[#0B1120] border border-slate-800 rounded-xl p-8 mb-12 relative overflow-hidden text-center">
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(168,85,247,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] animate-[shimmer_3s_infinite]"></div>
+
+            <p className="text-slate-400 text-sm uppercase tracking-widest mb-6 relative z-10">A Natureza do Risco</p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-xl md:text-2xl font-bold text-white relative z-10 font-mono">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-blue-400">CÓDIGO</span>
+                <span className="text-[10px] text-slate-500 font-sans font-normal">Lógica Tradicional</span>
+              </div>
+              <span className="text-slate-600">+</span>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-purple-400">DADOS</span>
+                <span className="text-[10px] text-slate-500 font-sans font-normal">Sensíveis & Treino</span>
+              </div>
+              <span className="text-slate-600">+</span>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-amber-400">COMPORTAMENTO</span>
+                <span className="text-[10px] text-slate-500 font-sans font-normal">Emergente & Imprevisível</span>
+              </div>
+              <span className="text-slate-600">=</span>
+              <div className="bg-slate-900 border border-slate-700 px-6 py-2 rounded-lg text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                RISCO COGNITIVO
+              </div>
+            </div>
+
+            <p className="mt-6 text-slate-400 text-sm relative z-10">
+              Governar isso exige mais do que firewall. Exige observabilidade semântica.
+            </p>
+          </div>
+
+          {/* ---------------------------------------------------------------------
+            DESMISTIFICAÇÃO: DE QUE IA ESTAMOS FALANDO?
+        ---------------------------------------------------------------------- */}
+          <div className="mb-24 relative z-10">
+
+            <div className="max-w-4xl mx-auto">
+
+              {/* Título da Seção */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-900"></div>
+                <h4 className="text-2xl font-bold text-white text-center">
+                  De Que <span className="text-purple-400">Inteligência Artificial</span> Estamos Falando?
+                </h4>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-900"></div>
+              </div>
+
+              {/* Texto Introdutório */}
+              <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-justify mb-10">
+                <p className="mb-4">
+                  Antes de falar em riscos e para fins de controles e governança DevSecOp, é essencial alinhar o entendimento e classificar IA por função e impacto. <br />
+                  <strong className="text-white"> Inteligência Artificial não é um produto único.</strong> É um ecossistema de capacidades distintas, com impactos diferentes em segurança, compliance e operação.
+                </p>
+                <p>
+                  Quando se fala em IA no ambiente corporativo, o discurso público costuma reduzir o tema a ferramentas visíveis, como <em>ChatGPT</em> ou <em>Gemini</em>.
+                  Na prática, isso representa apenas uma fração do ecossistema real que já está sendo incorporado a pipelines, sistemas internos e processos de negócio.
+                </p>
+              </div>
+
+              {/* Bloco de Destaque: O Problema Estratégico */}
+              <div className="bg-[#120818] border-l-4 border-purple-500 p-6 rounded-r-xl mb-10 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <BrainCircuit className="w-24 h-24 text-purple-500" />
+                </div>
+
+                <h5 className="text-purple-300 font-bold text-lg mb-2 flex items-center gap-2">
+                  O Problema Estratégico
+                </h5>
+                <p className="text-slate-300 italic mb-4">
+                  "Essa simplificação cria um problema estratégico: <br /> oculta o fato de que a IA já está embutida <strong>silenciosamente</strong> em múltiplas camadas da operação, <br />
+                  muitas vezes sem qualquer modelo formal de governança."
+                </p>
+
+                <div className="flex flex-col md:flex-row gap-4 text-xs font-mono mt-4 pt-4 border-t border-purple-900/30">
+                  <span className="flex items-center gap-2 text-slate-400">
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Riscos Invisíveis
+                  </span>
+                  <span className="flex items-center gap-2 text-slate-400">
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Decisões Equivocadas
+                  </span>
+                  <span className="flex items-center gap-2 text-slate-400">
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Investimento Mal Direcionado
+                  </span>
+                </div>
+              </div>
+
+              {/* Conclusão do Bloco: A Realidade Prática */}
+              <div className="text-slate-400 leading-relaxed text-justify mb-8">
+
+              </div>
+
+              {/* Rodapé de Escopo (Nota Técnica) */}
+              <div className="bg-[#020617] border border-slate-800 rounded-lg p-4 flex items-center gap-4">
+                <div className="p-2 bg-slate-900 rounded border border-slate-700">
+                  <Terminal className="w-4 h-4 text-slate-400" />
+                </div>
+                <div className="text-xs font-mono text-slate-500">
+                  <strong className="text-slate-300 block mb-0.5">ESCOPO DO CAPÍTULO</strong>
+                  Este material trata exclusivamente de IA aplicada a ambientes corporativos, integrada a processos, sistemas e dados sensíveis.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          {/* 3. DESMISTIFICANDO (TEXTO ESTRUTURADO) */}
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+
+            {/* Coluna Esquerda: O Contexto */}
+            <div className="lg:col-span-5 space-y-6">
+              <h3 className="text-2xl font-bold text-white">
+                A Inteligência <span className="text-purple-400">Silenciosa</span>
+              </h3>
+
+
+              <p className="mb-4">
+                Na prática, organizações não estão apenas “adotando IA”. Elas estão <strong className="text-white">acoplando capacidades cognitivas automatizadas</strong> a processos críticos, com impactos diretos sobre segurança, privacidade, confiabilidade e tomada de decisão.
+              </p>
+              <p>
+                É fundamental, portanto, compreender que tipo de IA está em jogo, como ela se manifesta
+                e por que cada vertente impõe riscos e responsabilidades distintas.
+                Confundir essas vertentes leva a decisões equivocadas, investimentos mal direcionados e riscos invisíveis.
+              </p>
+            </div>
+
+            {/* Coluna Direita: O Ecossistema Real (Card Estilo Terminal) */}
+            <div className="lg:col-span-7">
+              <div className="bg-[#050101] border border-slate-800 rounded-xl p-6 font-mono text-sm relative shadow-2xl">
+                {/* Header do Terminal */}
+                <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-2">
+                  <Terminal className="w-4 h-4 text-slate-500" />
+                  <span className="text-slate-500 text-xs">system_audit.log --context=corporate_ai</span>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <span className="text-slate-600">[INFO]</span>
+                    <span className="text-slate-300">
+                      Analysis target: <span className="text-white font-bold">"Visible AI"</span> (ChatGPT, Gemini)
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="text-yellow-500">[WARN]</span>
+                    <span className="text-yellow-200/80">
+                      Status: <span className="text-yellow-500 font-bold">TIP OF THE ICEBERG (10%)</span>
+                    </span>
+                  </div>
+
+                  <div className="w-full h-px bg-slate-800 my-2"></div>
+
+                  <div className="flex gap-3">
+                    <span className="text-slate-600">[INFO]</span>
+                    <span className="text-slate-300">
+                      Analysis target: <span className="text-purple-400 font-bold">"Embedded AI"</span> (Hidden Ecosystem)
+                    </span>
+                  </div>
+                  <ul className="pl-12 space-y-1 text-slate-400 text-xs">
+                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-purple-500 rounded-full"></div> Copilots no VS Code (Vazamento de Código)</li>
+                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-purple-500 rounded-full"></div> Algoritmos de Crédito/Risco (Viés)</li>
+                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-purple-500 rounded-full"></div> Chatbots de Atendimento (Alucinação)</li>
+                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-purple-500 rounded-full"></div> Análise de Contratos (Privacidade)</li>
+                  </ul>
+
+                  <div className="mt-4 p-2 bg-red-950/20 border border-red-900/30 rounded text-red-300 text-xs">
+                    &gt; CRITICAL: "Shadow AI" detected in 42 processes without formal governance.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------------------------
+            BLOCO DE CONCEITO: A NATUREZA DA IA (AMPLIFICADOR)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          {/* 3. DESMISTIFICANDO (O ICEBERG CORPORATIVO) */}
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+
+            {/* Texto Explicativo */}
+            <div className="lg:col-span-5 space-y-6">
+              <h4 className="text-xl font-bold text-white border-l-4 border-purple-500 pl-4">
+                Desmistificando a IA Corporativa
+              </h4>
+              <p className="mb-4">
+                Antes de discutir riscos, controles e governança, é necessário alinhar um ponto fundamental:
+                <strong className="text-white"> Inteligência Artificial não é uma tecnologia homogênea.</strong> <br />
+                No contexto corporativo, IA se manifesta como um conjunto de capacidades distintas,
+                com níveis diferentes de autonomia, impacto operacional e risco sistêmico.
+                Reduzir IA a ferramentas conversacionais cria uma falsa sensação de simplicidade
+                e leva a decisões estratégicas equivocadas. <br />
+                Para fins de governança, as aplicações de IA podem ser organizadas em quatro categorias funcionais.
+
+              </p>
+
+              <div className="bg-amber-950/20 border-l-2 border-amber-500 p-4">
+                <p className="text-amber-200 text-xs italic">
+                  "IA não é uma tecnologia única"
+                </p>
+              </div>
+            </div>
+
+            {/* Visual: O Ecossistema (Surface vs Embedded) */}
+            <div className="lg:col-span-7">
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-1 relative">
+                {/* Surface Layer */}
+                <div className="bg-slate-900/50 p-4 rounded-t-lg border-b border-slate-700/50 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs font-bold text-white block">IA VISÍVEL (SaaS)</span>
+                    <span className="text-[10px] text-slate-500">ChatGPT, MidJourney, Web Tools</span>
+                  </div>
+                  <span className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-400 border border-slate-700">A Ponta do Iceberg</span>
+                </div>
+
+                {/* Deep Layer (Animated Gradient) */}
+                <div className="bg-gradient-to-b from-[#0f0518] to-purple-950/20 p-6 rounded-b-lg relative overflow-hidden">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-slate-700 to-transparent dashed-line"></div>
+
+                  <div className="relative z-10 grid gap-3">
+                    <div className="flex items-center gap-3 p-3 bg-black/40 border border-purple-500/20 rounded-lg backdrop-blur-sm">
+                      <Cpu className="w-5 h-5 text-purple-400" />
+                      <div>
+                        <span className="text-xs font-bold text-purple-100 block">IA EMBUTIDA (Embedded)</span>
+                        <span className="text-[10px] text-purple-300/60">Pipelines CI/CD, Motores de Crédito, Detecção de Fraude</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-black/40 border border-purple-500/20 rounded-lg backdrop-blur-sm">
+                      <Layers className="w-5 h-5 text-purple-400" />
+                      <div>
+                        <span className="text-xs font-bold text-purple-100 block">API & INTEGRAÇÕES</span>
+                        <span className="text-[10px] text-purple-300/60">Processamento de dados sensíveis em background</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 text-center">
+                    <span className="text-[10px] font-mono text-red-400 bg-red-950/30 px-2 py-1 rounded animate-pulse">
+                      ⚠️ MAIOR SUPERFÍCIE DE RISCO NÃO MAPEADO
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        {/* ---------------------------------------------------------------------
+            AS 4 CATEGORIAS DE IA (ESCADA DE AUTONOMIA)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-[10px] font-mono text-purple-400 mb-4 uppercase tracking-widest">
+              <Layers className="w-3 h-3" /> Classificação Operacional
+            </div>
+            <h4 className="text-3xl font-bold text-white mb-4">
+              As Quatro Categorias de IA nas Organizações
+            </h4>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              O impacto operacional muda drasticamente conforme a autonomia aumenta.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {/* 1. IA QUE RESPONDE (AZUL) */}
+            <div className="bg-[#0B1120] border border-blue-900/30 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-blue-500/20"></div>
+
+              <div className="w-12 h-12 bg-blue-950/50 border border-blue-500/30 rounded-lg flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                <MessageSquare className="w-6 h-6 text-blue-400" />
+              </div>
+
+              <h5 className="text-lg font-bold text-white mb-2">1. IA que Responde</h5>
+              <p className="text-xs text-slate-400 h-10 mb-4">
+                Interfaces cognitivas que interpretam perguntas e geram respostas.
+              </p>
+
+              <div className="space-y-3 pt-4 border-t border-slate-800">
+                <div>
+                  <span className="text-[10px] font-bold text-blue-500 uppercase tracking-wider block mb-1">Exemplos</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Assistentes, Copilotos, Busca Semântica.</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider block mb-1">Risco Principal</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Vazamento de dados e Alucinação.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. IA QUE RECOMENDA (ROXO) */}
+            <div className="bg-[#0B1120] border border-purple-900/30 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-purple-500/20"></div>
+
+              <div className="w-12 h-12 bg-purple-950/50 border border-purple-500/30 rounded-lg flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                <Sparkles className="w-6 h-6 text-purple-400" />
+              </div>
+
+              <h5 className="text-lg font-bold text-white mb-2">2. IA que Recomenda</h5>
+              <p className="text-xs text-slate-400 h-10 mb-4">
+                Analisa dados e sugere ações, mas não executa mudanças diretamente.
+              </p>
+
+              <div className="space-y-3 pt-4 border-t border-slate-800">
+                <div>
+                  <span className="text-[10px] font-bold text-purple-500 uppercase tracking-wider block mb-1">Exemplos</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Priorização de Riscos, Code Review, Triagem.</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider block mb-1">Risco Principal</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Qualidade ruim e Viés (Automation Bias).</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. IA QUE AGE (AMBAR) */}
+            <div className="bg-[#0B1120] border border-amber-900/30 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-amber-500/20"></div>
+
+              <div className="w-12 h-12 bg-amber-950/50 border border-amber-500/30 rounded-lg flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                <Zap className="w-6 h-6 text-amber-400" />
+              </div>
+
+              <h5 className="text-lg font-bold text-white mb-2">3. IA que Age</h5>
+              <p className="text-xs text-slate-400 h-10 mb-4">
+                Ultrapassa o consultivo e executa ações automatizadas baseadas em regras.
+              </p>
+
+              <div className="space-y-3 pt-4 border-t border-slate-800">
+                <div>
+                  <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">Exemplos</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Playbooks, Resposta a Incidentes, Agentes.</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider block mb-1">Risco Principal</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Excessiva autonomia e impactos não previstos.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. IA QUE DECIDE (VERMELHO) */}
+            <div className="bg-[#0B1120] border border-red-900/30 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-red-500/20"></div>
+
+              <div className="w-12 h-12 bg-red-950/50 border border-red-500/30 rounded-lg flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                <Gavel className="w-6 h-6 text-red-500" />
+              </div>
+
+              <h5 className="text-lg font-bold text-white mb-2">4. IA que Decide</h5>
+              <p className="text-xs text-slate-400 h-10 mb-4">
+                Influencia ou toma decisões críticas afetando o negócio diretamente.
+              </p>
+
+              <div className="space-y-3 pt-4 border-t border-slate-800">
+                <div>
+                  <span className="text-[10px] font-bold text-red-500 uppercase tracking-wider block mb-1">Exemplos</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Antifraude, Motores de Crédito, Agentes Autônomos.</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider block mb-1">Risco Principal</span>
+                  <span className="text-[10px] text-slate-400 font-mono">Estratégico, Legal e Reputacional.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* GRID PRINCIPAL: SELETOR DE NÍVEIS + MONITOR DE RISCO */}
+        <div className="grid lg:grid-cols-12 gap-8 mb-20">
+
+          {/* LADO ESQUERDO: MENU INTERATIVO */}
+          <div className="lg:col-span-4 flex flex-col gap-3">
+            {Object.values(aiLevels).map((level) => (
+              <button
+                key={level.id}
+                onClick={() => setActiveAiTab(level.id)}
+                className={`p-4 rounded-xl border text-left transition-all duration-300 group relative overflow-hidden
+                  ${activeAiTab === level.id
+                    ? 'bg-purple-950/20 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.15)]'
+                    : 'bg-[#050101] border-slate-800 hover:border-slate-600 hover:bg-slate-900'
+                  }`}
+              >
+                <div className="flex items-center gap-3 mb-2 relative z-10">
+                  <div className={`p-1.5 rounded ${activeAiTab === level.id ? 'bg-purple-500 text-white' : 'bg-slate-800 text-slate-400'}`}>
+                    {level.icon}
+                  </div>
+                  <span className={`font-bold text-sm ${activeAiTab === level.id ? 'text-white' : 'text-slate-300'}`}>
+                    {level.title}
+                  </span>
+                </div>
+                {/* Barra de Progresso Decorativa */}
+                <div className="w-full h-0.5 bg-slate-800 mt-2 relative overflow-hidden">
+                  <div className={`h-full transition-all duration-500 ${activeAiTab === level.id ? 'bg-purple-500 w-full' : 'w-0'}`}></div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* LADO DIREITO: MONITOR COGNITIVO */}
+          <div className="lg:col-span-8">
+            <div className="bg-[#020617] border border-slate-800 rounded-2xl p-8 h-full relative overflow-hidden flex flex-col justify-center shadow-2xl">
+              {/* Grid de Fundo */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+              <div className="relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-500" key={activeAiTab}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-[10px] font-mono text-purple-400 mb-6 uppercase tracking-widest">
+                  <Activity className="w-3 h-3" /> Nível de Autonomia
+                </div>
+
+                <h4 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  {aiLevels[activeAiTab].title}
+                </h4>
+
+                <p className="text-xl text-slate-300 mb-8 font-light border-l-4 border-purple-500 pl-4 leading-relaxed">
+                  {aiLevels[activeAiTab].desc}
+                </p>
+
+                {/* Bloco de Risco */}
+                <div className="bg-red-950/10 border border-red-900/40 rounded-xl p-5 backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-red-400 font-bold text-xs uppercase flex items-center gap-2">
+                      <ShieldAlert className="w-4 h-4" /> Superfície de Ataque
+                    </span>
+                    <span className="text-[10px] font-mono text-red-500 animate-pulse">THREAT DETECTED</span>
+                  </div>
+                  <p className="text-red-200/80 text-sm mb-4">
+                    {aiLevels[activeAiTab].risk}
+                  </p>
+
+                  {/* Barra de Intensidade do Risco */}
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                    <div className={`h-full transition-all duration-1000 ${aiLevels[activeAiTab].bar}`}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-900"></div>
+          <h4 className="text-2xl font-bold text-white text-center">
+            Autonomia, <span className="text-purple-400">Impacto e</span>  Governança
+          </h4>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-900"></div>
+        </div>
+
+        <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-justify mb-10">
+          <p className="mb-4">
+            À medida que a IA avança de sistemas que respondem para sistemas que decidem em escala,
+            crescem proporcionalmente o impacto operacional e a necessidade de governança.
+            Nem toda IA exige o mesmo nível de controle, <strong className="text-white">  mas toda IA exige um nível
+              mínimo de classificação, observabilidade e responsabilidade.</strong>
+          </p>
+          <p>
+            Esse entendimento é essencial para que riscos, como os descritos no OWASP LLM Top 10,
+            sejam avaliados de forma contextualizada e integrados corretamente às camadas de
+            maturidade do framework de Governança DevSecOps.
+
+          </p>
+        </div>
+
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-900"></div>
+          <h4 className="text-2xl font-bold text-white text-center">
+            <span className="text-purple-400">LLMs Generalistas como</span> Infraestrutura Cognitiva
+          </h4>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-900"></div>
+        </div>
+
+        <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-justify mb-10">
+          <p className="mb-4">
+            Modelos de linguagem de uso geral, como ChatGPT ou Gemini, passaram a atuar como uma nova camada
+            de infraestrutura cognitiva. Eles não substituem sistemas tradicionais, mas passam a mediar
+            interações humanas com código, dados e processos. O risco central aqui não é técnico,
+            mas epistemológico:
+            <strong className="text-white"> Respostas geradas são estatisticamente plausíveis, não logicamente garantidas.</strong>
+          </p>
+          <p>
+            Esse entendimento é essencial para que riscos, como os descritos no OWASP LLM Top 10,
+            sejam avaliados de forma contextualizada e integrados corretamente às camadas de
+            maturidade do framework de Governança DevSecOps.
+
+          </p> <br />
+          <p>
+            Quando esses modelos são utilizados para revisão de código, suporte técnico ou orientação operacional,
+            cria-se uma dependência tácita de um sistema que não possui compromisso com verdade,
+            rastreabilidade ou contexto organizacional. Sem controles claros, a IA deixa de ser ferramenta
+            e passa a ser fonte informal de autoridade, o que compromete governança e responsabilidade.
+          </p> <br />
+          <p>
+            Nesse cenário, DevSecOps precisa tratar LLMs generalistas como serviços de alto risco informacional,
+            exigindo delimitação rígida de contexto, registro de interações relevantes e políticas explícitas de uso.
+          </p>
+        </div>
+
+
+        {/* ---------------------------------------------------------------------
+            DUALIDADE DE RISCO: DADOS (RAG) vs AGENTES (AÇÃO)
+        ---------------------------------------------------------------------- */}
+        <div className="grid md:grid-cols-2 gap-8 mb-24 relative z-10">
+
+          {/* COLUNA ESQUERDA: IA + DADOS INTERNOS (RAG) */}
+          <div className="bg-[#020617] border border-amber-900/30 rounded-2xl p-8 relative overflow-hidden group hover:border-amber-500/50 transition-all duration-500">
+
+            {/* Background Effect */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-900/10 rounded-full blur-[80px] group-hover:bg-amber-600/10 transition-colors"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+
+            {/* Header com Ícone */}
+            <div className="flex items-start justify-between mb-6 relative z-10">
+              <div className="p-3 bg-amber-950/30 border border-amber-900/50 rounded-xl">
+                <Database className="w-8 h-8 text-amber-500" />
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] font-mono text-amber-500/80 tracking-widest uppercase">Vetor de Risco #01</span>
+                <span className="block text-xs font-bold text-white mt-1">INFERÊNCIA SEMÂNTICA</span>
+              </div>
+            </div>
+
+            {/* Título e Texto */}
+            <h4 className="text-2xl font-bold text-white mb-4">
+              IA Integrada a Dados Internos: <span className="text-amber-400">O Salto de Risco Real</span>
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              O verdadeiro ponto de inflexão ocorre quando modelos de IA deixam de operar sobre conhecimento
+              público e passam a interagir com dados internos da <strong className="text-white">organização. </strong>
+              Soluções baseadas em RAG,
+              LLMs treinados com documentos corporativos ou assistentes internos criam valor significativo,
+              mas deslocam o risco para o ativo mais sensível da empresa: <strong className="text-white">informação contextualizada.</strong>
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Nesse estágio, o modelo não apenas responde perguntas — ele interpreta políticas, contratos,
+              decisões passadas e dados pessoais. Qualquer falha de controle não resulta apenas em erro técnico,
+              mas em vazamento de estratégia, violação regulatória ou exposição de propriedade intelectual.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Governar esse tipo de IA exige aplicar princípios clássicos de segurança da informação — classificação de dados,
+              controle de acesso, auditoria — a um domínio que opera por inferência semântica.
+              Isso redefine AppSec:
+            </p>
+
+            {/* O "Salto de Risco" (Visual) */}
+            <div className="bg-[#0f0a00] border border-amber-900/30 rounded-lg p-4 mb-6 relative">
+              <div className="flex items-center gap-4 text-xs font-mono mb-2">
+                <div className="flex items-center gap-2 text-slate-500 line-through decoration-red-500">
+                  <FileText className="w-3 h-3" /> Erro Técnico
+                </div>
+                <ArrowRight className="w-3 h-3 text-amber-500" />
+                <div className="flex items-center gap-2 text-amber-400 font-bold animate-pulse">
+                  <Eye className="w-3 h-3" /> Vazamento Estratégico
+                </div>
+              </div>
+              <p className="text-[10px] text-slate-500 leading-tight">
+                "Proteger o código não é suficiente quando o risco está na interpretação automatizada do significado dos dados."
+              </p>
+            </div>
+
+            {/* Footer: Redefinição de AppSec */}
+            <div className="border-t border-amber-900/30 pt-4 mt-auto">
+              <h5 className="text-xs font-bold text-white uppercase mb-2 flex items-center gap-2">
+                <Lock className="w-3 h-3 text-amber-500" /> Nova Governança Exige:
+              </h5>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-amber-950/40 border border-amber-900/50 rounded text-[10px] text-amber-300 font-mono">Classificação de Dados</span>
+                <span className="px-2 py-1 bg-amber-950/40 border border-amber-900/50 rounded text-[10px] text-amber-300 font-mono">Controle de Acesso RAG</span>
+              </div>
+            </div>
+          </div>
+
+          {/* COLUNA DIREITA: AGENTES & AUTORIDADE */}
+          <div className="bg-[#020617] border border-red-900/30 rounded-2xl p-8 relative overflow-hidden group hover:border-red-500/50 transition-all duration-500">
+
+            {/* Background Effect */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-red-900/10 rounded-full blur-[80px] group-hover:bg-red-600/10 transition-colors"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+
+            {/* Header com Ícone */}
+            <div className="flex items-start justify-between mb-6 relative z-10">
+              <div className="p-3 bg-red-950/30 border border-red-900/50 rounded-xl">
+                <Cpu className="w-8 h-8 text-red-500" />
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] font-mono text-red-500/80 tracking-widest uppercase">Vetor de Risco #02</span>
+                <span className="block text-xs font-bold text-white mt-1">AUTORIDADE IMPLÍCITA</span>
+              </div>
+            </div>
+
+            {/* Título e Texto */}
+            <h4 className="text-2xl font-bold text-white mb-4">
+              Agentes de IA e a <span className="text-red-400">Transferência de Autoridade Operacional</span>
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              m passo além está a adoção de agentes de IA com capacidade de executar ações.
+              Aqui, a IA deixa de ser consultiva e passa a ser operacional.
+              Ela chama APIs, inicia processos, responde incidentes e executa fluxos de trabalho sem intervenção humana direta.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              O risco não está apenas em falhas técnicas, mas na transferência implícita de autoridade.
+              Um agente mal governado pode executar ações corretas no contexto errado,
+              em velocidade e escala incompatíveis com controle humano tradicional.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Esse cenário exige uma revisão profunda de modelos de identidade, autorização e responsabilidade.
+              Em DevSecOps maduro, agentes de IA devem ser tratados como identidades não humanas,
+              com privilégios mínimos, escopo estritamente definido e mecanismos claros de reversibilidade e auditoria.
+            </p>
+
+            {/* O "Salto de Risco" (Visual) */}
+            <div className="bg-[#1a0505] border border-red-900/30 rounded-lg p-4 mb-6 relative">
+              <div className="flex items-center gap-4 text-xs font-mono mb-2">
+                <div className="flex items-center gap-2 text-slate-500">
+                  <span className="w-2 h-2 rounded-full bg-slate-600"></span> Humano
+                </div>
+                <div className="w-full h-px bg-slate-700 relative">
+                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 bg-[#1a0505] px-1 text-[8px] text-red-500 font-bold">DELEGAÇÃO</div>
+                </div>
+                <div className="flex items-center gap-2 text-red-400 font-bold animate-pulse">
+                  <Bot className="w-3 h-3" /> Agente IA
+                </div>
+              </div>
+              <p className="text-[10px] text-slate-500 leading-tight">
+                "Um agente mal governado opera em velocidade e escala incompatíveis com o controle humano tradicional."
+              </p>
+            </div>
+
+            {/* Footer: Identidade Não Humana */}
+            <div className="border-t border-red-900/30 pt-4 mt-auto">
+              <h5 className="text-xs font-bold text-white uppercase mb-2 flex items-center gap-2">
+                <Key className="w-3 h-3 text-red-500" /> Nova Governança Exige:
+              </h5>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-red-950/40 border border-red-900/50 rounded text-[10px] text-red-300 font-mono">Identidade Não-Humana</span>
+                <span className="px-2 py-1 bg-red-950/40 border border-red-900/50 rounded text-[10px] text-red-300 font-mono">Privilégio Mínimo</span>
+                <span className="px-2 py-1 bg-red-950/40 border border-red-900/50 rounded text-[10px] text-red-300 font-mono">Circuit Breakers</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ---------------------------------------------------------------------
+            NOVA DUALIDADE: WORKFLOWS (AUTOMACAO) vs SEGURANÇA (DEFESA)
+        ---------------------------------------------------------------------- */}
+        <div className="grid md:grid-cols-2 gap-8 mb-24 relative z-10">
+
+          {/* COLUNA ESQUERDA: IA EM WORKFLOWS (CIANO/TEAL) */}
+          <div className="bg-[#020617] border border-cyan-900/30 rounded-2xl p-8 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-500">
+
+            {/* Background Effect */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-[80px] group-hover:bg-cyan-600/10 transition-colors"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+
+            {/* Header com Ícone */}
+            <div className="flex items-start justify-between mb-6 relative z-10">
+              <div className="p-3 bg-cyan-950/30 border border-cyan-900/50 rounded-xl">
+                <GitMerge className="w-8 h-8 text-cyan-400" />
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] font-mono text-cyan-500/80 tracking-widest uppercase">Escala & Opacidade</span>
+                <span className="block text-xs font-bold text-white mt-1">WORKFLOWS INTELIGENTES</span>
+              </div>
+            </div>
+
+            {/* Título e Texto */}
+            <h4 className="text-2xl font-bold text-white mb-4">
+              IA em Workflows: <span className="text-cyan-400">Automação Inteligente em Escala</span>
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Ferramentas de orquestração como <strong className="text-white">n8n</strong> representam uma convergência
+              poderosa entre automação tradicional e IA.
+              Quando modelos de linguagem passam a decidir, classificar ou priorizar eventos
+              dentro de workflows, a organização ganha eficiência, <strong className="text-cyan-300">mas também cria cadeias de decisão opacas</strong>.
+              Um erro de inferência não fica contido: <strong strong className="text-cyan-300">ele se propaga.</strong> <br /> <br />
+              A automação amplifica falhas silenciosas,
+              muitas vezes sem alertas imediatos. O risco aqui não é um ataque isolado, mas desvio gradual
+              de comportamento, difícil de detectar sem observabilidade específica.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Nesse contexto, governança não é opcional. Cada decisão automatizada precisa ser rastreável,
+              cada exceção precisa ser visível e cada falha precisa alimentar aprendizado organizacional.
+              Sem isso, a automação deixa de ser vantagem e se torna fragilidade sistêmica.
+
+            </p>
+
+            {/* Visual da "Propagação de Falha" */}
+            <div className="bg-[#021014] border border-cyan-900/30 rounded-lg p-4 mb-6 relative">
+              <div className="flex items-center justify-between text-xs font-mono mb-2">
+                <span className="text-slate-500">Input</span>
+                <ArrowRight className="w-3 h-3 text-cyan-600" />
+                <span className="text-cyan-500">AI Node</span>
+                <ArrowRight className="w-3 h-3 text-cyan-600" />
+                <span className="text-white">Action</span>
+              </div>
+
+              {/* Barra de Progresso com "Erro Silencioso" */}
+              <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden flex">
+                <div className="w-1/3 bg-cyan-600"></div>
+                <div className="w-1/3 bg-yellow-500 animate-pulse"></div> {/* O erro */}
+                <div className="w-1/3 bg-red-500"></div> {/* A propagação */}
+              </div>
+              <p className="text-[10px] text-slate-500 mt-2 leading-tight">
+                "A automação amplifica falhas silenciosas. O risco é o desvio gradual de comportamento sem alertas imediatos."
+              </p>
+            </div>
+
+            {/* Footer: Governança Necessária */}
+            <div className="border-t border-cyan-900/30 pt-4 mt-auto">
+              <h5 className="text-xs font-bold text-white uppercase mb-2 flex items-center gap-2">
+                <Activity className="w-3 h-3 text-cyan-500" /> Requisito de Governança:
+              </h5>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-cyan-950/40 border border-cyan-900/50 rounded text-[10px] text-cyan-300 font-mono">Rastreabilidade Total</span>
+                <span className="px-2 py-1 bg-cyan-950/40 border border-cyan-900/50 rounded text-[10px] text-cyan-300 font-mono">Visibilidade de Exceção</span>
+              </div>
+            </div>
+          </div>
+
+          {/* COLUNA DIREITA: IA NA SEGURANÇA (FÚCSIA/ROSA) */}
+          <div className="bg-[#020617] border border-fuchsia-900/30 rounded-2xl p-8 relative overflow-hidden group hover:border-fuchsia-500/50 transition-all duration-500">
+
+            {/* Background Effect */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-fuchsia-900/10 rounded-full blur-[80px] group-hover:bg-fuchsia-600/10 transition-colors"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+
+            {/* Header com Ícone */}
+            <div className="flex items-start justify-between mb-6 relative z-10">
+              <div className="p-3 bg-fuchsia-950/30 border border-fuchsia-900/50 rounded-xl">
+                <ShieldCheck className="w-8 h-8 text-fuchsia-500" />
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] font-mono text-fuchsia-500/80 tracking-widest uppercase">Potência vs Limite</span>
+                <span className="block text-xs font-bold text-white mt-1">DEFESA AUMENTADA</span>
+              </div>
+            </div>
+
+            {/* Título e Texto */}
+            <h4 className="text-2xl font-bold text-white mb-4">
+              IA Aplicada à Segurança: <span className="text-fuchsia-400">Potência com Limites Claros</span>
+            </h4>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              O uso de IA para segurança — análise de código, detecção de anomalias,
+              priorização de alertas — representa uma evolução natural do DevSecOps.
+              No entanto, há um risco sutil: confundir apoio à decisão com substituição de julgamento humano.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              Modelos aprendem com dados históricos. Ataques inovadores, contextuais ou estratégicos
+              tendem a escapar de padrões conhecidos. Uma organização que delega confiança plena à
+              IA de segurança corre o risco de se tornar eficiente contra o passado e vulnerável ao futuro.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 text-justify">
+              O papel correto da IA em segurança é aumentar a capacidade humana de perceber sinais fracos,
+              não eliminar a necessidade de pensamento crítico.
+            </p>
+
+            {/* Visual do "Paradoxo do Passado" */}
+            <div className="bg-[#1a0516] border border-fuchsia-900/30 rounded-lg p-4 mb-6 relative">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-[10px] font-mono text-fuchsia-400">MODELO TREINADO</span>
+                <span className="text-[10px] font-mono text-red-400">AMEAÇA REAL</span>
+              </div>
+              <div className="flex gap-2 text-xs">
+                <div className="flex-1 bg-fuchsia-950/50 p-2 rounded border border-fuchsia-900/50 text-center">
+                  <span className="block text-slate-400 text-[10px]">Dados Históricos</span>
+                  <span className="text-fuchsia-300 font-bold">Eficiente</span>
+                </div>
+                <div className="flex-1 bg-red-950/20 p-2 rounded border border-red-900/50 text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[stripes_2px_rgba(0,0,0,0.5)] opacity-20"></div>
+                  <span className="block text-slate-400 text-[10px]">Ataque Inovador</span>
+                  <span className="text-red-400 font-bold">Vulnerável</span>
+                </div>
+              </div>
+              <p className="text-[10px] text-slate-500 mt-2 leading-tight">
+                "Quem delega confiança plena à IA se torna eficiente contra o passado e vulnerável ao futuro."
+              </p>
+            </div>
+
+            {/* Footer: Papel Humano */}
+            <div className="border-t border-fuchsia-900/30 pt-4 mt-auto">
+              <h5 className="text-xs font-bold text-white uppercase mb-2 flex items-center gap-2">
+                <Eye className="w-3 h-3 text-fuchsia-500" /> Fator Humano:
+              </h5>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-fuchsia-950/40 border border-fuchsia-900/50 rounded text-[10px] text-fuchsia-300 font-mono">Pensamento Crítico</span>
+                <span className="px-2 py-1 bg-fuchsia-950/40 border border-fuchsia-900/50 rounded text-[10px] text-fuchsia-300 font-mono">Percepção de Sinais Fracos</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ---------------------------------------------------------------------
+            O PORQUÊ DA GOVERNANÇA (DIAGRAMA DE CONVERGÊNCIA)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          {/* Título da Seção */}
+          <div className="text-center mb-10">
+            <h4 className="text-2xl font-bold text-white mb-2">
+              Por Que Tudo Isso Exige <span className="text-purple-400">Governança Não Apenas Tecnologia</span>?
+            </h4>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              O risco real não é a IA em si, mas a fragmentação de decisões.
+              Essas vertentes coexistem hoje dentro das organizações, muitas vezes sem coordenação.
+              Algumas são contratadas por áreas de negócio, outras emergem em times técnicos,
+              outras são introduzidas por fornecedores. O risco real não é a IA em si, mas a fragmentação de decisões.
+            </p>
+          </div>
+
+          {/* CAMADA 1: A FRAGMENTAÇÃO (3 FONTES) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 relative">
+            {/* Linhas de conexão (Decorativo) */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-px h-8 bg-gradient-to-b from-slate-800 to-purple-500/50 hidden md:block"></div>
+            <div className="absolute -bottom-8 left-1/4 w-px h-8 bg-gradient-to-b from-slate-800 to-purple-500/50 hidden md:block border-l border-dashed border-slate-700 transform skew-x-12 origin-top"></div>
+            <div className="absolute -bottom-8 right-1/4 w-px h-8 bg-gradient-to-b from-slate-800 to-purple-500/50 hidden md:block border-r border-dashed border-slate-700 transform -skew-x-12 origin-top"></div>
+
+            {/* Card 1: Negócio */}
+            <div className="bg-[#0f172a] border border-slate-800 p-4 rounded-lg text-center opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-8 h-8 mx-auto bg-blue-900/20 rounded flex items-center justify-center mb-2">
+                <Briefcase className="w-4 h-4 text-blue-400" />
+              </div>
+              <h5 className="text-white text-xs font-bold">Áreas de Negócio</h5>
+              <p className="text-[10px] text-slate-500 mt-1">Contratação direta (Shadow AI)</p>
+            </div>
+
+            {/* Card 2: Tech (Silos) */}
+            <div className="bg-[#0f172a] border border-slate-800 p-4 rounded-lg text-center opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-8 h-8 mx-auto bg-emerald-900/20 rounded flex items-center justify-center mb-2">
+                <Code2 className="w-4 h-4 text-emerald-400" />
+              </div>
+              <h5 className="text-white text-xs font-bold">Times Técnicos</h5>
+              <p className="text-[10px] text-slate-500 mt-1">Experimentação isolada</p>
+            </div>
+
+            {/* Card 3: Fornecedores */}
+            <div className="bg-[#0f172a] border border-slate-800 p-4 rounded-lg text-center opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-8 h-8 mx-auto bg-amber-900/20 rounded flex items-center justify-center mb-2">
+                <Truck className="w-4 h-4 text-amber-400" />
+              </div>
+              <h5 className="text-white text-xs font-bold">Fornecedores</h5>
+              <p className="text-[10px] text-slate-500 mt-1">Features embutidas (Blackbox)</p>
+            </div>
+          </div>
+
+          {/* CAMADA 2: O NÚCLEO UNIFICADOR (DEVSECOPS) */}
+          <div className="max-w-3xl mx-auto mt-8 mb-12 relative z-10">
+            <div className="bg-[#1a0b2e] border border-purple-500/30 rounded-2xl p-8 text-center shadow-[0_0_30px_rgba(168,85,247,0.15)] relative overflow-hidden group">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent animate-pulse"></div>
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 mx-auto bg-purple-600 rounded-xl flex items-center justify-center mb-4 shadow-lg rotate-3 group-hover:rotate-0 transition-transform">
+                  <Layout className="w-6 h-6 text-white" />
+                </div>
+
+                <h4 className="text-2xl font-bold text-white mb-2">DevSecOps: O Sistema de <span className="text-purple-400">Governança Adaptativa</span></h4>
+                <p className="text-slate-300 text-sm mb-6">
+                  O único arcabouço capaz de integrar essas iniciativas sob princípios comuns.
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-2">
+                  {['Prevenção', 'Controle', 'Validação', 'Aprendizado'].map((item) => (
+                    <span key={item} className="px-3 py-1 bg-purple-950/40 border border-purple-500/30 rounded-full text-xs text-purple-200 font-mono">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CAMADA 3: O RESULTADO BINÁRIO (COMPARATIVO) */}
+          <div className="grid md:grid-cols-2 gap-0 border border-slate-800 rounded-xl overflow-hidden">
+
+            {/* Lado Esquerdo: Sem Framework */}
+            <div className="bg-[#0f0202] p-8 flex items-center gap-4 group hover:bg-[#1a0505] transition-colors relative">
+              <div className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-red-900 group-hover:text-red-500 transition-all">
+                <Activity className="w-5 h-5 text-slate-500" />
+              </div>
+              <div>
+                <span className="block text-xs font-mono text-slate-500 mb-1">SEM O ARCABOUÇO</span>
+                <h5 className="text-white font-bold text-lg group-hover:text-red-400 transition-colors">
+                  IA acelera <span className="line-through decoration-red-500 opacity-50">Caos</span> Inovação
+                </h5>
+              </div>
+              {/* Divisor Vertical */}
+              <div className="absolute right-0 top-1/4 h-1/2 w-px bg-slate-800 hidden md:block"></div>
+            </div>
+
+            {/* Lado Direito: Com Framework */}
+            <div className="bg-[#020617] p-8 flex items-center gap-4 group hover:bg-[#0B1120] transition-colors">
+              <div className="w-10 h-10 rounded-full bg-purple-900/20 border border-purple-500/30 flex items-center justify-center shrink-0">
+                <Target className="w-5 h-5 text-purple-400" />
+              </div>
+              <div>
+                <span className="block text-xs font-mono text-purple-500 mb-1">COM O ARCABOUÇO</span>
+                <h5 className="text-white font-bold text-lg">
+                  IA sustenta <span className="text-purple-400">Estratégia</span>
+                </h5>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        {/* ---------------------------------------------------------------------
+            MAPA OPERACIONAL: ONDE A IA ATUA (BENTO GRID)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+
+          {/* Cabeçalho da Seção */}
+          <div className="mb-12">
+            <h4 className="text-3xl font-bold text-white mb-4">
+              Onde a IA Atua na <span className="text-purple-400">Operação Corporativa</span>
+            </h4>
+            <p className="text-slate-400 text-lg max-w-3xl leading-relaxed text-justify">
+              Uma vez compreendido que Inteligência Artificial não é uma tecnologia única,
+              o próximo passo é identificar onde essas capacidades estão efetivamente operando dentro das organizações.
+              .
+              Na prática, a IA já está distribuída ao longo de toda a cadeia de valor de TI e do negócio, muitas vezes <strong className="text-white">sem visibilidade explícita ou governança formal</strong>.
+            </p>
+          </div>
+
+          {/* GRID BENTO: AS 5 ZONAS DE ATUAÇÃO */}
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+
+            {/* ZONA 1: PIPELINE (CI/CD) - 3 Colunas */}
+            <div className="md:col-span-3 bg-[#020617] border border-blue-900/30 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-all duration-300">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <GitBranch className="w-24 h-24 text-blue-500" />
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-blue-950/40 rounded-lg border border-blue-900/50">
+                  <Code2 className="w-5 h-5 text-blue-400" />
+                </div>
+                <h5 className="text-lg font-bold text-white">IA no Pipeline Desenvolvimento <br /> (Dev, CI/CD e AppSec)</h5>
+              </div>
+
+              <ul className="space-y-2 mb-6 text-sm text-slate-400">
+                <p>
+                  IA é utilizada para:
+                </p>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-blue-500 rounded-full shrink-0"></span>
+                  Geração e revisão de código
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-blue-500 rounded-full shrink-0"></span>
+                  Detecção automatizada de vulnerabilidades
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-blue-500 rounded-full shrink-0"></span>
+                  Análise de dependências e riscos
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-blue-500 rounded-full shrink-0"></span>
+                  Apoio à decisão em merges e releases
+                </li>
+              </ul>
+
+              <div className="mt-auto bg-blue-950/20 border border-blue-900/30 p-3 rounded-lg">
+                <span className="text-xs font-mono text-blue-300 font-bold block mb-1">IMPACTO: ACELERADOR TÉCNICO</span>
+                <p className="text-[10px] text-slate-500">Aqui, a IA atua como acelerador técnico, influenciando diretamente a qualidade e a segurança do software entregue.</p>
+              </div>
+            </div>
+
+            {/* ZONA 2: OPERAÇÃO (OBSERVABILIDADE) - 3 Colunas */}
+            <div className="md:col-span-3 bg-[#020617] border border-emerald-900/30 rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-all duration-300">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Activity className="w-24 h-24 text-emerald-500" />
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-emerald-950/40 rounded-lg border border-emerald-900/50">
+                  <Eye className="w-5 h-5 text-emerald-400" />
+                </div>
+                <h5 className="text-lg font-bold text-white">IA na Observabilidadee no ambiente produtivo(Ops)</h5>
+              </div>
+
+              <ul className="space-y-2 mb-6 text-sm text-slate-400">
+                <p>
+                  IA é utilizada para:
+                </p>
+                <li className="flex items-start gap-2">
+
+                  <span className="mt-1.5 w-1 h-1 bg-emerald-500 rounded-full shrink-0"></span>
+                  Correlação de logs, métricas e eventos
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-emerald-500 rounded-full shrink-0"></span>
+                  Detecção de anomalias (Sinais Fracos)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-emerald-500 rounded-full shrink-0"></span>
+                  Redução de ruído em alertas
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1 h-1 bg-emerald-500 rounded-full shrink-0"></span>
+                  Apoio a diagnósticos de incidentes
+                </li>
+              </ul>
+
+              <div className="mt-auto bg-emerald-950/20 border border-emerald-900/30 p-3 rounded-lg">
+                <span className="text-xs font-mono text-emerald-300 font-bold block mb-1">IMPACTO: CONFIABILIDADE</span>
+                <p className="text-[10px] text-slate-500">Nesse contexto, a IA passa a influenciar detecção, resposta e priorização,
+                  tornando-se parte crítica da confiabilidade operacional.
+                </p>
+              </div>
+            </div>
+
+            {/* ZONA 3: SOC & RESPOSTA - 2 Colunas */}
+            <div className="md:col-span-2 bg-[#1a0505] border border-red-900/30 rounded-2xl p-6 relative overflow-hidden group hover:border-red-500/50 transition-all duration-300">
+              <div className="absolute -bottom-4 -right-4 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Siren className="w-24 h-24 text-red-500" />
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-red-950/40 rounded-lg border border-red-900/50">
+                  <ShieldAlert className="w-5 h-5 text-red-500" />
+                </div>
+                <h5 className="text-lg font-bold text-white leading-tight">IA no SOC & Resposta a Incidentes</h5>
+              </div>
+
+              <ul className="space-y-2 mb-4 text-xs text-slate-400 font-mono">
+                <p>
+                  Em centros de operação de segurança, IA já atua:
+
+                </p>
+                <li>• Priorização de alertas</li>
+                <li>• Sugestão de resposta</li>
+                <li>• Playbooks automáticos</li>
+                <li>• Decisão sob pressão</li>
+              </ul> <br />
+
+              <div className="mt-auto pt-3 border-t border-red-900/30">
+                <p className="text-[15px] text-red-400 font-bold">
+                  ⚠ Aqui, a IA deixa de ser apenas analítica e começa a interagir com processos
+                  de resposta, elevando o impacto de falhas ou abusos.
+
+                </p>
+              </div>
+            </div>
+
+            {/* ZONA 4: ORQUESTRAÇÃO - 2 Colunas */}
+            <div className="md:col-span-2 bg-[#0f0a1e] border border-purple-900/30 rounded-2xl p-6 relative overflow-hidden group hover:border-purple-500/50 transition-all duration-300">
+              <div className="absolute -bottom-4 -right-4 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Network className="w-24 h-24 text-purple-500" />
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-purple-950/40 rounded-lg border border-purple-900/50">
+                  <Workflow className="w-5 h-5 text-purple-400" />
+                </div>
+                <h5 className="text-lg font-bold text-white leading-tight">Automação de Processos e Orquestração (n8n)</h5>
+              </div>
+
+              <ul className="space-y-2 mb-4 text-xs text-slate-400 font-mono">
+                <p>
+                  Plataformas de automação e orquestração (como RPA, low-code, n8n e agentes) integram IA a:
+
+                </p>
+                <li>• Fluxos de Negócio</li>
+                <li>• Sistemas Corporativos</li>
+                <li>• Integração de APIs</li>
+                <li>• RPA & Agentes</li>
+              </ul>
+
+              <div className="mt-auto pt-3 border-t border-purple-900/30">
+                <p className="text-[15px] text-purple-400 font-bold">
+                  ⚠ Nessa camada, a IA atua como ponte entre sistemas, o que amplia significativamente
+                  o risco de vazamentos, ações não intencionais e dependências invisíveis.
+
+                </p>
+              </div>
+            </div>
+
+            {/* ZONA 5: NEGÓCIO (BUSINESS) - 2 Colunas */}
+            <div className="md:col-span-2 bg-[#1a1205] border border-amber-900/30 rounded-2xl p-6 relative overflow-hidden group hover:border-amber-500/50 transition-all duration-300">
+              <div className="absolute -bottom-4 -right-4 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Briefcase className="w-24 h-24 text-amber-500" />
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-amber-950/40 rounded-lg border border-amber-900/50">
+                  <TrendingUp className="w-5 h-5 text-amber-400" />
+                </div>
+                <h5 className="text-lg font-bold text-white leading-tight">IA em Produtos, Serviços e Decisão de Negócio</h5>
+              </div>
+
+              <ul className="space-y-2 mb-4 text-xs text-slate-400 font-mono">
+                <p>
+                  Por fim, IA é incorporada diretamente a:
+                </p> <br />
+                <li>• Produtos Digitais</li>
+                <li>• Sistemas de Recomendação</li>
+                <li>• Motores Antifraude</li>
+                <li>• Estratégia Automatizada</li>
+              </ul><br />
+
+              <div className="mt-auto pt-3 border-t border-amber-900/30">
+                <p className="text-[15px] text-amber-400 font-bold">
+                  ⚠ Neste ponto, falhas técnicas deixam de ser incidentes de TI e passam a ser eventos de negócio,
+                  com impacto financeiro, legal e reputacional.
+
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+
+        {/* ---------------------------------------------------------------------
+            FRAMEWORK DE GOVERNANÇA (4 PILARES ADAPTADOS)
+        ---------------------------------------------------------------------- */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+          {/* Card 1: Prevenção */}
+          <div className="bg-[#050101] p-5 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-colors group">
+            <div className="w-10 h-10 bg-blue-950/30 rounded flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Bot className="w-5 h-5 text-blue-400" />
+            </div>
+            <h4 className="font-bold text-white text-sm mb-1">1. Prevenção (Design)</h4>
+            <p className="text-xs text-slate-500 mb-3">O risco deve morrer antes de nascer.</p>
+            <div className="text-[10px] font-mono text-blue-400/80 pt-2 border-t border-slate-800/50">• Prompt Defensivo<br />• Limite de Contexto</div>
+          </div>
+
+          {/* Card 2: Governança */}
+          <div className="bg-[#050101] p-5 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-colors group">
+            <div className="w-10 h-10 bg-amber-950/30 rounded flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Fingerprint className="w-5 h-5 text-amber-400" />
+            </div>
+            <h4 className="font-bold text-white text-sm mb-1">2. Governança (Ops)</h4>
+            <p className="text-xs text-slate-500 mb-3">Se não é auditável, não é governável.</p>
+            <div className="text-[10px] font-mono text-amber-400/80 pt-2 border-t border-slate-800/50">• IAM para Agentes<br />• Log de Prompts</div>
+          </div>
+
+          {/* Card 3: Validação */}
+          <div className="bg-[#050101] p-5 rounded-xl border border-slate-800 hover:border-red-500/50 transition-colors group">
+            <div className="w-10 h-10 bg-red-950/30 rounded flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <ShieldAlert className="w-5 h-5 text-red-500" />
+            </div>
+            <h4 className="font-bold text-white text-sm mb-1">3. Validação (Stress)</h4>
+            <p className="text-xs text-slate-500 mb-3">IA como alvo ativo de ataque.</p>
+            <div className="text-[10px] font-mono text-red-400/80 pt-2 border-t border-slate-800/50">• AI Red Teaming<br />• Injection Tests</div>
+          </div>
+
+          {/* Card 4: Evolução */}
+          <div className="bg-[#050101] p-5 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-colors group">
+            <div className="w-10 h-10 bg-emerald-950/30 rounded flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <RefreshCw className="w-5 h-5 text-emerald-400" />
+            </div>
+            <h4 className="font-bold text-white text-sm mb-1">4. Evolução (Loop)</h4>
+            <p className="text-xs text-slate-500 mb-3">Aprender mais rápido que a IA.</p>
+            <div className="text-[10px] font-mono text-emerald-400/80 pt-2 border-t border-slate-800/50">• Monitorar Drift<br />• Feedback Humano</div>
+          </div>
+        </div>
+
+{/* ---------------------------------------------------------------------
+            OWASP LLM TOP 10 (Visualização Rápida)
+        ---------------------------------------------------------------------- */}
+
+        {/* Cabeçalho OWASP Top 10 for LLMs */}
         <div className="mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-                <Cpu className="w-6 h-6" style={{ color: colors.dourado }} />
-              </div>
-              <h3 className="text-2xl font-bold text-white">
-                Capítulo #: A Nova Fronteira (IA & LLMs)
-              </h3>
-            </div>
+          <h4 className="text-white font-bold mb-6 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-yellow-500" /> A Nova Superfície de Ataque (OWASP LLM)
+          </h4>
             <p className="leading-relaxed text-lg max-w-2xl" style={{ color: colors.textoSec }}>
               A IA não é apenas uma ferramenta de defesa, é um alvo. Dominar o <strong>OWASP Top 10 for LLMs</strong> é o skill crítico da próxima década.
             </p>
@@ -6759,213 +8347,305 @@ const DevSecOpsArticle = () => {
             </div>
           </div>
 
+        </div> <br />
+
+
+{/* ---------------------------------------------------------------------
+            AS 7 VERTENTES DE IA CORPORATIVA (GRID 3x4)
+        ---------------------------------------------------------------------- */}
+        <div className="mb-24 relative z-10">
+           
+           <div className="mb-12 text-center">
+              <h4 className="text-3xl font-bold text-white mb-4">
+                 Principais Vertentes de IA no <span className="text-purple-400">Contexto Corporativo</span>
+              </h4>
+              <p className="text-slate-400 max-w-3xl mx-auto">
+                 Para governar, é preciso classificar. Cada vertente exige controles específicos.
+              </p>
+           </div>
+
+           {/* LINHA SUPERIOR (3 CARDS) */}
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              
+              {/* 1. LLMs GENERALISTAS */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-purple-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-purple-950/30 rounded-lg border border-purple-900/50">
+                       <Bot className="w-6 h-6 text-purple-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">1. LLMs Generalistas</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-10">
+                    IA Conversacional como Serviço (ChatGPT, Gemini). Acessados via Web/API.
+                 </p>
+
+                 <div className="bg-[#0f0a1e] p-3 rounded border border-purple-900/30 mb-4">
+                    <span className="text-[10px] text-purple-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Vazamento de dados via prompts e confiança excessiva.</p>
+                 </div>
+
+                 {/* Detalhes (Sempre visíveis mas compactos) */}
+                 <div className="space-y-3 text-[11px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div>
+                       <strong className="text-slate-200 block">Uso Típico:</strong>
+                       Geração de código, suporte a times, documentação.
+                    </div>
+                    <div>
+                       <strong className="text-slate-200 block">Ponto de Governança:</strong>
+                       Contexto limitado e logging rigoroso. Não são neutros.
+                    </div>
+                    <div className="flex gap-2 mt-2">
+                       <span className="px-1.5 py-0.5 bg-red-950/30 border border-red-900/50 rounded text-red-400 font-mono">Dados Sensíveis</span>
+                       <span className="px-1.5 py-0.5 bg-red-950/30 border border-red-900/50 rounded text-red-400 font-mono">Retenção</span>
+                    </div>
+                 </div>
+              </div>
+
+              {/* 2. CUSTOMIZADOS & RAG */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-amber-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-amber-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-amber-950/30 rounded-lg border border-amber-900/50">
+                       <Database className="w-6 h-6 text-amber-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">2. LLMs Custom & RAG</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-10">
+                    Integrados a bases de conhecimento privadas e documentos corporativos.
+                 </p>
+
+                 <div className="bg-[#1a1205] p-3 rounded border border-amber-900/30 mb-4">
+                    <span className="text-[10px] text-amber-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Exposição de PII e contaminação da base de conhecimento.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[11px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div>
+                       <strong className="text-slate-200 block">Uso Típico:</strong>
+                       Análise de contratos, consulta a políticas, suporte técnico.
+                    </div>
+                    <div>
+                       <strong className="text-slate-200 block">Ponto de Governança:</strong>
+                       Dados são o ativo crítico. Classificação é mandatória.
+                    </div>
+                    <div className="flex gap-2 mt-2">
+                       <span className="px-1.5 py-0.5 bg-red-950/30 border border-red-900/50 rounded text-red-400 font-mono">Privilégio Semântico</span>
+                    </div>
+                 </div>
+              </div>
+
+              {/* 3. INTEGRADOS (APIs) */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-blue-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-blue-950/30 rounded-lg border border-blue-900/50">
+                       <Network className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">3. Integrados (APIs)</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-10">
+                    Modelos consumidos via API diretamente por aplicações (Chatbots, Copilots).
+                 </p>
+
+                 <div className="bg-[#0b1120] p-3 rounded border border-blue-900/30 mb-4">
+                    <span className="text-[10px] text-blue-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Prompt Injection e Data Leakage via integração.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[11px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div>
+                       <strong className="text-slate-200 block">Uso Típico:</strong>
+                       Análise automática de tickets, respostas automatizadas.
+                    </div>
+                    <div>
+                       <strong className="text-slate-200 block">Ponto de Governança:</strong>
+                       AppSec aplicado a prompts. O risco é arquitetural.
+                    </div>
+                    <div className="flex gap-2 mt-2">
+                       <span className="px-1.5 py-0.5 bg-red-950/30 border border-red-900/50 rounded text-red-400 font-mono">Validação Input/Output</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+
+           {/* LINHA INFERIOR (4 CARDS) */}
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              
+              {/* 4. AGENTES AUTÔNOMOS */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-red-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-red-950/30 rounded-lg border border-red-900/50">
+                       <Cpu className="w-6 h-6 text-red-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">4. Agentes Autônomos</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-8">
+                    Executam ações e tomam decisões sem intervenção humana.
+                 </p>
+
+                 <div className="bg-[#1a0505] p-3 rounded border border-red-900/30 mb-4">
+                    <span className="text-[10px] text-red-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Excessive Agency e decisões fora de contexto.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[10px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div className="leading-tight">
+                       <strong className="text-slate-200 block mb-1">Implicação:</strong>
+                       Limitação de permissões, Kill Switch e validação Red Team.
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                       <span className="px-1.5 py-0.5 bg-red-950/40 rounded text-red-300 font-mono">Atores do Sistema</span>
+                    </div>
+                 </div>
+              </div>
+
+              {/* 5. WORKFLOWS (n8n) */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-cyan-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-cyan-950/30 rounded-lg border border-cyan-900/50">
+                       <Workflow className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">5. Workflows (n8n)</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-8">
+                    Orquestradores conectando LLMs, sistemas e APIs.
+                 </p>
+
+                 <div className="bg-[#021014] p-3 rounded border border-cyan-900/30 mb-4">
+                    <span className="text-[10px] text-cyan-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Propagação de erro em escala e falhas silenciosas.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[10px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div className="leading-tight">
+                       <strong className="text-slate-200 block mb-1">Implicação:</strong>
+                       Observabilidade ponta a ponta. Prompt malicioso vira workflow.
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                       <span className="px-1.5 py-0.5 bg-cyan-950/40 rounded text-cyan-300 font-mono">Gestão de Segredos</span>
+                    </div>
+                 </div>
+              </div>
+
+              {/* 6. IA DE SEGURANÇA */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-emerald-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-emerald-950/30 rounded-lg border border-emerald-900/50">
+                       <ShieldCheck className="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">6. IA de Segurança</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-8">
+                    SOC aumentado, Code Review, Detecção de anomalias.
+                 </p>
+
+                 <div className="bg-[#022c22] p-3 rounded border border-emerald-900/30 mb-4">
+                    <span className="text-[10px] text-emerald-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Falsos positivos e confiança cega na automação.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[10px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div className="leading-tight">
+                       <strong className="text-slate-200 block mb-1">Implicação:</strong>
+                       Apoia decisões humanas, não as substitui.
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                       <span className="px-1.5 py-0.5 bg-emerald-950/40 rounded text-emerald-300 font-mono">Viés de Treino</span>
+                    </div>
+                 </div>
+              </div>
+
+              {/* 7. MODELOS PRÓPRIOS */}
+              <div className="bg-[#020617] border border-slate-800 rounded-xl p-6 relative group hover:border-pink-500/50 transition-all duration-300">
+                 <div className="absolute top-0 right-0 w-1 h-full bg-pink-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                 
+                 <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-pink-950/30 rounded-lg border border-pink-900/50">
+                       <Server className="w-6 h-6 text-pink-400" />
+                    </div>
+                    <h5 className="font-bold text-white text-lg">7. Fine-Tuned/Próprios</h5>
+                 </div>
+                 
+                 <p className="text-xs text-slate-400 mb-4 h-8">
+                    Modelos treinados ou ajustados com dados internos.
+                 </p>
+
+                 <div className="bg-[#1f0510] p-3 rounded border border-pink-900/30 mb-4">
+                    <span className="text-[10px] text-pink-400 font-bold block mb-1">RISCO CENTRAL</span>
+                    <p className="text-[10px] text-slate-300">Vazamento estrutural (Model Poisoning) e viés.</p>
+                 </div>
+
+                 <div className="space-y-3 text-[10px] text-slate-400 border-t border-slate-800 pt-3">
+                    <div className="leading-tight">
+                       <strong className="text-slate-200 block mb-1">Implicação:</strong>
+                       Responsabilidade direta. Compliance desde a arquitetura.
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                       <span className="px-1.5 py-0.5 bg-pink-950/40 rounded text-pink-300 font-mono">Risco Organizacional</span>
+                    </div>
+                 </div>
+              </div>
+
+           </div>
+
         </div>
+
+
+
+
+
+
+        {/* CITAÇÃO FINAL (CONCLUSÃO) */}
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="bg-gradient-to-r from-purple-500/10 via-transparent to-purple-500/10 border border-purple-900/30 p-8 rounded-2xl">
+            <h4 className="text-xl font-bold text-white mb-4">A Pergunta Estratégica</h4>
+            <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed mb-6">
+              "A questão não é <span className="text-purple-400 italic">'Estamos usando IA?'</span>, mas sim: <br />
+              <span className="text-white font-bold inline-block mt-2 border-b-2 border-purple-500">
+                'Somos maduros o suficiente para governá-la?'
+              </span>"
+            </p>
+            <div className="flex justify-center gap-4 text-xs font-mono text-slate-500">
+              <span>#AI_Security</span>
+              <span>#DevSecOps_Evolution</span>
+              <span>#Revoluxti</span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
       </section>
+
+
+
 
       {/* ---------------------------------------------------------------------
           CAPÍTULO 6: CLOUD NATIVE & KUBERNETES SECURITY
       ---------------------------------------------------------------------- */}
       <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
 
-{/* Cabeçalho do Capítulo */}
-<div className="mb-12">
-  <div className="flex items-center gap-3 mb-4">
-    <div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}>
-      <Container className="w-6 h-6" style={{ color: colors.abobora }} />
-    </div>
-    <h3 className="text-2xl font-bold text-white">
-      Capítulo 6: Orquestração de Elite (K8s & Cloud)
-    </h3>
-  </div>
-  <p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>
-    O cluster Kubernetes é o novo sistema operacional. Protegemos a carga de trabalho com <strong>eBPF</strong>, <strong>Service Mesh</strong> e Imagens Imutáveis.
-  </p>
-</div>
 
-{/* CLUSTER VISUALIZER */}
-<div className="grid lg:grid-cols-12 gap-8">
-
-  {/* LADO ESQUERDO: PILARES TÉCNICOS (4 COLUNAS) */}
-  <div className="lg:col-span-4 space-y-4">
-    
-    {/* Card: eBPF */}
-    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-      <div className="flex items-center gap-3 mb-2">
-        <Activity className="w-5 h-5" style={{ color: colors.principal }} />
-        <h4 className="font-bold text-white">Runtime com eBPF</h4>
-      </div>
-      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-        Esqueça antivírus tradicionais. Usamos eBPF (ex: Tetragon/Falco) para monitorar o Kernel do Linux em tempo real. Se um pod tentar abrir um shell reverso, o Kernel o mata.
-      </p>
-    </div>
-
-    {/* Card: Service Mesh */}
-    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-      <div className="flex items-center gap-3 mb-2">
-        <Network className="w-5 h-5" style={{ color: colors.dourado }} />
-        <h4 className="font-bold text-white">Service Mesh (mTLS)</h4>
-      </div>
-      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-        Zero Trust dentro do cluster. Todo tráfego entre microsserviços é criptografado e autenticado (mTLS). Se não tem certificado, não entra.
-      </p>
-    </div>
-
-    {/* Card: Supply Chain */}
-    <div className="p-5 rounded-xl border relative overflow-hidden group hover:translate-x-2 transition-transform"
-      style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}>
-      <div className="flex items-center gap-3 mb-2">
-        <Layers className="w-5 h-5" style={{ color: colors.abobora }} />
-        <h4 className="font-bold text-white">Assinatura de Imagens</h4>
-      </div>
-      <p className="text-xs leading-relaxed" style={{ color: colors.textoSec }}>
-        (Cosign/Notary). O Kubernetes só aceita rodar containers que foram assinados digitalmente pelo nosso pipeline. Nada de rodar `docker pull` desconhecido.
-      </p>
-    </div>
-  </div>
-
-  {/* LADO DIREITO: VISUALIZAÇÃO DO CLUSTER (VERSÃO PREMIUM) */}
-  <div 
-            className="lg:col-span-8 bg-[#020617] border rounded-xl p-6 relative overflow-hidden flex flex-col h-full shadow-2xl group"
-            style={{ borderColor: colors.borda }}
-          >
-            {/* BACKGROUND TÉCNICO (GRID) - O TOQUE FINAL */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(30,41,59,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(30,41,59,0.3)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"></div>
-
-            {/* Header Técnico */}
-            <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-3 relative z-10">
-              <div className="flex items-center gap-3">
-                <div className="p-1.5 bg-blue-950/30 rounded border border-blue-900">
-                   <CloudLightning className="w-4 h-4 text-blue-400" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-200 block tracking-widest">K8S_PROD</span>
-                  <span className="text-[9px] font-mono text-slate-500">us-east-1a • v1.29 • EKS</span>
-                </div>
-              </div>
-              <div className="text-right hidden sm:block">
-                <div className="text-[10px] font-mono text-emerald-500 flex items-center justify-end gap-2">
-                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                  SYSTEM HEALTHY
-                </div>
-              </div>
-            </div>
-
-            {/* GRID DE PODS */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 relative z-10">
-              {k8sPods.map((pod) => (
-                <div 
-                  key={pod.id} 
-                  onClick={() => setSelectedK8sPod(pod)}
-                  onMouseEnter={() => setSelectedK8sPod(pod)}
-                  className={`
-                    aspect-square relative cursor-pointer border rounded-lg flex flex-col items-center justify-center transition-all duration-300
-                    ${selectedK8sPod?.id === pod.id 
-                        ? 'bg-slate-800 border-white shadow-[0_0_15px_rgba(255,255,255,0.15)] scale-105 z-10' // Efeito Selecionado
-                        : `${getPodColor(pod.status, pod.risk)} hover:scale-105 hover:brightness-110 opacity-90` // Efeito Normal
-                    }
-                  `}
-                >
-                  {/* Ícone */}
-                  <div className={`mb-2 transition-all ${selectedK8sPod?.id === pod.id ? 'text-white scale-110' : 'opacity-80'}`}>
-                    {pod.icon}
-                  </div>
-
-                  {/* Nome */}
-                  <div className="text-[9px] font-mono font-bold uppercase tracking-tighter truncate w-full text-center px-1">
-                    {pod.name}
-                  </div>
-
-                  {/* Status Dot (Animado se for crítico) */}
-                  <div 
-                    className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full shadow-sm 
-                    ${pod.risk === 'critical' ? 'bg-red-500 animate-ping' : pod.risk === 'medium' ? 'bg-yellow-500' : 'bg-emerald-500'}`}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* PAINEL DE INSPEÇÃO (HUD) */}
-            <div className="mt-auto bg-[#0B1120] border border-slate-800 rounded-lg p-0 relative z-20 overflow-hidden min-h-[90px]">
-               {/* Barra de título do HUD */}
-               <div className="bg-[#162032] px-3 py-1.5 border-b border-slate-800 flex justify-between items-center">
-                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
-                    {selectedK8sPod ? 'POD_TELEMETRY' : 'AWAITING_SELECTION'}
-                  </span>
-                  {selectedK8sPod && (
-                     <div className="flex gap-2">
-                        <span className="text-[8px] px-1.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ID: {selectedK8sPod.id}</span>
-                     </div>
-                  )}
-               </div>
-
-               {/* Conteúdo do HUD */}
-               <div className="p-3">
-                 {selectedK8sPod ? (
-                   <div className="animate-in fade-in slide-in-from-bottom-2 duration-200">
-                      <div className="flex justify-between items-start mb-2">
-                         <span className="text-xs font-bold text-white font-mono flex items-center gap-2">
-                           {selectedK8sPod.name.toUpperCase()}
-                         </span>
-                         <span className={`text-[9px] px-2 py-0.5 rounded font-bold ${selectedK8sPod.status === 'Running' ? 'bg-emerald-950 text-emerald-400 border border-emerald-900' : 'bg-red-950 text-red-400 border border-red-900'}`}>
-                           {selectedK8sPod.status}
-                         </span>
-                      </div>
-                      
-                      {/* Grid de Métricas */}
-                      <div className="grid grid-cols-4 gap-2 text-[9px] font-mono text-slate-400">
-                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
-                            <span className="block text-[8px] text-slate-500">CPU</span>
-                            <span className="text-slate-200">{selectedK8sPod.cpu}</span>
-                         </div>
-                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
-                            <span className="block text-[8px] text-slate-500">MEM</span>
-                            <span className="text-slate-200">{selectedK8sPod.mem}</span>
-                         </div>
-                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
-                            <span className="block text-[8px] text-slate-500">RST</span>
-                            <span className={selectedK8sPod.restarts > 0 ? 'text-red-400' : 'text-slate-200'}>{selectedK8sPod.restarts}</span>
-                         </div>
-                         <div className="bg-slate-900/50 p-1 rounded text-center border border-slate-800">
-                            <span className="block text-[8px] text-slate-500">mTLS</span>
-                            <span className="text-emerald-400">ON</span>
-                         </div>
-                      </div>
-                   </div>
-                 ) : (
-                   <div className="flex items-center justify-center h-12 gap-2 opacity-40">
-                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce"></div>
-                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-75"></div>
-                      <div className="w-1 h-1 bg-slate-500 rounded-full animate-bounce delay-150"></div>
-                      <span className="text-[10px] font-mono text-slate-400 ml-2">SELECT POD</span>
-                   </div>
-                 )}
-               </div>
-            </div>
-
-            {/* Scanline Effect (Sutil) */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
-               <div className="w-full h-[1px] bg-blue-400/10 blur-[1px] absolute top-0 animate-[scan_6s_linear_infinite]"></div>
-            </div>
-
-          </div>
-
-</div>
-</section>
-
-      {/* CAP 8: DISASTER RECOVERY */}
-      <section className="py-16 px-6 max-w-6xl mx-auto border-t" style={{ borderColor: colors.borda }}>
-        <div className="mb-12"><div className="flex items-center gap-3 mb-4"><div className="p-2 rounded-lg border" style={{ backgroundColor: colors.fundoCard, borderColor: colors.principal }}><LifeBuoy className="w-6 h-6" style={{ color: colors.abobora }} /></div><h3 className="text-2xl font-bold text-white">Capítulo 8: Resiliência Cibernética</h3></div><p className="leading-relaxed text-lg max-w-3xl" style={{ color: colors.textoSec }}>Continuidade de Negócios (BCP) e Recuperação de Desastres (DR).</p></div>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><TimerReset className="w-5 h-5" style={{ color: colors.dourado }} /><h4 className="font-bold text-white">RTO & RPO</h4></div><ul className="text-sm space-y-2" style={{ color: colors.textoSec }}><li>RTO: Tempo máx parado.</li><li>RPO: Perda máx de dados.</li></ul></div>
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><HardDrive className="w-5 h-5" style={{ color: colors.principal }} /><h4 className="font-bold text-white">Backup Imutável</h4></div><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>Contra Ransomware (WORM).</p></div>
-            <div className="p-6 rounded-xl border group hover:-translate-y-1 transition-transform relative overflow-hidden" style={{ backgroundColor: '#0f0202', borderColor: colors.borda }}><div className="flex items-center gap-3 mb-2"><RefreshCcw className="w-5 h-5" style={{ color: colors.abobora }} /><h4 className="font-bold text-white">Active-Active</h4></div><p className="text-sm leading-relaxed" style={{ color: colors.textoSec }}>Redundância geográfica total.</p></div>
-          </div>
-          <DisasterRecoverySim colors={colors} />
-        </div>
       </section>
+
 
 
       {/* ---------------------------------------------------------------------

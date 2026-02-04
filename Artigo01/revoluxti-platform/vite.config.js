@@ -3,7 +3,14 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      // Adiciona a opção 'compact: false' aqui dentro do plugin react
+      babel: {
+        compact: false, 
+      },
+    }),
+  ],
   // ISSO AQUI RESOLVE A TELA BRANCA EM SUBPASTAS (GITHUB PAGES / LIVE SERVER):
   base: './', 
   
