@@ -12,8 +12,7 @@ export default defineConfig({
     }),
   ],
   // ISSO AQUI RESOLVE A TELA BRANCA EM SUBPASTAS (GITHUB PAGES / LIVE SERVER):
-  base: '/portfolio-revoluxti/Artigo01/revoluxti-platform/dist/',
- 
+  base: './', 
   
   build: {
     // Aumenta o limite do aviso para não te incomodar agora (1500kb)
