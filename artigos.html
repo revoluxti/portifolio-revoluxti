@@ -128,22 +128,28 @@
                         <div class="card-artigos"
                             style="position: relative; overflow: hidden; width: 100%; height: 100%;">
 
-                            <a href="./build-artigo01/index.html" target="_blank" style="position: absolute; top: 0; left: 0; 
-       width: 100%; height: 100%; z-index: 10;">
+                            <a href="Artigo01/revoluxti-platform/dist/index.html" target="_blank" style="position: absolute; top: 0; left: 0; 
+                               width: 100%; height: 100%; z-index: 10;">
                             </a>
 
-                            <iframe src="./build-artigo01/index.html" scrolling="no" style="
-            position: absolute;
-            top: 5px; 
-            left: -25%; 
-            width: 150%; 
-            height: 150%; 
-            transform: scale(0.65); 
-            transform-origin: top center;
-            border-radius: 10px;
-            border: none; 
-            pointer-events: none;
-        ">
+                            <iframe src="Artigo01/revoluxti-platform/dist/index.html" scrolling="no" style="
+                                    position: absolute;
+                                    /* TIRA A MARGEM DE CIMA: Puxa o iframe para cima */
+                                    top: 5px; 
+                                    
+                                    /* CENTRALIZA E AJUSTA O TAMANHO (ZOOM) */
+                                    left: -25%;  /* Compensa o aumento da largura abaixo */
+                                    width: 150%; /* Renderiza a página interna mais larga (evita quebra de texto) */
+                                    height: 150%; /* Renderiza mais alta para ter espaço */
+                                    
+                                    /* DÁ O EFEITO DE MINITURA */
+                                    transform: scale(0.65); 
+                                    transform-origin: top center;
+                                    border-radius: 10px;
+                                    
+                                    border: none; 
+                                    pointer-events: none;
+                                ">
                             </iframe>
 
                             <div class="overlay"
