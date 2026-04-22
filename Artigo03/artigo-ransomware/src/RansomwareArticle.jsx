@@ -3994,7 +3994,7 @@ const RansomwareArticle = () => {
               </div>
             </div>
 
-            {/* 7. Threat Intelligence (Span 2 Columns for symmetry) */}
+            {/* 7. Threat Intelligence (Span 2 Columns for symmetry) ok */}
             <div className="bg-[#020617] border border-slate-800 p-8 rounded-2xl relative group hover:border-cyan-900/50 transition-colors lg:col-span-2 flex flex-col">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 bg-slate-900 border border-slate-700 rounded-lg group-hover:border-cyan-500/50 transition-colors">
