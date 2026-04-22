@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  background-color: #020617; /* Fundo escuro padrão REVOLUXTI */
+  color: #f8fafc;
+}
