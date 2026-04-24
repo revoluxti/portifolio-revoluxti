@@ -10,5 +10,36 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // 1. Bloqueia o clique direito do rato (Menu de Contexto)
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      // 2. Bloqueia teclas táticas (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+C)
+      document.addEventListener('keydown', function(e) {
+        if (
+          e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'C') || 
+          (e.ctrlKey && e.key === 'U') || 
+          (e.ctrlKey && e.key === 'S') || 
+          (e.ctrlKey && e.key === 'C') // Bloqueia Ctrl+C
+        ) {
+          e.preventDefault();
+        }
+      });
+
+      // 3. Bloqueia a seleção de texto com o rato
+      document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+      });
+
+      // 4. Bloqueia o arrastar de imagens ou elementos (Drag & Drop)
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+    </script>
   </body>
 </html>
