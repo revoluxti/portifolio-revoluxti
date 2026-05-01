@@ -222,8 +222,8 @@ const ProcessorsArticle = () => {
                                  </strong>
                                  <p className="text-xs text-slate-500 font-mono">
                                     Essa imagem é uma representação visual extremamente precisa e de alta fidelidade da etapa inicial da cadeia de produção de silício,
-                                    especificamente a produção de Silício Grau Metalúrgico (MGS - Metallurgical Grade Silicon). <br />
-                                 </p>
+                                    especificamente a produção de Silício Grau Metalúrgico (MGS - Metallurgical Grade Silicon).
+                                 </p><br />
                                  <h2>
                                     1. O Processo: Redução Carbotérmica em Forno a Arco
                                  </h2>
@@ -234,14 +234,14 @@ const ProcessorsArticle = () => {
                                           (EAF - Electric Arc Furnace) ou forno a arco submerso (SAF), inclinando-se para vazar o material fundido.
                                           nesta etapa o quartzo não é "refinado" no sentido de destilação, ele é quimicamente reduzido. <br />
                                        </p>
-                                    </li>
+                                    </li> <br />
                                     <li>
                                        <p className="text-xs text-slate-500 font-mono">
                                           - O processo envolve misturar o quartzito (SiO₂) com fontes de carbono (carvão, coque, madeira)
                                           e submetê-los a temperaturas extremas usando eletrodos de carbono. O oxigênio do quartzo se liga
                                           ao carbono e escapa como gás (CO), deixando para trás o silício fundido.
                                        </p>
-                                    </li>
+                                    </li><br />
                                  </ul>
                                  <h2>
                                     2. As Matérias-Primas
@@ -255,7 +255,7 @@ const ProcessorsArticle = () => {
                                           para alimentação é condizente com plantas modernas.
                                        </p>
                                     </li>
-                                 </ul>
+                                 </ul> <br />
                                  <h2>
                                     3. O Vazamento
 
@@ -264,7 +264,7 @@ const ProcessorsArticle = () => {
                                     O "Sangramento" do Forno é o metal líquido laranja brilhante escorrendo do forno para um molde ou panela,
                                     com muitas faíscas e fumaça. Altamente preciso. O silício grau metalúrgico fundido tem essa
                                     aparência e o processo de vazamento é extremamente energético, gerando exatamente esse tipo de luz, calor e particulados.
-                                 </p>
+                                 </p> <br />
 
                                  <h2>
                                     4. Equipamento de Proteção Individual (EPI)
@@ -273,7 +273,7 @@ const ProcessorsArticle = () => {
                                  <p className="text-xs text-slate-500 font-mono">
                                     Operadores vestindo trajes prateados aluminizados estes são trajes de aproximação ao calor radiante,
                                     essenciais para a segurança dos trabalhadores que monitoram o vazamento de metais a essas temperaturas.
-                                 </p>
+                                 </p> <br />
 
                                  <h3 >
                                     A Temperatura na Tela (2990 °C):
@@ -313,7 +313,7 @@ const ProcessorsArticle = () => {
                   <div className="md:col-span-6 space-y-8 mt-4">
                      <div className="relative group">
                         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                           FIG 0.1 - O lingote
+                           FIG 1.0 - O lingote
                         </div>
                         <TunnelImage
                            src="lingote.jpg"
@@ -333,7 +333,7 @@ const ProcessorsArticle = () => {
 
                      <div className="relative group">
                         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                           FIG 1.0 - WAFER DE SILÍCIO
+                           FIG 1.1 - WAFER DE SILÍCIO
                         </div>
                         <TunnelImage
                            src="waffer.jpg"
@@ -355,7 +355,7 @@ const ProcessorsArticle = () => {
 
                   <div className="md:col-span-6 relative z-10">
                      <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
-                        O Interruptor de <span className="text-emerald-500">Bilhões</span>
+                        O Interruptor de <span className="text-emerald-500">Bilhões II</span>
                      </h3>
                      <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                         O lingote de silício é cortado em finas lâmina de aproximadamente 0,75mm de espessura,
@@ -404,7 +404,7 @@ const ProcessorsArticle = () => {
                {/* Marcador de Seção */}
                <div className="flex items-center gap-4 mb-16">
                   <div className="bg-emerald-500 h-0.5 w-16 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
-                  <span className="text-emerald-400 font-mono font-bold text-lg tracking-widest uppercase">1.0 O Átomo da Computação</span>
+                  <span className="text-emerald-400 font-mono font-bold text-lg tracking-widest uppercase">2.0 O Átomo da Computação</span>
                   <div className="bg-slate-800 h-px flex-1"></div>
                </div>
 
@@ -412,7 +412,7 @@ const ProcessorsArticle = () => {
                   <div className="md:col-span-6 relative z-10">
                      <hgroup>
                         <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
-                           O Interruptor de <span className="text-emerald-500">Bilhões</span>
+                           O Interruptor de <span className="text-emerald-500">Bilhões III</span>
                         </h3>
                         <p className="text-slate-300 text-lg leading-relaxed text-justify mb-6">
                            Cada camada litografada corresponde a uma parte da estrutura dos transistores (portas,
@@ -440,44 +440,51 @@ const ProcessorsArticle = () => {
                         </div>
                      </hgroup><br /> <br /> <br />
 
-                     <hgroup>
-                        <div className="relative group">
+                     <div className="relative group flex flex-col gap-6">
+
+                        {/* IMAGEM 1: Máscara e Wafer */}
+                        <div className="relative">
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.1 - Mascara retílicos
+                              FIG 2.0 - Máscara de Retículos
                            </div>
                            <TunnelImage
-                              src="teste2.jpg"
-                              alt="Wafer de Silício com Chips"
-                              className="w-full h-auto min-h-[300px] object-cover"
+                              src="teste2.jpg" // Adicionado '/' para garantir caminho da raiz da pasta public
+                              alt="Máscara de fotolitografia sobre wafer"
+                              className="w-full h-auto min-h-[300px] object-cover rounded-lg"
                               glowColor="rgba(16, 185, 129,"
                            />
-                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.1 - WAFER DE SILÍCIO
-                           </div>
-                           <TunnelImage
-                              src="fotolitografia00.jpg"
-                              alt="Wafer de Silício com Chips"
-                              className="w-full h-auto min-h-[300px] object-cover"
-                              glowColor="rgba(16, 185, 129,"
-                           />
-                           <div className="p-4 bg-slate-950/80 border-t border-slate-800 text-center">
-                              <hgroup>
-                                 <strong>
-                                    <h1> 1. Exposição do Padrão via Fotolitografia UV  </h1>
-
-                                 </strong>
-                                 <p className="text-xs text-slate-500 font-mono">
-                                    <br />
-                                    Esta imagem mostra o início do processo. Um feixe de luz ultravioleta extrema (EUV)
-                                    é projetado através de uma máscara (uma espécie de estêncil microscópico) sobre a superfície
-                                    do wafer de silício revestido com um material fotossensível (o fotorresiste).
-                                    A luz altera quimicamente as áreas expostas, transferindo o padrão do circuito para o wafer.
-                                 </p>
-
-                              </hgroup>
-                           </div>
                         </div>
-                     </hgroup>
+
+                        {/* IMAGEM 2: Processo UV */}
+                        <div className="relative">
+                           <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-blue-500/30 text-xs text-blue-300 font-mono z-10">
+                              FIG 2.1 - Exposição UV
+                           </div>
+                           <TunnelImage
+                              src="fotolitografia00.jpg" // Certifique-se que o nome é exatamente igual ao arquivo
+                              alt="Processo de exposição por luz ultravioleta"
+                              className="w-full h-auto min-h-[300px] object-cover rounded-lg"
+                              glowColor="rgba(59, 130, 246,"
+                           />
+                        </div>
+
+                        {/* LEGENDA E TEXTO TÉCNICO */}
+                        <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-lg text-center shadow-inner">
+                           <hgroup>
+                              <h1 className="text-xl font-bold text-slate-100 mb-2">
+                                 1. Exposição do Padrão via Fotolitografia UV
+                              </h1>
+                              <p className="text-sm text-slate-400 font-mono leading-relaxed">
+                                 Esta etapa mostra o início do processo. Um feixe de luz ultravioleta extrema (EUV)
+                                 é projetado através de uma máscara (estêncil microscópico) sobre a superfície
+                                 do wafer de silício revestido com fotorresiste.
+                                 <br /><br />
+                                 A luz altera quimicamente as áreas expostas, transferindo o padrão do circuito para o wafer com precisão nanométrica.
+                              </p>
+                           </hgroup>
+                        </div>
+
+                     </div>
 
                   </div>
 
@@ -486,7 +493,7 @@ const ProcessorsArticle = () => {
                      <hgroup>
                         <div className="relative group">
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.2 - WAFER DE SILÍCIO
+                              FIG 2.2 - gás ionizado (plasma)
                            </div>
                            <TunnelImage
                               src="corrosao-por-plasma-etching.jpg"
@@ -515,7 +522,7 @@ const ProcessorsArticle = () => {
                      <hgroup>
                         <div className="relative group">
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.2 - WAFER DE SILÍCIO
+                              FIG 2.3 - WAFER DE SILÍCIO
                            </div>
                            <TunnelImage
                               src="interconexões.jpg"
@@ -546,7 +553,7 @@ const ProcessorsArticle = () => {
                      <hgroup>
                         <div className="relative group">
                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded border border-emerald-500/30 text-xs text-emerald-300 font-mono z-10">
-                              FIG 1.2 - WAFER DE SILÍCIO
+                              FIG 2.4 - WAFER DE SILÍCIO
                            </div>
                            <TunnelImage
                               src="chip-com-transistores-conexões.jpg"
@@ -1135,7 +1142,7 @@ const ProcessorsArticle = () => {
                <div className="mb-16">
                   <h3 className="text-3xl font-bold text-white flex items-center gap-3 mb-2">
                      <Cpu className="text-emerald-500 w-8 h-8" />
-                     Arquitetura de Transistores & Lógica
+                    5 - Arquitetura de Transistores & Lógica
                   </h3>
                   <p className="text-slate-400 max-w-2xl">
                      Do átomo ao bit: como a física dos semicondutores cria a linguagem binária.
@@ -1484,7 +1491,7 @@ const ProcessorsArticle = () => {
                         <Cpu className="w-8 h-8 text-indigo-400" />
                      </div>
                      <h2 className="text-3xl md:text-4xl font-bold text-white">
-                        Arquitetura Interna Moderna: muito além do transistor
+                       6 - Arquitetura Interna Moderna: muito além do transistor
                      </h2>
                   </div>
                   <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
@@ -1500,7 +1507,7 @@ const ProcessorsArticle = () => {
                   <div>
                      <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                         <span className="w-1 h-8 bg-indigo-500"></span>
-                        1. Pipeline, IPC e Execução Fora de Ordem (OoO)
+                        1.0 Pipeline, IPC e Execução Fora de Ordem (OoO)
                      </h3>
 
                      <p className="text-slate-300 mb-8 leading-relaxed">
@@ -3069,7 +3076,7 @@ const ProcessorsArticle = () => {
 
                </div>
 
-               
+
 
             </div>
          </section>

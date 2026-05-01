@@ -233,7 +233,7 @@ const MotherboardOnboardArticle = () => {
                                             O estudo conclui que, embora soluções integradas (on-board) atendam ao mercado mainstream por custo e eficiência,
                                             as arquiteturas dedicadas (off-board) permanecem indispensáveis para aplicações profissionais de alta demanda.
                                         </p>
-                                    </div>
+                                    </div> <br />
                                 </div>
 
                                 {/* Coluna Direita: Imagem Tunnel e Cards */}
@@ -1801,10 +1801,7 @@ const MotherboardOnboardArticle = () => {
                             <div className="bg-slate-800 h-px flex-1"></div>
                         </div>
 
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit amet veniam ut libero ipsa distinctio minima hic quia repellendus ipsum quod voluptate,
-                            accusantium accusamus voluptas vero beatae reprehenderit labore fugit?
-                        </p>
+                        
 
                         <div className="grid md:grid-cols-2 gap-12">
                             {/* COLUNA VRM */}

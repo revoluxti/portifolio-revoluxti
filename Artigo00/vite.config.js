@@ -5,7 +5,7 @@ import obfuscator from 'rollup-plugin-obfuscator';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './', // Garante que roda no GitHub Pages (caminhos relativos)
-  
+
   plugins: [
     react()
   ],
@@ -31,7 +31,7 @@ export default defineConfig({
             controlFlowFlattening: true,
             controlFlowFlatteningThreshold: 1,
             deadCodeInjection: true,
-            deadCodeInjectionThreshold: 0.4,
+            deadCodeInjectionThreshold: 0.02,
             debugProtection: true,
             debugProtectionInterval: 4000,
             disableConsoleOutput: true,
