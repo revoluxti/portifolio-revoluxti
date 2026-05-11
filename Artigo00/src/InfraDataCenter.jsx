@@ -1457,7 +1457,7 @@ const InfraDataCenter = () => {
                   </p>
                   <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-full text-xs text-cyan-400 font-bold">
                     <ShieldCheck className="w-4 h-4" />
-                    Próximo Módulo Ativo: 
+                    Próximo Módulo Ativo: Protocolos de rede
                   </div>
                 </div>
               </div>
@@ -1483,12 +1483,6 @@ const InfraDataCenter = () => {
 
             </div>
           </section>
-
-
-
-
-
-
 
           {/* --- 5.2 DEFINIÇÃO OBJETIVA DE FIREWALL --- */}
           <div className="mb-16 mt-16">
@@ -2372,6 +2366,188 @@ const InfraDataCenter = () => {
 
           </div>
 
+
+
+          {/* =====================================================================
+                  5.7 - MODO DE OPERAÇÃO: NEXT-GENERATION FIREWALL (NGFW)
+              ====================================================================== */}
+          <div className="mb-16 mt-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-amber-900/30 border border-amber-500/50 rounded-lg text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.7 - Next-Generation Firewall (NGFW)</h4>
+                <span className="text-[10px] font-mono text-amber-500 uppercase tracking-widest">O Padrão Ouro Corporativo</span>
+              </div>
+            </div>
+
+            {/* DEFINIÇÃO E CONVERGÊNCIA */}
+            <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 border-l-4 border-l-amber-500 shadow-lg relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 opacity-5 pointer-events-none">
+                <Layers className="w-64 h-64 text-amber-500" />
+              </div>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                O Next-Generation Firewall (NGFW) é a fronteira definitiva na defesa de perímetro da indústria de cibersegurança. Em um ambiente corporativo sério, a sua adoção <strong>não é opcional</strong>; é o requisito fundacional para proteger infraestruturas críticas e garantir a adequação a rigorosos frameworks de segurança e conformidade (como a ISO/IEC 27001).
+              </p>
+              <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base relative z-10">
+                Diferente das gerações anteriores (que operavam em silos e dependiam apenas de portas e IPs), o NGFW é uma plataforma de <strong>convergência absoluta</strong>. Ele não atua em uma única camada, mas orquestra uma defesa unificada desde a Camada 3 (Rede) até a Camada 7 (Aplicação) em um único appliance (físico ou virtual), entregando visibilidade total e controle cirúrgico.
+              </p>
+            </div>
+
+            {/* OS PILARES TECNOLÓGICOS (ARSENAL) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Target className="w-5 h-5 text-emerald-500" /> Os Pilares Tecnológicos (Arsenal do NGFW)
+            </h5>
+            <p className="text-xs text-slate-400 mb-6">O poder do NGFW reside na combinação simultânea de tecnologias que antes exigiam dezenas de "caixas" separadas no Data Center:</p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-blue-500/50 transition-colors group">
+                <Activity className="w-6 h-6 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Base Stateful (L3/L4)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Mantém a fundação clássica para bloqueios rápidos de rede, garantindo o controle ágil de conexões, IPs e portas de origem/destino.</p>
+              </div>
+
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-purple-500/50 transition-colors group">
+                <Filter className="w-6 h-6 text-purple-500 mb-3 group-hover:scale-110 transition-transform" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Deep Packet Inspection (DPI)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Abre a "carta" e lê o conteúdo exato do pacote (payload) em tempo real para procurar malwares, exploits e anomalias, mantendo alta performance.</p>
+              </div>
+
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-cyan-500/50 transition-colors group">
+                <Layers className="w-6 h-6 text-cyan-500 mb-3 group-hover:scale-110 transition-transform" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">App-ID (Controle de Aplicação)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Identifica e controla qual aplicação está rodando independentemente da porta (ex: diferencia tráfego do YouTube e do SAP, ou bloqueia Skype via porta 80).</p>
+              </div>
+
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-red-500/50 transition-colors group">
+                <ShieldCheck className="w-6 h-6 text-red-500 mb-3 group-hover:scale-110 transition-transform" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">IDS/IPS Integrado</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Motor nativo de prevenção de intrusões que detecta e bloqueia ativamente vulnerabilidades, tráfego de botnets e ataques em pleno andamento.</p>
+              </div>
+
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-amber-500/50 transition-colors group lg:col-span-2">
+                <Lock className="w-6 h-6 text-amber-500 mb-3 group-hover:scale-110 transition-transform" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">User-ID (Filtragem por Identidade)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Integra-se diretamente a diretórios (AD/LDAP). Em vez de regras opacas para "o IP 192.168.1.50", as políticas são atreladas a "Lucas, equipe de Engenharia".</p>
+              </div>
+            </div>
+
+            {/* INSIGHT ESTRATÉGICO: TERMINAL DE CONTEXTO */}
+            <div className="bg-[#020617] border border-slate-800 rounded-xl overflow-hidden mb-12 shadow-2xl">
+              <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Terminal className="w-4 h-4 text-emerald-500" />
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Insight Estratégico: Contexto é Tudo</span>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 uppercase tracking-tight">O NGFW entende a Intenção.</h3>
+                  <p className="text-sm text-slate-400">Ele não pergunta "qual porta e IP". Ele pergunta: <strong className="text-emerald-400">"Quem, qual aplicação e qual o conteúdo?"</strong></p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 font-mono text-xs">
+                  <div className="bg-slate-950 border border-slate-800 p-4 rounded text-slate-400">
+                    <span className="text-amber-500 block mb-2 font-bold uppercase">Abordagem Legada (Layer 3/4)</span>
+                    <div className="space-y-1">
+                      <div><span className="text-blue-400">IP SRC:</span> 192.168.1.50</div>
+                      <div><span className="text-emerald-400">PORT DST:</span> 443 (HTTPS)</div>
+                      <div className="mt-3 pt-3 border-t border-slate-800 text-emerald-500 font-bold">▶ AÇÃO: PERMITIR (Tráfego Web Seguro)</div>
+                    </div>
+                  </div>
+                  <div className="bg-emerald-950/10 border border-emerald-900/50 p-4 rounded text-slate-300 relative overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+                    <div className="absolute right-0 top-0 p-4 opacity-10"><Target className="w-16 h-16 text-emerald-500" /></div>
+                    <span className="text-emerald-400 block mb-2 font-bold uppercase">Abordagem NGFW (Layer 7)</span>
+                    <div className="space-y-1">
+                      <div><span className="text-amber-400">USER:</span> Lucas (Engenharia)</div>
+                      <div><span className="text-cyan-400">APP:</span> Dropbox (File Transfer)</div>
+                      <div><span className="text-purple-400">PAYLOAD:</span> source_code_v1.zip</div>
+                      <div className="mt-3 pt-3 border-t border-emerald-900/50 text-red-500 font-bold flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4" /> ▶ AÇÃO: BLOCK (Violação DLP)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* MERCADO E ECOSSISTEMA */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ecossistema e Mercado</h5>
+            <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
+              <p className="text-xs text-slate-300 leading-relaxed mb-6 text-justify">
+                Na linha de frente corporativa, a implantação de NGFWs é o pilar que permite a integração de segurança desde a concepção em pipelines de <strong>DevSecOps</strong> (via APIs de automação). O mercado é dominado por gigantes que desenvolvem tanto o software quanto os microchips dedicados (ASICs) para processar todas as camadas sem gargalos.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded text-center">
+                  <span className="text-emerald-500 font-black uppercase text-sm block mb-1">Palo Alto Networks</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Pioneiros na arquitetura App-ID</span>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded text-center">
+                  <span className="text-red-500 font-black uppercase text-sm block mb-1">Fortinet</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Alta performance (FortiASIC)</span>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded text-center">
+                  <span className="text-pink-600 font-black uppercase text-sm block mb-1">Check Point</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Inovação em Threat Intelligence</span>
+                </div>
+              </div>
+            </div>
+
+            {/* TRINCHEIRAS DA OPERAÇÃO: ANÁLISE CRÍTICA */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Network className="w-5 h-5 text-red-500" /> As Trincheiras da Operação
+            </h5>
+            <div className="space-y-4 mb-12">
+              {/* SSL Decryption */}
+              <div className="bg-[#050101] border-l-4 border-amber-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                <Lock className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
+                <div>
+                  <strong className="text-white text-sm uppercase block mb-1">O Desafio Crítico: SSL/TLS Decryption</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">Hoje, mais de 90% do tráfego web é criptografado. Para o NGFW fazer a inspeção profunda (DPI), ele precisa realizar o <em>SSL Decryption</em> (agir como um "Man-in-the-Middle" autorizado). Ele descriptografa o pacote, inspeciona e criptografa novamente. Isso consome um poder de processamento (CPU/ASIC) absolutamente massivo.</p>
+                </div>
+              </div>
+
+              {/* Complexidade de Gestão */}
+              <div className="bg-[#050101] border-l-4 border-red-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                <AlertTriangle className="w-6 h-6 text-red-500 shrink-0 mt-1" />
+                <div>
+                  <strong className="text-white text-sm uppercase block mb-1">Complexidade de Gestão & Falsa Segurança</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">Com grande poder, vem grande complexidade. Configurar um NGFW exige analistas altamente capacitados (Blue Team). Um NGFW mal configurado é apenas um firewall de pacotes muito caro; ele pode parar operações corporativas inteiras ou criar falsos positivos severos.</p>
+                </div>
+              </div>
+
+              {/* Consolidação e Threat Intel */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl">
+                  <strong className="text-cyan-400 text-xs uppercase tracking-widest block mb-2">Consolidação (Single Pane of Glass)</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">A maior vantagem operacional. Firewall, Antivírus de rede, IPS, controle de URL e VPN são gerenciados em um único painel, simplificando radicalmente a auditoria e a resposta a incidentes.</p>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl">
+                  <strong className="text-purple-400 text-xs uppercase tracking-widest block mb-2">Threat Intelligence (Nuvem)</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">O NGFW não opera isolado. Consome <em>feeds</em> de inteligência em tempo real para aprender sobre ataques <em>Zero-day</em> globais, atualizando suas próprias vacinas defensivas em segundos.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* SÍNTESE FINAL DO NGFW */}
+            <div className="border border-amber-900/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.1)]">
+              <div className="bg-slate-900 px-4 py-3 border-b border-amber-900/50 flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-amber-500" />
+                <span className="text-xs text-amber-400 font-mono uppercase tracking-widest">Síntese Definitiva: Visibilidade e Controle</span>
+              </div>
+              <div className="p-6 md:p-8 bg-slate-950/80 backdrop-blur text-center">
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-3xl mx-auto">
+                  O NGFW deixou de ser uma ferramenta reativa para se tornar uma inteligência cibernética ativa. Ele unifica o controle de rede, a inspeção profunda e a validação de identidade em uma única orquestração.
+                </p>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                  Garantindo que a infraestrutura esteja blindada não apenas contra o que entra, <br className="hidden md:block" />
+                  <span className="text-amber-500 block mt-2 text-2xl md:text-3xl">Mas contra o que tenta agir de forma anômala lá dentro.</span>
+                </h3>
+              </div>
+            </div>
+
+          </div>
 
 
 
