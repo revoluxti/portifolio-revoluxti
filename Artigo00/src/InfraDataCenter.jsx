@@ -1192,11 +1192,11 @@ const InfraDataCenter = () => {
                 </div>
 
                 {/* =====================================================================
-                    5.1.L - LABORATÓRIO INTERATIVO: SIMULADOR DE PERÍMETRO (DEEP DIVE)
-                ====================================================================== */}
+                  5.1.L - LABORATÓRIO INTERATIVO: SIMULADOR DE PERÍMETRO (DEEP DIVE)
+              ====================================================================== */}
                 <div className="mb-16 mt-12 bg-[#020617] border border-slate-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden group select-none">
 
-                  {/* Background Grid Pattern */}
+                  {/* Background Grid Pattern (Blueprint local) */}
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:30px_30px] opacity-[0.03] pointer-events-none"></div>
 
                   <div className="flex items-center justify-between border-b border-slate-800 pb-5 mb-8 relative z-10">
@@ -1212,134 +1212,235 @@ const InfraDataCenter = () => {
                     <span className="text-[10px] bg-slate-900 px-3 py-1 rounded-full border border-slate-800 font-mono text-slate-600 tracking-widest hidden md:block">MODE: INTERACTIVE_LAB</span>
                   </div>
 
-                  <div className="relative z-10 grid md:grid-cols-[250px_1fr] gap-8">
+                  {/* LOGICA DO SIMULADOR (Injetada diretamente no Componente) */}
+                  {(() => {
+                    // Estados do Simulador
+                    const [packetStatus, setPacketStatus] = useState('IDLE'); // IDLE, DDOS, BAD_PORT, SQLI, LEGIT
+                    const [securityStatus, setSecurityStatus] = useState({
+                      ddos: 'ACTIVE',
+                      ngfw: 'ACTIVE',
+                      waf: 'ACTIVE',
+                      server: 'READY'
+                    });
+                    const [activeAnimation, setActiveAnimation] = useState(null);
 
-                    {/* PAINEL DE CONTROLE (BOTÕES) */}
-                    <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl shadow-inner">
-                      <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-5 flex items-center gap-2">
-                        <Activity className="w-4 h-4 text-cyan-600" />
-                        Disparador de Pacotes
-                      </h5>
+                    // Tipos de Pacotes e suas definições táticas
+                    const packetTypes = {
+                      LEGIT: { id: 'LEGIT', label: 'Pacote Legítimo (HTTPS)', desc: 'Requisição HTTPS GET (Porta 443)', icon: Zap, color: 'cyan' },
+                      DDOS: { id: 'DDOS', label: 'Ataque DDoS (Volumétrico)', desc: 'Saturação de banda (Camada 3/4)', icon: Skull, color: 'red' },
+                      BAD_PORT: { id: 'BAD_PORT', label: 'Forbidden Port (SSH)', desc: 'Requisição na Porta 22 (Bloqueio NGFW)', icon: AlertTriangle, color: 'amber' },
+                      SQLI: { id: 'SQLI', label: 'Payload SQL Injection', desc: 'Dados maliciosos no JSON (Bloqueio WAF)', icon: ShieldAlert, color: 'purple' },
+                    };
 
-                      <div className="space-y-4 font-mono text-[11px]">
-                        {Object.values(packetTypes).map(packet => {
-                          const Icon = packet.icon;
-                          const isSelected = activeAnimation === packet.id;
+                    // Função para disparar a simulação
+                    const triggerSimulation = (packet) => {
+                      if (activeAnimation) return; // Impede multiplas execuções simultâneas
 
-                          const buttonColors = {
-                            cyan: 'border-cyan-800 bg-cyan-950/20 text-cyan-300 hover:border-cyan-600',
-                            red: 'border-red-900 bg-red-950/10 text-red-400 hover:border-red-600',
-                            amber: 'border-amber-900 bg-amber-950/10 text-amber-300 hover:border-amber-500',
-                            purple: 'border-purple-900 bg-purple-950/10 text-purple-300 hover:border-purple-600',
-                          };
-                          const selectedColors = {
-                            cyan: 'border-cyan-500 bg-cyan-950/80 text-white shadow-[0_0_20px_rgba(34,211,238,0.4)]',
-                            red: 'border-red-500 bg-red-950/60 text-white shadow-[0_0_20px_rgba(239,68,68,0.4)]',
-                            amber: 'border-amber-500 bg-amber-950/60 text-white shadow-[0_0_20px_rgba(245,158,11,0.4)]',
-                            purple: 'border-purple-500 bg-purple-950/60 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]',
-                          };
+                      setPacketStatus('SIMULATING');
+                      setSecurityStatus({ ddos: 'ACTIVE', ngfw: 'ACTIVE', waf: 'ACTIVE', server: 'READY' }); // Reseta status visuais
+                      setActiveAnimation(packet.id);
 
-                          return (
-                            <button
-                              key={packet.id}
-                              onClick={() => triggerSimulation(packet)}
-                              disabled={packetStatus === 'SIMULATING'}
-                              className={`w-full border p-4 rounded-lg flex items-start gap-3 transition-all duration-300 text-left relative overflow-hidden ${isSelected ? selectedColors[packet.color] : buttonColors[packet.color]
-                                } ${packetStatus === 'SIMULATING' && !isSelected ? 'opacity-30 cursor-not-allowed' : ''}`}>
-                              <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${isSelected ? 'text-white animate-pulse' : ''}`} />
-                              <div>
-                                <strong className="block text-xs uppercase tracking-wider">{packet.label}</strong>
-                                <span className={`font-sans ${isSelected ? 'text-white/80' : 'text-slate-500'} font-light text-[10px]`}>{packet.desc}</span>
+                      // Linha do tempo da simulação tática (Sequencial)
+
+                      // 1. Camada 01: DDoS Mitigação
+                      setTimeout(() => {
+                        if (packet.id === 'DDOS') {
+                          setSecurityStatus(prev => ({ ...prev, ddos: 'BLOCKING' }));
+                          setTimeout(() => {
+                            setSecurityStatus(prev => ({ ...prev, ddos: 'NEUTRALIZED' }));
+                            setActiveAnimation(null);
+                            setPacketStatus('IDLE');
+                          }, 1000);
+                          return; // Fim da jornada
+                        }
+                        setSecurityStatus(prev => ({ ...prev, ddos: 'PASSED' }));
+                      }, 800);
+
+                      // 2. Camada 02: NGFW (Port check)
+                      setTimeout(() => {
+                        if (packet.id === 'BAD_PORT') {
+                          setSecurityStatus(prev => ({ ...prev, ngfw: 'BLOCKING' }));
+                          setTimeout(() => {
+                            setSecurityStatus(prev => ({ ...prev, ngfw: 'NEUTRALIZED' }));
+                            setActiveAnimation(null);
+                            setPacketStatus('IDLE');
+                          }, 1000);
+                          return; // Fim da jornada
+                        }
+                        setSecurityStatus(prev => ({ ...prev, ngfw: 'PASSED' }));
+                      }, 1600);
+
+                      // 3. Camada 03: WAF (Payload inspection)
+                      setTimeout(() => {
+                        if (packet.id === 'SQLI') {
+                          setSecurityStatus(prev => ({ ...prev, waf: 'BLOCKING' }));
+                          setTimeout(() => {
+                            setSecurityStatus(prev => ({ ...prev, waf: 'NEUTRALIZED' }));
+                            setActiveAnimation(null);
+                            setPacketStatus('IDLE');
+                          }, 1000);
+                          return; // Fim da jornada
+                        }
+                        setSecurityStatus(prev => ({ ...prev, waf: 'PASSED' }));
+                      }, 2400);
+
+                      // 4. Servidor Final (Processamento)
+                      setTimeout(() => {
+                        setSecurityStatus(prev => ({ ...prev, server: 'PROCESSING' }));
+                        setTimeout(() => {
+                          setSecurityStatus(prev => ({ ...prev, server: 'Venda Confirmada' }));
+                          setActiveAnimation(null);
+                          setPacketStatus('IDLE');
+                        }, 800);
+                      }, 3000);
+                    };
+
+                    // Helper para cor de status
+                    const getStatusColor = (status) => {
+                      switch (status) {
+                        case 'ACTIVE': case 'READY': return 'text-slate-600';
+                        case 'BLOCKING': case 'NEUTRALIZED': return 'text-red-500';
+                        case 'PASSED': case 'PROCESSING': return 'text-emerald-500';
+                        case 'Venda Confirmada': return 'text-cyan-400 font-bold';
+                        default: return 'text-slate-300';
+                      }
+                    };
+
+                    return (
+                      <div className="relative z-10 grid md:grid-cols-[250px_1fr] gap-8">
+
+                        {/* PAINEL DE CONTROLE (BOTÕES) */}
+                        <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl shadow-inner">
+                          <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-5 flex items-center gap-2">
+                            <Activity className="w-4 h-4 text-cyan-600" />
+                            Disparador de Pacotes
+                          </h5>
+
+                          <div className="space-y-4 font-mono text-[11px]">
+                            {Object.values(packetTypes).map(packet => {
+                              const Icon = packet.icon;
+                              const isSelected = activeAnimation === packet.id;
+
+                              // Definição de cores táticas baseadas no tipo de ataque
+                              const buttonColors = {
+                                cyan: 'border-cyan-800 bg-cyan-950/20 text-cyan-300 hover:border-cyan-600',
+                                red: 'border-red-900 bg-red-950/10 text-red-400 hover:border-red-600',
+                                amber: 'border-amber-900 bg-amber-950/10 text-amber-300 hover:border-amber-500',
+                                purple: 'border-purple-900 bg-purple-950/10 text-purple-300 hover:border-purple-600',
+                              };
+                              const selectedColors = {
+                                cyan: 'border-cyan-500 bg-cyan-950/80 text-white shadow-[0_0_20px_rgba(34,211,238,0.4)]',
+                                red: 'border-red-500 bg-red-950/60 text-white shadow-[0_0_20px_rgba(239,68,68,0.4)]',
+                                amber: 'border-amber-500 bg-amber-950/60 text-white shadow-[0_0_20px_rgba(245,158,11,0.4)]',
+                                purple: 'border-purple-500 bg-purple-950/60 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]',
+                              };
+
+                              return (
+                                <button
+                                  key={packet.id}
+                                  onClick={() => triggerSimulation(packet)}
+                                  disabled={packetStatus === 'SIMULATING'}
+                                  className={`w-full border p-4 rounded-lg flex items-start gap-3 transition-all duration-300 text-left relative overflow-hidden ${isSelected ? selectedColors[packet.color] : buttonColors[packet.color]
+                                    } ${packetStatus === 'SIMULATING' && !isSelected ? 'opacity-30 cursor-not-allowed' : ''}`}>
+                                  <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${isSelected ? 'text-white animate-pulse' : ''}`} />
+                                  <div>
+                                    <strong className="block text-xs uppercase tracking-wider">{packet.label}</strong>
+                                    <span className={`font-sans ${isSelected ? 'text-white/80' : 'text-slate-500'} font-light text-[10px]`}>{packet.desc}</span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* VISUALIZAÇÃO ARENA (Onde a animação corre) */}
+                        <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative shadow-inner flex flex-col justify-between">
+                          <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-6 text-center">Simulação de Fluxo de Perímetro (Desencapsulamento bottom-up)</h5>
+
+                          <div className="space-y-4 relative font-mono text-xs">
+
+                            {/* Linha Vertical Tática */}
+                            <div className="absolute left-[20px] top-4 bottom-4 w-0.5 bg-slate-800/60 z-0"></div>
+
+                            {/* Camada 01: DDoS */}
+                            <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation !== 'DDOS' ? 'opacity-100' : ''}">
+                              <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ddos === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center text-slate-600 transition-colors`}>
+                                <Skull className={`w-5 h-5 ${securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
                               </div>
-                            </button>
-                          );
-                        })}
+                              <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
+                                <span>01. Mitigação DDoS</span>
+                                <span className={`${getStatusColor(securityStatus.ddos)}`}>{securityStatus.ddos}</span>
+                              </div>
+                              {/* Indicador Visual de Bloqueio (Luz vermelha pulsante local) */}
+                              {(securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
+                            </div>
+
+                            {/* Camada 02: NGFW (Firewall) */}
+                            <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && !['LEGIT', 'SQLI'].includes(activeAnimation) ? 'opacity-100' : 'opacity-40'}">
+                              <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ngfw === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
+                                <Filter className={`w-5 h-5 ${securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
+                              </div>
+                              <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
+                                <span>02. NGFW (Port / IP Check)</span>
+                                <span className={`${getStatusColor(securityStatus.ngfw)}`}>{securityStatus.ngfw}</span>
+                              </div>
+                              {(securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
+                            </div>
+
+                            {/* Camada 03: WAF */}
+                            <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation === 'SQLI' ? 'opacity-100' : 'opacity-40'}">
+                              <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.waf === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
+                                <Lock className={`w-5 h-5 ${securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
+                              </div>
+                              <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
+                                <span>03. WAF (Payload Inspection)</span>
+                                <span className={`${getStatusColor(securityStatus.waf)}`}>{securityStatus.waf}</span>
+                              </div>
+                              {(securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
+                            </div>
+
+                            {/* Target Server */}
+                            <div className="flex items-center gap-4 relative z-10 ${activeAnimation === 'LEGIT' ? 'opacity-100' : 'opacity-40'}">
+                              <div className={`w-10 h-10 bg-slate-950 border border-slate-800 rounded flex items-center justify-center transition-colors`}>
+                                <Server className={`w-5 h-5 ${securityStatus.server === 'READY' ? 'text-slate-700' : 'text-cyan-500'}`} />
+                              </div>
+                              <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
+                                <span>Processamento (Web Server)</span>
+                                <span className={`${getStatusColor(securityStatus.server)}`}>{securityStatus.server}</span>
+                              </div>
+                              {securityStatus.server === 'PROCESSING' && <div className="absolute inset-0 bg-cyan-950/20 blur-xl pointer-events-none rounded animate-pulse"></div>}
+                            </div>
+                          </div>
+
+                          {/* PAINEL DE STATUS FINAL */}
+                          <div className="mt-8 border-t border-slate-800 pt-6 text-center min-h-[50px] flex items-center justify-center font-sans">
+                            {activeAnimation ? (
+                              <div className={`inline-flex items-center gap-3 bg-slate-900 border px-6 py-2 rounded-full text-sm ${securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED'
+                                ? 'border-red-900 text-red-300'
+                                : 'border-cyan-800 text-cyan-300'
+                                }`}>
+                                {securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? <Skull className="w-4 h-4 text-red-500" /> : <Zap className="w-4 h-4 text-cyan-500" />}
+                                <span>Processando: <strong className="font-mono">{packetTypes[activeAnimation].label}</strong>...</span>
+                              </div>
+                            ) : securityStatus.server === 'Venda Confirmada' ? (
+                              <div className="inline-flex items-center gap-3 bg-cyan-950/20 border border-cyan-800/50 px-6 py-2 rounded-full text-sm text-cyan-300 font-bold animate-pulse shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                                <ShieldCheck className="w-4 h-4 text-cyan-500" />
+                                <span>RESULTADO: Requisição Confirmada // Venda Processada!</span>
+                              </div>
+                            ) : securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? (
+                              <div className="inline-flex items-center gap-3 bg-red-950/20 border border-red-900/50 px-6 py-2 rounded-full text-sm text-red-300 font-bold">
+                                <AlertTriangle className="w-4 h-4 text-red-500" />
+                                <span>RESULTADO: Ameaça Bloqueada e Neutralizada no Perímetro!</span>
+                              </div>
+                            ) : (
+                              <span className="text-slate-600 font-mono text-xs uppercase tracking-widest animate-pulse">Aguardando gatilho do Analista...</span>
+                            )}
+                          </div>
+
+                        </div>
                       </div>
-                    </div>
-
-                    {/* VISUALIZAÇÃO ARENA */}
-                    <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative shadow-inner flex flex-col justify-between">
-                      <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-6 text-center">Simulação de Fluxo de Perímetro</h5>
-
-                      <div className="space-y-4 relative font-mono text-xs">
-                        <div className="absolute left-[20px] top-4 bottom-4 w-0.5 bg-slate-800/60 z-0"></div>
-
-                        {/* Camada 01: DDoS */}
-                        <div className={`flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation !== 'DDOS' ? 'opacity-100' : ''}`}>
-                          <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ddos === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center text-slate-600 transition-colors`}>
-                            <Skull className={`w-5 h-5 ${securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                          </div>
-                          <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                            <span className="text-white">01. Mitigação DDoS</span>
-                            <span className={`${getStatusColor(securityStatus.ddos)}`}>{securityStatus.ddos}</span>
-                          </div>
-                          {(securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                        </div>
-
-                        {/* Camada 02: NGFW */}
-                        <div className={`flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && !['LEGIT', 'SQLI'].includes(activeAnimation) ? 'opacity-100' : 'opacity-40'}`}>
-                          <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ngfw === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
-                            <Filter className={`w-5 h-5 ${securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                          </div>
-                          <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                            <span className="text-white">02. NGFW (Port / IP Check)</span>
-                            <span className={`${getStatusColor(securityStatus.ngfw)}`}>{securityStatus.ngfw}</span>
-                          </div>
-                          {(securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                        </div>
-
-                        {/* Camada 03: WAF */}
-                        <div className={`flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation === 'SQLI' ? 'opacity-100' : 'opacity-40'}`}>
-                          <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.waf === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
-                            <Lock className={`w-5 h-5 ${securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                          </div>
-                          <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                            <span className="text-white">03. WAF (Payload Inspection)</span>
-                            <span className={`${getStatusColor(securityStatus.waf)}`}>{securityStatus.waf}</span>
-                          </div>
-                          {(securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                        </div>
-
-                        {/* Target Server */}
-                        <div className={`flex items-center gap-4 relative z-10 ${activeAnimation === 'LEGIT' ? 'opacity-100' : 'opacity-40'}`}>
-                          <div className={`w-10 h-10 bg-slate-950 border border-slate-800 rounded flex items-center justify-center transition-colors`}>
-                            <Server className={`w-5 h-5 ${securityStatus.server === 'READY' ? 'text-slate-700' : 'text-cyan-500'}`} />
-                          </div>
-                          <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                            <span className="text-white">Processamento (Web Server)</span>
-                            <span className={`${getStatusColor(securityStatus.server)}`}>{securityStatus.server}</span>
-                          </div>
-                          {securityStatus.server === 'PROCESSING' && <div className="absolute inset-0 bg-cyan-950/20 blur-xl pointer-events-none rounded animate-pulse"></div>}
-                        </div>
-                      </div>
-
-                      {/* PAINEL DE STATUS FINAL */}
-                      <div className="mt-8 border-t border-slate-800 pt-6 text-center min-h-[50px] flex items-center justify-center font-sans">
-                        {activeAnimation ? (
-                          <div className={`inline-flex items-center gap-3 bg-slate-900 border px-6 py-2 rounded-full text-sm ${securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED'
-                            ? 'border-red-900 text-red-300'
-                            : 'border-cyan-800 text-cyan-300'
-                            }`}>
-                            {securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? <Skull className="w-4 h-4 text-red-500" /> : <Zap className="w-4 h-4 text-cyan-500" />}
-                            <span>Processando: <strong className="font-mono">{packetTypes[activeAnimation].label}</strong>...</span>
-                          </div>
-                        ) : securityStatus.server === 'Venda Confirmada' ? (
-                          <div className="inline-flex items-center gap-3 bg-cyan-950/20 border border-cyan-800/50 px-6 py-2 rounded-full text-sm text-cyan-300 font-bold animate-pulse shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                            <ShieldCheck className="w-4 h-4 text-cyan-500" />
-                            <span>RESULTADO: Requisição Confirmada // Venda Processada!</span>
-                          </div>
-                        ) : securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? (
-                          <div className="inline-flex items-center gap-3 bg-red-950/20 border border-red-900/50 px-6 py-2 rounded-full text-sm text-red-300 font-bold">
-                            <AlertTriangle className="w-4 h-4 text-red-500" />
-                            <span>RESULTADO: Ameaça Neutralizada no Perímetro!</span>
-                          </div>
-                        ) : (
-                          <span className="text-slate-600 font-mono text-xs uppercase tracking-widest animate-pulse">Aguardando gatilho do Analista...</span>
-                        )}
-                      </div>
-
-                    </div>
-                  </div>
+                    );
+                  })()}
 
                   {/* Borda Neon Inferior */}
                   <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-b-2xl"></div>
@@ -1385,260 +1486,7 @@ const InfraDataCenter = () => {
 
 
 
-          {/* =====================================================================
-                  5.1.L - LABORATÓRIO INTERATIVO: SIMULADOR DE PERÍMETRO (DEEP DIVE)
-              ====================================================================== */}
-          <div className="mb-16 mt-12 bg-[#020617] border border-slate-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden group select-none">
 
-            {/* Background Grid Pattern (Blueprint local) */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:30px_30px] opacity-[0.03] pointer-events-none"></div>
-
-            <div className="flex items-center justify-between border-b border-slate-800 pb-5 mb-8 relative z-10">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-cyan-900/50 border border-cyan-800 rounded-lg text-cyan-400">
-                  <Terminal className="w-5 h-5 animate-pulse" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white uppercase tracking-wider">Laboratório Tático Revoluxti</h4>
-                  <p className="text-xs text-slate-500 font-mono">Simulador de Perímetro DC Security // v1.0</p>
-                </div>
-              </div>
-              <span className="text-[10px] bg-slate-900 px-3 py-1 rounded-full border border-slate-800 font-mono text-slate-600 tracking-widest hidden md:block">MODE: INTERACTIVE_LAB</span>
-            </div>
-
-            {/* LOGICA DO SIMULADOR (Injetada diretamente no Componente) */}
-            {(() => {
-              // Estados do Simulador
-              const [packetStatus, setPacketStatus] = useState('IDLE'); // IDLE, DDOS, BAD_PORT, SQLI, LEGIT
-              const [securityStatus, setSecurityStatus] = useState({
-                ddos: 'ACTIVE',
-                ngfw: 'ACTIVE',
-                waf: 'ACTIVE',
-                server: 'READY'
-              });
-              const [activeAnimation, setActiveAnimation] = useState(null);
-
-              // Tipos de Pacotes e suas definições táticas
-              const packetTypes = {
-                LEGIT: { id: 'LEGIT', label: 'Pacote Legítimo (HTTPS)', desc: 'Requisição HTTPS GET (Porta 443)', icon: Zap, color: 'cyan' },
-                DDOS: { id: 'DDOS', label: 'Ataque DDoS (Volumétrico)', desc: 'Saturação de banda (Camada 3/4)', icon: Skull, color: 'red' },
-                BAD_PORT: { id: 'BAD_PORT', label: 'Forbidden Port (SSH)', desc: 'Requisição na Porta 22 (Bloqueio NGFW)', icon: AlertTriangle, color: 'amber' },
-                SQLI: { id: 'SQLI', label: 'Payload SQL Injection', desc: 'Dados maliciosos no JSON (Bloqueio WAF)', icon: ShieldAlert, color: 'purple' },
-              };
-
-              // Função para disparar a simulação
-              const triggerSimulation = (packet) => {
-                if (activeAnimation) return; // Impede multiplas execuções simultâneas
-
-                setPacketStatus('SIMULATING');
-                setSecurityStatus({ ddos: 'ACTIVE', ngfw: 'ACTIVE', waf: 'ACTIVE', server: 'READY' }); // Reseta status visuais
-                setActiveAnimation(packet.id);
-
-                // Linha do tempo da simulação tática (Sequencial)
-
-                // 1. Camada 01: DDoS Mitigação
-                setTimeout(() => {
-                  if (packet.id === 'DDOS') {
-                    setSecurityStatus(prev => ({ ...prev, ddos: 'BLOCKING' }));
-                    setTimeout(() => {
-                      setSecurityStatus(prev => ({ ...prev, ddos: 'NEUTRALIZED' }));
-                      setActiveAnimation(null);
-                      setPacketStatus('IDLE');
-                    }, 1000);
-                    return; // Fim da jornada
-                  }
-                  setSecurityStatus(prev => ({ ...prev, ddos: 'PASSED' }));
-                }, 800);
-
-                // 2. Camada 02: NGFW (Port check)
-                setTimeout(() => {
-                  if (packet.id === 'BAD_PORT') {
-                    setSecurityStatus(prev => ({ ...prev, ngfw: 'BLOCKING' }));
-                    setTimeout(() => {
-                      setSecurityStatus(prev => ({ ...prev, ngfw: 'NEUTRALIZED' }));
-                      setActiveAnimation(null);
-                      setPacketStatus('IDLE');
-                    }, 1000);
-                    return; // Fim da jornada
-                  }
-                  setSecurityStatus(prev => ({ ...prev, ngfw: 'PASSED' }));
-                }, 1600);
-
-                // 3. Camada 03: WAF (Payload inspection)
-                setTimeout(() => {
-                  if (packet.id === 'SQLI') {
-                    setSecurityStatus(prev => ({ ...prev, waf: 'BLOCKING' }));
-                    setTimeout(() => {
-                      setSecurityStatus(prev => ({ ...prev, waf: 'NEUTRALIZED' }));
-                      setActiveAnimation(null);
-                      setPacketStatus('IDLE');
-                    }, 1000);
-                    return; // Fim da jornada
-                  }
-                  setSecurityStatus(prev => ({ ...prev, waf: 'PASSED' }));
-                }, 2400);
-
-                // 4. Servidor Final (Processamento)
-                setTimeout(() => {
-                  setSecurityStatus(prev => ({ ...prev, server: 'PROCESSING' }));
-                  setTimeout(() => {
-                    setSecurityStatus(prev => ({ ...prev, server: 'Venda Confirmada' }));
-                    setActiveAnimation(null);
-                    setPacketStatus('IDLE');
-                  }, 800);
-                }, 3000);
-              };
-
-              // Helper para cor de status
-              const getStatusColor = (status) => {
-                switch (status) {
-                  case 'ACTIVE': case 'READY': return 'text-slate-600';
-                  case 'BLOCKING': case 'NEUTRALIZED': return 'text-red-500';
-                  case 'PASSED': case 'PROCESSING': return 'text-emerald-500';
-                  case 'Venda Confirmada': return 'text-cyan-400 font-bold';
-                  default: return 'text-slate-300';
-                }
-              };
-
-              return (
-                <div className="relative z-10 grid md:grid-cols-[250px_1fr] gap-8">
-
-                  {/* PAINEL DE CONTROLE (BOTÕES) */}
-                  <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl shadow-inner">
-                    <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-5 flex items-center gap-2">
-                      <Activity className="w-4 h-4 text-cyan-600" />
-                      Disparador de Pacotes
-                    </h5>
-
-                    <div className="space-y-4 font-mono text-[11px]">
-                      {Object.values(packetTypes).map(packet => {
-                        const Icon = packet.icon;
-                        const isSelected = activeAnimation === packet.id;
-
-                        // Definição de cores táticas baseadas no tipo de ataque
-                        const buttonColors = {
-                          cyan: 'border-cyan-800 bg-cyan-950/20 text-cyan-300 hover:border-cyan-600',
-                          red: 'border-red-900 bg-red-950/10 text-red-400 hover:border-red-600',
-                          amber: 'border-amber-900 bg-amber-950/10 text-amber-300 hover:border-amber-500',
-                          purple: 'border-purple-900 bg-purple-950/10 text-purple-300 hover:border-purple-600',
-                        };
-                        const selectedColors = {
-                          cyan: 'border-cyan-500 bg-cyan-950/80 text-white shadow-[0_0_20px_rgba(34,211,238,0.4)]',
-                          red: 'border-red-500 bg-red-950/60 text-white shadow-[0_0_20px_rgba(239,68,68,0.4)]',
-                          amber: 'border-amber-500 bg-amber-950/60 text-white shadow-[0_0_20px_rgba(245,158,11,0.4)]',
-                          purple: 'border-purple-500 bg-purple-950/60 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]',
-                        };
-
-                        return (
-                          <button
-                            key={packet.id}
-                            onClick={() => triggerSimulation(packet)}
-                            disabled={packetStatus === 'SIMULATING'}
-                            className={`w-full border p-4 rounded-lg flex items-start gap-3 transition-all duration-300 text-left relative overflow-hidden ${isSelected ? selectedColors[packet.color] : buttonColors[packet.color]
-                              } ${packetStatus === 'SIMULATING' && !isSelected ? 'opacity-30 cursor-not-allowed' : ''}`}>
-                            <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${isSelected ? 'text-white animate-pulse' : ''}`} />
-                            <div>
-                              <strong className="block text-xs uppercase tracking-wider">{packet.label}</strong>
-                              <span className={`font-sans ${isSelected ? 'text-white/80' : 'text-slate-500'} font-light text-[10px]`}>{packet.desc}</span>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* VISUALIZAÇÃO ARENA (Onde a animação corre) */}
-                  <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative shadow-inner flex flex-col justify-between">
-                    <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-6 text-center">Simulação de Fluxo de Perímetro (Desencapsulamento bottom-up)</h5>
-
-                    <div className="space-y-4 relative font-mono text-xs">
-
-                      {/* Linha Vertical Tática */}
-                      <div className="absolute left-[20px] top-4 bottom-4 w-0.5 bg-slate-800/60 z-0"></div>
-
-                      {/* Camada 01: DDoS */}
-                      <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation !== 'DDOS' ? 'opacity-100' : ''}">
-                        <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ddos === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center text-slate-600 transition-colors`}>
-                          <Skull className={`w-5 h-5 ${securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                        </div>
-                        <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                          <span>01. Mitigação DDoS</span>
-                          <span className={`${getStatusColor(securityStatus.ddos)}`}>{securityStatus.ddos}</span>
-                        </div>
-                        {/* Indicador Visual de Bloqueio (Luz vermelha pulsante local) */}
-                        {(securityStatus.ddos === 'BLOCKING' || securityStatus.ddos === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                      </div>
-
-                      {/* Camada 02: NGFW (Firewall) */}
-                      <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && !['LEGIT', 'SQLI'].includes(activeAnimation) ? 'opacity-100' : 'opacity-40'}">
-                        <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.ngfw === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
-                          <Filter className={`w-5 h-5 ${securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                        </div>
-                        <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                          <span>02. NGFW (Port / IP Check)</span>
-                          <span className={`${getStatusColor(securityStatus.ngfw)}`}>{securityStatus.ngfw}</span>
-                        </div>
-                        {(securityStatus.ngfw === 'BLOCKING' || securityStatus.ngfw === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                      </div>
-
-                      {/* Camada 03: WAF */}
-                      <div className="flex items-center gap-4 relative z-10 transition-opacity duration-300 ${activeAnimation && activeAnimation === 'SQLI' ? 'opacity-100' : 'opacity-40'}">
-                        <div className={`w-10 h-10 bg-slate-950 border ${securityStatus.waf === 'BLOCKING' ? 'border-red-600' : 'border-slate-800'} rounded flex items-center justify-center transition-colors`}>
-                          <Lock className={`w-5 h-5 ${securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED' ? 'text-red-500' : 'text-slate-700'}`} />
-                        </div>
-                        <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                          <span>03. WAF (Payload Inspection)</span>
-                          <span className={`${getStatusColor(securityStatus.waf)}`}>{securityStatus.waf}</span>
-                        </div>
-                        {(securityStatus.waf === 'BLOCKING' || securityStatus.waf === 'NEUTRALIZED') && <div className="absolute inset-0 bg-red-950/20 blur-xl pointer-events-none rounded transition-opacity duration-300"></div>}
-                      </div>
-
-                      {/* Target Server */}
-                      <div className="flex items-center gap-4 relative z-10 ${activeAnimation === 'LEGIT' ? 'opacity-100' : 'opacity-40'}">
-                        <div className={`w-10 h-10 bg-slate-950 border border-slate-800 rounded flex items-center justify-center transition-colors`}>
-                          <Server className={`w-5 h-5 ${securityStatus.server === 'READY' ? 'text-slate-700' : 'text-cyan-500'}`} />
-                        </div>
-                        <div className="flex-1 bg-slate-900 border border-slate-800 p-3 rounded flex justify-between items-center shadow-lg">
-                          <span>Processamento (Web Server)</span>
-                          <span className={`${getStatusColor(securityStatus.server)}`}>{securityStatus.server}</span>
-                        </div>
-                        {securityStatus.server === 'PROCESSING' && <div className="absolute inset-0 bg-cyan-950/20 blur-xl pointer-events-none rounded animate-pulse"></div>}
-                      </div>
-                    </div>
-
-                    {/* PAINEL DE STATUS FINAL */}
-                    <div className="mt-8 border-t border-slate-800 pt-6 text-center min-h-[50px] flex items-center justify-center font-sans">
-                      {activeAnimation ? (
-                        <div className={`inline-flex items-center gap-3 bg-slate-900 border px-6 py-2 rounded-full text-sm ${securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED'
-                          ? 'border-red-900 text-red-300'
-                          : 'border-cyan-800 text-cyan-300'
-                          }`}>
-                          {securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? <Skull className="w-4 h-4 text-red-500" /> : <Zap className="w-4 h-4 text-cyan-500" />}
-                          <span>Processando: <strong className="font-mono">{packetTypes[activeAnimation].label}</strong>...</span>
-                        </div>
-                      ) : securityStatus.server === 'Venda Confirmada' ? (
-                        <div className="inline-flex items-center gap-3 bg-cyan-950/20 border border-cyan-800/50 px-6 py-2 rounded-full text-sm text-cyan-300 font-bold animate-pulse shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                          <ShieldCheck className="w-4 h-4 text-cyan-500" />
-                          <span>RESULTADO: Requisição Confirmada // Venda Processada!</span>
-                        </div>
-                      ) : securityStatus.ddos === 'NEUTRALIZED' || securityStatus.ngfw === 'NEUTRALIZED' || securityStatus.waf === 'NEUTRALIZED' ? (
-                        <div className="inline-flex items-center gap-3 bg-red-950/20 border border-red-900/50 px-6 py-2 rounded-full text-sm text-red-300 font-bold">
-                          <AlertTriangle className="w-4 h-4 text-red-500" />
-                          <span>RESULTADO: Ameaça Bloqueada e Neutralizada no Perímetro!</span>
-                        </div>
-                      ) : (
-                        <span className="text-slate-600 font-mono text-xs uppercase tracking-widest animate-pulse">Aguardando gatilho do Analista...</span>
-                      )}
-                    </div>
-
-                  </div>
-                </div>
-              );
-            })()}
-
-            {/* Borda Neon Inferior */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-b-2xl"></div>
-          </div>
 
 
 
@@ -2302,6 +2150,223 @@ const InfraDataCenter = () => {
                 <p className="text-xs text-slate-300 leading-relaxed text-justify">
                   Manter as assinaturas e regras dinâmicas do firewall atualizadas em tempo real é vital. Ameaças emergentes, novas assinaturas de malware e <em>exploits</em> estão em constante evolução. Integrar <em>feeds</em> de inteligência de ameaças (Threat Intelligence) permite que o Firewall de Estado se ajuste proativamente, enfrentando vulnerabilidades de segurança antes que o ataque seja executado na infraestrutura.
                 </p>
+              </div>
+            </div>
+
+          </div>
+
+
+          {/* =====================================================================
+                  5.6 - MODO DE OPERAÇÃO: FIREWALL DE CIRCUITO (CIRCUIT-LEVEL)
+              ====================================================================== */}
+          <div className="mb-16 mt-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-amber-900/30 border border-amber-800 rounded-lg text-amber-400">
+                <ArrowRightLeft className="w-5 h-5" />
+              </div>
+              <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.6 - Modo de Operação: Firewall de Circuito</h4>
+            </div>
+
+            <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-8 border-l-4 border-l-amber-500 shadow-lg">
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base">
+                O firewall de circuito, também conhecido como <em>Circuit-Level Gateway</em>, é um mecanismo de segurança que opera na <strong>Camada de Sessão (Layer 5)</strong> do modelo OSI, sendo responsável por controlar conexões de rede com base no estado da sessão, e não no conteúdo dos dados transmitidos.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base">
+                Diferentemente de firewalls mais avançados (como o WAF Layer 7), ele <strong>não inspeciona o payload</strong> (carga útil) dos pacotes, mas valida rigorosamente se a conexão estabelecida entre cliente e servidor é legítima.
+              </p>
+            </div>
+
+            {/* ADENDO SOCKS */}
+            <div className="bg-cyan-950/20 border border-cyan-900/50 rounded-xl p-5 mb-12 flex items-start gap-4">
+              <Network className="w-6 h-6 text-cyan-500 shrink-0 mt-1" />
+              <div>
+                <strong className="text-cyan-400 font-bold uppercase tracking-widest text-xs block mb-2">Adendo Técnico: O Protocolo SOCKS</strong>
+                <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                  É impossível falar de Firewall de Circuito sem mencionar a sua aplicação mais clássica: os servidores <strong>SOCKS</strong> (SOCKS4 e SOCKS5). Eles são o exemplo perfeito de proxies de circuito. Enquanto um Proxy Web (Layer 7) entende de HTTP, o SOCKS (Layer 5) simplesmente pega o pacote, envelopa e repassa, sem olhar o conteúdo. Isso permite que ele suporte qualquer tipo de tráfego de rede (e-mail, FTP, torrents, etc.), atuando de forma agnóstica à aplicação.
+                </p>
+              </div>
+            </div>
+
+            {/* TIMELINE DE OPERAÇÃO */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Modo de Operação (Fluxo Técnico)</h5>
+            <div className="bg-[#050101] border border-slate-800 rounded-xl p-6 md:p-8 mb-12 shadow-inner">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                {/* Linha conectora desktop */}
+                <div className="hidden md:block absolute top-6 left-10 right-10 h-0.5 bg-slate-800 z-0"></div>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center mb-3">
+                    <Terminal className="w-5 h-5 text-amber-500" />
+                  </div>
+                  <strong className="text-white text-xs uppercase mb-1">1. Solicitação</strong>
+                  <p className="text-[10px] text-slate-500">Cliente interno tenta conectar a servidor externo.</p>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-amber-500 flex items-center justify-center mb-3">
+                    <ShieldCheck className="w-5 h-5 text-amber-500" />
+                  </div>
+                  <strong className="text-white text-xs uppercase mb-1">2. Interceptação</strong>
+                  <p className="text-[10px] text-slate-500">Firewall atua como intermediário (proxy leve).</p>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-emerald-500 flex items-center justify-center mb-3">
+                    <Activity className="w-5 h-5 text-emerald-500" />
+                  </div>
+                  <strong className="text-white text-xs uppercase mb-1">3. Validação</strong>
+                  <p className="text-[10px] text-slate-500">Analisa o TCP handshake (SYN, SYN-ACK, ACK).</p>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-cyan-500 flex items-center justify-center mb-3">
+                    <Layers className="w-5 h-5 text-cyan-500" />
+                  </div>
+                  <strong className="text-white text-xs uppercase mb-1">4. Circuito Virtual</strong>
+                  <p className="text-[10px] text-slate-500">Cria conexão lógica direta entre origem e destino.</p>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-blue-500 flex items-center justify-center mb-3">
+                    <ArrowRightLeft className="w-5 h-5 text-blue-500" />
+                  </div>
+                  <strong className="text-white text-xs uppercase mb-1">5. Encaminhamento</strong>
+                  <p className="text-[10px] text-slate-500">Dados fluem sem inspeção adicional de conteúdo.</p>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center border-t border-slate-800 pt-6">
+                <p className="text-amber-400 font-mono text-sm">
+                  "O firewall não se importa com o que está sendo dito, apenas se a conexão tem direito de existir."
+                </p>
+                <p className="text-xs text-slate-500 mt-2">Tecnicamente, ele estabelece duas conexões separadas isolando as redes fisicamente.</p>
+              </div>
+            </div>
+
+            {/* CARACTERÍSTICAS E OBJETIVOS (GRID) */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Características */}
+              <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl">
+                <h5 className="text-white font-bold uppercase tracking-wider text-sm mb-6 flex items-center gap-2">
+                  <Target className="w-4 h-4 text-amber-500" /> Características de Alta Eficiência
+                </h5>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <span className="text-amber-500 mt-0.5">▶</span>
+                    <div>
+                      <strong className="text-slate-300 text-xs uppercase block">Operação Layer 5</strong>
+                      <p className="text-[10px] text-slate-500">Focado exclusivamente em gerenciar conexões completas, não pacotes individuais.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-amber-500 mt-0.5">▶</span>
+                    <div>
+                      <strong className="text-slate-300 text-xs uppercase block">Baixo Consumo (Low Overhead)</strong>
+                      <p className="text-[10px] text-slate-500">Não analisa payload. Exige processamento mínimo, gerando alta performance e baixa latência.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-amber-500 mt-0.5">▶</span>
+                    <div>
+                      <strong className="text-slate-300 text-xs uppercase block">Transparência de Rede</strong>
+                      <p className="text-[10px] text-slate-500">Oculta a estrutura e os IPs da rede interna. Atua como um escudo invisível.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Objetivos */}
+              <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl">
+                <h5 className="text-white font-bold uppercase tracking-wider text-sm mb-6 flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-500" /> Objetivo de Defesa
+                </h5>
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  O objetivo principal é garantir a <strong>legitimidade estrita</strong> das conexões. Ele atua como um porteiro de sessão:
+                </p>
+                <ul className="text-[11px] text-slate-400 space-y-2 mb-4 font-mono">
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">✓</span> Apenas conexões autorizadas estabelecidas</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">✓</span> Sessões maliciosas bloqueadas na origem</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">✓</span> Prevenção contra Port Scanning</li>
+                </ul>
+                <div className="bg-[#050101] p-3 rounded border border-slate-800 text-[11px] text-emerald-400 italic text-center">
+                  "Protege o início da conversa, não o conteúdo dela."
+                </div>
+              </div>
+            </div>
+
+            {/* ANÁLISE CRÍTICA: RISCOS E VULNERABILIDADES */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Análise Crítica & Ameaças</h5>
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-red-950/20 border-t-4 border-red-500 p-6 rounded-b-xl shadow-lg relative overflow-hidden">
+                <Skull className="absolute -right-4 -bottom-4 w-32 h-32 text-red-500/5 pointer-events-none" />
+                <strong className="text-red-500 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-4 relative z-10">
+                  <ShieldAlert className="w-4 h-4" /> Ameaça Letal: Tunneling Malicioso
+                </strong>
+                <p className="text-[11px] text-slate-300 leading-relaxed text-justify mb-3 relative z-10">
+                  Como não há inspeção de payload, se o handshake for válido, o ataque passa junto com o fluxo autorizado. Esta é a maior vulnerabilidade da arquitetura.
+                </p>
+                <p className="text-[11px] text-slate-300 leading-relaxed text-justify relative z-10">
+                  Um atacante (ou insider malicioso) pode realizar o encapsulamento de um protocolo proibido dentro de uma porta permitida (ex: esconder um túnel de exfiltração SSH dentro da porta HTTPS 443). O firewall valida a conexão e o invasor ganha livre trânsito.
+                </p>
+              </div>
+
+              <div className="bg-amber-950/20 border-t-4 border-amber-500 p-6 rounded-b-xl shadow-lg">
+                <strong className="text-amber-500 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-4">
+                  <AlertTriangle className="w-4 h-4" /> Risco: Sessões Persistentes
+                </strong>
+                <p className="text-[11px] text-slate-300 leading-relaxed text-justify">
+                  Após estabelecer a conexão, a vigilância cai. O firewall permite que o tráfego contínuo flua sem revalidação profunda. Isso abre espaço crítico para ataques furtivos (Stealth) e movimentação lateral (Lateral Movement) dentro da rede, pois a sessão confiável pode ser sequestrada (Hijacking) após o estabelecimento.
+                </p>
+              </div>
+            </div>
+
+            {/* ARQUITETURA MODERNA (NGFW OFFLOADING) */}
+            <div className="bg-[#050101] border border-slate-800 rounded-xl p-6 md:p-8 mb-12 shadow-2xl">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <h5 className="text-white font-bold uppercase tracking-wide text-sm mb-4 text-cyan-400">Evolução e Absorção Moderna</h5>
+                  <p className="text-xs text-slate-400 leading-relaxed text-justify mb-4">
+                    Na prática da TI moderna, o Firewall de Circuito puro quase não existe mais. Sua arquitetura de alta performance foi <strong>absorvida como uma funcionalidade (Offloading)</strong> pelos chips dedicados (ASICs) dos Firewalls Stateful e NGFWs.
+                  </p>
+                  <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                    Hoje, ele atua como um filtro inicial de altíssima velocidade: o NGFW cria a "sessão de circuito" para tráfegos já validados para poupar a CPU dos equipamentos de segurança antes da inspeção profunda.
+                  </p>
+                </div>
+
+                {/* Diagrama Stack */}
+                <div className="shrink-0 w-full md:w-64 space-y-2 font-mono text-[10px] uppercase tracking-widest text-center">
+                  <div className="bg-cyan-950/40 border border-cyan-900 text-cyan-400 py-3 rounded">
+                    <span className="block font-bold">1. Circuit Firewall</span>
+                    <span className="text-slate-500 text-[8px]">Valida Sessão (Layer 5)</span>
+                  </div>
+                  <div className="text-slate-600">▼</div>
+                  <div className="bg-emerald-950/40 border border-emerald-900 text-emerald-400 py-3 rounded">
+                    <span className="block font-bold">2. Stateful Firewall</span>
+                    <span className="text-slate-500 text-[8px]">Controla Fluxo (Layer 4)</span>
+                  </div>
+                  <div className="text-slate-600">▼</div>
+                  <div className="bg-blue-950/40 border border-blue-900 text-blue-400 py-3 rounded">
+                    <span className="block font-bold">3. WAF / NGFW</span>
+                    <span className="text-slate-500 text-[8px]">Protege Aplicação (Layer 7)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SÍNTESE FINAL DO MÓDULO */}
+            <div className="border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
+              <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center gap-3">
+                <Terminal className="w-5 h-5 text-amber-500" />
+                <span className="text-xs text-slate-400 font-mono uppercase tracking-widest">Síntese Estratégica: Circuito</span>
+              </div>
+              <div className="p-6 md:p-8 bg-slate-950/80 backdrop-blur text-center">
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-3xl mx-auto">
+                  O firewall de circuito representa uma evolução intermediária, porém crucial, ao introduzir o conceito de <strong>validação de sessões</strong>. Seu papel permanece relevante como componente de fundação em arquiteturas de Defesa em Profundidade.
+                </p>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                  Ele não vê o conteúdo da conversa. <br className="hidden md:block" />
+                  <span className="text-amber-500 block mt-2 text-2xl md:text-3xl">Mas decide de forma implacável quem pode falar.</span>
+                </h3>
               </div>
             </div>
 
