@@ -1453,11 +1453,11 @@ const InfraDataCenter = () => {
                   </div>
                   <h5 className="text-xl font-bold text-white mb-4">Interlúdio: Firewalls Clássicos</h5>
                   <p className="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 italic">
-                    "Vamos dar uma pausa na jornada dos dados para aprender sobre firewalls clássicos. No capítulo seguinte entraremos mais a fundo com um módulo inteiro dedicado a projetos e aprofundamento."
+                    "Vamos dar uma pausa na jornada dos dados para aprender sobre firewalls clássicos."
                   </p>
                   <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-full text-xs text-cyan-400 font-bold">
                     <ShieldCheck className="w-4 h-4" />
-                    Próximo Módulo Ativo: Deep Dive Security
+                    Próximo Módulo Ativo: 
                   </div>
                 </div>
               </div>
