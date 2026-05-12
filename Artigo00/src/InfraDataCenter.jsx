@@ -2550,6 +2550,197 @@ const InfraDataCenter = () => {
           </div>
 
 
+          {/* =====================================================================
+                  5.8 - MODO DE OPERAÇÃO: WEB APPLICATION FIREWALL (WAF)
+                  O Escudo Definitivo da Camada 7
+              ====================================================================== */}
+              <div className="mb-16 mt-16">
+                
+                {/* CABEÇALHO DO MÓDULO WAF */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-rose-900/30 border border-rose-500/50 rounded-lg text-rose-400 shadow-[0_0_15px_rgba(225,29,72,0.2)]">
+                    <Globe className="w-6 h-6" />
+                  </div>
+                  <div>
+                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.8 - Web Application Firewall (WAF)</h4>
+                     <span className="text-[10px] font-mono text-rose-500 uppercase tracking-widest">O Escudo da Camada de Aplicação</span>
+                  </div>
+                </div>
+
+                {/* 1. DEFINIÇÃO: O ESCUDO REVERSO */}
+                <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 border-l-4 border-l-rose-500 shadow-lg relative overflow-hidden group">
+                   <div className="absolute right-0 top-0 opacity-5 pointer-events-none transition-transform duration-1000 group-hover:scale-110">
+                      <Lock className="w-64 h-64 text-rose-500" />
+                   </div>
+                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                     O Web Application Firewall (WAF) é uma solução de segurança de precisão cirúrgica. É a linha de defesa especializada e definitiva para aplicações web e APIs, que opera exclusivamente na <strong>Camada 7 (Aplicação)</strong> no topo do modelo OSI. 
+                   </p>
+                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                     Diferente dos firewalls tradicionais que protegem a infraestrutura de rede como um todo, o WAF não se preocupa com o tráfego geral da corporação. Seu foco tem um único propósito dedicado: <strong>analisar, inspecionar e filtrar</strong> cada requisição e resposta HTTP/HTTPS, bloqueando o tráfego malicioso direcionado especificamente a servidores web e APIs.
+                   </p>
+                   <div className="bg-[#050101] border border-rose-900/50 p-4 rounded-lg mt-6 relative z-10">
+                      <p className="text-xs text-rose-300 font-mono text-justify">
+                         Enquanto firewalls de rede bloqueiam tráfego não autorizado, o WAF foca no tráfego que É autorizado (ex: porta 443). Ele atua como um escudo reverso (Reverse Proxy), lendo intimamente cada requisição (GET, POST, cabeçalhos, cookies e formulários) antes que toquem o código do seu sistema.
+                      </p>
+                   </div>
+                </div>
+
+                {/* 2. O ARSENAL DE PROTEÇÃO (OWASP TOP 10) */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+                   <Target className="w-5 h-5 text-rose-500" /> Arsenal de Proteção (Mitigação OWASP)
+                </h5>
+                <p className="text-xs text-slate-400 mb-6">O WAF é projetado para neutralizar ataques que exploram vulnerabilidades no código da aplicação. Ele é a principal linha de defesa contra as vulnerabilidades mais críticas listadas no infame <strong>OWASP Top 10</strong>:</p>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+                   {/* SQLi */}
+                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                      <Terminal className="w-6 h-6 text-rose-500 mb-3" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">SQL Injection (SQLi)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify">Bloqueia tentativas de injetar comandos de banco de dados através de campos de login ou URLs, impedindo o roubo ou destruição massiva de dados.</p>
+                   </div>
+                   
+                   {/* XSS */}
+                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                      <AlertTriangle className="w-6 h-6 text-rose-500 mb-3" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Cross-Site Scripting (XSS)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify">Impede que atacantes injetem scripts maliciosos (JavaScript) nas páginas web visualizadas por outros usuários, evitando o sequestro de sessões.</p>
+                   </div>
+
+                   {/* CSRF */}
+                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                      <ArrowRightLeft className="w-6 h-6 text-rose-500 mb-3" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">CSRF (Forja de Requisição)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify">Evita que requisições falsas e ocultas obriguem um usuário autenticado a executar ações indesejadas no sistema sem o seu consentimento.</p>
+                   </div>
+
+                   {/* LFI/RFI */}
+                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                      <Layers className="w-6 h-6 text-rose-500 mb-3" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Inclusão de Arquivos (LFI/RFI)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify">Bloqueia a tentativa de forçar a aplicação a ler ou executar arquivos locais ou remotos não autorizados diretamente no servidor web.</p>
+                   </div>
+
+                   {/* L7 DDoS */}
+                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors lg:col-span-2">
+                      <Activity className="w-6 h-6 text-rose-500 mb-3" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">DDoS de Camada 7</strong>
+                      <p className="text-[11px] text-slate-400 text-justify">Mitiga ataques de negação de serviço que não tentam saturar a banda, mas sim esgotar os recursos do servidor web (como enviar milhares de requisições pesadas de login ou busca simultaneamente no banco de dados).</p>
+                   </div>
+                </div>
+
+                {/* 3. INSIGHT ESTRATÉGICO: A SINERGIA NGFW VS WAF */}
+                <div className="bg-[#020617] border border-slate-800 rounded-xl overflow-hidden mb-12 shadow-2xl">
+                   <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                         <ShieldCheck className="w-4 h-4 text-cyan-500" />
+                         <span className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Insight Estratégico: A Simbiose (NGFW x WAF)</span>
+                      </div>
+                   </div>
+                   <div className="p-6 md:p-8">
+                      <p className="text-sm text-slate-300 mb-8 text-center max-w-3xl mx-auto">
+                         Um erro crasso de arquitetura é achar que um substitui o outro. Eles não competem; eles se complementam perfeitamente na <strong>Defesa em Profundidade</strong>. Possuem jurisdições operacionais totalmente diferentes.
+                      </p>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                         {/* NGFW Panel */}
+                         <div className="bg-cyan-950/20 border border-cyan-900/50 p-6 rounded-xl relative overflow-hidden">
+                            <Network className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-cyan-500/10" />
+                            <strong className="text-cyan-400 block mb-2 font-bold uppercase tracking-widest text-sm">O NGFW protege o "Prédio"</strong>
+                            <span className="block h-px w-full bg-cyan-900/50 mb-4"></span>
+                            <p className="text-xs text-slate-300 leading-relaxed relative z-10">
+                               Segura a invasão lateral, as portas, as botnets, o tráfego não autorizado e protege os usuários internos da corporação. Ele blinda a infraestrutura física e virtual da rede global.
+                            </p>
+                         </div>
+
+                         {/* WAF Panel */}
+                         <div className="bg-rose-950/20 border border-rose-900/50 p-6 rounded-xl relative overflow-hidden">
+                            <Server className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-rose-500/10" />
+                            <strong className="text-rose-400 block mb-2 font-bold uppercase tracking-widest text-sm">O WAF protege o "Balcão"</strong>
+                            <span className="block h-px w-full bg-rose-900/50 mb-4"></span>
+                            <p className="text-xs text-slate-300 leading-relaxed relative z-10">
+                               Protege o portal de vendas, o sistema web e as APIs expostas para a internet pública. Ele lida com a lógica complexa do tráfego web que o NGFW não foi otimizado para desconstruir em larga escala.
+                            </p>
+                         </div>
+                      </div>
+                      
+                      <div className="mt-8 text-center">
+                         <span className="bg-slate-900 border border-slate-800 text-white font-bold py-2 px-6 rounded-full text-sm inline-block shadow-lg">
+                            Regra de Ouro: Se o NGFW protege a REDE, o WAF protege o SISTEMA.
+                         </span>
+                      </div>
+                   </div>
+                </div>
+
+                {/* 4. ECOSSISTEMA E MERCADO CLOUD-NATIVE */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ecossistema e Mercado (Cloud-Native)</h5>
+                <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
+                   <p className="text-xs text-slate-300 leading-relaxed mb-6 text-justify">
+                      A evolução do WAF foi brutal. Tradicionalmente instalados como appliances físicos no Data Center, hoje eles migraram massivamente para a Nuvem (SaaS) e computação de borda (Edge Computing). Integrados a Redes de Entrega de Conteúdo (CDNs), bloqueiam tráfego malicioso antes mesmo dele chegar aos servidores físicos da empresa.
+                   </p>
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                         <span className="text-orange-500 font-black uppercase text-sm block mb-1">Cloudflare</span>
+                         <span className="text-[10px] text-slate-500 font-mono">Domínio global em proteção CDN e mitigação rápida.</span>
+                      </div>
+                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                         <span className="text-blue-500 font-black uppercase text-sm block mb-1">Imperva / Akamai</span>
+                         <span className="text-[10px] text-slate-500 font-mono">Foco Enterprise e altíssima mitigação DDoS.</span>
+                      </div>
+                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                         <span className="text-amber-500 font-black uppercase text-sm block mb-1">AWS / Azure WAF</span>
+                         <span className="text-[10px] text-slate-500 font-mono">Defesa nativa diretamente nos ecossistemas de Cloud Pública.</span>
+                      </div>
+                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                         <span className="text-red-600 font-black uppercase text-sm block mb-1">F5 Networks</span>
+                         <span className="text-[10px] text-slate-500 font-mono">Plataforma ADSP avançada com automação do ciclo de vida.</span>
+                      </div>
+                   </div>
+                </div>
+
+                {/* 5. AS TRINCHEIRAS DA OPERAÇÃO (BLUE TEAM) */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+                   <ShieldAlert className="w-5 h-5 text-rose-500" /> As Trincheiras da Operação (Blue Team)
+                </h5>
+                <div className="space-y-4 mb-12">
+                   {/* Tuning e Falsos Positivos */}
+                   <div className="bg-[#050101] border-l-4 border-amber-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                      <Activity className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
+                      <div>
+                         <strong className="text-white text-sm uppercase block mb-1">O Inferno Operacional: Falsos Positivos e Tuning</strong>
+                         <p className="text-[11px] text-slate-400 leading-relaxed text-justify">A maior dificuldade de um WAF é o Ajuste Fino (Tuning). Regras muito agressivas bloquearão tráfego legítimo. Em um e-commerce, um falso positivo significa impedir um cliente real de passar o cartão de crédito (impacto financeiro direto). O desafio diário da equipe de segurança é garantir a integridade do código sem destruir a disponibilidade do serviço.</p>
+                      </div>
+                   </div>
+
+                   {/* Proteção WAAP (APIs) */}
+                   <div className="bg-[#050101] border-l-4 border-rose-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                      <Globe className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
+                      <div>
+                         <strong className="text-white text-sm uppercase block mb-1">O Novo Front: WAAP e Proteção de APIs</strong>
+                         <p className="text-[11px] text-slate-400 leading-relaxed text-justify">Aplicações modernas não são mais apenas páginas HTML; são emaranhados de APIs REST e GraphQL comunicando via JSON. Os WAFs evoluíram para <strong>WAAP (Web Application and API Protection)</strong>, capazes de entender nativamente a estrutura profunda desses arquivos para bloquear injeções invisíveis aos firewalls legados.</p>
+                      </div>
+                   </div>
+                </div>
+
+                {/* SÍNTESE FINAL DA CAMADA 7 */}
+                <div className="border border-rose-900/50 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(225,29,72,0.15)] mb-10">
+                   <div className="bg-slate-900 px-4 py-3 border-b border-rose-900/50 flex items-center gap-3">
+                      <Lock className="w-5 h-5 text-rose-500" />
+                      <span className="text-xs text-rose-400 font-mono uppercase tracking-widest">Virtual Patching & Resumo Definitivo</span>
+                   </div>
+                   <div className="p-6 md:p-8 bg-slate-950/80 backdrop-blur text-center">
+                      <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-4xl mx-auto">
+                         O WAF é a última linha de defesa entre o código possivelmente vulnerável e os atacantes da internet. Ele atua como um <strong>"Curativo Virtual" (Virtual Patching)</strong> de resposta ultrarrápida: se uma vulnerabilidade Zero-Day for descoberta no seu sistema, você cria uma regra no WAF para bloqueá-la em segundos, garantindo tempo valioso para a equipe de DevSecOps corrigir o código fonte.
+                      </p>
+                      <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                         O NGFW blinda o prédio corporativo.<br className="hidden md:block" />
+                         <span className="text-rose-500 block mt-2 text-2xl md:text-3xl">O WAF blinda o cofre onde a aplicação reside.</span>
+                      </h3>
+                   </div>
+                </div>
+
+              </div>
+              
+
 
 
 
