@@ -2739,6 +2739,182 @@ const InfraDataCenter = () => {
                 </div>
 
               </div>
+
+
+
+
+              {/* =====================================================================
+                  5.9 - MODO DE OPERAÇÃO: FIREWALL BASEADO EM HOST
+                  O Combate Corpo a Corpo (Zero Trust & Kernel Level)
+              ====================================================================== */}
+              <div className="mb-16 mt-16">
+                
+                {/* CABEÇALHO DO MÓDULO HOST-BASED */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.15)] relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-slate-400/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <Server className="w-6 h-6 relative z-10" />
+                  </div>
+                  <div>
+                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.9 - Firewall Baseado em Host</h4>
+                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">A Última Trincheira do Endpoint</span>
+                  </div>
+                </div>
+
+                {/* 1. DEFINIÇÃO: A DESCENTRALIZAÇÃO DA DEFESA (EFEITO ZERO TRUST) */}
+                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+                   {/* Ilusão de Ótica: Grade de Fundo (Grid Pattern) e Glow */}
+                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.05] pointer-events-none"></div>
+                   <div className="absolute right-[-10%] top-[-10%] w-96 h-96 bg-slate-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-slate-600/20 transition-all duration-700"></div>
+                   
+                   <div className="flex items-center gap-3 mb-6 relative z-10">
+                      <Lock className="w-6 h-6 text-slate-400" />
+                      <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Descentralização e o Zero Trust</h5>
+                   </div>
+
+                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                     O Firewall Baseado em Host representa a camada mais íntima e definitiva de defesa cibernética. Diferente dos firewalls de hardware appliances físicos ou virtuais (como NGFWs ou Firewalls de Pacotes) que protegem a fronteira do perímetro da corporação, o Host-Based Firewall é um software de segurança que <strong>roda diretamente dentro do próprio sistema operacional (SO)</strong> da máquina, seja ela um servidor crítico no Data Center ou a estação de trabalho de um usuário.
+                   </p>
+                   <div className="bg-slate-900/80 border-l-4 border-slate-500 p-5 rounded-r mt-6 relative z-10 backdrop-blur-sm">
+                      <strong className="text-slate-200 uppercase tracking-widest text-xs block mb-2 font-mono">Premissa Operacional: Confiança Zero</strong>
+                      <p className="text-sm text-slate-400 text-justify">
+                         A premissa desta tecnologia é assustadora, porém realista: <strong>Zero Trust</strong>. Sua implementação parte do pressuposto de que a rede local (LAN) já foi comprometida. Ele cria um "micro-perímetro" impenetrável ao redor de cada ativo individual, filtrando o tráfego de rede exatamente onde ele nasce e morre: na placa de rede lógica e no Kernel do próprio dispositivo.
+                      </p>
+                   </div>
+                </div>
+
+                {/* 2. FUNÇÃO CRÍTICA: PROTEÇÃO DE ENDPOINT E CONTENÇÃO */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+                   <Target className="w-5 h-5 text-emerald-500" /> A Função Crítica: Contenção de Ameaças Internas
+                </h5>
+                <p className="text-xs text-slate-400 mb-6 text-justify">
+                   A função primária deste firewall é proteger o endpoint de forma isolada contra ataques que <strong>já estão dentro de casa</strong>. Suas principais atribuições táticas incluem:
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                   {/* Card Movimento Lateral */}
+                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-emerald-900/50 transition-colors">
+                      <div className="absolute top-4 right-4"><ArrowRightLeft className="w-6 h-6 text-emerald-500/20" /></div>
+                      <strong className="text-emerald-400 text-xs uppercase tracking-wider block mb-3 border-b border-emerald-900/30 pb-2">Prevenção de Movimento Lateral</strong>
+                      <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
+                         Se um ransomware compromete a máquina de um colaborador (via Phishing), o passo natural do malware é escanear a rede e tentar "pular" para os servidores críticos (East-West Traffic). 
+                      </p>
+                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
+                         O Firewall de Host do servidor <strong>rejeitará sumariamente</strong> as conexões vindas daquela estação comprometida, isolando o ataque em um único nó, salvando a infraestrutura e impedindo a infecção em massa.
+                      </p>
+                   </div>
+
+                   {/* Card Micro-segmentação (PIDs) */}
+                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-cyan-900/50 transition-colors">
+                      <div className="absolute top-4 right-4"><Terminal className="w-6 h-6 text-cyan-500/20" /></div>
+                      <strong className="text-cyan-400 text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/30 pb-2">Controle no Nível de Processo</strong>
+                      <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
+                         Pelo fato de operar no nível do Kernel, ele possui um poder absoluto: associar tráfego de rede a <strong>Processos do SO (PIDs)</strong> ou executáveis específicos (Micro-segmentação).
+                      </p>
+                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
+                         Ele pode determinar regras cirúrgicas: "apenas o daemon do <em>Nginx</em> pode responder na porta 443" ou "se o <em>powershell.exe</em> tentar baixar algo da internet, bloqueie imediatamente".
+                      </p>
+                   </div>
+                </div>
+
+                {/* 3. ARSENAL DE SISTEMA OPERACIONAL (HARDENING) */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+                   <Layers className="w-5 h-5 text-blue-500" /> O Arsenal de Sistema Operacional (Hardening)
+                </h5>
+                <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
+                   <p className="text-xs text-slate-400 mb-8 text-justify">
+                      Independentemente da infraestrutura ser Cloud ou On-Premise, a configuração destas ferramentas nativas é a fundação do <em>Hardening</em> de servidores:
+                   </p>
+                   
+                   <div className="grid md:grid-cols-2 gap-8 mb-8">
+                      {/* Windows Ecosystem */}
+                      <div className="border border-blue-900/30 bg-blue-950/10 rounded-lg p-6 relative group overflow-hidden">
+                         <div className="absolute -right-4 -bottom-4 bg-blue-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-blue-500/20 transition-colors"></div>
+                         <div className="flex items-center gap-3 mb-4 relative z-10">
+                            <ShieldCheck className="w-6 h-6 text-blue-500" />
+                            <strong className="text-blue-400 font-bold uppercase text-sm tracking-widest">Ecossistema Windows</strong>
+                         </div>
+                         <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
+                            <strong>Windows Defender Firewall com Segurança Avançada (WDFAS).</strong> Longe de ser apenas um recurso doméstico, em ambientes corporativos ele utiliza a Plataforma de Filtragem do Windows (WFP) para aplicar regras ultra-granulares via GPO. Baseia-se em caminhos de executáveis, perfis (Domínio/Privado) e usuários do Active Directory.
+                         </p>
+                      </div>
+
+                      {/* Linux Ecosystem */}
+                      <div className="border border-orange-900/30 bg-orange-950/10 rounded-lg p-6 relative group overflow-hidden">
+                         <div className="absolute -right-4 -bottom-4 bg-orange-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-orange-500/20 transition-colors"></div>
+                         <div className="flex items-center gap-3 mb-4 relative z-10">
+                            <Terminal className="w-6 h-6 text-orange-500" />
+                            <strong className="text-orange-400 font-bold uppercase text-sm tracking-widest">Ecossistema Linux</strong>
+                         </div>
+                         <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
+                            O robusto subsistema <em>netfilter</em>, tradicionalmente gerenciado pelo lendário <strong>iptables</strong> ou seu sucessor <strong>nftables</strong>. Em arquiteturas Cloud Native (Kubernetes), tecnologias revolucionárias de kernel como o <strong>eBPF</strong> assumem o controle absoluto do tráfego, permitindo filtragem em altíssima velocidade diretamente no núcleo do SO.
+                         </p>
+                      </div>
+                   </div>
+
+                   {/* ARTEFATO VISUAL: SIMULADOR DE TERMINAL LINUX */}
+                   <div className="bg-[#050101] rounded-lg border border-slate-800 font-mono text-[10px] md:text-xs overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                      {/* Top Bar Terminal */}
+                      <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-slate-500">
+                         <div className="flex gap-2">
+                            <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+                            <div className="w-3 h-3 rounded-full bg-amber-500/80 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
+                            <div className="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
+                         </div>
+                         <span className="uppercase tracking-widest text-[9px] flex items-center gap-2">
+                            <Lock className="w-3 h-3" /> root@db-production-01:~#
+                         </span>
+                      </div>
+                      {/* Corpo do Terminal (Comandos) */}
+                      <div className="p-5 space-y-3">
+                         <div className="text-slate-400">
+                            <span className="text-slate-600 block mb-1"># 1. Isolar servidor: Negar tráfego interno que não seja o IP do AppServer</span>
+                            <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-s 10.0.0.0/8 ! -s 10.0.1.50</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
+                         </div>
+                         <div className="text-slate-400">
+                            <span className="text-slate-600 block mb-1 mt-2"># 2. Bloquear movimento lateral via SMB (Ransomware spread protection)</span>
+                            <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-p tcp --dport 445</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
+                         </div>
+                         <div className="text-slate-400">
+                            <span className="text-slate-600 block mb-1 mt-2"># 3. Confirmando o Hardening do Kernel (Status)</span>
+                            <span className="text-white bg-slate-800 px-1 rounded">Chain INPUT (policy DROP)</span>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                {/* 4. INSIGHT DIRETO E LETAL: A ÚLTIMA TRINCHEIRA */}
+                <div className="bg-[#050101] border border-red-900/50 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(220,38,38,0.15)] relative group">
+                   
+                   {/* Efeitos de Alerta e Sirene (Visuais) */}
+                   <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
+                   <div className="absolute inset-0 bg-red-950/10 pointer-events-none"></div>
+                   <Skull className="absolute -left-10 -bottom-10 w-48 h-48 text-red-900/10 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
+
+                   <div className="bg-slate-900/80 px-6 py-4 border-b border-red-900/30 flex items-center gap-3 backdrop-blur-sm relative z-10">
+                      <ShieldAlert className="w-6 h-6 text-red-500 animate-pulse" />
+                      <span className="text-sm text-red-400 font-black uppercase tracking-widest">Insight Estratégico: A Última Trincheira</span>
+                   </div>
+                   
+                   <div className="p-8 md:p-10 relative z-10 text-center">
+                      <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto">
+                         O perímetro corporativo moderno é fluido e permeável. VPNs comprometidas, credenciais vazadas, dispositivos não gerenciados (BYOD) e vulnerabilidades de Zero-Day provam diariamente que a <strong>rede LAN interna não é mais um porto seguro.</strong>
+                      </p>
+                      
+                      <div className="bg-red-950/30 border border-red-900/50 p-6 rounded-xl inline-block shadow-inner">
+                         <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                            Se o invasor contornou o NGFW, evadiu o WAF e passou livre pela rede... <br className="hidden md:block mt-2" />
+                            <span className="text-red-500 block mt-4 text-3xl md:text-4xl underline decoration-red-900 underline-offset-8">AQUI É O ÚLTIMO MURO.</span>
+                         </h3>
+                      </div>
+                      
+                      <p className="text-xs text-red-400/80 font-mono mt-8 uppercase tracking-widest">
+                         Falhar na configuração nesta camada significa entregar as chaves de administrador (root/system) e os dados sensíveis nas mãos do atacante. Ele é a barreira final entre a empresa e o abismo.
+                      </p>
+                   </div>
+                </div>
+
+              </div>
               
 
 
