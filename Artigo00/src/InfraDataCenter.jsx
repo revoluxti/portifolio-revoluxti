@@ -2915,6 +2915,197 @@ const InfraDataCenter = () => {
                 </div>
 
               </div>
+
+
+
+
+
+              {/* =====================================================================
+                  5.10 - MODO DE OPERAÇÃO: FIREWALL DE CLOUD (FWaaS)
+                  A Ascensão ao SASE e o Perímetro Invisível
+              ====================================================================== */}
+              <div className="mb-16 mt-16">
+                
+                {/* CABEÇALHO DO MÓDULO FWAAS */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-indigo-900/40 border border-indigo-500/50 rounded-lg text-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.25)] relative overflow-hidden">
+                    <div className="absolute inset-0 bg-indigo-400/20 animate-pulse"></div>
+                    <Globe className="w-6 h-6 relative z-10" />
+                  </div>
+                  <div>
+                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.10 - Firewall de Cloud (FWaaS)</h4>
+                     <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">Firewall as a Service & SASE Edge</span>
+                  </div>
+                </div>
+
+                {/* 1. DEFINIÇÃO: A PULVERIZAÇÃO DO PERÍMETRO FÍSICO */}
+                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+                   {/* Efeito de Nuvem / Nebulosa de Dados */}
+                   <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-1000"></div>
+                   <div className="absolute bottom-[-20%] right-[-10%] w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-1000"></div>
+                   
+                   <div className="flex items-center gap-3 mb-6 relative z-10">
+                      <Network className="w-6 h-6 text-indigo-400" />
+                      <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Pulverização do Perímetro Físico</h5>
+                   </div>
+
+                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                     Historicamente, o modelo de segurança da informação foi construído baseado no "Castelo e Fosso" (<em>Castle and Moat</em> — o Data Center físico protegido por um gigantesco appliance de firewall na porta de entrada). Hoje, com usuários em trabalho remoto global, dispositivos móveis e dados espalhados por dezenas de aplicativos SaaS (Office 365, Salesforce) e infraestruturas em nuvem, essa arquitetura centralizada ruiu.
+                   </p>
+                   
+                   <div className="bg-indigo-950/30 border-l-4 border-indigo-500 p-5 rounded-r my-6 relative z-10 backdrop-blur-md">
+                      <p className="text-sm text-slate-300 text-justify leading-relaxed">
+                         O <strong>Firewall as a Service (FWaaS)</strong> é a resposta a essa revolução. Ele é um firewall de próxima geração (NGFW) entregue inteiramente como um serviço na nuvem (SaaS). Ele pega todo o poder do NGFW e o arranca do hardware, entregando-o de forma nativa em nuvem, global e descentralizada.
+                      </p>
+                   </div>
+
+                   <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base relative z-10">
+                     Em vez de forçar todo o tráfego de filiais e usuários remotos a "voltar" para a matriz física apenas para ser inspecionado (um gargalo terrível conhecido como <em>tromboning</em> ou <em>backhauling</em>), o FWaaS move o motor de inspeção para a nuvem. Ele leva a segurança diretamente para onde o usuário está, abstraindo o hardware e eliminando a necessidade de manter equipamentos físicos (appliances) no rack do Data Center.
+                   </p>
+                </div>
+
+                {/* 2. CARACTERÍSTICAS TÉCNICAS (GRID) */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+                   <Layers className="w-5 h-5 text-cyan-500" /> Características: Escalabilidade e Distribuição
+                </h5>
+                <p className="text-xs text-slate-400 mb-6">O FWaaS não é apenas "um firewall hospedado na internet". É uma arquitetura de microsserviços desenhada para a era moderna que oblitera as limitações físicas operando sob três pilares:</p>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                   {/* Elasticity */}
+                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-indigo-500/50 transition-colors shadow-lg">
+                      <Zap className="w-8 h-8 text-indigo-500 mb-4" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-indigo-900/50 pb-2">Escalabilidade Elástica (Infinite Scale)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                         Appliances possuem limites de CPU e memória. Se houver um pico na Black Friday ou um ataque DDoS massivo, a "caixa" trava. O FWaaS escala seu poder de processamento computacionalmente na nuvem, absorvendo terabits de tráfego instantaneamente.
+                      </p>
+                   </div>
+
+                   {/* Edge Computing */}
+                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition-colors shadow-lg">
+                      <Radio className="w-8 h-8 text-cyan-500 mb-4" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/50 pb-2">Arquitetura Distribuída (Edge)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                         Não roda em um único servidor, mas em dezenas de Pontos de Presença (PoPs) globais. Se um executivo viaja para o Japão, o tráfego é inspecionado pelo nó do FWaaS em Tóquio, garantindo baixíssima latência e otimizando a performance.
+                      </p>
+                   </div>
+
+                   {/* Cloud-Native */}
+                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-purple-500/50 transition-colors shadow-lg">
+                      <Activity className="w-8 h-8 text-purple-500 mb-4" />
+                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-purple-900/50 pb-2">Integração Nativa (Cloud-Native)</strong>
+                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                         Conecta-se a orquestradores em nuvem através de APIs, protegendo o tráfego leste-oeste e norte-sul de forma invisível. Aplica políticas de segurança em tempo real conforme novas instâncias AWS, Azure ou GCP nascem ou morrem.
+                      </p>
+                   </div>
+                </div>
+
+                {/* 3. CASOS DE USO: SECURITY FABRIC (ARTEFATO VISUAL) */}
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ambientes Híbridos e Multi-Cloud</h5>
+                <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative">
+                   <p className="text-sm text-slate-300 leading-relaxed text-justify mb-8">
+                      A maior dor de cabeça de um Blue Team é gerenciar políticas fragmentadas (Data Center legado em Osasco, AWS, Azure e GCP simultaneamente). O FWaaS resolve esse caos atuando como um <strong>tecido unificador (Security Fabric)</strong>, garantindo que não existam pontos cegos.
+                   </p>
+
+                   {/* Diagrama Interativo do Security Fabric */}
+                   <div className="bg-[#020617] rounded-xl border border-slate-800 p-6 md:p-10 relative overflow-hidden flex flex-col items-center">
+                      {/* Central FWaaS Node */}
+                      <div className="bg-indigo-950/40 border-2 border-indigo-500 p-6 rounded-2xl z-20 shadow-[0_0_30px_rgba(99,102,241,0.3)] backdrop-blur-md mb-8 flex flex-col items-center">
+                         <ShieldCheck className="w-8 h-8 text-indigo-400 mb-2" />
+                         <span className="text-white font-black uppercase tracking-widest text-sm text-center">FWaaS / SASE Core</span>
+                         <span className="text-[10px] text-indigo-300 font-mono text-center">Single Pane of Glass<br/>Unified Security Policy</span>
+                      </div>
+
+                      {/* Connection Lines (Simulated with CSS) */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 border-t-2 border-l-2 border-r-2 border-dashed border-slate-600/50 rounded-t-3xl z-10 mt-4"></div>
+
+                      {/* Cloud Nodes */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full z-20 relative">
+                         {/* AWS */}
+                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                            <Server className="w-6 h-6 text-orange-500 mb-2" />
+                            <span className="text-white font-bold text-xs uppercase">AWS Cluster</span>
+                            <span className="text-[9px] text-slate-500 font-mono">Virginia, USA</span>
+                         </div>
+                         {/* Azure */}
+                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                            <Layers className="w-6 h-6 text-blue-500 mb-2" />
+                            <span className="text-white font-bold text-xs uppercase">Azure DB</span>
+                            <span className="text-[9px] text-slate-500 font-mono">São Paulo, BR</span>
+                         </div>
+                         {/* On-Prem */}
+                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                            <Terminal className="w-6 h-6 text-emerald-500 mb-2" />
+                            <span className="text-white font-bold text-xs uppercase">On-Premise</span>
+                            <span className="text-[9px] text-slate-500 font-mono">DC Osasco</span>
+                         </div>
+                         {/* Remote User */}
+                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                            <Wifi className="w-6 h-6 text-purple-500 mb-2" />
+                            <span className="text-white font-bold text-xs uppercase">Remote User</span>
+                            <span className="text-[9px] text-slate-500 font-mono">Airport Wi-Fi</span>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                {/* 4. EVOLUÇÃO E SASE */}
+                <div className="bg-cyan-950/20 border-l-4 border-cyan-500 p-6 rounded-r-xl mb-12 flex flex-col md:flex-row gap-6 items-center">
+                   <div className="flex-1">
+                      <strong className="text-cyan-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                         <Target className="w-4 h-4" /> 4. A Evolução: O Coração do SASE
+                      </strong>
+                      <p className="text-xs text-slate-300 leading-relaxed text-justify mb-3">
+                         No nível de arquitetura avançada, o FWaaS é um dos componentes centrais de um framework maior chamado <strong>SASE (Secure Access Service Edge)</strong>. Ele trabalha em conjunto com soluções de Zero Trust Network Access (ZTNA) e Cloud Access Security Brokers (CASB) para entregar segurança completa como serviço.
+                      </p>
+                      <p className="text-[11px] text-slate-400 font-mono">
+                         ▶ Grandes players de mercado: Zscaler, Palo Alto Prisma Access e Cloudflare Magic Transit.
+                      </p>
+                   </div>
+                </div>
+
+                {/* 5. INSIGHT ESTRATÉGICO: O FIREWALL INVISÍVEL (GRAND FINALE) */}
+                <div className="bg-[#020617] border border-indigo-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] relative group mt-16 mb-8">
+                   
+                   {/* Efeitos Nebulares e Cósmicos (O Firewall Invisível) */}
+                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/40 via-[#020617] to-[#020617] pointer-events-none"></div>
+                   <div className="absolute top-[-50%] left-[-20%] w-[800px] h-[800px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+                   <div className="absolute bottom-[-50%] right-[-20%] w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+                   <div className="bg-slate-900/50 px-6 py-4 border-b border-indigo-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
+                      <ShieldCheck className="w-6 h-6 text-indigo-400" />
+                      <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Firewall Invisível</span>
+                   </div>
+                   
+                   <div className="p-8 md:p-16 relative z-10 text-center">
+                      <h3 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight leading-snug mb-8">
+                         O perímetro físico não existe mais.
+                      </h3>
+                      
+                      <p className="text-sm md:text-lg text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto font-light">
+                         O escritório agora é o laptop do usuário na mesa da cozinha ou no Wi-Fi de um aeroporto. O firewall não é mais uma caixa de metal piscando luzes no rack de um servidor resfriado. O castelo corporativo não tem mais muros.
+                      </p>
+                      
+                      <div className="bg-indigo-950/40 border border-indigo-500/30 p-6 md:p-8 rounded-2xl inline-block shadow-[0_0_30px_rgba(99,102,241,0.2)] backdrop-blur-sm">
+                         <p className="text-lg md:text-xl font-bold text-indigo-300 uppercase tracking-widest mb-4">
+                            Tentar confinar a segurança a uma porta física é uma falha de design em um mundo onde os dados estão em todo lugar.
+                         </p>
+                         <p className="text-white text-base md:text-xl font-medium mt-4 border-t border-indigo-900/50 pt-4">
+                            O firewall evaporou para a nuvem. Ele se tornou uma aura invisível, um serviço onipresente que envolve e protege a identidade do usuário e o tráfego dos dados. <br/><br/>
+                            <span className="text-cyan-400 font-black text-2xl md:text-3xl">Se a sua empresa está em todo lugar, o seu firewall também precisa estar.</span>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+
+              </div>
+
+              {/* MARCADOR DE FIM DE CAPÍTULO */}
+              <div className="w-full flex items-center justify-center gap-4 my-20 opacity-50">
+                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-700"></div>
+                 <Layers className="w-6 h-6 text-slate-600" />
+                 <span className="text-slate-500 font-mono text-xs uppercase tracking-widest">Ecossistema de Segurança</span>
+                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-700"></div>
+              </div>
               
 
 
