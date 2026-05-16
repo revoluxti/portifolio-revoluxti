@@ -2554,559 +2554,742 @@ const InfraDataCenter = () => {
                   5.8 - MODO DE OPERAÇÃO: WEB APPLICATION FIREWALL (WAF)
                   O Escudo Definitivo da Camada 7
               ====================================================================== */}
-              <div className="mb-16 mt-16">
-                
-                {/* CABEÇALHO DO MÓDULO WAF */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-rose-900/30 border border-rose-500/50 rounded-lg text-rose-400 shadow-[0_0_15px_rgba(225,29,72,0.2)]">
-                    <Globe className="w-6 h-6" />
-                  </div>
-                  <div>
-                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.8 - Web Application Firewall (WAF)</h4>
-                     <span className="text-[10px] font-mono text-rose-500 uppercase tracking-widest">O Escudo da Camada de Aplicação</span>
-                  </div>
-                </div>
+          <div className="mb-16 mt-16">
 
-                {/* 1. DEFINIÇÃO: O ESCUDO REVERSO */}
-                <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 border-l-4 border-l-rose-500 shadow-lg relative overflow-hidden group">
-                   <div className="absolute right-0 top-0 opacity-5 pointer-events-none transition-transform duration-1000 group-hover:scale-110">
-                      <Lock className="w-64 h-64 text-rose-500" />
-                   </div>
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
-                     O Web Application Firewall (WAF) é uma solução de segurança de precisão cirúrgica. É a linha de defesa especializada e definitiva para aplicações web e APIs, que opera exclusivamente na <strong>Camada 7 (Aplicação)</strong> no topo do modelo OSI. 
-                   </p>
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
-                     Diferente dos firewalls tradicionais que protegem a infraestrutura de rede como um todo, o WAF não se preocupa com o tráfego geral da corporação. Seu foco tem um único propósito dedicado: <strong>analisar, inspecionar e filtrar</strong> cada requisição e resposta HTTP/HTTPS, bloqueando o tráfego malicioso direcionado especificamente a servidores web e APIs.
-                   </p>
-                   <div className="bg-[#050101] border border-rose-900/50 p-4 rounded-lg mt-6 relative z-10">
-                      <p className="text-xs text-rose-300 font-mono text-justify">
-                         Enquanto firewalls de rede bloqueiam tráfego não autorizado, o WAF foca no tráfego que É autorizado (ex: porta 443). Ele atua como um escudo reverso (Reverse Proxy), lendo intimamente cada requisição (GET, POST, cabeçalhos, cookies e formulários) antes que toquem o código do seu sistema.
-                      </p>
-                   </div>
-                </div>
+            {/* CABEÇALHO DO MÓDULO WAF */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-rose-900/30 border border-rose-500/50 rounded-lg text-rose-400 shadow-[0_0_15px_rgba(225,29,72,0.2)]">
+                <Globe className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.8 - Web Application Firewall (WAF)</h4>
+                <span className="text-[10px] font-mono text-rose-500 uppercase tracking-widest">O Escudo da Camada de Aplicação</span>
+              </div>
+            </div>
 
-                {/* 2. O ARSENAL DE PROTEÇÃO (OWASP TOP 10) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Target className="w-5 h-5 text-rose-500" /> Arsenal de Proteção (Mitigação OWASP)
-                </h5>
-                <p className="text-xs text-slate-400 mb-6">O WAF é projetado para neutralizar ataques que exploram vulnerabilidades no código da aplicação. Ele é a principal linha de defesa contra as vulnerabilidades mais críticas listadas no infame <strong>OWASP Top 10</strong>:</p>
-                
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-                   {/* SQLi */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
-                      <Terminal className="w-6 h-6 text-rose-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">SQL Injection (SQLi)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Bloqueia tentativas de injetar comandos de banco de dados através de campos de login ou URLs, impedindo o roubo ou destruição massiva de dados.</p>
-                   </div>
-                   
-                   {/* XSS */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
-                      <AlertTriangle className="w-6 h-6 text-rose-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Cross-Site Scripting (XSS)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Impede que atacantes injetem scripts maliciosos (JavaScript) nas páginas web visualizadas por outros usuários, evitando o sequestro de sessões.</p>
-                   </div>
+            {/* 1. DEFINIÇÃO: O ESCUDO REVERSO */}
+            <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 border-l-4 border-l-rose-500 shadow-lg relative overflow-hidden group">
+              <div className="absolute right-0 top-0 opacity-5 pointer-events-none transition-transform duration-1000 group-hover:scale-110">
+                <Lock className="w-64 h-64 text-rose-500" />
+              </div>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                O Web Application Firewall (WAF) é uma solução de segurança de precisão cirúrgica. É a linha de defesa especializada e definitiva para aplicações web e APIs, que opera exclusivamente na <strong>Camada 7 (Aplicação)</strong> no topo do modelo OSI.
+              </p>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                Diferente dos firewalls tradicionais que protegem a infraestrutura de rede como um todo, o WAF não se preocupa com o tráfego geral da corporação. Seu foco tem um único propósito dedicado: <strong>analisar, inspecionar e filtrar</strong> cada requisição e resposta HTTP/HTTPS, bloqueando o tráfego malicioso direcionado especificamente a servidores web e APIs.
+              </p>
+              <div className="bg-[#050101] border border-rose-900/50 p-4 rounded-lg mt-6 relative z-10">
+                <p className="text-xs text-rose-300 font-mono text-justify">
+                  Enquanto firewalls de rede bloqueiam tráfego não autorizado, o WAF foca no tráfego que É autorizado (ex: porta 443). Ele atua como um escudo reverso (Reverse Proxy), lendo intimamente cada requisição (GET, POST, cabeçalhos, cookies e formulários) antes que toquem o código do seu sistema.
+                </p>
+              </div>
+            </div>
 
-                   {/* CSRF */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
-                      <ArrowRightLeft className="w-6 h-6 text-rose-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">CSRF (Forja de Requisição)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Evita que requisições falsas e ocultas obriguem um usuário autenticado a executar ações indesejadas no sistema sem o seu consentimento.</p>
-                   </div>
+            {/* 2. O ARSENAL DE PROTEÇÃO (OWASP TOP 10) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Target className="w-5 h-5 text-rose-500" /> Arsenal de Proteção (Mitigação OWASP)
+            </h5>
+            <p className="text-xs text-slate-400 mb-6">O WAF é projetado para neutralizar ataques que exploram vulnerabilidades no código da aplicação. Ele é a principal linha de defesa contra as vulnerabilidades mais críticas listadas no infame <strong>OWASP Top 10</strong>:</p>
 
-                   {/* LFI/RFI */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
-                      <Layers className="w-6 h-6 text-rose-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Inclusão de Arquivos (LFI/RFI)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Bloqueia a tentativa de forçar a aplicação a ler ou executar arquivos locais ou remotos não autorizados diretamente no servidor web.</p>
-                   </div>
-
-                   {/* L7 DDoS */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors lg:col-span-2">
-                      <Activity className="w-6 h-6 text-rose-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">DDoS de Camada 7</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Mitiga ataques de negação de serviço que não tentam saturar a banda, mas sim esgotar os recursos do servidor web (como enviar milhares de requisições pesadas de login ou busca simultaneamente no banco de dados).</p>
-                   </div>
-                </div>
-
-                {/* 3. INSIGHT ESTRATÉGICO: A SINERGIA NGFW VS WAF */}
-                <div className="bg-[#020617] border border-slate-800 rounded-xl overflow-hidden mb-12 shadow-2xl">
-                   <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                         <ShieldCheck className="w-4 h-4 text-cyan-500" />
-                         <span className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Insight Estratégico: A Simbiose (NGFW x WAF)</span>
-                      </div>
-                   </div>
-                   <div className="p-6 md:p-8">
-                      <p className="text-sm text-slate-300 mb-8 text-center max-w-3xl mx-auto">
-                         Um erro crasso de arquitetura é achar que um substitui o outro. Eles não competem; eles se complementam perfeitamente na <strong>Defesa em Profundidade</strong>. Possuem jurisdições operacionais totalmente diferentes.
-                      </p>
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                         {/* NGFW Panel */}
-                         <div className="bg-cyan-950/20 border border-cyan-900/50 p-6 rounded-xl relative overflow-hidden">
-                            <Network className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-cyan-500/10" />
-                            <strong className="text-cyan-400 block mb-2 font-bold uppercase tracking-widest text-sm">O NGFW protege o "Prédio"</strong>
-                            <span className="block h-px w-full bg-cyan-900/50 mb-4"></span>
-                            <p className="text-xs text-slate-300 leading-relaxed relative z-10">
-                               Segura a invasão lateral, as portas, as botnets, o tráfego não autorizado e protege os usuários internos da corporação. Ele blinda a infraestrutura física e virtual da rede global.
-                            </p>
-                         </div>
-
-                         {/* WAF Panel */}
-                         <div className="bg-rose-950/20 border border-rose-900/50 p-6 rounded-xl relative overflow-hidden">
-                            <Server className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-rose-500/10" />
-                            <strong className="text-rose-400 block mb-2 font-bold uppercase tracking-widest text-sm">O WAF protege o "Balcão"</strong>
-                            <span className="block h-px w-full bg-rose-900/50 mb-4"></span>
-                            <p className="text-xs text-slate-300 leading-relaxed relative z-10">
-                               Protege o portal de vendas, o sistema web e as APIs expostas para a internet pública. Ele lida com a lógica complexa do tráfego web que o NGFW não foi otimizado para desconstruir em larga escala.
-                            </p>
-                         </div>
-                      </div>
-                      
-                      <div className="mt-8 text-center">
-                         <span className="bg-slate-900 border border-slate-800 text-white font-bold py-2 px-6 rounded-full text-sm inline-block shadow-lg">
-                            Regra de Ouro: Se o NGFW protege a REDE, o WAF protege o SISTEMA.
-                         </span>
-                      </div>
-                   </div>
-                </div>
-
-                {/* 4. ECOSSISTEMA E MERCADO CLOUD-NATIVE */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ecossistema e Mercado (Cloud-Native)</h5>
-                <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
-                   <p className="text-xs text-slate-300 leading-relaxed mb-6 text-justify">
-                      A evolução do WAF foi brutal. Tradicionalmente instalados como appliances físicos no Data Center, hoje eles migraram massivamente para a Nuvem (SaaS) e computação de borda (Edge Computing). Integrados a Redes de Entrega de Conteúdo (CDNs), bloqueiam tráfego malicioso antes mesmo dele chegar aos servidores físicos da empresa.
-                   </p>
-                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
-                         <span className="text-orange-500 font-black uppercase text-sm block mb-1">Cloudflare</span>
-                         <span className="text-[10px] text-slate-500 font-mono">Domínio global em proteção CDN e mitigação rápida.</span>
-                      </div>
-                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
-                         <span className="text-blue-500 font-black uppercase text-sm block mb-1">Imperva / Akamai</span>
-                         <span className="text-[10px] text-slate-500 font-mono">Foco Enterprise e altíssima mitigação DDoS.</span>
-                      </div>
-                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
-                         <span className="text-amber-500 font-black uppercase text-sm block mb-1">AWS / Azure WAF</span>
-                         <span className="text-[10px] text-slate-500 font-mono">Defesa nativa diretamente nos ecossistemas de Cloud Pública.</span>
-                      </div>
-                      <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
-                         <span className="text-red-600 font-black uppercase text-sm block mb-1">F5 Networks</span>
-                         <span className="text-[10px] text-slate-500 font-mono">Plataforma ADSP avançada com automação do ciclo de vida.</span>
-                      </div>
-                   </div>
-                </div>
-
-                {/* 5. AS TRINCHEIRAS DA OPERAÇÃO (BLUE TEAM) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <ShieldAlert className="w-5 h-5 text-rose-500" /> As Trincheiras da Operação (Blue Team)
-                </h5>
-                <div className="space-y-4 mb-12">
-                   {/* Tuning e Falsos Positivos */}
-                   <div className="bg-[#050101] border-l-4 border-amber-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
-                      <Activity className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
-                      <div>
-                         <strong className="text-white text-sm uppercase block mb-1">O Inferno Operacional: Falsos Positivos e Tuning</strong>
-                         <p className="text-[11px] text-slate-400 leading-relaxed text-justify">A maior dificuldade de um WAF é o Ajuste Fino (Tuning). Regras muito agressivas bloquearão tráfego legítimo. Em um e-commerce, um falso positivo significa impedir um cliente real de passar o cartão de crédito (impacto financeiro direto). O desafio diário da equipe de segurança é garantir a integridade do código sem destruir a disponibilidade do serviço.</p>
-                      </div>
-                   </div>
-
-                   {/* Proteção WAAP (APIs) */}
-                   <div className="bg-[#050101] border-l-4 border-rose-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
-                      <Globe className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
-                      <div>
-                         <strong className="text-white text-sm uppercase block mb-1">O Novo Front: WAAP e Proteção de APIs</strong>
-                         <p className="text-[11px] text-slate-400 leading-relaxed text-justify">Aplicações modernas não são mais apenas páginas HTML; são emaranhados de APIs REST e GraphQL comunicando via JSON. Os WAFs evoluíram para <strong>WAAP (Web Application and API Protection)</strong>, capazes de entender nativamente a estrutura profunda desses arquivos para bloquear injeções invisíveis aos firewalls legados.</p>
-                      </div>
-                   </div>
-                </div>
-
-                {/* SÍNTESE FINAL DA CAMADA 7 */}
-                <div className="border border-rose-900/50 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(225,29,72,0.15)] mb-10">
-                   <div className="bg-slate-900 px-4 py-3 border-b border-rose-900/50 flex items-center gap-3">
-                      <Lock className="w-5 h-5 text-rose-500" />
-                      <span className="text-xs text-rose-400 font-mono uppercase tracking-widest">Virtual Patching & Resumo Definitivo</span>
-                   </div>
-                   <div className="p-6 md:p-8 bg-slate-950/80 backdrop-blur text-center">
-                      <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-4xl mx-auto">
-                         O WAF é a última linha de defesa entre o código possivelmente vulnerável e os atacantes da internet. Ele atua como um <strong>"Curativo Virtual" (Virtual Patching)</strong> de resposta ultrarrápida: se uma vulnerabilidade Zero-Day for descoberta no seu sistema, você cria uma regra no WAF para bloqueá-la em segundos, garantindo tempo valioso para a equipe de DevSecOps corrigir o código fonte.
-                      </p>
-                      <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
-                         O NGFW blinda o prédio corporativo.<br className="hidden md:block" />
-                         <span className="text-rose-500 block mt-2 text-2xl md:text-3xl">O WAF blinda o cofre onde a aplicação reside.</span>
-                      </h3>
-                   </div>
-                </div>
-
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+              {/* SQLi */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                <Terminal className="w-6 h-6 text-rose-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">SQL Injection (SQLi)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Bloqueia tentativas de injetar comandos de banco de dados através de campos de login ou URLs, impedindo o roubo ou destruição massiva de dados.</p>
               </div>
 
+              {/* XSS */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                <AlertTriangle className="w-6 h-6 text-rose-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Cross-Site Scripting (XSS)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Impede que atacantes injetem scripts maliciosos (JavaScript) nas páginas web visualizadas por outros usuários, evitando o sequestro de sessões.</p>
+              </div>
+
+              {/* CSRF */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                <ArrowRightLeft className="w-6 h-6 text-rose-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">CSRF (Forja de Requisição)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Evita que requisições falsas e ocultas obriguem um usuário autenticado a executar ações indesejadas no sistema sem o seu consentimento.</p>
+              </div>
+
+              {/* LFI/RFI */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors">
+                <Layers className="w-6 h-6 text-rose-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Inclusão de Arquivos (LFI/RFI)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Bloqueia a tentativa de forçar a aplicação a ler ou executar arquivos locais ou remotos não autorizados diretamente no servidor web.</p>
+              </div>
+
+              {/* L7 DDoS */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-rose-500/50 transition-colors lg:col-span-2">
+                <Activity className="w-6 h-6 text-rose-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">DDoS de Camada 7</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Mitiga ataques de negação de serviço que não tentam saturar a banda, mas sim esgotar os recursos do servidor web (como enviar milhares de requisições pesadas de login ou busca simultaneamente no banco de dados).</p>
+              </div>
+            </div>
+
+            {/* 3. INSIGHT ESTRATÉGICO: A SINERGIA NGFW VS WAF */}
+            <div className="bg-[#020617] border border-slate-800 rounded-xl overflow-hidden mb-12 shadow-2xl">
+              <div className="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-cyan-500" />
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Insight Estratégico: A Simbiose (NGFW x WAF)</span>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-sm text-slate-300 mb-8 text-center max-w-3xl mx-auto">
+                  Um erro crasso de arquitetura é achar que um substitui o outro. Eles não competem; eles se complementam perfeitamente na <strong>Defesa em Profundidade</strong>. Possuem jurisdições operacionais totalmente diferentes.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* NGFW Panel */}
+                  <div className="bg-cyan-950/20 border border-cyan-900/50 p-6 rounded-xl relative overflow-hidden">
+                    <Network className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-cyan-500/10" />
+                    <strong className="text-cyan-400 block mb-2 font-bold uppercase tracking-widest text-sm">O NGFW protege o "Prédio"</strong>
+                    <span className="block h-px w-full bg-cyan-900/50 mb-4"></span>
+                    <p className="text-xs text-slate-300 leading-relaxed relative z-10">
+                      Segura a invasão lateral, as portas, as botnets, o tráfego não autorizado e protege os usuários internos da corporação. Ele blinda a infraestrutura física e virtual da rede global.
+                    </p>
+                  </div>
+
+                  {/* WAF Panel */}
+                  <div className="bg-rose-950/20 border border-rose-900/50 p-6 rounded-xl relative overflow-hidden">
+                    <Server className="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-rose-500/10" />
+                    <strong className="text-rose-400 block mb-2 font-bold uppercase tracking-widest text-sm">O WAF protege o "Balcão"</strong>
+                    <span className="block h-px w-full bg-rose-900/50 mb-4"></span>
+                    <p className="text-xs text-slate-300 leading-relaxed relative z-10">
+                      Protege o portal de vendas, o sistema web e as APIs expostas para a internet pública. Ele lida com a lógica complexa do tráfego web que o NGFW não foi otimizado para desconstruir em larga escala.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 text-center">
+                  <span className="bg-slate-900 border border-slate-800 text-white font-bold py-2 px-6 rounded-full text-sm inline-block shadow-lg">
+                    Regra de Ouro: Se o NGFW protege a REDE, o WAF protege o SISTEMA.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. ECOSSISTEMA E MERCADO CLOUD-NATIVE */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ecossistema e Mercado (Cloud-Native)</h5>
+            <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
+              <p className="text-xs text-slate-300 leading-relaxed mb-6 text-justify">
+                A evolução do WAF foi brutal. Tradicionalmente instalados como appliances físicos no Data Center, hoje eles migraram massivamente para a Nuvem (SaaS) e computação de borda (Edge Computing). Integrados a Redes de Entrega de Conteúdo (CDNs), bloqueiam tráfego malicioso antes mesmo dele chegar aos servidores físicos da empresa.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                  <span className="text-orange-500 font-black uppercase text-sm block mb-1">Cloudflare</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Domínio global em proteção CDN e mitigação rápida.</span>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                  <span className="text-blue-500 font-black uppercase text-sm block mb-1">Imperva / Akamai</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Foco Enterprise e altíssima mitigação DDoS.</span>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                  <span className="text-amber-500 font-black uppercase text-sm block mb-1">AWS / Azure WAF</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Defesa nativa diretamente nos ecossistemas de Cloud Pública.</span>
+                </div>
+                <div className="bg-[#050101] border border-slate-800 p-4 rounded hover:border-rose-500/30 transition-colors">
+                  <span className="text-red-600 font-black uppercase text-sm block mb-1">F5 Networks</span>
+                  <span className="text-[10px] text-slate-500 font-mono">Plataforma ADSP avançada com automação do ciclo de vida.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 5. AS TRINCHEIRAS DA OPERAÇÃO (BLUE TEAM) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <ShieldAlert className="w-5 h-5 text-rose-500" /> As Trincheiras da Operação (Blue Team)
+            </h5>
+            <div className="space-y-4 mb-12">
+              {/* Tuning e Falsos Positivos */}
+              <div className="bg-[#050101] border-l-4 border-amber-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                <Activity className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
+                <div>
+                  <strong className="text-white text-sm uppercase block mb-1">O Inferno Operacional: Falsos Positivos e Tuning</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">A maior dificuldade de um WAF é o Ajuste Fino (Tuning). Regras muito agressivas bloquearão tráfego legítimo. Em um e-commerce, um falso positivo significa impedir um cliente real de passar o cartão de crédito (impacto financeiro direto). O desafio diário da equipe de segurança é garantir a integridade do código sem destruir a disponibilidade do serviço.</p>
+                </div>
+              </div>
+
+              {/* Proteção WAAP (APIs) */}
+              <div className="bg-[#050101] border-l-4 border-rose-500 p-5 rounded-r-xl shadow-lg flex items-start gap-4">
+                <Globe className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
+                <div>
+                  <strong className="text-white text-sm uppercase block mb-1">O Novo Front: WAAP e Proteção de APIs</strong>
+                  <p className="text-[11px] text-slate-400 leading-relaxed text-justify">Aplicações modernas não são mais apenas páginas HTML; são emaranhados de APIs REST e GraphQL comunicando via JSON. Os WAFs evoluíram para <strong>WAAP (Web Application and API Protection)</strong>, capazes de entender nativamente a estrutura profunda desses arquivos para bloquear injeções invisíveis aos firewalls legados.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* SÍNTESE FINAL DA CAMADA 7 */}
+            <div className="border border-rose-900/50 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(225,29,72,0.15)] mb-10">
+              <div className="bg-slate-900 px-4 py-3 border-b border-rose-900/50 flex items-center gap-3">
+                <Lock className="w-5 h-5 text-rose-500" />
+                <span className="text-xs text-rose-400 font-mono uppercase tracking-widest">Virtual Patching & Resumo Definitivo</span>
+              </div>
+              <div className="p-6 md:p-8 bg-slate-950/80 backdrop-blur text-center">
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-4xl mx-auto">
+                  O WAF é a última linha de defesa entre o código possivelmente vulnerável e os atacantes da internet. Ele atua como um <strong>"Curativo Virtual" (Virtual Patching)</strong> de resposta ultrarrápida: se uma vulnerabilidade Zero-Day for descoberta no seu sistema, você cria uma regra no WAF para bloqueá-la em segundos, garantindo tempo valioso para a equipe de DevSecOps corrigir o código fonte.
+                </p>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                  O NGFW blinda o prédio corporativo.<br className="hidden md:block" />
+                  <span className="text-rose-500 block mt-2 text-2xl md:text-3xl">O WAF blinda o cofre onde a aplicação reside.</span>
+                </h3>
+              </div>
+            </div>
+
+          </div>
 
 
 
-              {/* =====================================================================
+
+          {/* =====================================================================
                   5.9 - MODO DE OPERAÇÃO: FIREWALL BASEADO EM HOST
                   O Combate Corpo a Corpo (Zero Trust & Kernel Level)
               ====================================================================== */}
-              <div className="mb-16 mt-16">
-                
-                {/* CABEÇALHO DO MÓDULO HOST-BASED */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.15)] relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-slate-400/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                    <Server className="w-6 h-6 relative z-10" />
-                  </div>
-                  <div>
-                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.9 - Firewall Baseado em Host</h4>
-                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">A Última Trincheira do Endpoint</span>
-                  </div>
-                </div>
+          <div className="mb-16 mt-16">
 
-                {/* 1. DEFINIÇÃO: A DESCENTRALIZAÇÃO DA DEFESA (EFEITO ZERO TRUST) */}
-                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
-                   {/* Ilusão de Ótica: Grade de Fundo (Grid Pattern) e Glow */}
-                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.05] pointer-events-none"></div>
-                   <div className="absolute right-[-10%] top-[-10%] w-96 h-96 bg-slate-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-slate-600/20 transition-all duration-700"></div>
-                   
-                   <div className="flex items-center gap-3 mb-6 relative z-10">
-                      <Lock className="w-6 h-6 text-slate-400" />
-                      <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Descentralização e o Zero Trust</h5>
-                   </div>
+            {/* CABEÇALHO DO MÓDULO HOST-BASED */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.15)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-slate-400/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                <Server className="w-6 h-6 relative z-10" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.9 - Firewall Baseado em Host</h4>
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">A Última Trincheira do Endpoint</span>
+              </div>
+            </div>
 
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
-                     O Firewall Baseado em Host representa a camada mais íntima e definitiva de defesa cibernética. Diferente dos firewalls de hardware appliances físicos ou virtuais (como NGFWs ou Firewalls de Pacotes) que protegem a fronteira do perímetro da corporação, o Host-Based Firewall é um software de segurança que <strong>roda diretamente dentro do próprio sistema operacional (SO)</strong> da máquina, seja ela um servidor crítico no Data Center ou a estação de trabalho de um usuário.
-                   </p>
-                   <div className="bg-slate-900/80 border-l-4 border-slate-500 p-5 rounded-r mt-6 relative z-10 backdrop-blur-sm">
-                      <strong className="text-slate-200 uppercase tracking-widest text-xs block mb-2 font-mono">Premissa Operacional: Confiança Zero</strong>
-                      <p className="text-sm text-slate-400 text-justify">
-                         A premissa desta tecnologia é assustadora, porém realista: <strong>Zero Trust</strong>. Sua implementação parte do pressuposto de que a rede local (LAN) já foi comprometida. Ele cria um "micro-perímetro" impenetrável ao redor de cada ativo individual, filtrando o tráfego de rede exatamente onde ele nasce e morre: na placa de rede lógica e no Kernel do próprio dispositivo.
-                      </p>
-                   </div>
-                </div>
+            {/* 1. DEFINIÇÃO: A DESCENTRALIZAÇÃO DA DEFESA (EFEITO ZERO TRUST) */}
+            <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+              {/* Ilusão de Ótica: Grade de Fundo (Grid Pattern) e Glow */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.05] pointer-events-none"></div>
+              <div className="absolute right-[-10%] top-[-10%] w-96 h-96 bg-slate-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-slate-600/20 transition-all duration-700"></div>
 
-                {/* 2. FUNÇÃO CRÍTICA: PROTEÇÃO DE ENDPOINT E CONTENÇÃO */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Target className="w-5 h-5 text-emerald-500" /> A Função Crítica: Contenção de Ameaças Internas
-                </h5>
-                <p className="text-xs text-slate-400 mb-6 text-justify">
-                   A função primária deste firewall é proteger o endpoint de forma isolada contra ataques que <strong>já estão dentro de casa</strong>. Suas principais atribuições táticas incluem:
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                   {/* Card Movimento Lateral */}
-                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-emerald-900/50 transition-colors">
-                      <div className="absolute top-4 right-4"><ArrowRightLeft className="w-6 h-6 text-emerald-500/20" /></div>
-                      <strong className="text-emerald-400 text-xs uppercase tracking-wider block mb-3 border-b border-emerald-900/30 pb-2">Prevenção de Movimento Lateral</strong>
-                      <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
-                         Se um ransomware compromete a máquina de um colaborador (via Phishing), o passo natural do malware é escanear a rede e tentar "pular" para os servidores críticos (East-West Traffic). 
-                      </p>
-                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
-                         O Firewall de Host do servidor <strong>rejeitará sumariamente</strong> as conexões vindas daquela estação comprometida, isolando o ataque em um único nó, salvando a infraestrutura e impedindo a infecção em massa.
-                      </p>
-                   </div>
-
-                   {/* Card Micro-segmentação (PIDs) */}
-                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-cyan-900/50 transition-colors">
-                      <div className="absolute top-4 right-4"><Terminal className="w-6 h-6 text-cyan-500/20" /></div>
-                      <strong className="text-cyan-400 text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/30 pb-2">Controle no Nível de Processo</strong>
-                      <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
-                         Pelo fato de operar no nível do Kernel, ele possui um poder absoluto: associar tráfego de rede a <strong>Processos do SO (PIDs)</strong> ou executáveis específicos (Micro-segmentação).
-                      </p>
-                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
-                         Ele pode determinar regras cirúrgicas: "apenas o daemon do <em>Nginx</em> pode responder na porta 443" ou "se o <em>powershell.exe</em> tentar baixar algo da internet, bloqueie imediatamente".
-                      </p>
-                   </div>
-                </div>
-
-                {/* 3. ARSENAL DE SISTEMA OPERACIONAL (HARDENING) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Layers className="w-5 h-5 text-blue-500" /> O Arsenal de Sistema Operacional (Hardening)
-                </h5>
-                <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
-                   <p className="text-xs text-slate-400 mb-8 text-justify">
-                      Independentemente da infraestrutura ser Cloud ou On-Premise, a configuração destas ferramentas nativas é a fundação do <em>Hardening</em> de servidores:
-                   </p>
-                   
-                   <div className="grid md:grid-cols-2 gap-8 mb-8">
-                      {/* Windows Ecosystem */}
-                      <div className="border border-blue-900/30 bg-blue-950/10 rounded-lg p-6 relative group overflow-hidden">
-                         <div className="absolute -right-4 -bottom-4 bg-blue-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-blue-500/20 transition-colors"></div>
-                         <div className="flex items-center gap-3 mb-4 relative z-10">
-                            <ShieldCheck className="w-6 h-6 text-blue-500" />
-                            <strong className="text-blue-400 font-bold uppercase text-sm tracking-widest">Ecossistema Windows</strong>
-                         </div>
-                         <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
-                            <strong>Windows Defender Firewall com Segurança Avançada (WDFAS).</strong> Longe de ser apenas um recurso doméstico, em ambientes corporativos ele utiliza a Plataforma de Filtragem do Windows (WFP) para aplicar regras ultra-granulares via GPO. Baseia-se em caminhos de executáveis, perfis (Domínio/Privado) e usuários do Active Directory.
-                         </p>
-                      </div>
-
-                      {/* Linux Ecosystem */}
-                      <div className="border border-orange-900/30 bg-orange-950/10 rounded-lg p-6 relative group overflow-hidden">
-                         <div className="absolute -right-4 -bottom-4 bg-orange-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-orange-500/20 transition-colors"></div>
-                         <div className="flex items-center gap-3 mb-4 relative z-10">
-                            <Terminal className="w-6 h-6 text-orange-500" />
-                            <strong className="text-orange-400 font-bold uppercase text-sm tracking-widest">Ecossistema Linux</strong>
-                         </div>
-                         <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
-                            O robusto subsistema <em>netfilter</em>, tradicionalmente gerenciado pelo lendário <strong>iptables</strong> ou seu sucessor <strong>nftables</strong>. Em arquiteturas Cloud Native (Kubernetes), tecnologias revolucionárias de kernel como o <strong>eBPF</strong> assumem o controle absoluto do tráfego, permitindo filtragem em altíssima velocidade diretamente no núcleo do SO.
-                         </p>
-                      </div>
-                   </div>
-
-                   {/* ARTEFATO VISUAL: SIMULADOR DE TERMINAL LINUX */}
-                   <div className="bg-[#050101] rounded-lg border border-slate-800 font-mono text-[10px] md:text-xs overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                      {/* Top Bar Terminal */}
-                      <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-slate-500">
-                         <div className="flex gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
-                            <div className="w-3 h-3 rounded-full bg-amber-500/80 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
-                            <div className="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
-                         </div>
-                         <span className="uppercase tracking-widest text-[9px] flex items-center gap-2">
-                            <Lock className="w-3 h-3" /> root@db-production-01:~#
-                         </span>
-                      </div>
-                      {/* Corpo do Terminal (Comandos) */}
-                      <div className="p-5 space-y-3">
-                         <div className="text-slate-400">
-                            <span className="text-slate-600 block mb-1"># 1. Isolar servidor: Negar tráfego interno que não seja o IP do AppServer</span>
-                            <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-s 10.0.0.0/8 ! -s 10.0.1.50</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
-                         </div>
-                         <div className="text-slate-400">
-                            <span className="text-slate-600 block mb-1 mt-2"># 2. Bloquear movimento lateral via SMB (Ransomware spread protection)</span>
-                            <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-p tcp --dport 445</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
-                         </div>
-                         <div className="text-slate-400">
-                            <span className="text-slate-600 block mb-1 mt-2"># 3. Confirmando o Hardening do Kernel (Status)</span>
-                            <span className="text-white bg-slate-800 px-1 rounded">Chain INPUT (policy DROP)</span>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-
-                {/* 4. INSIGHT DIRETO E LETAL: A ÚLTIMA TRINCHEIRA */}
-                <div className="bg-[#050101] border border-red-900/50 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(220,38,38,0.15)] relative group">
-                   
-                   {/* Efeitos de Alerta e Sirene (Visuais) */}
-                   <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
-                   <div className="absolute inset-0 bg-red-950/10 pointer-events-none"></div>
-                   <Skull className="absolute -left-10 -bottom-10 w-48 h-48 text-red-900/10 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
-
-                   <div className="bg-slate-900/80 px-6 py-4 border-b border-red-900/30 flex items-center gap-3 backdrop-blur-sm relative z-10">
-                      <ShieldAlert className="w-6 h-6 text-red-500 animate-pulse" />
-                      <span className="text-sm text-red-400 font-black uppercase tracking-widest">Insight Estratégico: A Última Trincheira</span>
-                   </div>
-                   
-                   <div className="p-8 md:p-10 relative z-10 text-center">
-                      <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto">
-                         O perímetro corporativo moderno é fluido e permeável. VPNs comprometidas, credenciais vazadas, dispositivos não gerenciados (BYOD) e vulnerabilidades de Zero-Day provam diariamente que a <strong>rede LAN interna não é mais um porto seguro.</strong>
-                      </p>
-                      
-                      <div className="bg-red-950/30 border border-red-900/50 p-6 rounded-xl inline-block shadow-inner">
-                         <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
-                            Se o invasor contornou o NGFW, evadiu o WAF e passou livre pela rede... <br className="hidden md:block mt-2" />
-                            <span className="text-red-500 block mt-4 text-3xl md:text-4xl underline decoration-red-900 underline-offset-8">AQUI É O ÚLTIMO MURO.</span>
-                         </h3>
-                      </div>
-                      
-                      <p className="text-xs text-red-400/80 font-mono mt-8 uppercase tracking-widest">
-                         Falhar na configuração nesta camada significa entregar as chaves de administrador (root/system) e os dados sensíveis nas mãos do atacante. Ele é a barreira final entre a empresa e o abismo.
-                      </p>
-                   </div>
-                </div>
-
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <Lock className="w-6 h-6 text-slate-400" />
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Descentralização e o Zero Trust</h5>
               </div>
 
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                O Firewall Baseado em Host representa a camada mais íntima e definitiva de defesa cibernética. Diferente dos firewalls de hardware appliances físicos ou virtuais (como NGFWs ou Firewalls de Pacotes) que protegem a fronteira do perímetro da corporação, o Host-Based Firewall é um software de segurança que <strong>roda diretamente dentro do próprio sistema operacional (SO)</strong> da máquina, seja ela um servidor crítico no Data Center ou a estação de trabalho de um usuário.
+              </p>
+              <div className="bg-slate-900/80 border-l-4 border-slate-500 p-5 rounded-r mt-6 relative z-10 backdrop-blur-sm">
+                <strong className="text-slate-200 uppercase tracking-widest text-xs block mb-2 font-mono">Premissa Operacional: Confiança Zero</strong>
+                <p className="text-sm text-slate-400 text-justify">
+                  A premissa desta tecnologia é assustadora, porém realista: <strong>Zero Trust</strong>. Sua implementação parte do pressuposto de que a rede local (LAN) já foi comprometida. Ele cria um "micro-perímetro" impenetrável ao redor de cada ativo individual, filtrando o tráfego de rede exatamente onde ele nasce e morre: na placa de rede lógica e no Kernel do próprio dispositivo.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. FUNÇÃO CRÍTICA: PROTEÇÃO DE ENDPOINT E CONTENÇÃO */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Target className="w-5 h-5 text-emerald-500" /> A Função Crítica: Contenção de Ameaças Internas
+            </h5>
+            <p className="text-xs text-slate-400 mb-6 text-justify">
+              A função primária deste firewall é proteger o endpoint de forma isolada contra ataques que <strong>já estão dentro de casa</strong>. Suas principais atribuições táticas incluem:
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {/* Card Movimento Lateral */}
+              <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-emerald-900/50 transition-colors">
+                <div className="absolute top-4 right-4"><ArrowRightLeft className="w-6 h-6 text-emerald-500/20" /></div>
+                <strong className="text-emerald-400 text-xs uppercase tracking-wider block mb-3 border-b border-emerald-900/30 pb-2">Prevenção de Movimento Lateral</strong>
+                <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
+                  Se um ransomware compromete a máquina de um colaborador (via Phishing), o passo natural do malware é escanear a rede e tentar "pular" para os servidores críticos (East-West Traffic).
+                </p>
+                <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
+                  O Firewall de Host do servidor <strong>rejeitará sumariamente</strong> as conexões vindas daquela estação comprometida, isolando o ataque em um único nó, salvando a infraestrutura e impedindo a infecção em massa.
+                </p>
+              </div>
+
+              {/* Card Micro-segmentação (PIDs) */}
+              <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl relative overflow-hidden shadow-lg hover:border-cyan-900/50 transition-colors">
+                <div className="absolute top-4 right-4"><Terminal className="w-6 h-6 text-cyan-500/20" /></div>
+                <strong className="text-cyan-400 text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/30 pb-2">Controle no Nível de Processo</strong>
+                <p className="text-[11px] text-slate-300 text-justify leading-relaxed">
+                  Pelo fato de operar no nível do Kernel, ele possui um poder absoluto: associar tráfego de rede a <strong>Processos do SO (PIDs)</strong> ou executáveis específicos (Micro-segmentação).
+                </p>
+                <p className="text-[11px] text-slate-400 text-justify leading-relaxed mt-2">
+                  Ele pode determinar regras cirúrgicas: "apenas o daemon do <em>Nginx</em> pode responder na porta 443" ou "se o <em>powershell.exe</em> tentar baixar algo da internet, bloqueie imediatamente".
+                </p>
+              </div>
+            </div>
+
+            {/* 3. ARSENAL DE SISTEMA OPERACIONAL (HARDENING) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Layers className="w-5 h-5 text-blue-500" /> O Arsenal de Sistema Operacional (Hardening)
+            </h5>
+            <div className="bg-slate-900/30 border border-slate-800 p-6 rounded-xl mb-12">
+              <p className="text-xs text-slate-400 mb-8 text-justify">
+                Independentemente da infraestrutura ser Cloud ou On-Premise, a configuração destas ferramentas nativas é a fundação do <em>Hardening</em> de servidores:
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {/* Windows Ecosystem */}
+                <div className="border border-blue-900/30 bg-blue-950/10 rounded-lg p-6 relative group overflow-hidden">
+                  <div className="absolute -right-4 -bottom-4 bg-blue-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-blue-500/20 transition-colors"></div>
+                  <div className="flex items-center gap-3 mb-4 relative z-10">
+                    <ShieldCheck className="w-6 h-6 text-blue-500" />
+                    <strong className="text-blue-400 font-bold uppercase text-sm tracking-widest">Ecossistema Windows</strong>
+                  </div>
+                  <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
+                    <strong>Windows Defender Firewall com Segurança Avançada (WDFAS).</strong> Longe de ser apenas um recurso doméstico, em ambientes corporativos ele utiliza a Plataforma de Filtragem do Windows (WFP) para aplicar regras ultra-granulares via GPO. Baseia-se em caminhos de executáveis, perfis (Domínio/Privado) e usuários do Active Directory.
+                  </p>
+                </div>
+
+                {/* Linux Ecosystem */}
+                <div className="border border-orange-900/30 bg-orange-950/10 rounded-lg p-6 relative group overflow-hidden">
+                  <div className="absolute -right-4 -bottom-4 bg-orange-500/10 w-24 h-24 rounded-full blur-xl group-hover:bg-orange-500/20 transition-colors"></div>
+                  <div className="flex items-center gap-3 mb-4 relative z-10">
+                    <Terminal className="w-6 h-6 text-orange-500" />
+                    <strong className="text-orange-400 font-bold uppercase text-sm tracking-widest">Ecossistema Linux</strong>
+                  </div>
+                  <p className="text-xs text-slate-300 text-justify relative z-10 leading-relaxed">
+                    O robusto subsistema <em>netfilter</em>, tradicionalmente gerenciado pelo lendário <strong>iptables</strong> ou seu sucessor <strong>nftables</strong>. Em arquiteturas Cloud Native (Kubernetes), tecnologias revolucionárias de kernel como o <strong>eBPF</strong> assumem o controle absoluto do tráfego, permitindo filtragem em altíssima velocidade diretamente no núcleo do SO.
+                  </p>
+                </div>
+              </div>
+
+              {/* ARTEFATO VISUAL: SIMULADOR DE TERMINAL LINUX */}
+              <div className="bg-[#050101] rounded-lg border border-slate-800 font-mono text-[10px] md:text-xs overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                {/* Top Bar Terminal */}
+                <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-slate-500">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+                    <div className="w-3 h-3 rounded-full bg-amber-500/80 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
+                    <div className="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
+                  </div>
+                  <span className="uppercase tracking-widest text-[9px] flex items-center gap-2">
+                    <Lock className="w-3 h-3" /> root@db-production-01:~#
+                  </span>
+                </div>
+                {/* Corpo do Terminal (Comandos) */}
+                <div className="p-5 space-y-3">
+                  <div className="text-slate-400">
+                    <span className="text-slate-600 block mb-1"># 1. Isolar servidor: Negar tráfego interno que não seja o IP do AppServer</span>
+                    <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-s 10.0.0.0/8 ! -s 10.0.1.50</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
+                  </div>
+                  <div className="text-slate-400">
+                    <span className="text-slate-600 block mb-1 mt-2"># 2. Bloquear movimento lateral via SMB (Ransomware spread protection)</span>
+                    <span className="text-emerald-400 font-bold">iptables</span> <span className="text-blue-300">-A INPUT</span> <span className="text-amber-300">-p tcp --dport 445</span> <span className="text-blue-300">-j</span> <span className="text-red-500 font-bold bg-red-500/10 px-1 rounded">DROP</span>
+                  </div>
+                  <div className="text-slate-400">
+                    <span className="text-slate-600 block mb-1 mt-2"># 3. Confirmando o Hardening do Kernel (Status)</span>
+                    <span className="text-white bg-slate-800 px-1 rounded">Chain INPUT (policy DROP)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. INSIGHT DIRETO E LETAL: A ÚLTIMA TRINCHEIRA */}
+            <div className="bg-[#050101] border border-red-900/50 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(220,38,38,0.15)] relative group">
+
+              {/* Efeitos de Alerta e Sirene (Visuais) */}
+              <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
+              <div className="absolute inset-0 bg-red-950/10 pointer-events-none"></div>
+              <Skull className="absolute -left-10 -bottom-10 w-48 h-48 text-red-900/10 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
+
+              <div className="bg-slate-900/80 px-6 py-4 border-b border-red-900/30 flex items-center gap-3 backdrop-blur-sm relative z-10">
+                <ShieldAlert className="w-6 h-6 text-red-500 animate-pulse" />
+                <span className="text-sm text-red-400 font-black uppercase tracking-widest">Insight Estratégico: A Última Trincheira</span>
+              </div>
+
+              <div className="p-8 md:p-10 relative z-10 text-center">
+                <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto">
+                  O perímetro corporativo moderno é fluido e permeável. VPNs comprometidas, credenciais vazadas, dispositivos não gerenciados (BYOD) e vulnerabilidades de Zero-Day provam diariamente que a <strong>rede LAN interna não é mais um porto seguro.</strong>
+                </p>
+
+                <div className="bg-red-950/30 border border-red-900/50 p-6 rounded-xl inline-block shadow-inner">
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                    Se o invasor contornou o NGFW, evadiu o WAF e passou livre pela rede... <br className="hidden md:block mt-2" />
+                    <span className="text-red-500 block mt-4 text-3xl md:text-4xl underline decoration-red-900 underline-offset-8">AQUI É O ÚLTIMO MURO.</span>
+                  </h3>
+                </div>
+
+                <p className="text-xs text-red-400/80 font-mono mt-8 uppercase tracking-widest">
+                  Falhar na configuração nesta camada significa entregar as chaves de administrador (root/system) e os dados sensíveis nas mãos do atacante. Ele é a barreira final entre a empresa e o abismo.
+                </p>
+              </div>
+            </div>
+
+          </div>
 
 
 
 
-              {/* =====================================================================
+
+          {/* =====================================================================
                   5.10 - MODO DE OPERAÇÃO: FIREWALL DE CLOUD (FWaaS)
                   A Ascensão ao SASE e o Perímetro Invisível
               ====================================================================== */}
-              <div className="mb-16 mt-16">
-                
-                {/* CABEÇALHO DO MÓDULO FWAAS */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-indigo-900/40 border border-indigo-500/50 rounded-lg text-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.25)] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-indigo-400/20 animate-pulse"></div>
-                    <Globe className="w-6 h-6 relative z-10" />
+          <div className="mb-16 mt-16">
+
+            {/* CABEÇALHO DO MÓDULO FWAAS */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-indigo-900/40 border border-indigo-500/50 rounded-lg text-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.25)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-indigo-400/20 animate-pulse"></div>
+                <Globe className="w-6 h-6 relative z-10" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.10 - Firewall de Cloud (FWaaS)</h4>
+                <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">Firewall as a Service & SASE Edge</span>
+              </div>
+            </div>
+
+            {/* 1. DEFINIÇÃO: A PULVERIZAÇÃO DO PERÍMETRO FÍSICO */}
+            <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+              {/* Efeito de Nuvem / Nebulosa de Dados */}
+              <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-1000"></div>
+              <div className="absolute bottom-[-20%] right-[-10%] w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-1000"></div>
+
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <Network className="w-6 h-6 text-indigo-400" />
+                <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Pulverização do Perímetro Físico</h5>
+              </div>
+
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                Historicamente, o modelo de segurança da informação foi construído baseado no "Castelo e Fosso" (<em>Castle and Moat</em> — o Data Center físico protegido por um gigantesco appliance de firewall na porta de entrada). Hoje, com usuários em trabalho remoto global, dispositivos móveis e dados espalhados por dezenas de aplicativos SaaS (Office 365, Salesforce) e infraestruturas em nuvem, essa arquitetura centralizada ruiu.
+              </p>
+
+              <div className="bg-indigo-950/30 border-l-4 border-indigo-500 p-5 rounded-r my-6 relative z-10 backdrop-blur-md">
+                <p className="text-sm text-slate-300 text-justify leading-relaxed">
+                  O <strong>Firewall as a Service (FWaaS)</strong> é a resposta a essa revolução. Ele é um firewall de próxima geração (NGFW) entregue inteiramente como um serviço na nuvem (SaaS). Ele pega todo o poder do NGFW e o arranca do hardware, entregando-o de forma nativa em nuvem, global e descentralizada.
+                </p>
+              </div>
+
+              <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base relative z-10">
+                Em vez de forçar todo o tráfego de filiais e usuários remotos a "voltar" para a matriz física apenas para ser inspecionado (um gargalo terrível conhecido como <em>tromboning</em> ou <em>backhauling</em>), o FWaaS move o motor de inspeção para a nuvem. Ele leva a segurança diretamente para onde o usuário está, abstraindo o hardware e eliminando a necessidade de manter equipamentos físicos (appliances) no rack do Data Center.
+              </p>
+            </div>
+
+            {/* 2. CARACTERÍSTICAS TÉCNICAS (GRID) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Layers className="w-5 h-5 text-cyan-500" /> Características: Escalabilidade e Distribuição
+            </h5>
+            <p className="text-xs text-slate-400 mb-6">O FWaaS não é apenas "um firewall hospedado na internet". É uma arquitetura de microsserviços desenhada para a era moderna que oblitera as limitações físicas operando sob três pilares:</p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {/* Elasticity */}
+              <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-indigo-500/50 transition-colors shadow-lg">
+                <Zap className="w-8 h-8 text-indigo-500 mb-4" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-indigo-900/50 pb-2">Escalabilidade Elástica (Infinite Scale)</strong>
+                <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                  Appliances possuem limites de CPU e memória. Se houver um pico na Black Friday ou um ataque DDoS massivo, a "caixa" trava. O FWaaS escala seu poder de processamento computacionalmente na nuvem, absorvendo terabits de tráfego instantaneamente.
+                </p>
+              </div>
+
+              {/* Edge Computing */}
+              <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition-colors shadow-lg">
+                <Radio className="w-8 h-8 text-cyan-500 mb-4" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/50 pb-2">Arquitetura Distribuída (Edge)</strong>
+                <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                  Não roda em um único servidor, mas em dezenas de Pontos de Presença (PoPs) globais. Se um executivo viaja para o Japão, o tráfego é inspecionado pelo nó do FWaaS em Tóquio, garantindo baixíssima latência e otimizando a performance.
+                </p>
+              </div>
+
+              {/* Cloud-Native */}
+              <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-purple-500/50 transition-colors shadow-lg">
+                <Activity className="w-8 h-8 text-purple-500 mb-4" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-purple-900/50 pb-2">Integração Nativa (Cloud-Native)</strong>
+                <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                  Conecta-se a orquestradores em nuvem através de APIs, protegendo o tráfego leste-oeste e norte-sul de forma invisível. Aplica políticas de segurança em tempo real conforme novas instâncias AWS, Azure ou GCP nascem ou morrem.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. CASOS DE USO: SECURITY FABRIC (ARTEFATO VISUAL) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ambientes Híbridos e Multi-Cloud</h5>
+            <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative">
+              <p className="text-sm text-slate-300 leading-relaxed text-justify mb-8">
+                A maior dor de cabeça de um Blue Team é gerenciar políticas fragmentadas (Data Center legado em Osasco, AWS, Azure e GCP simultaneamente). O FWaaS resolve esse caos atuando como um <strong>tecido unificador (Security Fabric)</strong>, garantindo que não existam pontos cegos.
+              </p>
+
+              {/* Diagrama Interativo do Security Fabric */}
+              <div className="bg-[#020617] rounded-xl border border-slate-800 p-6 md:p-10 relative overflow-hidden flex flex-col items-center">
+                {/* Central FWaaS Node */}
+                <div className="bg-indigo-950/40 border-2 border-indigo-500 p-6 rounded-2xl z-20 shadow-[0_0_30px_rgba(99,102,241,0.3)] backdrop-blur-md mb-8 flex flex-col items-center">
+                  <ShieldCheck className="w-8 h-8 text-indigo-400 mb-2" />
+                  <span className="text-white font-black uppercase tracking-widest text-sm text-center">FWaaS / SASE Core</span>
+                  <span className="text-[10px] text-indigo-300 font-mono text-center">Single Pane of Glass<br />Unified Security Policy</span>
+                </div>
+
+                {/* Connection Lines (Simulated with CSS) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 border-t-2 border-l-2 border-r-2 border-dashed border-slate-600/50 rounded-t-3xl z-10 mt-4"></div>
+
+                {/* Cloud Nodes */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full z-20 relative">
+                  {/* AWS */}
+                  <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                    <Server className="w-6 h-6 text-orange-500 mb-2" />
+                    <span className="text-white font-bold text-xs uppercase">AWS Cluster</span>
+                    <span className="text-[9px] text-slate-500 font-mono">Virginia, USA</span>
+                  </div>
+                  {/* Azure */}
+                  <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                    <Layers className="w-6 h-6 text-blue-500 mb-2" />
+                    <span className="text-white font-bold text-xs uppercase">Azure DB</span>
+                    <span className="text-[9px] text-slate-500 font-mono">São Paulo, BR</span>
+                  </div>
+                  {/* On-Prem */}
+                  <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                    <Terminal className="w-6 h-6 text-emerald-500 mb-2" />
+                    <span className="text-white font-bold text-xs uppercase">On-Premise</span>
+                    <span className="text-[9px] text-slate-500 font-mono">DC Osasco</span>
+                  </div>
+                  {/* Remote User */}
+                  <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
+                    <Wifi className="w-6 h-6 text-purple-500 mb-2" />
+                    <span className="text-white font-bold text-xs uppercase">Remote User</span>
+                    <span className="text-[9px] text-slate-500 font-mono">Airport Wi-Fi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. EVOLUÇÃO E SASE */}
+            <div className="bg-cyan-950/20 border-l-4 border-cyan-500 p-6 rounded-r-xl mb-12 flex flex-col md:flex-row gap-6 items-center">
+              <div className="flex-1">
+                <strong className="text-cyan-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                  <Target className="w-4 h-4" /> 4. A Evolução: O Coração do SASE
+                </strong>
+                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-3">
+                  No nível de arquitetura avançada, o FWaaS é um dos componentes centrais de um framework maior chamado <strong>SASE (Secure Access Service Edge)</strong>. Ele trabalha em conjunto com soluções de Zero Trust Network Access (ZTNA) e Cloud Access Security Brokers (CASB) para entregar segurança completa como serviço.
+                </p>
+                <p className="text-[11px] text-slate-400 font-mono">
+                  ▶ Grandes players de mercado: Zscaler, Palo Alto Prisma Access e Cloudflare Magic Transit.
+                </p>
+              </div>
+            </div>
+
+            {/* 5. INSIGHT ESTRATÉGICO: O FIREWALL INVISÍVEL (GRAND FINALE) */}
+            <div className="bg-[#020617] border border-indigo-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] relative group mt-16 mb-8">
+
+              {/* Efeitos Nebulares e Cósmicos (O Firewall Invisível) */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/40 via-[#020617] to-[#020617] pointer-events-none"></div>
+              <div className="absolute top-[-50%] left-[-20%] w-[800px] h-[800px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+              <div className="absolute bottom-[-50%] right-[-20%] w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+              <div className="bg-slate-900/50 px-6 py-4 border-b border-indigo-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
+                <ShieldCheck className="w-6 h-6 text-indigo-400" />
+                <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Firewall Invisível</span>
+              </div>
+
+              <div className="p-8 md:p-16 relative z-10 text-center">
+                <h3 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight leading-snug mb-8">
+                  O perímetro físico não existe mais.
+                </h3>
+
+                <p className="text-sm md:text-lg text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto font-light">
+                  O escritório agora é o laptop do usuário na mesa da cozinha ou no Wi-Fi de um aeroporto. O firewall não é mais uma caixa de metal piscando luzes no rack de um servidor resfriado. O castelo corporativo não tem mais muros.
+                </p>
+
+                <div className="bg-indigo-950/40 border border-indigo-500/30 p-6 md:p-8 rounded-2xl inline-block shadow-[0_0_30px_rgba(99,102,241,0.2)] backdrop-blur-sm">
+                  <p className="text-lg md:text-xl font-bold text-indigo-300 uppercase tracking-widest mb-4">
+                    Tentar confinar a segurança a uma porta física é uma falha de design em um mundo onde os dados estão em todo lugar.
+                  </p>
+                  <p className="text-white text-base md:text-xl font-medium mt-4 border-t border-indigo-900/50 pt-4">
+                    O firewall evaporou para a nuvem. Ele se tornou uma aura invisível, um serviço onipresente que envolve e protege a identidade do usuário e o tráfego dos dados. <br /><br />
+                    <span className="text-cyan-400 font-black text-2xl md:text-3xl">Se a sua empresa está em todo lugar, o seu firewall também precisa estar.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          
+
+
+
+          {/* =====================================================================
+                  5.11 - MODO DE OPERAÇÃO: FIREWALL DE SEGMENTAÇÃO INTERNA
+                  Microsegmentação & Zero Trust (Tráfego Leste-Oeste)
+              ====================================================================== */}
+          <div className="mb-16 mt-16">
+
+            {/* CABEÇALHO DO MÓDULO MICROSEGMENTAÇÃO */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-teal-900/40 border border-teal-500/50 rounded-lg text-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.25)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#14b8a6_1px,transparent_1px),linear-gradient(to_bottom,#14b8a6_1px,transparent_1px)] bg-[size:4px_4px] opacity-20"></div>
+                <Lock className="w-6 h-6 relative z-10" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.11 - Firewall de Segmentação Interna</h4>
+                <span className="text-[10px] font-mono text-teal-400 uppercase tracking-widest">Microsegmentação (ISFW) & Contenção Leste-Oeste</span>
+              </div>
+            </div>
+
+            {/* 1. DEFINIÇÃO: O FIM DA REDE PLANA (M&M ANALOGY) */}
+            <div className="bg-[#020617] border border-slate-800 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+              {/* Grid Background Effect */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:30px_30px] opacity-50"></div>
+
+              <div className="p-6 md:p-8 relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <Network className="w-6 h-6 text-teal-500" />
+                  <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. O Fim da "Rede Plana" (Flat Network)</h5>
+                </div>
+
+                <p className="text-slate-300 leading-relaxed text-justify mb-6 text-sm md:text-base">
+                  Tradicionalmente, as redes corporativas operavam sob o <strong>modelo de M&M: "casca dura e miolo mole"</strong>. Uma vez que um usuário (ou um atacante) ultrapassava o firewall de borda "casca dura" (NGFW), ele encontrava uma rede plana e vasta "interior macio", onde servidores, estações de trabalho e impressoras podiam se comunicar livremente. A premissa era: <em>"se você está conectado no cabo de rede do escritório, você é confiável"</em>.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="bg-rose-950/20 border border-rose-900/50 p-5 rounded-xl">
+                    <strong className="text-rose-400 text-xs uppercase tracking-widest block mb-2">A Falha Letal</strong>
+                    <p className="text-xs text-slate-400 text-justify leading-relaxed">
+                      O Firewall de Segmentação Interna (ISFW) nasce para destruir essa realidade e confiança cega. É uma evolução arquitetônica desenhada para resolver a falha mais letal das redes clássicas: a "rede plana", onde todo o tráfego interno é implicitamente considerado seguro.
+                    </p>
+                  </div>
+                  <div className="bg-teal-950/20 border border-teal-900/50 p-5 rounded-xl">
+                    <strong className="text-teal-400 text-xs uppercase tracking-widest block mb-2">A Nova Jurisdição (Leste-Oeste)</strong>
+                    <p className="text-xs text-slate-400 text-justify leading-relaxed">
+                      Enquanto os firewalls de perímetro (NGFW, WAF) vigiam a porta da rua (Tráfego Norte-Sul), a microsegmentação foca exclusivamente em proteger o que acontece dentro de casa (Tráfego Leste-Oeste). Ela isola cargas de trabalho (workloads) e ativos críticos em milhares de compartimentos estanques.
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-slate-300 leading-relaxed text-justify text-sm">
+                  É uma arquitetura de segurança (frequentemente implementada via software ou SDN - Software-Defined Networking) que leva a inspeção e o bloqueio para as entranhas do Data Center ou do cluster em nuvem.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. A MECÂNICA DA CONTENÇÃO (ZONAS ISOLADAS) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Target className="w-5 h-5 text-emerald-500" /> 2. A Mecânica da Contenção (Zonas Isoladas)
+            </h5>
+            <p className="text-xs text-slate-400 mb-6 text-justify">
+              A microsegmentação não depende de separar redes fisicamente com cabos ou de usar VLANs tradicionais e engessadas. Ela funciona através de políticas definidas por software (SDN) que criam barreiras lógicas ao redor de cargas de trabalho individuais (hipervisores, VMs ou contêineres).
+            </p>
+
+            <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl mb-12 shadow-lg">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="mb-6">
+                    <strong className="text-emerald-400 text-sm uppercase tracking-wider block mb-2">Divisão Cirúrgica</strong>
+                    <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                      A rede é fatiada em zonas minúsculas. O servidor do banco de dados financeiro não fica apenas "na mesma rede" que os servidores web; ele fica em um cofre isolado. Se um servidor for comprometido, ele não consegue "enxergar" nem se comunicar com a máquina que está literalmente no mesmo rack físico que ele, isolando a ameaça imediatamente, como as comportas de emergência de um submarino.
+                    </p>
                   </div>
                   <div>
-                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.10 - Firewall de Cloud (FWaaS)</h4>
-                     <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">Firewall as a Service & SASE Edge</span>
+                    <strong className="text-cyan-400 text-sm uppercase tracking-wider block mb-2">Controle Leste-Oeste (Simulação)</strong>
+                    <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
+                      A microsegmentação inspeciona rigorosamente o tráfego lateral. Se o servidor Web A tentar falar com o Banco de Dados B sem uma regra explícita, a comunicação é fulminada. Exemplo prático:
+                    </p>
                   </div>
                 </div>
 
-                {/* 1. DEFINIÇÃO: A PULVERIZAÇÃO DO PERÍMETRO FÍSICO */}
-                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
-                   {/* Efeito de Nuvem / Nebulosa de Dados */}
-                   <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-1000"></div>
-                   <div className="absolute bottom-[-20%] right-[-10%] w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-1000"></div>
-                   
-                   <div className="flex items-center gap-3 mb-6 relative z-10">
-                      <Network className="w-6 h-6 text-indigo-400" />
-                      <h5 className="text-lg font-bold text-white uppercase tracking-wide">1. A Pulverização do Perímetro Físico</h5>
-                   </div>
-
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
-                     Historicamente, o modelo de segurança da informação foi construído baseado no "Castelo e Fosso" (<em>Castle and Moat</em> — o Data Center físico protegido por um gigantesco appliance de firewall na porta de entrada). Hoje, com usuários em trabalho remoto global, dispositivos móveis e dados espalhados por dezenas de aplicativos SaaS (Office 365, Salesforce) e infraestruturas em nuvem, essa arquitetura centralizada ruiu.
-                   </p>
-                   
-                   <div className="bg-indigo-950/30 border-l-4 border-indigo-500 p-5 rounded-r my-6 relative z-10 backdrop-blur-md">
-                      <p className="text-sm text-slate-300 text-justify leading-relaxed">
-                         O <strong>Firewall as a Service (FWaaS)</strong> é a resposta a essa revolução. Ele é um firewall de próxima geração (NGFW) entregue inteiramente como um serviço na nuvem (SaaS). Ele pega todo o poder do NGFW e o arranca do hardware, entregando-o de forma nativa em nuvem, global e descentralizada.
-                      </p>
-                   </div>
-
-                   <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base relative z-10">
-                     Em vez de forçar todo o tráfego de filiais e usuários remotos a "voltar" para a matriz física apenas para ser inspecionado (um gargalo terrível conhecido como <em>tromboning</em> ou <em>backhauling</em>), o FWaaS move o motor de inspeção para a nuvem. Ele leva a segurança diretamente para onde o usuário está, abstraindo o hardware e eliminando a necessidade de manter equipamentos físicos (appliances) no rack do Data Center.
-                   </p>
-                </div>
-
-                {/* 2. CARACTERÍSTICAS TÉCNICAS (GRID) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Layers className="w-5 h-5 text-cyan-500" /> Características: Escalabilidade e Distribuição
-                </h5>
-                <p className="text-xs text-slate-400 mb-6">O FWaaS não é apenas "um firewall hospedado na internet". É uma arquitetura de microsserviços desenhada para a era moderna que oblitera as limitações físicas operando sob três pilares:</p>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
-                   {/* Elasticity */}
-                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-indigo-500/50 transition-colors shadow-lg">
-                      <Zap className="w-8 h-8 text-indigo-500 mb-4" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-indigo-900/50 pb-2">Escalabilidade Elástica (Infinite Scale)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
-                         Appliances possuem limites de CPU e memória. Se houver um pico na Black Friday ou um ataque DDoS massivo, a "caixa" trava. O FWaaS escala seu poder de processamento computacionalmente na nuvem, absorvendo terabits de tráfego instantaneamente.
-                      </p>
-                   </div>
-
-                   {/* Edge Computing */}
-                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition-colors shadow-lg">
-                      <Radio className="w-8 h-8 text-cyan-500 mb-4" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/50 pb-2">Arquitetura Distribuída (Edge)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
-                         Não roda em um único servidor, mas em dezenas de Pontos de Presença (PoPs) globais. Se um executivo viaja para o Japão, o tráfego é inspecionado pelo nó do FWaaS em Tóquio, garantindo baixíssima latência e otimizando a performance.
-                      </p>
-                   </div>
-
-                   {/* Cloud-Native */}
-                   <div className="bg-[#050101] border border-slate-800 p-6 rounded-xl hover:border-purple-500/50 transition-colors shadow-lg">
-                      <Activity className="w-8 h-8 text-purple-500 mb-4" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-3 border-b border-purple-900/50 pb-2">Integração Nativa (Cloud-Native)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify leading-relaxed">
-                         Conecta-se a orquestradores em nuvem através de APIs, protegendo o tráfego leste-oeste e norte-sul de forma invisível. Aplica políticas de segurança em tempo real conforme novas instâncias AWS, Azure ou GCP nascem ou morrem.
-                      </p>
-                   </div>
-                </div>
-
-                {/* 3. CASOS DE USO: SECURITY FABRIC (ARTEFATO VISUAL) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Ambientes Híbridos e Multi-Cloud</h5>
-                <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative">
-                   <p className="text-sm text-slate-300 leading-relaxed text-justify mb-8">
-                      A maior dor de cabeça de um Blue Team é gerenciar políticas fragmentadas (Data Center legado em Osasco, AWS, Azure e GCP simultaneamente). O FWaaS resolve esse caos atuando como um <strong>tecido unificador (Security Fabric)</strong>, garantindo que não existam pontos cegos.
-                   </p>
-
-                   {/* Diagrama Interativo do Security Fabric */}
-                   <div className="bg-[#020617] rounded-xl border border-slate-800 p-6 md:p-10 relative overflow-hidden flex flex-col items-center">
-                      {/* Central FWaaS Node */}
-                      <div className="bg-indigo-950/40 border-2 border-indigo-500 p-6 rounded-2xl z-20 shadow-[0_0_30px_rgba(99,102,241,0.3)] backdrop-blur-md mb-8 flex flex-col items-center">
-                         <ShieldCheck className="w-8 h-8 text-indigo-400 mb-2" />
-                         <span className="text-white font-black uppercase tracking-widest text-sm text-center">FWaaS / SASE Core</span>
-                         <span className="text-[10px] text-indigo-300 font-mono text-center">Single Pane of Glass<br/>Unified Security Policy</span>
+                {/* Diagrama Visual: Controle de Comunicação */}
+                <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl font-mono text-[10px]">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-center">
+                      <Server className="w-8 h-8 text-blue-500 mx-auto mb-1" />
+                      <span className="text-slate-300">Web Server A</span>
+                    </div>
+                    <div className="flex-1 flex flex-col items-center px-4 space-y-2">
+                      {/* Allowed Flow */}
+                      <div className="w-full relative flex items-center justify-center">
+                        <div className="absolute w-full h-px bg-emerald-500/50 border-dashed border-t border-emerald-500"></div>
+                        <span className="bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800 relative z-10 text-[8px] uppercase">Permitido (Porta 3306)</span>
                       </div>
-
-                      {/* Connection Lines (Simulated with CSS) */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 border-t-2 border-l-2 border-r-2 border-dashed border-slate-600/50 rounded-t-3xl z-10 mt-4"></div>
-
-                      {/* Cloud Nodes */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full z-20 relative">
-                         {/* AWS */}
-                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
-                            <Server className="w-6 h-6 text-orange-500 mb-2" />
-                            <span className="text-white font-bold text-xs uppercase">AWS Cluster</span>
-                            <span className="text-[9px] text-slate-500 font-mono">Virginia, USA</span>
-                         </div>
-                         {/* Azure */}
-                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
-                            <Layers className="w-6 h-6 text-blue-500 mb-2" />
-                            <span className="text-white font-bold text-xs uppercase">Azure DB</span>
-                            <span className="text-[9px] text-slate-500 font-mono">São Paulo, BR</span>
-                         </div>
-                         {/* On-Prem */}
-                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
-                            <Terminal className="w-6 h-6 text-emerald-500 mb-2" />
-                            <span className="text-white font-bold text-xs uppercase">On-Premise</span>
-                            <span className="text-[9px] text-slate-500 font-mono">DC Osasco</span>
-                         </div>
-                         {/* Remote User */}
-                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl flex flex-col items-center shadow-lg">
-                            <Wifi className="w-6 h-6 text-purple-500 mb-2" />
-                            <span className="text-white font-bold text-xs uppercase">Remote User</span>
-                            <span className="text-[9px] text-slate-500 font-mono">Airport Wi-Fi</span>
-                         </div>
+                      {/* Blocked Flow */}
+                      <div className="w-full relative flex items-center justify-center">
+                        <div className="absolute w-full h-px bg-rose-500/50 border-dashed border-t border-rose-500"></div>
+                        <span className="bg-rose-950 text-rose-400 px-2 py-0.5 rounded border border-rose-800 relative z-10 text-[8px] uppercase flex items-center gap-1">
+                          <AlertTriangle className="w-2 h-2" /> Bloqueado (Porta 22 - SSH)
+                        </span>
                       </div>
-                   </div>
+                    </div>
+                    <div className="text-center">
+                      <Layers className="w-8 h-8 text-amber-500 mx-auto mb-1" />
+                      <span className="text-slate-300">Database B</span>
+                    </div>
+                  </div>
+                  <div className="bg-slate-950 p-2 rounded text-slate-500 text-center text-[9px]">
+                    "O firewall dita que o Servidor A só fala com o DB B na porta 3306, e absolutamente nada mais. Se tentar SSH, bloqueia e alerta o Blue Team."
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                {/* 4. EVOLUÇÃO E SASE */}
-                <div className="bg-cyan-950/20 border-l-4 border-cyan-500 p-6 rounded-r-xl mb-12 flex flex-col md:flex-row gap-6 items-center">
-                   <div className="flex-1">
-                      <strong className="text-cyan-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
-                         <Target className="w-4 h-4" /> 4. A Evolução: O Coração do SASE
-                      </strong>
-                      <p className="text-xs text-slate-300 leading-relaxed text-justify mb-3">
-                         No nível de arquitetura avançada, o FWaaS é um dos componentes centrais de um framework maior chamado <strong>SASE (Secure Access Service Edge)</strong>. Ele trabalha em conjunto com soluções de Zero Trust Network Access (ZTNA) e Cloud Access Security Brokers (CASB) para entregar segurança completa como serviço.
-                      </p>
-                      <p className="text-[11px] text-slate-400 font-mono">
-                         ▶ Grandes players de mercado: Zscaler, Palo Alto Prisma Access e Cloudflare Magic Transit.
-                      </p>
-                   </div>
-                </div>
+            {/* 3. SIMBIOSE ZERO TRUST */}
+            <div className="bg-cyan-950/10 border-l-4 border-cyan-500 p-6 rounded-r-xl mb-12 relative overflow-hidden">
+              <div className="absolute right-0 top-0 opacity-5 pointer-events-none">
+                <ShieldCheck className="w-48 h-48 text-cyan-500" />
+              </div>
+              <div className="relative z-10">
+                <strong className="text-cyan-400 font-bold uppercase tracking-widest text-sm flex items-center gap-2 mb-4">
+                  <Lock className="w-5 h-5" /> 3. A Simbiose com a Arquitetura Zero Trust
+                </strong>
+                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-4">
+                  A Microsegmentação é a <strong>materialização técnica do conceito de Zero Trust</strong> dentro do Data Center. Na doutrina Zero Trust, o simples fato de um IP pertencer à rede interna corporativa não lhe concede nenhuma credibilidade. O sistema exige autenticação e validação contínua.
+                </p>
+                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-4">
+                  Ao microsegmentar, garante-se o princípio de <strong>"Menor Privilégio" (Least Privilege)</strong>. Mesmo que dois servidores estejam no mesmo rack físico e na mesma VLAN, eles não podem se comunicar a menos que uma política explícita permita. O padrão absoluto passa a ser o <strong>Default Deny (Bloquear Tudo)</strong>: se duas máquinas não precisam estritamente se comunicar para a aplicação funcionar, o firewall corta a rota.
+                </p>
+              </div>
+            </div>
 
-                {/* 5. INSIGHT ESTRATÉGICO: O FIREWALL INVISÍVEL (GRAND FINALE) */}
-                <div className="bg-[#020617] border border-indigo-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] relative group mt-16 mb-8">
-                   
-                   {/* Efeitos Nebulares e Cósmicos (O Firewall Invisível) */}
-                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/40 via-[#020617] to-[#020617] pointer-events-none"></div>
-                   <div className="absolute top-[-50%] left-[-20%] w-[800px] h-[800px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
-                   <div className="absolute bottom-[-50%] right-[-20%] w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }}></div>
+            {/* 4. INSIGHT ESTRATÉGICO: O INIMIGO ÍNTIMO (GRAND FINALE DA SEÇÃO) */}
+            <div className="bg-[#020617] border border-rose-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(225,29,72,0.15)] relative group">
 
-                   <div className="bg-slate-900/50 px-6 py-4 border-b border-indigo-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
-                      <ShieldCheck className="w-6 h-6 text-indigo-400" />
-                      <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Firewall Invisível</span>
-                   </div>
-                   
-                   <div className="p-8 md:p-16 relative z-10 text-center">
-                      <h3 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight leading-snug mb-8">
-                         O perímetro físico não existe mais.
-                      </h3>
-                      
-                      <p className="text-sm md:text-lg text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto font-light">
-                         O escritório agora é o laptop do usuário na mesa da cozinha ou no Wi-Fi de um aeroporto. O firewall não é mais uma caixa de metal piscando luzes no rack de um servidor resfriado. O castelo corporativo não tem mais muros.
-                      </p>
-                      
-                      <div className="bg-indigo-950/40 border border-indigo-500/30 p-6 md:p-8 rounded-2xl inline-block shadow-[0_0_30px_rgba(99,102,241,0.2)] backdrop-blur-sm">
-                         <p className="text-lg md:text-xl font-bold text-indigo-300 uppercase tracking-widest mb-4">
-                            Tentar confinar a segurança a uma porta física é uma falha de design em um mundo onde os dados estão em todo lugar.
-                         </p>
-                         <p className="text-white text-base md:text-xl font-medium mt-4 border-t border-indigo-900/50 pt-4">
-                            O firewall evaporou para a nuvem. Ele se tornou uma aura invisível, um serviço onipresente que envolve e protege a identidade do usuário e o tráfego dos dados. <br/><br/>
-                            <span className="text-cyan-400 font-black text-2xl md:text-3xl">Se a sua empresa está em todo lugar, o seu firewall também precisa estar.</span>
-                         </p>
-                      </div>
-                   </div>
-                </div>
+              {/* Efeito Alarme e Submarino */}
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(225,29,72,0.03)_10px,rgba(225,29,72,0.03)_20px)]"></div>
+              <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-rose-500 to-transparent opacity-70"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-rose-500 to-transparent opacity-70"></div>
 
+              <div className="bg-slate-900/80 px-6 py-4 border-b border-rose-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
+                <Skull className="w-6 h-6 text-rose-500" />
+                <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Inimigo Íntimo</span>
               </div>
 
-              {/* MARCADOR DE FIM DE CAPÍTULO */}
-              <div className="w-full flex items-center justify-center gap-4 my-20 opacity-50">
-                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-700"></div>
-                 <Layers className="w-6 h-6 text-slate-600" />
-                 <span className="text-slate-500 font-mono text-xs uppercase tracking-widest">Ecossistema de Segurança</span>
-                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-700"></div>
+              <div className="p-8 md:p-12 relative z-10 text-center">
+                <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-4xl mx-auto">
+                  A mudança de paradigma na cibersegurança moderna revela uma verdade desconfortável: As maiores violações de dados não ocorrem porque um hacker quebrou a criptografia do seu firewall de borda. Elas ocorrem porque <strong>um colaborador clicou em um e-mail de Phishing</strong>, e o atacante obteve acesso irrestrito à rede interna.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-rose-950/30 border border-rose-900/50 p-4 rounded-lg">
+                    <span className="text-rose-500 block mb-2"><Wifi className="w-6 h-6 mx-auto" /></span>
+                    <strong className="text-white text-[10px] uppercase tracking-widest">Ponto Fraco</strong>
+                    <p className="text-[10px] text-slate-400 mt-1">O hacker invade o laptop do estagiário ou a impressora da copa.</p>
+                  </div>
+                  <div className="bg-rose-950/30 border border-rose-900/50 p-4 rounded-lg">
+                    <span className="text-rose-500 block mb-2"><ArrowRightLeft className="w-6 h-6 mx-auto" /></span>
+                    <strong className="text-white text-[10px] uppercase tracking-widest">Movimento Lateral</strong>
+                    <p className="text-[10px] text-slate-400 mt-1">Ele "pula" de máquina em máquina buscando acesso privilegiado.</p>
+                  </div>
+                  <div className="bg-teal-950/30 border border-teal-900/50 p-4 rounded-lg">
+                    <span className="text-teal-500 block mb-2"><ShieldCheck className="w-6 h-6 mx-auto" /></span>
+                    <strong className="text-white text-[10px] uppercase tracking-widest">A Contenção</strong>
+                    <p className="text-[10px] text-slate-400 mt-1">A microsegmentação trava a porta. O atacante fica isolado e inútil.</p>
+                  </div>
+                </div>
+
+                <div className="bg-[#050101] border-l-4 border-rose-500 p-6 rounded inline-block shadow-inner max-w-3xl">
+                  <h3 className="text-lg md:text-xl font-bold text-rose-400 uppercase tracking-tight leading-snug mb-3">
+                    O ataque moderno não vem "de fora". Depois do comprometimento inicial, o ataque já está lá dentro.
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-400 text-justify font-mono">
+                    A microsegmentação atua como as portas blindadas de um submarino: mesmo que o casco seja perfurado em um setor, o isolamento imediato das outras zonas garante que o invasor fique confinado, impedindo o naufrágio de toda a corporação.
+                  </p>
+                </div>
               </div>
-              
+            </div>
+
+          </div>
+
+          {/* MARCADOR DE FIM DE CAPÍTULO */}
+          <div className="w-full flex items-center justify-center gap-4 my-20 opacity-50">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-700"></div>
+            <Layers className="w-6 h-6 text-slate-600" />
+            <span className="text-slate-500 font-mono text-xs uppercase tracking-widest">Ecossistema de Segurança</span>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-700"></div>
+          </div>
+
 
 
 
