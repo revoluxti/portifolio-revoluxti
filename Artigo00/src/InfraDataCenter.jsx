@@ -549,8 +549,7 @@ const InfraDataCenter = () => {
                     </div>
 
                     <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base font-sans mb-8">
-                      Os dados brutos são transformados em um <em>payload JSON</em> e segmentados em pacotes. Descendo para a camada de transporte, recebem cabeçalhos que garantem a entrega ordenada e portas de origem/destino. Em seguida, são encapsulados em <strong>quadros Ethernet</strong> e enviados ao switch local. Aqui, o encaminhamento é baseado no <strong>MAC Address</strong> (<em>Media Access Control</em>). O switch garante que o tráfego da rede interna da loja seja organizado antes de atingir o <em>gateway</em> de saída.
-                    </p>
+                      Os dados brutos (ID do produto, valor, timestamp quantidade e metadados da transação) são encapsulados em quadros Ethernet adicionado headers de controle de fluxo e portas de origem/destino desce para a camada de transporte e são enviados ao switch local, em seguida são transformados em um payload JSON e segmentados em pacotes TCP, recebendo cabeçalhos que garantem a entrega ordenada. Aqui, o encaminhamento é baseado no MAC Address (Media Access Control). O switch garante que o tráfego da rede interna da loja seja organizado antes de atingir o gateway de saída.                     </p>
 
                     {/* TCP e IP */}
                     <div className="grid md:grid-cols-2 gap-6">
@@ -606,8 +605,7 @@ const InfraDataCenter = () => {
             <div className="bg-slate-950/80 p-8 rounded-b-3xl border border-slate-900 backdrop-blur-sm -mt-6">
 
               <p className="text-slate-300 mb-10 text-justify leading-relaxed">
-                Antes de atingir a rede externa, o sistema gera uma requisição de rede, onde o pacote navega pela LAN local (<em>Local Network Address Transition</em>), atravessando o hardware interno. O pacote atinge o <strong>Switch L2</strong> da loja, operando na Camada 2 do modelo OSI (Enlace).
-              </p>
+              Antes de atingir a rede externa, o sistema gera uma requisição de rede, onde o pacote navega pela LAN local (Local Network Address Transition). Ao ingressar na rede local (LAN), atravessando o fluxo de hardware interno, os dados encontram um elemento decisivo: o switch. O pacote atinge o Switch L2 da loja, operando predominantemente na Camada 2 do modelo OSI (Enlace de Dados). Esse equipamento é responsável por otimizar o tráfego interno por meio de decisões baseadas em endereços físicos. O (MAC — Media Access Control).              </p>
 
               {/* --- 3.1 SWITCH & TABLA CAM --- */}
               <div className="mb-16">
@@ -656,7 +654,7 @@ const InfraDataCenter = () => {
                   </div>
                 </div>
                 <p className="text-slate-300 leading-relaxed text-justify text-sm md:text-base font-sans mb-8">
-                  Diferentemente dos <em>hubs</em> — dispositivos legados que simplesmente replicavam o tráfego para todas as portas — o switch introduz inteligência na comutação, reduzindo colisões e elevando a eficiência da rede. Esse comportamento é fundamentado em padrões definidos pelo IEEE, especialmente no contexto das redes Ethernet (IEEE 802.3). O funcionamento do switch baseia-se em um mecanismo dinâmico conhecido como aprendizado de endereços MAC. Ao receber um quadro Ethernet, o switch executa um processo de três etapas:
+                  Diferentemente dos <em>hubs</em> — dispositivos legados que simplesmente replicavam o tráfego para todas as portas — o switch introduz inteligência na comutação, reduzindo colisões e elevando a eficiência da rede. Esse comportamento é fundamentado em padrões definidos pelo IEEE, especialmente no contexto das redes Ethernet (IEEE 802.3). 
                 </p>
               </div>
 
@@ -864,7 +862,7 @@ const InfraDataCenter = () => {
 
                 <p className="text-slate-300 mb-8 text-justify leading-relaxed">
                   O roteador da loja atua como a <strong>fronteira definitiva</strong> entre o domínio privado e a rede pública. Neste ponto crítico, ocorre o processo de <strong>NAT (Network Address Translation)</strong>, transformando o pacote local em um pacote globalmente roteável. <br />
-                  O endereço IP privado do terminal de vendas (caixa da loja) é traduzido para IP público fornecido pelo provedor de internet (ISP), permitindo a comunicação bidirecional com a internet, e que faz que o pacote seja roteável pela internet global.
+                  O endereço IP privado  invisivel na internet do terminal de vendas (caixa da loja) é traduzido para IP público fornecido pelo provedor de internet (ISP), permitindo a comunicação bidirecional com a internet, e que faz que o pacote seja roteável pela internet global.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -974,8 +972,7 @@ const InfraDataCenter = () => {
             <div className="bg-slate-950/80 p-8 rounded-b-3xl border border-slate-900 backdrop-blur-sm -mt-6">
 
               <p className="text-slate-300 mb-10 text-justify leading-relaxed text-lg">
-                Ao sair da LAN local, o pacote de dados abandona o domínio privado e ingressa na colossal infraestrutura do <strong>ISP (Internet Service Provider)</strong>. Neste estágio, o transporte não é mais linear; ele é regido por decisões autônomas tomadas em frações de milissegundo por roteadores de altíssima performance.
-              </p>
+              O pacote de dados após sair dos perimetros internos entra na infraestrutura do Provedor de Internet (ISP) viaja na rede que se conecta fisicamente fazendo pontos de troca de tráfego (IXPs – Internet Exchange Points), de forma eficiente através de links por diversos roteadores de backbone, utilizando-se de cabos submarinos ou terrestres, e fibras ópticas de alta velocidade, onde cada roteador no caminho decide o próximo destino com base na tabela de roteamento, buscando a melhor latência sendo reencaminhado em milissegundos até os servidores de destino.              </p>
 
               {/* --- 4.1 BGP E ROTEAMENTO INTERDOMÍNIO --- */}
               <div className="mb-16">
@@ -1505,7 +1502,7 @@ const InfraDataCenter = () => {
                   <div>
                     <strong className="text-white block mb-1 uppercase tracking-wider text-sm">Objetivo Principal</strong>
                     <p className="text-xs text-slate-400 text-justify leading-relaxed">
-                      Criar uma barreira de proteção (entrada e saída) contra ameaças externas e implementar políticas de segurança rígidas, incluindo controle de acesso e monitoramento.
+                      Criar uma barreira de proteção (entrada e saída) contra ameaças externas e implementar políticas de segurança rígidas, incluindo controle de acesso, prevenção de intrusões e monitoramento de tráfego, como hackers, malware, phishing etc. Acessos não autorizados e ataques de negação de serviço (DDoS).
                     </p>
                   </div>
                 </div>
@@ -1514,7 +1511,7 @@ const InfraDataCenter = () => {
                   <div>
                     <strong className="text-white block mb-1 uppercase tracking-wider text-sm">Defesa em Camadas</strong>
                     <p className="text-xs text-slate-400 text-justify leading-relaxed">
-                      Trabalha em conjunto com outras medidas para garantir uma postura robusta, mantendo a confidencialidade, integridade e disponibilidade (Tríade CIA) dos recursos.
+                    Firewalls são essenciais para a defesa em camadas em ambientes de rede, trabalha em conjunto com outras medidas para garantir uma postura robusta contra ameaças cibernéticas promovendo um ambiente seguro para comunicação e transmissão de informações. Existem diversos tipos de firewalls. Ele atua como uma primeira linha de defesa, ajuda a controlar o tráfego de dados e monitorar atividades suspeitas sendo assim a evitar a propagação de malware, e garantir a conformidade com políticas de segurança, desempenham um papel crítico na manutenção da confidencialidade, integridade e disponibilidade (Tríade CIA) dos recursos.
                     </p>
                   </div>
                 </div>
@@ -1539,7 +1536,7 @@ const InfraDataCenter = () => {
               <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <p className="text-sm text-slate-300 leading-relaxed text-justify">
-                    Suponha que um firewall está configurado para bloquear o tráfego de entrada não solicitado. Se um atacante tentar acessar uma rede interna através de uma porta não autorizada, o firewall identificará esse tráfego como não permitido e bloqueará a tentativa de conexão imediatamente, protegendo a rede contra a invasão.
+                    Suponha que um firewall está configurado para bloquear o tráfego de entrada não solicitado. Se um atacante tentar acessar uma rede interna através de uma porta não autorizada, o firewall identificará esse tráfego como não permitido e bloqueará a tentativa de conexão imediatamente, protegendo assim a rede contra invasões não autorizadas.
                   </p>
                 </div>
                 <div className="shrink-0 bg-slate-900/50 p-4 rounded-lg border border-slate-800 font-mono text-[10px] md:text-xs">
@@ -1581,7 +1578,7 @@ const InfraDataCenter = () => {
                   </div>
                   <div className="p-4 bg-[#050101] flex-1">
                     <span className="text-cyan-500 font-bold text-[10px] uppercase tracking-widest block mb-2">Solução Operacional</span>
-                    <p className="text-xs text-slate-300 leading-relaxed">Ajustar os algoritmos de detecção, refinando assinaturas e regras de exceção, reduzindo a taxa de atrito sem comprometer a segurança do perímetro.</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">Ajustar os algoritmos de detecção para reduzir a taxa de falsos positivos, refinando assinaturas e regras de exceção, reduzindo a taxa de atrito sem comprometer a segurança do perímetro, garantindo que mensagens legítimas não sejam erroneamente identificadas como ameaças.</p>
                   </div>
                 </div>
 
@@ -1589,11 +1586,11 @@ const InfraDataCenter = () => {
                 <div className="bg-slate-900/30 border border-slate-800 rounded-xl overflow-hidden flex flex-col">
                   <div className="bg-red-950/30 p-4 border-b border-slate-800">
                     <strong className="text-red-500 block uppercase text-xs tracking-wider mb-1">Falsos Negativos (Risco Crítico)</strong>
-                    <p className="text-[11px] text-slate-400 leading-relaxed">Mensagens e tráfegos maliciosos passam despercebidos pela barreira.</p>
+                    <p className="text-[11px] text-slate-400 leading-relaxed">Mensagens e tráfegos maliciosos passam despercebidos pela barreira do firewall.</p>
                   </div>
                   <div className="p-4 bg-[#050101] flex-1">
                     <span className="text-cyan-500 font-bold text-[10px] uppercase tracking-widest block mb-2">Solução Operacional</span>
-                    <p className="text-xs text-slate-300 leading-relaxed">Aprimorar os mecanismos de detecção com tecnologias Next-Gen, incorporando análise semântica, heurística avançada e algoritmos de aprendizado de máquina (Machine Learning).</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">Aprimorar os mecanismos de detecção com tecnologias Next-Gen, incorporando análise semântica, heurística avançada e algoritmos de aprendizado de máquina (Machine Learning). para melhorar a precisão na identificação de ameaças. </p>
                   </div>
                 </div>
               </div>
@@ -1615,7 +1612,7 @@ const InfraDataCenter = () => {
             </div>
 
             <p className="text-slate-300 leading-relaxed text-justify mb-8">
-              O Firewall de Pacotes é o componente fundamental de segurança que opera na <strong>Camada de Rede (Camada 3 do modelo OSI)</strong>. Ele atua como um inspetor de trânsito ultrarrápido: examina pacotes de dados individualmente e toma decisões de filtragem (permitir ou bloquear) com base exclusivamente nas informações contidas nos <strong>cabeçalhos</strong>.
+              O Firewall de Pacotes é o componente fundamental de segurança que opera na <strong> no nível da camada de rede (Camada 3 do modelo OSI)</strong>. Ele atua como um inspetor de trânsito ultrarrápido: examina pacotes de dados individualmente que transitam pela rede , decidindo se deve permitir ou bloquear com base nas regras estabelecidas e tomando essas decisões de filtragem com base exclusivamente nas informações contidas nos <strong>cabeçalhos</strong> dos pacotes, como endereços IP de origem e destino, portas e protocolos.
             </p>
 
             {/* Inspeção de Cabeçalho (Visual) */}
@@ -3099,7 +3096,7 @@ const InfraDataCenter = () => {
 
           </div>
 
-          
+
 
 
 
@@ -3287,209 +3284,209 @@ const InfraDataCenter = () => {
                   5.12 - MODO DE OPERAÇÃO: FIREWALL INDUSTRIAL (OT/ICS)
                   Convergência IT/OT e Segurança Cinética
               ====================================================================== */}
-              <div className="mb-16 mt-16">
-                
-                {/* CABEÇALHO DO MÓDULO INDUSTRIAL */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-amber-900/40 border border-amber-500/50 rounded-lg text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.25)] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_5px,rgba(245,158,11,0.2)_5px,rgba(245,158,11,0.2)_10px)]"></div>
-                    <Activity className="w-6 h-6 relative z-10" />
+          <div className="mb-16 mt-16">
+
+            {/* CABEÇALHO DO MÓDULO INDUSTRIAL */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-amber-900/40 border border-amber-500/50 rounded-lg text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.25)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_5px,rgba(245,158,11,0.2)_5px,rgba(245,158,11,0.2)_10px)]"></div>
+                <Activity className="w-6 h-6 relative z-10" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.12 - Firewall Industrial (OT/ICS)</h4>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">A Fronteira Físico-Cibernética</span>
+              </div>
+            </div>
+
+            {/* 1. O DESAFIO DA TRÍADE CIA INVERTIDA */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <ShieldCheck className="w-6 h-6 text-blue-500" />
+                  <strong className="text-white uppercase tracking-widest text-sm">Segurança Corporativa (TI)</strong>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed text-justify mb-4">
+                  No mundo da segurança tradicional, o objetivo supremo é proteger dados (bancos de dados, e-mails, sistemas web).
+                </p>
+                <div className="bg-[#050101] p-3 rounded border border-slate-800">
+                  <strong className="text-blue-400 text-[10px] uppercase block mb-1">Tríade Padrão (CIA)</strong>
+                  <ol className="text-[10px] text-slate-500 font-mono">
+                    <li>1. <span className="text-white font-bold">C</span>onfidencialidade (Prioridade Absoluta)</li>
+                    <li>2. <span className="text-slate-300">I</span>ntegridade</li>
+                    <li>3. <span className="text-slate-400">A</span>vailability (Disponibilidade)</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div className="bg-amber-950/20 border-2 border-amber-900/50 p-6 rounded-xl flex flex-col justify-center relative overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.1)]">
+                <div className="absolute top-0 right-0 p-4 opacity-10"><AlertTriangle className="w-24 h-24 text-amber-500" /></div>
+                <div className="flex items-center gap-3 mb-4 relative z-10">
+                  <AlertTriangle className="w-6 h-6 text-amber-500" />
+                  <strong className="text-white uppercase tracking-widest text-sm">Ambiente Industrial (OT/ICS)</strong>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-4 relative z-10">
+                  No chão de fábrica e na engenharia pesada, o paradigma muda: o objetivo é proteger <strong>a física e a vida humana</strong>. Se um sistema OT sofre atrasos, o resultado é uma explosão ou um apagão.
+                </p>
+                <div className="bg-[#050101] p-3 rounded border border-amber-900/50 relative z-10">
+                  <strong className="text-amber-500 text-[10px] uppercase block mb-1">Tríade Invertida (AIC / Safety)</strong>
+                  <ol className="text-[10px] text-slate-400 font-mono">
+                    <li>1. <span className="text-white font-bold text-amber-400">A</span>vailability (Prioridade Absoluta / Safety)</li>
+                    <li>2. <span className="text-slate-300">I</span>ntegridade</li>
+                    <li>3. <span className="text-slate-500">C</span>onfidencialidade</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. DEFINIÇÃO: A FRONTEIRA E O FIM DO AIR GAP */}
+            <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative">
+              <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">A Quebra do Air-Gap e a Convergência IT/OT</h5>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm">
+                O Firewall Industrial é uma blindagem desenhada exclusivamente para proteger o coração das infraestruturas críticas. Ele atua na intersecção exata onde o <strong>código de computador se transforma em força motriz mecânica</strong>. Ele blinda os sistemas que controlam o mundo real: SCADA (Sistemas de Supervisão e Aquisição de Dados), CLPs/PLCs (Controladores Lógicos Programáveis) e robótica.
+              </p>
+              <div className="bg-slate-900/80 border-l-4 border-amber-500 p-5 rounded-r my-6">
+                <p className="text-sm text-slate-400 text-justify">
+                  Historicamente, as redes de chão de fábrica operavam completamente isoladas (o famoso conceito do <strong>Air Gap</strong>). Contudo, com a Indústria 4.0 e a IoT Industrial (IIoT), a rede do escritório (TI) e a fábrica (OT) foram conectadas. O Firewall Industrial atua como a fronteira blindada (posicionado na iDMZ - Zona Desmilitarizada Industrial, conforme o Modelo Purdue), garantindo que a conveniência da conectividade remota não se transforme em uma arma de sabotagem física.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. ANATOMIA E PROTOCOLOS INDUSTRIAIS (DPI-OT) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Layers className="w-5 h-5 text-orange-500" /> A Anatomia do Alvo e Protocolos Primitivos
+            </h5>
+            <p className="text-xs text-slate-400 mb-6 text-justify">
+              NGFWs corporativos são "cegos e surdos" para a linguagem das máquinas. Colocar um firewall corporativo comum em uma usina nuclear é uma receita para o desastre. O Firewall Industrial realiza Inspeção Profunda de Pacotes (DPI-OT) entendendo os protocolos legados e distinguindo, por exemplo, um comando de "Ler Temperatura" de um comando malicioso de "Desligar Turbina".
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+              {/* Modbus & DNP3 */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-orange-500/50 transition-colors">
+                <Terminal className="w-6 h-6 text-orange-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Modbus/TCP & DNP3</strong>
+                <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Energia, Saneamento, Chão de Fábrica</span>
+                <p className="text-[10px] text-slate-400 text-justify">
+                  O Modbus/TCP conecta CLPs, inversores de frequência e I/Os remotos em fábricas. O DNP3 (robusto para links instáveis de longa distância) é o padrão para subestações elétricas, gestão de água e RTUs (Unidades Terminais Remotas).
+                </p>
+              </div>
+
+              {/* PROFINET & EtherNet/IP */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-blue-500/50 transition-colors">
+                <Network className="w-6 h-6 text-blue-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">PROFINET & EtherNet/IP</strong>
+                <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Manufatura e Robótica de Alta Velocidade</span>
+                <p className="text-[10px] text-slate-400 text-justify">
+                  Gigantes da automação em tempo real. PROFINET (dominante via Siemens) controla servomotores e braços robóticos com sincronização milimétrica. EtherNet/IP (Rockwell) comanda linhas automotivas e IHMs industriais.
+                </p>
+              </div>
+
+              {/* BACnet */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-emerald-500/50 transition-colors">
+                <Server className="w-6 h-6 text-emerald-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">BACnet</strong>
+                <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Automação Predial Inteligente</span>
+                <p className="text-[10px] text-slate-400 text-justify">
+                  A espinha dorsal de edifícios inteligentes (Smart Buildings). Controla sistemas de climatização (HVAC/Chillers), iluminação inteligente, controle de acesso, catracas, CFTV e medidores de utilidades.
+                </p>
+              </div>
+
+              {/* OPC UA (Ponte Universal) */}
+              <div className="bg-slate-900/50 border border-cyan-900/50 p-5 rounded-xl hover:border-cyan-500/50 transition-colors md:col-span-2 lg:col-span-3">
+                <div className="flex items-center gap-3 mb-3">
+                  <Globe className="w-6 h-6 text-cyan-500" />
+                  <strong className="text-cyan-400 text-sm uppercase tracking-wider block">OPC UA (A Ponte Universal da Indústria 4.0)</strong>
+                </div>
+                <p className="text-[11px] text-slate-300 text-justify mb-4">
+                  Diferente dos protocolos anteriores (que conectam fios e máquinas físicas), o OPC UA traduz os dados das máquinas para que sistemas de TI (como ERPs SAP e Cloud IoT AWS/Azure) possam compreendê-los com segurança nativa, sem depender de fabricantes. Ele atua em todas as camadas:
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-[#050101] p-3 rounded border border-slate-800">
+                    <strong className="text-white text-[10px] block mb-1">Equipamentos Nativos</strong>
+                    <span className="text-[10px] text-slate-500">CLPs de última geração (S7-1500, ControlLogix), Robôs Colaborativos (Cobots) e Inversores Inteligentes que já expõem dados para a rede.</span>
                   </div>
-                  <div>
-                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.12 - Firewall Industrial (OT/ICS)</h4>
-                     <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">A Fronteira Físico-Cibernética</span>
+                  <div className="bg-[#050101] p-3 rounded border border-slate-800">
+                    <strong className="text-white text-[10px] block mb-1">Camada de Gestão (TI)</strong>
+                    <span className="text-[10px] text-slate-500">Sistemas ERP/MES, plataformas IoT em Nuvem e sistemas SCADA de supervisão unificada da planta.</span>
+                  </div>
+                  <div className="bg-[#050101] p-3 rounded border border-slate-800">
+                    <strong className="text-white text-[10px] block mb-1">Gateways de Transição</strong>
+                    <span className="text-[10px] text-slate-500">Servidores Kepware e IoT Gateways que traduzem Modbus antigo para o mundo digital OPC UA atual.</span>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* 1. O DESAFIO DA TRÍADE CIA INVERTIDA */}
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                   <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl flex flex-col justify-center">
-                      <div className="flex items-center gap-3 mb-4">
-                         <ShieldCheck className="w-6 h-6 text-blue-500" />
-                         <strong className="text-white uppercase tracking-widest text-sm">Segurança Corporativa (TI)</strong>
-                      </div>
-                      <p className="text-xs text-slate-400 leading-relaxed text-justify mb-4">
-                         No mundo da segurança tradicional, o objetivo supremo é proteger dados (bancos de dados, e-mails, sistemas web).
-                      </p>
-                      <div className="bg-[#050101] p-3 rounded border border-slate-800">
-                         <strong className="text-blue-400 text-[10px] uppercase block mb-1">Tríade Padrão (CIA)</strong>
-                         <ol className="text-[10px] text-slate-500 font-mono">
-                            <li>1. <span className="text-white font-bold">C</span>onfidencialidade (Prioridade Absoluta)</li>
-                            <li>2. <span className="text-slate-300">I</span>ntegridade</li>
-                            <li>3. <span className="text-slate-400">A</span>vailability (Disponibilidade)</li>
-                         </ol>
-                      </div>
-                   </div>
+            {/* 4. A MECÂNICA DE COMBATE (HARDWARE E LATÊNCIA) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <Target className="w-5 h-5 text-red-500" /> Mecânica de Combate: Resiliência Extrema
+            </h5>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-[#050101] border-l-4 border-amber-600 p-5 rounded-r-xl shadow-lg relative overflow-hidden">
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(217,119,6,0.05)_10px,rgba(217,119,6,0.05)_20px)] pointer-events-none"></div>
+                <strong className="text-white text-xs uppercase block mb-2 relative z-10">Hardening Físico (Ruggedized)</strong>
+                <p className="text-[10px] text-slate-400 text-justify relative z-10">Construídos em caixas de metal blindadas (montagem DIN-rail). Sem ventoinhas (fanless) para não aspirar poeira metálica. Suportam temperaturas extremas (-40°C a 75°C), vibração contínua e forte interferência eletromagnética (EMI).</p>
+              </div>
 
-                   <div className="bg-amber-950/20 border-2 border-amber-900/50 p-6 rounded-xl flex flex-col justify-center relative overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.1)]">
-                      <div className="absolute top-0 right-0 p-4 opacity-10"><AlertTriangle className="w-24 h-24 text-amber-500" /></div>
-                      <div className="flex items-center gap-3 mb-4 relative z-10">
-                         <AlertTriangle className="w-6 h-6 text-amber-500" />
-                         <strong className="text-white uppercase tracking-widest text-sm">Ambiente Industrial (OT/ICS)</strong>
-                      </div>
-                      <p className="text-xs text-slate-300 leading-relaxed text-justify mb-4 relative z-10">
-                         No chão de fábrica e na engenharia pesada, o paradigma muda: o objetivo é proteger <strong>a física e a vida humana</strong>. Se um sistema OT sofre atrasos, o resultado é uma explosão ou um apagão.
-                      </p>
-                      <div className="bg-[#050101] p-3 rounded border border-amber-900/50 relative z-10">
-                         <strong className="text-amber-500 text-[10px] uppercase block mb-1">Tríade Invertida (AIC / Safety)</strong>
-                         <ol className="text-[10px] text-slate-400 font-mono">
-                            <li>1. <span className="text-white font-bold text-amber-400">A</span>vailability (Prioridade Absoluta / Safety)</li>
-                            <li>2. <span className="text-slate-300">I</span>ntegridade</li>
-                            <li>3. <span className="text-slate-500">C</span>onfidencialidade</li>
-                         </ol>
-                      </div>
-                   </div>
-                </div>
+              <div className="bg-[#050101] border-l-4 border-cyan-600 p-5 rounded-r-xl shadow-lg">
+                <strong className="text-white text-xs uppercase block mb-2">Latência Determinística (Zero Jitter)</strong>
+                <p className="text-[10px] text-slate-400 text-justify">Em OT, um pacote atrasado mata. O processamento precisa ser em microssegundos. O firewall opera com latência ultrabaixa e previsível para não interromper a sincronia de máquinas industriais de alta velocidade operando em tempo real.</p>
+              </div>
 
-                {/* 2. DEFINIÇÃO: A FRONTEIRA E O FIM DO AIR GAP */}
-                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative">
-                   <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">A Quebra do Air-Gap e a Convergência IT/OT</h5>
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm">
-                      O Firewall Industrial é uma blindagem desenhada exclusivamente para proteger o coração das infraestruturas críticas. Ele atua na intersecção exata onde o <strong>código de computador se transforma em força motriz mecânica</strong>. Ele blinda os sistemas que controlam o mundo real: SCADA (Sistemas de Supervisão e Aquisição de Dados), CLPs/PLCs (Controladores Lógicos Programáveis) e robótica.
-                   </p>
-                   <div className="bg-slate-900/80 border-l-4 border-amber-500 p-5 rounded-r my-6">
-                      <p className="text-sm text-slate-400 text-justify">
-                         Historicamente, as redes de chão de fábrica operavam completamente isoladas (o famoso conceito do <strong>Air Gap</strong>). Contudo, com a Indústria 4.0 e a IoT Industrial (IIoT), a rede do escritório (TI) e a fábrica (OT) foram conectadas. O Firewall Industrial atua como a fronteira blindada (posicionado na iDMZ - Zona Desmilitarizada Industrial, conforme o Modelo Purdue), garantindo que a conveniência da conectividade remota não se transforme em uma arma de sabotagem física.
-                      </p>
-                   </div>
-                </div>
+              <div className="bg-[#050101] border-l-4 border-rose-600 p-5 rounded-r-xl shadow-lg">
+                <strong className="text-white text-xs uppercase block mb-2">Bypass Fail-Safe (Fail-Open)</strong>
+                <p className="text-[10px] text-slate-400 text-justify">Se um firewall de TI quebra, ele bloqueia a rede (Fail-Closed). Se um firewall OT queima, ele ativa relés de Bypass físico (Fail-Open), virando um "cabo transparente". Parar o tráfego de uma caldeira sob pressão é mais perigoso que a invasão.</p>
+              </div>
+            </div>
 
-                {/* 3. ANATOMIA E PROTOCOLOS INDUSTRIAIS (DPI-OT) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Layers className="w-5 h-5 text-orange-500" /> A Anatomia do Alvo e Protocolos Primitivos
-                </h5>
-                <p className="text-xs text-slate-400 mb-6 text-justify">
-                   NGFWs corporativos são "cegos e surdos" para a linguagem das máquinas. Colocar um firewall corporativo comum em uma usina nuclear é uma receita para o desastre. O Firewall Industrial realiza Inspeção Profunda de Pacotes (DPI-OT) entendendo os protocolos legados e distinguindo, por exemplo, um comando de "Ler Temperatura" de um comando malicioso de "Desligar Turbina".
+            {/* 5. INSIGHT ESTRATÉGICO: O ATAQUE CINÉTICO E O MODELO PURDUE */}
+            <div className="bg-red-950/20 border border-red-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(220,38,38,0.15)] relative group">
+
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-[#020617] to-[#020617] pointer-events-none"></div>
+
+              <div className="bg-slate-900/80 px-6 py-4 border-b border-red-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
+                <Skull className="w-6 h-6 text-red-500 animate-pulse" />
+                <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Ataque Cinético</span>
+              </div>
+
+              <div className="p-8 md:p-12 relative z-10">
+                <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+                  A era dos ataques cibernéticos puramente digitais acabou. O malware <strong>Stuxnet</strong> (que destruiu centrífugas nucleares no Irã) e o ataque de ransomware à <strong>Colonial Pipeline</strong> (que cortou combustível da costa leste dos EUA) provaram que o código de computador pode causar destruição cinética e palpável.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-                   {/* Modbus & DNP3 */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-orange-500/50 transition-colors">
-                      <Terminal className="w-6 h-6 text-orange-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Modbus/TCP & DNP3</strong>
-                      <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Energia, Saneamento, Chão de Fábrica</span>
-                      <p className="text-[10px] text-slate-400 text-justify">
-                         O Modbus/TCP conecta CLPs, inversores de frequência e I/Os remotos em fábricas. O DNP3 (robusto para links instáveis de longa distância) é o padrão para subestações elétricas, gestão de água e RTUs (Unidades Terminais Remotas).
-                      </p>
-                   </div>
+                <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+                  <div className="bg-[#050101] border border-red-900/50 p-6 rounded-xl shadow-inner">
+                    <h3 className="text-lg md:text-xl font-bold text-red-500 uppercase tracking-tight leading-snug mb-3">
+                      A Diferença do Dano
+                    </h3>
+                    <p className="text-xs md:text-sm text-slate-400 text-justify mb-4">
+                      Se um invasor passa pela rede corporativa (TI), a empresa perde dinheiro e sofre multas. Mas se o invasor entra na rede industrial (OT), o ataque tem efeitos físicos destrutivos. <br /><br />
+                      O resultado não é um vazamento de planilhas; é um alto-forno derretendo, água potável sendo envenenada ou o apagão de uma cidade inteira.
+                    </p>
+                  </div>
 
-                   {/* PROFINET & EtherNet/IP */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-blue-500/50 transition-colors">
-                      <Network className="w-6 h-6 text-blue-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">PROFINET & EtherNet/IP</strong>
-                      <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Manufatura e Robótica de Alta Velocidade</span>
-                      <p className="text-[10px] text-slate-400 text-justify">
-                         Gigantes da automação em tempo real. PROFINET (dominante via Siemens) controla servomotores e braços robóticos com sincronização milimétrica. EtherNet/IP (Rockwell) comanda linhas automotivas e IHMs industriais.
-                      </p>
-                   </div>
-
-                   {/* BACnet */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-emerald-500/50 transition-colors">
-                      <Server className="w-6 h-6 text-emerald-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">BACnet</strong>
-                      <span className="text-[9px] bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-400 block mb-3 w-max">Automação Predial Inteligente</span>
-                      <p className="text-[10px] text-slate-400 text-justify">
-                         A espinha dorsal de edifícios inteligentes (Smart Buildings). Controla sistemas de climatização (HVAC/Chillers), iluminação inteligente, controle de acesso, catracas, CFTV e medidores de utilidades.
-                      </p>
-                   </div>
-
-                   {/* OPC UA (Ponte Universal) */}
-                   <div className="bg-slate-900/50 border border-cyan-900/50 p-5 rounded-xl hover:border-cyan-500/50 transition-colors md:col-span-2 lg:col-span-3">
-                      <div className="flex items-center gap-3 mb-3">
-                         <Globe className="w-6 h-6 text-cyan-500" />
-                         <strong className="text-cyan-400 text-sm uppercase tracking-wider block">OPC UA (A Ponte Universal da Indústria 4.0)</strong>
-                      </div>
-                      <p className="text-[11px] text-slate-300 text-justify mb-4">
-                         Diferente dos protocolos anteriores (que conectam fios e máquinas físicas), o OPC UA traduz os dados das máquinas para que sistemas de TI (como ERPs SAP e Cloud IoT AWS/Azure) possam compreendê-los com segurança nativa, sem depender de fabricantes. Ele atua em todas as camadas:
-                      </p>
-                      <div className="grid md:grid-cols-3 gap-4">
-                         <div className="bg-[#050101] p-3 rounded border border-slate-800">
-                            <strong className="text-white text-[10px] block mb-1">Equipamentos Nativos</strong>
-                            <span className="text-[10px] text-slate-500">CLPs de última geração (S7-1500, ControlLogix), Robôs Colaborativos (Cobots) e Inversores Inteligentes que já expõem dados para a rede.</span>
-                         </div>
-                         <div className="bg-[#050101] p-3 rounded border border-slate-800">
-                            <strong className="text-white text-[10px] block mb-1">Camada de Gestão (TI)</strong>
-                            <span className="text-[10px] text-slate-500">Sistemas ERP/MES, plataformas IoT em Nuvem e sistemas SCADA de supervisão unificada da planta.</span>
-                         </div>
-                         <div className="bg-[#050101] p-3 rounded border border-slate-800">
-                            <strong className="text-white text-[10px] block mb-1">Gateways de Transição</strong>
-                            <span className="text-[10px] text-slate-500">Servidores Kepware e IoT Gateways que traduzem Modbus antigo para o mundo digital OPC UA atual.</span>
-                         </div>
-                      </div>
-                   </div>
+                  {/* Miniatura do Modelo de Purdue (iDMZ) */}
+                  <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl font-mono text-[10px] text-center shadow-lg">
+                    <strong className="text-white block mb-3 uppercase tracking-widest text-xs">Vetor de Ataque Moderno (Modelo Purdue)</strong>
+                    <div className="space-y-1">
+                      <div className="bg-blue-950/40 text-blue-400 py-1 border border-blue-900 rounded">Nível 4/5: Enterprise IT (Rede Corporativa / RH)</div>
+                      <div className="text-slate-600">▼ Movimento Lateral ▼</div>
+                      <div className="bg-amber-950 text-amber-500 py-2 border-2 border-amber-500 rounded font-bold animate-pulse">Nível 3.5: iDMZ (Firewall Industrial)</div>
+                      <div className="text-slate-600">▼ Bloqueio Físico ▼</div>
+                      <div className="bg-red-950/40 text-red-400 py-1 border border-red-900 rounded">Nível 1/2: Chão de Fábrica (SCADA / CLPs)</div>
+                    </div>
+                    <p className="text-[8px] text-slate-500 mt-3 px-4">"A maioria dos ataques industriais não começa no chão de fábrica; eles entram via Phishing no RH e tentam descer até os robôs."</p>
+                  </div>
                 </div>
 
-                {/* 4. A MECÂNICA DE COMBATE (HARDWARE E LATÊNCIA) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <Target className="w-5 h-5 text-red-500" /> Mecânica de Combate: Resiliência Extrema
-                </h5>
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
-                   <div className="bg-[#050101] border-l-4 border-amber-600 p-5 rounded-r-xl shadow-lg relative overflow-hidden">
-                      <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(217,119,6,0.05)_10px,rgba(217,119,6,0.05)_20px)] pointer-events-none"></div>
-                      <strong className="text-white text-xs uppercase block mb-2 relative z-10">Hardening Físico (Ruggedized)</strong>
-                      <p className="text-[10px] text-slate-400 text-justify relative z-10">Construídos em caixas de metal blindadas (montagem DIN-rail). Sem ventoinhas (fanless) para não aspirar poeira metálica. Suportam temperaturas extremas (-40°C a 75°C), vibração contínua e forte interferência eletromagnética (EMI).</p>
-                   </div>
-                   
-                   <div className="bg-[#050101] border-l-4 border-cyan-600 p-5 rounded-r-xl shadow-lg">
-                      <strong className="text-white text-xs uppercase block mb-2">Latência Determinística (Zero Jitter)</strong>
-                      <p className="text-[10px] text-slate-400 text-justify">Em OT, um pacote atrasado mata. O processamento precisa ser em microssegundos. O firewall opera com latência ultrabaixa e previsível para não interromper a sincronia de máquinas industriais de alta velocidade operando em tempo real.</p>
-                   </div>
-
-                   <div className="bg-[#050101] border-l-4 border-rose-600 p-5 rounded-r-xl shadow-lg">
-                      <strong className="text-white text-xs uppercase block mb-2">Bypass Fail-Safe (Fail-Open)</strong>
-                      <p className="text-[10px] text-slate-400 text-justify">Se um firewall de TI quebra, ele bloqueia a rede (Fail-Closed). Se um firewall OT queima, ele ativa relés de Bypass físico (Fail-Open), virando um "cabo transparente". Parar o tráfego de uma caldeira sob pressão é mais perigoso que a invasão.</p>
-                   </div>
+                <div className="bg-red-900/20 border-t border-red-500/50 pt-6 text-center mt-6">
+                  <p className="text-white text-base md:text-xl font-medium">
+                    O Firewall Industrial é a ponte fortemente armada que separa os e-mails corporativos dos reatores químicos. Ele é a barragem que impede o caos digital de transbordar para o mundo físico.
+                  </p>
                 </div>
-
-                {/* 5. INSIGHT ESTRATÉGICO: O ATAQUE CINÉTICO E O MODELO PURDUE */}
-                <div className="bg-red-950/20 border border-red-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(220,38,38,0.15)] relative group">
-                   
-                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-[#020617] to-[#020617] pointer-events-none"></div>
-                   
-                   <div className="bg-slate-900/80 px-6 py-4 border-b border-red-900/30 flex items-center justify-center gap-3 backdrop-blur-md relative z-10">
-                      <Skull className="w-6 h-6 text-red-500 animate-pulse" />
-                      <span className="text-sm text-white font-black uppercase tracking-widest">Insight Estratégico: O Ataque Cinético</span>
-                   </div>
-                   
-                   <div className="p-8 md:p-12 relative z-10">
-                      <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
-                         A era dos ataques cibernéticos puramente digitais acabou. O malware <strong>Stuxnet</strong> (que destruiu centrífugas nucleares no Irã) e o ataque de ransomware à <strong>Colonial Pipeline</strong> (que cortou combustível da costa leste dos EUA) provaram que o código de computador pode causar destruição cinética e palpável.
-                      </p>
-
-                      <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
-                         <div className="bg-[#050101] border border-red-900/50 p-6 rounded-xl shadow-inner">
-                            <h3 className="text-lg md:text-xl font-bold text-red-500 uppercase tracking-tight leading-snug mb-3">
-                               A Diferença do Dano
-                            </h3>
-                            <p className="text-xs md:text-sm text-slate-400 text-justify mb-4">
-                               Se um invasor passa pela rede corporativa (TI), a empresa perde dinheiro e sofre multas. Mas se o invasor entra na rede industrial (OT), o ataque tem efeitos físicos destrutivos. <br/><br/>
-                               O resultado não é um vazamento de planilhas; é um alto-forno derretendo, água potável sendo envenenada ou o apagão de uma cidade inteira.
-                            </p>
-                         </div>
-
-                         {/* Miniatura do Modelo de Purdue (iDMZ) */}
-                         <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl font-mono text-[10px] text-center shadow-lg">
-                            <strong className="text-white block mb-3 uppercase tracking-widest text-xs">Vetor de Ataque Moderno (Modelo Purdue)</strong>
-                            <div className="space-y-1">
-                               <div className="bg-blue-950/40 text-blue-400 py-1 border border-blue-900 rounded">Nível 4/5: Enterprise IT (Rede Corporativa / RH)</div>
-                               <div className="text-slate-600">▼ Movimento Lateral ▼</div>
-                               <div className="bg-amber-950 text-amber-500 py-2 border-2 border-amber-500 rounded font-bold animate-pulse">Nível 3.5: iDMZ (Firewall Industrial)</div>
-                               <div className="text-slate-600">▼ Bloqueio Físico ▼</div>
-                               <div className="bg-red-950/40 text-red-400 py-1 border border-red-900 rounded">Nível 1/2: Chão de Fábrica (SCADA / CLPs)</div>
-                            </div>
-                            <p className="text-[8px] text-slate-500 mt-3 px-4">"A maioria dos ataques industriais não começa no chão de fábrica; eles entram via Phishing no RH e tentam descer até os robôs."</p>
-                         </div>
-                      </div>
-
-                      <div className="bg-red-900/20 border-t border-red-500/50 pt-6 text-center mt-6">
-                         <p className="text-white text-base md:text-xl font-medium">
-                            O Firewall Industrial é a ponte fortemente armada que separa os e-mails corporativos dos reatores químicos. Ele é a barragem que impede o caos digital de transbordar para o mundo físico.
-                         </p>
-                      </div>
-                   </div>
-                </div>
-
               </div>
+            </div>
+
+          </div>
 
           {/* MARCADOR DE FIM DE CAPÍTULO */}
           <div className="w-full flex items-center justify-center gap-4 my-20 opacity-50">
