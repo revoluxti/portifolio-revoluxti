@@ -1013,7 +1013,7 @@ const InfraDataCenter = () => {
                 </div>
 
                 <p className="text-slate-300 text-justify leading-relaxed mb-8">
-                  O pacote de dados viaja pela rede conectando-se fisicamente através de Pontos de Troca de Tráfego (<strong>IXPs – Internet Exchange Points</strong>). De forma extremamente eficiente, ele atravessa <em>links</em> por diversos roteadores de backbone, utilizando-se de cabos terrestres e <strong>fibras ópticas submarinas</strong> de alta velocidade. A cada roteador no caminho, o destino é reavaliado buscando a menor latência possível.
+                  O pacote de dados após sair dos perimetros internos entra na infraestrutura do Provedor de Internet (ISP) viaja pela rede conectando-se fisicamente através de Pontos de Troca de Tráfego (<strong>IXPs – Internet Exchange Points</strong>). De forma extremamente eficiente, ele atravessa <em>links</em> por diversos roteadores de backbone, utilizando-se de cabos terrestres e <strong>fibras ópticas submarinas</strong> de alta velocidade. A cada roteador no caminho, o destino do pacote é reavaliado e reencaminhado em milissegundos buscando a menor latência possível com base na tabela de roteamento, até os servidores de destino.
                 </p>
 
                 {/* PAINEL TÁTICO: TRACEROUTE MONITOR */}
@@ -1536,7 +1536,8 @@ const InfraDataCenter = () => {
               <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <p className="text-sm text-slate-300 leading-relaxed text-justify">
-                    Suponha que um firewall está configurado para bloquear o tráfego de entrada não solicitado. Se um atacante tentar acessar uma rede interna através de uma porta não autorizada, o firewall identificará esse tráfego como não permitido e bloqueará a tentativa de conexão imediatamente, protegendo assim a rede contra invasões não autorizadas.
+                    Suponha que um firewall está configurado para bloquear o tráfego de entrada não solicitado. Se um atacante tentar acessar uma rede interna através de uma porta não autorizada, o firewall identificará esse tráfego como não permitido e bloqueará a tentativa de conexão imediatamente, protegendo assim a rede contra invasões não autorizadas. <br />
+                    Firewalls são essenciais para a defesa em camadas em ambientes de rede, trabalhando em conjunto com outras medidas de segurança para garantir uma postura robusta contra ameaças cibernéticas promovendo um ambiente seguro para comunicação e transmissão de informações.
                   </p>
                 </div>
                 <div className="shrink-0 bg-slate-900/50 p-4 rounded-lg border border-slate-800 font-mono text-[10px] md:text-xs">
