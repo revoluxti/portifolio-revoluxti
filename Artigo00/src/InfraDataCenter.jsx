@@ -3,7 +3,7 @@ import {
   Network, Server, Route, Radio, ArrowRightLeft,
   ShieldAlert, Terminal, Zap, Wifi, Target,
   Activity, Layers, Lock, Globe, ShieldCheck, Filter,
-  Skull, AlertTriangle, Search
+  Skull, AlertTriangle, Search, Database
 } from 'lucide-react';
 
 const InfraDataCenter = () => {
@@ -2410,147 +2410,147 @@ const InfraDataCenter = () => {
                   5.7 - MODO DE OPERAÇÃO: UNIFIED THREAT MANAGEMENT (UTM)
                   O Canivete Suíço da Segurança (All-in-One)
               ====================================================================== */}
-              <div className="mb-16 mt-16">
-                
-                {/* CABEÇALHO DO MÓDULO UTM */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-orange-900/30 border border-orange-500/50 rounded-lg text-orange-400 shadow-[0_0_15px_rgba(249,115,22,0.2)] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-red-500/10 to-amber-500/10 animate-pulse"></div>
-                    <Layers className="w-6 h-6 relative z-10" />
-                  </div>
-                  <div>
-                     <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.7 - Unified Threat Management (UTM)</h4>
-                     <span className="text-[10px] font-mono text-amber-500 uppercase tracking-widest">O Canivete Suíço da Segurança</span>
-                  </div>
-                </div>
+          <div className="mb-16 mt-16">
 
-                {/* 1. DEFINIÇÃO: A FILOSOFIA ALL-IN-ONE */}
-                <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-xl relative overflow-hidden">
-                   <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
-                   
-                   <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-4 flex items-center gap-2">
-                      <Target className="w-5 h-5 text-red-500" /> A Filosofia "Tudo em Um"
-                   </h5>
-                   <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
-                     O Unified Threat Management (Gerenciamento Unificado de Ameaças), carinhosamente conhecido como UTM, é a materialização da filosofia "Tudo em Um" na cibersegurança. Antes do UTM, se uma empresa quisesse ter segurança completa, ela precisava comprar e ligar em cascata um firewall de pacotes, um appliance de proxy web, um servidor de VPN e uma caixa dedicada de Antivírus de rede.
-                   </p>
-                   <div className="bg-orange-950/20 border-l-4 border-orange-500 p-5 rounded-r mt-6 relative z-10">
-                      <p className="text-sm text-slate-300 text-justify">
-                         O UTM destrói essa complexidade. Ele consolida dezenas de soluções de segurança independentes em um único equipamento (físico ou virtual), gerenciado por uma única interface (<em>Single Pane of Glass</em>). A sua premissa é simples: <strong>centralizar a defesa para simplificar a administração.</strong>
-                      </p>
-                   </div>
-                </div>
-
-                {/* 2. O ARSENAL UNIFICADO (STACK DE SEGURANÇA) */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
-                   <ShieldCheck className="w-5 h-5 text-amber-500" /> O Arsenal Unificado (Stack de Segurança)
-                </h5>
-                <p className="text-xs text-slate-400 mb-6">Um appliance UTM não é apenas um firewall; ele é um Gateway de Segurança completo. Em uma única "caixa", ele executa simultaneamente:</p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-                   {/* Stateful Firewall */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-red-500/50 transition-colors">
-                      <Server className="w-6 h-6 text-red-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Firewall de Estado (Stateful)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">A fundação (L3/L4) para controle rigoroso de portas, IPs e monitoramento do estado das conexões.</p>
-                   </div>
-                   
-                   {/* GAV / Anti-Malware */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-amber-500/50 transition-colors">
-                      <Search className="w-6 h-6 text-amber-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Gateway Antivírus (GAV)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Inspeciona os arquivos baixados da internet em tempo real, bloqueando malwares antes que cheguem à máquina do usuário.</p>
-                   </div>
-
-                   {/* Web Filter & Anti-Spam */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-orange-500/50 transition-colors">
-                      <Globe className="w-6 h-6 text-orange-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">Filtro Web e Anti-Spam</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Bloqueia acesso a sites maliciosos ou inadequados e filtra e-mails com anexos perigosos diretamente na borda.</p>
-                   </div>
-
-                   {/* VPN */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-yellow-500/50 transition-colors">
-                      <Network className="w-6 h-6 text-yellow-500 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">VPN (Rede Privada Virtual)</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Integra servidores IPsec e SSL/TLS para fechar túneis seguros, conectando filiais ou trabalhadores remotos à matriz.</p>
-                   </div>
-
-                   {/* IDS/IPS */}
-                   <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-red-400/50 transition-colors lg:col-span-2">
-                      <Activity className="w-6 h-6 text-red-400 mb-3" />
-                      <strong className="text-white text-xs uppercase tracking-wider block mb-2">IDS/IPS Integrado</strong>
-                      <p className="text-[11px] text-slate-400 text-justify">Detecta e previne invasões, bloqueando exploits de vulnerabilidades conhecidas em tempo real na camada de rede.</p>
-                   </div>
-                </div>
-
-                {/* 3. O CAMPO DE BATALHA: PMES E FILIAIS */}
-                <div className="bg-gradient-to-r from-orange-950/20 to-red-950/20 border border-orange-900/30 rounded-2xl p-6 md:p-8 mb-12 shadow-lg">
-                   <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-4 flex items-center gap-2">
-                      <Wifi className="w-5 h-5 text-amber-500" /> O Campo de Batalha: PMEs e Filiais Distribuídas
-                   </h5>
-                   <p className="text-sm text-slate-300 leading-relaxed text-justify mb-4">
-                      Operar uma arquitetura de segurança fragmentada exige uma equipe de especialistas (um SOC) em tempo integral. Pequenas e Médias Empresas (PMEs) não têm orçamento nem mão de obra para isso. É aqui que o UTM domina o mercado.
-                   </p>
-                   <p className="text-sm text-slate-300 leading-relaxed text-justify">
-                      Ele permite que um único analista configure toda a postura de segurança através de um painel intuitivo. Corporações gigantes também usam UTMs (integrados com SD-WAN) para proteger <strong>filiais distribuídas</strong> (lojas de varejo, postos de gasolina, agências menores), onde um NGFW de alto custo seria inviável.
-                   </p>
-                </div>
-
-                {/* 4. INSIGHT ESTRATÉGICO: UTM VS NGFW */}
-                <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Insight Estratégico: O Grande Duelo (UTM vs. NGFW)</h5>
-                <p className="text-xs text-slate-400 mb-6 text-justify">A confusão entre UTM e NGFW é um dos erros conceituais mais comuns no mercado. Embora a linha entre eles esteja cada vez mais tênue, a diferença arquitetônica é brutal:</p>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                   {/* Coluna UTM */}
-                   <div className="bg-[#050101] border-t-4 border-orange-500 p-6 rounded-b-xl shadow-lg">
-                      <strong className="text-orange-400 block mb-4 font-bold uppercase tracking-widest text-sm text-center">Modelo UTM</strong>
-                      
-                      <div className="mb-4">
-                         <strong className="text-white text-[11px] uppercase block mb-1">Foco: Simplicidade e Amplitude</strong>
-                         <p className="text-[11px] text-slate-400 text-justify">Faz "um pouco de tudo" muito bem. Bloqueia categorias inteiras de forma binária (ex: bloqueia o Facebook inteiro).</p>
-                      </div>
-                      
-                      <div>
-                         <strong className="text-red-400 text-[11px] uppercase block mb-1 flex items-center gap-1"><AlertTriangle className="w-3 h-3"/> O Preço (Performance Penalty)</strong>
-                         <p className="text-[11px] text-slate-400 text-justify">O grande calcanhar de Aquiles. Ao ativar Antivírus, IPS e Filtro Web juntos, o processador sobrecarrega e o Throughput (velocidade da internet) sofre uma queda brutal.</p>
-                      </div>
-                   </div>
-
-                   {/* Coluna NGFW */}
-                   <div className="bg-[#050101] border-t-4 border-red-600 p-6 rounded-b-xl shadow-lg">
-                      <strong className="text-red-500 block mb-4 font-bold uppercase tracking-widest text-sm text-center">Modelo NGFW</strong>
-                      
-                      <div className="mb-4">
-                         <strong className="text-white text-[11px] uppercase block mb-1">Foco: Profundidade e Controle Cirúrgico</strong>
-                         <p className="text-[11px] text-slate-400 text-justify">Granularidade extrema. Permite acessar o Facebook, mas bloqueia apenas a transferência de vídeos e o botão de chat (App-ID e User-ID).</p>
-                      </div>
-                      
-                      <div>
-                         <strong className="text-amber-500 text-[11px] uppercase block mb-1 flex items-center gap-1"><Zap className="w-3 h-3"/> Processamento Wire-Speed</strong>
-                         <p className="text-[11px] text-slate-400 text-justify">Construído com microchips dedicados (ASICs) para processar todas as camadas de segurança (DPI) simultaneamente em altíssima velocidade, sem engasgar a rede.</p>
-                      </div>
-                   </div>
-                </div>
-
-                {/* SÍNTESE FINAL */}
-                <div className="border border-red-900/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)]">
-                   <div className="bg-slate-900 px-4 py-3 border-b border-red-900/50 flex items-center gap-3">
-                      <ShieldCheck className="w-5 h-5 text-red-500" />
-                      <span className="text-xs text-red-400 font-mono uppercase tracking-widest">Síntese Estratégica: O Guardião Prático</span>
-                   </div>
-                   <div className="p-6 md:p-8 bg-[#050101] text-center">
-                      <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-3xl mx-auto">
-                         O UTM é o guardião prático e implacável. Ele garante que a empresa tenha uma barreira formidável contra as ameaças do dia a dia, mantendo o custo e a complexidade sob rigoroso controle.
-                      </p>
-                      <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-snug">
-                         Se o NGFW é o "cirurgião" que opera com precisão microscópica em Data Centers de alta performance... <br className="hidden md:block mt-2" />
-                         <span className="text-amber-500 block mt-3 text-xl md:text-2xl">O UTM é o "clínico geral" de excelência.</span>
-                      </h3>
-                   </div>
-                </div>
-
+            {/* CABEÇALHO DO MÓDULO UTM */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-orange-900/30 border border-orange-500/50 rounded-lg text-orange-400 shadow-[0_0_15px_rgba(249,115,22,0.2)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-red-500/10 to-amber-500/10 animate-pulse"></div>
+                <Layers className="w-6 h-6 relative z-10" />
               </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">5.7 - Unified Threat Management (UTM)</h4>
+                <span className="text-[10px] font-mono text-amber-500 uppercase tracking-widest">O Canivete Suíço da Segurança</span>
+              </div>
+            </div>
+
+            {/* 1. DEFINIÇÃO: A FILOSOFIA ALL-IN-ONE */}
+            <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+              <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-4 flex items-center gap-2">
+                <Target className="w-5 h-5 text-red-500" /> A Filosofia "Tudo em Um"
+              </h5>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm md:text-base relative z-10">
+                O Unified Threat Management (Gerenciamento Unificado de Ameaças), carinhosamente conhecido como UTM, é a materialização da filosofia "Tudo em Um" na cibersegurança. Antes do UTM, se uma empresa quisesse ter segurança completa, ela precisava comprar e ligar em cascata um firewall de pacotes, um appliance de proxy web, um servidor de VPN e uma caixa dedicada de Antivírus de rede.
+              </p>
+              <div className="bg-orange-950/20 border-l-4 border-orange-500 p-5 rounded-r mt-6 relative z-10">
+                <p className="text-sm text-slate-300 text-justify">
+                  O UTM destrói essa complexidade. Ele consolida dezenas de soluções de segurança independentes em um único equipamento (físico ou virtual), gerenciado por uma única interface (<em>Single Pane of Glass</em>). A sua premissa é simples: <strong>centralizar a defesa para simplificar a administração.</strong>
+                </p>
+              </div>
+            </div>
+
+            {/* 2. O ARSENAL UNIFICADO (STACK DE SEGURANÇA) */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-amber-500" /> O Arsenal Unificado (Stack de Segurança)
+            </h5>
+            <p className="text-xs text-slate-400 mb-6">Um appliance UTM não é apenas um firewall; ele é um Gateway de Segurança completo. Em uma única "caixa", ele executa simultaneamente:</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+              {/* Stateful Firewall */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-red-500/50 transition-colors">
+                <Server className="w-6 h-6 text-red-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Firewall de Estado (Stateful)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">A fundação (L3/L4) para controle rigoroso de portas, IPs e monitoramento do estado das conexões.</p>
+              </div>
+
+              {/* GAV / Anti-Malware */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-amber-500/50 transition-colors">
+                <Search className="w-6 h-6 text-amber-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Gateway Antivírus (GAV)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Inspeciona os arquivos baixados da internet em tempo real, bloqueando malwares antes que cheguem à máquina do usuário.</p>
+              </div>
+
+              {/* Web Filter & Anti-Spam */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-orange-500/50 transition-colors">
+                <Globe className="w-6 h-6 text-orange-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">Filtro Web e Anti-Spam</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Bloqueia acesso a sites maliciosos ou inadequados e filtra e-mails com anexos perigosos diretamente na borda.</p>
+              </div>
+
+              {/* VPN */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-yellow-500/50 transition-colors">
+                <Network className="w-6 h-6 text-yellow-500 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">VPN (Rede Privada Virtual)</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Integra servidores IPsec e SSL/TLS para fechar túneis seguros, conectando filiais ou trabalhadores remotos à matriz.</p>
+              </div>
+
+              {/* IDS/IPS */}
+              <div className="bg-[#050101] border border-slate-800 p-5 rounded-xl hover:border-red-400/50 transition-colors lg:col-span-2">
+                <Activity className="w-6 h-6 text-red-400 mb-3" />
+                <strong className="text-white text-xs uppercase tracking-wider block mb-2">IDS/IPS Integrado</strong>
+                <p className="text-[11px] text-slate-400 text-justify">Detecta e previne invasões, bloqueando exploits de vulnerabilidades conhecidas em tempo real na camada de rede.</p>
+              </div>
+            </div>
+
+            {/* 3. O CAMPO DE BATALHA: PMES E FILIAIS */}
+            <div className="bg-gradient-to-r from-orange-950/20 to-red-950/20 border border-orange-900/30 rounded-2xl p-6 md:p-8 mb-12 shadow-lg">
+              <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-4 flex items-center gap-2">
+                <Wifi className="w-5 h-5 text-amber-500" /> O Campo de Batalha: PMEs e Filiais Distribuídas
+              </h5>
+              <p className="text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                Operar uma arquitetura de segurança fragmentada exige uma equipe de especialistas (um SOC) em tempo integral. Pequenas e Médias Empresas (PMEs) não têm orçamento nem mão de obra para isso. É aqui que o UTM domina o mercado.
+              </p>
+              <p className="text-sm text-slate-300 leading-relaxed text-justify">
+                Ele permite que um único analista configure toda a postura de segurança através de um painel intuitivo. Corporações gigantes também usam UTMs (integrados com SD-WAN) para proteger <strong>filiais distribuídas</strong> (lojas de varejo, postos de gasolina, agências menores), onde um NGFW de alto custo seria inviável.
+              </p>
+            </div>
+
+            {/* 4. INSIGHT ESTRATÉGICO: UTM VS NGFW */}
+            <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-6">Insight Estratégico: O Grande Duelo (UTM vs. NGFW)</h5>
+            <p className="text-xs text-slate-400 mb-6 text-justify">A confusão entre UTM e NGFW é um dos erros conceituais mais comuns no mercado. Embora a linha entre eles esteja cada vez mais tênue, a diferença arquitetônica é brutal:</p>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {/* Coluna UTM */}
+              <div className="bg-[#050101] border-t-4 border-orange-500 p-6 rounded-b-xl shadow-lg">
+                <strong className="text-orange-400 block mb-4 font-bold uppercase tracking-widest text-sm text-center">Modelo UTM</strong>
+
+                <div className="mb-4">
+                  <strong className="text-white text-[11px] uppercase block mb-1">Foco: Simplicidade e Amplitude</strong>
+                  <p className="text-[11px] text-slate-400 text-justify">Faz "um pouco de tudo" muito bem. Bloqueia categorias inteiras de forma binária (ex: bloqueia o Facebook inteiro).</p>
+                </div>
+
+                <div>
+                  <strong className="text-red-400 text-[11px] uppercase block mb-1 flex items-center gap-1"><AlertTriangle className="w-3 h-3" /> O Preço (Performance Penalty)</strong>
+                  <p className="text-[11px] text-slate-400 text-justify">O grande calcanhar de Aquiles. Ao ativar Antivírus, IPS e Filtro Web juntos, o processador sobrecarrega e o Throughput (velocidade da internet) sofre uma queda brutal.</p>
+                </div>
+              </div>
+
+              {/* Coluna NGFW */}
+              <div className="bg-[#050101] border-t-4 border-red-600 p-6 rounded-b-xl shadow-lg">
+                <strong className="text-red-500 block mb-4 font-bold uppercase tracking-widest text-sm text-center">Modelo NGFW</strong>
+
+                <div className="mb-4">
+                  <strong className="text-white text-[11px] uppercase block mb-1">Foco: Profundidade e Controle Cirúrgico</strong>
+                  <p className="text-[11px] text-slate-400 text-justify">Granularidade extrema. Permite acessar o Facebook, mas bloqueia apenas a transferência de vídeos e o botão de chat (App-ID e User-ID).</p>
+                </div>
+
+                <div>
+                  <strong className="text-amber-500 text-[11px] uppercase block mb-1 flex items-center gap-1"><Zap className="w-3 h-3" /> Processamento Wire-Speed</strong>
+                  <p className="text-[11px] text-slate-400 text-justify">Construído com microchips dedicados (ASICs) para processar todas as camadas de segurança (DPI) simultaneamente em altíssima velocidade, sem engasgar a rede.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* SÍNTESE FINAL */}
+            <div className="border border-red-900/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+              <div className="bg-slate-900 px-4 py-3 border-b border-red-900/50 flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-red-500" />
+                <span className="text-xs text-red-400 font-mono uppercase tracking-widest">Síntese Estratégica: O Guardião Prático</span>
+              </div>
+              <div className="p-6 md:p-8 bg-[#050101] text-center">
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-3xl mx-auto">
+                  O UTM é o guardião prático e implacável. Ele garante que a empresa tenha uma barreira formidável contra as ameaças do dia a dia, mantendo o custo e a complexidade sob rigoroso controle.
+                </p>
+                <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-snug">
+                  Se o NGFW é o "cirurgião" que opera com precisão microscópica em Data Centers de alta performance... <br className="hidden md:block mt-2" />
+                  <span className="text-amber-500 block mt-3 text-xl md:text-2xl">O UTM é o "clínico geral" de excelência.</span>
+                </h3>
+              </div>
+            </div>
+
+          </div>
 
 
           {/* =====================================================================
@@ -3670,6 +3670,178 @@ const InfraDataCenter = () => {
                   </p>
                 </div>
               </div>
+            </div>
+
+          </div>
+
+          {/* =====================================================================
+                  6. PROCESSAMENTO E PERSISTÊNCIA
+                  O Fim da Linha: Do Movimento ao Repouso
+              ====================================================================== */}
+          <div className="mb-16 mt-16">
+
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.15)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-slate-400/20 animate-pulse"></div>
+                <Server className="w-6 h-6 relative z-10" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">6. Processamento e Persistência</h4>
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">O dado sai do "movimento" para o "repouso"</span>
+              </div>
+            </div>
+
+            {/* SEGURANÇA E RECEPÇÃO (RECAP) */}
+            <div className="bg-[#020617] border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-slate-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+              <h5 className="text-lg font-bold text-white uppercase tracking-wide mb-4 flex items-center gap-2 relative z-10">
+                <ShieldCheck className="w-5 h-5 text-emerald-500" /> Segurança e Recepção
+              </h5>
+              <p className="text-slate-300 leading-relaxed text-justify mb-4 text-sm relative z-10">
+                Antes de tocar no núcleo, o pacote enfrenta seus últimos e rigorosos controles. O Firewall e o WAF analisam o pacote POST em busca de assinaturas maliciosas. Uma vez autorizado, o roteador interno e o switch do Data Center encaminham o tráfego para os <strong>balanceadores de carga (Load Balancers)</strong>, que distribuem a requisição para o servidor de aplicação disponível.
+              </p>
+            </div>
+
+            {/* A LINHA DE MONTAGEM DO BACK-END */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+
+              {/* 1. Servidor de Aplicação */}
+              <div className="bg-[#050101] border-t-4 border-blue-500 p-6 rounded-b-xl shadow-lg relative group hover:border-blue-400 transition-colors">
+                <div className="absolute top-4 right-4"><Terminal className="w-6 h-6 text-blue-500/20" /></div>
+                <strong className="text-blue-400 text-xs uppercase tracking-wider block mb-3 border-b border-blue-900/30 pb-2">1. Servidor de Aplicação</strong>
+                <p className="text-[11px] text-slate-300 text-justify leading-relaxed mb-3">
+                  Recebe o pacote, decodifica o JSON/XML da venda e executa a lógica de negócio. A "venda" deixa de ser um pacote de rede e se torna uma instrução lógica.
+                </p>
+                <div className="bg-slate-950 p-2 rounded border border-slate-800 text-[9px] font-mono text-emerald-400">
+                  POST /venda HTTP/1.1<br />
+                  [Validação de Pagamento: OK]<br />
+                  [Checagem de Estoque: OK]
+                </div>
+              </div>
+
+              {/* 2. Banco de Dados */}
+              <div className="bg-[#050101] border-t-4 border-purple-500 p-6 rounded-b-xl shadow-lg relative group hover:border-purple-400 transition-colors">
+                <div className="absolute top-4 right-4"><Layers className="w-6 h-6 text-purple-500/20" /></div>
+                <strong className="text-purple-400 text-xs uppercase tracking-wider block mb-3 border-b border-purple-900/30 pb-2">2. Banco de Dados</strong>
+                <p className="text-[11px] text-slate-300 text-justify leading-relaxed mb-3">
+                  A aplicação prepara a instrução e envia uma query SQL para o banco. É o momento exato onde a mutação de estado acontece no sistema.
+                </p>
+                <div className="bg-slate-950 p-2 rounded border border-slate-800 text-[9px] font-mono text-purple-400">
+                  <span className="text-pink-500">UPDATE</span> estoque <span className="text-pink-500">SET</span><br />
+                  qtd = qtd - 1<br />
+                  <span className="text-pink-500">WHERE</span> prod_id = 'X';
+                </div>
+              </div>
+
+              {/* 3. Storage (Repouso) */}
+              <div className="bg-[#050101] border-t-4 border-cyan-500 p-6 rounded-b-xl shadow-lg relative group hover:border-cyan-400 transition-colors overflow-hidden">
+                {/* Efeito NVMe Flash */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-cyan-500/50 animate-pulse"></div>
+                <div className="absolute top-4 right-4"><Database className="w-6 h-6 text-cyan-500/20" /></div>
+                <strong className="text-cyan-400 text-xs uppercase tracking-wider block mb-3 border-b border-cyan-900/30 pb-2">3. Storage (NVMe/SSD)</strong>
+                <p className="text-[11px] text-slate-300 text-justify leading-relaxed mb-3">
+                  O controlador de disco escreve essa alteração em células flash de alta velocidade. O dado deixa oficialmente de ser um "pacote em movimento" para se tornar um "dado em repouso".
+                </p>
+              </div>
+            </div>
+
+            {/* TRANSFORMAÇÃO MATEMÁTICA */}
+            <div className="bg-slate-900/50 border border-slate-700 p-6 rounded-xl flex items-center justify-center text-center shadow-inner mb-16">
+              <div>
+                <span className="block text-slate-400 text-xs uppercase tracking-widest mb-3">O Destino Final da Informação</span>
+                <div className="bg-[#050101] border border-slate-600 px-6 py-3 rounded-lg font-mono text-sm md:text-base text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.1)] inline-block">
+                  D(t) → R(banco) : <span className="text-pink-500">UPDATE</span> estoque <span className="text-pink-500">SET</span> status=<span className="text-amber-300">'vendido'</span> <span className="text-pink-500">WHERE</span> id=<span className="text-amber-300">'CAM-PREMIUM-2026'</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* =====================================================================
+                  7. CONCLUSÃO E ASSINATURA REVOLUXTI
+                  Paleta Oficial: Vermelho, Dourado e Laranja
+              ====================================================================== */}
+          <div className="mb-20 mt-20">
+
+            {/* CAIXA DE CONCLUSÃO (REVOLUXTI THEME) */}
+            <div className="bg-gradient-to-br from-[#050101] via-red-950/20 to-orange-950/20 border border-red-900/50 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(239,68,68,0.15)] relative">
+
+              {/* Efeitos Óticos de Identidade Revoluxti */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 via-amber-500 to-orange-600"></div>
+              <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+              <div className="px-8 py-10 md:p-12 relative z-10">
+                <div className="flex items-center gap-3 mb-8 justify-center">
+                  <Target className="w-8 h-8 text-amber-500" />
+                  <h2 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-orange-500 uppercase tracking-widest">
+                    Conclusão
+                  </h2>
+                </div>
+
+                <div className="space-y-6 text-sm md:text-base text-slate-300 leading-relaxed text-justify max-w-4xl mx-auto">
+                  <p>
+                    A jornada dos dados entre o PDV da loja e a hospedagem nos servidores de aplicações e bancos de dados demonstra a interdependência colossal entre hardware de rede, protocolos de comunicação e arquitetura de software. O pacote atravessa dezenas de dispositivos e barreiras em sua viagem.
+                  </p>
+                  <p>
+                    A eficiência deste trajeto — que ocorre em <strong>milissegundos</strong> — é o que sustenta a escalabilidade e a confiança no ecossistema digital da empresa. O que para o lojista dura apenas um segundo de espera, para o pacote de dados foi uma viagem épica pelas quatro camadas do modelo TCP/IP, cruzando múltiplos roteadores globais e sistemas de segurança críticos.
+                  </p>
+                  <div className="bg-red-950/30 border-l-4 border-amber-500 p-6 rounded-r-xl my-8 text-center shadow-inner">
+                    <h3 className="text-xl md:text-2xl font-bold text-white uppercase tracking-tight">
+                      Uma simples venda é, na verdade, <br className="hidden md:block" />
+                      <span className="text-amber-400">um triunfo da engenharia de redes.</span>
+                    </h3>
+                  </div>
+                  <p>
+                    Esse triunfo culmina na integridade da informação e na atualização do estoque em tempo real, garantindo que a base de dados esteja sempre correta e que a experiência do cliente seja perfeitamente fluida. A integração inquebrável entre a ponta (loja) e a infraestrutura (Data Center) é a espinha dorsal do sucesso operacional.
+                  </p>
+                </div>
+              </div>
+
+              {/* ASSINATURA REVOLUXTI */}
+              <div className="bg-gradient-to-r from-red-950/80 via-orange-950/80 to-amber-950/80 px-8 py-6 border-t border-red-900/50 backdrop-blur-md relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <Activity className="w-6 h-6 text-amber-500 animate-pulse" />
+                  <span className="text-white font-black uppercase tracking-widest text-lg">REVOLUXTI</span>
+                </div>
+                <p className="text-[11px] md:text-xs text-amber-200/80 text-center md:text-right font-medium max-w-xl">
+                  Exemplificando como protocolos complexos trabalham em harmonia absoluta para transformar uma ação em um registro seguro, garantindo a continuidade e a escalabilidade do negócio para o próximo capítulo.
+                </p>
+              </div>
+            </div>
+
+            {/* REFERÊNCIAS BIBLIOGRÁFICAS */}
+            <div className="mt-16 bg-[#020617] border border-slate-800 p-8 rounded-2xl shadow-lg relative overflow-hidden max-w-3xl mx-auto">
+              <div className="absolute top-0 left-0 w-2 h-full bg-slate-700"></div>
+
+              <h5 className="text-lg font-bold text-slate-200 uppercase tracking-wide mb-6 flex items-center gap-3 ml-4">
+                <Layers className="w-5 h-5 text-slate-500" /> Referências Técnicas Sugeridas
+              </h5>
+
+              <ul className="space-y-4 ml-4">
+                <li className="flex items-start gap-3 group">
+                  <span className="text-amber-500 font-bold mt-0.5">▶</span>
+                  <div>
+                    <strong className="text-slate-300 block text-sm group-hover:text-white transition-colors">TANENBAUM, A. S.</strong>
+                    <span className="text-slate-500 text-xs italic">Redes de Computadores.</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <span className="text-amber-500 font-bold mt-0.5">▶</span>
+                  <div>
+                    <strong className="text-slate-300 block text-sm group-hover:text-white transition-colors">KUROSE, J. F.</strong>
+                    <span className="text-slate-500 text-xs italic">Computer Networking: A Top-Down Approach.</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 group">
+                  <span className="text-red-500 font-bold mt-0.5">▶</span>
+                  <div>
+                    <strong className="text-slate-300 block text-sm group-hover:text-white transition-colors">Documentação Técnica REVOLUXTI</strong>
+                    <span className="text-slate-500 text-xs italic">Padrões de Segurança e Conectividade.</span>
+                  </div>
+                </li>
+              </ul>
             </div>
 
           </div>
