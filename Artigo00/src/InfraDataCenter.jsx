@@ -758,7 +758,7 @@ const InfraDataCenter = () => {
 
                   {/* 1. O Diagrama Tecnológico Finalizado */}
                   <img
-                    src="/cam-table-flooding-img05.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                    src="cam-table-flooding-img05.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
                     alt="Diagrama Tático de CAM Table e Flooding (Revoluxti)"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
                   />
