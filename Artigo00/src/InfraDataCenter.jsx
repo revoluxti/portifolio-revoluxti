@@ -327,14 +327,28 @@ const InfraDataCenter = () => {
                 </div>
 
                 {/* ESPAÇO PARA IMAGEM 1: Cabos/Fibras */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-slate-950/80 to-slate-950"></div>
-                  <Route className="w-12 h-12 text-slate-700 mb-3 group-hover:text-cyan-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama de Meios Guiados</span>
-                  <div className="absolute top-4 left-4 flex gap-2 z-10">
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
+                {/* IMAGEM 1: Cabos/Fibras (FINALIZADO) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+
+                  {/* 1. O Diagrama Tecnológico Finalizado */}
+                  <img
+                    src="meiosguiados-img-00.png" // <--- O CAMINHO PARA A SUA IMAGEM DE CABOS
+                    alt="Diagrama de Infraestrutura Física: Meios Guiados (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos para Estilo Tático) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-fuchsia-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Route className="w-4 h-4 text-fuchsia-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Physical Layer Active</span>
                   </div>
                 </div>
               </div>
@@ -389,15 +403,28 @@ const InfraDataCenter = () => {
                   </div>
                 </div>
 
-                {/* ESPAÇO PARA IMAGEM 2: AP e Wireless */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-slate-950/80 to-slate-950"></div>
-                  <Radio className="w-12 h-12 text-slate-700 mb-3 group-hover:text-cyan-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama de Access Point / RF</span>
-                  <div className="absolute top-4 left-4 flex gap-2 z-10">
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
+                {/* IMAGEM 2: AP e Wireless (FINALIZADO) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+
+                  {/* 1. O Diagrama Tecnológico Finalizado */}
+                  <img
+                    src="diagrama-de-infraestruturasemfio-img-01.png" // <--- O CAMINHO PARA A SUA IMAGEM
+                    alt="Diagrama Tático de Access Point e Cobertura RF (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos para Estilo) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-rose-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Radio className="w-4 h-4 text-cyan-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">RF Spectrum Active</span>
                   </div>
                 </div>
               </div>
@@ -437,15 +464,28 @@ const InfraDataCenter = () => {
                   Do ponto de vista de segurança, protocolos como <strong>WPA2 e WPA3</strong> foram desenvolvidos para mitigar esses riscos, mas sua eficácia depende de correta implementação e gestão.
                 </p>
 
-                {/* ESPAÇO PARA IMAGEM 3: Vetores de Risco */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/10 via-slate-950/80 to-slate-950"></div>
-                  <ShieldAlert className="w-12 h-12 text-slate-700 mb-3 group-hover:text-red-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Tabela/Diagrama de Riscos</span>
-                  <div className="absolute top-4 left-4 flex gap-2 z-10">
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
+                {/* IMAGEM 3: Vetores de Risco (FINALIZADO) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+
+                  {/* 1. O Diagrama Tecnológico Finalizado */}
+                  <img
+                    src="diagrama-riscos-borda.png" // <--- O CAMINHO PARA A SUA IMAGEM DE RISCOS
+                    alt="Diagrama e Tabela de Análise de Riscos da Borda de Rede (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos para Estilo Tático) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-orange-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-red-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <ShieldAlert className="w-4 h-4 text-red-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Active Risk Scanning</span>
                   </div>
                 </div>
               </div>
@@ -576,15 +616,28 @@ const InfraDataCenter = () => {
                   </div>
                 </div>
 
-                {/* ESPAÇO PARA IMAGEM: Encapsulamento OSI */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-slate-950/80 to-slate-950"></div>
-                  <Layers className="w-12 h-12 text-slate-700 mb-3 group-hover:text-purple-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama de Encapsulamento OSI</span>
-                  <div className="absolute top-4 left-4 flex gap-2 z-10">
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-700"></span>
+                {/* IMAGEM: Encapsulamento OSI (FINALIZADO) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+
+                  {/* 1. O Diagrama Tecnológico Finalizado */}
+                  <img
+                    src="diagrama-de-encapsulamento-img-04.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                    alt="Diagrama Tático de Encapsulamento OSI (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-fuchsia-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-purple-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">OSI Layer Trace Active</span>
                   </div>
                 </div>
 
@@ -700,13 +753,30 @@ const InfraDataCenter = () => {
                   Com isso, quando um quadro precisa ser encaminhado, o switch consulta essa tabela e envia o tráfego exclusivamente para a porta correspondente ao destino, evitando transmissões desnecessárias. Se o endereço de destino for desconhecido, o switch realiza um processo chamado <strong>flooding</strong>, enviando o quadro para todas as portas (exceto a de origem), até aprender a localização correta.
                 </p>
 
-                {/* ESPAÇO PARA IMAGEM: CAM Table */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/10 via-slate-950/80 to-slate-950"></div>
-                  <Network className="w-12 h-12 text-slate-700 mb-3 group-hover:text-cyan-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama: CAM Table & Flooding</span>
-                </div>
+                {/* IMAGEM: CAM Table (FINALIZADO) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
 
+                  {/* 1. O Diagrama Tecnológico Finalizado */}
+                  <img
+                    src="/cam-table-flooding-img05.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                    alt="Diagrama Tático de CAM Table e Flooding (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-rose-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Network className="w-4 h-4 text-cyan-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">MAC Table & Flooding Trace Active</span>
+                  </div>
+                </div>
                 <div className="bg-slate-950/80 p-8 rounded-b-3xl border border-slate-900 backdrop-blur-sm -mt-6">
 
 
@@ -751,12 +821,30 @@ const InfraDataCenter = () => {
                       </p>
                     </div>
 
-                    {/* ESPAÇO PARA IMAGEM: VLANs */}
-                    <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-950/80 to-slate-950"></div>
-                      <Layers className="w-12 h-12 text-slate-700 mb-3 group-hover:text-blue-500 transition-colors duration-500 z-10" />
-                      <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama: Topologia VLAN</span>
-                    </div>
+                    {/* IMAGEM: VLANs (FINALIZADO) */}
+              <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+                
+                {/* 1. O Diagrama Tecnológico Finalizado */}
+                <img 
+                  src="diagrama-topologia-vlan.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                  alt="Diagrama Tático de Topologia VLAN (Revoluxti)" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0" 
+                />
+
+                {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+                
+                <div className="absolute top-4 left-4 flex gap-2 z-20">
+                  <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                  <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-blue-500 animate-pulse"></span>
+                  <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-fuchsia-500 animate-pulse"></span>
+                </div>
+
+                <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-blue-500 animate-pulse" />
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">VLAN Segmentation & Trunk Trace Active</span>
+                </div>
+              </div>
                   </div>
 
                   {/* --- RISCOS E SUPERFÍCIE DE ATAQUE --- */}
