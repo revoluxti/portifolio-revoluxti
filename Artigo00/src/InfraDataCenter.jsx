@@ -618,7 +618,10 @@ const InfraDataCenter = () => {
 
                 {/* IMAGEM: Encapsulamento OSI (FINALIZADO) */}
                 <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-
+                  {/*<div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-purple-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">OSI Layer Trace Active</span>
+                  </div>*/}
                   {/* 1. O Diagrama Tecnológico Finalizado */}
                   <img
                     src="diagrama-de-encapsulamento-img-04.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
@@ -635,10 +638,7 @@ const InfraDataCenter = () => {
                     <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
                   </div>
 
-                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-purple-500 animate-pulse" />
-                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">OSI Layer Trace Active</span>
-                  </div>
+
                 </div>
 
               </div>
@@ -822,29 +822,29 @@ const InfraDataCenter = () => {
                     </div>
 
                     {/* IMAGEM: VLANs (FINALIZADO) */}
-              <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                
-                {/* 1. O Diagrama Tecnológico Finalizado */}
-                <img 
-                  src="diagrama-topologia-vlan.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
-                  alt="Diagrama Tático de Topologia VLAN (Revoluxti)" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0" 
-                />
+                    <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
 
-                {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                
-                <div className="absolute top-4 left-4 flex gap-2 z-20">
-                  <span className="w-2 h-2 rounded-full bg-slate-600"></span>
-                  <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-blue-500 animate-pulse"></span>
-                  <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-fuchsia-500 animate-pulse"></span>
-                </div>
+                      {/* 1. O Diagrama Tecnológico Finalizado */}
+                      <img
+                        src="diagrama-topologia-vlan.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                        alt="Diagrama Tático de Topologia VLAN (Revoluxti)"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                      />
 
-                <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-blue-500 animate-pulse" />
-                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">VLAN Segmentation & Trunk Trace Active</span>
-                </div>
-              </div>
+                      {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                      <div className="absolute top-4 left-4 flex gap-2 z-20">
+                        <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                        <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-blue-500 animate-pulse"></span>
+                        <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-fuchsia-500 animate-pulse"></span>
+                      </div>
+
+                      <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                        <Layers className="w-4 h-4 text-blue-500 animate-pulse" />
+                        <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">VLAN Segmentation & Trunk Trace Active</span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* --- RISCOS E SUPERFÍCIE DE ATAQUE --- */}
@@ -1168,11 +1168,29 @@ const InfraDataCenter = () => {
                   </div>
                 </div>
 
-                {/* ESPAÇO PARA IMAGEM: Mapa de Cabos Submarinos / IXP */}
-                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 border-dashed rounded-xl flex flex-col items-center justify-center shadow-inner relative overflow-hidden group mb-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/10 via-slate-950/80 to-slate-950"></div>
-                  <Globe className="w-12 h-12 text-slate-700 mb-3 group-hover:text-indigo-500 transition-colors duration-500 z-10" />
-                  <span className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-[0.2em] z-10">Inserir Diagrama de Cabos Submarinos / Backbone</span>
+                {/* IMAGEM: Cabos Submarinos / IXP (FINALIZADO E INTEGRADOR) */}
+                <div className="w-full aspect-video md:aspect-[21/9] bg-[#020617] border border-slate-800 rounded-xl flex items-center justify-center shadow-inner relative overflow-hidden group mb-6">
+
+                  {/* 1. O Diagrama Tecnológico Finalizado (Standard de Excelência) */}
+                  <img
+                    src="cabos-submarinos-backbone.png" // <--- O CAMINHO PARA A SUA IMAGEM DE DIAGRAMA
+                    alt="Diagrama Tático de Cabos Submarinos e Backbone Global (Revoluxti)"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out z-0"
+                  />
+
+                  {/* 2. Elementos de Interface (Mantidos e Refinados para Estilo Tático) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+                  <div className="absolute top-4 left-4 flex gap-2 z-20">
+                    <span className="w-2 h-2 rounded-full bg-slate-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-indigo-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-600 hover:bg-cyan-500 animate-pulse"></span>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-[#020617]/70 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm z-20 flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-indigo-500 animate-pulse" />
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Global Backbone Active</span>
+                  </div>
                 </div>
 
               </div>
