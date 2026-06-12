@@ -278,6 +278,12 @@ const ConvergenceDiagram = ({ colors }) => {
 // COMPONENTE PRINCIPAL
 // -----------------------------------------------------------------------------
 const DevSecOpsArticle = () => {
+  // Estados para a Autenticação
+  const [authEmail, setAuthEmail] = useState('');
+  const [authPassword, setAuthPassword] = useState(''); // Servirá para o Security Code e Create Codename
+  const [authName, setAuthName] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [authSuccess, setAuthSuccess] = useState('');
   const [warGameMode, setWarGameMode] = useState('blue');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState('LOGIN'); // 'LOGIN' ou 'REGISTER'
@@ -360,9 +366,6 @@ const DevSecOpsArticle = () => {
       }
     };
 
-
-
-
     // 3. Mensagem "Troll" no Console (Para quem conseguir abrir)
     console.log(
       "%c⚠️ ACESSO RESTRITO ⚠️",
@@ -397,6 +400,54 @@ const DevSecOpsArticle = () => {
     { id: 'p7', name: 'api-gateway', status: 'Running', restarts: 0, cpu: '200m', mem: '256Mi', risk: 'low', sidecar: true, icon: <Network className="w-4 h-4" /> },
     { id: 'p8', name: 'cron-jobs', status: 'Completed', restarts: 0, cpu: '0m', mem: '0Mi', risk: 'low', sidecar: false, icon: <Clock className="w-4 h-4" /> },
   ];
+
+  // Função para executar o Login
+  const executeLogin = async () => {
+    setAuthError(''); setAuthSuccess('');
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: authEmail, password: authPassword })
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        setAuthSuccess('ACESSO CONCEDIDO. BEM-VINDO, OPERADOR.');
+        localStorage.setItem('revoluxti_token', data.token); // Guarda o crachá!
+        
+        // Aqui você pode redirecionar o usuário para o dashboard ou fechar o modal
+        setTimeout(() => setShowAuthModal(false), 2000); 
+      } else {
+        setAuthError(`FALHA: ${data.message}`);
+      }
+    } catch (err) {
+      setAuthError('ERRO DE CONEXÃO COM O SERVIDOR CENTRAL.');
+    }
+  };
+
+  // Função para executar o Cadastro
+  const executeRegister = async () => {
+    setAuthError(''); setAuthSuccess('');
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ full_name: authName, email: authEmail, password: authPassword })
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        setAuthSuccess('REGISTRO CONCLUÍDO. AGUARDANDO APROVAÇÃO DO COMANDO.');
+        setTimeout(() => setAuthMode('LOGIN'), 3000); // Joga para a tela de login
+      } else {
+        // Se o express-validator barrar (ex: senha curta), mostramos o erro
+        setAuthError(data.errors ? data.errors[0].msg : data.message);
+      }
+    } catch (err) {
+      setAuthError('ERRO DE CONEXÃO COM O SERVIDOR CENTRAL.');
+    }
+  };
 
   const getPodColor = (status, risk) => {
     if (status === 'Degraded') return 'border-red-500/50 bg-red-950/10 text-red-500';
