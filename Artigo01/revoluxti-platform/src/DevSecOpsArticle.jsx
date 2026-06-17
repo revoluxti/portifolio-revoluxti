@@ -415,9 +415,9 @@ const DevSecOpsArticle = () => {
       if (response.ok) {
         setAuthSuccess('ACESSO CONCEDIDO. BEM-VINDO, OPERADOR.');
         localStorage.setItem('revoluxti_token', data.token); // Guarda o crachá!
-        
+
         // Aqui você pode redirecionar o usuário para o dashboard ou fechar o modal
-        setTimeout(() => setShowAuthModal(false), 2000); 
+        setTimeout(() => setShowAuthModal(false), 2000);
       } else {
         setAuthError(`FALHA: ${data.message}`);
       }
@@ -584,7 +584,14 @@ const DevSecOpsArticle = () => {
                       <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Codename / Email</label>
                       <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors">
                         <ChevronRight className="w-3 h-3 text-green-500" />
-                        <input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30" placeholder="operator@revoluxti.com" autoFocus />
+                        <input
+                          type="text"
+                          value={authEmail}
+                          onChange={(e) => setAuthEmail(e.target.value)}
+                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30"
+                          placeholder="operator@revoluxti.com"
+                          autoFocus
+                        />
                       </div>
                     </div>
 
@@ -593,11 +600,24 @@ const DevSecOpsArticle = () => {
                       <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Security Code (Token)</label>
                       <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors">
                         <Hash className="w-3 h-3 text-green-500" />
-                        <input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30" placeholder="XK9-###-###" />
+                        <input
+                          type="password"
+                          value={authPassword}
+                          onChange={(e) => setAuthPassword(e.target.value)}
+                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30"
+                          placeholder="XK9-###-###"
+                        />
                       </div>
                     </div>
 
-                    <button className="w-full mt-2 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(22,163,74,0.3)] clip-path-polygon">
+                    {/* MENSAGENS DE STATUS (LOGIN) */}
+                    {authError && <p className="text-red-500 text-[10px] mt-2 font-mono animate-pulse">&gt; {authError}</p>}
+                    {authSuccess && <p className="text-green-500 text-[10px] mt-2 font-mono">&gt; {authSuccess}</p>}
+
+                    <button
+                      onClick={executeLogin}
+                      className="w-full mt-2 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(22,163,74,0.3)] clip-path-polygon"
+                    >
                       <Fingerprint className="w-4 h-4" /> AUTHENTICATE
                     </button>
 
@@ -657,16 +677,46 @@ const DevSecOpsArticle = () => {
                       <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Create Codename</label>
                       <div className="flex items-center gap-2 border-b border-green-800 pb-1">
                         <ChevronRight className="w-3 h-3 text-green-500 animate-pulse" />
-                        <input type="text" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50" placeholder="Type_Your_Alias" autoFocus />
+                        <input
+                          type="text"
+                          value={authName}
+                          onChange={(e) => setAuthName(e.target.value)}
+                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
+                          placeholder="Type_Your_Alias"
+                          autoFocus
+                        />
                       </div>
                     </div>
+
                     <div>
                       <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Secure Frequency (Email)</label>
                       <div className="flex items-center gap-2 border-b border-green-800 pb-1">
                         <ChevronRight className="w-3 h-3 text-green-500" />
-                        <input type="email" className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50" placeholder="user@encrypted.net" />
+                        <input
+                          type="email"
+                          value={authEmail}
+                          onChange={(e) => setAuthEmail(e.target.value)}
+                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
+                          placeholder="user@encrypted.net"
+                        />
                       </div>
                     </div>
+
+                    {/* CAMPO DE SENHA ADICIONADO AQUI */}
+                    <div>
+                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Master Password</label>
+                      <div className="flex items-center gap-2 border-b border-green-800 pb-1">
+                        <ChevronRight className="w-3 h-3 text-green-500" />
+                        <input
+                          type="password"
+                          value={authPassword}
+                          onChange={(e) => setAuthPassword(e.target.value)}
+                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
+                          placeholder="********"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label className="block text-[10px] text-green-600 mb-2 uppercase tracking-widest">Select Allegiance</label>
                       <div className="grid grid-cols-2 gap-3">
@@ -678,7 +728,15 @@ const DevSecOpsArticle = () => {
                         </button>
                       </div>
                     </div>
-                    <button className="w-full mt-6 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)]">
+
+                    {/* MENSAGENS DE STATUS (REGISTER) */}
+                    {authError && <p className="text-red-500 text-[10px] mt-2 font-mono animate-pulse">&gt; {authError}</p>}
+                    {authSuccess && <p className="text-green-500 text-[10px] mt-2 font-mono">&gt; {authSuccess}</p>}
+
+                    <button
+                      onClick={executeRegister}
+                      className="w-full mt-6 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)]"
+                    >
                       <Terminal className="w-4 h-4" /> Execute_Join_Command
                     </button>
                   </div>
