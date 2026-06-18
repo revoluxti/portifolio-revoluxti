@@ -6,6 +6,7 @@
 //git add Artigo01/revoluxti-platform/dist -f
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Shield, Lock, Server, Zap, Globe, AlertTriangle,
   Terminal, Activity, Box, Database, Search,
@@ -39,12 +40,17 @@ import {
 
 } from 'lucide-react';
 
+
 // -----------------------------------------------------------------------------
 // SUB-COMPONENTE: SIMULADOR DE PIPELINE
 // -----------------------------------------------------------------------------
 const PipelineSimulator = ({ colors }) => {
+
   const [status, setStatus] = useState('IDLE');
+
   const [logs, setLogs] = useState(['> SYSTEM READY...', '> WAITING FOR COMMIT...']);
+
+  const navigate = useNavigate();
 
   const runPipeline = () => {
     setStatus('RUNNING');
@@ -279,6 +285,7 @@ const ConvergenceDiagram = ({ colors }) => {
 // -----------------------------------------------------------------------------
 const DevSecOpsArticle = () => {
   // Estados para a Autenticação
+  const navigate = useNavigate();
   const [authEmail, setAuthEmail] = useState('');
   const [authPassword, setAuthPassword] = useState(''); // Servirá para o Security Code e Create Codename
   const [authName, setAuthName] = useState('');
@@ -387,6 +394,43 @@ const DevSecOpsArticle = () => {
     };
   }, []);
 
+  // --- 🛡️ INTERCETADOR DE OAUTH GITHUB ---
+  useEffect(() => {
+    // Analisa a URL à procura de mensagens do Backend
+    const params = new URLSearchParams(window.location.search);
+    const githubToken = params.get('github_token');
+    const userData = params.get('user');
+    const error = params.get('error');
+
+    if (error === 'account_pending') {
+      setAuthError('FALHA: CONTA GITHUB AGUARDA APROVAÇÃO DO COMANDO.');
+      setAuthMode('LOGIN');
+      setShowAuthModal(true);
+      window.history.replaceState({}, document.title, "/"); // Limpa a URL
+    } else if (error === 'auth_failed') {
+      setAuthError('ERRO DE COMUNICAÇÃO COM O SERVIDOR GITHUB.');
+      setShowAuthModal(true);
+      window.history.replaceState({}, document.title, "/");
+    } else if (githubToken && userData) {
+      // Sucesso Absoluto! Guarda o crachá e executa o teletransporte
+      localStorage.setItem('revoluxti_token', githubToken);
+      localStorage.setItem('revoluxti_user', decodeURIComponent(userData));
+
+      setAuthSuccess('AUTENTICAÇÃO GITHUB CONCLUÍDA. INICIANDO TELETRANSPORTE...');
+      setShowAuthModal(true);
+      window.history.replaceState({}, document.title, "/"); // Apaga o token da URL para segurança
+
+      setTimeout(() => {
+        const userObj = JSON.parse(decodeURIComponent(userData));
+        if (userObj.role === 'admin') {
+          navigate('/admin');
+        } else {
+          navigate('/dashboard');
+        }
+      }, 2000);
+    }
+  }, [navigate]);
+
   // --- ESTADOS E DADOS DO CAPÍTULO 6 (KUBERNETES) ---
   const [selectedK8sPod, setSelectedK8sPod] = useState(null);
 
@@ -414,12 +458,18 @@ const DevSecOpsArticle = () => {
 
       if (response.ok) {
         setAuthSuccess('ACESSO CONCEDIDO. BEM-VINDO, OPERADOR.');
-        localStorage.setItem('revoluxti_token', data.token); // Guarda o crachá!
+        localStorage.setItem('revoluxti_token', data.token);
+        localStorage.setItem('revoluxti_user', JSON.stringify(data.user)); // Guarda as infos (como a hierarquia)
 
-        // Aqui você pode redirecionar o usuário para o dashboard ou fechar o modal
-        setTimeout(() => setShowAuthModal(false), 2000);
-      } else {
-        setAuthError(`FALHA: ${data.message}`);
+        // O Salto Automático!
+        setTimeout(() => {
+          // Se o cara for admin, joga pro painel dele. Se for operador, joga pro painel de operação.
+          if (data.user.role === 'admin') {
+            navigate('/admin');
+          } else {
+            navigate('/dashboard');
+          }
+        }, 2000);
       }
     } catch (err) {
       setAuthError('ERRO DE CONEXÃO COM O SERVIDOR CENTRAL.');
@@ -628,7 +678,10 @@ const DevSecOpsArticle = () => {
                       </p>
 
                       <div className="grid grid-cols-2 gap-3">
-                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group">
+                        <button
+                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/github'}
+                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
+                        >
                           <Github className="w-4 h-4 text-green-600 group-hover:text-white" />
                           <div className="text-left">
                             <div className="text-[10px] font-bold text-green-500 group-hover:text-white">GITHUB</div>
@@ -636,27 +689,36 @@ const DevSecOpsArticle = () => {
                           </div>
                         </button>
 
-                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group">
-                          <Mail className="w-4 h-4 text-green-600 group-hover:text-white" /> {/* Simulating Google */}
+                        <button
+                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/google'}
+                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
+                        >
+                          <Mail className="w-4 h-4 text-green-600 group-hover:text-white" />
                           <div className="text-left">
-                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">GOOGLE</div>
-                            <div className="text-[8px] text-green-800">Workspace_SSO</div>
+                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">GLOOGLE</div>
+                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
                           </div>
                         </button>
 
-                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group">
+                        <button
+                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/linkedin'}
+                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
+                        >
                           <Linkedin className="w-4 h-4 text-green-600 group-hover:text-white" />
                           <div className="text-left">
                             <div className="text-[10px] font-bold text-green-500 group-hover:text-white">LINKEDIN</div>
-                            <div className="text-[8px] text-green-800">Corp_Verification</div>
+                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
                           </div>
                         </button>
 
-                        <button className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group">
+                        <button
+                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/facebook'}
+                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
+                        >
                           <Facebook className="w-4 h-4 text-green-600 group-hover:text-white" />
                           <div className="text-left">
                             <div className="text-[10px] font-bold text-green-500 group-hover:text-white">FACEBOOK</div>
-                            <div className="text-[8px] text-green-800">Meta_Graph_API</div>
+                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
                           </div>
                         </button>
                       </div>
