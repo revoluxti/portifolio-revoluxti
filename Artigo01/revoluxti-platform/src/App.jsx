@@ -4,15 +4,89 @@ import { ShieldCheck, UserCheck, Terminal, AlertTriangle } from 'lucide-react';
 import DevSecOpsArticle from './DevSecOpsArticle';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
-// 1. O Esqueleto do Dashboard Operacional
-const Dashboard = () => (
-  <div className="min-h-screen bg-slate-950 text-green-500 p-10 font-mono">
-    <h1 className="text-2xl font-bold border-b border-green-800 pb-2 mb-4">
-      &gt; CENTRO DE COMANDOS DEVSECOPS (Aplicação Geral)
-    </h1>
-    <p>Bem-vindo, Operador. Módulos de varredura disponíveis.</p>
-  </div>
-);
+const Dashboard = () => {
+  const navigate = useNavigate();
+  const [terminalOutput, setTerminalOutput] = useState('STANDBY. Aguardando comando de varredura...');
+  const [isScanning, setIsScanning] = useState(false);
+
+  // 1. O Assento Ejetor (Logout) do Operador
+  const handleLogout = () => {
+    localStorage.removeItem('revoluxti_token');
+    localStorage.removeItem('revoluxti_user');
+    navigate('/');
+  };
+
+  // 2. O Gatilho que chama o Node que chama o Python
+  const handleScan = async () => {
+    setIsScanning(true);
+    setTerminalOutput('Iniciando handshake com Gateway Node.js...\nPreparando Child Process Python...\nExecutando script...\n\n');
+
+    try {
+      const token = localStorage.getItem('revoluxti_token');
+
+      const response = await fetch('http://localhost:3000/api/pentest/run-scan', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setTerminalOutput(prev => prev + '>>> OUTPUT DO SCRIPT PYTHON:\n' + data.output);
+      } else {
+        setTerminalOutput(prev => prev + '>>> [FALHA CRÍTICA]:\n' + data.error);
+      }
+    } catch (err) {
+      setTerminalOutput(prev => prev + '>>> [ERRO DE COMUNICAÇÃO]: ' + err.message);
+    } finally {
+      setIsScanning(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-green-500 p-6 md:p-10 font-mono relative">
+
+      {/* HUD Superior com botão de Sair */}
+      <div className="flex justify-between items-center border-b border-green-800 pb-4 mb-8">
+        <h1 className="text-2xl font-bold flex items-center gap-3">
+          <Terminal className="w-8 h-8 text-green-600" />
+          &gt; CENTRO DE COMANDOS DEVSECOPS
+        </h1>
+        <button
+          onClick={handleLogout}
+          className="px-4 py-2 border border-green-800 hover:bg-green-900/50 text-green-400 transition-all rounded text-sm font-bold"
+        >
+          [ DESCONECTAR ]
+        </button>
+      </div>
+
+      <p className="mb-8">Bem-vindo, Operador. Módulos de automação liberados.</p>
+
+      {/* Painel de Controle e Terminal Virtual */}
+      <div className="border border-green-900/50 bg-[#020a04] rounded-xl p-6">
+        <button
+          onClick={handleScan}
+          disabled={isScanning}
+          className={`mb-6 px-6 py-3 font-bold rounded flex items-center gap-2 transition-all ${isScanning
+              ? 'bg-green-900/20 border border-green-800 text-green-700 cursor-not-allowed'
+              : 'bg-green-600 hover:bg-green-500 text-black border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4)]'
+            }`}
+        >
+          <ShieldCheck className="w-5 h-5" />
+          {isScanning ? '[ EXECUTANDO VARREDURA... ]' : '[ INICIAR PENTEST / AUTOMAÇÃO ]'}
+        </button>
+
+        <div className="bg-black border border-green-900/30 p-4 rounded h-64 overflow-y-auto">
+          <pre className="text-sm text-green-400 whitespace-pre-wrap font-mono">
+            {terminalOutput}
+          </pre>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // 2. O Módulo de Administração (CEO)
 const AdminPanel = () => {
