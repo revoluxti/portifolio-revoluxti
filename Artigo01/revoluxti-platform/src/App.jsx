@@ -218,7 +218,7 @@ const AdminPanel = () => {
 // 3. O Roteador Principal (Obrigatório para o app não ficar branco)
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/revoluxti-plataform">
       <Routes>
         <Route path="/" element={<DevSecOpsArticle />} />
         <Route path="/dashboard" element={
