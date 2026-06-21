@@ -69,8 +69,8 @@ const Dashboard = () => {
           onClick={handleScan}
           disabled={isScanning}
           className={`mb-6 px-6 py-3 font-bold rounded flex items-center gap-2 transition-all ${isScanning
-            ? 'bg-green-900/20 border border-green-800 text-green-700 cursor-not-allowed'
-            : 'bg-green-600 hover:bg-green-500 text-black border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4)]'
+              ? 'bg-green-900/20 border border-green-800 text-green-700 cursor-not-allowed'
+              : 'bg-green-600 hover:bg-green-500 text-black border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.4)]'
             }`}
         >
           <ShieldCheck className="w-5 h-5" />
@@ -218,7 +218,7 @@ const AdminPanel = () => {
 // 3. O Roteador Principal (Obrigatório para o app não ficar branco)
 export default function App() {
   return (
-    <BrowserRouter basename="/revoluxti-plataform">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<DevSecOpsArticle />} />
         <Route path="/dashboard" element={
