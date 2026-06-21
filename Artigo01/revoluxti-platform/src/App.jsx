@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { ShieldCheck, UserCheck, Terminal, AlertTriangle } from 'lucide-react';
-import DevSecOpsArticle from './DevSecOpsArticle';
+import  DevSecOpsArticle from './DevSecOpsArticle';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 const Dashboard = () => {
@@ -218,20 +218,31 @@ const AdminPanel = () => {
 // 3. O Roteador Principal (Obrigatório para o app não ficar branco)
 export default function App() {
   return (
-    <BrowserRouter basename="/revoluxti-plataform">
+    <HashRouter>
       <Routes>
+        {/* Rota Pública (A Porta de Entrada) */}
         <Route path="/" element={<DevSecOpsArticle />} />
-        <Route path="/dashboard" element={
-          <ProtectedRoute allowedRoles={['admin', 'analyst']}>
-            <Dashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin" element={
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminPanel />
-          </ProtectedRoute>
-        } />
+
+        {/* Rota Protegida Nível 1: Operadores e Admin (Dashboard da Aplicação) */}
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute allowedRoles={['admin', 'analyst']}>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+
+        {/* Rota Protegida Nível MAX: Exclusiva para Administração */}
+        <Route 
+          path="/admin" 
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminPanel />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
