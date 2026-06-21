@@ -6,7 +6,6 @@
 //git add Artigo01/revoluxti-platform/dist -f
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Shield, Lock, Server, Zap, Globe, AlertTriangle,
   Terminal, Activity, Box, Database, Search,
@@ -50,7 +49,6 @@ const PipelineSimulator = ({ colors }) => {
 
   const [logs, setLogs] = useState(['> SYSTEM READY...', '> WAITING FOR COMMIT...']);
 
-  const navigate = useNavigate();
 
   const runPipeline = () => {
     setStatus('RUNNING');
