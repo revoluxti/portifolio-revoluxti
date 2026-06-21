@@ -515,18 +515,6 @@ const DevSecOpsArticle = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 mb-10">
-            {/* BOTÃO: Aumentei o padding (py-4) e o texto (text-lg) para ficar bom de clicar no celular */}
-            <button
-              onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })} className="w-full sm:w-auto px-8 py-4 text-white font-bold text-lg rounded flex items-center justify-center gap-3 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95"
-              style={{ backgroundColor: colors.principal }}
-            >
-              <Terminal className="w-6 h-6" />
-              <span>INICIAR PROTOCOLO</span>
-              <Lock className="w-5 h-5 text-[#fd8f00]" />
-            </button>
-          </div>
-
           {/* ÁREA DOS BADGES (CORRIGIDA: LETRAS MAIORES) */}
           {/* Mudei de text-[10px] para text-xs (12px) e adicionei font-bold */}
           <div className="flex flex-wrap items-center gap-3">
