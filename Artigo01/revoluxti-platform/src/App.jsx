@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { ShieldCheck, UserCheck, Terminal, AlertTriangle } from 'lucide-react';
-import  DevSecOpsArticle from './DevSecOpsArticle';
+import DevSecOpsArticle from './DevSecOpsArticle.jsx';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 const Dashboard = () => {
