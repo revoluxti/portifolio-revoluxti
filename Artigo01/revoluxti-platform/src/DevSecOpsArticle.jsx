@@ -283,15 +283,7 @@ const ConvergenceDiagram = ({ colors }) => {
 // -----------------------------------------------------------------------------
 const DevSecOpsArticle = () => {
   // Estados para a Autenticação
-  const navigate = useNavigate();
-  const [authEmail, setAuthEmail] = useState('');
-  const [authPassword, setAuthPassword] = useState(''); // Servirá para o Security Code e Create Codename
-  const [authName, setAuthName] = useState('');
-  const [authError, setAuthError] = useState('');
-  const [authSuccess, setAuthSuccess] = useState('');
   const [warGameMode, setWarGameMode] = useState('blue');
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authMode, setAuthMode] = useState('LOGIN'); // 'LOGIN' ou 'REGISTER'
   const [maturityLevel, setMaturityLevel] = useState(1); const maturityData = {
     1: {
       id: 1,
@@ -392,42 +384,7 @@ const DevSecOpsArticle = () => {
     };
   }, []);
 
-  // --- 🛡️ INTERCETADOR DE OAUTH GITHUB ---
-  useEffect(() => {
-    // Analisa a URL à procura de mensagens do Backend
-    const params = new URLSearchParams(window.location.search);
-    const githubToken = params.get('github_token');
-    const userData = params.get('user');
-    const error = params.get('error');
 
-    if (error === 'account_pending') {
-      setAuthError('FALHA: CONTA GITHUB AGUARDA APROVAÇÃO DO COMANDO.');
-      setAuthMode('LOGIN');
-      setShowAuthModal(true);
-      window.history.replaceState({}, document.title, "/"); // Limpa a URL
-    } else if (error === 'auth_failed') {
-      setAuthError('ERRO DE COMUNICAÇÃO COM O SERVIDOR GITHUB.');
-      setShowAuthModal(true);
-      window.history.replaceState({}, document.title, "/");
-    } else if (githubToken && userData) {
-      // Sucesso Absoluto! Guarda o crachá e executa o teletransporte
-      localStorage.setItem('revoluxti_token', githubToken);
-      localStorage.setItem('revoluxti_user', decodeURIComponent(userData));
-
-      setAuthSuccess('AUTENTICAÇÃO GITHUB CONCLUÍDA. INICIANDO TELETRANSPORTE...');
-      setShowAuthModal(true);
-      window.history.replaceState({}, document.title, "/"); // Apaga o token da URL para segurança
-
-      setTimeout(() => {
-        const userObj = JSON.parse(decodeURIComponent(userData));
-        if (userObj.role === 'admin') {
-          navigate('/admin');
-        } else {
-          navigate('/dashboard');
-        }
-      }, 2000);
-    }
-  }, [navigate]);
 
   // --- ESTADOS E DADOS DO CAPÍTULO 6 (KUBERNETES) ---
   const [selectedK8sPod, setSelectedK8sPod] = useState(null);
@@ -443,59 +400,6 @@ const DevSecOpsArticle = () => {
     { id: 'p8', name: 'cron-jobs', status: 'Completed', restarts: 0, cpu: '0m', mem: '0Mi', risk: 'low', sidecar: false, icon: <Clock className="w-4 h-4" /> },
   ];
 
-  // Função para executar o Login
-  const executeLogin = async () => {
-    setAuthError(''); setAuthSuccess('');
-    try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: authEmail, password: authPassword })
-      });
-      const data = await response.json();
-
-      if (response.ok) {
-        setAuthSuccess('ACESSO CONCEDIDO. BEM-VINDO, OPERADOR.');
-        localStorage.setItem('revoluxti_token', data.token);
-        localStorage.setItem('revoluxti_user', JSON.stringify(data.user)); // Guarda as infos (como a hierarquia)
-
-        // O Salto Automático!
-        setTimeout(() => {
-          // Se o cara for admin, joga pro painel dele. Se for operador, joga pro painel de operação.
-          if (data.user.role === 'admin') {
-            navigate('/admin');
-          } else {
-            navigate('/dashboard');
-          }
-        }, 2000);
-      }
-    } catch (err) {
-      setAuthError('ERRO DE CONEXÃO COM O SERVIDOR CENTRAL.');
-    }
-  };
-
-  // Função para executar o Cadastro
-  const executeRegister = async () => {
-    setAuthError(''); setAuthSuccess('');
-    try {
-      const response = await fetch('http://localhost:3000/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ full_name: authName, email: authEmail, password: authPassword })
-      });
-      const data = await response.json();
-
-      if (response.ok) {
-        setAuthSuccess('REGISTRO CONCLUÍDO. AGUARDANDO APROVAÇÃO DO COMANDO.');
-        setTimeout(() => setAuthMode('LOGIN'), 3000); // Joga para a tela de login
-      } else {
-        // Se o express-validator barrar (ex: senha curta), mostramos o erro
-        setAuthError(data.errors ? data.errors[0].msg : data.message);
-      }
-    } catch (err) {
-      setAuthError('ERRO DE CONEXÃO COM O SERVIDOR CENTRAL.');
-    }
-  };
 
   const getPodColor = (status, risk) => {
     if (status === 'Degraded') return 'border-red-500/50 bg-red-950/10 text-red-500';
@@ -580,235 +484,6 @@ const DevSecOpsArticle = () => {
   return (
     <div className="min-h-screen font-sans selection:bg-[#b3120c]/30 pb-24 relative" style={{ backgroundColor: colors.bgPage, color: '#e2e8f0' }}>
 
-      {/* --- MODAL DE AUTENTICAÇÃO (LOGIN/REGISTER) --- */}
-      {showAuthModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in duration-300">
-          {/* Moldura do Terminal */}
-          <div className="w-full max-w-lg border-2 shadow-[0_0_50px_rgba(253,143,0,0.15)] relative overflow-hidden font-mono"
-            style={{ borderColor: colors.borda, backgroundColor: '#000' }}>
-
-            {/* Header do Terminal com Tabs */}
-            <div className="flex justify-between items-center px-4 py-0 border-b bg-[#0f0202]"
-              style={{ borderColor: colors.borda }}>
-              <div className="flex">
-                <button
-                  onClick={() => setAuthMode('LOGIN')}
-                  className={`px-4 py-3 text-[10px] font-bold tracking-widest uppercase transition-colors border-r ${authMode === 'LOGIN' ? 'bg-[#2a0505] text-[#fd8f00]' : 'text-slate-600 hover:text-white'}`}
-                  style={{ borderColor: colors.borda }}
-                >
-                  [ ACCESS_LOGIN ]
-                </button>
-                <button
-                  onClick={() => setAuthMode('REGISTER')}
-                  className={`px-4 py-3 text-[10px] font-bold tracking-widest uppercase transition-colors border-r ${authMode === 'REGISTER' ? 'bg-[#2a0505] text-[#fd8f00]' : 'text-slate-600 hover:text-white'}`}
-                  style={{ borderColor: colors.borda }}
-                >
-                  [ NEW_OPERATOR ]
-                </button>
-              </div>
-              <button onClick={() => setShowAuthModal(false)} className="text-slate-500 hover:text-red-500 p-2">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Corpo do Terminal (Abóbora com Transparência) */}
-            <div className="p-8 relative min-h-[450px]" style={{ backgroundColor: 'rgba(253, 143, 0, 0.08)' }}>
-              {/* Scanlines Effect Overlay */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-0 pointer-events-none bg-[size:100%_2px,3px_100%]"></div>
-
-              <div className="relative z-10">
-
-                {/* Status Output */}
-                <div className="text-green-500 text-xs mb-6 typing-effect leading-relaxed font-mono">
-                  &gt; ENCRYPTED CHANNEL ESTABLISHED (TLS 1.3)<br />
-                  &gt; IDENTITY PROVIDER: <span className="text-[#fd8f00]">REVOLUXTI_AUTH_V2</span><br />
-                  &gt; WAITING FOR CREDENTIALS...
-                </div>
-
-                {authMode === 'LOGIN' ? (
-                  <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                    {/* LOGIN FORM */}
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Codename / Email</label>
-                      <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors">
-                        <ChevronRight className="w-3 h-3 text-green-500" />
-                        <input
-                          type="text"
-                          value={authEmail}
-                          onChange={(e) => setAuthEmail(e.target.value)}
-                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30"
-                          placeholder="operator@revoluxti.com"
-                          autoFocus
-                        />
-                      </div>
-                    </div>
-
-                    {/* AQUI ESTÁ A MUDANÇA: SECURITY CODE */}
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Security Code (Token)</label>
-                      <div className="flex items-center gap-2 border-b border-green-800/50 pb-1 focus-within:border-green-500 transition-colors">
-                        <Hash className="w-3 h-3 text-green-500" />
-                        <input
-                          type="password"
-                          value={authPassword}
-                          onChange={(e) => setAuthPassword(e.target.value)}
-                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/30"
-                          placeholder="XK9-###-###"
-                        />
-                      </div>
-                    </div>
-
-                    {/* MENSAGENS DE STATUS (LOGIN) */}
-                    {authError && <p className="text-red-500 text-[10px] mt-2 font-mono animate-pulse">&gt; {authError}</p>}
-                    {authSuccess && <p className="text-green-500 text-[10px] mt-2 font-mono">&gt; {authSuccess}</p>}
-
-                    <button
-                      onClick={executeLogin}
-                      className="w-full mt-2 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(22,163,74,0.3)] clip-path-polygon"
-                    >
-                      <Fingerprint className="w-4 h-4" /> AUTHENTICATE
-                    </button>
-
-                    {/* SOCIAL LOGIN SECTION (MAX SECURITY) */}
-                    <div className="mt-8 pt-6 border-t border-dashed border-green-900/30">
-                      <p className="text-[9px] text-center text-green-700 uppercase tracking-[0.2em] mb-4 bg-transparent relative">
-                        <span className="bg-transparent px-2">Or Use Federated Identity (OAuth 2.0)</span>
-                      </p>
-
-                      <div className="grid grid-cols-2 gap-3">
-                        <button
-                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/github'}
-                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
-                        >
-                          <Github className="w-4 h-4 text-green-600 group-hover:text-white" />
-                          <div className="text-left">
-                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">GITHUB</div>
-                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
-                          </div>
-                        </button>
-
-                        <button
-                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/google'}
-                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
-                        >
-                          <Mail className="w-4 h-4 text-green-600 group-hover:text-white" />
-                          <div className="text-left">
-                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">GLOOGLE</div>
-                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
-                          </div>
-                        </button>
-
-                        <button
-                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/linkedin'}
-                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
-                        >
-                          <Linkedin className="w-4 h-4 text-green-600 group-hover:text-white" />
-                          <div className="text-left">
-                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">LINKEDIN</div>
-                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
-                          </div>
-                        </button>
-
-                        <button
-                          onClick={() => window.location.href = 'http://localhost:3000/api/auth/facebook'}
-                          className="flex items-center gap-3 p-2 rounded border border-green-900/40 bg-green-950/10 hover:bg-green-900/30 hover:border-green-500/50 transition-all group"
-                        >
-                          <Facebook className="w-4 h-4 text-green-600 group-hover:text-white" />
-                          <div className="text-left">
-                            <div className="text-[10px] font-bold text-green-500 group-hover:text-white">FACEBOOK</div>
-                            <div className="text-[8px] text-green-800">Dev_Access_Token</div>
-                          </div>
-                        </button>
-                      </div>
-                      <div className="flex justify-center mt-3 gap-2">
-                        <div className="flex items-center gap-1 px-2 py-1 rounded bg-green-950/30 border border-green-900/50 text-[8px] text-green-600">
-                          <Lock className="w-2 h-2" /> E2E_ENCRYPTED
-                        </div>
-                        <div className="flex items-center gap-1 px-2 py-1 rounded bg-green-950/30 border border-green-900/50 text-[8px] text-green-600">
-                          <Smartphone className="w-2 h-2" /> MFA_READY
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="space-y-4 animate-in fade-in slide-in-from-left-4 duration-300">
-                    {/* REGISTER FORM */}
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Create Codename</label>
-                      <div className="flex items-center gap-2 border-b border-green-800 pb-1">
-                        <ChevronRight className="w-3 h-3 text-green-500 animate-pulse" />
-                        <input
-                          type="text"
-                          value={authName}
-                          onChange={(e) => setAuthName(e.target.value)}
-                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
-                          placeholder="Type_Your_Alias"
-                          autoFocus
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Secure Frequency (Email)</label>
-                      <div className="flex items-center gap-2 border-b border-green-800 pb-1">
-                        <ChevronRight className="w-3 h-3 text-green-500" />
-                        <input
-                          type="email"
-                          value={authEmail}
-                          onChange={(e) => setAuthEmail(e.target.value)}
-                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
-                          placeholder="user@encrypted.net"
-                        />
-                      </div>
-                    </div>
-
-                    {/* CAMPO DE SENHA ADICIONADO AQUI */}
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-1 uppercase tracking-widest">Master Password</label>
-                      <div className="flex items-center gap-2 border-b border-green-800 pb-1">
-                        <ChevronRight className="w-3 h-3 text-green-500" />
-                        <input
-                          type="password"
-                          value={authPassword}
-                          onChange={(e) => setAuthPassword(e.target.value)}
-                          className="bg-transparent w-full text-green-400 outline-none text-sm font-bold placeholder-green-900/50"
-                          placeholder="********"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] text-green-600 mb-2 uppercase tracking-widest">Select Allegiance</label>
-                      <div className="grid grid-cols-2 gap-3">
-                        <button className="border border-green-800 hover:bg-green-900/30 text-green-500 text-xs py-2 px-3 rounded text-left transition-colors flex items-center gap-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div> Blue Team
-                        </button>
-                        <button className="border border-green-800 hover:bg-green-900/30 text-green-500 text-xs py-2 px-3 rounded text-left transition-colors flex items-center gap-2">
-                          <div className="w-2 h-2 bg-red-500 rounded-full"></div> Red Team
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* MENSAGENS DE STATUS (REGISTER) */}
-                    {authError && <p className="text-red-500 text-[10px] mt-2 font-mono animate-pulse">&gt; {authError}</p>}
-                    {authSuccess && <p className="text-green-500 text-[10px] mt-2 font-mono">&gt; {authSuccess}</p>}
-
-                    <button
-                      onClick={executeRegister}
-                      className="w-full mt-6 py-3 bg-green-600 hover:bg-green-500 text-black font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)]"
-                    >
-                      <Terminal className="w-4 h-4" /> Execute_Join_Command
-                    </button>
-                  </div>
-                )}
-
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-
 
       {/* ---------------------------------------------------------------------
           HERO SECTION
@@ -843,8 +518,7 @@ const DevSecOpsArticle = () => {
           <div className="flex flex-wrap gap-4 mb-10">
             {/* BOTÃO: Aumentei o padding (py-4) e o texto (text-lg) para ficar bom de clicar no celular */}
             <button
-              onClick={() => { setShowAuthModal(true); setAuthMode('REGISTER'); }}
-              className="w-full sm:w-auto px-8 py-4 text-white font-bold text-lg rounded flex items-center justify-center gap-3 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95"
+              onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })} className="w-full sm:w-auto px-8 py-4 text-white font-bold text-lg rounded flex items-center justify-center gap-3 transition-all hover:brightness-110 shadow-[0_0_20px_rgba(179,18,12,0.4)] hover:scale-105 active:scale-95"
               style={{ backgroundColor: colors.principal }}
             >
               <Terminal className="w-6 h-6" />
