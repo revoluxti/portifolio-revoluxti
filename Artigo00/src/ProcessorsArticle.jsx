@@ -80,7 +80,7 @@ const TunnelImage = ({ src, alt, className, glowColor = "rgba(34, 197, 94," }) =
                e.target.parentElement.innerHTML = `
             <div class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-green-500/30 rounded-xl bg-green-950/10 w-full h-64">
                 <span class="text-green-500 font-bold mb-2">Imagem: ${alt}</span>
-                <span class="text-xs text-slate-500 text-center max-w-xs">Adicione "${src}" na pasta public.</span>
+                <span class="text-xs text-slate-500 text-center max-w-xs">Adicione "${src}" </span>
             </div>`
             }}
          />
