@@ -1,0 +1,17 @@
+/* Nova importação do Tailwind v4 */
+@import "tailwindcss";
+
+/* Definindo o fundo escuro e texto claro com CSS nativo (Hexadecimal exato do Slate-950 e Slate-200) */
+body {
+  background-color: #020617; 
+  color: #e2e8f0; 
+}
+
+/* Ocultar barra de rolagem para manter o visual limpo dos iframes */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

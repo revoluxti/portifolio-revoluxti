@@ -1,2 +1,21 @@
-#adicionar menu para hamburguer tablet
-#seção da pagina index melhorar a div
+Para os nichos dos artigos:
+
+# 1. Cria o novo projeto React com Vite (pode escolher o nome da pasta que preferir)
+npm create vite@latest artigo-00-1-redes -- --template react
+
+# 2. Entra na pasta do projeto
+cd artigo-00-1-redes
+
+# 3. Instala as dependências base do React
+npm install
+
+# 4. Instala o Tailwind CSS e suas ferramentas auxiliares
+npm install -D tailwindcss postcss autoprefixer
+
+# 5. Inicializa os arquivos de configuração do Tailwind
+npx tailwindcss init -p
+
+# 6. Instala a biblioteca de ícones que estamos usando em todos os capítulos
+npm install lucide-react
+
+

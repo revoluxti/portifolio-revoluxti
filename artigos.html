@@ -126,14 +126,35 @@
 
                         </div>
 
-                        <div class="card-artigos">
-                            <div class="card-artigos">
-                                <a href=""></a>
-                                <iframe src="" frameborder="0"></iframe>
-                                <div class="overlay">
-                                    <p>Em produção aguarde ..</p>
-                                </div>
+                        <!-- SEGUNDO NICHO: ARTIGO 00.1 -->
+                        <div class="card-artigos"
+                            style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+
+                            <!-- Link clicável invisível por cima do iframe -->
+                            <a href="artigo-00-1/dist/index.html" target="_blank"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+                            </a>
+
+                            <!-- O iframe puxando o novo projeto React -->
+                            <iframe src="artigo-00-1/dist/index.html" scrolling="no" style="
+            position: absolute;
+            top: 5px; 
+            left: -25%;  
+            width: 150%; 
+            height: 150%; 
+            transform: scale(0.65); 
+            transform-origin: top center;
+            border-radius: 10px;
+            border: none; 
+            pointer-events: none;
+        ">
+                            </iframe>
+
+                            <div class="overlay"
+                                style="position: absolute; bottom: 0; width: 100%; pointer-events: none;">
+                                <p>Capítulo 05 - Sala do Eniac ..  ...</p>
                             </div>
+
                         </div>
 
 
