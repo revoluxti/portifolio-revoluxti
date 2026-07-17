@@ -19,3 +19,5 @@ npx tailwindcss init -p
 npm install lucide-react
 
 
+npx serve dist  
+
