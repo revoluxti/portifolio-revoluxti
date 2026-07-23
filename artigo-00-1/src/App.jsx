@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, Terminal, Network } from 'lucide-react';
 
 // IMPORT DO NOVO ARTIGO (MÓDULO 02 - REDES / DEVSECOPS)
-// import EngenhariaRedes from './EngenhariaRedes'; // <-- Descomente quando o arquivo estiver criado!
+import EngenhariaRedes from './EngenhariaRedes';
 
 const App = () => {
   // O estado inicial já começa no capítulo 05 e no modo correto
@@ -84,10 +84,10 @@ const App = () => {
       <div className="flex-1 relative overflow-y-auto scroll-smooth bg-slate-950 custom-scrollbar">
         
         {/* Renderização Condicional dos Módulos */}
-        {/* {currentChapter === '05' && <EngenhariaRedes />} */}
+        {currentChapter === '05' && <EngenhariaRedes />}
         
-        {/* MENSAGEM DE STANDBY (Aparece se o componente ainda estiver comentado ou não existir) */}
-        {['05', '06', '07', '08', '09'].includes(currentChapter) && (
+        {/* MENSAGEM DE STANDBY para os demais capítulos vazios */}
+        {['06', '07', '08', '09'].includes(currentChapter) && (
           <div className="w-full h-full flex flex-col items-center justify-center">
              <Terminal className="w-16 h-16 text-slate-700 mb-4 animate-pulse" />
              <h2 className="text-xl font-bold text-slate-500 font-mono tracking-widest uppercase">inicializando ..</h2>
