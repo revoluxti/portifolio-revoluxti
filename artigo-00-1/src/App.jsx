@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ShieldCheck, Terminal, Network } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Terminal, Network } from 'lucide-react';
 
 // IMPORT DO NOVO ARTIGO (MÓDULO 02 - REDES / DEVSECOPS)
 import EngenhariaRedes from './EngenhariaRedes';
@@ -10,6 +10,42 @@ const App = () => {
   const systemMode = 'DEVSECOPS'; 
 
   const brandRed = '#b3120c';
+
+  // --- SISTEMA DE DEFESA ATIVA REVOLUXTI ---
+  useEffect(() => {
+    // Mensagem de aviso estilizada direto no Console
+    console.log(
+      "%c[ AMBIENTE SECURE REVOLUXTI ]\n%c⚠️ Monitoramento Ativo. Tentativas de engenharia reversa, injeção de payload ou manipulação do DOM são registradas.",
+      "color: #b3120c; font-size: 18px; font-weight: 900; font-family: monospace;",
+      "color: #a09494; font-size: 12px; font-family: monospace;"
+    );
+
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e) => {
+      // Bloqueia F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C e Ctrl+U (Maiúsculas e Minúsculas)
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(e.key)) ||
+        (e.ctrlKey && (e.key === 'U' || e.key === 'u'))
+      ) {
+        e.preventDefault();
+        alert("⚠️ SECURITY WARNING: Ambiente monitorado Revoluxti. O acesso aos recursos de inspeção foi bloqueado pelas políticas de segurança.");
+      }
+    };
+
+    // Adiciona os Listeners ao montar o componente
+    window.addEventListener('contextmenu', handleContextMenu);
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Cleanup dos Listeners ao desmontar o componente
+    return () => {
+      window.removeEventListener('contextmenu', handleContextMenu);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const handleNavigation = (cap) => {
     setCurrentChapter(cap);
@@ -86,7 +122,7 @@ const App = () => {
         {/* Renderização Condicional dos Módulos */}
         {currentChapter === '05' && <EngenhariaRedes />}
         
-        {/* MENSAGEM DE STANDBY para os demais capítulos vazios */}
+        {/* MENSAGEM DE STANDBY (Aparece para os capítulos 06 a 09) */}
         {['06', '07', '08', '09'].includes(currentChapter) && (
           <div className="w-full h-full flex flex-col items-center justify-center">
              <Terminal className="w-16 h-16 text-slate-700 mb-4 animate-pulse" />
