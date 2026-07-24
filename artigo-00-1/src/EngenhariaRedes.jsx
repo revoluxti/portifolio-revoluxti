@@ -390,7 +390,7 @@ const EngenhariaRedes = () => {
 
         {/* Adicione as demais seções (Octal, Hexadecimal, Endianness, etc) seguindo a mesma estrutura semântica... */}
         
-        <section className="space-y-6 pt-8">
+        {/*<section className="space-y-6 pt-8">
            <div className="text-center p-8 bg-slate-900 rounded-xl border border-slate-800 border-dashed">
               <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
                 [ Fim do Trecho de Demonstração ]
@@ -399,7 +399,7 @@ const EngenhariaRedes = () => {
                 A estrutura acima pode ser replicada para os blocos de Hexadecimal, Grandezas e Endianness.
               </p>
            </div>
-        </section>
+        </section>*/}
 
       </article>
     </div>
