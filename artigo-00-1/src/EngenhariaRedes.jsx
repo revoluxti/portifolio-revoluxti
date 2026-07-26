@@ -23,7 +23,7 @@ const EngenhariaRedes = () => {
                     Engenharia de Redes e Segurança Cibernética
                 </div>
                 <div className="text-lg md:text-xl font-light text-slate-400 mb-14 z-10">
-                    Da Matemática Binária à Defesa em Profundidade.
+                    Da Matemática Binária - Aos Fundamentos de Criptografia
                 </div>
 
                 <div className="text-xs md:text-sm text-cyan-500 tracking-[0.2em] font-mono mb-2 z-10 uppercase">
@@ -158,7 +158,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Terminal className="text-emerald-500 w-6 h-6" />
-                        2. O Sistema Decimal (Base 10)
+                        1.2 - O Sistema Decimal (Base 10)
                     </h2>
                     <p>
                         O sistema decimal é o nosso padrão cotidiano, a nossa língua nativa matemática utiliza dez símbolos (algarismos). A escolha da base 10 não possui nenhuma razão matemática superior; é puramente biológica: nós temos 10 dedos nas mãos tornando-os a ferramenta de contagem mais acessível.
@@ -176,7 +176,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Terminal className="text-emerald-500 w-6 h-6" />
-                        3. O Sistema Binário (Base 2)
+                        1.3 - O Sistema Binário (Base 2)
                     </h2>
                     <p>
                         Se o sistema decimal é a linguagem dos humanos, o binário é o oxigênio dos computadores. Na eletrônica e na engenharia de computadores, não temos "dedos" para contar. Temos os circuitos elétricos. O hardware, é extremamente complexo e instável, discernir dez níveis diferentes de tensão elétrica com precisão sob flutuações de temperatura e ruído eletromagnético. É muito mais simples, robusto e confiável detectar apenas dois estados. Um circuito elétrico digital possui apenas dois estados estáveis possíveis:                     </p>
@@ -255,7 +255,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <FileDigit className="text-emerald-500 w-6 h-6" />
-                        4. O Sistema Octal (Base 8)
+                        1.4 - O Sistema Octal (Base 8)
                     </h2>
                     <p>
                         O sistema octal utiliza a base 8: <code className="text-emerald-400 bg-slate-900 px-2 py-0.5 rounded">&#123;0, 1, 2, 3, 4, 5, 6, 7&#125;</code>. Historicamente, ele foi muito utilizado nos primórdios da computação (como o PDP-8, nos mainframes da IBM e sistemas DEC) por uma razão matemática simples: permitia abreviar grupos de 3 bits de forma simples, já que 2³ = 8 é uma potência exata.
@@ -280,7 +280,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Database className="text-emerald-500 w-6 h-6" />
-                        5. O Sistema Hexadecimal (Base 16)
+                        1.5 - O Sistema Hexadecimal (Base 16)
                     </h2>
                     <p>
                         O sistema hexadecimal é o melhor amigo do engenheiro de redes e do analista de segurança. Escrever e ler longas sequências de binários é impraticável e altamente propenso a erros humanos. O hexadecimal resolve isso oferecendo uma representação extremamente compacta: 16 é 2⁴, o que significa que cada dígito resume perfeitamente um grupo de 4 bits (um nibble).
@@ -312,7 +312,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Network className="text-emerald-500 w-6 h-6" />
-                        6. Métodos de Conversão
+                        1.6 - Métodos de Conversão
                     </h2>
                     <p>
                         Dominar subredes e análise de protocolos com conversões de cabeça ou rascunhos rápidos é um divisor de águas para engenheiros.
@@ -492,88 +492,85 @@ const EngenhariaRedes = () => {
 
 
                     {/* BLOCO DE EXEMPLO: BINÁRIO PARA DECIMAL (COM DISPLAY VISUAL) */}
-            <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-              <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-3 font-sans">
-                B. Binário para Decimal
-              </h3>
-              
-              <p className="text-slate-300 text-sm md:text-base mb-6">
-                Basta somar as potências de 2 onde o bit correspondente for igual a 1.
-              </p>
-              
-              <div className="bg-slate-900/50 border border-slate-700 p-4 md:p-6 rounded-lg shadow-inner mb-8">
-                <p className="text-slate-300 font-sans text-sm md:text-base font-semibold mb-6 flex flex-col md:flex-row md:items-center gap-2">
-                  <span className="text-emerald-400 uppercase tracking-widest text-xs">Exemplo:</span>
-                  <span>
-                    Converter <code className="text-white bg-slate-950 px-2 py-0.5 rounded shadow-sm text-lg mx-1">10101000<sub className="text-emerald-500 text-xs">2</sub></code> 
-                    <span className="text-slate-400 font-normal italic text-sm ml-2">(um octeto muito comum em IPs: 168):</span>
-                  </span>
-                </p>
+                    <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-3 font-sans">
+                            B. Binário para Decimal
+                        </h3>
 
-                {/* DISPLAY VISUAL DOS BITS (Grid de 8 colunas) */}
-                <div className="overflow-x-auto pb-4">
-                  <div className="flex items-center gap-2 md:gap-3 min-w-[500px] md:min-w-full justify-between">
-                    
-                    {/* Renderização Mapeada dos 8 Módulos */}
-                    {[
-                      { peso: 128, bit: 1 },
-                      { peso: 64, bit: 0 },
-                      { peso: 32, bit: 1 },
-                      { peso: 16, bit: 0 },
-                      { peso: 8, bit: 1 },
-                      { peso: 4, bit: 0 },
-                      { peso: 2, bit: 0 },
-                      { peso: 1, bit: 0 }
-                    ].map((item, idx) => (
-                      <div 
-                        key={idx} 
-                        className={`flex-1 flex flex-col items-center justify-center rounded-lg border transition-all duration-300 shadow-md overflow-hidden ${
-                          item.bit === 1 
-                            ? 'border-emerald-500/50 bg-emerald-950/30' 
-                            : 'border-slate-800 bg-slate-950'
-                        }`}
-                      >
-                        {/* Cabecalho do Peso */}
-                        <div className={`w-full text-center py-2 text-xs md:text-sm font-bold border-b ${
-                          item.bit === 1 
-                            ? 'border-emerald-500/30 text-emerald-400 bg-emerald-900/20' 
-                            : 'border-slate-800 text-slate-500 bg-slate-900/50'
-                        }`}>
-                          {item.peso}
+                        <p className="text-slate-300 text-sm md:text-base mb-6">
+                            Basta somar as potências de 2 onde o bit correspondente for igual a 1.
+                        </p>
+
+                        <div className="bg-slate-900/50 border border-slate-700 p-4 md:p-6 rounded-lg shadow-inner mb-8">
+                            <p className="text-slate-300 font-sans text-sm md:text-base font-semibold mb-6 flex flex-col md:flex-row md:items-center gap-2">
+                                <span className="text-emerald-400 uppercase tracking-widest text-xs">Exemplo:</span>
+                                <span>
+                                    Converter <code className="text-white bg-slate-950 px-2 py-0.5 rounded shadow-sm text-lg mx-1">10101000<sub className="text-emerald-500 text-xs">2</sub></code>
+                                    <span className="text-slate-400 font-normal italic text-sm ml-2">(um octeto muito comum em IPs: 168):</span>
+                                </span>
+                            </p>
+
+                            {/* DISPLAY VISUAL DOS BITS (Grid de 8 colunas) */}
+                            <div className="overflow-x-auto pb-4">
+                                <div className="flex items-center gap-2 md:gap-3 min-w-[500px] md:min-w-full justify-between">
+
+                                    {/* Renderização Mapeada dos 8 Módulos */}
+                                    {[
+                                        { peso: 128, bit: 1 },
+                                        { peso: 64, bit: 0 },
+                                        { peso: 32, bit: 1 },
+                                        { peso: 16, bit: 0 },
+                                        { peso: 8, bit: 1 },
+                                        { peso: 4, bit: 0 },
+                                        { peso: 2, bit: 0 },
+                                        { peso: 1, bit: 0 }
+                                    ].map((item, idx) => (
+                                        <div
+                                            key={idx}
+                                            className={`flex-1 flex flex-col items-center justify-center rounded-lg border transition-all duration-300 shadow-md overflow-hidden ${item.bit === 1
+                                                    ? 'border-emerald-500/50 bg-emerald-950/30'
+                                                    : 'border-slate-800 bg-slate-950'
+                                                }`}
+                                        >
+                                            {/* Cabecalho do Peso */}
+                                            <div className={`w-full text-center py-2 text-xs md:text-sm font-bold border-b ${item.bit === 1
+                                                    ? 'border-emerald-500/30 text-emerald-400 bg-emerald-900/20'
+                                                    : 'border-slate-800 text-slate-500 bg-slate-900/50'
+                                                }`}>
+                                                {item.peso}
+                                            </div>
+                                            {/* Valor do Bit */}
+                                            <div className={`py-3 md:py-4 text-2xl md:text-3xl font-mono font-black ${item.bit === 1
+                                                    ? 'text-white drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                                                    : 'text-slate-700'
+                                                }`}>
+                                                {item.bit}
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
                         </div>
-                        {/* Valor do Bit */}
-                        <div className={`py-3 md:py-4 text-2xl md:text-3xl font-mono font-black ${
-                          item.bit === 1 
-                            ? 'text-white drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]' 
-                            : 'text-slate-700'
-                        }`}>
-                          {item.bit}
+
+                        {/* Equação da Soma Estilizada */}
+                        <div className="flex flex-col items-center justify-center pt-2">
+                            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-lg md:text-2xl font-mono font-bold text-slate-300">
+                                <span className="text-emerald-400">128</span>
+                                <span className="text-slate-600">+ 0 +</span>
+                                <span className="text-emerald-400">32</span>
+                                <span className="text-slate-600">+ 0 +</span>
+                                <span className="text-emerald-400">8</span>
+                                <span className="text-slate-600">+ 0 + 0 + 0</span>
+                                <span className="text-white mx-2">=</span>
+                                <span className="text-3xl md:text-4xl text-white bg-slate-800/80 px-4 py-1 rounded-lg border border-slate-700 shadow-lg flex items-baseline">
+                                    168<sub className="text-emerald-500 text-sm ml-1">10</sub>
+                                </span>
+                            </div>
                         </div>
-                      </div>
-                    ))}
 
-                  </div>
-                </div>
-              </div>
-
-              {/* Equação da Soma Estilizada */}
-              <div className="flex flex-col items-center justify-center pt-2">
-                <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-lg md:text-2xl font-mono font-bold text-slate-300">
-                  <span className="text-emerald-400">128</span>
-                  <span className="text-slate-600">+ 0 +</span>
-                  <span className="text-emerald-400">32</span>
-                  <span className="text-slate-600">+ 0 +</span>
-                  <span className="text-emerald-400">8</span>
-                  <span className="text-slate-600">+ 0 + 0 + 0</span>
-                  <span className="text-white mx-2">=</span>
-                  <span className="text-3xl md:text-4xl text-white bg-slate-800/80 px-4 py-1 rounded-lg border border-slate-700 shadow-lg flex items-baseline">
-                    168<sub className="text-emerald-500 text-sm ml-1">10</sub>
-                  </span>
-                </div>
-              </div>
-              
-            </div>
-            {/* FIM DO BLOCO BINÁRIO PARA DECIMAL */}
+                    </div>
+                    {/* FIM DO BLOCO BINÁRIO PARA DECIMAL */}
 
                     {/* BLOCO DE EXEMPLO: BINÁRIO PARA HEXADECIMAL */}
                     <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
@@ -662,6 +659,84 @@ const EngenhariaRedes = () => {
                     </div>
                     {/* FIM DO BLOCO BINÁRIO PARA HEXADECIMAL */}
 
+                    {/* BLOCO DE EXEMPLO: HEXADECIMAL PARA BINÁRIO */}
+                    <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-4 font-sans">
+                            D. Hexadecimal para Binário
+                        </h3>
+
+                        <p className="text-slate-300 text-sm md:text-base mb-8 leading-relaxed">
+                            É o processo inverso exato. Escreva cada caractere hexadecimal como um grupo de 4 bits.
+                        </p>
+
+                        <div className="bg-slate-900/50 border border-slate-700 p-5 md:p-8 rounded-lg shadow-inner">
+                            <p className="text-slate-300 font-sans text-sm md:text-base font-semibold mb-6 flex items-center gap-2">
+                                <span className="text-emerald-400 uppercase tracking-widest text-xs">Exemplo:</span>
+                                <span>
+                                    Converter <code className="text-white bg-slate-950 px-2 py-0.5 rounded shadow-sm text-lg font-mono tracking-wider border border-slate-800">0x3F</code> para binário.
+                                </span>
+                            </p>
+
+                            {/* Expansão Visual dos Caracteres para Bits */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+
+                                {/* Linha Divisória Visual no Desktop */}
+                                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-slate-700 -translate-x-1/2 border-dashed"></div>
+
+                                {/* Caractere 1: '3' */}
+                                <div className="flex flex-col items-center p-4 bg-slate-950/80 border border-slate-800 rounded-lg">
+                                    <div className="text-4xl font-black font-mono text-emerald-400 mb-2">
+                                        3
+                                    </div>
+                                    <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-4 text-center">
+                                        em binário de 4 bits
+                                    </span>
+                                    <svg className="w-6 h-6 text-emerald-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                    <div className="text-3xl font-mono text-white tracking-[0.2em] drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                                        0011
+                                    </div>
+                                </div>
+
+                                {/* Caractere 2: 'F' */}
+                                <div className="flex flex-col items-center p-4 bg-slate-950/80 border border-slate-800 rounded-lg">
+                                    <div className="flex items-baseline gap-2 mb-2">
+                                        <div className="text-4xl font-black font-mono text-emerald-400">
+                                            F
+                                        </div>
+                                        <span className="text-sm font-mono text-slate-400 italic">
+                                            (que vale 15)
+                                        </span>
+                                    </div>
+                                    <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-4 text-center">
+                                        em binário de 4 bits
+                                    </span>
+                                    <svg className="w-6 h-6 text-emerald-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                    <div className="text-3xl font-mono text-white tracking-[0.2em] drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                                        1111
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Resultado Final */}
+                            <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="text-slate-400 font-sans text-sm md:text-base font-bold uppercase tracking-wider">
+                                    Resultado Final:
+                                </div>
+
+                                <div className="text-3xl md:text-4xl font-bold text-white tracking-[0.1em] md:tracking-[0.2em] font-mono bg-slate-900 border border-emerald-900/50 shadow-[0_0_15px_rgba(16,185,129,0.2)] px-6 py-2 rounded-lg flex items-baseline">
+                                    00111111<sub className="text-emerald-500 text-lg md:text-xl -ml-1">2</sub>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {/* FIM DO BLOCO HEXADECIMAL PARA BINÁRIO */}
+
                 </section>
 
                 {/* Título de transição para a Parte de Arquitetura */}
@@ -673,7 +748,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Cpu className="text-emerald-500 w-6 h-6" />
-                        1. Grandezas da Informação (O Hardware)
+                        2. Grandezas da Informação (O Hardware)
                     </h2>
                     <p>
                         Hardware e redes não processam dados como um fluxo contínuo e caótico; a informação é rigidamente loteada em blocos padronizados.
@@ -717,7 +792,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Cpu className="text-emerald-500 w-6 h-6" />
-                        2. A Batalha das Arquiteturas: Endianness
+                        3. A Batalha das Arquiteturas: Endianness
                     </h2>
                     <p>
                         Um conceito crítico em Redes e Análise de Malware. Quando um dado é maior que 1 Byte (como o valor <code className="text-emerald-400">0x12345678</code>), a memória precisa decidir em qual ordem vai armazenar esses bytes.
@@ -759,7 +834,7 @@ const EngenhariaRedes = () => {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <FileDigit className="text-emerald-500 w-6 h-6" />
-                        3. Codificação de Texto: Dando Significado aos Bits
+                        4. Codificação de Texto: Dando Significado aos Bits
                     </h2>
 
                     <div className="space-y-6">
