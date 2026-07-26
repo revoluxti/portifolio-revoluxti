@@ -394,6 +394,274 @@ const EngenhariaRedes = () => {
                             </p>
                         </div>
                     </div>
+
+                    {/* BLOCO DE EXEMPLO: TABELA DE PESOS */}
+                    <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-8 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.3)]">
+                        <h4 className="text-lg md:text-xl font-bold text-emerald-400 mb-4 font-sans">
+                            Método 2: Tabela de Pesos <span className="text-sm font-normal text-slate-400 block md:inline md:ml-2">(O segredo para fazer rápido de cabeça)</span>
+                        </h4>
+
+                        <p className="text-slate-300 text-sm md:text-base mb-6">
+                            Escreva as potências de 2 da direita para a esquerda:
+                        </p>
+
+                        {/* Display visual dos pesos */}
+                        <div className="flex justify-start md:justify-center mb-6 overflow-x-auto no-scrollbar pb-2">
+                            <div className="flex bg-slate-900 border border-slate-700 rounded-lg overflow-hidden font-mono text-sm md:text-base shadow-inner shrink-0">
+                                {['128', '64', '32', '16', '8', '4', '2', '1'].map((peso, idx) => (
+                                    <div key={idx} className="px-3 md:px-6 py-3 border-r border-slate-700 last:border-0 text-emerald-300 font-bold bg-gradient-to-b from-slate-800 to-slate-900">
+                                        {peso}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <p className="text-slate-300 text-sm md:text-base mb-6 leading-relaxed">
+                            Para converter 13, basta "subtrair" os maiores valores possíveis preenchendo com <code className="text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded font-bold">1</code> onde usou e <code className="text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded font-bold">0</code> onde não usou:
+                        </p>
+
+                        {/* Lista passo a passo da subtração mental */}
+                        <ul className="space-y-3 font-mono text-xs md:text-sm lg:text-base text-slate-300 bg-slate-900/50 p-5 md:p-6 rounded-lg border border-slate-800/50 shadow-inner">
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-400 md:w-56">Cabe 128 em 13?</span>
+                                <span className="text-slate-500">Não (0)</span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-400 md:w-56">Cabe 64 em 13?</span>
+                                <span className="text-slate-500">Não (0)</span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-400 md:w-56">Cabe 32?</span>
+                                <span className="text-slate-500">Não (0)</span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-400 md:w-56">Cabe 16 em 8?</span>
+                                <span className="text-slate-500">Não (0)</span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-200 md:w-56">Cabe 8 em 13?</span>
+                                <span className="text-slate-300">
+                                    <span className="text-emerald-400 font-bold">Sim.</span> Sobram 5. <span className="text-emerald-400 font-bold">(Marcamos 1 no peso 8)</span>
+                                </span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-200 md:w-56">Cabe 4 em 5?</span>
+                                <span className="text-slate-300">
+                                    <span className="text-emerald-400 font-bold">Sim.</span> Sobra 1. <span className="text-emerald-400 font-bold">(Marcamos 1 no peso 4)</span>
+                                </span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2 border-b border-slate-800/50 pb-2">
+                                <span className="text-slate-400 md:w-56">Cabe 2 em 1?</span>
+                                <span className="text-slate-500">
+                                    Não. Sobra 1. <span className="font-bold">(Marcamos 0 no peso 2)</span>
+                                </span>
+                            </li>
+
+                            <li className="flex flex-col md:flex-row md:items-center gap-2">
+                                <span className="text-slate-200 md:w-56">Cabe 1 em 1?</span>
+                                <span className="text-slate-300">
+                                    <span className="text-emerald-400 font-bold">Sim.</span> Sobram 0. <span className="text-emerald-400 font-bold">(Marcamos 1 no peso 1)</span>
+                                </span>
+                            </li>
+
+                        </ul>
+
+                        {/* Resultado Final Estilizado */}
+                        <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4 bg-slate-900 border border-slate-700 p-5 rounded-lg shadow-lg">
+                            <span className="text-slate-400 font-sans text-sm md:text-base font-bold uppercase tracking-wider">
+                                Resultado:
+                            </span>
+                            <div className="flex-1 flex flex-wrap items-center gap-3">
+                                <span className="text-3xl font-bold text-white tracking-[0.2em] font-mono drop-shadow-sm">
+                                    1101
+                                </span>
+                                <span className="text-slate-400 font-sans text-sm italic">
+                                    (ou <code className="text-emerald-400 not-italic font-mono bg-slate-950 px-2 py-0.5 rounded border border-emerald-900/50 shadow-inner">00001101</code> em formato de 1 Byte).
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* FIM DO BLOCO DA TABELA DE PESOS */}
+
+
+                    {/* BLOCO DE EXEMPLO: BINÁRIO PARA DECIMAL (COM DISPLAY VISUAL) */}
+            <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+              <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-3 font-sans">
+                B. Binário para Decimal
+              </h3>
+              
+              <p className="text-slate-300 text-sm md:text-base mb-6">
+                Basta somar as potências de 2 onde o bit correspondente for igual a 1.
+              </p>
+              
+              <div className="bg-slate-900/50 border border-slate-700 p-4 md:p-6 rounded-lg shadow-inner mb-8">
+                <p className="text-slate-300 font-sans text-sm md:text-base font-semibold mb-6 flex flex-col md:flex-row md:items-center gap-2">
+                  <span className="text-emerald-400 uppercase tracking-widest text-xs">Exemplo:</span>
+                  <span>
+                    Converter <code className="text-white bg-slate-950 px-2 py-0.5 rounded shadow-sm text-lg mx-1">10101000<sub className="text-emerald-500 text-xs">2</sub></code> 
+                    <span className="text-slate-400 font-normal italic text-sm ml-2">(um octeto muito comum em IPs: 168):</span>
+                  </span>
+                </p>
+
+                {/* DISPLAY VISUAL DOS BITS (Grid de 8 colunas) */}
+                <div className="overflow-x-auto pb-4">
+                  <div className="flex items-center gap-2 md:gap-3 min-w-[500px] md:min-w-full justify-between">
+                    
+                    {/* Renderização Mapeada dos 8 Módulos */}
+                    {[
+                      { peso: 128, bit: 1 },
+                      { peso: 64, bit: 0 },
+                      { peso: 32, bit: 1 },
+                      { peso: 16, bit: 0 },
+                      { peso: 8, bit: 1 },
+                      { peso: 4, bit: 0 },
+                      { peso: 2, bit: 0 },
+                      { peso: 1, bit: 0 }
+                    ].map((item, idx) => (
+                      <div 
+                        key={idx} 
+                        className={`flex-1 flex flex-col items-center justify-center rounded-lg border transition-all duration-300 shadow-md overflow-hidden ${
+                          item.bit === 1 
+                            ? 'border-emerald-500/50 bg-emerald-950/30' 
+                            : 'border-slate-800 bg-slate-950'
+                        }`}
+                      >
+                        {/* Cabecalho do Peso */}
+                        <div className={`w-full text-center py-2 text-xs md:text-sm font-bold border-b ${
+                          item.bit === 1 
+                            ? 'border-emerald-500/30 text-emerald-400 bg-emerald-900/20' 
+                            : 'border-slate-800 text-slate-500 bg-slate-900/50'
+                        }`}>
+                          {item.peso}
+                        </div>
+                        {/* Valor do Bit */}
+                        <div className={`py-3 md:py-4 text-2xl md:text-3xl font-mono font-black ${
+                          item.bit === 1 
+                            ? 'text-white drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]' 
+                            : 'text-slate-700'
+                        }`}>
+                          {item.bit}
+                        </div>
+                      </div>
+                    ))}
+
+                  </div>
+                </div>
+              </div>
+
+              {/* Equação da Soma Estilizada */}
+              <div className="flex flex-col items-center justify-center pt-2">
+                <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-lg md:text-2xl font-mono font-bold text-slate-300">
+                  <span className="text-emerald-400">128</span>
+                  <span className="text-slate-600">+ 0 +</span>
+                  <span className="text-emerald-400">32</span>
+                  <span className="text-slate-600">+ 0 +</span>
+                  <span className="text-emerald-400">8</span>
+                  <span className="text-slate-600">+ 0 + 0 + 0</span>
+                  <span className="text-white mx-2">=</span>
+                  <span className="text-3xl md:text-4xl text-white bg-slate-800/80 px-4 py-1 rounded-lg border border-slate-700 shadow-lg flex items-baseline">
+                    168<sub className="text-emerald-500 text-sm ml-1">10</sub>
+                  </span>
+                </div>
+              </div>
+              
+            </div>
+            {/* FIM DO BLOCO BINÁRIO PARA DECIMAL */}
+
+                    {/* BLOCO DE EXEMPLO: BINÁRIO PARA HEXADECIMAL */}
+                    <div className="mt-8 bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-4 font-sans">
+                            C. Binário para Hexadecimal <span className="text-sm font-normal text-slate-400 block md:inline md:ml-2">(O atalho dos 4 bits)</span>
+                        </h3>
+
+                        <div className="text-slate-300 text-sm md:text-base mb-8 space-y-3 leading-relaxed">
+                            <p>
+                                Como 16 = 2<sup>4</sup>, você nunca deve converter binário para decimal e depois para hexadecimal.
+                            </p>
+                            <p>
+                                Em vez disso, separe o binário em grupos de 4 bits (da direita para a esquerda) e converta cada grupo individualmente.
+                            </p>
+                        </div>
+
+                        <div className="bg-slate-900/50 border border-slate-700 p-5 md:p-8 rounded-lg shadow-inner">
+                            <p className="text-slate-300 font-sans text-sm md:text-base font-semibold mb-6">
+                                <span className="text-emerald-400 uppercase tracking-widest text-xs mr-2">Exemplo:</span>
+                                Converter <code className="text-white bg-slate-950 px-2 py-0.5 rounded shadow-sm text-lg mx-1 tracking-widest">11101011<sub className="text-emerald-500 text-xs -ml-1">2</sub></code> para Hexadecimal.
+                            </p>
+
+                            {/* Divisão Visual dos 4 Bits (Nibbles) */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+
+                                {/* Linha Divisória Visual no Desktop */}
+                                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-slate-700 -translate-x-1/2 border-dashed"></div>
+
+                                {/* Grupo 1 (Esquerda) */}
+                                <div className="flex flex-col items-center p-4 bg-slate-950/80 border border-slate-800 rounded-lg">
+                                    <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-3">
+                                        Primeiro Grupo
+                                    </span>
+                                    <div className="text-3xl font-mono text-white tracking-[0.2em] mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                                        1110
+                                    </div>
+                                    <div className="text-sm font-mono text-slate-400 flex flex-wrap justify-center gap-1 mb-4">
+                                        <span className="text-emerald-400">8</span> + <span className="text-emerald-400">4</span> + <span className="text-emerald-400">2</span> + 0 = <span className="text-white font-bold">14</span>
+                                    </div>
+                                    <svg className="w-6 h-6 text-emerald-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                    <div className="text-4xl font-black font-mono text-emerald-400">
+                                        E
+                                    </div>
+                                </div>
+
+                                {/* Grupo 2 (Direita) */}
+                                <div className="flex flex-col items-center p-4 bg-slate-950/80 border border-slate-800 rounded-lg">
+                                    <span className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-3">
+                                        Segundo Grupo
+                                    </span>
+                                    <div className="text-3xl font-mono text-white tracking-[0.2em] mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                                        1011
+                                    </div>
+                                    <div className="text-sm font-mono text-slate-400 flex flex-wrap justify-center gap-1 mb-4">
+                                        <span className="text-emerald-400">8</span> + 0 + <span className="text-emerald-400">2</span> + <span className="text-emerald-400">1</span> = <span className="text-white font-bold">11</span>
+                                    </div>
+                                    <svg className="w-6 h-6 text-emerald-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                    <div className="text-4xl font-black font-mono text-emerald-400">
+                                        B
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Resultado Final */}
+                            <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="text-slate-400 font-sans text-sm md:text-base font-bold uppercase tracking-wider">
+                                    Resultado Final:
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <div className="text-3xl font-bold text-white tracking-widest font-mono bg-slate-900 border border-emerald-900/50 shadow-[0_0_15px_rgba(16,185,129,0.2)] px-6 py-2 rounded-lg">
+                                        EB
+                                    </div>
+                                    <div className="text-slate-500 font-sans text-xs md:text-sm italic max-w-[200px]">
+                                        (frequentemente escrito como <code className="text-emerald-400 not-italic font-mono bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">0xEB</code> na programação para indicar base 16).
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {/* FIM DO BLOCO BINÁRIO PARA HEXADECIMAL */}
+
                 </section>
 
                 {/* Título de transição para a Parte de Arquitetura */}
