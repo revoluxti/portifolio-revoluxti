@@ -321,7 +321,6 @@ const EngenhariaRedes = () => {
                     <div className="space-y-8">
                         <div>
 
-                            <p className="text-sm mt-2 text-slate-500">Exemplo da conversão do número 13 para binário: 00001101.</p>
                         </div>
                         <h3 className="text-xl font-bold text-emerald-400 mb-3">A. Decimal para Binário </h3>
                         {/* BLOCO DE EXEMPLO: DIVISÕES SUCESSIVAS */}
