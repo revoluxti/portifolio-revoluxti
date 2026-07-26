@@ -102,57 +102,57 @@ const EngenhariaRedes = () => {
                             <li>A transição dos sistemas rudimentares para os sistemas posicionais pavimentou o caminho para a computação moderna, pois permitiu tratar qualquer representação numérica como uma série de potências.</li>
                         </ul>
                         <div className="mt-8 bg-slate-900/40 border-l-4 border-emerald-500 p-8 rounded-r-lg shadow-lg">
-            <h4 className="text-lg font-bold text-white mb-6">Fórmula Geral de Representação Posicional</h4>
-            
-            {/* INÍCIO DO BLOCO DA FÓRMULA */}
-            <div className="flex items-center justify-center w-full py-4">
-              <div className="flex items-center gap-3 text-4xl font-serif text-slate-100 bg-[#08060d] px-10 py-6 rounded-xl border border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-                
-                {/* N = */}
-                <span className="italic mr-2">N</span>
-                <span>=</span>
-                
-                {/* Símbolo de Somatório com limites */}
-                <div className="flex flex-col items-center justify-center mx-2">
-                  <span className="text-base mb-1">
-                    <span className="italic">n</span>-1
-                  </span>
-                  
-                  <span className="text-[4.5rem] leading-none font-light">&sum;</span>
-                  
-                  <span className="text-base mt-1">
-                    <span className="italic">i</span>=0
-                  </span>
-                </div>
-                
-                {/* d_i * b^i */}
-                <div className="flex items-center ml-2">
-                  <span>
-                    <span className="italic">d</span>
-                    <sub className="text-xl italic">i</sub>
-                  </span>
-                  
-                  <span className="mx-3 text-3xl font-bold">&middot;</span>
-                  
-                  <span>
-                    <span className="italic">b</span>
-                    <sup className="text-xl italic">i</sup>
-                  </span>
-                </div>
+                            <h4 className="text-lg font-bold text-white mb-6">Fórmula Geral de Representação Posicional</h4>
 
-              </div>
-            </div>
-            {/* FIM DO BLOCO DA FÓRMULA */}
+                            {/* INÍCIO DO BLOCO DA FÓRMULA */}
+                            <div className="flex items-center justify-center w-full py-4">
+                                <div className="flex items-center gap-3 text-4xl font-serif text-slate-100 bg-[#08060d] px-10 py-6 rounded-xl border border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
 
-            <p className="text-sm text-slate-400 mt-6 text-center">
-              Onde <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">d</code> é o dígito, <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">b</code> é a base numérica e <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">i</code> é a posição (começando do zero, da direita para a esquerda).
-            </p>
-          </div>
+                                    {/* N = */}
+                                    <span className="italic mr-2">N</span>
+                                    <span>=</span>
+
+                                    {/* Símbolo de Somatório com limites */}
+                                    <div className="flex flex-col items-center justify-center mx-2">
+                                        <span className="text-base mb-1">
+                                            <span className="italic">n</span>-1
+                                        </span>
+
+                                        <span className="text-[4.5rem] leading-none font-light">&sum;</span>
+
+                                        <span className="text-base mt-1">
+                                            <span className="italic">i</span>=0
+                                        </span>
+                                    </div>
+
+                                    {/* d_i * b^i */}
+                                    <div className="flex items-center ml-2">
+                                        <span>
+                                            <span className="italic">d</span>
+                                            <sub className="text-xl italic">i</sub>
+                                        </span>
+
+                                        <span className="mx-3 text-3xl font-bold">&middot;</span>
+
+                                        <span>
+                                            <span className="italic">b</span>
+                                            <sup className="text-xl italic">i</sup>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {/* FIM DO BLOCO DA FÓRMULA */}
+
+                            <p className="text-sm text-slate-400 mt-6 text-center">
+                                Onde <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">d</code> é o dígito, <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">b</code> é a base numérica e <code className="text-emerald-300 bg-slate-800 px-1.5 py-0.5 rounded">i</code> é a posição (começando do zero, da direita para a esquerda).
+                            </p>
+                        </div>
                     </div>
 
-                    
+
                 </section>
-                
+
 
                 {/* Seção 2 */}
                 <section className="space-y-6">
@@ -179,76 +179,76 @@ const EngenhariaRedes = () => {
                         3. O Sistema Binário (Base 2)
                     </h2>
                     <p>
-                    Se o sistema decimal é a linguagem dos humanos, o binário é o oxigênio dos computadores. Na eletrônica e na engenharia de computadores, não temos "dedos" para contar. Temos os circuitos elétricos. O hardware, é extremamente complexo e instável, discernir dez níveis diferentes de tensão elétrica com precisão sob flutuações de temperatura e ruído eletromagnético. É muito mais simples, robusto e confiável detectar apenas dois estados. Um circuito elétrico digital possui apenas dois estados estáveis possíveis:                     </p>
+                        Se o sistema decimal é a linguagem dos humanos, o binário é o oxigênio dos computadores. Na eletrônica e na engenharia de computadores, não temos "dedos" para contar. Temos os circuitos elétricos. O hardware, é extremamente complexo e instável, discernir dez níveis diferentes de tensão elétrica com precisão sob flutuações de temperatura e ruído eletromagnético. É muito mais simples, robusto e confiável detectar apenas dois estados. Um circuito elétrico digital possui apenas dois estados estáveis possíveis:                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                         <div className="p-4 border border-red-500/20 bg-red-500/5 rounded-lg">
                             <h4 className="font-bold text-red-400 mb-1">Estado Baixo (Low)</h4>
                             <p className="text-sm text-slate-400">Ausência ou quase ausência de tensão (corrente). <br />
-                             (Desligado / Falso) Representado pelo bit <strong>0</strong>.</p>
+                                (Desligado / Falso) Representado pelo bit <strong>0</strong>.</p>
                         </div>
                         <div className="p-4 border border-emerald-500/20 bg-emerald-500/5 rounded-lg">
                             <h4 className="font-bold text-emerald-400 mb-1">Estado Alto (High)</h4>
                             <p className="text-sm text-slate-400">Presença de tensão (passagem de corrente). <br />
-                             (Ligado / Verdadeiro): Representado pelo bit <strong>1</strong>.</p>
+                                (Ligado / Verdadeiro): Representado pelo bit <strong>1</strong>.</p>
                         </div>
                     </div>
 
                     <div className="space-y-5">
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Por isso, a base dos computadores é a base 2. O sistema binário utiliza apenas dois símbolos: <code className="text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded font-mono">&#123;0, 1&#125;</code>. Cada posição representa uma potência de 2.
-            </p>
+                        <p className="text-lg text-slate-300 leading-relaxed">
+                            Por isso, a base dos computadores é a base 2. O sistema binário utiliza apenas dois símbolos: <code className="text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded font-mono">&#123;0, 1&#125;</code>. Cada posição representa uma potência de 2.
+                        </p>
 
-            <ul className="list-none space-y-4 bg-slate-900/40 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-inner">
-              <li className="flex items-start gap-3">
-                {/* Marcador Customizado com Efeito Glow */}
-                <div className="mt-1.5 w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
-                <p className="text-slate-300">
-                  <strong className="text-emerald-400 font-semibold tracking-wide uppercase text-sm">Símbolos (Dígitos):</strong>{' '}
-                  <code className="text-emerald-300 bg-slate-950 px-2 py-0.5 rounded text-sm font-mono shadow-sm">
-                    &#123;0, 1&#125;
-                  </code>{' '}
-                  (chamados de bits - <span className="italic">Binary Digits</span>).
-                </p>
-              </li>
-              
-              <li className="flex items-start gap-3">
-                <div className="mt-1.5 w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
-                <p className="text-slate-300">
-                  <strong className="text-emerald-400 font-semibold tracking-wide uppercase text-sm">Funcionamento Posicional:</strong>{' '}
-                  Cada posição à esquerda representa uma potência de 2.
-                </p>
-              </li>
-            </ul>
-          </div>
+                        <ul className="list-none space-y-4 bg-slate-900/40 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-inner">
+                            <li className="flex items-start gap-3">
+                                {/* Marcador Customizado com Efeito Glow */}
+                                <div className="mt-1.5 w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                                <p className="text-slate-300">
+                                    <strong className="text-emerald-400 font-semibold tracking-wide uppercase text-sm">Símbolos (Dígitos):</strong>{' '}
+                                    <code className="text-emerald-300 bg-slate-950 px-2 py-0.5 rounded text-sm font-mono shadow-sm">
+                                        &#123;0, 1&#125;
+                                    </code>{' '}
+                                    (chamados de bits - <span className="italic">Binary Digits</span>).
+                                </p>
+                            </li>
+
+                            <li className="flex items-start gap-3">
+                                <div className="mt-1.5 w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                                <p className="text-slate-300">
+                                    <strong className="text-emerald-400 font-semibold tracking-wide uppercase text-sm">Funcionamento Posicional:</strong>{' '}
+                                    Cada posição à esquerda representa uma potência de 2.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
 
                     {/* BLOCO DE DECOMPOSIÇÃO BINÁRIA */}
-          <div className="mt-8 bg-[#08060d] border border-slate-800 p-8 md:p-12 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center text-slate-200">
-            
-            <p className="text-lg md:text-xl text-slate-300 mb-10 text-center font-sans">
-              Se tomarmos o número binário 1011<sub>2</sub>, sua decomposição posicional é:
-            </p>
+                    <div className="mt-8 bg-[#08060d] border border-slate-800 p-8 md:p-12 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center text-slate-200">
 
-            {/* Linhas da equação com fonte matemática (serif) */}
-            <div className="flex flex-col items-center gap-8 text-xl md:text-3xl font-serif tracking-widest">
-              
-              {/* Linha 1: Potências */}
-              <div className="text-white">
-                1011<sub className="text-sm md:text-lg">2</sub> = (1 &times; 2<sup className="text-sm md:text-lg">3</sup>) + (0 &times; 2<sup className="text-sm md:text-lg">2</sup>) + (1 &times; 2<sup className="text-sm md:text-lg">1</sup>) + (1 &times; 2<sup className="text-sm md:text-lg">0</sup>)
-              </div>
-              
-              {/* Linha 2: Multiplicações resolvidas */}
-              <div className="text-white">
-                1011<sub className="text-sm md:text-lg">2</sub> = (1 &times; 8) + (0 &times; 4) + (1 &times; 2) + (1 &times; 1)
-              </div>
-              
-              {/* Linha 3: Soma final */}
-              <div className="text-emerald-400 font-bold">
-                1011<sub className="text-sm md:text-lg text-emerald-500">2</sub> = 8 + 0 + 2 + 1 = 11<sub className="text-sm md:text-lg text-emerald-500">10</sub>
-              </div>
+                        <p className="text-lg md:text-xl text-slate-300 mb-10 text-center font-sans">
+                            Se tomarmos o número binário 1011<sub>2</sub>, sua decomposição posicional é:
+                        </p>
 
-            </div>
-          </div>
-          {/* FIM DO BLOCO DE DECOMPOSIÇÃO */}
+                        {/* Linhas da equação com fonte matemática (serif) */}
+                        <div className="flex flex-col items-center gap-8 text-xl md:text-3xl font-serif tracking-widest">
+
+                            {/* Linha 1: Potências */}
+                            <div className="text-white">
+                                1011<sub className="text-sm md:text-lg">2</sub> = (1 &times; 2<sup className="text-sm md:text-lg">3</sup>) + (0 &times; 2<sup className="text-sm md:text-lg">2</sup>) + (1 &times; 2<sup className="text-sm md:text-lg">1</sup>) + (1 &times; 2<sup className="text-sm md:text-lg">0</sup>)
+                            </div>
+
+                            {/* Linha 2: Multiplicações resolvidas */}
+                            <div className="text-white">
+                                1011<sub className="text-sm md:text-lg">2</sub> = (1 &times; 8) + (0 &times; 4) + (1 &times; 2) + (1 &times; 1)
+                            </div>
+
+                            {/* Linha 3: Soma final */}
+                            <div className="text-emerald-400 font-bold">
+                                1011<sub className="text-sm md:text-lg text-emerald-500">2</sub> = 8 + 0 + 2 + 1 = 11<sub className="text-sm md:text-lg text-emerald-500">10</sub>
+                            </div>
+
+                        </div>
+                    </div>
+                    {/* FIM DO BLOCO DE DECOMPOSIÇÃO */}
                 </section>
 
                 {/* Seção 4: Sistema Octal */}
@@ -320,38 +320,69 @@ const EngenhariaRedes = () => {
 
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-xl font-bold text-emerald-400 mb-3">A. Decimal para Binário (Tabela de Pesos)</h3>
-                            <p className="text-sm text-slate-400 mb-4">O segredo para fazer rápido de cabeça: escreva as potências de 2 da direita para a esquerda e subtraia os maiores valores possíveis.</p>
-                            <div className="overflow-x-auto">
-                                <table className="w-full text-center border-collapse border border-slate-800">
-                                    <thead>
-                                        <tr className="bg-slate-900 text-slate-300">
-                                            <th className="border border-slate-800 p-2">128</th>
-                                            <th className="border border-slate-800 p-2">64</th>
-                                            <th className="border border-slate-800 p-2">32</th>
-                                            <th className="border border-slate-800 p-2">16</th>
-                                            <th className="border border-slate-800 p-2 text-emerald-400">8</th>
-                                            <th className="border border-slate-800 p-2 text-emerald-400">4</th>
-                                            <th className="border border-slate-800 p-2">2</th>
-                                            <th className="border border-slate-800 p-2 text-emerald-400">1</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="text-slate-400 font-mono">
-                                            <td className="border border-slate-800 p-2">0</td>
-                                            <td className="border border-slate-800 p-2">0</td>
-                                            <td className="border border-slate-800 p-2">0</td>
-                                            <td className="border border-slate-800 p-2">0</td>
-                                            <td className="border border-slate-800 p-2 text-emerald-400 font-bold">1</td>
-                                            <td className="border border-slate-800 p-2 text-emerald-400 font-bold">1</td>
-                                            <td className="border border-slate-800 p-2">0</td>
-                                            <td className="border border-slate-800 p-2 text-emerald-400 font-bold">1</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
                             <p className="text-sm mt-2 text-slate-500">Exemplo da conversão do número 13 para binário: 00001101.</p>
                         </div>
+                        <h3 className="text-xl font-bold text-emerald-400 mb-3">A. Decimal para Binário </h3>
+                        {/* BLOCO DE EXEMPLO: DIVISÕES SUCESSIVAS */}
+                        <div className="mt-6 bg-[#08060d] border border-slate-800 p-6 md:p-8 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.3)]">
+
+
+                            <h4 className="text-lg font-bold text-emerald-400 mb-6 font-sans">
+                                Exemplo: Converter 13 para binário.
+                            </h4>
+
+                            {/* Passo a passo da divisão */}
+                            <div className="flex flex-col gap-4 text-slate-300 font-mono text-base md:text-lg pl-2 md:pl-6 border-l-2 border-slate-800">
+
+                                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 group">
+                                    <div className="flex items-center gap-4">
+                                        <span className="w-28 tracking-wider">13 &divide; 2 = 6</span>
+                                        <span className="text-emerald-400 font-bold">(resto 1)</span>
+                                    </div>
+                                    <span className="text-slate-500 text-sm md:text-base italic transition-colors group-hover:text-slate-400">
+                                        &mdash; Bit menos significativo (LSB)
+                                    </span>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <span className="w-28 tracking-wider">6 &divide; 2 = 3</span>
+                                    <span className="text-slate-400 font-bold">(resto 0)</span>
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <span className="w-28 tracking-wider">3 &divide; 2 = 1</span>
+                                    <span className="text-emerald-400 font-bold">(resto 1)</span>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 group">
+                                    <div className="flex items-center gap-4">
+                                        <span className="w-28 tracking-wider">1 &divide; 2 = 0</span>
+                                        <span className="text-emerald-400 font-bold">(resto 1)</span>
+                                    </div>
+                                    <span className="text-slate-500 text-sm md:text-base italic transition-colors group-hover:text-slate-400">
+                                        &mdash; Bit mais significativo (MSB)
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            {/* Resultado Final */}
+                            <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="flex items-center gap-2 text-slate-400 font-sans text-sm md:text-base">
+                                    <svg className="w-5 h-5 text-emerald-500 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                    Lendo de baixo para cima:
+                                </div>
+
+                                <div className="text-3xl font-bold text-white tracking-[0.2em] font-mono bg-slate-900/50 px-6 py-2 rounded-lg border border-slate-700/50">
+                                    1101<sub className="text-emerald-500 text-lg -ml-1">2</sub>
+                                </div>
+                            </div>
+
+                        </div>
+                        {/* FIM DO BLOCO DE EXEMPLO */}
 
                         <div className="bg-slate-900/30 p-6 rounded-lg border border-red-900/30">
                             <h3 className="flex items-center gap-2 text-lg font-bold text-red-400 mb-2">
@@ -359,7 +390,7 @@ const EngenhariaRedes = () => {
                                 Por que isso importa na Segurança? (Raw Data)
                             </h3>
                             <p className="text-sm text-slate-400">
-                                Na triagem de pacotes com o Tcpdump ou Wireshark, os dados chegam de forma bruta. Se o primeiro byte de um pacote IP começa com <code className="text-red-300 bg-red-900/30 px-1 rounded">0x45</code>, convertendo para binário temos 0100 e 0101[cite: 1].
+                                Na triagem de pacotes com o Tcpdump ou Wireshark, os dados chegam de forma bruta. Se o primeiro byte de um pacote IP começa com <code className="text-red-300 bg-red-900/30 px-1 rounded">0x45</code>, convertendo para binário temos 0100 e 0101.
                                 Os primeiros 4 bits (0100 = 4) indicam IPv4. Os 4 bits seguintes (0101 = 5) indicam o tamanho do cabeçalho (IHL): 20 bytes.
                             </p>
                         </div>
@@ -404,9 +435,9 @@ const EngenhariaRedes = () => {
                                 A Word (Palavra) é o tamanho "natural" de dados que a CPU consegue processar em um único ciclo.
                             </p>
                             <ul className="text-sm text-slate-400 space-y-2 list-disc list-inside">
-                                <li><strong>Word:</strong> 16 bits (2 Bytes)[cite: 1].</li>
+                                <li><strong>Word:</strong> 16 bits (2 Bytes).</li>
                                 <li><strong>DWORD:</strong> 32 bits (4 Bytes - ex: IPv4).</li>
-                                <li><strong>QWORD:</strong> 64 bits (8 Bytes)[cite: 1].</li>
+                                <li><strong>QWORD:</strong> 64 bits (8 Bytes).</li>
                             </ul>
                             <div className="mt-4 p-3 bg-red-950/30 border border-red-900/50 rounded text-xs text-red-300">
                                 <strong>Segurança em Foco:</strong> Em engenharia reversa e exploits (Buffer Overflows), o tamanho da Word dita o alinhamento de memória e o padding necessário para sobrescrever o Instruction Pointer (EIP/RIP).
