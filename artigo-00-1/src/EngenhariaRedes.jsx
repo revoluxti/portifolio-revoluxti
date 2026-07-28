@@ -20,7 +20,7 @@ const EngenhariaRedes = () => {
                 </h2>
 
                 <div className="text-xl md:text-3xl font-light text-slate-200 mb-2 z-10 tracking-wide">
-                    Engenharia de Redes e Segurança Cibernética
+                    Engenharia de Redes
                 </div>
                 <div className="text-lg md:text-xl font-light text-slate-400 mb-14 z-10">
                     Da Matemática Binária - Aos Fundamentos de Criptografia
@@ -528,21 +528,21 @@ const EngenhariaRedes = () => {
                                         <div
                                             key={idx}
                                             className={`flex-1 flex flex-col items-center justify-center rounded-lg border transition-all duration-300 shadow-md overflow-hidden ${item.bit === 1
-                                                    ? 'border-emerald-500/50 bg-emerald-950/30'
-                                                    : 'border-slate-800 bg-slate-950'
+                                                ? 'border-emerald-500/50 bg-emerald-950/30'
+                                                : 'border-slate-800 bg-slate-950'
                                                 }`}
                                         >
                                             {/* Cabecalho do Peso */}
                                             <div className={`w-full text-center py-2 text-xs md:text-sm font-bold border-b ${item.bit === 1
-                                                    ? 'border-emerald-500/30 text-emerald-400 bg-emerald-900/20'
-                                                    : 'border-slate-800 text-slate-500 bg-slate-900/50'
+                                                ? 'border-emerald-500/30 text-emerald-400 bg-emerald-900/20'
+                                                : 'border-slate-800 text-slate-500 bg-slate-900/50'
                                                 }`}>
                                                 {item.peso}
                                             </div>
                                             {/* Valor do Bit */}
                                             <div className={`py-3 md:py-4 text-2xl md:text-3xl font-mono font-black ${item.bit === 1
-                                                    ? 'text-white drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]'
-                                                    : 'text-slate-700'
+                                                ? 'text-white drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                                                : 'text-slate-700'
                                                 }`}>
                                                 {item.bit}
                                             </div>
@@ -737,6 +737,92 @@ const EngenhariaRedes = () => {
                     </div>
                     {/* FIM DO BLOCO HEXADECIMAL PARA BINÁRIO */}
 
+
+                    {/* BLOCO: CONEXÃO COM SEGURANÇA E REDES */}
+                    <div className="mt-12 bg-slate-900/40 border-l-4 border-red-500 p-6 md:p-8 rounded-r-xl shadow-lg">
+                        <h3 className="flex items-center gap-3 text-xl font-bold text-red-400 mb-4 font-sans">
+                            <ShieldAlert className="w-6 h-6" />
+                            Conexão com a Segurança e Redes (Por que isso importa?)
+                        </h3>
+
+                        <p className="text-slate-300 text-sm md:text-base mb-6 leading-relaxed">
+                            Na triagem de pacotes com ferramentas como o Tcpdump ou Wireshark, os dados chegam de forma bruta (<span className="italic text-slate-400">raw data</span>). Se você identificar que o primeiro byte de um pacote IP começa com <code className="text-red-300 bg-red-950/50 px-1.5 py-0.5 rounded font-mono border border-red-900/50 shadow-sm">0x45</code>, convertendo para binário temos 0100 e 0101.
+                        </p>
+
+                        <ul className="space-y-4 font-mono text-sm md:text-base text-slate-300 bg-[#08060d] p-5 md:p-6 rounded-lg border border-slate-800 shadow-inner mb-6">
+                            <li className="flex items-start gap-3">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
+                                <p>
+                                    Os primeiros 4 bits (<span className="text-red-400 font-bold">0100</span> = 4) indicam a versão do protocolo: <span className="text-white font-bold bg-slate-900 px-1 rounded">IPv4</span>.
+                                </p>
+                            </li>
+                            <li className="flex items-start gap-3 border-t border-slate-800/50 pt-4">
+                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
+                                <p>
+                                    Os 4 bits seguintes (<span className="text-red-400 font-bold">0101</span> = 5) indicam o tamanho do cabeçalho (IHL - Internet Header Length): <span className="text-white font-bold bg-slate-900 px-1 rounded">5 palavras de 32 bits (20 bytes)</span>.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <p className="text-red-200/70 text-sm md:text-base font-semibold italic border-l-2 border-red-900/50 pl-4 py-1">
+                            Toda a análise de tráfego de baixo nível depende dessa matemática de conversão instantânea.
+                        </p>
+                    </div>
+
+                    {/* TABELA DE CONVERSÃO GERAL (INSPIRADA NA IMAGEM) */}
+                    <div className="mt-12 overflow-x-auto rounded-lg border border-slate-600/50 shadow-[0_0_20px_rgba(0,0,0,0.4)]">
+                        <table className="w-full text-left border-collapse bg-[#1f1f1f]">
+                            <thead>
+                                <tr className="bg-[#2a2a2a] text-slate-200 text-sm md:text-base font-sans border-b border-slate-600/50">
+                                    <th className="p-3 md:p-4 border-r border-slate-600/50 font-bold">Decimal</th>
+                                    <th className="p-3 md:p-4 border-r border-slate-600/50 font-bold">Binário (4 bits)</th>
+                                    <th className="p-3 md:p-4 border-r border-slate-600/50 font-bold">Hexadecimal</th>
+                                    <th className="p-3 md:p-4 font-bold">Octal</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300 font-mono text-sm md:text-base">
+                                {[
+                                    { d: '0', b: '0000', h: '0', o: '0' },
+                                    { d: '1', b: '0001', h: '1', o: '1' },
+                                    { d: '2', b: '0010', h: '2', o: '2' },
+                                    { d: '3', b: '0011', h: '3', o: '3' },
+                                    { d: '4', b: '0100', h: '4', o: '4' },
+                                    { d: '5', b: '0101', h: '5', o: '5' },
+                                    { d: '6', b: '0110', h: '6', o: '6' },
+                                    { d: '7', b: '0111', h: '7', o: '7' },
+                                    { d: '8', b: '1000', h: '8', o: '10' },
+                                    { d: '9', b: '1001', h: '9', o: '11' },
+                                    { d: '10', b: '1010', h: 'A', o: '12' },
+                                    { d: '11', b: '1011', h: 'B', o: '13' },
+                                    { d: '12', b: '1100', h: 'C', o: '14' },
+                                    { d: '13', b: '1101', h: 'D', o: '15' },
+                                    { d: '14', b: '1110', h: 'E', o: '16' },
+                                    { d: '15', b: '1111', h: 'F', o: '17' }
+                                ].map((row, idx) => (
+                                    <tr key={idx} className="border-b border-slate-600/50 last:border-0 hover:bg-slate-700/30 transition-colors">
+                                        <td className="p-3 md:p-4 border-r border-slate-600/50 font-sans font-semibold text-white">{row.d}</td>
+                                        <td className="p-3 md:p-4 border-r border-slate-600/50">{row.b}</td>
+                                        <td className="p-3 md:p-4 border-r border-slate-600/50 text-white font-bold">{row.h}</td>
+                                        <td className="p-3 md:p-4">{row.o}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* TEXTO DE TRANSIÇÃO E CITAÇÃO FINAL */}
+                    <div className="mt-12 bg-slate-900/60 p-8 md:p-10 rounded-xl border border-slate-800 shadow-xl text-center space-y-8">
+                        <p className="text-slate-300 text-lg leading-relaxed">
+                            Agora vamos entender como a arquitetura do computador e os protocolos de rede agrupam e organizam esses números fisicamente dentro de "recipientes" físicos no hardware e entender as regras de como eles são lidos e interpretados pelos humanos e pelas redes e nos cabos.
+                        </p>
+
+                        <div className="w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+
+                        <p className="text-emerald-400 text-xl md:text-2xl font-light italic leading-snug drop-shadow-md">
+                            "Compreender como os sistemas operacionais e o hardware agrupam e leem os bits é o que separa um analista que apenas opera ferramentas de um engenheiro que entende o que acontece na memória RAM e nos fios de cobre."
+                        </p>
+                    </div>
+
                 </section>
 
                 {/* Título de transição para a Parte de Arquitetura */}
@@ -751,52 +837,221 @@ const EngenhariaRedes = () => {
                         2. Grandezas da Informação (O Hardware)
                     </h2>
                     <p>
-                        Hardware e redes não processam dados como um fluxo contínuo e caótico; a informação é rigidamente loteada em blocos padronizados.
+                        Hardware e redes não processam dados como um fluxo contínuo e caótico de "0 e 1"; ela é rigidamente loteada, organizam os bits em blocos padronizados. Essa padronização é o que permite que um roteador Cisco, um servidor Linux e um smartphone Android se compreendam. No mundo físico, não existe um "número 5" circulando pela rede; existem níveis de tensão elétrica que precisam ser agrupados e padronizados para fazer sentido.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                        <div className="space-y-4">
-                            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800/50">
-                                <h4 className="font-bold text-emerald-400">Bit & Nibble</h4>
-                                <p className="text-sm text-slate-400 mt-2">
-                                    <strong>Bit (b):</strong> Menor unidade indivisível (0 ou 1). Velocidade de rede é medida em bps.<br />
-                                    <strong>Nibble:</strong> Agrupamento de 4 bits. Mapeia exatamente um caractere hexadecimal.
-                                </p>
+
+                        {/* --- COLUNA 1 (Bit e Nibble) --- */}
+                        <div className="flex flex-col space-y-6">
+
+                            {/* BLOCO APRIMORADO: BIT */}
+                            <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg">
+                                <h4 className="text-xl font-bold text-emerald-400 mb-4 inline-block border-b-2 border-slate-700 pb-1">
+                                    Bit (Binary Digit)
+                                </h4>
+
+                                <ul className="list-disc list-outside space-y-4 text-slate-400 text-sm md:text-base ml-5">
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">O que é:</strong> É a partícula subatômica de informação da computação, a menor unidade indivisível da computação.
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">Estado:</strong> Representa um único estado possível de um sistema lógico ou elétrico:
+                                        <span className="bg-black text-white font-mono px-2 py-0.5 rounded shadow-inner mx-1 tracking-wide">0</span> (desligado/corte) ou
+                                        <span className="bg-black text-white font-mono px-2 py-0.5 rounded shadow-inner mx-1 tracking-wide">1</span> (ligado/saturação).
+                                        <span className="bg-black text-white font-mono px-2 py-0.5 rounded shadow-inner ml-1 tracking-wide">5 Volts ou 0 Volts</span>.
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">Símbolo:</strong> Por si só, um bit carrega muito pouca informação. Símbolo:
+                                        <span className="bg-black text-white font-serif px-2 py-0.5 rounded shadow-inner ml-1 tracking-wide">b (minúsculo)</span>.
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">Na rede:</strong> A velocidade de transmissão de dados é medida em bits por segundo
+                                        <span className="bg-black text-white font-mono px-2 py-0.5 rounded shadow-inner mx-1 tracking-wide">(bps, Kbps, Mbps, Gbps)</span>.
+                                        Por isso, uma conexão de <strong className="text-slate-200">100 Megabits (100 Mbps)</strong> é diferente de 100 Megabytes.
+                                        <span className="inline-block mt-2">1 Gigabyte (1 GB) equivale a 1.024 Megabytes (1.024 MB).</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800/50">
-                                <h4 className="font-bold text-emerald-400">Byte (Octeto)</h4>
-                                <p className="text-sm text-slate-400 mt-2">
-                                    <strong>Byte (B):</strong> Agrupamento de 8 bits (256 valores). É a menor unidade de alocação de memória. Em redes e RFCs, usa-se o termo <em>Octeto</em> para evitar ambiguidades históricas.
+                            {/* FIM DO BLOCO BIT */}
+
+                            {/* BLOCO NIBBLE */}
+                            <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg">
+                                <h4 className="text-xl font-bold text-emerald-400 mb-4 inline-block border-b-2 border-slate-700 pb-1">
+                                    Nibble
+                                </h4>
+                                <p className="text-slate-300 text-sm md:text-base mb-5 leading-relaxed">
+                                    É um agrupamento de <strong className="text-slate-200">4 bits</strong> (meio byte) <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner ml-1 tracking-wide">(2<sup>4</sup> = 16 valores possíveis).</span>
                                 </p>
+                                <ul className="list-disc list-inside space-y-3 text-slate-400 text-sm md:text-base ml-2">
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">Importância prática:</strong> Um <em className="text-slate-300">nibble</em> mapeia exatamente <strong className="text-slate-200">um caractere Hexadecimal</strong>
+                                        <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner mx-2 tracking-wide inline-block mt-2 md:mt-0">
+                                            0000<sub className="text-xs">2</sub> a 1111<sub className="text-xs">2</sub>, ou 0 a F<sub className="text-xs">16</sub>
+                                        </span>.
+                                        <br className="hidden md:block" />
+                                        <span className="inline-block mt-2">
+                                            Quando você lê um endereço IPv6 ou um MAC Address, cada letra/número ali corresponde a um <span className="border-b border-dashed border-slate-500">nibble</span> na memória.
+                                        </span>
+                                    </li>
+                                </ul>
                             </div>
+
                         </div>
 
-                        <div className="bg-slate-900 p-5 rounded-lg border border-slate-800/50 h-full">
-                            <h4 className="font-bold text-emerald-400 mb-3">Word e Alinhamento</h4>
-                            <p className="text-sm text-slate-400 mb-3">
-                                A Word (Palavra) é o tamanho "natural" de dados que a CPU consegue processar em um único ciclo.
-                            </p>
-                            <ul className="text-sm text-slate-400 space-y-2 list-disc list-inside">
-                                <li><strong>Word:</strong> 16 bits (2 Bytes).</li>
-                                <li><strong>DWORD:</strong> 32 bits (4 Bytes - ex: IPv4).</li>
-                                <li><strong>QWORD:</strong> 64 bits (8 Bytes).</li>
-                            </ul>
-                            <div className="mt-4 p-3 bg-red-950/30 border border-red-900/50 rounded text-xs text-red-300">
-                                <strong>Segurança em Foco:</strong> Em engenharia reversa e exploits (Buffer Overflows), o tamanho da Word dita o alinhamento de memória e o padding necessário para sobrescrever o Instruction Pointer (EIP/RIP).
+                        {/* --- COLUNA 2 (Byte e Word) --- */}
+                        <div className="flex flex-col space-y-6">
+
+                            {/* BLOCO APRIMORADO: BYTE */}
+                            <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg">
+                                <h4 className="text-xl font-bold text-emerald-400 mb-4 inline-block border-b-2 border-slate-700 pb-1">
+                                    Byte (Octeto)
+                                </h4>
+
+                                <ul className="list-disc list-outside space-y-4 text-slate-400 text-sm md:text-base ml-5">
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">O que é:</strong> Um agrupamento padrão de <strong className="text-slate-200">8 bits</strong>
+                                        <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner ml-2 tracking-wide inline-block mt-1 md:mt-0">(2<sup>8</sup> = 256 valores possíveis)</span>.
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        Símbolo: B (maiúsculo).
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        É a menor unidade <strong className="text-slate-200">endereçável</strong> fundamental de armazenamento e de alocação de memória, na maioria das arquiteturas modernas. Em armazenamento de dados (HDDs, SSDs, arquivos), usamos o Byte como medida padrão (ex: 1GB). Um processador não busca um único bit na RAM, ele busca pelo menos um Byte. Um Byte pode representar
+                                        <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner mx-2 tracking-wide inline-block mt-1 md:mt-0">(2<sup>8</sup> = 256 valores possíveis)</span>
+                                        valores diferentes (de 0 a 255).
+                                    </li>
+
+                                    <li className="leading-relaxed">
+                                        <strong className="text-slate-200">Na prática:</strong> Arquivos, memória RAM e discos rígidos são medidos em Bytes (KB, MB, GB, TB). Em redes, o termo correto e padronizado nas RFCs (documentos de padrões da internet) é <strong className="text-slate-200">Octeto</strong>, para evitar ambiguidades históricas.
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                            {/* FIM DO BLOCO BYTE */}
+
+                            {/* BLOCO WORD */}
+                            <div className="bg-slate-900 p-5 rounded-lg border border-slate-800/50 h-full">
+                                <h4 className="font-bold text-emerald-400 mb-3">Word e Alinhamento</h4>
+                                <p className="text-sm text-slate-400 mb-3">
+                                    A Word (Palavra) é o tamanho "natural" de dados que o processador (CPU) consegue processar (manipular) de uma só vez em seus registradores em um único ciclo de clock.
+                                </p>
+                                <ul className="text-sm text-slate-400 space-y-2 list-disc list-inside">
+                                    <li><strong>Word:</strong> Tradicionalmente, em arquiteturas antigas (como x86 de 16 bits), uma Word equivale a 16 bits (2 Bytes).</li>
+                                    <li><strong>Double Word DWORD:</strong> Equivale a 32 bits (4 Bytes). O IPv4, por exemplo, é um endereço de 32 bits, ou seja, um Double Word.</li>
+                                    <li><strong>Quad Word QWORD:</strong> Equivale a 64 bits (8 Bytes), o padrão dos processadores modernos. </li>
+                                </ul>
+
                             </div>
                         </div>
+                    </div>
+                    {/* CAIXA DE DESTAQUE: NOTA DE REDES */}
+                    <div className="mt-6 p-4 md:p-5 bg-emerald-950/10 border-l-4 border-emerald-500 rounded-r-lg text-sm md:text-base text-slate-300 shadow-inner">
+                        <strong className="text-emerald-400">Nota de Engenharia de Redes:</strong> Em protocolos de rede (RFCs da IETF), você raramente verá o termo <em className="text-slate-400 italic">Byte</em>. O padrão absoluto é usar o termo <strong className="text-slate-200">Octet</strong> (Octeto). Isso ocorre porque, nos primórdios da computação, existiam sistemas onde 1 byte tinha 6, 7 ou 9 bits. "Octeto" garante matematicamente que estamos falando de exatos 8 bits.
+                    </div>
+                    <div className="mt-4 p-3 bg-red-950/30 border border-red-900/50 rounded text-xs text-red-300">
+                        <strong>Nota Segurança em Foco:</strong> Em engenharia reversa e exploits (Buffer Overflows), o tamanho da Word dita o alinhamento de memória e o padding necessário para sobrescrever o Instruction Pointer (EIP/RIP).
                     </div>
                 </section>
 
                 {/* Seção 8: Endianness */}
                 <section className="space-y-6">
+
+                    {/* SEÇÃO 8: ENDIANNESS (INTRODUÇÃO) */}
+
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Cpu className="text-emerald-500 w-6 h-6" />
                         3. A Batalha das Arquiteturas: Endianness
                     </h2>
-                    <p>
-                        Um conceito crítico em Redes e Análise de Malware. Quando um dado é maior que 1 Byte (como o valor <code className="text-emerald-400">0x12345678</code>), a memória precisa decidir em qual ordem vai armazenar esses bytes.
-                    </p>
+
+                    <div className="bg-[#08060d] p-6 md:p-10 rounded-xl border border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                            Este é um dos conceitos mais <strong className="text-emerald-400">críticos e subestimados</strong> na Engenharia de Redes e Análise de Malware. Quando um dado é maior que 1 Byte — por exemplo, um endereço IPv4 que ocupa 4 bytes (DWORD), a memória e os protocolos de rede precisam decidir em qual ordem vão ler e transmitir esses bytes.
+                        </p>
+
+                        {/* Info Box sobre o Prefixo 0x */}
+                        <div className="flex flex-col md:flex-row md:items-start gap-4 p-5 bg-slate-900/60 border-l-4 border-emerald-500 rounded-r-lg mb-10 shadow-inner">
+                            <div className="bg-black text-emerald-400 font-mono font-bold text-xl px-4 py-2 rounded border border-emerald-900 shadow-[0_0_10px_rgba(16,185,129,0.2)] shrink-0 flex items-center justify-center">
+                                0x
+                            </div>
+                            <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                                O prefixo <strong className="text-slate-200">0x (zero e x)</strong> é uma convenção usada na computação e em linguagens de programação para indicar que o número que vem a seguir está na base hexadecimal (base 16). Ele serve para diferenciar um número hexadecimal de um decimal comum.
+                            </p>
+                        </div>
+
+                        {/* Display Visual Interativo do Valor Hexadecimal */}
+                        <div className="bg-slate-900 border border-slate-700 p-6 md:p-8 rounded-lg shadow-inner text-center">
+                            <p className="text-slate-300 font-sans mb-8 text-lg">
+                                Imagine o valor Hexadecimal de 32 bits:
+                            </p>
+
+                            {/* Grid dos Bytes */}
+                            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 mb-8">
+                                <span className="text-2xl md:text-4xl font-mono text-slate-600 mr-2 md:mr-4 select-none">0x</span>
+
+                                {/* Byte 12 (MSB) */}
+                                <div className="flex flex-col items-center group cursor-default">
+                                    <div className="text-3xl md:text-5xl font-black font-mono text-white bg-emerald-950/60 border-2 border-emerald-500/50 px-4 md:px-6 py-3 rounded-lg shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all group-hover:scale-105 group-hover:border-emerald-400">
+                                        12
+                                    </div>
+                                </div>
+
+                                {/* Byte 34 */}
+                                <div className="flex flex-col items-center">
+                                    <div className="text-3xl md:text-5xl font-black font-mono text-slate-400 bg-slate-950 border-2 border-slate-700 px-4 md:px-6 py-3 rounded-lg">
+                                        34
+                                    </div>
+                                </div>
+
+                                {/* Byte 56 */}
+                                <div className="flex flex-col items-center">
+                                    <div className="text-3xl md:text-5xl font-black font-mono text-slate-400 bg-slate-950 border-2 border-slate-700 px-4 md:px-6 py-3 rounded-lg">
+                                        56
+                                    </div>
+                                </div>
+
+                                {/* Byte 78 (LSB) */}
+                                <div className="flex flex-col items-center group cursor-default">
+                                    <div className="text-3xl md:text-5xl font-black font-mono text-white bg-teal-950/60 border-2 border-teal-500/50 px-4 md:px-6 py-3 rounded-lg shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all group-hover:scale-105 group-hover:border-teal-400">
+                                        78
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Legendas dos Bytes Significativos */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mt-6">
+                                <div className="bg-emerald-900/20 p-4 border-l-4 border-emerald-500 rounded">
+                                    <p className="text-sm md:text-base text-slate-300">
+                                        O <strong className="text-emerald-400 font-mono text-lg bg-black px-1.5 rounded">12</strong> é o byte <strong className="text-white">mais significativo</strong> (MSB), de maior valor numérico.
+                                    </p>
+                                </div>
+                                <div className="bg-teal-900/20 p-4 border-l-4 border-teal-500 rounded">
+                                    <p className="text-sm md:text-base text-slate-300">
+                                        O <strong className="text-teal-400 font-mono text-lg bg-black px-1.5 rounded">78</strong> é o byte <strong className="text-white">menos significativo</strong> (LSB).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Texto de Transição */}
+                        <div className="mt-10 flex items-center justify-center">
+                            <div className="animate-bounce mr-3">
+                                <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                </svg>
+                            </div>
+                            <p className="text-center text-slate-300 text-lg font-semibold italic">
+                                Existem duas formas de armazenar isso na memória (do endereço mais baixo para o mais alto):
+                            </p>
+                        </div>
+
+                    </div>
 
                     <div className="overflow-x-auto mt-6">
                         <table className="w-full text-left border-collapse border border-slate-800">
@@ -825,9 +1080,93 @@ const EngenhariaRedes = () => {
                             </tbody>
                         </table>
                     </div>
-                    <p className="text-sm text-slate-400 bg-slate-900/50 p-4 rounded-lg">
-                        <strong>Na prática:</strong> Programadores usam funções em C como <code className="text-emerald-300">htons()</code> e <code className="text-emerald-300">htonl()</code> para converter Host para Network. Se falhar, uma porta 80 pode ser lida de forma totalmente incorreta.
-                    </p>
+
+
+
+
+                    {/* O GRANDE FECHAMENTO: POR QUE ISSO IMPORTA? */}
+                    <div className="mt-12 relative overflow-hidden bg-[#08060d] border border-slate-800 p-6 md:p-10 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.6)]">
+
+                        {/* Efeito de Fundo */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-900/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+                        <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3 relative z-10">
+                            <Network className="w-7 h-7 text-emerald-500" />
+                            Por que isso importa na Engenharia de Redes?
+                        </h3>
+
+                        {/* Grid: Host vs Network */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
+
+                            {/* Host Byte Order (O Computador) */}
+                            <div className="bg-slate-900/60 p-6 rounded-xl border border-teal-900/50 hover:border-teal-500/50 transition-colors shadow-inner flex flex-col h-full">
+                                <div className="flex items-center gap-3 mb-4 border-b border-slate-700/50 pb-3">
+                                    <Cpu className="w-6 h-6 text-teal-400" />
+                                    <h4 className="font-bold text-teal-400 text-lg tracking-wide">Host Byte Order</h4>
+                                    <span className="text-xs text-slate-500 font-mono ml-auto">LITTLE-ENDIAN</span>
+                                </div>
+                                <p className="text-sm text-slate-300 leading-relaxed">
+                                    <strong className="text-white">Ordem do Computador:</strong> A grande maioria dos computadores modernos (processadores Intel e AMD x86/x64) utiliza Little-Endian. É mais eficiente para o hardware realizar operações matemáticas começando pelos bits menos significativos.
+                                </p>
+                            </div>
+
+                            {/* Network Byte Order (A Rede) */}
+                            <div className="bg-slate-900/60 p-6 rounded-xl border border-blue-900/50 hover:border-blue-500/50 transition-colors shadow-inner flex flex-col h-full">
+                                <div className="flex items-center gap-3 mb-4 border-b border-slate-700/50 pb-3">
+                                    <Network className="w-6 h-6 text-blue-400" />
+                                    <h4 className="font-bold text-blue-400 text-lg tracking-wide">Network Byte Order</h4>
+                                    <span className="text-xs text-slate-500 font-mono ml-auto">BIG-ENDIAN</span>
+                                </div>
+                                <p className="text-sm text-slate-300 leading-relaxed">
+                                    <strong className="text-white">Ordem da Rede:</strong> A internet e o protocolo TCP/IP padronizaram o uso de Big-Endian. Quando roteadores transmitem cabeçalhos IP, eles os enviam no formato Big-Endian.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        {/* O Processo de Conversão (A Ponte) */}
+                        <div className="bg-slate-900 border border-slate-700 p-6 md:p-8 rounded-xl shadow-lg relative z-10">
+                            <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-sm flex items-center gap-2">
+                                <Terminal className="w-4 h-4" /> A Ponte de Conversão
+                            </h4>
+                            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                                <strong className="text-white">Engenharia de Redes:</strong> Quando um computador x64 envia um pacote pela rede, o sistema operacional precisa converter constantemente os dados da memória do computador, cabeçalho (como as portas de origem e destino de <span className="italic text-teal-400">Little-Endian</span>) para o cabo de rede (<span className="italic text-blue-400">Big-Endian</span>) e vice-versa.
+                            </p>
+
+                            {/* Funções em C */}
+                            <div className="flex flex-col md:flex-row md:items-center gap-4 bg-[#050505] p-4 rounded-lg border border-slate-800">
+
+                                <span className="text-sm text-slate-400">Para isso, programadores usam funções em C padrão:</span>
+                                <div className="flex flex-wrap gap-3">
+
+                                    <code className="text-emerald-300 font-mono text-sm bg-emerald-950/30 px-3 py-1.5 rounded border border-emerald-900/50 shadow-sm flex flex-col text-center">
+                                        <span className="font-bold text-emerald-400">htons()</span>
+                                        <span className="text-[10px] text-slate-500 mt-1">Host to Network Short</span>
+                                    </code>
+                                    <code className="text-emerald-300 font-mono text-sm bg-emerald-950/30 px-3 py-1.5 rounded border border-emerald-900/50 shadow-sm flex flex-col text-center">
+                                        <span className="font-bold text-emerald-400">htonl()</span>
+                                        <span className="text-[10px] text-slate-500 mt-1">Host to Network Long</span>
+                                    </code>
+                                </div>
+                            </div>
+
+                        </div>
+                        <p className="text-sm text-slate-400 bg-slate-900/50 p-4 rounded-lg">
+                            <strong>Na prática:</strong> Programadores usam funções em C como <code className="text-emerald-300">htons()</code> e <code className="text-emerald-300">htonl()</code> para converter Host para Network. Se falhar, uma porta 80 pode ser lida de forma totalmente incorreta.
+                        </p>
+
+                        {/* O Alerta de Falha (O Impacto Real) */}
+                        <div className="mt-6 bg-red-950/20 border-l-4 border-red-500 p-5 md:p-6 rounded-r-xl relative z-10 flex flex-col md:flex-row md:items-center gap-4 shadow-inner">
+                            <div className="bg-red-500/10 p-3 rounded-full shrink-0">
+                                <ShieldAlert className="w-6 h-6 text-red-500" />
+                            </div>
+                            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+                                Ignorar o Endianness ao analisar um binário ou um dump de memória ou se essa conversão falhar, a porta de destino <strong className="text-white bg-slate-900 px-1 rounded">80</strong> será interpretada incorretamente pelo roteador, derrubando a comunicação, e resultará na leitura de IPs e portas totalmente errados.
+                            </p>
+                        </div>
+
+                    </div>
+                    {/* FIM DO BLOCO DE FECHAMENTO */}
                 </section>
 
                 {/* Seção 9: Codificação de Texto */}
@@ -837,44 +1176,172 @@ const EngenhariaRedes = () => {
                         4. Codificação de Texto: Dando Significado aos Bits
                     </h2>
 
+                    {/* BLOCO APRIMORADO: ASCII */}
+                    <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg">
+                        <h3 className="text-xl font-bold text-emerald-400 mb-5 inline-block border-b-2 border-slate-700 pb-1">
+                            ASCII <span className="text-sm font-normal text-slate-400 block md:inline md:ml-2">(American Standard Code for Information Interchange)</span>
+                        </h3>
+
+                        <ul className="list-disc list-outside marker:text-emerald-500 space-y-5 text-slate-400 text-sm md:text-base ml-5">
+
+                            {/* A Origem */}
+                            <li className="leading-relaxed pl-1">
+                                <strong className="text-slate-200">A Origem (1963):</strong> Criado na década de 1960, O <em className="text-slate-300">American Standard Code for Information Interchange</em> foi a primeira grande padronização. Definiu que 7 bits (128 combinações, de 0 a 127) seriam suficientes para representar todos caracteres do idioma inglês (maiúsculas e minúsculas sem acento), números e caracteres de controle (como "Enter" e "Esc") do idioma inglês
+                                <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner tracking-wide mx-1.5 inline-block whitespace-nowrap">
+                                    2<sup>7</sup> = 128
+                                </span>
+                                caracteres.
+                            </li>
+
+                            {/* Conteúdo */}
+                            <li className="leading-relaxed pl-1">
+                                <strong className="text-slate-200">Conteúdo:</strong> Letras do alfabeto inglês (maiúsculas e minúsculas), números de 0 a 9 e símbolos de controle de rede/impressora (como <em className="text-slate-300">Carriage Return</em> e <em className="text-slate-300">Line Feed</em>). Exemplo: A letra "A" maiúscula é o decimal 65, que em binário é
+                                <span className="bg-black text-white font-serif px-2 py-1 rounded shadow-inner tracking-wide ml-1.5 inline-block whitespace-nowrap">
+                                    01000001<sub className="text-xs">2</sub>
+                                </span>.
+                            </li>
+
+                            {/* O Problema */}
+                            <li className="leading-relaxed pl-1">
+                                <strong className="text-red-400">O Problema:</strong> Sendo um padrão estritamente americano, o ASCII original não possui acentuação (ç, á, ã), alfabetos cirílicos, árabes ou asiáticos.
+                            </li>
+
+                        </ul>
+                    </div>
+                    {/* FIM DO BLOCO ASCII */}
+
+
+                    {/* BLOCO APRIMORADO: UNICODE */}
+                    <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg mt-6">
+                        <h3 className="text-xl font-bold text-emerald-400 mb-5 inline-block border-b-2 border-slate-700 pb-1">
+                            Unicode
+                        </h3>
+
+                        <ul className="list-disc list-outside marker:text-emerald-500 space-y-5 text-slate-400 text-sm md:text-base ml-5">
+
+                            {/* A Solução Global */}
+                            <li className="leading-relaxed pl-1">
+                                <strong className="text-slate-200">A Solução Global:</strong> O Unicode não é um formato de arquivo e não é uma codificação, mas sim um imenso catálogo universal. O ASCII funcionava bem para o inglês, mas o mundo possui alfabetos cirílicos, árabes, mandarim e, mais recentemente, emojis. O objetivo do projeto Unicode é dar um número único (chamado de <em className="text-slate-300 italic">Code Point</em>) para cada caractere de cada idioma do mundo, incluindo símbolos matemáticos e emojis, resolvendo o problema de incompatibilidade de caracteres.
+                            </li>
+
+                            {/* Exemplos de Code Points */}
+                            <li className="leading-relaxed pl-1">
+                                Por exemplo, a letra "A" é o Code Point
+                                <span className="bg-black text-emerald-300 font-mono px-2 py-0.5 rounded shadow-inner tracking-wide inline-block mx-1.5">
+                                    U+0041
+                                </span>.
+                                A letra "ç" é
+                                <span className="bg-black text-emerald-300 font-mono px-2 py-0.5 rounded shadow-inner tracking-wide inline-block mx-1.5">
+                                    U+00E7
+                                </span>.
+                                O emoji de 👾 (Alien Monster) é
+                                <span className="bg-black text-emerald-300 font-mono px-2 py-0.5 rounded shadow-inner tracking-wide inline-block ml-1.5">
+                                    U+1F47E
+                                </span>.
+                            </li>
+
+                        </ul>
+                    </div>
+                    {/* FIM DO BLOCO UNICODE */}
+
                     <div className="space-y-6">
-                        <div>
-                            <h3 className="text-xl font-semibold text-slate-200">ASCII e Unicode</h3>
-                            <p className="text-sm text-slate-400 mt-2">
-                                O <strong>ASCII</strong> (1963) definiu que 7 bits seriam suficientes para representar 128 caracteres do idioma inglês. Porém, falta acentuação e outros alfabetos. O <strong>Unicode</strong> surgiu como um catálogo universal, dando um Code Point único para cada caractere do mundo (ex: A é U+0041).
-                            </p>
-                        </div>
 
-                        <div>
-                            <h3 className="text-xl font-semibold text-slate-200">UTF-8: A Implementação Perfeita</h3>
-                            <p className="text-sm text-slate-400 mt-2">
-                                O UTF-8 armazena texto de forma eficiente com tamanho variável:
-                            </p>
-                            <ul className="list-disc list-inside text-sm text-slate-400 mt-2 space-y-1">
-                                <li>Caracteres ingleses: 1 byte.</li>
-                                <li>Acentos latinos (ç, ã): 2 bytes.</li>
-                                <li>Símbolos asiáticos: 3 bytes.</li>
-                                <li>Emojis (👾): 4 bytes.</li>
-                            </ul>
-                        </div>
 
-                        <div className="bg-red-950/20 border-l-4 border-red-600 p-6 rounded-r-lg mt-6 shadow-lg">
-                            <h3 className="flex items-center gap-2 text-lg font-bold text-red-500 mb-3">
-                                <ShieldAlert className="w-5 h-5" />
+                        {/* BLOCO APRIMORADO: UTF-8 */}
+                        <div className="bg-slate-900 p-6 md:p-8 rounded-lg border border-slate-800/50 shadow-lg mt-6">
+                            <h3 className="text-xl font-bold text-emerald-400 mb-5 inline-block border-b-2 border-slate-700 pb-1">
+                                UTF-8 <span className="text-sm font-normal text-slate-400 block md:inline md:ml-2">(A Implementação Perfeita)</span>
+                            </h3>
+
+                            <div className="space-y-5 text-slate-400 text-sm md:text-base leading-relaxed">
+                                <p>
+                                    Ter um número para cada símbolo do mundo é ótimo, mas como armazenar isso de forma eficiente? Se usarmos <strong className="text-slate-200">4 bytes fixos</strong> para cada letra (para caberem todos os alfabetos do mundo), um simples texto em inglês ficaria 4 vezes maior, destruindo o desempenho de armazenamento e largura de banda das redes.
+                                </p>
+
+                                <p>
+                                    A genialidade do UTF-8 (<em className="italic text-slate-300">Unicode Transformation Format - 8-bit</em>) está na sua flexibilidade e retrocompatibilidade com o ASCII. Ele é uma codificação de <strong className="text-emerald-400">tamanho variável</strong>:
+                                </p>
+
+                                <p className="font-semibold text-slate-300 pt-2">
+                                    A solução foi o UTF-8:
+                                </p>
+
+                                <ul className="list-disc list-outside marker:text-emerald-500 space-y-3 ml-5">
+                                    <li className="pl-1">
+                                        Caracteres ASCII tradicionais (inglês/números) continuam ocupando
+                                        <strong className="text-white font-mono bg-black px-2 py-0.5 rounded shadow-inner border border-slate-800 ml-1.5">1 byte</strong>.
+                                    </li>
+
+                                    <li className="pl-1">
+                                        Caracteres latinos com acentos (como ç, ã) ocupam
+                                        <strong className="text-white font-mono bg-black px-2 py-0.5 rounded shadow-inner border border-slate-800 ml-1.5">2 bytes</strong>.
+                                    </li>
+
+                                    <li className="pl-1">
+                                        Símbolos asiáticos ou caracteres complexos ocupam
+                                        <strong className="text-white font-mono bg-black px-2 py-0.5 rounded shadow-inner border border-slate-800 ml-1.5">3 bytes</strong>.
+                                    </li>
+
+                                    <li className="pl-1">
+                                        Emojis e símbolos raros ocupam
+                                        <strong className="text-white font-mono bg-black px-2 py-0.5 rounded shadow-inner border border-slate-800 ml-1.5">4 bytes</strong>.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {/* FIM DO BLOCO UTF-8 */}
+
+
+                        {/* BLOCO DE SEGURANÇA: TÉCNICAS OFENSIVAS */}
+                        <div className="mt-10 bg-red-950/20 border-l-4 border-red-600 p-6 md:p-8 rounded-r-xl shadow-xl">
+                            <h3 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-red-500 mb-5 font-sans">
+                                <ShieldAlert className="w-6 h-6 shrink-0" />
                                 Técnicas Ofensivas e Codificação
                             </h3>
-                            <p className="text-sm text-slate-300 mb-3">
-                                O mapeamento de caracteres é um vetor clássico na cibersegurança.
+
+                            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                                O mapeamento de caracteres é um <strong className="text-red-400">vetor clássico na cibersegurança</strong>. Atacantes frequentemente exploram como diferentes sistemas interpretam caracteres.
                             </p>
-                            <ul className="space-y-4 text-sm text-slate-400">
-                                <li>
-                                    <strong className="text-red-400">Homograph Attacks (Phishing):</strong> O atacante registra um domínio substituindo um caractere latino por um idêntico visualmente de outro alfabeto (ex: Cirílico). A vítima lê <code className="text-slate-200 bg-slate-900 px-1">apple.com</code>, mas o navegador resolve um IP controlado pelo atacante.
-                                </li>
-                                <li>
-                                    <strong className="text-red-400">Evasão de WAF (Web Application Firewall):</strong> Enviar um payload malicioso como <code className="text-slate-200 bg-slate-900 px-1">&lt;script&gt;</code> usando codificações Unicode não padronizadas. Se o filtro não normalizar o UTF-8 corretamente, o código passa invisível e é executado no servidor.
-                                </li>
-                            </ul>
+
+                            <div className="space-y-6">
+
+                                {/* Vetor 1: Phishing / Homograph Attacks */}
+                                <div className="bg-[#050505] p-5 rounded-lg border border-red-900/50 shadow-inner">
+                                    <h4 className="font-bold text-red-400 mb-3 flex items-center gap-2">
+                                        1. Homograph Attacks (Ataques de Homógrafos)
+                                    </h4>
+                                    <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-4">
+                                        Em ataques de phishing, adversários utilizam frequentemente os Homograph Attacks. O atacante registra um domínio como <code className="text-white bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700 font-mono tracking-widest mx-1 shadow-sm">appIe.com</code>, mas substitui o "l" latino por um caractere visualmente idêntico de outro alfabeto no Unicode (como o Cyrillic).
+                                    </p>
+                                    <div className="bg-red-900/20 p-4 rounded text-sm text-red-200/80 italic border-l-2 border-red-500/50">
+                                        A vítima lê perfeitamente, mas o navegador resolve um endereço IP completamente diferente, controlando a infraestrutura de captura de credenciais.
+                                    </div>
+                                </div>
+
+                                {/* Vetor 2: WAF Evasion */}
+                                <div className="bg-[#050505] p-5 rounded-lg border border-red-900/50 shadow-inner">
+                                    <h4 className="font-bold text-red-400 mb-3 flex items-center gap-2">
+                                        2. Evasão de Web Application Firewalls (WAF)
+                                    </h4>
+                                    <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-4">
+                                        Um ataque clássico de evasão de WAF envolve enviar um payload malicioso (<code className="text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded font-mono border border-slate-700 mx-1">&lt;script&gt;</code>) com codificações Unicode não padronizadas ou caracteres de múltiplos bytes para burlar WAFs.
+                                    </p>
+                                    <div className="bg-red-900/20 p-4 rounded text-sm md:text-base text-red-200/80 italic border-l-2 border-red-500/50 space-y-3">
+                                        <p>
+                                            Se o filtro de segurança de Intrusão não normalizar o UTF-8 corretamente, o código malicioso passa invisível pelo firewall e é executado no servidor.
+                                        </p>
+                                        <p>
+                                            Um filtro mal configurado pode bloquear a palavra <code className="text-emerald-400 not-italic bg-slate-900 px-1.5 py-0.5 rounded font-mono border border-red-900/30">&lt;script&gt;</code>, mas deixar passar uma variação encodada da mesma palavra por não saber interpretar a conversão variável do UTF-8 em tempo real.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+                        {/* FIM DO BLOCO TÉCNICAS OFENSIVAS */}
+
+
+                        
                     </div>
                 </section>
 
