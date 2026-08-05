@@ -497,7 +497,7 @@ const DevSecOpsArticle = () => {
 
           {/* Título: Aumentei o peso da fonte (font-black) e ajustei o tamanho */}
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-[0.9] break-words">
-            REVOLUXTI <span style={{ color: colors.principal }}>20000</span>
+            REVOLUXTI <span style={{ color: colors.principal }}>Sala do Eniac</span>
           </h1>
 
           {/* Texto descritivo: Aumentei para text-xl no mobile e melhorei a leitura */}
