@@ -1384,19 +1384,19 @@ const EngenhariaRedes = () => {
                                         </div>
                                     </div>
 
-                                    {/* 4. COMO A MÍDIA E O TEXTO SÃO ARMAZENADOS */}
+                                    {/* 5. COMO A MÍDIA E O TEXTO SÃO ARMAZENADOS */}
                                     <div className="pt-8 border-t-2 border-slate-800/80">
                                         <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-4 mb-6">
                                             <Layers className="text-emerald-500 w-8 h-8 shrink-0" />
-                                            4. Como a Mídia e o Texto são Armazenados
+                                            5 - Como a Mídia e o Texto são Armazenados
                                         </h2>
                                         <p className="text-slate-400 leading-relaxed mb-12 text-justify">
                                             Já vimos como o UTF-8 atribui um número a cada letra do mundo. Esta é a fronteira onde a matemática pura se transforma na experiência humana, e toda mídia digital é, no fundo, uma grande matriz matemática. Compreender como a engenharia utiliza esses blocos para construir a interface visual e a linguagem é um fundamento básico no desenvolvimento moderno, com impactos diretos na infraestrutura de redes e na cibersegurança.
                                         </p>
 
-                                        {/* 4.1 TEXTO */}
+                                        {/* 5.1 TEXTO */}
                                         <div className="space-y-6 mb-16">
-                                            <h3 className="text-xl md:text-2xl font-bold text-emerald-400">4.1. O Armazenamento de Texto</h3>
+                                            <h3 className="text-xl md:text-2xl font-bold text-emerald-400">5.1. O Armazenamento de Texto</h3>
                                             <p className="text-slate-400 text-sm mb-6">O armazenamento de texto é a aplicação mais direta da codificação. Ele se divide estruturalmente em níveis de complexidade:</p>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1412,12 +1412,12 @@ const EngenhariaRedes = () => {
 
                                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
                                                         {[
-                                                            { ext: '.txt', desc: 'Texto genérico', icon: FileText },
-                                                            { ext: '.md', desc: 'Markdown', icon: FileCode },
-                                                            { ext: '.csv', desc: 'Dados tabulares', icon: FileSpreadsheet },
-                                                            { ext: '.json', desc: 'Dados estruturados', icon: FileJson },
-                                                            { ext: '.xml', desc: 'Sistemas', icon: FileCode },
-                                                            { ext: '.log', desc: 'Avisos/Erros', icon: Terminal },
+                                                            { ext: '.txt', desc: 'Arquivo de texto genérico', icon: FileText },
+                                                            { ext: '.md Markdown', desc: 'Arquivo de texto com marcações simples. ', icon: FileCode },
+                                                            { ext: '.csv', desc: 'Estrutura de dados tabulares separados por vírgula', icon: FileSpreadsheet },
+                                                            { ext: '.json', desc: 'Guardar e trocar dados estruturados entre sites e aplicativos', icon: FileJson },
+                                                            { ext: '.xml', desc: 'Organizar e transportar dados em sistemas complexos', icon: FileCode },
+                                                            { ext: '.log', desc: 'Usado por programas para registrar Avisos/Erros do sistema ', icon: Terminal },
                                                         ].map((item, i) => (
                                                             <div key={i} className="bg-black p-2.5 rounded border border-slate-800 flex items-center gap-2 group/item hover:border-cyan-500/30 transition-colors cursor-default">
                                                                 <item.icon className="w-4 h-4 text-cyan-500 shrink-0 group-hover/item:scale-110 transition-transform" />
@@ -1474,10 +1474,10 @@ const EngenhariaRedes = () => {
                                             </div>
                                         </div>
 
-                                        {/* 4.2 IMAGENS */}
+                                        {/* 5.2 IMAGENS */}
                                         <div className="space-y-8">
                                             <h3 className="text-xl md:text-2xl font-bold text-emerald-400 flex items-center gap-3">
-                                                <ImageIcon className="w-6 h-6" /> 4.2. O Armazenamento Visual (Imagens)
+                                                <ImageIcon className="w-6 h-6" /> 5.2 - O Armazenamento Visual (Imagens)
                                             </h3>
                                             <p className="text-slate-400 text-sm">O armazenamento visual divide-se em duas lógicas matemáticas fundamentais: Vetorial e Raster.</p>
 
