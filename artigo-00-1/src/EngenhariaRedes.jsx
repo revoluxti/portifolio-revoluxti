@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, ShieldAlert, Cpu, Network, FileDigit, Database } from 'lucide-react';
+import { Terminal, ShieldAlert, Cpu, Network, FileDigit, Database, Image as ImageIcon, FileText, FileCode, FileJson, FileSpreadsheet, Lock, Eye, Maximize, Zap, Layers } from 'lucide-react';
 
 const EngenhariaRedes = () => {
     return (
@@ -55,10 +55,10 @@ const EngenhariaRedes = () => {
             </div>
 
             {/* ==================== CONTEÚDO DO ARTIGO ==================== */}
-            <article className="max-w-4xl mx-auto px-6 py-16 font-sans text-lg text-slate-300 leading-relaxed space-y-12">
+            <article className="max-w-7xl mx-auto px-2 py-16 font-sans text-lg text-slate-600 leading-relaxed space-y-12">
 
                 {/* Seção 1: História dos Sistemas Numéricos */}
-                <section className="space-y-6">
+                <section className="space-y-1">
                     <h2 className="text-3xl font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center gap-3">
                         <Terminal className="text-emerald-500 w-6 h-6" />
                         1. História dos Sistemas Numéricos
@@ -1341,7 +1341,287 @@ const EngenhariaRedes = () => {
                         {/* FIM DO BLOCO TÉCNICAS OFENSIVAS */}
 
 
-                        
+                        {/* ========================================================================= */}
+                        {/* NOVA SEÇÃO: A GRANDE ILUSÃO (LARGURA RESTRITA E PALCO CENTRAL PRETO)      */}
+                        {/* ========================================================================= */}
+
+                        {/* Fundo externo escuro para contrastar com a coluna central */}
+                        <section className="w-full bg-[#02040a] py-12 md:py-20">
+
+                            {/* A Coluna Central (O "Palco" Preto Sólido) */}
+                            <div className="max-w-6xl mx-auto bg-black relative border-t-4 border-[#1e293b] shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+
+                                {/* Malha Quadriculada (Apenas dentro da coluna central, bem sutil) */}
+                                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none"></div>
+
+                                {/* Conteúdo Interno da Coluna */}
+                                <div className="relative z-10 px-6 py-12 md:px-12 md:py-16 space-y-12">
+
+                                    {/* CABEÇALHO DA SEÇÃO */}
+                                    <div className="text-center space-y-8 mb-12">
+                                        <h2 className="text-3xl md:text-5xl font-black text-cyan-400 tracking-tight uppercase">
+                                            A Grande Ilusão do Mundo Digital
+                                        </h2>
+                                        <div className="space-y-4 text-lg text-slate-300 leading-relaxed font-light px-4">
+                                            <p>
+                                                Aqui damos um salto fenomenal: deixamos de olhar para o byte isolado e passamos a entender os <strong className="text-white font-semibold">arquivos</strong>. O hardware não faz a menor ideia do que é uma foto, uma música ou a interface front-end e back-end de uma aplicação. Para o processador, a memória e os cabos de rede, tudo é apenas uma sequência de números.
+                                            </p>
+                                            <p>
+                                                Na sequência vamos ver como a engenharia mapeia o mundo real (analógico e complexo) para o mundo discreto (binário). Entender essa tradução é ter a chave para dominar o consumo de banda em redes de alta performance e a análise forense em cibersegurança. <strong className="text-emerald-400 font-medium italic">Como o computador sabe se aquilo é uma foto de um gato, um áudio ou um script malicioso?</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* CARD INTRODUTÓRIO */}
+                                    <div className="bg-[#0a0a0a] border border-slate-800 p-6 md:p-8 rounded-2xl shadow-inner group hover:border-cyan-900/50 transition-colors">
+                                        <div className="flex flex-col md:flex-row items-center gap-5">
+                                            <div className="p-4 bg-cyan-950/30 rounded-full border border-cyan-900/50 group-hover:scale-110 transition-transform">
+                                                <Database className="w-8 h-8 text-cyan-500 shrink-0" />
+                                            </div>
+                                            <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                                                A resposta está na padronização matemática e na arquitetura interna dos arquivos. Todo arquivo possui duas partes fundamentais: o <strong className="text-white">Cabeçalho (Header/Metadata)</strong>, que instrui o software sobre como ler o arquivo, e o <strong className="text-white">Payload (Corpo)</strong>, que contém os dados em si.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* 4. COMO A MÍDIA E O TEXTO SÃO ARMAZENADOS */}
+                                    <div className="pt-8 border-t-2 border-slate-800/80">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-4 mb-6">
+                                            <Layers className="text-emerald-500 w-8 h-8 shrink-0" />
+                                            4. Como a Mídia e o Texto são Armazenados
+                                        </h2>
+                                        <p className="text-slate-400 leading-relaxed mb-12 text-justify">
+                                            Já vimos como o UTF-8 atribui um número a cada letra do mundo. Esta é a fronteira onde a matemática pura se transforma na experiência humana, e toda mídia digital é, no fundo, uma grande matriz matemática. Compreender como a engenharia utiliza esses blocos para construir a interface visual e a linguagem é um fundamento básico no desenvolvimento moderno, com impactos diretos na infraestrutura de redes e na cibersegurança.
+                                        </p>
+
+                                        {/* 4.1 TEXTO */}
+                                        <div className="space-y-6 mb-16">
+                                            <h3 className="text-xl md:text-2xl font-bold text-emerald-400">4.1. O Armazenamento de Texto</h3>
+                                            <p className="text-slate-400 text-sm mb-6">O armazenamento de texto é a aplicação mais direta da codificação. Ele se divide estruturalmente em níveis de complexidade:</p>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                                {/* Texto Puro */}
+                                                <div className="bg-[#0a0a0a] p-6 rounded-2xl border border-slate-800 flex flex-col h-full hover:border-cyan-900/50 transition-colors">
+                                                    <h4 className="font-bold text-white flex items-center gap-2 mb-3">
+                                                        <FileText className="text-cyan-400 w-5 h-5" /> Texto Puro (Plain Text)
+                                                    </h4>
+                                                    <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+                                                        É a representação digital mais simples. Um arquivo de texto puro não possui cabeçalhos complexos ou a "coroa gráfica" embutida; ele é literalmente uma sequência contínua de bytes mapeados por uma tabela de codificação, como o UTF-8.
+                                                    </p>
+
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                                                        {[
+                                                            { ext: '.txt', desc: 'Texto genérico', icon: FileText },
+                                                            { ext: '.md', desc: 'Markdown', icon: FileCode },
+                                                            { ext: '.csv', desc: 'Dados tabulares', icon: FileSpreadsheet },
+                                                            { ext: '.json', desc: 'Dados estruturados', icon: FileJson },
+                                                            { ext: '.xml', desc: 'Sistemas', icon: FileCode },
+                                                            { ext: '.log', desc: 'Avisos/Erros', icon: Terminal },
+                                                        ].map((item, i) => (
+                                                            <div key={i} className="bg-black p-2.5 rounded border border-slate-800 flex items-center gap-2 group/item hover:border-cyan-500/30 transition-colors cursor-default">
+                                                                <item.icon className="w-4 h-4 text-cyan-500 shrink-0 group-hover/item:scale-110 transition-transform" />
+                                                                <div>
+                                                                    <span className="font-mono font-bold text-cyan-400 text-xs block">{item.ext}</span>
+                                                                    <span className="text-[10px] text-slate-500 leading-none">{item.desc}</span>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+
+                                                    <div className="bg-black p-4 rounded-xl border border-slate-800 mt-auto">
+                                                        <strong className="text-cyan-400 font-mono text-xs block mb-2">.py / .html / .jsx</strong>
+                                                        <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                                                            <strong className="text-slate-300">Códigos-fonte.</strong> No nível do disco, eles contêm apenas os bytes da formatação estrutural ou de marcação. É o navegador do cliente (a engine de renderização) que lê esses bytes, constrói a árvore do DOM e "pinta" a tela.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Texto Formatado & Segurança */}
+                                                <div className="flex flex-col gap-6">
+                                                    <div className="bg-[#0a0a0a] p-6 rounded-2xl border border-slate-800 flex-1 hover:border-purple-900/50 transition-colors">
+                                                        <h4 className="font-bold text-white flex items-center gap-2 mb-3">
+                                                            <Layers className="text-purple-400 w-5 h-5" /> Texto Formatado (Rich Text)
+                                                        </h4>
+                                                        <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+                                                            Ao contrário do texto puro, o texto formatado possui camadas complexas de estruturação:
+                                                        </p>
+                                                        <div className="space-y-3">
+                                                            <div className="bg-black p-4 rounded-xl border border-slate-800 group hover:border-purple-500/30 transition-colors">
+                                                                <strong className="text-purple-400 font-mono text-sm block mb-1">.docx (Word)</strong>
+                                                                <p className="text-xs text-slate-400 text-justify">Não são arquivos de texto simples. Na verdade, um .docx é um contêiner compactado (um arquivo .zip disfarçado). Se você alterar a extensão para .zip e descompactá-lo, encontrará uma estrutura complexa de pastas contendo arquivos XML que ditam a formatação, além de mídias embutidas.</p>
+                                                            </div>
+                                                            <div className="bg-black p-4 rounded-xl border border-slate-800 group hover:border-purple-500/30 transition-colors">
+                                                                <strong className="text-purple-400 font-mono text-sm block mb-1">.pdf (PDF)</strong>
+                                                                <p className="text-xs text-slate-400 text-justify">São essencialmente linguagens de descrição de página baseadas em vetores e texto, derivadas do PostScript.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="bg-[#0f0505] p-5 rounded-2xl border border-red-900/50 flex gap-4 items-start relative overflow-hidden group">
+                                                        <div className="absolute right-0 top-0 p-2 opacity-5 group-hover:scale-110 transition-transform">
+                                                            <ShieldAlert className="w-20 h-20 text-red-500" />
+                                                        </div>
+                                                        <ShieldAlert className="w-6 h-6 text-red-500 shrink-0 relative z-10" />
+                                                        <div className="relative z-10">
+                                                            <h4 className="font-bold text-red-500 text-xs uppercase mb-1 tracking-widest">Ótica de Segurança</h4>
+                                                            <p className="text-xs text-red-200/70 leading-relaxed text-justify">
+                                                                É exatamente por causa dessa estrutura complexa que arquivos <code className="text-red-400 bg-red-950/50 px-1 rounded font-mono">.docx</code> e <code className="text-red-400 bg-red-950/50 px-1 rounded font-mono">.pdf</code> são vetores clássicos de infecção. O atacante não esconde o malware no texto em si, mas sim nas macros ou explorando vulnerabilidades dos motores de renderização XML do software que tenta ler o arquivo.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* 4.2 IMAGENS */}
+                                        <div className="space-y-8">
+                                            <h3 className="text-xl md:text-2xl font-bold text-emerald-400 flex items-center gap-3">
+                                                <ImageIcon className="w-6 h-6" /> 4.2. O Armazenamento Visual (Imagens)
+                                            </h3>
+                                            <p className="text-slate-400 text-sm">O armazenamento visual divide-se em duas lógicas matemáticas fundamentais: Vetorial e Raster.</p>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                                {/* Lógica 1: Vetorial */}
+                                                <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 hover:border-emerald-900/50 transition-colors flex flex-col">
+                                                    <h4 className="font-bold text-white flex items-center gap-2 mb-4">
+                                                        <Maximize className="text-emerald-400 w-5 h-5" /> Lógica 1: Imagens Vetoriais
+                                                    </h4>
+                                                    <p className="text-sm text-slate-400 mb-6 leading-relaxed text-justify flex-1">
+                                                        Em vez de desenhar a imagem, o arquivo armazena instruções e fórmulas matemáticas (pontos, linhas, curvas, formas geométricas e coordenadas).
+                                                    </p>
+
+                                                    <ul className="text-xs text-slate-300 space-y-3 mb-6">
+                                                        <li className="flex gap-3">
+                                                            <Zap className="w-4 h-4 text-emerald-500 shrink-0" />
+                                                            <span><strong className="text-white block mb-1">Vantagem (Zoom):</strong> Se você der um zoom infinito, não há perda de qualidade, pois o computador apenas recalcula a equação da imagem em tempo real.</span>
+                                                        </li>
+                                                        <li className="flex gap-3">
+                                                            <Eye className="w-4 h-4 text-emerald-500 shrink-0" />
+                                                            <span><strong className="text-white block mb-1">Uso principal:</strong> Logotipos, ícones, tipografia e ilustrações digitais (muito usado em interfaces web).</span>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div className="bg-black p-5 rounded-xl border border-slate-800 mt-auto">
+                                                        <span className="text-xs text-slate-500 uppercase tracking-widest block mb-3 font-bold">Formatos Padrão</span>
+                                                        <div className="flex flex-wrap gap-2 mb-4">
+                                                            {['.svg', '.ai', '.eps', '.pdf (vetor)', '.cdr'].map(ext => (
+                                                                <span key={ext} className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/20 border border-emerald-900/50 px-2 py-1 rounded">
+                                                                    {ext}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                        <p className="text-[11px] text-slate-400 border-t border-slate-800/80 pt-3">
+                                                            <strong className="text-white">Curiosidade:</strong> O formato .svg (Scalable Vector Graphics) é, na verdade, um arquivo de texto puro escrito em XML.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Lógica 2: Raster */}
+                                                <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 hover:border-blue-900/50 transition-colors flex flex-col">
+                                                    <h4 className="font-bold text-white flex items-center gap-2 mb-4">
+                                                        <ImageIcon className="text-blue-400 w-5 h-5" /> Lógica 2: Raster (Bitmap/Pixel)
+                                                    </h4>
+                                                    <p className="text-sm text-slate-400 mb-6 leading-relaxed text-justify">
+                                                        Esqueça a tela do seu computador e pense nela como um gigantesco tabuleiro de xadrez iluminado. Cada quadrado desse tabuleiro é um Pixel (Picture Element). Imagens Raster são matrizes gigantes desses pontos. A maioria das telas utiliza a síntese aditiva misturando essas três cores.
+                                                    </p>
+
+                                                    <div className="bg-black p-5 rounded-xl border border-slate-800 mb-6 flex-1">
+                                                        <p className="text-xs text-slate-400 uppercase tracking-widest mb-4 font-bold">Modelo RGB True Color (24-bit)</p>
+                                                        <p className="text-xs text-slate-300 mb-4">Cada canal de cor recebe exatamente <strong className="text-white bg-slate-900 px-1 rounded">1 Byte (8 bits)</strong> de espaço, gerando intensidades de 0 a 255:</p>
+
+                                                        <div className="space-y-2 mb-5">
+                                                            <div className="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
+                                                                <span className="text-red-500 font-bold tracking-wider">RED</span>
+                                                                <span className="font-mono text-slate-400">256 intensidades</span>
+                                                            </div>
+                                                            <div className="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
+                                                                <span className="text-green-500 font-bold tracking-wider">GREEN</span>
+                                                                <span className="font-mono text-slate-400">256 intensidades</span>
+                                                            </div>
+                                                            <div className="flex justify-between items-center text-xs">
+                                                                <span className="text-blue-500 font-bold tracking-wider">BLUE</span>
+                                                                <span className="font-mono text-slate-400">256 intensidades</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="bg-slate-900/50 p-3 rounded-lg text-center border border-slate-800/50">
+                                                            <span className="text-[10px] text-slate-500 uppercase block mb-1">Cores possíveis por pixel</span>
+                                                            <span className="font-mono text-white text-sm">256 &times; 256 &times; 256 = <span className="text-blue-400 font-bold">16.777.216</span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="bg-blue-950/20 p-4 rounded-xl border-l-4 border-blue-500 text-xs text-slate-300 leading-relaxed text-justify mt-auto">
+                                                        Como cada pixel exige 3 bytes de memória, o peso cresce rápido. Uma foto Full HD (1920 &times; 1080) possui cerca de 2 milhões de pixels:<br />
+                                                        <span className="block mt-2 font-mono text-blue-300 font-bold">2.073.600 px &times; 3 bytes = ~6.2 MB</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            {/* Bloco de Compressão e Forense */}
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-slate-800/80">
+
+                                                {/* Compressão */}
+                                                <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800">
+                                                    <h4 className="font-bold text-white mb-4 flex items-center gap-2">
+                                                        <Network className="w-5 h-5 text-cyan-400" /> Compressão: O Milagre da Engenharia
+                                                    </h4>
+                                                    <p className="text-sm text-slate-400 mb-6 text-justify">
+                                                        Se toda imagem fosse salva crua (RAW/Bitmap) com 6 MB, a internet entraria em colapso. Por isso, aplicam-se algoritmos matemáticos:
+                                                    </p>
+                                                    <div className="space-y-4">
+                                                        <div className="bg-black p-5 rounded-xl border border-slate-800 hover:border-cyan-900/50 transition-colors">
+                                                            <strong className="text-cyan-400 text-sm block mb-2 font-mono">Lossless (Sem Perda - ex: PNG)</strong>
+                                                            <p className="text-xs text-slate-400 text-justify leading-relaxed">O algoritmo procura repetições. Se há 500 pixels perfeitamente brancos em sequência, em vez de anotar o valor 500 vezes, ele anota: "Repita o branco 500 vezes". A imagem original é reconstruída com 100% de fidelidade.</p>
+                                                        </div>
+                                                        <div className="bg-black p-5 rounded-xl border border-slate-800 hover:border-cyan-900/50 transition-colors">
+                                                            <strong className="text-cyan-400 text-sm block mb-2 font-mono">Lossy (Com Perda - ex: JPEG)</strong>
+                                                            <p className="text-xs text-slate-400 text-justify leading-relaxed">Baseado nas falhas da visão humana. Nossos olhos são péssimos em notar pequenas variações de tom em áreas complexas. O JPEG aplica uma operação chamada Transformada Discreta de Cosseno (DCT) para descartar detalhes invisíveis, reduzindo uma foto de 6 MB para meros 300 KB.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Forense e Esteganografia */}
+                                                <div className="bg-red-950/10 p-6 md:p-8 rounded-2xl border border-red-900/30 flex flex-col relative overflow-hidden group hover:bg-red-950/20 transition-colors">
+                                                    {/* Elemento gráfico de fundo */}
+                                                    <div className="absolute -right-10 -bottom-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
+                                                        <ShieldAlert className="w-48 h-48 text-red-500" />
+                                                    </div>
+
+                                                    <h4 className="font-bold text-red-500 text-lg mb-4 flex items-center gap-2 relative z-10 uppercase tracking-widest">
+                                                        <ShieldAlert className="w-5 h-5" /> O Olhar Forense
+                                                    </h4>
+                                                    <p className="text-red-400/80 font-mono text-xs mb-6 relative z-10">Esteganografia e o LSB</p>
+
+                                                    <div className="space-y-4 text-sm text-slate-300 leading-relaxed text-justify relative z-10">
+                                                        <p>
+                                                            Na matriz RGB, se você alterar apenas o bit menos significativo — o <strong className="text-white bg-black px-1.5 py-0.5 rounded border border-slate-800">LSB (Least Significant Bit)</strong> — do byte azul de um pixel, a intensidade da cor mudará imperceptivelmente (ex: de 130 para 131). O olho humano é incapaz de notar a diferença.
+                                                        </p>
+
+                                                        <div className="bg-[#050101] p-5 rounded-xl border-l-4 border-red-600 shadow-inner mt-4">
+                                                            <p className="text-red-200/90 mb-3">
+                                                                Contudo, essa matemática permite que atacantes escondam payloads inteiros de ransomwares ou executem exfiltração de dados dentro de fotos aparentemente inofensivas. Para a rede e para o sistema operacional, a foto continua perfeitamente válida.
+                                                            </p>
+                                                            <p className="text-red-400 font-bold text-xs uppercase tracking-widest border-t border-red-900/50 pt-3">
+                                                                Contramedida: O Blue Team precisa aplicar técnicas de file carving para detectar anomalias na entropia do arquivo.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {/* ========================================================================= */}
+
+
+
                     </div>
                 </section>
 
