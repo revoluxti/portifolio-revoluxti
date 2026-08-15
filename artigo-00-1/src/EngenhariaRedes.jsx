@@ -1621,26 +1621,7 @@ const EngenhariaRedes = () => {
 
                                     </div>
 
-                                    {/* TÍTULO */}
-                                    <h3 className="text-2xl md:text-3xl font-bold text-emerald-400 flex items-center gap-3">
-                                        <Video className="w-8 h-8 text-emerald-500 shrink-0" />
-                                        5.3. Como os Vídeos são Armazenados
-                                        <span className="text-sm font-normal text-slate-500 hidden md:inline-block ml-2 uppercase tracking-widest">(O Terror das Redes)</span>
-                                    </h3>
-
-                                    <div className="flex-1 space-y-4">
-                                        <p className="text-sm md:text-base text-slate-300 leading-relaxed text-justify">
-                                            O vídeo é o "chefe final" da representação digital e o <strong>maior consumidor de banda das redes modernas</strong> (Netflix, YouTube e Twitch representam a maior parte do tráfego global). Ele é, na prática, a junção de Imagens (Frames) + Áudio + Sincronização Temporal. Mas esconde o maior desafio da Engenharia de Redes.
-                                        </p>
-                                        <div className="bg-red-950/20 p-5 rounded-xl border border-red-900/30">
-                                            <h4 className="text-red-400 font-bold text-xs uppercase tracking-widest mb-2 flex items-center gap-2">
-                                                <AlertTriangle className="w-4 h-4" /> O Colapso Matemático
-                                            </h4>
-                                            <p className="text-xs md:text-sm text-slate-400 leading-relaxed text-justify">
-                                                Imagine um vídeo em resolução Full HD rodando a 60 FPS (quadros por segundo). Se não houvesse compressão, cada segundo de vídeo consumiria cerca de <strong className="text-red-400">3 Gbps de largura de banda</strong> — um tráfego capaz de derrubar a maioria dos switches corporativos instantaneamente.
-                                            </p>
-                                        </div>
-                                    </div>
+                                    
 
                                 </div>
 
