@@ -3,7 +3,7 @@ import {
     Terminal, ShieldAlert, Cpu, Network, FileDigit, Database,
     Image as ImageIcon, FileText, FileCode, FileJson, FileSpreadsheet,
     Lock, Eye, Maximize, Zap, Layers, Video, Activity, AlertTriangle,
-    ArrowRight, Globe, Clock
+    ArrowRight, Globe, Clock, Package, Speaker, Minimize2, Skull
 } from 'lucide-react';
 
 const EngenhariaRedes = () => {
@@ -1621,7 +1621,7 @@ const EngenhariaRedes = () => {
 
                                     </div>
 
-                                    
+
 
                                 </div>
 
@@ -1629,14 +1629,10 @@ const EngenhariaRedes = () => {
 
                             </div>
 
-                        </div>
+                            {/* ========================================================================= */}
+                            {/* 5.3 ARMAZENAMENTO DE VÍDEO (O TERROR DAS REDES)                           */}
+                            {/* ========================================================================= */}
 
-
-
-                        {/* ========================================================================= */}
-                        {/* 5.3 ARMAZENAMENTO DE VÍDEO (O TERROR DAS REDES)                           */}
-                        {/* ========================================================================= */}
-                        <div className="space-y-8 pt-16 mt-8 border-t-2 border-slate-800/80">
 
                             {/* TÍTULO */}
                             <h3 className="text-2xl md:text-3xl font-bold text-emerald-400 flex items-center gap-3">
@@ -1646,7 +1642,7 @@ const EngenhariaRedes = () => {
                             </h3>
 
                             {/* INTRODUÇÃO E O PROBLEMA DOS 3 GBPS */}
-                            <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 flex flex-col md:flex-row gap-8 items-center hover:border-red-900/50 transition-colors group">
+                            <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 flex flex-col md:flex-row gap-9 items-center hover:border-red-900/50 transition-colors group">
                                 <div className="flex-1 space-y-4">
                                     <p className="text-sm md:text-base text-slate-300 leading-relaxed text-justify">
                                         O vídeo é o "chefe final" da representação digital e o <strong>maior consumidor de banda das redes modernas</strong> (Netflix, YouTube e Twitch representam a maior parte do tráfego global). Ele é, na prática, a junção de Imagens (Frames) + Áudio + Sincronização Temporal. Mas esconde o maior desafio da Engenharia de Redes.
@@ -1729,7 +1725,7 @@ const EngenhariaRedes = () => {
                                     <Network className="w-5 h-5" /> Arquitetura e Redes (O Pico de Jitter)
                                 </h4>
                                 <p className="text-sm text-slate-300 leading-relaxed text-justify relative z-10">
-                                    Se um vídeo tem pouco movimento (alguém falando num fundo estático), o tráfego de rede é minúsculo. Mas quando a cena muda bruscamente (transição de câmera ou explosão de confetes), o algoritmo falha em prever a mudança e injeta um novo I-Frame gigantesco.
+                                    Se um vídeo tem pouco movimento (alguém falando num fundo estático), o tráfego de rede é minúsculo. Mas quando a cena muda bruscamente (transição de câmera ou "explosão de confetes"), o algoritmo falha em prever a mudança e injeta um novo I-Frame gigantesco.
                                 </p>
                                 <p className="text-sm text-slate-300 leading-relaxed text-justify mt-3 relative z-10">
                                     É nesse exato milissegundo que ocorrem os <strong>picos (bursts) de consumo de banda</strong>, o jitter sobe e o engenheiro de redes precisa garantir que as regras de QoS (Quality of Service) e os Load Balancers estejam bem desenhados para que a aplicação não trave.
@@ -1743,6 +1739,7 @@ const EngenhariaRedes = () => {
                                 </h4>
                                 <p className="text-sm text-slate-400 mb-6 text-justify leading-relaxed">
                                     Na engenharia de software, é crucial separar Codec de Container. O H.264 e o AV1 são <strong>Codecs</strong> (a matemática da compressão). Mas um arquivo .mp4 ou .mkv é um <strong>Container</strong> (um multiplexador/MUX).
+
                                 </p>
 
                                 {/* Gráfico do Container */}
@@ -1782,16 +1779,152 @@ const EngenhariaRedes = () => {
                                         </div>
 
                                     </div>
+                                </div> <br />
+                                <p className="text-sm text-slate-400 mb-6 text-justify leading-relaxed">
+                                    A referência da "caixa de papelão" é uma metáfora visual muito usada na engenharia de software para explicar a diferença fundamental entre Container (Multiplexador) e Codec.
+
+                                    Muitos profissionais de TI confundem as coisas achando que .mp4 ou .mkv são formatos de vídeo. Eles não são. Eles não contêm imagens. Eles são, literalmente, apenas "caixas organizadoras".
+                                </p>
+
+
+
+                                {/* 1.2 CODEC VS CONTAINER (A CAIXA DE PAPELÃO) */}
+                                <h4 className="font-bold text-white mb-6 flex items-center gap-2 text-lg md:text-xl">
+                                    <Package className="w-6 h-6 text-emerald-500 shrink-0" />
+                                    1.2 - A Caixa de Papelão (O Container / Formato do Arquivo)
+                                </h4>
+
+                                <div className="space-y-4 text-sm text-slate-300 leading-relaxed text-justify mb-8">
+                                    <p>
+                                        Formatos como <strong>.MP4, .MKV (Matroska) ou .AVI</strong> são as caixas de papelão estruturadas.
+                                    </p>
+                                    <p>
+                                        A caixa, por si só, não sabe o que é uma imagem ou o que é um som. A única função dela é ter divisórias (chamadas de <em>Tracks</em> ou <em>Streams</em>) e organizar coisas dentro dela para o transporte seguro.
+                                    </p>
+                                    <p>
+                                        Dentro dessa caixa (.mkv, por exemplo), nós colocamos vários itens separados:
+                                    </p>
+                                </div>
+
+                                {/* Visualização dos Itens na "Caixa" */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                                    <div className="bg-slate-900 border border-slate-700 p-5 rounded-xl flex flex-col items-center text-center hover:border-emerald-500/50 transition-colors shadow-inner">
+                                        <Video className="w-6 h-6 text-emerald-400 mb-3" />
+                                        <strong className="text-white text-xs mb-2 uppercase tracking-widest">Item 1</strong>
+                                        <span className="text-[11px] text-slate-400 leading-tight">Um arquivo contendo as imagens do filme.</span>
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-700 p-5 rounded-xl flex flex-col items-center text-center hover:border-blue-500/50 transition-colors shadow-inner">
+                                        <Speaker className="w-6 h-6 text-blue-400 mb-3" />
+                                        <strong className="text-white text-xs mb-2 uppercase tracking-widest">Item 2</strong>
+                                        <span className="text-[11px] text-slate-400 leading-tight">Um arquivo contendo o áudio em Português.</span>
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-700 p-5 rounded-xl flex flex-col items-center text-center hover:border-blue-500/50 transition-colors shadow-inner">
+                                        <Speaker className="w-6 h-6 text-blue-400 mb-3" />
+                                        <strong className="text-white text-xs mb-2 uppercase tracking-widest">Item 3</strong>
+                                        <span className="text-[11px] text-slate-400 leading-tight">Um arquivo contendo o áudio em Inglês.</span>
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-700 p-5 rounded-xl flex flex-col items-center text-center hover:border-slate-400/50 transition-colors shadow-inner">
+                                        <FileText className="w-6 h-6 text-slate-300 mb-3" />
+                                        <strong className="text-white text-xs mb-2 uppercase tracking-widest">Item 4</strong>
+                                        <span className="text-[11px] text-slate-400 leading-tight">Um arquivo de texto contendo as legendas.</span>
+                                    </div>
+                                </div>
+
+                                {/* Manual / Metadados (MUX) */}
+                                <div className="bg-[#050101] p-5 md:p-6 rounded-xl border-l-4 border-cyan-500 shadow-inner flex flex-col md:flex-row gap-5 items-start relative overflow-hidden">
+                                    {/* Ícone de fundo transparente decorativo */}
+                                    <Clock className="absolute -right-4 -bottom-4 w-32 h-32 text-cyan-500/10 pointer-events-none" />
+
+                                    <FileJson className="w-6 h-6 text-cyan-400 shrink-0 mt-1 relative z-10" />
+
+                                    <div className="relative z-10">
+                                        <p className="text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                                            Além disso, a caixa vem com um <strong>"Manual de Instruções" (Metadata)</strong> impresso na tampa. Esse manual usa marcações de tempo (Timestamps — PTS/DTS) para avisar o reprodutor de vídeo:
+                                        </p>
+                                        <div className="bg-cyan-950/20 p-4 rounded border border-cyan-900/30 mb-4">
+                                            <p className="text-sm text-cyan-200/90 italic text-justify">
+                                                "O minuto 02:15 do vídeo de imagem precisa ser tocado junto com o minuto 02:15 do áudio em português e a linha 42 da legenda".
+                                            </p>
+                                        </div>
+                                        <p className="text-xs text-cyan-400 font-mono uppercase tracking-widest font-bold">
+                                            Isso é o que a engenharia chama de Multiplexação (MUX).
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* 2. SEGURANÇA OFENSIVA: SIDE-CHANNEL ATTACKS */}
+                            {/* 1.3- A FORMA DE DOBRAR A ROUPA (O CODEC) */}
+                            <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 hover:border-purple-900/50 transition-colors mt-8">
+                                <h4 className="font-bold text-white mb-6 flex items-center gap-2 text-lg md:text-xl">
+                                    <Minimize2 className="w-6 h-6 text-purple-500 shrink-0" />
+                                    1.3 - A Forma de Dobrar a Roupa (O Codec)
+                                </h4>
+
+                                <div className="space-y-4 text-sm text-slate-300 leading-relaxed text-justify mb-8">
+                                    <p>
+                                        Se a caixa de papelão é o arquivo .mp4, os Codecs (H.264, H.265, AV1 para vídeo; MP3, AAC, FLAC para áudio) são os <strong>algoritmos de compressão</strong>, ou seja, "como você dobra as coisas para elas caberem na caixa".
+                                    </p>
+
+                                    <div className="bg-slate-900/50 p-5 rounded-xl border border-slate-800 flex items-start gap-4 shadow-inner">
+                                        <Package className="w-6 h-6 text-slate-500 shrink-0 mt-1" />
+                                        <p>
+                                            Um vídeo sem compressão é tão gigante que seria como tentar colocar um guarda-roupa montado dentro da caixa. O algoritmo H.264 é a matemática que desmonta o guarda-roupa, achata tudo e soca lá dentro com eficiência.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* O FALSO ERRO (CENÁRIO DIAGNÓSTICO) */}
+                                <div className="bg-[#050101] border border-slate-800 rounded-xl overflow-hidden shadow-2xl relative">
+                                    {/* Brilho decorativo no topo direito */}
+                                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/10 blur-3xl pointer-events-none"></div>
+
+                                    <div className="bg-slate-900 px-5 py-3 border-b border-slate-800 flex items-center gap-3 relative z-10">
+                                        <ShieldAlert className="w-5 h-5 text-amber-500" />
+                                        <span className="text-white font-bold text-sm tracking-wide uppercase">O Falso Erro do "Meu vídeo não abre"</span>
+                                    </div>
+
+                                    <div className="p-5 md:p-6 space-y-6 relative z-10">
+                                        <p className="text-sm text-slate-400 text-justify leading-relaxed">
+                                            Com essa analogia em mente, você consegue diagnosticar rapidamente um problema clássico: <strong className="text-slate-200">O usuário baixa um arquivo .mp4, tenta abrir na TV ou no PC, e sai som, mas a tela fica preta.</strong>
+                                        </p>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {/* O Usuário */}
+                                            <div className="bg-slate-900 p-5 rounded-lg border border-slate-700 relative">
+                                                <span className="text-[10px] uppercase font-mono text-slate-500 block mb-2 border-b border-slate-800 pb-1">
+                                                    O Usuário Leigo
+                                                </span>
+                                                <p className="text-sm text-slate-300 italic">
+                                                    "Mas a minha TV suporta .mp4!"
+                                                </p>
+                                            </div>
+
+                                            {/* O Engenheiro */}
+                                            <div className="bg-purple-950/20 p-5 rounded-lg border border-purple-500/30 relative shadow-inner">
+                                                <span className="text-[10px] uppercase font-mono text-purple-400 block mb-2 flex items-center gap-2 border-b border-purple-900/50 pb-1">
+                                                    <Terminal className="w-3 h-3" /> O Engenheiro
+                                                </span>
+                                                <p className="text-sm text-purple-200/90 leading-relaxed text-justify">
+                                                    "Sim, a sua TV sabe abrir a caixa de papelão (.mp4). Ela conseguiu achar a fita de áudio lá dentro e tocar. Mas quando ela puxou o vídeo, viu que ele foi comprimido (dobrado) usando o codec <strong>H.265 (HEVC)</strong>. O processador da sua TV é antigo e só sabe desdobrar (decodificar) arquivos <strong>H.264</strong>. O problema não é a caixa, é a forma como o conteúdo lá dentro foi empacotado."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            {/* SEGURANÇA OFENSIVA: SIDE-CHANNEL ATTACKS */}
                             <div className="bg-[#0f0505] p-6 md:p-8 rounded-2xl border border-red-900/50 relative overflow-hidden group">
                                 {/* Fundo de grade vermelha */}
                                 <div className="absolute inset-0 bg-[linear-gradient(rgba(225,29,72,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(225,29,72,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
                                 <h4 className="font-bold text-red-500 mb-4 flex items-center gap-2 text-lg relative z-10">
-                                    <ShieldAlert className="w-6 h-6" /> 2. Segurança Ofensiva: Side-Channel Attacks
+                                    <ShieldAlert className="w-6 h-6" /> Visão Ofensiva: Side-Channel Attacks
                                 </h4>
 
                                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed text-justify relative z-10">
@@ -1803,7 +1936,7 @@ const EngenhariaRedes = () => {
                                         Como os vídeos usam Taxa de Bits Variável (VBR) por causa dos I-Frames e P-Frames, o tamanho dos pacotes de rede flutua acompanhando o movimento da cena. Seja um vídeo <em>V</em> representado por uma sequência temporal de tamanhos de quadros. A criptografia oculta os bytes, mas não oculta o <strong>tamanho</strong> do pacote transmitido.
                                     </p>
 
-                                    
+
                                     <div className="bg-red-950/40 p-4 rounded-lg border-l-4 border-red-500">
                                         <p className="text-sm text-red-200">
                                             O atacante não quebrou a criptografia, mas através de <strong>Traffic Analysis (Ataque de Canal Lateral)</strong>, ele deduz exatamente qual filme o alvo está assistindo, apenas medindo o tamanho dos I-Frames (cenas de ação) e P-Frames (cenas calmas).
@@ -1812,7 +1945,7 @@ const EngenhariaRedes = () => {
 
                                     {/* Gráfico Visual do Ataque VBR */}
                                     <div className="my-6 bg-black p-6 md:p-8 rounded-xl border border-red-900/50 shadow-inner">
-                                        
+
                                         {/* Título Centralizado */}
                                         <div className="text-xs md:text-sm font-mono text-red-400/80 mb-12 uppercase tracking-widest text-center">
                                             Análise de Tráfego Criptografado (Red Team)
@@ -1820,7 +1953,7 @@ const EngenhariaRedes = () => {
 
                                         {/* Área do Gráfico (Aumentada para h-48) */}
                                         <div className="relative w-full h-48 flex items-end justify-between gap-1 md:gap-2 border-b-2 border-l-2 border-red-900/50 pt-10 px-2 pb-0">
-                                            
+
                                             {/* Eixo Y (Tamanho) */}
                                             <div className="absolute -left-10 top-1/2 -translate-y-1/2 -rotate-90 text-[10px] md:text-xs font-mono text-red-500/50 uppercase tracking-widest">
                                                 Tamanho
@@ -1829,7 +1962,7 @@ const EngenhariaRedes = () => {
                                             {/* Gráfico de Barras representando pacotes */}
                                             {[20, 30, 25, 90, 35, 20, 25, 100, 40, 30, 20, 85, 25, 20].map((h, i) => (
                                                 <div key={i} className="relative w-full bg-red-500/80 rounded-t-sm transition-all" style={{ height: `${h}%` }}>
-                                                    
+
                                                     {/* Legenda I-Frame (Maior e Centralizada) */}
                                                     {h > 80 && (
                                                         <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-xs md:text-sm text-red-400 font-mono font-bold text-center leading-tight whitespace-nowrap">
@@ -1852,47 +1985,95 @@ const EngenhariaRedes = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* 3. FUZZING EM ÁRVORES DE METADADOS */}
-                            <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 hover:border-amber-900/50 transition-colors">
-                                <h4 className="font-bold text-amber-500 mb-4 flex items-center gap-2 text-lg">
-                                    <Terminal className="w-6 h-6" /> 3. Fuzzing em Árvores de Metadados (Atoms/Boxes)
+                                {/* 3. VISÃO OFENSIVA (VULNERABILIDADE DA CAIXA) */}
+
+                                {/* Efeitos de Fundo */}
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl pointer-events-none group-hover:bg-red-600/10 transition-colors"></div>
+                                <ShieldAlert className="absolute -right-6 -bottom-6 w-32 h-32 text-red-500/10 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+
+                                <h4 className="font-bold text-red-500 mb-6 flex items-center gap-3 text-lg md:text-xl relative z-10">
+                                    <Lock className="w-6 h-6 shrink-0" />
+                                    A Vulnerabilidade da "Caixa"
                                 </h4>
 
-                                <div className="flex flex-col lg:flex-row gap-8 items-center">
-                                    <div className="flex-1 space-y-4 text-sm text-slate-300 leading-relaxed text-justify">
-                                        <p>
-                                            Arquivos MP4 são estruturados em blocos hierárquicos chamados <strong>Atoms (ou Boxes)</strong>, seguindo uma lógica TLV (Type-Length-Value). Se um Atom "pai" diz que tem tamanho 100, mas os sub-atoms "filhos" dentro dele somam tamanho 150, os parsers de vídeo mal programados perdem a referência de ponteiro de memória tentando ler a estrutura.
-                                        </p>
-                                        <p className="text-amber-200/80 bg-amber-950/20 p-4 rounded-xl border border-amber-900/30">
-                                            É exatamente assim que nasceram pragas históricas do mobile, como o <strong>Stagefright</strong> no Android: atacantes mandavam um vídeo .mp4 malicioso por MMS que explorava o parser do sistema antes mesmo do usuário dar o play.
-                                        </p>
+                                <div className="space-y-6 relative z-10">
+                                    <p className="text-sm text-slate-300 leading-relaxed text-justify">
+                                        Em cibersegurança, atacantes amam containers porque eles têm regras de <strong className="text-red-400">Parsing (leitura)</strong> muito complexas. Um arquivo container robusto (como o <code>.mkv</code>) não carrega apenas áudio e vídeo; ele permite embutir uma infinidade de objetos dentro da "caixa".
+                                    </p>
+
+                                    {/* Visualização do Payload Oculto */}
+                                    <div className="bg-red-950/20 border border-red-900/30 p-5 rounded-xl shadow-inner">
+                                        <span className="text-red-400 font-mono text-[10px] uppercase tracking-widest block mb-3 font-bold">Payloads Ocultos Suportados no Container</span>
+                                        <div className="flex flex-wrap gap-3">
+                                            <span className="bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1.5 rounded text-xs font-mono flex items-center gap-2">
+                                                <FileText className="w-4 h-4 text-slate-500" /> Fontes (Tipografia)
+                                            </span>
+                                            <span className="bg-slate-950 border border-slate-800 text-red-400 px-3 py-1.5 rounded text-xs font-mono flex items-center gap-2 shadow-[0_0_10px_rgba(239,68,68,0.1)]">
+                                                <FileCode className="w-4 h-4 text-red-500" /> Scripts Ocultos
+                                            </span>
+                                            <span className="bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1.5 rounded text-xs font-mono flex items-center gap-2">
+                                                <Layers className="w-4 h-4 text-slate-500" /> PDFs e Anexos
+                                            </span>
+                                        </div>
                                     </div>
 
-                                    {/* Representação visual do Atom/Box quebrado */}
-                                    <div className="w-full lg:w-72 bg-black border-2 border-slate-800 rounded-xl p-4 font-mono text-xs relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-2 opacity-20"><Activity className="w-16 h-16 text-amber-500" /></div>
+                                    {/* O Momento Crítico da Infecção */}
+                                    <div className="bg-black p-5 md:p-6 rounded-xl border-l-4 border-red-600 shadow-lg flex flex-col md:flex-row gap-5 items-center">
+                                        <div className="p-3 bg-red-950/30 rounded-full border border-red-900/50 shrink-0">
+                                            <Skull className="w-8 h-8 text-red-500" />
+                                        </div>
+                                        <p className="text-sm text-red-200/90 leading-relaxed text-justify flex-1">
+                                            Se o player de vídeo (como VLC ou Windows Media Player) for ingênuo ao abrir a caixa de papelão para ver o que tem dentro sem <strong>sanitizar os dados</strong>, o arquivo malicioso pode causar um <strong className="text-red-500 bg-red-950/50 px-1 rounded">Transbordamento de Memória</strong>. O resultado? O malware é executado silenciosamente em <em>background</em> no sistema enquanto o filme toca normalmente.
+                                        </p>
+                                    </div>
+                                </div> <br />
 
-                                        <div className="text-slate-500 mb-2">Estrutura MP4 (Hex)</div>
 
-                                        {/* Parent Atom */}
-                                        <div className="border border-slate-700 p-2 rounded mb-2 bg-slate-900">
-                                            <div className="text-amber-400">Atom 'moov' <span className="text-slate-400 ml-2">Len: 100</span></div>
+                                {/* FUZZING EM ÁRVORES DE METADADOS */}
+                                <div className="bg-[#0a0a0a] p-6 md:p-8 rounded-2xl border border-slate-800 hover:border-amber-900/50 transition-colors">
+                                    <h4 className="font-bold text-amber-500 mb-4 flex items-center gap-2 text-lg">
+                                        <Terminal className="w-6 h-6" /> Fuzzing em Árvores de Metadados (Atoms/Boxes)
+                                    </h4>
 
-                                            {/* Child Atom (The Exploit) */}
-                                            <div className="ml-4 mt-2 border border-red-900/50 bg-red-950/30 p-2 rounded relative">
-                                                <div className="absolute -left-3 top-1/2 w-3 h-[1px] bg-slate-700"></div>
-                                                <div className="text-red-400">Atom 'trak' <span className="text-red-300 font-bold ml-2">Len: 150 (OVERFLOW!)</span></div>
-                                                <div className="mt-2 text-[9px] text-red-500 bg-black p-1 rounded animate-pulse">
-                                                    &gt; Memory pointer corrupted<br />
-                                                    &gt; Arbitrary code execution...
+                                    <div className="flex flex-col lg:flex-row gap-8 items-center">
+                                        <div className="flex-1 space-y-4 text-sm text-slate-300 leading-relaxed text-justify">
+                                            <p>
+                                                Arquivos MP4 são estruturados em blocos hierárquicos chamados <strong>Atoms (ou Boxes)</strong>, seguindo uma lógica TLV (Type-Length-Value). Se um Atom "pai" diz que tem tamanho 100, mas os sub-atoms "filhos" dentro dele somam tamanho 150, os parsers de vídeo mal programados perdem a referência de ponteiro de memória tentando ler a estrutura.
+                                            </p>
+                                            <p className="text-amber-200/80 bg-amber-950/20 p-4 rounded-xl border border-amber-900/30">
+                                                É exatamente assim que nasceram pragas históricas do mobile, como o <strong>Stagefright</strong> no Android: atacantes mandavam um vídeo .mp4 malicioso por MMS que explorava o parser do sistema antes mesmo do usuário dar o play.
+                                            </p>
+                                        </div>
+
+                                        {/* Representação visual do Atom/Box quebrado */}
+                                        <div className="w-full lg:w-72 bg-black border-2 border-slate-800 rounded-xl p-4 font-mono text-xs relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-2 opacity-20"><Activity className="w-16 h-16 text-amber-500" /></div>
+
+                                            <div className="text-slate-500 mb-2">Estrutura MP4 (Hex)</div>
+
+                                            {/* Parent Atom */}
+                                            <div className="border border-slate-700 p-2 rounded mb-2 bg-slate-900">
+                                                <div className="text-amber-400">Atom 'moov' <span className="text-slate-400 ml-2">Len: 100</span></div>
+
+                                                {/* Child Atom (The Exploit) */}
+                                                <div className="ml-4 mt-2 border border-red-900/50 bg-red-950/30 p-2 rounded relative">
+                                                    <div className="absolute -left-3 top-1/2 w-3 h-[1px] bg-slate-700"></div>
+                                                    <div className="text-red-400">Atom 'trak' <span className="text-red-300 font-bold ml-2">Len: 150 (OVERFLOW!)</span></div>
+                                                    <div className="mt-2 text-[9px] text-red-500 bg-black p-1 rounded animate-pulse">
+                                                        &gt; Memory pointer corrupted<br />
+                                                        &gt; Arbitrary code execution...
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+
+
 
                         </div>
 
