@@ -4,7 +4,11 @@ import {
     Image as ImageIcon, FileText, FileCode, FileJson, FileSpreadsheet,
     Lock, Eye, Maximize, Zap, Layers, Video, Activity, AlertTriangle,
     ArrowRight, Globe, Clock, Package, Speaker, Minimize2, Skull
+
+    
 } from 'lucide-react';
+
+import EnderecamentoSection from './EnderecamentoSection';
 
 const EngenhariaRedes = () => {
     return (
@@ -60,7 +64,7 @@ const EngenhariaRedes = () => {
             </div>
 
             {/* ==================== CONTEÚDO DO ARTIGO ==================== */}
-            <article className="max-w-6xl mx-auto px-2 py-16 font-sans text-lg text-slate-600 leading-relaxed space-y-12">
+            <article className="max-w-7xl mx-auto px-2 py-16 font-sans text-lg text-slate-600 leading-relaxed space-y-12">
 
                 {/* Seção 1: História dos Sistemas Numéricos */}
                 <section className="space-y-1">
@@ -2083,6 +2087,8 @@ const EngenhariaRedes = () => {
 
 
                 </section>
+                <EnderecamentoSection />
+                
 
 
                 {/* Adicione as demais seções (Octal, Hexadecimal, Endianness, etc) seguindo a mesma estrutura semântica... */}
