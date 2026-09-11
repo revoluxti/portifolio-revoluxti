@@ -689,7 +689,7 @@ sudo macchanger -s eth0`}</code>
                     <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-2 text-[11px] text-slate-400">
                         <span className="text-emerald-400">💡</span>
                         <span>
-                            <strong>Dica revoluxti:</strong> O DAI valida as respostas ARP consultando a tabela de <em>DHCP Snooping</em> do switch. Pacientes que tentarem associar seu MAC a IPs não atribuídos via DHCP são sumariamente bloqueados na porta física.
+                            <strong>Dica revoluxti:</strong> O DAI valida as respostas ARP consultando a tabela de <em>DHCP Snooping</em> do switch. Atacantes que tentarem associar seu MAC a IPs não atribuídos via DHCP são sumariamente bloqueados na porta física.
                         </span>
                     </div>
                 </div>
