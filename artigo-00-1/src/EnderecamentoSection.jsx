@@ -296,7 +296,7 @@ export default function EnderecamentoSection() {
                                 O usuário executa o cmdlet para filtrar apenas o nome da placa e o endereço físico:
                             </p>
                             <pre className="bg-black/90 border border-slate-800 p-3 rounded-lg text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed">
-                                <code>{`# Terminal do revoluxti
+                                <code>{`# Terminal revoluxti
 PS C:\\Users\\revoluxti> Get-NetAdapter | Select-Object Name, InterfaceDescription, MacAddress`}</code>
                             </pre>
                         </div>
@@ -348,7 +348,7 @@ Set-NetAdapter -Name "Wi-Fi" -MacAddress $null`}</code>
                                 O usuario inspeciona a interface desejada observando o campo <code className="text-teal-300">link/ether</code>:
                             </p>
                             <pre className="bg-black/90 border border-slate-800 p-3 rounded-lg text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed">
-                                <code>{`# Terminal do revoluxti
+                                <code>{`# Terminal revoluxti
 revoluxti@kali:~$ ip link show eth0`}</code>
                             </pre>
                         </div>
