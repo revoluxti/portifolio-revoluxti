@@ -36,7 +36,7 @@ export default function EnderecamentoSection() {
 
                 <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight flex items-center gap-4">
                     <Network className="w-10 h-10 text-cyan-500 shrink-0" />
-                    Capítulo 04 - A Bússola da Rede
+                    6 - Endereçamento A Bússola da Rede
                 </h2>
 
                 <p className="text-slate-400 mt-4 text-base md:text-lg max-w-5xl leading-relaxed text-justify">
@@ -46,13 +46,13 @@ export default function EnderecamentoSection() {
                 </p>
             </div>
 
-            {/* 1. MAC ADDRESS */}
+            {/* 6.1. MAC ADDRESS */}
             <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 md:p-8 relative overflow-hidden shadow-xl">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-slate-800/80 pb-4">
                     <div>
                         <h3 className="text-2xl font-bold text-white flex items-center gap-3">
                             <Fingerprint className="w-7 h-7 text-amber-500" />
-                            1. MAC Address (A Identidade Física)
+                            6.1. MAC Address (A Identidade Física)
                         </h3>
                         <span className="text-xs font-mono text-slate-400">Camada 2 (Data Link) • 48 Bits (6 Bytes) • Hexadecimal</span>
                     </div>
@@ -404,7 +404,7 @@ sudo macchanger -s eth0`}</code>
                         <div>
                             <h3 className="text-2xl font-bold text-white flex items-center gap-3">
                                 <Globe className="w-7 h-7 text-blue-400" />
-                                3. IPv4: A Álgebra Booleana, A Identidade Lógica &amp; Topológica das Redes
+                                6.2 - IPv4: A Álgebra Booleana, A Identidade Lógica &amp; Topológica das Redes
                             </h3>
                             <span className="text-xs font-mono text-slate-500">Camada 3 (Network) • 32 Bits (4 Octetos) • Decimal Pontuado</span>
                             <div className="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-3 py-1.5 rounded-lg border border-cyan-800/50">
@@ -473,11 +473,11 @@ sudo macchanger -s eth0`}</code>
 
                 </div>
 
-                {/* 4. BROADCAST & SMURF ATTACK */}
+                {/* 6.3 BROADCAST & SMURF ATTACK */}
                 <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 md:p-8 relative overflow-hidden shadow-xl">
                     <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-6 border-b border-slate-800/80 pb-4">
                         <Radio className="w-7 h-7 text-purple-400" />
-                        4. Broadcast, Multicast &amp; Smurf Attack
+                        6.3 - Broadcast, Multicast &amp; Smurf Attack
                     </h3>
                     <p>
                         O conceito de enviar uma mensagem para um único destino chama-se Unicast. Mas há cenários onde precisamos falar com todos simultaneamente.
@@ -511,14 +511,14 @@ sudo macchanger -s eth0`}</code>
                 </div>
             </div>
 
-            {/* 5. IPV6 & 6. GATEWAY / ARP */}
+            {/* 6.4 - IPV6 & 6. GATEWAY / ARP */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="bg-[#080d1a] p-6 rounded-2xl border border-slate-800 flex flex-col justify-between shadow-xl">
                     <div>
                         <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <Zap className="w-6 h-6 text-cyan-400" />
-                                5. IPv6 (Expansão do Horizonte)
+                                6.4 - IPv6 (Expansão do Horizonte)
                             </h3>
                             <span className="text-xs font-mono bg-cyan-950 text-cyan-300 px-2.5 py-1 rounded border border-cyan-800 font-bold">128 Bits</span>
                         </div>
@@ -626,7 +626,7 @@ sudo macchanger -s eth0`}</code>
                         <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <ArrowRightLeft className="w-6 h-6 text-emerald-400" />
-                                6. Gateway (O Guardião da Fronteira)
+                                6.5 Gateway (O Guardião da Fronteira)
                             </h3>
                             <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-1 rounded border border-emerald-800 font-bold">
                                 Fronteira L3

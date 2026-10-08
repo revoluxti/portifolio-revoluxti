@@ -153,7 +153,7 @@ const Mascaras = () => {
                         <span>Sessão: revoluxti@network-masks</span>
                     </div>
                     <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                        Capítulo 5 — Máscaras e a Fronteira da Rede
+                        7 - Máscaras e a Fronteira da Rede
                     </h1>
 
                     <h2 className="text-base font-bold text-white flex items-center gap-2">
@@ -180,7 +180,7 @@ const Mascaras = () => {
                             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                                 <h2 className="text-base font-bold text-white flex items-center gap-2">
                                     <Binary className="w-5 h-5 text-emerald-400" />
-                                    1. A Regra de Ouro: Cálculo Bitwise AND
+                                    7.1 - A Regra de Ouro: Cálculo Bitwise AND
                                 </h2>
                                 <span className="text-[10px] font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-bold">
                                     Figura 1 Diagrama
@@ -307,7 +307,7 @@ const Mascaras = () => {
                             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                                 <h2 className="text-base font-bold text-white flex items-center gap-2">
                                     <Layers className="w-5 h-5 text-amber-400" />
-                                    2. As Classes Antigas e o Desperdício
+                                    7.2 As Classes Antigas e o Desperdício
                                 </h2>
                                 <span className="text-[10px] font-mono bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800 font-bold">
                                     Figura 2 Tabela
@@ -395,7 +395,7 @@ const Mascaras = () => {
                             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                                 <h2 className="text-base font-bold text-white flex items-center gap-2">
                                     <Sliders className="w-5 h-5 text-cyan-400" />
-                                    3. O Padrão CIDR: Precisão Cirúrgica
+                                    7.3 O Padrão CIDR: Precisão Cirúrgica
                                 </h2>
                                 <span className="text-[10px] font-mono bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-800 font-bold">
                                     Simulador Interativo
@@ -545,7 +545,7 @@ const Mascaras = () => {
                             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                                 <h2 className="text-base font-bold text-white flex items-center gap-2">
                                     <ShieldAlert className="w-5 h-5 text-purple-400" />
-                                    4. RFC 1918: Blocos Privados vs. Públicos & NAT
+                                    7.4 RFC 1918: Blocos Privados vs. Públicos & NAT
                                 </h2>
                                 <span className="text-[10px] font-mono bg-purple-950 text-purple-300 px-2 py-0.5 rounded border border-purple-800 font-bold">
                                     Roteamento
