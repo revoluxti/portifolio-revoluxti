@@ -103,13 +103,11 @@ export default function SubnettingVLSM() {
                         </div>
 
                         <p className="text-xs md:text-sm text-slate-300 leading-relaxed text-justify mb-4">
-                            O dimensionamento determinístico de redes IP modernas recorre ao <strong>Subnetting</strong> e ao <strong>Variable Length Subnet Mask (VLSM)</strong>
-                            para mitigar o desperdício de endereços. Ao deslocar a fronteira entre o <i>Network ID</i> e o <i>Host ID</i>, alocam-se $n$ bits para a porção de host,
-                            resultando numa capacidade útil de $2^n - 2$ endereços (excluindo as reservas de rede e broadcast).
+                            O dimensionamento determinístico de redes IP modernas recorre às técnicas de Subnetting e Variable Length Subnet Mask (VLSM) para mitigar o desperdício de endereços no espaço IPv4. Ao ajustar a fronteira lógica entre o Network ID e o Host ID, alocam-se n bits para a porção de host, resultando em uma capacidade útil de 2
+                            n
+                            −2 endereços (excluindo as reservas obrigatórias de rede e broadcast).
 
-                            Uma agregação de prefixos ( Elegante ) sintetizada múltiplos prefixos de rede contíguos num único anúncio otimizado. É um requisito estrito para a
-                            escalabilidade de protocolos de roteamento dinâmico como Roteamento Interdomínio Sem Classes (CIDR) e ID da rede .Host ID , permitindo o particionamento
-                            assimétrico do espaço de endereçamento através da Variable Length Subnet Mask (VLSM) .
+                            Ademais, o particionamento assimétrico viabilizado pelo VLSM é complementado pela agregação de prefixos (Supernetting), que sintetiza múltiplos blocos contíguos em um único anúncio otimizado. Essa abordagem constitui um requisito essencial para a escalabilidade do Classless Inter-Domain Routing (CIDR) e para o processamento eficiente de tabelas de encaminhamento em protocolos de roteamento dinâmico.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
