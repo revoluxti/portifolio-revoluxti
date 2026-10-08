@@ -21,7 +21,18 @@ import {
 
 export default function SubnettingVLSM() {
     // Estado para a calculadora interativa de Host/Prefixos
-    const [hostBits, setHostBits] = useState(6); // Exemplo default: /26 (6 bits de host)
+    const [hostBits, setHostBits] = useState(6); // Default: /26 (6 bits de host)
+
+    // Estado para o Planner Cyberpunk VLSM
+    const [cyberpunkSubnets] = useState([
+        { id: 1, name: "Operações (VLAN 10)", req: 100, cidr: "/25", size: 128, range: "10.0.0.0 - 10.0.0.127", mask: "255.255.255.128", color: "bg-slate-900 border-red-500 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.15)]" },
+        { id: 2, name: "Recon (VLAN 20)", req: 50, cidr: "/26", size: 64, range: "10.0.0.128 - 10.0.0.191", mask: "255.255.255.192", color: "bg-slate-900 border-cyan-500 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]" },
+        { id: 3, name: "Payloads (VLAN 30)", req: 20, cidr: "/27", size: 32, range: "10.0.0.192 - 10.0.0.223", mask: "255.255.255.224", color: "bg-slate-900 border-purple-500 text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.15)]" },
+        { id: 4, name: "Link Roteador (PtP)", req: 2, cidr: "/30", size: 4, range: "10.0.0.224 - 10.0.0.227", mask: "255.255.255.252", color: "bg-slate-900 border-emerald-500 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)]" },
+        { id: 5, name: "Espaço Livre (Unallocated)", req: 0, cidr: "Misto", size: 28, range: "10.0.0.228 - 10.0.0.255", mask: "N/A", color: "bg-slate-950 border-dashed border-slate-700 text-slate-600" }
+    ]);
+
+    const baseCyberpunkNetwork = "10.0.0.0 /24 (256 IPs)";
 
     const totalIPs = Math.pow(2, hostBits);
     const usableIPs = hostBits === 1 ? 2 : Math.max(0, totalIPs - 2); // Trata RFC 3021 (/31)
@@ -52,8 +63,7 @@ export default function SubnettingVLSM() {
                     </div>
                     <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
                         <Network className="w-8 h-8 text-cyan-400" />
-
-                        Determinístico &amp; Hierárquico de Redes IP
+                        Dimensionamento Determinístico &amp; Hierárquico de Redes IP
                     </h1>
                     <p className="text-xs md:text-sm text-slate-400 mt-1 max-w-3xl">
                         Modelagem avançada de endereçamento, minimização do esgotamento de espaço de endereçamento, otimização da memória TCAM e arquitetura IPAM.
@@ -75,171 +85,164 @@ export default function SubnettingVLSM() {
                 {/* ==================== COLUNA 1 ==================== */}
                 <div className="space-y-6">
 
+                    {/* FUNDAMENTOS MATEMÁTICOS & CONCEITOS CHAVE */}
+                    <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 md:p-8 shadow-xl relative overflow-hidden">
+                        <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+                            <div>
+                                <h3 className="text-xl font-bold text-cyan-400 flex items-center gap-2">
+                                    <Cpu className="w-6 h-6 text-cyan-400" />
+                                    Fundamentos Matemáticos de Subnetting & Dimensionamento IP &amp; VLSM
+                                </h3>
+                                <span className="text-xs font-mono text-slate-400">
+                                    Manipulação Granular de Bit Boundary <br /> Classless Inter-Domain Routing (CIDR) • RFC 3021
+                                </span>
+                            </div>
+                            <span className="bg-cyan-950/80 text-cyan-300 text-[10px] font-mono px-2.5 py-1 rounded border border-cyan-800/60">
+                                Nível Avançado
+                            </span>
+                        </div>
 
+                        <p className="text-xs md:text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                            O dimensionamento determinístico de redes IP modernas recorre ao <strong>Subnetting</strong> e ao <strong>Variable Length Subnet Mask (VLSM)</strong>
+                            para mitigar o desperdício de endereços. Ao deslocar a fronteira entre o <i>Network ID</i> e o <i>Host ID</i>, alocam-se $n$ bits para a porção de host,
+                            resultando numa capacidade útil de $2^n - 2$ endereços (excluindo as reservas de rede e broadcast).
 
-                    {/* COLUNA 1: FUNDAMENTOS MATEMÁTICOS & CASO PRÁTICO (IMAGEM 1) */}
-                    <div className="space-y-6">
-                        {/* CONCEITOS CHAVE & VLSM */}
-                        <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 md:p-8 shadow-xl relative overflow-hidden">
-                            <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
-                                <div>
-                                    <h3 className="text-xl font-bold text-cyan-400 flex items-center gap-2">
-                                        <Cpu className="w-6 h-6 text-cyan-400" />
-                                        Fundamentos Matemáticos de Subnetting & Dimensionamento IP &amp; VLSM
-                                    </h3>
-                                    <span className="text-xs font-mono text-slate-400">Manipulação Granular de Bit Boundary <br /> Classless Inter-Domain Routing (CIDR) • RFC 3021  </span>
+                            Uma agregação de prefixos ( Elegante ) sintetizada múltiplos prefixos de rede contíguos num único anúncio otimizado. É um requisito estrito para a
+                            escalabilidade de protocolos de roteamento dinâmico como Roteamento Interdomínio Sem Classes (CIDR) e ID da rede .Host ID , permitindo o particionamento
+                            assimétrico do espaço de endereçamento através da Variable Length Subnet Mask (VLSM) .
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                            <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+                                <span className="text-[11px] font-mono text-amber-400 uppercase font-bold block mb-1">
+                                    Cálculo de Capacidade Útil
+                                </span>
+                                <div className="text-sm font-mono text-amber-300 font-bold mb-1">
+                                    $f(n) = 2^n - 2$
                                 </div>
-                                <span className="bg-cyan-950/80 text-cyan-300 text-[10px] font-mono px-2.5 py-1 rounded border border-cyan-800/60">
-                                    Nível Avançado
+                                <p className="text-[11px] text-slate-400">
+                                    Onde $n$ representa os bits de host restantes no prefixo selecionado.
+                                    Para $n$ bits alocados ao host, garantindo as reservas normativas para o endereço de Rede e Broadcast .
+                                </p>
+                            </div>
+
+                            <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+                                <span className="text-[11px] font-mono text-emerald-400 uppercase font-bold block mb-1">
+                                    Enlaces Ponto a Ponto (/31)
+                                </span>
+                                <div className="text-sm font-mono text-emerald-300 font-bold mb-1">
+                                    RFC 3021 (2 Hosts)
+                                </div>
+                                <p className="text-[11px] text-slate-400">
+                                    Elimina o desperdício em ligações de trânsito ao dispensar endereços de rede e broadcast dedicados.
+                                    Elimine o desperdício crônico de máscaras fixadas em enlaces de trânsito ao dispensar endereços de rede e transmissão dedicadas.                                </p>
+                            </div>
+                        </div>
+
+                        {/* CALCULADORA INTERATIVA / VISUALIZADOR DE BITS */}
+                        <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+                            <div className="flex justify-between items-center mb-3">
+                                <span className="text-xs font-mono font-bold text-slate-200 flex items-center gap-2">
+                                    <Calculator className="w-4 h-4 text-cyan-400" /> Simulator de Fronteira de Bits (CIDR)
+                                </span>
+                                <span className="text-xs font-mono text-cyan-400 font-bold">
+                                    /{cidrPrefix} ({getSubnetMask(cidrPrefix)})
                                 </span>
                             </div>
 
-                            <p className="text-xs md:text-sm text-slate-300 leading-relaxed text-justify mb-4">
-                                O dimensionamento determinístico de redes IP modernas recorre ao <strong>Subnetting</strong> e ao <strong>Variable Length Subnet Mask (VLSM)</strong>
-                                para mitigar o desperdício de endereços. Ao deslocar a fronteira entre o <i>Network ID</i> e o <i>Host ID</i>, alocam-se $n$ bits para a porção de host,
-                                resultando numa capacidade útil de $2^n - 2$ endereços (excluindo as reservas de rede e broadcast).
-
-                                Uma agregação de prefixos ( Elegante ) sintetizada múltiplos prefixos de rede contíguos num único anúncio otimizado. É um requisito estrito para a
-                                escalabilidade de protocolos de roteamento dinâmico como Roteamento Interdomínio Sem Classes (CIDR) e ID da rede .Host ID , permitindo o particionamento
-                                assimétrico do espaço de endereçamento através da Variable Length Subnet Mask (VLSM) .
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                                <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                                    <span className="text-[11px] font-mono text-amber-400 uppercase font-bold block mb-1">
-                                        Cálculo de Capacidade Útil
-                                    </span>
-                                    <div className="text-sm font-mono text-amber-300 font-bold mb-1">
-                                        $f(n) = 2^n - 2$
-                                    </div>
-                                    <p className="text-[11px] text-slate-400">
-                                        Onde $n$ representa os bits de host restantes no prefixo selecionado.
-                                        Para $n$ bits alocados ao host, garantindo as reservas normativas para o endereço de Rede e Broadcast .
-                                    </p>
+                            <div className="mb-4">
+                                <div className="flex justify-between text-[11px] text-slate-400 mb-1">
+                                    <span>Bits de Host ($n$): <strong>{hostBits} bits</strong></span>
+                                    <span>Bits de Rede: <strong>{32 - hostBits} bits</strong></span>
                                 </div>
-
-                                <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                                    <span className="text-[11px] font-mono text-emerald-400 uppercase font-bold block mb-1">
-                                        Enlaces Ponto a Ponto (/31)
-                                    </span>
-                                    <div className="text-sm font-mono text-emerald-300 font-bold mb-1">
-                                        RFC 3021 (2 Hosts)
-                                    </div>
-                                    <p className="text-[11px] text-slate-400">
-                                        Elimina o desperdício em ligações de trânsito ao dispensar endereços de rede e broadcast dedicados.
-                                        Elimine o desperdício crônico de máscaras fixadas em enlaces de trânsito ao dispensar endereços de rede e transmissão dedicadas.
-                                    </p>
-                                </div>
+                                <input
+                                    type="range"
+                                    min="1"
+                                    max="12"
+                                    value={hostBits}
+                                    onChange={(e) => setHostBits(Number(e.target.value))}
+                                    className="w-full accent-cyan-500 bg-slate-800 h-2 rounded-lg cursor-pointer"
+                                />
                             </div>
 
-                            {/* CALCULADORA INTERATIVA / VISUALIZADOR DE BITS */}
-                            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
-                                <div className="flex justify-between items-center mb-3">
-                                    <span className="text-xs font-mono font-bold text-slate-200 flex items-center gap-2">
-                                        <Calculator className="w-4 h-4 text-cyan-400" /> Simulator de Fronteira de Bits (CIDR)
-                                    </span>
-                                    <span className="text-xs font-mono text-cyan-400 font-bold">
-                                        /{cidrPrefix} ({getSubnetMask(cidrPrefix)})
-                                    </span>
+                            <div className="grid grid-cols-3 gap-2 font-mono text-center text-xs">
+                                <div className="bg-slate-900 p-2 rounded border border-slate-800">
+                                    <div className="text-[10px] text-slate-500">IPs Totais ($2^n$)</div>
+                                    <div className="text-slate-200 font-bold">{totalIPs}</div>
                                 </div>
-
-                                <div className="mb-4">
-                                    <div className="flex justify-between text-[11px] text-slate-400 mb-1">
-                                        <span>Bits de Host ($n$): <strong>{hostBits} bits</strong></span>
-                                        <span>Bits de Rede: <strong>{32 - hostBits} bits</strong></span>
-                                    </div>
-                                    <input
-                                        type="range"
-                                        min="1"
-                                        max="12"
-                                        value={hostBits}
-                                        onChange={(e) => setHostBits(Number(e.target.value))}
-                                        className="w-full accent-cyan-500 bg-slate-800 h-2 rounded-lg cursor-pointer"
-                                    />
+                                <div className="bg-slate-900 p-2 rounded border border-slate-800">
+                                    <div className="text-[10px] text-slate-500">IPs Úteis</div>
+                                    <div className="text-emerald-400 font-bold">{usableIPs}</div>
                                 </div>
-
-                                <div className="grid grid-cols-3 gap-2 font-mono text-center text-xs">
-                                    <div className="bg-slate-900 p-2 rounded border border-slate-800">
-                                        <div className="text-[10px] text-slate-500">IPs Totais ($2^n$)</div>
-                                        <div className="text-slate-200 font-bold">{totalIPs}</div>
-                                    </div>
-                                    <div className="bg-slate-900 p-2 rounded border border-slate-800">
-                                        <div className="text-[10px] text-slate-500">IPs Úteis</div>
-                                        <div className="text-emerald-400 font-bold">{usableIPs}</div>
-                                    </div>
-                                    <div className="bg-slate-900 p-2 rounded border border-slate-800">
-                                        <div className="text-[10px] text-slate-500">Reservados</div>
-                                        <div className="text-rose-400 font-bold">{hostBits === 1 ? 0 : 2}</div>
-                                    </div>
-                                </div>
-                            </div> <br />
-
-
-                            {/* PAINEL INTERACTIVO DE CENÁRIO (IMAGEM 1) */}
-                            <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-5 shadow-lg relative">
-                                <div className="flex items-center justify-between mb-3 border-b border-rose-900/40 pb-2">
-                                    <div className="flex items-center gap-2">
-                                        <Network className="w-5 h-5 text-rose-400" />
-                                        <h4 className="text-sm font-bold text-rose-300">
-                                            Laboratório Prático: Divisão do Bloco
-                                        </h4>
-                                    </div>
-                                    <span className="text-[10px] font-mono bg-rose-900/50 text-rose-200 px-2 py-0.5 rounded border border-rose-800">
-                                        37.1.1.0/24 (256 IPs)[cite: 11]
-                                    </span>
-                                </div>
-
-                                <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-                                    Uma empresa necessita de endereçar 4 escritórios utilizando o bloco base <strong className="font-mono text-rose-200">37.1.1.0/24</strong>[cite: 11]:
-                                </p>
-
-                                {/* VISUALIZAÇÃO DOS ESCRITÓRIOS E SUAS SUB-REDES */}
-                                <div className="space-y-2.5 font-mono text-xs">
-                                    <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
-                                        <div className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-                                            <span className="text-slate-200 font-bold">Escritório-1</span>
-                                            <span className="text-[10px] text-slate-400">(50 utilizadores)[cite: 11]</span>
-                                        </div>
-                                        <span className="text-cyan-400 font-bold">37.1.1.0/26 <span className="text-[10px] text-slate-400">(62 úteis)</span></span>
-                                    </div>
-
-                                    <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
-                                        <div className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                            <span className="text-slate-200 font-bold">Escritório-2</span>
-                                            <span className="text-[10px] text-slate-400">(30 utilizadores)[cite: 11]</span>
-                                        </div>
-                                        <span className="text-emerald-400 font-bold">37.1.1.64/26 <span className="text-[10px] text-slate-400">(62 úteis)</span></span>
-                                    </div>
-
-                                    <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
-                                        <div className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                                            <span className="text-slate-200 font-bold">Escritório-3</span>
-                                            <span className="text-[10px] text-slate-400">(20 utilizadores)[cite: 11]</span>
-                                        </div>
-                                        <span className="text-amber-400 font-bold">37.1.1.128/27 <span className="text-[10px] text-slate-400">(30 úteis)</span></span>
-                                    </div>
-
-                                    <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
-                                        <div className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-purple-400"></span>
-                                            <span className="text-slate-200 font-bold">Escritório-4</span>
-                                            <span className="text-[10px] text-slate-400">(10 utilizadores)[cite: 11]</span>
-                                        </div>
-                                        <span className="text-purple-400 font-bold">37.1.1.160/28 <span className="text-[10px] text-slate-400">(14 úteis)</span></span>
-                                    </div>
-                                </div>
-
-                                <div className="mt-3 pt-2 border-t border-rose-900/40 text-[11px] text-slate-400 flex justify-between items-center">
-                                    <span>Espaço Total Alocado: <strong>170 IPs</strong></span>
-                                    <span className="text-emerald-400 font-bold">86 IPs Livres para Expansão</span>
+                                <div className="bg-slate-900 p-2 rounded border border-slate-800">
+                                    <div className="text-[10px] text-slate-500">Reservados</div>
+                                    <div className="text-rose-400 font-bold">{hostBits === 1 ? 0 : 2}</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        {/* PAINEL INTERATIVO DE CENÁRIO */}
+                        <div className="mt-5 rounded-xl border border-rose-500/30 bg-rose-950/20 p-5 shadow-lg relative">
+                            <div className="flex items-center justify-between mb-3 border-b border-rose-900/40 pb-2">
+                                <div className="flex items-center gap-2">
+                                    <Network className="w-5 h-5 text-rose-400" />
+                                    <h4 className="text-sm font-bold text-rose-300">
+                                        Laboratório Prático: Divisão do Bloco
+                                    </h4>
+                                </div>
+                                <span className="text-[10px] font-mono bg-rose-900/50 text-rose-200 px-2 py-0.5 rounded border border-rose-800">
+                                    37.1.1.0/24 (256 IPs)
+                                </span>
+                            </div>
+
+                            <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                                Uma empresa necessita de endereçar 4 escritórios utilizando o bloco base <strong className="font-mono text-rose-200">37.1.1.0/24</strong>:
+                            </p>
+
+                            <div className="space-y-2.5 font-mono text-xs">
+                                <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                        <span className="text-slate-200 font-bold">Escritório-1</span>
+                                        <span className="text-[10px] text-slate-400">(50 utilizadores)</span>
+                                    </div>
+                                    <span className="text-cyan-400 font-bold">37.1.1.0/26 <span className="text-[10px] text-slate-400">(62 úteis)</span></span>
+                                </div>
+
+                                <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span className="text-slate-200 font-bold">Escritório-2</span>
+                                        <span className="text-[10px] text-slate-400">(30 utilizadores)</span>
+                                    </div>
+                                    <span className="text-emerald-400 font-bold">37.1.1.64/26 <span className="text-[10px] text-slate-400">(62 úteis)</span></span>
+                                </div>
+
+                                <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+                                        <span className="text-slate-200 font-bold">Escritório-3</span>
+                                        <span className="text-[10px] text-slate-400">(20 utilizadores)</span>
+                                    </div>
+                                    <span className="text-amber-400 font-bold">37.1.1.128/27 <span className="text-[10px] text-slate-400">(30 úteis)</span></span>
+                                </div>
+
+                                <div className="flex items-center justify-between bg-black/60 p-2.5 rounded border border-slate-800">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-purple-400"></span>
+                                        <span className="text-slate-200 font-bold">Escritório-4</span>
+                                        <span className="text-[10px] text-slate-400">(10 utilizadores)</span>
+                                    </div>
+                                    <span className="text-purple-400 font-bold">37.1.1.160/28 <span className="text-[10px] text-slate-400">(14 úteis)</span></span>
+                                </div>
+                            </div>
+
+                            <div className="mt-3 pt-2 border-t border-rose-900/40 text-[11px] text-slate-400 flex justify-between items-center">
+                                <span>Espaço Total Alocado: <strong>170 IPs</strong></span>
+                                <span className="text-emerald-400 font-bold">86 IPs Livres para Expansão</span>
+                            </div>
+                        </div>
+                    </div>
 
                     {/* CARD 2: AGREGAÇÃO DE ROTAS (SUPERNETTING) */}
                     <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 shadow-xl">
@@ -281,28 +284,25 @@ export default function SubnettingVLSM() {
 
                     {/* CARD 3: TABELA DE ALOCAÇÃO VLSM DO MAIOR PARA O MENOR */}
                     <div className="bg-[#080d1a] rounded-2xl border border-slate-800 p-6 shadow-xl">
-
                         <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
                             <div>
                                 <h3 className="text-lg font-bold text-emerald-400 flex items-center gap-2">
                                     <Table className="w-5 h-5 text-emerald-400" />
                                     Algoritmo VLSM: Ordenação Eficiente Do Maior para o Menor
                                 </h3>
-                                <p className="text-xs text-slate-400">Ordenação estrita por volume de hosts necessários. Atribuição ordenada "do maior para o menor" para prevenir sobreposições</p>
+                                <p className="text-xs text-slate-400">Elimina o desperdício em ligações de trânsito ao dispensar endereços de rede e broadcast dedicados.
+                                    Ordenação estrita por volume de hosts necessários. Atribuição ordenada "do maior para o menor" para prevenir sobreposições</p>
                             </div>
                         </div>
-
 
 
                         <p className="text-xs text-slate-300 mb-4 leading-relaxed">
                             Demonstração de particionamento dinâmico para evitar desperdício de blocos de endereçamento:
                             A regra de ouro do VLSM estabelece que as sub-redes devem ser atribuídas em ordem decrescente de tamanho para evitar a sobreposição de blocos e garantir a continuidade lógica: <br />
 
-
-                            A regra de ouro do VLSM estabelece que as sub-redes devem ser atribuídas em ordem decrescente de tamanho para evitar a sobreposição de blocos e garantir a continuidade lógica:
                         </p>
 
-                        {/* TABELA CORRESPONDENTE À IMAGEM 2 */}
+
                         <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 mb-4">
                             <table className="w-full text-left font-mono text-xs">
                                 <thead className="bg-slate-900/90 text-slate-300 border-b border-slate-800 uppercase text-[10px]">
@@ -347,18 +347,17 @@ export default function SubnettingVLSM() {
                             </table>
                         </div>
 
+
+
+
                         <div className="p-3 bg-emerald-950/30 border border-emerald-800/60 rounded-lg text-xs text-emerald-200">
-                            💡 <strong>Dica de Arquitetura:</strong> Para ligações ponto a ponto entre roteadores em infraestruturas modernas, adote o prefixo <strong>/31</strong> (RFC 3021) em substituição do /30, economizando 50% dos endereços alocados para trânsito.
-                        </div>
+                            💡 <strong>Dica de Arquitetura:</strong> Para ligações ponto a ponto em infraestruturas modernas, adote o prefixo <strong>/31</strong> (RFC 3021) em substituição ao /30, economizando 50% dos endereços de trânsito.
 
-
-
-
-                        <div className="p-3 bg-emerald-950/20 border border-emerald-800/40 rounded-lg text-xs text-emerald-300 flex items-center gap-2">
                             <span className="text-base">💡</span>
                             <span>
                                 <strong>Nota Didática:</strong> Iniciar o alocamento pelas maiores sub-redes garante que os limites de bits (bit boundaries) fiquem alinhados naturalmente sem fragmentar os blocos subsequentes.
                             </span>
+
                         </div>
                     </div>
 
@@ -377,11 +376,7 @@ export default function SubnettingVLSM() {
                         <p className="text-xs text-slate-300 leading-relaxed text-justify mb-4">
                             A arquitetura IPAM (<i>IP Address Management</i>) exige um modelo preditivo baseado em
                             <strong>Hierarquia Estrutural</strong> e <strong>Contiguidade Lógica</strong>, permitindo ACLs precisas e sumarização contínua.
-                            Em grande escala, a gestão por plataformas <strong>IPAM (IP Address Management)</strong> assegura a alocação preditiva e contígua do espaço de endereçamento corporativo.
-
-
-
-                        </p>
+                            Em grande escala, a gestão por plataformas <strong>IPAM (IP Address Management)</strong> assegura a alocação preditiva e contígua do espaço de endereçamento corporativo.                        </p>
 
                         {/* ÁRVORE HIERÁRQUICA DO CASO PRÁTICO */}
                         <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-3">
@@ -423,16 +418,85 @@ export default function SubnettingVLSM() {
                         </div>
                     </div>
 
+                    {/* ========================================================= */}
+                    {/* CARD 5: PLANNER VLSM CYBERPUNK (INTEGRADO EMBAIXO DO IPAM) */}
+                    {/* ========================================================= */}
+                    <section className="w-full p-6 rounded-2xl border border-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.1)] relative overflow-hidden bg-slate-950 font-mono text-slate-300">
+                        {/* Fundo Quadriculado Matrix */}
+                        <div
+                            className="absolute inset-0 opacity-20 pointer-events-none"
+                            style={{
+                                backgroundImage: 'linear-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.15) 1px, transparent 1px)',
+                                backgroundSize: '20px 20px'
+                            }}
+                        />
 
-                    
+                        <div className="relative z-10">
+                            {/* Cabeçalho da Seção */}
+                            <div className="text-center mb-6">
+                                <h3 className="text-xl font-bold text-red-500 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]">
+                                    Arquitetura VLSM
+                                </h3>
+                                <p className="text-slate-400 mt-1 text-xs">
+                                    [+] Fatiando o bloco mestre <span className="text-cyan-400 font-bold">{baseCyberpunkNetwork}</span>
+                                </p>
+                            </div>
 
+                            {/* Barra de Progresso Visual */}
+                            <div className="mb-6 w-full h-7 bg-slate-900 rounded border border-slate-800 overflow-hidden flex shadow-inner">
+                                <div className="h-full bg-red-600 w-1/2 flex items-center justify-center text-[10px] font-bold text-white shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/25 (128 IPs)">/25</div>
+                                <div className="h-full bg-cyan-600 w-1/4 flex items-center justify-center text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/26 (64 IPs)">/26</div>
+                                <div className="h-full bg-purple-600 w-[12.5%] flex items-center justify-center text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/27 (32 IPs)">/27</div>
+                                <div className="h-full bg-emerald-500 w-[1.56%] border-l border-slate-900" title="/30 (4 IPs)"></div>
+                                <div className="h-full bg-slate-800 w-[10.94%] flex items-center justify-center text-[10px] text-slate-500 shadow-inner" title="Espaço Livre">NULL</div>
+                            </div>
 
-                    
+                            {/* Grid de Detalhamento das Sub-redes */}
+                            <div className="grid gap-3">
+                                {cyberpunkSubnets.map((net) => (
+                                    <div
+                                        key={net.id}
+                                        className={`p-3.5 rounded border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition-all hover:brightness-125 ${net.color}`}
+                                    >
+                                        <div className="flex-1">
+                                            <h4 className="font-bold text-sm flex items-center gap-2 uppercase tracking-wide">
+                                                {net.name}
+                                                {net.req > 0 && (
+                                                    <span className="text-[9px] px-1.5 py-0.5 bg-slate-950 border border-current rounded text-current uppercase tracking-wider">
+                                                        Req: {net.req} IPs
+                                                    </span>
+                                                )}
+                                            </h4>
+                                            <div className="text-xs mt-1 opacity-80">
+                                                <span className="text-slate-500">&gt; range: </span>
+                                                <strong>{net.range}</strong>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-row sm:flex-col gap-3 sm:gap-0.5 text-right w-full sm:w-auto bg-slate-950/50 p-2.5 rounded border border-white/5">
+                                            <div className="flex justify-between sm:justify-end items-center gap-2">
+                                                <span className="text-[9px] uppercase text-slate-500">Bloco:</span>
+                                                <span className="font-bold text-sm">{net.cidr}</span>
+                                            </div>
+                                            <div className="flex justify-between sm:justify-end items-center gap-2">
+                                                <span className="text-[9px] uppercase text-slate-500">Tamanho:</span>
+                                                <span className="text-xs">{net.size} IPs</span>
+                                            </div>
+                                            {net.mask !== "N/A" && (
+                                                <div className="flex justify-between sm:justify-end items-center gap-2">
+                                                    <span className="text-[9px] uppercase text-slate-500">Máscara:</span>
+                                                    <span className="text-[10px]">{net.mask}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
 
-                
-
-                
             </div>
         </div>
     );
