@@ -626,7 +626,8 @@ sudo macchanger -s eth0`}</code>
                         <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <ArrowRightLeft className="w-6 h-6 text-emerald-400" />
-                                6.5 Gateway (O Guardião da Fronteira)
+                                6.5
+                                 Gateway (O Guardião da Fronteira)
                             </h3>
                             <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-1 rounded border border-emerald-800 font-bold">
                                 Fronteira L3

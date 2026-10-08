@@ -8,7 +8,11 @@ import {
     ArrowDown,
     ArrowRight,
     Zap,
-    AlertTriangle
+    AlertTriangle,
+    Cpu,
+    Table,
+    CheckCircle2,
+    Globe
 } from 'lucide-react';
 
 const Mascaras = () => {
@@ -163,7 +167,7 @@ const Mascaras = () => {
 
                     <p className="text-slate-400 text-xs sm:text-sm mt-1 leading-relaxed">
                         Para entender a Máscara, primeiro precisamos entender a sua função fundamental:  o roteamento local vs. remoto<br />
-                        O IP funciona como o endereço da sua casa. Mas como o seu computador sabe se o computador de destino <br /> está na mesma sala que ele 
+                        O IP funciona como o endereço da sua casa. Mas como o seu computador sabe se o computador de destino <br /> está na mesma sala que ele
                         (e, portanto, ele só precisa chamar no Switch), ou se o destino está em outro país <br />
                         (e ele precisa enviar o pacote para o Gateway/Roteador)?
                     </p>
@@ -377,7 +381,7 @@ const Mascaras = () => {
                                         onChange={(e) => setRequiredIps(parseInt(e.target.value, 10))}
                                         className="w-full accent-amber-500 bg-slate-950 h-1.5 rounded cursor-pointer"
                                     />
-                                </div>
+                                </div> <br />
 
                                 <div className="text-[11px] font-mono bg-black/70 p-3 rounded-lg border border-red-500/30 text-red-300">
                                     Sem CIDR: Como Classe C só tem 254 IPs, pegava-se Classe B (65.534 IPs). Desperdício de <strong>{Math.max(0, 65534 - requiredIps).toLocaleString()} IPs públicos</strong>!
@@ -605,11 +609,18 @@ const Mascaras = () => {
                                     </div>
                                 </div>
                             </div>
+
                         </section>
 
+                        
+
                     </div>
+                    
 
                 </div>
+                
+
+                
 
             </div>
         </div>

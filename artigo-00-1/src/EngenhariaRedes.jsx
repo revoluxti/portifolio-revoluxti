@@ -10,6 +10,8 @@ import {
 
 import EnderecamentoSection from './EnderecamentoSection';
 import Mascaras from './Mascaras';
+import VlsmPlannerCyberpunk from './VlsmPlannerCyberpunk'
+import SubnettingVLSM from './SubnettingVLSM'
 const EngenhariaRedes = () => {
     return (
         <div className="w-full min-h-screen text-slate-200 bg-slate-950 pb-24 selection:bg-emerald-500/30">
@@ -2090,6 +2092,8 @@ const EngenhariaRedes = () => {
                 <EnderecamentoSection />
                 <Mascaras />
                 
+                <SubnettingVLSM />
+                <VlsmPlannerCyberpunk />
                 
                 
 
