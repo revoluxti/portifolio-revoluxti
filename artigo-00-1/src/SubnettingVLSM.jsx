@@ -63,7 +63,7 @@ export default function SubnettingVLSM() {
                     </div>
                     <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
                         <Network className="w-8 h-8 text-cyan-400" />
-                        Dimensionamento Determinístico &amp; Hierárquico de Redes IP
+                        8 - Dimensionamento Determinístico &amp; Hierárquico de Redes IP
                     </h1>
                     <p className="text-xs md:text-sm text-slate-400 mt-1 max-w-3xl">
                         Modelagem avançada de endereçamento, minimização do esgotamento de espaço de endereçamento, otimização da memória TCAM e arquitetura IPAM.
@@ -91,7 +91,7 @@ export default function SubnettingVLSM() {
                             <div>
                                 <h3 className="text-xl font-bold text-cyan-400 flex items-center gap-2">
                                     <Cpu className="w-6 h-6 text-cyan-400" />
-                                    Fundamentos Matemáticos de Subnetting & Dimensionamento IP &amp; VLSM
+                                    8.1 Fundamentos Matemáticos de Subnetting & Dimensionamento IP &amp; VLSM
                                 </h3>
                                 <span className="text-xs font-mono text-slate-400">
                                     Manipulação Granular de Bit Boundary <br /> Classless Inter-Domain Routing (CIDR) • RFC 3021
@@ -103,11 +103,18 @@ export default function SubnettingVLSM() {
                         </div>
 
                         <p className="text-xs md:text-sm text-slate-300 leading-relaxed text-justify mb-4">
-                            O dimensionamento determinístico de redes IP modernas recorre às técnicas de Subnetting e Variable Length Subnet Mask (VLSM) para mitigar o desperdício de endereços no espaço IPv4. Ao ajustar a fronteira lógica entre o Network ID e o Host ID, alocam-se n bits para a porção de host, resultando em uma capacidade útil de 2
-                            n
-                            −2 endereços (excluindo as reservas obrigatórias de rede e broadcast).
+                            O dimensionamento determinístico de redes IP modernas recorre às técnicas
+                            de Subnetting e Variable Length Subnet Mask (VLSM) para mitigar o desperdício
+                            de endereços no espaço IPv4. <br />
+                            Ao ajustar a fronteira lógica entre o
+                            Network ID e o Host ID, alocam-se n bits para a porção de host,
+                            resultando em uma capacidade útil de
+                            2<sup className="text-[10px] text-amber-400 font-bold">n</sup> - 2 endereços (excluindo as reservas obrigatórias de rede e broadcast).
 
-                            Ademais, o particionamento assimétrico viabilizado pelo VLSM é complementado pela agregação de prefixos (Supernetting), que sintetiza múltiplos blocos contíguos em um único anúncio otimizado. Essa abordagem constitui um requisito essencial para a escalabilidade do Classless Inter-Domain Routing (CIDR) e para o processamento eficiente de tabelas de encaminhamento em protocolos de roteamento dinâmico.
+                            Ademais, o particionamento assimétrico viabilizado pelo VLSM é complementado pela agregação de prefixos (Supernetting),
+                            que sintetiza múltiplos blocos contíguos em um único anúncio otimizado. Essa abordagem constitui um requisito essencial
+                            para a escalabilidade do Classless Inter-Domain Routing (CIDR) e para o processamento eficiente de tabelas de encaminhamento
+                            em protocolos de roteamento dinâmico.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
@@ -116,11 +123,11 @@ export default function SubnettingVLSM() {
                                     Cálculo de Capacidade Útil
                                 </span>
                                 <div className="text-sm font-mono text-amber-300 font-bold mb-1">
-                                    $f(n) = 2^n - 2$
+                                    f(n) = 2<sup className="text-[10px] text-amber-400 font-bold">n</sup> - 2
                                 </div>
                                 <p className="text-[11px] text-slate-400">
-                                    Onde $n$ representa os bits de host restantes no prefixo selecionado.
-                                    Para $n$ bits alocados ao host, garantindo as reservas normativas para o endereço de Rede e Broadcast .
+                                    Onde <span className="font-mono text-amber-300 font-bold">n</span> representa os bits de host restantes no prefixo selecionado.
+                                    Para <span className="font-mono text-amber-300 font-bold">n</span> bits alocados ao host, garantindo as reservas normativas para o endereço de Rede e Broadcast.
                                 </p>
                             </div>
 
@@ -132,8 +139,7 @@ export default function SubnettingVLSM() {
                                     RFC 3021 (2 Hosts)
                                 </div>
                                 <p className="text-[11px] text-slate-400">
-                                    Elimina o desperdício em ligações de trânsito ao dispensar endereços de rede e broadcast dedicados.
-                                    Elimine o desperdício crônico de máscaras fixadas em enlaces de trânsito ao dispensar endereços de rede e transmissão dedicadas.                                </p>
+                                    "Essa abordagem mitiga o desperdício histórico e otimiza-se o espaço de endereçamento em enlaces de trânsito — ponto a ponto — típico de máscaras tradicionais de tamanho fixo — por meio de prefixos de endereços otimizados dedicados a sub-redes e transmissões de broadcast."                                </p>
                             </div>
                         </div>
 
@@ -286,7 +292,7 @@ export default function SubnettingVLSM() {
                             <div>
                                 <h3 className="text-lg font-bold text-emerald-400 flex items-center gap-2">
                                     <Table className="w-5 h-5 text-emerald-400" />
-                                    Algoritmo VLSM: Ordenação Eficiente Do Maior para o Menor
+                                    8.2 Algoritmo VLSM: Ordenação Eficiente Do Maior para o Menor
                                 </h3>
                                 <p className="text-xs text-slate-400">Elimina o desperdício em ligações de trânsito ao dispensar endereços de rede e broadcast dedicados.
                                     Ordenação estrita por volume de hosts necessários. Atribuição ordenada "do maior para o menor" para prevenir sobreposições</p>
@@ -429,24 +435,24 @@ export default function SubnettingVLSM() {
                             }}
                         />
 
-                        <div className="relative z-10">
+                        <div className="relative z-10 px-1 sm:px-0">
                             {/* Cabeçalho da Seção */}
                             <div className="text-center mb-6">
-                                <h3 className="text-xl font-bold text-red-500 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]">
+                                <h3 className="text-lg sm:text-xl font-bold text-red-500 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]">
                                     Arquitetura VLSM
                                 </h3>
-                                <p className="text-slate-400 mt-1 text-xs">
+                                <p className="text-slate-400 mt-1 text-xs px-2 break-words">
                                     [+] Fatiando o bloco mestre <span className="text-cyan-400 font-bold">{baseCyberpunkNetwork}</span>
                                 </p>
                             </div>
 
                             {/* Barra de Progresso Visual */}
                             <div className="mb-6 w-full h-7 bg-slate-900 rounded border border-slate-800 overflow-hidden flex shadow-inner">
-                                <div className="h-full bg-red-600 w-1/2 flex items-center justify-center text-[10px] font-bold text-white shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/25 (128 IPs)">/25</div>
-                                <div className="h-full bg-cyan-600 w-1/4 flex items-center justify-center text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/26 (64 IPs)">/26</div>
-                                <div className="h-full bg-purple-600 w-[12.5%] flex items-center justify-center text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/27 (32 IPs)">/27</div>
+                                <div className="h-full bg-red-600 w-1/2 flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-white shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/25 (128 IPs)">/25</div>
+                                <div className="h-full bg-cyan-600 w-1/4 flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/26 (64 IPs)">/26</div>
+                                <div className="h-full bg-purple-600 w-[12.5%] flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-white border-l border-slate-900 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]" title="/27 (32 IPs)">/27</div>
                                 <div className="h-full bg-emerald-500 w-[1.56%] border-l border-slate-900" title="/30 (4 IPs)"></div>
-                                <div className="h-full bg-slate-800 w-[10.94%] flex items-center justify-center text-[10px] text-slate-500 shadow-inner" title="Espaço Livre">NULL</div>
+                                <div className="h-full bg-slate-800 w-[10.94%] flex items-center justify-center text-[9px] sm:text-[10px] text-slate-500 shadow-inner" title="Espaço Livre">NULL</div>
                             </div>
 
                             {/* Grid de Detalhamento das Sub-redes */}
@@ -454,36 +460,38 @@ export default function SubnettingVLSM() {
                                 {cyberpunkSubnets.map((net) => (
                                     <div
                                         key={net.id}
-                                        className={`p-3.5 rounded border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition-all hover:brightness-125 ${net.color}`}
+                                        className={`p-3.5 sm:p-4 rounded border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition-all hover:brightness-125 ${net.color}`}
                                     >
-                                        <div className="flex-1">
-                                            <h4 className="font-bold text-sm flex items-center gap-2 uppercase tracking-wide">
-                                                {net.name}
+                                        {/* Lado Esquerdo: Nome e Range */}
+                                        <div className="flex-1 min-w-0 w-full sm:w-auto">
+                                            <h4 className="font-bold text-xs sm:text-sm flex flex-wrap items-center gap-2 uppercase tracking-wide">
+                                                <span className="truncate">{net.name}</span>
                                                 {net.req > 0 && (
-                                                    <span className="text-[9px] px-1.5 py-0.5 bg-slate-950 border border-current rounded text-current uppercase tracking-wider">
+                                                    <span className="text-[9px] px-1.5 py-0.5 bg-slate-950 border border-current rounded text-current uppercase tracking-wider shrink-0">
                                                         Req: {net.req} IPs
                                                     </span>
                                                 )}
                                             </h4>
-                                            <div className="text-xs mt-1 opacity-80">
+                                            <div className="text-[11px] sm:text-xs mt-1 opacity-80 break-all sm:break-normal">
                                                 <span className="text-slate-500">&gt; range: </span>
                                                 <strong>{net.range}</strong>
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-row sm:flex-col gap-3 sm:gap-0.5 text-right w-full sm:w-auto bg-slate-950/50 p-2.5 rounded border border-white/5">
-                                            <div className="flex justify-between sm:justify-end items-center gap-2">
+                                        {/* Lado Direito: Bloco, Tamanho e Máscara (Empilhado no mobile de forma limpa) */}
+                                        <div className="flex flex-col gap-1 text-left sm:text-right w-full sm:w-auto bg-slate-950/60 p-3 rounded border border-white/5 text-xs">
+                                            <div className="flex justify-between sm:justify-end items-center gap-4">
                                                 <span className="text-[9px] uppercase text-slate-500">Bloco:</span>
-                                                <span className="font-bold text-sm">{net.cidr}</span>
+                                                <span className="font-bold text-sm font-mono">{net.cidr}</span>
                                             </div>
-                                            <div className="flex justify-between sm:justify-end items-center gap-2">
+                                            <div className="flex justify-between sm:justify-end items-center gap-4">
                                                 <span className="text-[9px] uppercase text-slate-500">Tamanho:</span>
-                                                <span className="text-xs">{net.size} IPs</span>
+                                                <span className="text-xs font-mono">{net.size} IPs</span>
                                             </div>
                                             {net.mask !== "N/A" && (
-                                                <div className="flex justify-between sm:justify-end items-center gap-2">
+                                                <div className="flex justify-between sm:justify-end items-center gap-4">
                                                     <span className="text-[9px] uppercase text-slate-500">Máscara:</span>
-                                                    <span className="text-[10px]">{net.mask}</span>
+                                                    <span className="text-[10px] font-mono">{net.mask}</span>
                                                 </div>
                                             )}
                                         </div>
@@ -492,6 +500,8 @@ export default function SubnettingVLSM() {
                             </div>
                         </div>
                     </section>
+
+                    
 
                 </div>
 

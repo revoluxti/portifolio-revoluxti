@@ -96,8 +96,8 @@ export default function EnderecamentoSection() {
                     {/* COLUNA 1 */}
                     <div className="space-y-6">
                         {/* ALERTA DIDÁTICO */}
-                        <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-6 shadow-xl backdrop-blur-sm">
-                            <div className="flex items-start gap-4">
+                        <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4 sm:p-6 shadow-xl backdrop-blur-sm">
+                            <div className="flex flex-col sm:flex-row items-start gap-4">
                                 {/* Ícone de Alerta */}
                                 <div className="shrink-0 rounded-lg bg-amber-500/10 p-3 text-amber-400 border border-amber-500/20">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,9 +105,9 @@ export default function EnderecamentoSection() {
                                     </svg>
                                 </div>
 
-                                <div className="flex-1">
+                                <div className="flex-1 w-full min-w-0">
                                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                                        <h4 className="text-base font-bold text-amber-400">
+                                        <h4 className="text-sm sm:text-base font-bold text-amber-400">
                                             Alerta Didático: Colisão de MAC em Hardware Genérico
                                         </h4>
                                         <span className="text-[10px] bg-amber-500/20 text-amber-300 font-mono px-2 py-0.5 rounded border border-amber-500/30">
@@ -115,18 +115,18 @@ export default function EnderecamentoSection() {
                                         </span>
                                     </div>
 
-                                    <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 break-words">
                                         Na teoria, o IEEE exige que cada fabricante compre um bloco de endereços (OUI) e garanta um MAC exclusivo para cada placa de rede no mundo.
                                         Na prática, <strong className="text-amber-200">placas de rede piratas ou de baixíssimo custo gravam o mesmo firmware em massa</strong> para cortar custos de licenciamento e fabricação.
                                     </p>
 
-                                    {/* Caixa Informativa com Pontos de Atenção */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs bg-black/40 p-4 rounded-lg border border-amber-500/20">
+                                    {/* Caixa Informativa com Pontos de Atenção (Ajustada para mobile com grid-cols-1 sm:grid-cols-2) */}
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-black/40 p-3 sm:p-4 rounded-lg border border-amber-500/20">
                                         <div className="space-y-1">
                                             <span className="font-bold text-amber-300 flex items-center gap-1">
                                                 ⚠️ O Risco nos Lotes Paralelos
                                             </span>
-                                            <p className="text-slate-400">
+                                            <p className="text-slate-400 text-xs break-words">
                                                 Ao comprar 5 ou 10 placas genéricas do mesmo fornecedor para montar um laboratório, há uma grande chance de que <strong>todas venham com o mesmo MAC Address gravado na EEPROM</strong>.
                                             </p>
                                         </div>
@@ -135,13 +135,13 @@ export default function EnderecamentoSection() {
                                             <span className="font-bold text-amber-300 flex items-center gap-1">
                                                 💥 O Caos na Camada 2
                                             </span>
-                                            <p className="text-slate-400">
+                                            <p className="text-slate-400 text-xs break-words">
                                                 O switch local não saberá para qual porta enviar os quadros de rede, gerando instabilidade na Tabela CAM, perda contínua de pacotes e conflitos na entrega de IP via DHCP.
                                             </p>
                                         </div>
                                     </div>
 
-                                    <p className="text-xs text-slate-400 mt-3 italic">
+                                    <p className="text-xs text-slate-400 mt-3 italic break-words">
                                         💡 <strong className="text-slate-300">Dica REVOLUXTI:</strong> Se sua rede local começar a apresentar comportamento errático logo após a instalação de novas placas de rede, rode o comando de listagem no terminal e compare os MACs físicos de cada máquina. Se forem idênticos, aplique a alteração lógica descrita nas seções anteriores!
                                     </p>
                                 </div>
@@ -149,7 +149,7 @@ export default function EnderecamentoSection() {
                         </div>
 
                         {/* BIT INSPECTOR */}
-                        <div className="bg-slate-950 p-6 rounded-xl border border-slate-800">
+                        <div className="bg-slate-950 p-4 sm:p-6 rounded-xl border border-slate-800 overflow-hidden">
                             <h4 className="text-xs font-mono text-amber-400 uppercase tracking-wider mb-4 flex items-center gap-2 font-bold">
                                 <Binary className="w-4 h-4 text-amber-400" /> Estrutura do 1º Byte (Bit de Administração)
                             </h4>
@@ -159,35 +159,35 @@ export default function EnderecamentoSection() {
                                 Se pegarmos o primeiro byte de um MAC (ex: 00) e olharmos os bits que o compõem em binário (00000000), os dois últimos bits (LSB) definem o comportamento do endereço.
                             </p>
 
-                            <div className="bg-black/90 p-4 rounded-lg border border-slate-800 mb-4">
+                            <div className="bg-black/90 p-3 sm:p-4 rounded-lg border border-slate-800 mb-4 overflow-x-auto">
                                 <div className="text-center text-[10px] font-mono text-slate-500 mb-2">Representação Binária do Byte (00):</div>
-                                <div className="flex justify-center items-center gap-1.5 font-mono text-sm md:text-base">
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-emerald-950/40 text-emerald-400 border border-emerald-900/50">0</span>
-                                    <span className="w-8 h-10 flex items-center justify-center rounded font-bold bg-purple-950/40 text-purple-400 border border-purple-900/50">0</span>
+                                <div className="flex justify-center items-center gap-1 font-mono text-xs sm:text-base">
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-slate-900 text-slate-300 border border-slate-800">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-emerald-950/40 text-emerald-400 border border-emerald-900/50">0</span>
+                                    <span className="w-7 h-9 sm:w-8 sm:h-10 flex items-center justify-center rounded font-bold bg-purple-950/40 text-purple-400 border border-purple-900/50">0</span>
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
                                 <div className="p-3 rounded-lg border bg-slate-900 border-slate-800 text-slate-300">
                                     <div className="flex justify-between items-center mb-1">
-                                        <span className="font-bold text-purple-400">Bit 0 (I/G — Individual/Group):</span>
+                                        <span className="font-bold text-purple-400">Bit 0 (I/G):</span>
                                         <span className="px-1.5 py-0.5 bg-black rounded text-[10px] font-bold">0</span>
                                     </div>
-                                    <p className="text-[11px] text-slate-400">0 = Unicast (Único Host) | 1 = Multicast / Broadcast</p>
+                                    <p className="text-[11px] text-slate-400">0 = Unicast | 1 = Multicast / Broadcast</p>
                                 </div>
 
                                 <div className="p-3 rounded-lg border bg-emerald-950/30 border-emerald-800 text-emerald-200">
                                     <div className="flex justify-between items-center mb-1">
-                                        <span className="font-bold text-amber-400">Bit 1 (U/L — Universal/Local):</span>
+                                        <span className="font-bold text-amber-400">Bit 1 (U/L):</span>
                                         <span className="px-1.5 py-0.5 bg-black rounded text-[10px] font-bold">0</span>
                                     </div>
-                                    <p className="text-[11px] text-slate-400">0 = Endereço de Fábrica (BIA) | 1 = Alterado por Software (Spoofed)</p>
+                                    <p className="text-[11px] text-slate-400">0 = Fábrica (BIA) | 1 = Spoofed</p>
                                 </div>
                             </div>
                         </div>
@@ -627,7 +627,7 @@ sudo macchanger -s eth0`}</code>
                             <h3 className="text-xl font-bold text-white flex items-center gap-2">
                                 <ArrowRightLeft className="w-6 h-6 text-emerald-400" />
                                 6.5
-                                 Gateway (O Guardião da Fronteira)
+                                Gateway (O Guardião da Fronteira)
                             </h3>
                             <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-1 rounded border border-emerald-800 font-bold">
                                 Fronteira L3

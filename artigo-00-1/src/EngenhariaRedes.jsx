@@ -11,6 +11,7 @@ import {
 import EnderecamentoSection from './EnderecamentoSection';
 import Mascaras from './Mascaras';
 import SubnettingVLSM from './SubnettingVLSM'
+import ReferencesFooter from './ReferencesFooter';
 const EngenhariaRedes = () => {
     return (
         <div className="w-full min-h-screen text-slate-200 bg-slate-950 pb-24 selection:bg-emerald-500/30">
@@ -2081,6 +2082,7 @@ const EngenhariaRedes = () => {
                 <EnderecamentoSection />
                 <Mascaras />
                 <SubnettingVLSM />
+                <ReferencesFooter/>
                 
                 
                 
