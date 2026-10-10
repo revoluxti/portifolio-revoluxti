@@ -3,6 +3,7 @@ import { Terminal, Network } from 'lucide-react';
 
 // IMPORT DO NOVO ARTIGO (MÓDULO 02 - REDES / DEVSECOPS)
 import EngenhariaRedes from './EngenhariaRedes';
+import ArquiteturaDeRedes from './ArquiteturaDeRedes';
 
 const App = () => {
   // O estado inicial já começa no capítulo 05 e no modo correto
@@ -121,9 +122,10 @@ const App = () => {
         
         {/* Renderização Condicional dos Módulos */}
         {currentChapter === '05' && <EngenhariaRedes />}
+        {currentChapter === '06' && <ArquiteturaDeRedes />}
         
         {/* MENSAGEM DE STANDBY (Aparece para os capítulos 06 a 09) */}
-        {['06', '07', '08', '09'].includes(currentChapter) && (
+        {['07', '08', '09'].includes(currentChapter) && (
           <div className="w-full h-full flex flex-col items-center justify-center">
              <Terminal className="w-16 h-16 text-slate-700 mb-4 animate-pulse" />
              <h2 className="text-xl font-bold text-slate-500 font-mono tracking-widest uppercase">inicializando ..</h2>
