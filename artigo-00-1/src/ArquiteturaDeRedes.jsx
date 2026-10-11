@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Network,
     Layers,
@@ -18,7 +19,11 @@ import {
     HardDrive,
     Shield,
     Flame,
-    GitMerge
+    GitMerge,
+    ArrowUp,
+    ArrowDown,
+    ChevronLeft,
+    RotateCcw
 } from 'lucide-react';
 
 export default function ArquiteturaDeRedes() {
@@ -99,6 +104,74 @@ export default function ArquiteturaDeRedes() {
             proto: "Cabos de Cobre (UTP), Fibra Ótica, Espectro RF (Wi-Fi), Hubs"
         }
     ];
+
+    const [step, setStep] = React.useState(0);
+
+    const handleNext = () => {
+        if (step < 4) setStep(step + 1);
+    };
+
+    const handlePrev = () => {
+        if (step > 0) setStep(step - 1);
+    };
+
+    const handleReset = () => {
+        setStep(0);
+    };
+
+
+    /* =====================================================================================
+   COMPONENTE VISUAL: TUNNEL IMAGE (Mantido do Cap 00)
+   ===================================================================================== */
+    const TunnelImage = ({ src, alt, className }) => {
+        const imgRef = useRef(null);
+        const containerRef = useRef(null);
+
+        useEffect(() => {
+            const image = imgRef.current;
+            const container = containerRef.current;
+            if (!image || !container) return;
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        let visibility = entry.intersectionRatio;
+                        visibility = Math.min(1, visibility * 1.1);
+                        const scale = 0.8 + (visibility * 0.2);
+                        image.style.transform = `scale(${scale})`;
+                        const shadowOpacity = 1 - visibility;
+                        const lightOpacity = visibility;
+
+                        // Efeito Glow Ciano/Azul para combinar com o tema Placa Mãe
+                        image.style.boxShadow = `
+                        inset 0 0 ${100 * shadowOpacity}px rgba(0,0,0, ${shadowOpacity * 0.9}),
+                        0 10px 40px rgba(6, 182, 212, ${lightOpacity * 0.4})
+                    `;
+                        image.style.filter = `brightness(${0.5 + (visibility * 0.5)})`;
+                    });
+                },
+                { threshold: Array.from({ length: 50 }, (_, i) => i / 50), rootMargin: '0px 0px -50px 0px' }
+            );
+            observer.observe(container);
+            return () => { if (container) observer.unobserve(container); };
+        }, []);
+
+        return (
+            <div ref={containerRef} className="overflow-visible p-4 flex items-center justify-center">
+                <img
+                    ref={imgRef}
+                    src={src}
+                    alt={alt}
+                    className={`${className} rounded-2xl border-4 border-slate-700 transition-transform duration-100 linear`}
+                    style={{ transform: 'scale(0.8)', boxShadow: 'inset 0 0 100px rgba(0,0,0, 0.9)', filter: 'brightness(0.5)' }}
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML = '<div class="text-cyan-500 text-xs font-mono p-4 border border-cyan-900 rounded bg-slate-900">Imagem não carregada</div>'
+                    }}
+                />
+            </div>
+        );
+    };
 
     return (
         <div className="min-h-screen bg-[#030712] text-slate-100 p-4 sm:p-6 lg:p-8 font-sans space-y-8">
@@ -389,6 +462,8 @@ export default function ArquiteturaDeRedes() {
                                     </div>
                                 );
                             })()}
+                            <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" />
+
                         </div>
                     </section>
                 </div>
@@ -405,26 +480,32 @@ export default function ArquiteturaDeRedes() {
 
                         <div className="flex flex-col items-center justify-between border-b border-slate-800 pb-4 gap-3 mb-6">
                             <div className="flex items-center justify-between w-full">
-                                <div className="p-2.5 rounded-lg bg-rose-950/60 text-rose-400 border border-rose-800/50">
-                                    <ShieldAlert className="w-6 h-6" />
-                                </div>
-                                <div className="text-center w-full">
-                                    <h2 className="text-2xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                                        2 - A Anatomia do Dado: Desconstruindo o Encapsulamento para Operações de Red Team
-                                    </h2>
-                                    <span className="text-xs font-mono text-slate-400 block mt-1">
-                                        Modo Ofensivo • Exfiltração, C2 &amp; Evasão de IDS/IPS
-                                    </span>
-                                </div>
-                                <span className="text-[10px] font-mono bg-rose-950 text-rose-300 px-2.5 py-1 rounded border border-rose-800 font-bold">
-                                    Vetor Avançado
-                                </span>
-                            </div>
 
+                                <div className="text-center w-full">
+                                    <div className="p-2.5 rounded-lg bg-rose-950/60 text-rose-400 border border-rose-800/50">
+                                        <ShieldAlert className="w-6 h-6" />
+                                        <h2 className="text-2xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                                            2 - A Anatomia do Dado: <br />
+                                            Desconstruindo o Encapsulamento para Operações de Red Team
+                                        </h2>
+                                        <span className="text-xs font-mono text-slate-400 block mt-1">
+                                            Modo Ofensivo • Exfiltração, C2 &amp; Evasão de IDS/IPS
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
-                            Para um operador de Red Team, a rede não constitui apenas um meio de transporte, mas sim um campo de manobra, exfiltração e comando e controlo (C2). A capacidade de exfiltrar dados, efetuar movimentação lateral através de <strong className="text-cyan-400">spoofing</strong> e <strong className="text-cyan-400">tunneling</strong>, ou evadir sistemas de deteção (IDS/IPS) sem despoletar alarmes, depende estritamente da compreensão de como a informação é empacotada antes de abandonar a interface de rede.
+
+                            Para um operador de Red Team, a rede não constitui apenas um meio de transporte, mas sim um campo de manobra, exfiltração e comando e controlo (C2).
+                            A capacidade de exfiltrar dados, efetuar movimentação lateral através de <strong className="text-cyan-400">spoofing</strong> e <strong className="text-cyan-400">tunneling</strong>,
+                            ou evadir sistemas de deteção (IDS/IPS) sem despoletar alarmes, depende estritamente da compreensão de como a informação é empacotada antes de abandonar a interface de rede.   <br /> <br />
+                            O conceito central reside no encapsulamento — o processo de adicionar cabeçalhos (headers) e rodapés (trailers) a um bloco de dados à medida que este desce pelas camadas do modelo OSI. <br /> <br />
+                            Esta arquitetura assemelha-se a um sistema de bonecas russas (Matryoshka): cada camada adiciona a sua própria camada de controlo à estrutura superior,
+                            fornecendo os metadados necessários para que o salto seguinte na rede saiba como processar a informação. <br /> <br />
+                            Compreender a distinção rigorosa entre segmento,
+                            pacote e frame permite ao operador transitar de uma execução de exploit cega para uma manipulação cirúrgica do tráfego, contornando firewalls e implementando túneis encobertos (como DNS ou ICMP) que passam despercebidos aos sistemas de monitorização
                         </p>
 
                         {/* Grid de Conceitos-Chave (Matryoshka e Unidades de Dados) */}
@@ -466,7 +547,8 @@ export default function ArquiteturaDeRedes() {
 
                 </div>
 
-                {/* ==================== SEÇÃO: ANATOMIA DO DADO (RED TEAM) ==================== */}
+                {/* ==================== SEÇÃO: O Conceito de Encapsulamento (RED TEAM) ==================== */}
+
 
                 <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
                     {/* Efeito de luz de fundo sutil */}
@@ -488,9 +570,7 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                FUNDAMENTOS LÓGICOS
-                            </span>
+
                         </div>
 
                         {/* Texto Descritivo */}
@@ -499,7 +579,7 @@ export default function ArquiteturaDeRedes() {
                         </p>
 
                         {/* Caixa de Perspetiva de Segurança (Red Team) */}
-                        <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 relative overflow-hidden">
+                        <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 relative overflow-hidden mb-6">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-red-900/10 rounded-full blur-2xl pointer-events-none"></div>
 
                             <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-2">
@@ -511,6 +591,130 @@ export default function ArquiteturaDeRedes() {
                                 Para o Red Team, a manipulação destes cabeçalhos permite a injeção de pacotes malformados para induzir falhas de funcionamento (<strong className="text-red-400">Denial of Service</strong>), a alteração de endereços de origem para ocultação de identidade, ou a injeção de comandos em protocolos concebidos para finalidades estritamente distintas.
                             </p>
                         </div>
+
+                        {/* ==================== SIMULADOR INTERATIVO DE ENCAPSULAMENTO ==================== */}
+                        <div className="mt-6 pt-6 border-t border-slate-800/80">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2">
+                                <div>
+                                    <h4 className="text-sm font-bold text-cyan-400 font-mono uppercase tracking-wider flex items-center gap-2">
+                                        <span>&gt;_</span> Simulador Interativo: Fluxo Matryoshka
+                                    </h4>
+                                    <p className="text-[11px] text-slate-400">Navegue pelas camadas para inspecionar os headers e o payload encapsulado.</p>
+                                </div>
+
+                                {/* Controles de Navegação */}
+                                <div className="flex items-center gap-2 font-mono self-stretch sm:self-auto justify-end">
+                                    <button
+                                        onClick={handlePrev}
+                                        disabled={step === 0}
+                                        className={`px-3 py-1.5 rounded border text-[10px] uppercase tracking-wider transition-all flex items-center gap-1 ${step === 0
+                                            ? 'border-slate-800 text-slate-600 bg-slate-900/40 cursor-not-allowed'
+                                            : 'border-cyan-900/80 text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]'
+                                            }`}
+                                    >
+                                        <ChevronLeft className="w-3 h-3" /> Subir
+                                    </button>
+
+                                    <button
+                                        onClick={handleReset}
+                                        title="Resetar"
+                                        className="p-1.5 rounded border border-slate-800 text-slate-400 bg-slate-900/60 hover:text-white"
+                                    >
+                                        <RotateCcw className="w-3.5 h-3.5" />
+                                    </button>
+
+                                    <button
+                                        onClick={handleNext}
+                                        disabled={step === 4}
+                                        className={`px-3 py-1.5 rounded border text-[10px] uppercase tracking-wider transition-all flex items-center gap-1 ${step === 4
+                                            ? 'border-slate-800 text-slate-600 bg-slate-900/40 cursor-not-allowed'
+                                            : 'border-red-900/80 text-red-400 bg-red-950/40 hover:bg-red-900/40 hover:shadow-[0_0_10px_rgba(220,38,38,0.2)]'
+                                            }`}
+                                    >
+                                        Descer <ChevronRight className="w-3 h-3" />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Bloco de Camadas Aninhadas */}
+                            <div className="font-mono text-xs space-y-2.5 bg-slate-950 p-4 rounded-xl border border-slate-800 shadow-[inset_0_0_15px_rgba(0,0,0,0.8)]">
+
+                                {/* Camada 7 / App */}
+                                <div className={`p-2.5 rounded border transition-all duration-300 ${step >= 0 ? 'border-purple-500/50 bg-purple-950/20 text-purple-200' : 'border-slate-900 text-slate-700 opacity-30'
+                                    }`}>
+                                    <div className="flex justify-between items-center text-[11px] mb-1">
+                                        <span className="font-bold text-purple-400">[ L7: APLICAÇÃO ]</span>
+                                        <span className="text-[10px] text-slate-400">HTTP / Payload Direto</span>
+                                    </div>
+                                    <div className="bg-black/40 p-1.5 rounded border border-purple-900/30 text-[11px] text-purple-300 truncate">
+                                        "GET /index.html HTTP/1.1 \r\n Host: target.corp"
+                                    </div>
+                                </div>
+
+                                {/* Camada 4 / Transporte */}
+                                <div className={`p-2.5 rounded border transition-all duration-300 ${step >= 1 ? 'border-amber-500/50 bg-amber-950/20 text-amber-200' : 'border-slate-900 text-slate-700 opacity-30'
+                                    }`}>
+                                    <div className="flex justify-between items-center text-[11px] mb-1">
+                                        <span className="font-bold text-amber-400">[ L4: TRANSPORTE ]</span>
+                                        <span className="text-[10px] text-slate-400">TCP Segment</span>
+                                    </div>
+                                    <div className="bg-black/40 p-1.5 rounded border border-amber-900/30 text-[11px] text-amber-300">
+                                        <span className="text-slate-500">Header TCP:</span> [Src: 51234 | Dst: 443 | Seq: 1 | SYN] {step >= 1 && <span className="text-amber-400 text-[10px] block mt-0.5">↳ Envolve Payload L7</span>}
+                                    </div>
+                                </div>
+
+                                {/* Camada 3 / Rede */}
+                                <div className={`p-2.5 rounded border transition-all duration-300 ${step >= 2 ? 'border-red-500/50 bg-red-950/20 text-red-200' : 'border-slate-900 text-slate-700 opacity-30'
+                                    }`}>
+                                    <div className="flex justify-between items-center text-[11px] mb-1">
+                                        <span className="font-bold text-red-400">[ L3: REDE ]</span>
+                                        <span className="text-[10px] text-slate-400">IPv4 Packet</span>
+                                    </div>
+                                    <div className="bg-black/40 p-1.5 rounded border border-red-900/30 text-[11px] text-red-300">
+                                        <span className="text-slate-500">Header IP:</span> [Src: 192.168.1.50 | Dst: 10.0.0.1 | TTL: 64] {step >= 2 && <span className="text-red-400 text-[10px] block mt-0.5">↳ Envolve Segmento L4</span>}
+                                    </div>
+                                </div>
+
+                                {/* Camada 2 / Enlace */}
+                                <div className={`p-2.5 rounded border transition-all duration-300 ${step >= 3 ? 'border-cyan-500/50 bg-cyan-950/20 text-cyan-200' : 'border-slate-900 text-slate-700 opacity-30'
+                                    }`}>
+                                    <div className="flex justify-between items-center text-[11px] mb-1">
+                                        <span className="font-bold text-cyan-400">[ L2: ENLACE ]</span>
+                                        <span className="text-[10px] text-slate-400">Ethernet Frame</span>
+                                    </div>
+                                    <div className="bg-black/40 p-1.5 rounded border border-cyan-900/30 text-[11px] text-cyan-300">
+                                        <span className="text-slate-500">Header MAC:</span> [AA:BB:CC... → DD:EE:FF...] | <span className="text-slate-500">FCS:</span> [Valid] {step >= 3 && <span className="text-cyan-400 text-[10px] block mt-0.5">↳ Envolve Pacote L3</span>}
+                                    </div>
+                                </div>
+
+                                {/* Camada 1 / Física */}
+                                <div className={`p-2.5 rounded border transition-all duration-300 ${step >= 4 ? 'border-emerald-500/50 bg-emerald-950/20 text-emerald-200' : 'border-slate-900 text-slate-700 opacity-30'
+                                    }`}>
+                                    <div className="flex justify-between items-center text-[11px] mb-1">
+                                        <span className="font-bold text-emerald-400">[ L1: FÍSICA ]</span>
+                                        <span className="text-[10px] text-slate-400">Sinais / Bits</span>
+                                    </div>
+                                    <div className="bg-black/40 p-1.5 rounded border border-emerald-900/30 text-[10px] text-emerald-300 truncate font-mono">
+                                        {step >= 4 ? "01000111 01000101 01010100 00100000 00101111..." : "[ Aguardando modulação de sinal no meio físico... ]"}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Status de Orientação Red Team footer */}
+                            <div className="mt-3 p-2.5 rounded bg-slate-900/70 border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
+                                <span><strong className="text-red-400">&gt;_ Estado:</strong> {
+                                    step === 0 ? "Payload puro em memória antes do encapsulamento." :
+                                        step === 1 ? "Segmentação TCP (Portas e Flags ativas)." :
+                                            step === 2 ? "Pacote IP formado (Roteamento e TTL definidos)." :
+                                                step === 3 ? "Quadro Ethernet montado (Endereçamento MAC local)." :
+                                                    step === 4 ? "Transmissão física efetuada pela interface de rede." :
+                                                        "Estado desconhecido"
+                                }</span>
+                                <span className="text-[10px] text-slate-500 font-mono">Camada Ativa: L{7 - step}</span>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -528,16 +732,15 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        2.2 O Segmento (Camada de Transporte — L4: TCP/UDP)
+                                        2.2 O Segmento <br />
+                                        Camada de Transporte TCP/UDP — L4
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Controlo de Fluxo • Portas Lógicas • State Tracking
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 4 (L4)
-                            </span>
+
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -596,9 +799,7 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 3 (L3)
-                            </span>
+
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -693,7 +894,12 @@ export default function ArquiteturaDeRedes() {
                                     Esta camada constitui o vetor primário para operações em redes locais (LAN). Técnicas como o <strong className="text-red-400">ARP Spoofing</strong> (ou <em>ARP Poisoning</em>) e o <strong className="text-red-400">MAC Flooding</strong> adulteram as tabelas de encaminhamento dos switches, permitindo a interceção de frames destinados a terceiros e viabilizando ataques de Homem no Meio (<strong className="text-purple-400">Man-in-the-Middle - MitM</strong>) antes mesmo que o tráfego atinja o gateway de saída.
                                 </p>
                             </div>
-                        </div>
+
+
+                        </div><br /> <br />
+
+                        <TunnelImage src="publi2.jpeg" alt="Evolução Placa Mãe" className="w-full h-full object-cover" /> <br />
+
                     </div>
                 </section>
 
@@ -799,7 +1005,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                       3 - Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
+                                        3 - Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
                                     </h3>
                                     <span className="text-xs font-mono text-red-400">
                                         Pontos de Controlo • Movimentação Lateral • Evasão de SOC
@@ -910,7 +1116,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                       3.2 - Switch (A Inteligência Local)
+                                        3.2 - Switch (A Inteligência Local)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 2 (L2) • CAM Table • MAC Flooding &amp; VLAN Hopping
@@ -1043,7 +1249,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                       3.4 - Firewall (O Sentinela)
+                                        3.4 - Firewall (O Sentinela)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 3 a 7 • Stateful vs. NGFW • Evasão de Perímetro
@@ -1122,7 +1328,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                       3.5 - Load Balancer (O Distribuidor de Carga)
+                                        3.5 - Load Balancer (O Distribuidor de Carga)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 4 ou 7 • Round Robin • Session Affinity
@@ -1240,56 +1446,77 @@ export default function ArquiteturaDeRedes() {
             </article>
 
             {/* ==================== RODAPÉ COM REFERÊNCIAS ABNT (PADRÃO UTFPR/REVOLUXTI) ==================== */}
-            <footer className="mt-12 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden font-sans">
-                {/* Efeito de luz azul de fundo */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+<footer className="mt-12 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden font-sans">
+    {/* Efeito de luz azul de fundo */}
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-                {/* CAVEIRA GIGANTE SUAVE NO FUNDO */}
-                <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
-                    <Skull size={300} className="text-lime-400 blur-sm" />
-                </div>
+    {/* CAVEIRA GIGANTE SUAVE NO FUNDO */}
+    <div className="absolute -bottom-1 -left-10 opacity-[0.05] pointer-events-none rotate-12 z-0">
+        <Skull size={300} className="text-lime-400 blur-sm" />
+    </div>
 
-                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-                    <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
-                        <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
-                            <BookOpen className="w-6 h-6 text-slate-400" />
-                        </div>
-                        <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas</h3>
-                    </div>
+    <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
+        <div className="flex flex-col items-center gap-4 mb-10 opacity-70">
+            <div className="p-3 bg-slate-900 rounded-full border border-slate-800">
+                <BookOpen className="w-6 h-6 text-slate-400" />
+            </div>
+            <h3 className="uppercase tracking-[0.2em] text-sm font-bold text-slate-400">Referências Bibliográficas</h3>
+        </div>
 
-                    <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-12">
-                        <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] sm:text-[11px] text-slate-400 font-mono space-y-3">
-                            <p>
-                                ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. <strong>ABNT NBR 6023</strong>: Informação e documentação — Referências — Elaboração. Rio de Janeiro: ABNT, 2018.
-                            </p>
-                            <p>
-                                KUROSE, James F.; ROSS, Keith W. <strong>Redes de Computadores e a Internet</strong>: Uma Abordagem Top-Down. 8. ed. São Paulo: Pearson Education do Brasil, 2021.
-                            </p>
-                            <p>
-                                TANENBAUM, Andrew S.; WETHERALL, David J. <strong>Redes de Computadores</strong>. 5. ed. São Paulo: Pearson Prentice Hall, 2011.
-                            </p>
-                        </div>
-                        <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] sm:text-[11px] text-slate-400 font-mono space-y-3">
-                            <p>
-                                VINT, Cerf; KAHN, Robert. A Protocol for Packet Network Intercommunication. <em>IEEE Transactions on Communications</em>, v. 22, n. 5, p. 637–648, 1974.
-                            </p>
-                            <p>
-                                ZIMMERMANN, Hubert. OSI Reference Model—The ISO Model of Architecture for Open Systems Interconnection. <em>IEEE Transactions on Communications</em>, v. 28, n. 4, p. 425–432, 1980.
-                            </p>
-                        </div>
-                    </div>
+        <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-12">
+            {/* Coluna 1 */}
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] sm:text-[11px] text-slate-400 font-mono space-y-3">
+                <p>
+                    ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. <strong>ABNT NBR 6023</strong>: Informação e documentação — Referências — Elaboração. Rio de Janeiro: ABNT, 2018.
+                </p>
+                <p>
+                    KUROSE, James F.; ROSS, Keith W. <strong>Redes de Computadores e a Internet</strong>: Uma Abordagem Top-Down. 8. ed. São Paulo: Pearson Education do Brasil, 2021.
+                </p>
+                <p>
+                    TANENBAUM, Andrew S.; WETHERALL, David J. <strong>Redes de Computadores</strong>. 5. ed. São Paulo: Pearson Prentice Hall, 2011.
+                </p>
+                <p>
+                    TANENBAUM, A. S. <strong>Redes de computadores</strong>. 5. ed. São Paulo: Pearson, 2011. (Obra fundamental para a definição de arquiteturas de rede e camadas).
+                </p>
+                <p>
+                    FOROUZAN, Behrouz A. <strong>Data Communications and Networking</strong>. (Referência técnica para o funcionamento de protocolos de rede e modelos de interconexão).
+                </p>
+                <p>
+                    UNIVERSIDAD ARTURO MICHELENA. <strong>Informe Teórico sobre Redes</strong>. (Documentação sobre fundamentos de conectividade, classificação de redes e implementação do modelo OSI).
+                </p>
+            </div>
 
-                    <div className="flex flex-col items-center border-t border-slate-900 pt-8">
-                        <Skull
-                            className="mb-6 w-12 h-12 text-lime-400 drop-shadow-[0_0_15px_rgba(220,38,38,0.9)] hover:scale-110 transition-transform duration-300"
-                            strokeWidth={1.5}
-                        />
-                        <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
-                        <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
-                        <p className="text-cyan-600/60 text-xs font-mono mt-6">REVOLUXTI © 2026 - Todos os direitos reservados</p>
-                    </div>
-                </div>
-            </footer>
+            {/* Coluna 2 */}
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-800 text-[10px] sm:text-[11px] text-slate-400 font-mono space-y-3">
+                <p>
+                    VINT, Cerf; KAHN, Robert. A Protocol for Packet Network Intercommunication. <em>IEEE Transactions on Communications</em>, v. 22, n. 5, p. 637–648, 1974.
+                </p>
+                <p>
+                    ZIMMERMANN, Hubert. OSI Reference Model—The ISO Model of Architecture for Open Systems Interconnection. <em>IEEE Transactions on Communications</em>, v. 28, n. 4, p. 425–432, 1980.
+                </p>
+                <p>
+                    MANUAL DE REDES INFORMÁTICAS. <strong>Manual Completo de Redes Informáticas</strong>. Disponível em: Scribd. (Base para a distinção entre a pilha TCP/IP e o Modelo de Referência OSI).
+                </p>
+                <p>
+                    COMPUTER NETWORKS ESSENTIALS. <strong>Educational Notes on OSI, Routing and Switching</strong>. (Material didático utilizado para as definições de roteamento, comutação e segurança).
+                </p>
+                <p>
+                    FUNDAMENTOS BÁSICOS DE LAS REDES. Material de curso universitário, Venezuela. (Fonte para definições de endereçamento IP e a função de máscaras de rede).
+                </p>
+            </div>
+        </div>
+
+        <div className="flex flex-col items-center border-t border-slate-900 pt-8">
+            <Skull
+                className="mb-6 w-12 h-12 text-lime-400 drop-shadow-[0_0_15px_rgba(220,38,38,0.9)] hover:scale-110 transition-transform duration-300"
+                strokeWidth={1.5}
+            />
+            <p className="text-slate-300 font-bold mb-2 tracking-wide">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+            <p className="text-slate-500 text-sm mb-1 uppercase tracking-widest">Engenharia de Computação</p>
+            <p className="text-cyan-600/60 text-xs font-mono mt-6">REVOLUXTI © 2026 - Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
 
         </div>
     );

@@ -98,20 +98,20 @@ const MotherboardOffboardArticle = () => {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto relative z-10 text-center">
-        <hgroup>
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-                            SALA DO ENIAC 1946 <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-                                Capítulo 02
-                            </span>
-                        </h1>
-                        <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
-                            Placa Mãe Parte II Off-board<br />
-                           
-                        </h2>
-                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
-                        <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
-                    </hgroup>
+          <hgroup>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+              SALA DO ENIAC 1946 <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                Capítulo 02
+              </span>
+            </h1>
+            <h2 className="text-2xl md:text-3xl text-slate-300 font-light mb-10 leading-relaxed">
+              Placa Mãe Parte II Off-board<br />
+
+            </h2>
+            <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Universidade Tecnológica Federal do Paraná<span className="hidden md:inline">|</span></p>
+            <p className="text-cyan-400 font-mono text-sm tracking-[0.2em] uppercase mb-4"><span className="hidden md:inline">|</span>Câmpus pato Branco<span className="hidden md:inline">|</span></p>
+          </hgroup>
 
           {/* Badge do Autor (Estilo Vitrine) */}
           <div className="inline-flex flex-col md:flex-row items-center gap-5 bg-slate-950/50 p-6 md:py-3 md:px-8 rounded-2xl md:rounded-full border border-fuchsia-500/40 backdrop-blur-md shadow-[0_0_30px_rgba(217,70,239,0.1)]">
