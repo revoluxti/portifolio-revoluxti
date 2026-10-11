@@ -799,7 +799,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
+                                       3 - Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
                                     </h3>
                                     <span className="text-xs font-mono text-red-400">
                                         Pontos de Controlo • Movimentação Lateral • Evasão de SOC
@@ -849,7 +849,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        1. Hub (O Ponto Cego)
+                                        3.1 - Hub (O Ponto Cego)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada Física • Broadcast Cego • Sniffing Passivo
@@ -910,7 +910,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        2. Switch (A Inteligência Local)
+                                       3.2 - Switch (A Inteligência Local)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 2 (L2) • CAM Table • MAC Flooding &amp; VLAN Hopping
@@ -981,7 +981,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3. Roteador (A Fronteira Logística)
+                                        3.3 - Roteador (A Fronteira Logística)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 3 (Rede) • Tabelas de Roteamento • Movimentação Lateral
@@ -1043,7 +1043,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        Firewall (O Sentinela)
+                                       3.4 - Firewall (O Sentinela)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 3 a 7 • Stateful vs. NGFW • Evasão de Perímetro
@@ -1122,7 +1122,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        Load Balancer (O Distribuidor de Carga)
+                                       3.5 - Load Balancer (O Distribuidor de Carga)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 4 ou 7 • Round Robin • Session Affinity
@@ -1185,7 +1185,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        Proxy (O Intermediário)
+                                        3.6 - Proxy (O Intermediário)
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 7 (Aplicação) • Forward/Reverse • Request Smuggling
