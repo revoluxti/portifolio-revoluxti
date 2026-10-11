@@ -485,7 +485,7 @@ export default function ArquiteturaDeRedes() {
                                     <div className="p-2.5 rounded-lg bg-rose-950/60 text-rose-400 border border-rose-800/50">
                                         <ShieldAlert className="w-6 h-6" />
                                         <h2 className="text-2xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                                            2 - A Anatomia do Dado: <br />
+                                            2 - A Anatomia do Dado:
                                             Desconstruindo o Encapsulamento para Operações de Red Team
                                         </h2>
                                         <span className="text-xs font-mono text-slate-400 block mt-1">
@@ -792,7 +792,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        2.3 O Pacote (Camada de Rede — L3)
+                                        2.3 O Pacote <br />
+                                        Camada de Rede — L3
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Encaminhamento Global • Endereçamento IP • TTL Tracking
@@ -851,16 +852,15 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        2.4 O Frame (Camada de Enlace — L2)
+                                        2.4 O Frame <br />
+                                        Camada de Enlace — L2
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Endereçamento Físico • Ethernet • MitM &amp; ARP Poisoning
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 2 (L2)
-                            </span>
+                            
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -945,44 +945,44 @@ export default function ArquiteturaDeRedes() {
                                 Para o operador ofensivo, o principal desafio reside na ocultação de conteúdos maliciosos perante sistemas de deteção avançados (IDS, IPS e antivírus). Para mitigar a inspeção baseada em assinaturas, aplicam-se metodologias rigorosas:
                             </p>
 
-                            {/* Grid com as Técnicas */}
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {/* Tunelamento */}
-                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
-                                    <div>
-                                        <span className="text-xs font-mono font-bold text-amber-400 block mb-1">
-                                            🌐 Tunelamento (Tunneling)
-                                        </span>
-                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
-                                            Envolve o encapsulamento de protocolos não autorizados dentro de fluxos legítimos e permitidos. Um exemplo clássico é o túnel DNS, no qual comandos operacionais são inseridos em consultas de resolução de nomes, encapsuladas em pacotes UDP e ignoradas por firewalls mal configurados até atingirem o servidor de controlo do atacante.
-                                        </p>
-                                    </div>
-                                </div>
+                            {/* Grid com as Técnicas (Retângulos Horizontais) */}
+<div className="grid grid-cols-1 gap-4">
+    {/* Tunelamento */}
+    <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div>
+            <span className="text-xs sm:text-sm font-mono font-bold text-amber-400 block mb-1">
+                Tunelamento (Tunneling)
+            </span>
+            <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                Envolve o encapsulamento de protocolos não autorizados dentro de fluxos legítimos e permitidos. Um exemplo clássico é o túnel DNS, no qual comandos operacionais são inseridos em consultas de resolução de nomes, encapsuladas em pacotes UDP e ignoradas por firewalls mal configurados até atingirem o servidor de controlo do atacante.
+            </p>
+        </div>
+    </div>
 
-                                {/* Obfuscação e Criptografia */}
-                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
-                                    <div>
-                                        <span className="text-xs font-mono font-bold text-cyan-400 block mb-1">
-                                            🔐 Obfuscação &amp; Criptografia
-                                        </span>
-                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
-                                            Modificação da representação estrutural ou cifragem do payload para invalidar assinaturas estáticas detetáveis por motores de inspeção profunda de pacotes (DPI).
-                                        </p>
-                                    </div>
-                                </div>
+    {/* Obfuscação e Criptografia */}
+    <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div>
+            <span className="text-xs sm:text-sm font-mono font-bold text-cyan-400 block mb-1">
+                Obfuscação &amp; Criptografia
+            </span>
+            <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                Modificação da representação estrutural ou cifragem do payload para invalidar assinaturas estáticas detetáveis por motores de inspeção profunda de pacotes (DPI).
+            </p>
+        </div>
+    </div>
 
-                                {/* Fragmentação */}
-                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
-                                    <div>
-                                        <span className="text-xs font-mono font-bold text-purple-400 block mb-1">
-                                            ✂️ Fragmentação
-                                        </span>
-                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
-                                            A divisão deliberada do conteúdo malicioso em frações diminutas, dificultando a reconstrução temporal e a análise heurística por parte de sondas de segurança na rede.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+    {/* Fragmentação */}
+    <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div>
+            <span className="text-xs sm:text-sm font-mono font-bold text-purple-400 block mb-1">
+                Fragmentação
+            </span>
+            <p className="text-xs text-slate-400 leading-relaxed text-justify">
+                A divisão deliberada do conteúdo malicioso em frações diminutas, dificultando a reconstrução temporal e a análise heurística por parte de sondas de segurança na rede.
+            </p>
+        </div>
+    </div>
+</div>
                         </div>
                     </div>
                 </section>
@@ -1002,7 +1002,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3 - Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
+                                        3 - Infraestrutura de Rede: <br />
+                                        A Topologia sob a Ótica de Red Team
                                     </h3>
                                     <span className="text-xs font-mono text-red-400">
                                         Pontos de Controlo • Movimentação Lateral • Evasão de SOC
@@ -1049,7 +1050,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.1 - Hub (O Ponto Cego)
+                                        3.1 - Hub  O Ponto Cego
+                                       
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada Física • Broadcast Cego • Sniffing Passivo
@@ -1108,7 +1110,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.2 - Switch (A Inteligência Local)
+                                        3.2 - Switch A Inteligência Local
+                                        
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 2 (L2) • CAM Table • MAC Flooding &amp; VLAN Hopping
@@ -1176,7 +1179,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.3 - Roteador (A Fronteira Logística)
+                                        3.3 - Roteador A Fronteira Logística
+                                        
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 3 (Rede) • Tabelas de Roteamento • Movimentação Lateral
@@ -1235,7 +1239,8 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.4 - Firewall (O Sentinela)
+                                        3.4 - Firewall  O Sentinela
+                                       
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 3 a 7 • Stateful vs. NGFW • Evasão de Perímetro
@@ -1311,7 +1316,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.5 - Load Balancer (O Distribuidor de Carga)
+                                        3.5 - Load Balancer O Distribuidor de Carga
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camadas 4 ou 7 • Round Robin • Session Affinity
@@ -1371,7 +1376,7 @@ export default function ArquiteturaDeRedes() {
                                 </div>
                                 <div>
                                     <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                                        3.6 - Proxy (O Intermediário)
+                                        3.6 - Proxy O Intermediário
                                     </h3>
                                     <span className="text-xs font-mono text-cyan-400">
                                         Camada 7 (Aplicação) • Forward/Reverse • Request Smuggling
