@@ -925,9 +925,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-red-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                RED TEAM TACTICS
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1012,9 +1009,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-red-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                TOPOLOGIA OFENSIVA
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1062,9 +1056,7 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 1 (L1)
-                            </span>
+                            
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1123,9 +1115,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 2 (L2)
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1194,9 +1183,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                CAMADA 3 (L3)
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1256,9 +1242,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                SEGURANÇA DE PERÍMETRO
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1335,9 +1318,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                DISTRIBUIÇÃO DE TRÁFEGO
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
@@ -1398,9 +1378,6 @@ export default function ArquiteturaDeRedes() {
                                     </span>
                                 </div>
                             </div>
-                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
-                                INTERMEDIAÇÃO DE TRÁFEGO
-                            </span>
                         </div>
 
                         {/* Texto Descritivo Principal */}
