@@ -13,7 +13,12 @@ import {
     ChevronRight,
     CheckCircle2,
     CpuIcon,
-    Activity
+    Activity,
+    Router,
+    HardDrive,
+    Shield,
+    Flame,
+    GitMerge
 } from 'lucide-react';
 
 export default function ArquiteturaDeRedes() {
@@ -28,6 +33,71 @@ export default function ArquiteturaDeRedes() {
         { id: 3, name: "Camada 3: Rede", proto: "IP (IPv4/IPv6), ICMP, Roteadores", desc: "Responsável pelo roteamento global dos pacotes entre redes distintas com base em topologia." },
         { id: 2, name: "Camada 2: Enlace de Dados", proto: "Ethernet, Endereços MAC, Switches", desc: "Organiza os bits em quadros (frames), gerencia o acesso ao meio e endereçamento físico." },
         { id: 1, name: "Camada 1: Física", proto: "Cabos de Cobre, Fibras, Rádio, Bits", desc: "Transmissão dos bits brutos pelo meio físico. Trata de voltagens, frequências e conectores." }
+    ];
+    {/*TCP-IP*/ }
+    const [selectedTcpLayer, setSelectedTcpLayer] = useState(1);
+
+    const tcpLayers = [
+        {
+            id: 1,
+            name: "1. Acesso à Rede",
+            desc: "Combina as camadas Físicas e Enlace do modelo OSI, interagindo diretamente com o hardware local, endereçamento físico e os meios de transmissão.",
+            proto: "Ethernet, Wi-Fi, MAC, ARP"
+        },
+        {
+            id: 2,
+            name: "2. Internet",
+            desc: "Equivalente à camada de Rede do OSI, responsável pelo endereçamento lógico e pelo roteamento global de pacotes entre sistemas distintos na rede.",
+            proto: "IP (IPv4/IPv6), ICMP, IPsec"
+        },
+        {
+            id: 3,
+            name: "3. Transporte",
+            desc: "Gerencia fluxos de dados ponta a ponta via TCP e UDP, controlando portas lógicas, controle de fluxo, confiabilidade e integridade das sessões.",
+            proto: "TCP, UDP"
+        },
+        {
+            id: 4,
+            name: "4. Aplicação",
+            desc: "Agrupa as funções de Sessão, Apresentação e Aplicação do modelo OSI, lidando diretamente com os protocolos de alto nível utilizados pelas aplicações.",
+            proto: "HTTP, HTTPS, DNS, SSH, FTP, SMTP"
+        }
+    ];
+
+    {/*Hibrido*/ }
+    const [selectedHybridLayer, setSelectedHybridLayer] = useState(5);
+
+    const hybridLayers = [
+        {
+            id: 5,
+            name: "5. Camada de Aplicação",
+            desc: "Combina as camadas de Aplicação, Apresentação e Sessão do modelo OSI. É onde a interação direta com o utilizador e os softwares ocorre, gerando o payload bruto.",
+            proto: "HTTP, HTTPS, DNS, SSH, FTP, SMTP"
+        },
+        {
+            id: 4,
+            name: "4. Camada de Transporte",
+            desc: "Responsável pelo fluxo de dados ponta a ponta, controle de portas lógicas e garantia de integridade nas conexões entre aplicações.",
+            proto: "TCP, UDP"
+        },
+        {
+            id: 3,
+            name: "3. Camada de Rede (Internet)",
+            desc: "Focada no endereçamento lógico global (IP) e no roteamento de pacotes através de diferentes redes e sub-redes topológicas.",
+            proto: "IPv4, IPv6, ICMP, BGP, OSPF"
+        },
+        {
+            id: 2,
+            name: "2. Camada de Enlace (Data Link)",
+            desc: "Gerencia o endereçamento físico local através de endereços MAC, controle de acesso ao meio físico e detecção de erros locais.",
+            proto: "Ethernet, MAC, ARP, Switches"
+        },
+        {
+            id: 1,
+            name: "1. Camada Física",
+            desc: "Converte os frames em sinais elétricos, luminosos ou eletromagnéticos para a transmissão real dos bits brutos pelo hardware de rede.",
+            proto: "Cabos de Cobre (UTP), Fibra Ótica, Espectro RF (Wi-Fi), Hubs"
+        }
     ];
 
     return (
@@ -81,7 +151,7 @@ export default function ArquiteturaDeRedes() {
                     </div>
                 </div>
             </div>
-            
+
             {/* ==================== CABEÇALHO DO CAPÍTULO ==================== */}
             <header className="max-w-7xl mx-auto border-b border-slate-800 pb-6">
                 <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
@@ -90,7 +160,7 @@ export default function ArquiteturaDeRedes() {
                 </div>
                 <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight flex items-center gap-3">
                     <Globe className="w-8 h-8 text-cyan-400 shrink-0" />
-                    Arquitetura de Redes &amp; Modelos de Comunicação
+                    1 - Arquitetura de Redes &amp; Modelos de Comunicação
                 </h1>
                 <blockquote className="mt-3 border-l-4 border-cyan-500 pl-4 italic text-slate-400 text-sm sm:text-base font-mono">
                     "Uma informação só possui valor quando consegue chegar ao destino."
@@ -100,9 +170,11 @@ export default function ArquiteturaDeRedes() {
                 </p>
             </header>
 
+
+
             {/* ==================== CONTEÚDO PRINCIPAL EM GRID ==================== */}
-            <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-                
+            <article className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
                 {/* ==================== COLUNA ESQUERDA ==================== */}
                 <div className="space-y-6">
 
@@ -110,7 +182,7 @@ export default function ArquiteturaDeRedes() {
                     <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 shadow-xl">
                         <div className="flex items-center gap-2 border-b border-slate-800 pb-3 mb-4">
                             <Cpu className="w-5 h-5 text-emerald-400" />
-                            <h2 className="text-lg font-bold text-white">1. Introdução à Comunicação de Dados</h2>
+                            <h2 className="text-lg font-bold text-white">1.1 - Introdução à Comunicação de Dados</h2>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
                             Nos primórdios da computação, os computadores eram ilhas isoladas. A comunicação entre duas máquinas exigia conexões proprietárias e cabos físicos específicos, onde cada fabricante ditava as próprias regras. Com o crescimento exponencial da necessidade de troca de informações, tornou-se imperativo criar uma linguagem universal.
@@ -127,7 +199,7 @@ export default function ArquiteturaDeRedes() {
                     <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 shadow-xl">
                         <div className="flex items-center gap-2 border-b border-slate-800 pb-3 mb-4">
                             <Layers className="w-5 h-5 text-amber-400" />
-                            <h2 className="text-lg font-bold text-white">2. Da Comutação de Circuitos ao Packet Switching</h2>
+                            <h2 className="text-lg font-bold text-white">1.2 - Da Comutação de Circuitos ao Packet Switching</h2>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
                             A evolução das redes de computadores é marcada pela transição de paradigmas analógicos para digitais:
@@ -148,31 +220,12 @@ export default function ArquiteturaDeRedes() {
                         </div>
                     </section>
 
-                    {/* SEÇÃO 5: MODELO HÍBRIDO MODERNO */}
-                    <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 shadow-xl">
-                        <div className="flex items-center gap-2 border-b border-slate-800 pb-3 mb-4">
-                            <Activity className="w-5 h-5 text-blue-400" />
-                            <h2 className="text-lg font-bold text-white">5. O Modelo Híbrido Moderno</h2>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
-                            Na prática da engenharia contemporânea, os profissionais utilizam um <strong>Modelo Híbrido de Referência</strong>.
-                        </p>
-                        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify">
-                            Ele combina a precisão descritiva das 7 camadas do <strong>Modelo OSI</strong> (essencial para diagnósticos profundos no Wireshark e análises de tráfego) com a robustez prática da pilha universal <strong>TCP/IP</strong> que efetivamente opera em todos os sistemas operacionais modernos.
-                        </p>
-                    </section>
-
-                </div>
-
-                {/* ==================== COLUNA DIREITA ==================== */}
-                <div className="space-y-6">
-
                     {/* SEÇÃO 3: O MODELO OSI (INTERATIVO) */}
                     <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 shadow-xl">
                         <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                             <div className="flex items-center gap-2">
                                 <Terminal className="w-5 h-5 text-purple-400" />
-                                <h2 className="text-lg font-bold text-white">3. O Modelo OSI (ISO)</h2>
+                                <h2 className="text-lg font-bold text-white">1.3 - O Modelo OSI (ISO)</h2>
                             </div>
                             <span className="text-[10px] font-mono bg-purple-950 text-purple-300 px-2 py-0.5 rounded border border-purple-800 font-bold">
                                 7 Camadas
@@ -189,11 +242,10 @@ export default function ArquiteturaDeRedes() {
                                     key={layer.id}
                                     type="button"
                                     onClick={() => setSelectedOsiLayer(layer.id)}
-                                    className={`w-full text-left px-3 py-2 rounded-lg font-mono text-xs transition-all flex items-center justify-between cursor-pointer ${
-                                        selectedOsiLayer === layer.id
-                                            ? 'bg-purple-950/80 border border-purple-500 text-purple-200 font-bold shadow-lg shadow-purple-900/30'
-                                            : 'bg-slate-950/60 border border-slate-800 text-slate-400 hover:bg-slate-900'
-                                    }`}
+                                    className={`w-full text-left px-3 py-2 rounded-lg font-mono text-xs transition-all flex items-center justify-between cursor-pointer ${selectedOsiLayer === layer.id
+                                        ? 'bg-purple-950/80 border border-purple-500 text-purple-200 font-bold shadow-lg shadow-purple-900/30'
+                                        : 'bg-slate-950/60 border border-slate-800 text-slate-400 hover:bg-slate-900'
+                                        }`}
                                 >
                                     <span>{layer.name}</span>
                                     <ChevronRight className={`w-3.5 h-3.5 transition-transform ${selectedOsiLayer === layer.id ? 'rotate-90 text-purple-400' : 'text-slate-600'}`} />
@@ -216,44 +268,976 @@ export default function ArquiteturaDeRedes() {
                         })()}
                     </section>
 
+                </div>
+
+                {/* ==================== COLUNA DIREITA ==================== */}
+                <div className="space-y-6">
+
                     {/* SEÇÃO 4: O MODELO TCP/IP */}
-                    <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 shadow-xl">
-                        <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
-                            <div className="flex items-center gap-2">
-                                <Server className="w-5 h-5 text-cyan-400" />
-                                <h2 className="text-lg font-bold text-white">4. O Modelo TCP/IP (DoD)</h2>
+                    <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                        {/* Efeito de luz sutil de fundo */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative z-10">
+                            {/* Cabeçalho */}
+                            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                                <div className="flex items-center gap-2">
+                                    <Layers className="w-5 h-5 text-cyan-400" />
+                                    <h3 className="text-lg font-bold text-white tracking-tight">1.4 - O Modelo TCP/IP (DoD)</h3>
+                                </div>
+                                <span className="text-[10px] font-mono bg-cyan-950 text-cyan-300 px-2.5 py-0.5 rounded border border-cyan-800 font-bold">
+                                    4 Camadas
+                                </span>
                             </div>
-                            <span className="text-[10px] font-mono bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-800 font-bold">
-                                4 Camadas
-                            </span>
+
+                            <p className="text-xs text-slate-300 mb-4 leading-relaxed text-justify">
+                                Desenvolvido pelo Departamento de Defesa dos EUA, é a fundação prática real da internet global. Agrupa as funções estruturais do OSI em 4 camadas operacionais. Clique em uma camada para inspecionar suas atribuições estruturais:
+                            </p>
+
+                            {/* Seletor de Camadas TCP/IP */}
+                            <div className="space-y-2 mb-4">
+                                {tcpLayers.map((layer) => (
+                                    <button
+                                        key={layer.id}
+                                        type="button"
+                                        onClick={() => setSelectedTcpLayer(layer.id)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg font-mono text-xs transition-all flex items-center justify-between cursor-pointer ${selectedTcpLayer === layer.id
+                                            ? 'bg-cyan-950/80 border border-cyan-500 text-cyan-200 font-bold shadow-lg shadow-cyan-900/30'
+                                            : 'bg-slate-950/60 border border-slate-800 text-slate-400 hover:bg-slate-900'
+                                            }`}
+                                    >
+                                        <span>{layer.name}</span>
+                                        <ChevronRight className={`w-3.5 h-3.5 transition-transform ${selectedTcpLayer === layer.id ? 'rotate-90 text-cyan-400' : 'text-slate-600'}`} />
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Detalhe da Camada Selecionada */}
+                            {(() => {
+                                const active = tcpLayers.find(l => l.id === selectedTcpLayer);
+                                return (
+                                    <div className="bg-slate-950 p-4 rounded-xl border border-cyan-500/30 space-y-2 font-mono text-xs">
+                                        <div className="text-cyan-400 font-bold uppercase tracking-wider">{active.name}</div>
+                                        <div className="text-slate-300 font-sans text-xs leading-relaxed">{active.desc}</div>
+                                        <div className="pt-2 border-t border-slate-800 text-[11px] text-cyan-300">
+                                            <strong>Protocolos / Elementos:</strong> {active.proto}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
                         </div>
-                        <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-                            Desenvolvido pelo Departamento de Defesa dos EUA, é a fundação prática real da internet global. Agrupa as funções do OSI em 4 camadas operacionais:
+                    </section>
+
+                    {/* SEÇÃO 5: MODELO HÍBRIDO MODERNO */}
+                    <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                        {/* Efeito de luz sutil de fundo */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative z-10">
+                            {/* Cabeçalho */}
+                            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                                <div className="flex items-center gap-2">
+                                    <Activity className="w-5 h-5 text-emerald-400" />
+                                    <h3 className="text-lg font-bold text-white tracking-tight">1.5 - O Modelo Híbrido Moderno</h3>
+                                </div>
+                                <span className="text-[10px] font-mono bg-emerald-950 text-emerald-300 px-2.5 py-0.5 rounded border border-emerald-800 font-bold">
+                                    Referência Prática
+                                </span>
+                            </div>
+
+                            {/* Texto Descritivo com Citações da Fonte */}
+                            <div className="space-y-3 mb-5 text-xs text-slate-300 leading-relaxed text-justify">
+                                <p>
+                                    Na prática da engenharia contemporânea, os profissionais utilizam um <strong className="text-white">Modelo Híbrido de Referência</strong>[cite: 4].
+                                </p>
+                                <p>
+                                    Ele combina a precisão descritiva das 7 camadas do Modelo OSI (essencial para diagnósticos profundos no Wireshark e análises de tráfego) com a robustez prática da pilha TCP/IP universal que funciona em todos os sistemas operacionais modernos[cite: 4].
+                                </p>
+                                <p className="text-slate-400 font-mono text-[11px]">
+                                    Clique em uma camada abaixo para inspecionar a sua estrutura operacional detalhada:
+                                </p>
+                            </div>
+
+                            {/* Seletor de Camadas do Modelo Híbrido */}
+                            <div className="space-y-2 mb-4">
+                                {hybridLayers.map((layer) => (
+                                    <button
+                                        key={layer.id}
+                                        type="button"
+                                        onClick={() => setSelectedHybridLayer(layer.id)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg font-mono text-xs transition-all flex items-center justify-between cursor-pointer ${selectedHybridLayer === layer.id
+                                            ? 'bg-emerald-950/80 border border-emerald-500 text-emerald-200 font-bold shadow-lg shadow-emerald-900/30'
+                                            : 'bg-slate-950/60 border border-slate-800 text-slate-400 hover:bg-slate-900'
+                                            }`}
+                                    >
+                                        <span>{layer.name}</span>
+                                        <ChevronRight className={`w-3.5 h-3.5 transition-transform ${selectedHybridLayer === layer.id ? 'rotate-90 text-emerald-400' : 'text-slate-600'}`} />
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Detalhe da Camada Selecionada */}
+                            {(() => {
+                                const active = hybridLayers.find(l => l.id === selectedHybridLayer);
+                                return (
+                                    <div className="bg-slate-950 p-4 rounded-xl border border-emerald-500/30 space-y-2 font-mono text-xs">
+                                        <div className="text-emerald-400 font-bold uppercase tracking-wider">{active.name}</div>
+                                        <div className="text-slate-300 font-sans text-xs leading-relaxed">{active.desc}</div>
+                                        <div className="pt-2 border-t border-slate-800 text-[11px] text-emerald-300">
+                                            <strong>Protocolos / Elementos:</strong> {active.proto}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
+                        </div>
+                    </section>
+                </div>
+
+
+
+
+                {/* ==================== SEÇÃO: ANATOMIA DO DADO (RED TEAM) ==================== */}
+                <div className="space-y-6">
+                    <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+
+                        {/* Detalhe visual de fundo estilo radar/cyberpunk */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-rose-950/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="flex flex-col items-center justify-between border-b border-slate-800 pb-4 gap-3 mb-6">
+                            <div className="flex items-center justify-between w-full">
+                                <div className="p-2.5 rounded-lg bg-rose-950/60 text-rose-400 border border-rose-800/50">
+                                    <ShieldAlert className="w-6 h-6" />
+                                </div>
+                                <div className="text-center w-full">
+                                    <h2 className="text-2xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                                        2 - A Anatomia do Dado: Desconstruindo o Encapsulamento para Operações de Red Team
+                                    </h2>
+                                    <span className="text-xs font-mono text-slate-400 block mt-1">
+                                        Modo Ofensivo • Exfiltração, C2 &amp; Evasão de IDS/IPS
+                                    </span>
+                                </div>
+                                <span className="text-[10px] font-mono bg-rose-950 text-rose-300 px-2.5 py-1 rounded border border-rose-800 font-bold">
+                                    Vetor Avançado
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            Para um operador de Red Team, a rede não constitui apenas um meio de transporte, mas sim um campo de manobra, exfiltração e comando e controlo (C2). A capacidade de exfiltrar dados, efetuar movimentação lateral através de <strong className="text-cyan-400">spoofing</strong> e <strong className="text-cyan-400">tunneling</strong>, ou evadir sistemas de deteção (IDS/IPS) sem despoletar alarmes, depende estritamente da compreensão de como a informação é empacotada antes de abandonar a interface de rede.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                <span className="font-bold text-cyan-400 block mb-1">1. Acesso à Rede</span>
-                                <p className="text-slate-400 text-[11px]">Combina as camadas Física e Enlace do OSI, interagindo diretamente com o hardware local.</p>
+                        {/* Grid de Conceitos-Chave (Matryoshka e Unidades de Dados) */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 mb-4">
+
+                            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                                <span className="text-[11px] font-mono font-bold text-rose-400 block uppercase">
+                                    1. O Modelo Matryoshka
+                                </span>
+                                <p className="text-xs text-slate-400 leading-relaxed">
+                                    O encapsulamento adiciona cabeçalhos e rodapés progressivamente à medida que os dados descem o modelo OSI, assemelhando-se a bonecas russas encaixadas.
+                                </p>
                             </div>
-                            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                <span className="font-bold text-cyan-400 block mb-1">2. Internet</span>
-                                <p className="text-slate-400 text-[11px]">Equivalente à camada de Rede do OSI, focada no protocolo IP e roteamento global.</p>
+
+                            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                                <span className="text-[11px] font-mono font-bold text-cyan-400 block uppercase">
+                                    2. Hierarquia de Unidades
+                                </span>
+                                <p className="text-xs text-slate-400 leading-relaxed">
+                                    Distinção cirúrgica entre <strong className="text-slate-200">Segmento</strong> (Camada 4), <strong className="text-slate-200">Pacote</strong> (Camada 3) e <strong className="text-slate-200">Frame</strong> (Camada 2).
+                                </p>
                             </div>
-                            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                <span className="font-bold text-cyan-400 block mb-1">3. Transporte</span>
-                                <p className="text-slate-400 text-[11px]">Gerencia fluxos ponta a ponta via TCP e UDP, controlando portas e integridade.</p>
+
+                            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                                <span className="text-[11px] font-mono font-bold text-emerald-400 block uppercase">
+                                    3. Túneis Encobertos
+                                </span>
+                                <p className="text-xs text-slate-400 leading-relaxed">
+                                    Permite transitar de um exploit cego para canais ocultos (como DNS ou ICMP tunneling) que bypassam firewalls perimetrais comuns.
+                                </p>
                             </div>
-                            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                <span className="font-bold text-cyan-400 block mb-1">4. Aplicação</span>
-                                <p className="text-slate-400 text-[11px]">Agrupa Sessão, Apresentação e Aplicação do OSI em protocolos de alto nível.</p>
-                            </div>
+
+                        </div>
+
+                        <div className="bg-black/50 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed italic">
+                            💡 <strong className="text-slate-200 font-sans">Perspectiva Operacional:</strong> Compreender a anatomia interna do pacote garante que o operador saiba exatamente onde injetar metadados maliciosos ou burlar políticas restritivas de inspeção profunda de pacotes (DPI).
                         </div>
                     </section>
 
                 </div>
 
-            </main>
+                {/* ==================== SEÇÃO: ANATOMIA DO DADO (RED TEAM) ==================== */}
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz de fundo sutil */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/60 text-cyan-400 border border-cyan-800/50">
+                                    <Layers className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2.1 O Conceito de Encapsulamento
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Modularidade • Pilha de Protocolos OSI • Desencapsulamento
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                FUNDAMENTOS LÓGICOS
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O encapsulamento funciona de forma modular. Cada camada da pilha de rede recebe os dados provenientes da camada superior e envolve-os com o seu respetivo cabeçalho de controlo. No sentido inverso, quando o destino recebe o fluxo, ocorre o <strong className="text-white">desencapsulamento</strong> (<em className="text-cyan-300 font-mono">de-encapsulation</em>): cada camada retira o seu cabeçalho correspondente e entrega o conteúdo remanescente à camada imediatamente superior, até que apenas o <span className="font-mono text-purple-300">payload</span> original atinja a aplicação.
+                        </p>
+
+                        {/* Caixa de Perspetiva de Segurança (Red Team) */}
+                        <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-red-900/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                            <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-2">
+                                <ShieldAlert className="w-4 h-4 text-red-400" />
+                                <span>Perspetiva de Segurança (Red Team)</span>
+                            </div>
+
+                            <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                Para o Red Team, a manipulação destes cabeçalhos permite a injeção de pacotes malformados para induzir falhas de funcionamento (<strong className="text-red-400">Denial of Service</strong>), a alteração de endereços de origem para ocultação de identidade, ou a injeção de comandos em protocolos concebidos para finalidades estritamente distintas.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Cpu className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2.2 O Segmento (Camada de Transporte — L4: TCP/UDP)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Controlo de Fluxo • Portas Lógicas • State Tracking
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 4 (L4)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O processo de estruturação inicia-se na Camada de Transporte (Camada 4), recorrendo habitualmente aos protocolos TCP ou UDP. Quando uma aplicação gera um volume de dados superior à capacidade de transmissão imediata (por exemplo, a execução de um comando <code className="text-cyan-300 font-mono">whoami</code> encapsulado em HTTP), o fluxo é fracionado em unidades menores geríveis, designadas por <strong className="text-white">Segmentos</strong> (no TCP) ou <strong className="text-white">Datagramas</strong> (no UDP).
+                        </p>
+
+                        {/* Grid com Detalhes Técnicos e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Detalhes Técnicos */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Detalhes Técnicos</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    O cabeçalho da camada de transporte introduz as portas de origem e de destino. No TCP, o segmento incorpora números de sequência (<strong className="text-slate-200">Sequence Numbers</strong>) para garantir a ordenação rigorosa e <em>flags</em> de controlo de estado (<span className="font-mono text-cyan-300">SYN, ACK, FIN, RST</span>).
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    A manipulação de <em>flags</em> e portas sustenta técnicas avançadas de reconhecimento e evasão. Um <strong className="text-red-400">SYN Scan</strong> (port scanning furtivo), por exemplo, envia um segmento com a <em>flag</em> SYN ativada, mas abstém-se de responder com o ACK final, impedindo o estabelecimento completo da sessão e reduzindo o rasto nos registos de auditoria (logs). Adicionalmente, a rotação de portas (<strong className="text-purple-400">Port Hopping</strong>) e a utilização de portas privilegiadas ou permitidas por omissão otimizam a entrega encoberta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Network className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2.3 O Pacote (Camada de Rede — L3)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Encaminhamento Global • Endereçamento IP • TTL Tracking
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 3 (L3)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O segmento gerado na camada anterior é posteriormente entregue à Camada de Rede, onde sofre um novo encapsulamento para dar origem ao <strong className="text-white">Pacote IP</strong>. Enquanto a camada de transporte assegura a comunicação lógica entre processos e portas, a camada de rede foca-se no encaminhamento global entre sistemas distintos através da topologia de rede.
+                        </p>
+
+                        {/* Grid com Detalhes Técnicos e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Detalhes Técnicos */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Detalhes Técnicos</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    O cabeçalho do pacote integra os endereços IP de origem e de destino, o campo de protocolo interno (identificando se transporta TCP, UDP ou ICMP) e o parâmetro <strong className="text-slate-200">TTL (Time to Live)</strong> — um contador decrescente que evita o ciclo infinito de pacotes em rotas corrompidas.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    É nesta camada que se consolidam táticas como o <strong className="text-red-400">IP Spoofing</strong>, em que a falsificação do endereço de origem permite ludibriar Listas de Controlo de Acesso (ACLs) baseadas em endereços confiáveis. Paralelamente, a análise do valor inicial do campo TTL em pacotes recebidos viabiliza o <strong className="text-purple-400">OS Fingerprinting</strong> passivo, permitindo identificar o sistema operativo da vítima (por exemplo, valores padrão de <span className="font-mono text-cyan-300">64</span> para sistemas baseados em Unix/Linux e <span className="font-mono text-cyan-300">128</span> para ambientes Windows) sem recorrer a testes ativos ruidosos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <HardDrive className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2.4 O Frame (Camada de Enlace — L2)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Endereçamento Físico • Ethernet • MitM &amp; ARP Poisoning
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 2 (L2)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            Antes de alcançar o meio físico de transmissão (cabo de cobre, fibra ótica ou espectro eletromagnético), o pacote IP é encapsulado num <strong className="text-white">Frame</strong> (ou Quadro), predominantemente sob a arquitetura Ethernet.
+                        </p>
+
+                        {/* Grid com Detalhes Técnicos e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Detalhes Técnicos */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Detalhes Técnicos</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    O frame opera com endereçamento físico e local através de endereços <strong className="text-slate-200">MAC (Media Access Control)</strong> de origem e destino, sendo complementado por um rodapé de validação denominado <strong className="text-slate-200">FCS (Frame Check Sequence)</strong>, encarregue de detetar eventuais corrupções de dados durante a propagação física.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Esta camada constitui o vetor primário para operações em redes locais (LAN). Técnicas como o <strong className="text-red-400">ARP Spoofing</strong> (ou <em>ARP Poisoning</em>) e o <strong className="text-red-400">MAC Flooding</strong> adulteram as tabelas de encaminhamento dos switches, permitindo a interceção de frames destinados a terceiros e viabilizando ataques de Homem no Meio (<strong className="text-purple-400">Man-in-the-Middle - MitM</strong>) antes mesmo que o tráfego atinja o gateway de saída.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo (Tema Red Team) */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-red-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-red-950/65 text-red-400 border border-red-800/50">
+                                    <Flame className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2.5 O Payload e a Arte da Camuflagem
+                                    </h3>
+                                    <span className="text-xs font-mono text-red-400">
+                                        Carga Útil • Natureza Recursiva • Técnicas de Evasão
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-red-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                RED TEAM TACTICS
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                            Enquanto segmentos, pacotes e frames representam a infraestrutura burocrática de transporte, o <strong className="text-white">payload</strong> (carga útil) traduz o conteúdo substancial que a aplicação pretende transmitir.
+                        </p>
+
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-6">
+                            O conceito de payload possui uma natureza estritamente <strong className="text-purple-400">recursiva</strong> ao longo do modelo de camadas: para o <em>frame</em>, o payload é o pacote IP completo; para o pacote IP, o payload corresponde ao segmento TCP/UDP; e para o segmento, o payload constitui o dado bruto da aplicação (seja um comando de <em>shell</em> remoto, um fluxo HTTP ou um objeto exfiltrado).
+                        </p>
+
+                        {/* Subtítulo: Técnicas de Evasão e Camuflagem */}
+                        <div className="border-t border-slate-800 pt-5 mt-5">
+                            <h4 className="text-sm font-bold text-cyan-400 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                <ShieldAlert className="w-4 h-4 text-cyan-400" /> Técnicas de Evasão e Camuflagem
+                            </h4>
+                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                                Para o operador ofensivo, o principal desafio reside na ocultação de conteúdos maliciosos perante sistemas de deteção avançados (IDS, IPS e antivírus). Para mitigar a inspeção baseada em assinaturas, aplicam-se metodologias rigorosas:
+                            </p>
+
+                            {/* Grid com as Técnicas */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {/* Tunelamento */}
+                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span className="text-xs font-mono font-bold text-amber-400 block mb-1">
+                                            🌐 Tunelamento (Tunneling)
+                                        </span>
+                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
+                                            Envolve o encapsulamento de protocolos não autorizados dentro de fluxos legítimos e permitidos. Um exemplo clássico é o túnel DNS, no qual comandos operacionais são inseridos em consultas de resolução de nomes, encapsuladas em pacotes UDP e ignoradas por firewalls mal configurados até atingirem o servidor de controlo do atacante.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Obfuscação e Criptografia */}
+                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span className="text-xs font-mono font-bold text-cyan-400 block mb-1">
+                                            🔐 Obfuscação &amp; Criptografia
+                                        </span>
+                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
+                                            Modificação da representação estrutural ou cifragem do payload para invalidar assinaturas estáticas detetáveis por motores de inspeção profunda de pacotes (DPI).
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Fragmentação */}
+                                <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+                                    <div>
+                                        <span className="text-xs font-mono font-bold text-purple-400 block mb-1">
+                                            ✂️ Fragmentação
+                                        </span>
+                                        <p className="text-[11px] text-slate-400 leading-relaxed text-justify">
+                                            A divisão deliberada do conteúdo malicioso em frações diminutas, dificultando a reconstrução temporal e a análise heurística por parte de sondas de segurança na rede.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo (Tema Red Team) */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-red-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-red-950/65 text-red-400 border border-red-800/50">
+                                    <Server className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        Infraestrutura de Rede: A Topologia sob a Ótica de Red Team
+                                    </h3>
+                                    <span className="text-xs font-mono text-red-400">
+                                        Pontos de Controlo • Movimentação Lateral • Evasão de SOC
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-red-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                TOPOLOGIA OFENSIVA
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-4">
+                            Para um operador de Red Team, equipamentos de rede não são apenas dispositivos de conectividade, mas <strong className="text-white">pontos de controle e cegueira</strong>. Enquanto o Blue Team usa esses aparelhos para criar perímetros de defesa e segmentação, o Red Team os analisa para encontrar vetores de movimentação lateral, pontos de exfiltração e falhas de configuração que permitam o salto entre VLANs.
+                        </p>
+
+                        {/* Caixa de Conclusão / Imperativo Tático */}
+                        <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 relative overflow-hidden mt-4">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-red-900/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                            <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-2">
+                                <ShieldAlert className="w-4 h-4 text-red-400" />
+                                <span>Imperativo Tático</span>
+                            </div>
+
+                            <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                Entender a diferença técnica entre eles é a diferença entre disparar um alerta crítico num <strong className="text-red-400">SOC</strong> ou deslizar silenciosamente por uma rede corporativa.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Radio className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        1. Hub (O Ponto Cego)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camada Física • Broadcast Cego • Sniffing Passivo
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 1 (L1)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Hub é o equipamento mais primitivo. Ele opera na <strong className="text-white">Camada 1 (Física)</strong> e não possui inteligência de endereçamento.
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Quando um Hub recebe um dado em uma de suas portas, ele simplesmente replica esse sinal para todas as outras portas. Ele não sabe quem é o destinatário; ele apenas &quot;grita&quot; a informação para todo o segmento.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Em redes modernas, Hubs são raros, mas se encontrados, são um paraíso. Como todo o tráfego é transmitido para todas as portas, basta colocar a placa de rede em <strong className="text-red-400">modo promíscuo</strong> para capturar todo o tráfego de todos os usuários conectados ao Hub sem precisar de técnicas complexas como ARP Spoofing. É o cenário ideal para <strong className="text-purple-400">sniffing passivo</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Network className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        2. Switch (A Inteligência Local)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camada 2 (L2) • CAM Table • MAC Flooding &amp; VLAN Hopping
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 2 (L2)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Switch opera na <strong className="text-white">Camada 2 (Enlace)</strong> e resolve o problema do Hub. Ele mantém uma tabela interna chamada <strong className="text-cyan-300 font-mono">CAM Table</strong> (Content Addressable Memory), que mapeia qual endereço MAC está em qual porta física.
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Ao receber um Frame, o Switch lê o MAC de destino e o encaminha apenas para a porta onde aquele dispositivo está conectado. Isso isola o tráfego e aumenta significativamente a performance e a segurança básica da rede local.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-2">
+                                    O Switch impede o <em className="text-slate-200">sniffing</em> passivo, forçando o operador a atuar de forma ativa. Duas técnicas clássicas exploram esta camada:
+                                </p>
+                                <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                    <li>
+                                        <strong className="text-red-400">MAC Flooding:</strong> Inundar a CAM Table com milhares de MACs falsos até lotá-la. Quando a tabela esgota a capacidade, os switches entram em modo <em>fail-open</em> e passam a comportar-se como Hubs, replicando o tráfego para todas as portas.
+                                    </li>
+                                    <li>
+                                        <strong className="text-purple-400">VLAN Hopping:</strong> Explorar protocolos como o DTP (Dynamic Trunking Protocol) para saltar de uma VLAN menos privilegiada (ex: Visitantes) para outra restrita (ex: Servidores).
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Router className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        3. Roteador (A Fronteira Logística)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camada 3 (Rede) • Tabelas de Roteamento • Movimentação Lateral
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                CAMADA 3 (L3)
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Roteador opera na <strong className="text-white">Camada 3 (Rede)</strong>. Sua função principal é interconectar redes diferentes (por exemplo, a rede local com a Internet) utilizando endereços IP.
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Ele utiliza tabelas de roteamento para decidir o melhor caminho para o pacote. O roteador remove o <em>Frame</em> da rede de origem e cria um novo <em>Frame</em> para a rede de destino, mantendo o Pacote IP intacto.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Roteadores são alvos críticos para <strong className="text-red-400">Movimentação Lateral</strong>. Se um atacante compromete um roteador, ele pode realizar a interceção de tráfego entre sub-redes diferentes ou criar túneis (<span className="font-mono text-cyan-300">VPNs</span>) para persistência, escapando de firewalls internos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Shield className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        Firewall (O Sentinela)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camadas 3 a 7 • Stateful vs. NGFW • Evasão de Perímetro
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                SEGURANÇA DE PERÍMETRO
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Firewall é um dispositivo de segurança que pode operar da <strong className="text-white">Camada 3 à Camada 7</strong>, dependendo de sua complexidade. Ele filtra o tráfego com base em regras predefinidas (<strong className="text-cyan-300 font-mono">ACLs - Access Control Lists</strong>).
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-3">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico (Arquiteturas de Filtragem)</span>
+                                </div>
+                                <ul className="text-xs text-slate-300 space-y-2">
+                                    <li>
+                                        <strong className="text-cyan-300">Stateless:</strong> Filtra pacotes isolados com base estritamente em parâmetros estáticos (endereço de origem, destino e porta).
+                                    </li>
+                                    <li>
+                                        <strong className="text-cyan-300">Stateful:</strong> Monitora o estado dinâmico da conexão (possui consciência de contexto, sabendo se um pacote <span className="font-mono text-purple-300">ACK</span> é a resposta legítima de um <span className="font-mono text-purple-300">SYN</span> enviado anteriormente).
+                                    </li>
+                                    <li>
+                                        <strong className="text-cyan-300">NGFW (Next Gen):</strong> Executa inspeção profunda de pacotes (<strong className="text-slate-200">DPI - Deep Packet Inspection</strong>), analisando o Payload e o contexto da aplicação para detecção avançada de malware.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify mb-2">
+                                    O Firewall representa o principal obstáculo perimétrico. Para superá-lo, o operador emprega táticas de desvio avançadas:
+                                </p>
+                                <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                    <li>
+                                        <strong className="text-red-400">Port Hopping:</strong> Mudança dinâmica da porta de comunicação do C2 para evitar bloqueios estáticos.
+                                    </li>
+                                    <li>
+                                        <strong className="text-red-400">Tunneling:</strong> Encapsulamento de tráfego restrito dentro de protocolos permitidos, como <span className="font-mono text-cyan-300">HTTP/HTTPS</span> ou DNS.
+                                    </li>
+                                    <li>
+                                        <strong className="text-red-400">Fragmentation:</strong> Fracionamento intencional do payload em pacotes diminutos para confundir a inspeção de reamostragem do firewall.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <GitMerge className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        Load Balancer (O Distribuidor de Carga)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camadas 4 ou 7 • Round Robin • Session Affinity
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                DISTRIBUIÇÃO DE TRÁFEGO
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Load Balancer (Balanceador de Carga) atua geralmente nas <strong className="text-white">Camadas 4 ou 7</strong>. Ele distribui as requisições de entrada entre vários servidores para evitar que um único servidor fique sobrecarregado.
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Ele recebe a conexão do cliente e a repassa para um servidor no <em>backend</em> usando algoritmos de distribuição como <strong className="text-slate-200">Round Robin</strong> ou <strong className="text-slate-200">Least Connections</strong>.
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    O Load Balancer pode causar inconsistência em ataques de sessão. Se você está tentando realizar um <strong className="text-red-400">Brute Force</strong> ou explorar uma vulnerabilidade de sessão, suas requisições podem cair em servidores diferentes. A solução envolve tentar fixar a sessão (<strong className="text-purple-400">Session Affinity / Sticky Sessions</strong>) ou direcionar um ataque focado ao balanceador para derrubar todo o cluster (<strong className="text-red-400">DoS</strong>).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <section className="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-100 font-sans">
+                    {/* Efeito de luz sutil de fundo */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10">
+                        {/* Cabeçalho da Seção */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-cyan-950/65 text-cyan-400 border border-cyan-800/50">
+                                    <Globe className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                                        Proxy (O Intermediário)
+                                    </h3>
+                                    <span className="text-xs font-mono text-cyan-400">
+                                        Camada 7 (Aplicação) • Forward/Reverse • Request Smuggling
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-[10px] font-mono bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 self-start sm:self-center">
+                                INTERMEDIAÇÃO DE TRÁFEGO
+                            </span>
+                        </div>
+
+                        {/* Texto Descritivo Principal */}
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5">
+                            O Proxy opera principalmente na <strong className="text-white">Camada 7 (Aplicação)</strong>. Ele atua como um &quot;procurador&quot;: o cliente não fala diretamente com o servidor, mas sim com o Proxy, que faz a requisição em seu nome.
+                        </p>
+
+                        {/* Grid com Mecanismo Técnico e Visão Red Team */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Caixa de Mecanismo Técnico */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2">
+                                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold mb-1">
+                                    <Terminal className="w-4 h-4 text-cyan-400" />
+                                    <span>Mecanismo Técnico</span>
+                                </div>
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    O Proxy pode fazer <em>cache</em> de conteúdo, filtrar URLs proibidas e mascarar o IP interno da rede. Existem proxies <strong className="text-slate-200">Forward</strong> (voltados para a saída da rede) e <strong className="text-slate-200">Reverse</strong> (voltados para a entrada, protegendo servidores de backend).
+                                </p>
+                            </div>
+
+                            {/* Caixa de Visão Red Team */}
+                            <div className="bg-slate-950/80 p-4 sm:p-5 rounded-xl border border-red-500/30 space-y-2 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-red-900/10 rounded-full blur-xl pointer-events-none"></div>
+
+                                <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-bold mb-1">
+                                    <ShieldAlert className="w-4 h-4 text-red-400" />
+                                    <span>Visão Red Team</span>
+                                </div>
+
+                                <p className="text-xs text-slate-300 leading-relaxed text-justify">
+                                    Proxies são frequentemente utilizados para a <strong className="text-red-400">exfiltração de dados</strong>. Se a rede bloqueia conexões diretas para a internet, o atacante configura o seu malware para utilizar o Proxy corporativo. Além disso, o <strong className="text-purple-400">HTTP Request Smuggling</strong> constitui uma técnica avançada que explora divergências de interpretação de requisições HTTP entre o Proxy e o servidor final.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+            </article>
 
             {/* ==================== RODAPÉ COM REFERÊNCIAS ABNT (PADRÃO UTFPR/REVOLUXTI) ==================== */}
             <footer className="mt-12 border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative overflow-hidden font-sans">
@@ -306,7 +1290,6 @@ export default function ArquiteturaDeRedes() {
                     </div>
                 </div>
             </footer>
-    */
 
         </div>
     );
